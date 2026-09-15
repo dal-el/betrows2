@@ -948,7 +948,7 @@ function renderRowCard(r){
   var teamLabel = r.isTotal ?
     (avatarHtml(r.homeTeam, r.league)+' '+r.homeTeam+' <span class="vs">–</span> '+avatarHtml(r.awayTeam, r.league)+' '+r.awayTeam) :
     (avatarHtml(r.team, r.league)+' '+r.team);
-  var marketNote = r.isTotal ? 'σύνολο αγώνα (ιστ. '+r.homeTeam+' εντός + '+r.awayTeam+' εκτός)' : dirLabel(r.direction);
+  var marketNote = r.isTotal ? 'σύνολο αγώνα' : dirLabel(r.direction);
 
   // Ποιος είναι πραγματικά ο αγώνας (εντός – εκτός), για το ⓘ δίπλα στο όνομα —
   // στις αγορές ΜΙΑΣ ομάδας το header δείχνει μόνο ένα όνομα, όχι ενάντια σε
@@ -966,7 +966,7 @@ function renderRowCard(r){
       '<div class="market">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
         '<span>'+catLabel(r.category)+' · '+marketNote+'</span>'+
-        (r.price? '<span class="price-chip">@ '+r.price.toFixed(2)+'</span>' : '')+
+        (r.price? '<span class="price-chip">'+r.price.toFixed(2)+'</span>' : '')+
         '<span class="src-tag">Stoiximan</span>'+
       '</div>'+
     '</div>'+
@@ -1046,11 +1046,11 @@ function renderDrawer(r, headEl){
     var marketRow = headEl.querySelector(".market");
     var priceChipEl = headEl.querySelector(".price-chip");
     if(price!=null){
-      if(priceChipEl){ priceChipEl.textContent = "@ "+price.toFixed(2); }
+      if(priceChipEl){ priceChipEl.textContent = price.toFixed(2); }
       else if(marketRow){
         var span = document.createElement("span");
         span.className = "price-chip";
-        span.textContent = "@ "+price.toFixed(2);
+        span.textContent = price.toFixed(2);
         var srcTag = marketRow.querySelector(".src-tag");
         if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
       }
