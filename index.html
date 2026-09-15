@@ -182,7 +182,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 }
 
 #backToTop{
-  position:fixed;right:22px;bottom:22px;z-index:150;
+  /* Σε φαρδιά οθόνη PC το .wrap (max-width:900px) μένει κεντραρισμένο και
+     αφήνει τεράστιο κενό δεξιά — ένα σταθερό "right:22px" απ' την άκρη ΟΛΟΥ
+     του browser window καταλήγει μακριά απ' το περιεχόμενο, σχεδόν αόρατο σε
+     μεγάλη οθόνη. Το calc() το κρατάει κολλητά δεξιά απ' τη στήλη περιεχομένου
+     (λίγο έξω απ' το .wrap), όχι στην άκρη ολόκληρου του παραθύρου — με
+     min 22px ώστε σε στενότερες οθόνες να μη σφηνώνει πάνω στο περιεχόμενο. */
+  position:fixed;right:max(22px, calc(50vw - 450px - 70px));bottom:22px;z-index:150;
   width:46px;height:46px;border-radius:50%;border:1px solid var(--border);
   background:var(--accent);color:#04231d;font-size:20px;font-weight:700;cursor:pointer;
   box-shadow:var(--shadow),var(--glow-accent);
@@ -371,6 +377,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .bar-detail b{color:var(--text)}
 .hitword{color:var(--accent);font-weight:600}
 .missword{color:var(--rose);font-weight:600}
+.htScore{color:var(--text-faint)}
 .minute-note{margin-top:6px;font-size:11px;color:var(--text-faint);line-height:1.5}
 .drawerCtrlRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .drawerCtrlRow .seg.small{margin-bottom:0}
@@ -1129,6 +1136,19 @@ function fmtPct(x){ return Math.round(x*100)+"%"; }
 // pill (λογική PropDunker): >=70% πράσινο, 50-69% χρυσό, <50% ροζ.
 function hpTier(p){ return p>=70 ? "tier-hi" : p>=50 ? "tier-mid" : "tier-lo"; }
 function fmtOdds(x){ return x==null ? "—" : x.toFixed(2); }
+// Σκορ αγώνα (τελικό/ημιχρόνου) — τα goals έρχονται από το ιστορικό ως float
+// (π.χ. 2.0), τα στρογγυλεύουμε σε ακέραιο για εμφάνιση.
+function fmtGoal(n){ return String(Math.round(n)); }
+function matchScoreHtml(m){
+  if(m.fthg==null || m.ftag==null) return "";
+  var html = ' · <b>'+fmtGoal(m.fthg)+'-'+fmtGoal(m.ftag)+'</b>';
+  if(m.hthg!=null && m.htag!=null) html += ' <span class="htScore">(ημίχρονο '+fmtGoal(m.hthg)+'-'+fmtGoal(m.htag)+')</span>';
+  return html;
+}
+function matchPossessionHtml(m){
+  if(m.hpos==null || m.apos==null) return "";
+  return ' · κατοχή '+Math.round(m.hpos)+'%-'+Math.round(m.apos)+'%';
+}
 // Ημερομηνία/ώρα έναρξης του live αγώνα, πάντα σε ώρα Ελλάδος (Europe/Athens)
 // ανεξάρτητα από τη ζώνη ώρας της συσκευής που βλέπει τη σελίδα.
 function fmtMatchTime(ms){
@@ -1602,8 +1622,10 @@ function renderDrawer(r, headEl){
       var h = Math.max(4, Math.round((x.v/ceiling)*BAR_TRACK_PX));
       var isSel = state.selected && state.selected.grp===grp && state.selected.idx===idx;
       var sel = isSel ? " sel" : "";
-      var venueLbl = lbl.venue==="home" ? "εντός" : "εκτός";
-      var tip = escAttr(x.m.d+" · "+lbl.team+" vs "+lbl.opponent+" ("+venueLbl+") · τιμή "+x.v);
+      // Το ματς γράφεται ΠΑΝΤΑ με τη σειρά που παίχτηκε στην πραγματικότητα
+      // (γηπεδούχος – φιλοξενούμενος όπως ήταν ορισμένος ο αγώνας), όχι
+      // αναδιατεταγμένο γύρω από το ποια ομάδα αφορά το στοίχημα.
+      var tip = escAttr(x.m.d+" · "+x.m.h+" – "+x.m.a+" · τιμή "+x.v);
       return '<div class="bar-col'+sel+'" data-grp="'+grp+'" data-idx="'+idx+'" title="'+tip+'">'+
         '<div class="bar-val">'+x.v+'</div>'+
         '<div class="bar '+(ok?"hit":"miss")+'" style="height:'+h+'px"></div>'+
@@ -1663,9 +1685,15 @@ function renderDrawer(r, headEl){
     if(selX){
       var lbl = matchLabel(r, selX);
       var ok = r.side==="over" ? selX.v>thr : selX.v<thr;
+      // Το ματς γράφεται όπως ήταν ΠΡΑΓΜΑΤΙΚΑ ορισμένο — γηπεδούχος πρώτα,
+      // φιλοξενούμενος δεύτερος (π.χ. "Vallecano – Santander"), ΟΧΙ
+      // αναδιατεταγμένο γύρω από την ομάδα του στοιχήματος. Απλά τονίζουμε
+      // (bold) όποια απ' τις δύο αφορά το συγκεκριμένο στοίχημα, για ευκολία.
+      var homeDisp = selX.m.h===lbl.team ? '<b>'+escAttr(selX.m.h)+'</b>' : escAttr(selX.m.h);
+      var awayDisp = selX.m.a===lbl.team ? '<b>'+escAttr(selX.m.a)+'</b>' : escAttr(selX.m.a);
       detailHtml =
         '<div class="bar-detail">'+
-          '<b>'+selX.m.d+'</b> · '+lbl.team+' vs '+lbl.opponent+' ('+(lbl.venue==="home"?"εντός":"εκτός")+') · '+
+          '<b>'+selX.m.d+'</b> · '+homeDisp+' – '+awayDisp+matchScoreHtml(selX.m)+matchPossessionHtml(selX.m)+' · '+
           'τιμή <b>'+selX.v+'</b> · <span class="'+(ok?'hitword':'missword')+'">'+(ok?"Hit":"Miss")+'</span>'+
           '<div class="minute-note">Λεπτά συμβάντος: μη διαθέσιμα στο τρέχον δωρεάν ιστορικό (μόνο σύνολα ανά ματς) — θα προστεθεί όταν συνδεθεί πηγή με events ανά λεπτό.</div>'+
         '</div>';
