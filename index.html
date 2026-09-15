@@ -388,17 +388,20 @@ var TEAM_MAP = Object.assign({
   // ανέβηκε κατηγορία, δεν υπάρχει καθόλου στο ιστορικό dataset ακόμα, οπότε
   // θα εμφανίζεται σωστά ως "άγνωστη ομάδα" μέχρι να μαζέψουμε ιστορικό γι' αυτήν.
   // -- προστέθηκαν μετά το 2ο πραγματικό τρέξιμο του fetcher (2026-09-15, πολλαπλές λίγκες) --
-  "108215": {name:"Bayern München", league:"bundesliga"},
+  // ΠΡΟΣΟΧΗ: αυτά τα ονόματα πρέπει να ταιριάζουν ΑΚΡΙΒΩΣ με τη γραφή του
+  // ιστορικού dataset (data.json), όχι με το "επίσημο"/αγγλικό όνομα της ομάδας —
+  // αλλιώς η αναζήτηση ιστορικού γυρνάει 0 ματς αθόρυβα (bug: Bayern München).
+  "108215": {name:"Bayern Munich", league:"bundesliga"},
   "107376": {name:"Union Berlin", league:"bundesliga"},
   "107174": {name:"Watford", league:"championship"},
-  "107168": {name:"Atletico Madrid", league:"la-liga"},
+  "107168": {name:"Ath Madrid", league:"la-liga"},
   "108639": {name:"Osasuna", league:"la-liga"},
   "118748": {name:"Barcelona", league:"la-liga"},
-  "107153": {name:"Racing Santander", league:"la-liga"},
-  "107791": {name:"Deportivo La Coruna", league:"la-liga"},
+  "107153": {name:"Santander", league:"la-liga"},
+  "107791": {name:"La Coruna", league:"la-liga"},
   "1970454": {name:"Sevilla", league:"la-liga"},
   "109295": {name:"Levante", league:"la-liga"},
-  "107463": {name:"Athletic Club", league:"la-liga"},
+  "107463": {name:"Ath Bilbao", league:"la-liga"},
   "106311": {name:"Monaco", league:"ligue-1"},
   "107542": {name:"Lens", league:"ligue-1"},
   "106864": {name:"Brentford", league:"premier-league"},
@@ -556,6 +559,11 @@ function classifyMarket(name, homeGr, awayGr){
   else if(/κόκκιν[ηα]?\s*κάρτ|red\s*cards?/i.test(rest)) cat="unsupported";
   else if(/κίτριν[ηα]?\s*κάρτ|yellow\s*cards?/i.test(rest)) cat="unsupported";
   else if(/κάρτ|cards?/i.test(rest)) cat="cards";
+  // "Goal Kicks" (φάουλ τέρματος) περιέχει τη λέξη "Goal" αλλά ΔΕΝ είναι γκολ —
+  // είναι εντελώς διαφορετικό στατιστικό (σαν το bug κόκκινες/σύνολο κάρτες).
+  // Πρέπει να αποκλειστεί ΠΡΙΝ τον γενικό έλεγχο /goals?/i, αλλιώς "Over 8.5
+  // Goal Kicks" ταξινομείται λανθασμένα σαν αγορά συνολικών γκολ.
+  else if(/goal\s*kicks?/i.test(rest)) cat="unsupported";
   else if(/γκολ|goals?/i.test(rest)) cat="goals";
   else if(/οφσάιντ|offsides?/i.test(rest)) cat="unsupported";
   else if(/τάκλιν|tackles?/i.test(rest)) cat="unsupported";
