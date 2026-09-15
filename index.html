@@ -340,7 +340,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .foot{margin-top:30px;color:var(--text-faint);font-size:11px;text-align:center}
 .foot a{color:var(--text-dim);text-decoration:underline}
 
-@media(max-width:600px){ .row-head{gap:10px} .row-main{min-width:100%} .stats{width:100%;justify-content:space-between} }
+@media(max-width:600px){ .row-head{gap:10px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
 </style>
 </head>
 <body>
@@ -913,11 +913,17 @@ function dirLabel(d){ return d==="total" ? "σύνολο αγώνα" : "ομάδ
 
 /* ---------- info tooltip (ⓘ) — δείχνει ποιος είναι ο αγώνας χωρίς να ανοίγει το drawer ---------- */
 function showInfoTip(anchorEl, text){
-  var old = document.querySelector(".infoTip");
-  if(old) old.remove();
+  var existing = document.querySelector(".infoTip");
+  if(existing){
+    var wasSameAnchor = existing._anchor === anchorEl;
+    if(existing._cleanup) existing._cleanup();
+    else existing.remove();
+    if(wasSameAnchor) return; // δεύτερο πάτημα στο ίδιο ⓘ = κλείσιμο, όχι επανάνοιγμα
+  }
   var tip = document.createElement("div");
   tip.className = "infoTip";
   tip.textContent = text;
+  tip._anchor = anchorEl;
   document.body.appendChild(tip);
   try{
     var rect = anchorEl.getBoundingClientRect();
@@ -932,17 +938,23 @@ function showInfoTip(anchorEl, text){
       }catch(e){}
     });
   }catch(e){}
-  function dismiss(ev){
-    if(ev.target===anchorEl) return;
-    tip.remove();
+  var autoTimer;
+  function cleanup(){
+    if(tip.parentNode) tip.remove();
     document.removeEventListener("click", dismiss);
     document.removeEventListener("touchstart", dismiss);
+    clearTimeout(autoTimer);
+  }
+  tip._cleanup = cleanup;
+  function dismiss(ev){
+    if(ev.target===anchorEl) return;
+    cleanup();
   }
   setTimeout(function(){
     document.addEventListener("click", dismiss);
     document.addEventListener("touchstart", dismiss);
   }, 0);
-  setTimeout(function(){ if(tip.parentNode) tip.remove(); }, 5000);
+  autoTimer = setTimeout(cleanup, 5000);
 }
 
 function populateLeagueFilter(){
