@@ -365,6 +365,16 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .foot{margin-top:30px;color:var(--text-faint);font-size:11px;text-align:center}
 .foot a{color:var(--text-dim);text-decoration:underline}
 
+@media(min-width:601px){
+  .row-head{gap:12px}
+  .hp{width:40px;height:40px}
+  .hp .pct{font-size:12px}
+  .hp .lbl{font-size:7.5px}
+  .pillsrow{gap:6px}
+  .stats{gap:6px}
+  .pill{min-width:62px;padding:6px 9px}
+  .pill .v{font-size:13px}
+}
 @media(max-width:600px){ .row-head{gap:10px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
 </style>
 </head>
@@ -631,12 +641,13 @@ function matchResultForTeam(m, team){
 function impliedProb(odds){ return odds>0 ? 1/odds : 0; }
 
 function hitStats(values, threshold, side){
-  var hits=0;
-  for(var i=0;i<values.length;i++){ var ok = side==="over" ? values[i].v>threshold : values[i].v<threshold; if(ok) hits++; }
+  var hits=0, sum=0;
+  for(var i=0;i<values.length;i++){ var ok = side==="over" ? values[i].v>threshold : values[i].v<threshold; if(ok) hits++; sum+=values[i].v; }
   var sample=values.length, hitRate= sample? hits/sample:0;
   // fair odds = 1 / p (standard break-even odds implied by the hit rate — no smoothing)
   var fairOdds = hitRate>0 ? 1/hitRate : null;
-  return {sample:sample, hits:hits, hitRate:hitRate, fairOdds:fairOdds};
+  var avg = sample ? sum/sample : 0;
+  return {sample:sample, hits:hits, hitRate:hitRate, fairOdds:fairOdds, avg:avg};
 }
 
 // opts: {n, venue:'any'|'home'|'away', result:'any'|'win'|'loss', outlierTrim:0..0.4, h2h:opponentName|null, fullSeason:bool}
@@ -1234,6 +1245,7 @@ function renderRowCard(r){
   }).join("");
 
   var statsHtml = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
+  statsHtml += '<div class="pill"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
   if(r.price){
     var edge = r._edge;
     var ev = (res.hitRate*r.price - 1)*100;
@@ -1356,6 +1368,7 @@ function renderDrawer(r, headEl){
     var statsEl = headEl.querySelector(".stats");
     if(!statsEl) return;
     var html = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
+    html += '<div class="pill"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
     if(price!=null && res.sample>0){
       var edge = (res.hitRate - impliedProb(price)) * 100;
       var ev = (res.hitRate*price - 1) * 100;
@@ -1720,20 +1733,17 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   });
 })();
 
-/* ---------- back to top: κρυφό όσο σκρολάρεις κάτω, εμφανίζεται με το παραμικρό σκρολ προς τα πάνω ---------- */
+/* ---------- back to top: εμφανίζεται μόλις σκρολάρεις αρκετά κάτω, μένει ορατό
+   μέχρι να ξαναγυρίσεις κοντά στην κορυφή ----------
+   (ΠΑΛΙΑ λογική: εμφανιζόταν ΜΟΝΟ σε σκρολ προς τα πάνω, ανάμεσα σε δύο
+   διαδοχικά scroll events — σε PC με ποντίκι/trackpad που σκρολάρει ομαλά προς
+   τα κάτω αυτό ΣΧΕΔΟΝ ΠΟΤΕ δεν πιάνει ένα "y < lastY", οπότε το βελάκι ουσιαστικά
+   δεν εμφανιζόταν ποτέ όσο ο χρήστης απλά κατέβαινε τη σελίδα — αυτό ήταν το bug.) */
 (function(){
   var btn = document.getElementById("backToTop");
-  var lastY = window.scrollY || document.documentElement.scrollTop;
   window.addEventListener("scroll", function(){
     var y = window.scrollY || document.documentElement.scrollTop;
-    if(y < 150){
-      btn.classList.remove("show");
-    } else if(y < lastY){
-      btn.classList.add("show"); // scroll προς τα πάνω, έστω και λίγο
-    } else if(y > lastY){
-      btn.classList.remove("show"); // scroll προς τα κάτω
-    }
-    lastY = y;
+    btn.classList.toggle("show", y > 400);
   }, {passive:true});
   btn.addEventListener("click", function(){
     window.scrollTo({top:0, behavior:"smooth"});
