@@ -1,5 +1,15 @@
 [
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "92004640",
+  "name": "Μπρέντφορντ - Τσέλσι",
+  "startTime": 1789758000000,
+  "dateStr": "2026-09-18",
+  "marketCount": 76,
+  "file": "premier-league/2026-09-18_bredford-tselsi_92004640.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "92152350",
@@ -18,6 +28,16 @@
   "dateStr": "2026-09-15",
   "marketCount": 91,
   "file": "championship/2026-09-15_bristol-siti-linkoln-siti_92152478.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "92329575",
+  "name": "Μπρίστολ Σίτι - Γουότφορντ",
+  "startTime": 1789758000000,
+  "dateStr": "2026-09-18",
+  "marketCount": 75,
+  "file": "championship/2026-09-18_bristol-siti-gouotford_92329575.json"
  },
  {
   "league": "la-liga",
@@ -50,14 +70,74 @@
   "file": "la-liga/2026-09-15_eltse-real-madritis_88312379.json"
  },
  {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "92126612",
-  "name": "Λεόν - Ατλέτικο Σαν Λούις",
-  "startTime": 1789434000000,
-  "dateStr": "2026-09-15",
-  "marketCount": 92,
-  "file": "liga-mx/2026-09-15_leon-atletiko-san-louis_92126612.json"
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312295",
+  "name": "Ατλέτικο Mαδρίτης - Οσασούνα",
+  "startTime": 1789578000000,
+  "dateStr": "2026-09-16",
+  "marketCount": 108,
+  "file": "la-liga/2026-09-16_atletiko-madritis-osasouna_88312295.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312357",
+  "name": "Ντεπορτίβο A Κορούνια - Σεβίλλη",
+  "startTime": 1789578000000,
+  "dateStr": "2026-09-16",
+  "marketCount": 108,
+  "file": "la-liga/2026-09-16_deportivo-a-korounia-sevilli_88312357.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312296",
+  "name": "Μπαρτσελόνα - Σανταντέρ",
+  "startTime": 1789587000000,
+  "dateStr": "2026-09-16",
+  "marketCount": 101,
+  "file": "la-liga/2026-09-16_bartselona-sadader_88312296.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312368",
+  "name": "Λεβάντε - Αθλέτικ Μπιλμπάο",
+  "startTime": 1789587000000,
+  "dateStr": "2026-09-16",
+  "marketCount": 108,
+  "file": "la-liga/2026-09-16_levade-athletik-bilbao_88312368.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "91542711",
+  "name": "Μόντσα - Σασουόλο",
+  "startTime": 1789757100000,
+  "dateStr": "2026-09-18",
+  "marketCount": 90,
+  "file": "serie-a-italy/2026-09-18_modsa-sasouolo_91542711.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "91562901",
+  "name": "Μπάγερν Μονάχου - Ουνιόν Βερολίνου",
+  "startTime": 1789756200000,
+  "dateStr": "2026-09-18",
+  "marketCount": 88,
+  "file": "bundesliga/2026-09-18_bagern-monaxou-ounion-verolinou_91562901.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "92057420",
+  "name": "Μονακό - Λανς",
+  "startTime": 1789757100000,
+  "dateStr": "2026-09-18",
+  "marketCount": 90,
+  "file": "ligue-1/2026-09-18_monako-lans_92057420.json"
  },
  {
   "league": "liga-mx",
@@ -68,16 +148,6 @@
   "dateStr": "2026-09-16",
   "marketCount": 92,
   "file": "liga-mx/2026-09-16_pouebla-tolouka_92155802.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "91752091",
-  "name": "Μπαΐα - Ρέμο",
-  "startTime": 1789426800000,
-  "dateStr": "2026-09-15",
-  "marketCount": 111,
-  "file": "serie-a-brazil/2026-09-15_baia-remo_91752091.json"
  },
  {
   "league": "serie-a-brazil",
