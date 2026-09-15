@@ -530,6 +530,12 @@ function classifyMarket(name, homeGr, awayGr){
   else if(/εστία|on[\s-]?target/i.test(rest)) cat="shots_on_target";
   else if(/σουτ|προσπάθειες|shots?|attempts?/i.test(rest)) cat="shots";
   else if(/φάουλ|fouls?/i.test(rest)) cat="fouls";
+  // Το ιστορικό μας μετράει ΣΥΝΟΛΙΚΕΣ κάρτες (κίτρινες+κόκκινες μαζί, βλ.
+  // cardCount()) — μια αγορά μόνο για κόκκινες (ή μόνο για κίτρινες) κάρτες
+  // έχει εντελώς διαφορετική βάση σύγκρισης και ΔΕΝ πρέπει να μπαίνει στην
+  // ίδια κατηγορία "cards", αλλιώς μπερδεύονται τα ποσοστά (bug: 15/9).
+  else if(/κόκκιν[ηα]?\s*κάρτ|red\s*cards?/i.test(rest)) cat="unsupported";
+  else if(/κίτριν[ηα]?\s*κάρτ|yellow\s*cards?/i.test(rest)) cat="unsupported";
   else if(/κάρτ|cards?/i.test(rest)) cat="cards";
   else if(/γκολ|goals?/i.test(rest)) cat="goals";
   else if(/οφσάιντ|offsides?/i.test(rest)) cat="unsupported";
