@@ -8,12 +8,14 @@ REM    (ετσι δουλευει και η τοπικη προβολη index.ht
 if not exist "C:\SOCCER_BETROWS\betrows-app\live" mkdir "C:\SOCCER_BETROWS\betrows-app\live"
 robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output" "C:\SOCCER_BETROWS\betrows-app\live" /MIR /NFL /NDL /NJH /NJS >nul
 
-REM 2) Αντιγραφη βασικων αρχειων + live φακελου μεσα στο local git repo
+REM 2) Αντιγραφη βασικων αρχειων + live φακελου + emblems (crests) μεσα στο local git repo
 copy /Y "C:\SOCCER_BETROWS\betrows-app\data.json" "data.json" >nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\index.html" "index.html" >nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\crest-map.json" "crest-map.json" >nul
 if not exist "live" mkdir "live"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live" "live" /MIR /NFL /NDL /NJH /NJS >nul
+if not exist "crests" mkdir "crests"
+robocopy "C:\SOCCER_BETROWS\betrows-app\crests" "crests" /MIR /NFL /NDL /NJH /NJS >nul
 
 REM 3) Commit + push στο GitHub
 git add -A
