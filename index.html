@@ -59,9 +59,26 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .title-block p{margin:5px 0 0;color:var(--text-dim);font-size:13.5px;max-width:56ch}
+.header-right{display:flex;align-items:center;gap:12px}
 .data-badge{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--text-faint);text-align:right;white-space:nowrap;display:flex;flex-direction:column;gap:3px;align-items:flex-end}
 .data-badge b{color:var(--text-dim);font-weight:600}
 .data-badge .dot{color:var(--accent);text-shadow:var(--glow-accent)}
+.savedBetsBtn{
+  display:inline-flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:var(--radius-pill);padding:7px 12px;color:var(--text-dim);font-size:12.5px;font-weight:600;cursor:pointer;flex:none;
+}
+.savedBetsBtn:hover{border-color:var(--accent);color:var(--accent)}
+.sbIcon{font-size:13px;line-height:1}
+.sbCount{background:var(--accent);color:#04231d;border-radius:50%;min-width:18px;height:18px;padding:0 4px;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace}
+.savedBetsNotice{background:rgba(255,111,149,.12);border:1px solid rgba(255,111,149,.35);color:var(--rose);font-size:12px;padding:8px 10px;border-radius:var(--radius-md);margin-bottom:12px}
+.savedBetItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface-2);cursor:pointer}
+.savedBetItem:hover{border-color:var(--accent)}
+.savedBetItem .sbiMain{display:flex;flex-direction:column;gap:2px;min-width:0}
+.savedBetItem .sbiTeam{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.savedBetItem .sbiMeta{font-size:11px;color:var(--text-faint)}
+.savedBetItem .sbiRemove{background:none;border:0;color:var(--text-faint);font-size:16px;cursor:pointer;padding:2px 6px;flex:none}
+.savedBetItem .sbiRemove:hover{color:var(--rose)}
+.savedBetsEmpty{color:var(--text-faint);font-size:13px;text-align:center;padding:20px 0}
 .avatar{
   width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
   font-size:13px;font-weight:700;color:#fff;margin-right:9px;vertical-align:-10px;box-shadow:0 0 0 2px var(--surface);
@@ -213,7 +230,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .rows{margin-top:14px;display:flex;flex-direction:column;gap:10px}
 .row-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;transition:border-color .15s}
 .row-card:hover{border-color:var(--text-faint)}
-.row-head{display:flex;align-items:center;gap:16px;padding:14px 16px;cursor:pointer;flex-wrap:wrap}
+.row-head{display:flex;align-items:center;gap:16px;padding:14px 16px;cursor:pointer;flex-wrap:wrap;position:relative}
 .row-main{flex:1;min-width:210px}
 .row-main .team{font-size:14.5px;font-weight:600;display:flex;align-items:center;flex-wrap:wrap;row-gap:5px}
 .row-main .team .lgchip{font-size:10px;font-weight:500;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px 2px 6px;margin-left:8px;vertical-align:1px;display:inline-flex;align-items:center;gap:4px}
@@ -273,9 +290,24 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .pill .v{font-size:14px;font-weight:700;font-family:"IBM Plex Mono",monospace;margin-top:1px;color:#fff}
 .pill.pos{--tint:18,230,173}
 .pill.neg{--tint:255,111,149}
-.chev{color:var(--text-faint);font-size:12px;align-self:center}
-.row-card.open .chev{transform:rotate(180deg)}
+.chev{display:none}
 .row-card.open{border-color:var(--accent)}
+.saveBtn{
+  position:absolute;right:10px;bottom:8px;
+  width:26px;height:26px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text-dim);
+  font-size:16px;font-weight:700;line-height:1;cursor:pointer;padding:0;
+  transition:background .15s ease,border-color .15s ease,color .15s ease,box-shadow .15s ease,transform .15s ease;
+  z-index:2;
+}
+.saveBtn:hover{border-color:var(--accent);color:var(--accent)}
+.saveBtn.saved{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);box-shadow:var(--glow-accent)}
+@keyframes flashHighlight{
+  0%,100%{box-shadow:0 0 0 3px rgba(18,230,173,0)}
+  50%{box-shadow:0 0 0 3px rgba(18,230,173,.55)}
+}
+.row-card.flash-highlight{animation:flashHighlight .8s ease-out 2}
 
 .drawer{display:none;border-top:1px solid var(--border);background:var(--surface-2)}
 .row-card.open .drawer{display:block}
@@ -366,7 +398,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .foot a{color:var(--text-dim);text-decoration:underline}
 
 @media(min-width:601px){
-  .row-head{gap:12px}
+  .row-head{gap:12px;padding-right:48px}
   .hp{width:40px;height:40px}
   .hp .pct{font-size:12px}
   .hp .lbl{font-size:7.5px}
@@ -375,7 +407,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .pill{min-width:62px;padding:6px 9px}
   .pill .v{font-size:13px}
 }
-@media(max-width:600px){ .row-head{gap:10px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
+@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
 </style>
 </head>
 <body>
@@ -386,7 +418,12 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       <h1>TOTAL FOOTBALL <span class="accent">BetStats</span></h1>
       <p style="display:none">Επικόλλησε το JSON αγώνα από το Stoiximan — αυτόματα βγαίνουν όλες οι γραμμές με hit rate, fair odds, edge &amp; EV πάνω στο πραγματικό ιστορικό.</p>
     </div>
-    <div class="data-badge" id="dataBadge" style="display:none"><span><span class="dot">●</span> φόρτωση ιστορικού…</span></div>
+    <div class="header-right">
+      <div class="data-badge" id="dataBadge" style="display:none"><span><span class="dot">●</span> φόρτωση ιστορικού…</span></div>
+      <button type="button" class="savedBetsBtn" id="savedBetsBtn" title="Αποθηκευμένα bets" aria-label="Αποθηκευμένα bets">
+        <span class="sbIcon">🔖</span><span class="sbCount" id="savedBetsCount">0</span>
+      </button>
+    </div>
   </header>
 
   <div class="row" id="liveRow">
@@ -490,6 +527,19 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
     <button type="button" class="fsApply" id="fsApply">Εφαρμογή φίλτρων</button>
   </div>
 
+  <div class="filtersBackdrop" id="savedBetsBackdrop" hidden></div>
+  <div class="filtersSheet" id="savedBetsSheet" hidden>
+    <div class="fsHead">
+      <h3>Αποθηκευμένα bets</h3>
+      <div class="fsHeadBtns">
+        <button type="button" class="fsReset" id="savedBetsClearAll">Καθαρισμός όλων</button>
+        <button type="button" class="fsClose" id="savedBetsClose" aria-label="Κλείσιμο">✕</button>
+      </div>
+    </div>
+    <div class="savedBetsNotice" id="savedBetsNotice" hidden></div>
+    <div class="fsBody" id="savedBetsList"></div>
+  </div>
+
   <div class="rows" id="rowsList"></div>
   <div class="skipnote" id="skipNote"></div>
 
@@ -552,6 +602,126 @@ var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 var TEAM_MAP_KEY = "fbd_team_map_v1";
 function loadTeamMap(){ try{ return JSON.parse(localStorage.getItem(TEAM_MAP_KEY)||"{}"); }catch(e){ return {}; } }
 function saveTeamMap(map){ try{ localStorage.setItem(TEAM_MAP_KEY, JSON.stringify(map)); }catch(e){} }
+
+/* ---------- αποθηκευμένα bets (το + πάνω σε κάθε γραμμή) ----------
+   Αποθηκεύονται στο localStorage ως αντικείμενο key -> record, ώστε να
+   επιβιώνουν σε reload/deploy. Το key φτιάχνεται από ό,τι προσδιορίζει
+   μονοσήμαντα ένα "bet" (ομάδα/ζευγάρι, λίγκα, κατηγορία, side, threshold,
+   ώρα αγώνα) — ΔΕΝ αλλάζει όταν ο χρήστης απλά αλλάζει L5/L10/L15/L20 ή
+   πειράζει τη γραμμή μέσα στο drawer (αυτά δεν αγγίζουν το ίδιο το r). */
+var SAVED_BETS_KEY = "fbd_saved_bets_v1";
+function loadSavedBets(){ try{ return JSON.parse(localStorage.getItem(SAVED_BETS_KEY)||"{}"); }catch(e){ return {}; } }
+function saveSavedBetsToStorage(){ try{ localStorage.setItem(SAVED_BETS_KEY, JSON.stringify(savedBets)); }catch(e){} }
+var savedBets = loadSavedBets();
+
+function betKey(r){
+  var who = r.isTotal ? ("T:"+r.homeTeam+"|"+r.awayTeam) : ("S:"+r.team);
+  return [who, r.league, r.category, r.side, r.threshold, r.direction||"", r.startTime||""].join("::");
+}
+function betRecord(r){
+  return {
+    isTotal: !!r.isTotal, team: r.team||null, homeTeam: r.homeTeam||null, awayTeam: r.awayTeam||null,
+    league: r.league, category: r.category, side: r.side, threshold: r.threshold, direction: r.direction||null,
+    price: r.price||null, startTime: r.startTime||null, savedAt: Date.now()
+  };
+}
+function toggleSavedBet(r){
+  var k = betKey(r);
+  if(savedBets[k]) delete savedBets[k]; else savedBets[k] = betRecord(r);
+  saveSavedBetsToStorage();
+  updateSavedBetsUI();
+  return !!savedBets[k];
+}
+function updateSavedBetsUI(){
+  var el = document.getElementById("savedBetsCount");
+  if(el) el.textContent = Object.keys(savedBets).length;
+}
+function findRowCardByKey(key){
+  var cards = document.querySelectorAll(".row-card[data-betkey]");
+  for(var i=0;i<cards.length;i++){ if(cards[i].dataset.betkey===key) return cards[i]; }
+  return null;
+}
+function showSavedBetsNotice(msg){
+  var n = document.getElementById("savedBetsNotice");
+  if(!n) return;
+  n.textContent = msg; n.hidden = false;
+  clearTimeout(n._t);
+  n._t = setTimeout(function(){ n.hidden = true; }, 4000);
+}
+function renderSavedBetsList(){
+  var body = document.getElementById("savedBetsList");
+  if(!body) return;
+  var keys = Object.keys(savedBets);
+  if(!keys.length){
+    body.innerHTML = '<div class="savedBetsEmpty">Δεν έχεις αποθηκεύσει κανένα bet ακόμα — πάτα το + δίπλα σε μια γραμμή.</div>';
+    return;
+  }
+  keys.sort(function(a,b){ return (savedBets[b].savedAt||0) - (savedBets[a].savedAt||0); });
+  body.innerHTML = keys.map(function(k){
+    var rec = savedBets[k];
+    var teamLabel = rec.isTotal ? (rec.homeTeam+" – "+rec.awayTeam) : rec.team;
+    var leagueLabel = byLeague[rec.league] ? byLeague[rec.league].name : rec.league;
+    var marketLabel = (rec.side==="over"?"OVER":"UNDER")+" "+rec.threshold+" · "+catLabel(rec.category);
+    var priceLabel = rec.price ? (" · "+rec.price.toFixed(2)) : "";
+    return '<div class="savedBetItem" data-key="'+escAttr(k)+'">'+
+      '<div class="sbiMain">'+
+        '<div class="sbiTeam">'+teamLabel+'</div>'+
+        '<div class="sbiMeta">'+leagueLabel+' · '+marketLabel+priceLabel+'</div>'+
+      '</div>'+
+      '<button type="button" class="sbiRemove" data-remove="'+escAttr(k)+'" title="Αφαίρεση" aria-label="Αφαίρεση">✕</button>'+
+    '</div>';
+  }).join("");
+}
+function openSavedBetsSheet(){
+  renderSavedBetsList();
+  document.getElementById("savedBetsBackdrop").hidden = false;
+  document.getElementById("savedBetsSheet").hidden = false;
+}
+function closeSavedBetsSheet(){
+  document.getElementById("savedBetsBackdrop").hidden = true;
+  document.getElementById("savedBetsSheet").hidden = true;
+}
+function resetFiltersToDefaults(){
+  // Επαναφορά στις προεπιλογές (όχι σε κενό) — απόδοση 1.5–3, ομάδες/ALL.
+  // Ίδια λογική με το "Επαναφορά" του mobile φίλτρων-sheet (fsReset), εδώ σαν
+  // κοινή συνάρτηση ώστε να τη χρησιμοποιεί και το "πήγαινε στη γραμμή" των
+  // αποθηκευμένων bets, όταν το bet είναι κρυμμένο πίσω από τα τρέχοντα φίλτρα.
+  catFilterVals.clear(); leagueFilterVals.clear(); teamFilterVals.clear();
+  oddsMinVal = 1.5; oddsMaxVal = 3;
+  scopeFilterVal = "team"; showFilterVal = "all";
+  renderCatFilterMenu(); updateCatFilterButton();
+  renderLeagueFilterMenu(); updateLeagueFilterButton();
+  populateTeamFilter();
+  updateTeamSelectButton();
+  var oddsMinEl = document.getElementById("oddsMin"), oddsMaxEl = document.getElementById("oddsMax");
+  if(oddsMinEl) oddsMinEl.value = "1.5";
+  if(oddsMaxEl) oddsMaxEl.value = "3";
+  Array.prototype.forEach.call(document.querySelectorAll("#scopeSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="team"); });
+  Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
+  renderToolbarAndRows();
+}
+function jumpToSavedBet(key){
+  var el = findRowCardByKey(key);
+  if(!el){
+    // Δεν είναι ορατή με τα τρέχοντα φίλτρα — επαναφορά στα προεπιλεγμένα
+    // φίλτρα (ίδια λογική με το "Επαναφορά" του mobile φίλτρων-sheet) και
+    // ξανά-έλεγχος πριν παραδεχτούμε ότι δεν υπάρχει στο τρέχον feed.
+    resetFiltersToDefaults();
+    el = findRowCardByKey(key);
+  }
+  if(!el){
+    showSavedBetsNotice("Δεν βρέθηκε αυτό το bet στο τρέχον feed (μάλλον φόρτωσες άλλον αγώνα).");
+    return;
+  }
+  closeSavedBetsSheet();
+  el.scrollIntoView({behavior:"smooth", block:"center"});
+  el.classList.add("flash-highlight");
+  setTimeout(function(){ el.classList.remove("flash-highlight"); }, 1700);
+  if(!el.classList.contains("open")){
+    var head = el.querySelector(".row-head");
+    if(head) head.click();
+  }
+}
 var TEAM_MAP = Object.assign({
   "108134": {name:"Torino", league:"serie-a-italy"},
   "107363": {name:"Roma", league:"serie-a-italy"},
@@ -1235,8 +1405,10 @@ function renderToolbarAndRows(){
 
 function renderRowCard(r){
   var res = r._res;
+  var bKey = betKey(r);
   var card = document.createElement("div");
   card.className = "row-card";
+  card.dataset.betkey = bKey;
 
   var pillsHtml = WINDOWS.map(function(n){
     var wr = r.windowResults[n];
@@ -1280,13 +1452,20 @@ function renderRowCard(r){
     '</div>'+
     '<div class="pillsrow">'+pillsHtml+'</div>'+
     '<div class="stats">'+statsHtml+'</div>'+
-    '<div class="chev">▾</div>';
+    '<div class="chev">▾</div>'+
+    '<button type="button" class="saveBtn'+(savedBets[bKey]?" saved":"")+'" title="Αποθήκευση bet" aria-label="Αποθήκευση bet">+</button>';
 
   head.addEventListener("click", function(){ card.classList.toggle("open"); if(card.classList.contains("open") && !card._drawerBuilt){ card.appendChild(renderDrawer(r, head)); card._drawerBuilt=true; } });
   var infoBtn = head.querySelector(".infoBtn");
   if(infoBtn && matchInfo){
     infoBtn.addEventListener("click", function(e){ e.stopPropagation(); showInfoTip(infoBtn, matchInfo); });
   }
+  var saveBtn = head.querySelector(".saveBtn");
+  saveBtn.addEventListener("click", function(e){
+    e.stopPropagation();
+    var isSaved = toggleSavedBet(r);
+    saveBtn.classList.toggle("saved", isSaved);
+  });
 
   card.appendChild(head);
   return card;
@@ -1716,22 +1895,37 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   document.getElementById("fsClose").addEventListener("click", closeSheet);
   backdrop.addEventListener("click", closeSheet);
   document.getElementById("fsApply").addEventListener("click", closeSheet); // ήδη live-apply, το κουμπί απλά κλείνει το sheet
-  document.getElementById("fsReset").addEventListener("click", function(){
-    // Επαναφορά στις προεπιλογές (όχι σε κενό) — απόδοση 1.5–3, ομάδες/ALL.
-    catFilterVals.clear(); leagueFilterVals.clear(); teamFilterVals.clear();
-    oddsMinVal = 1.5; oddsMaxVal = 3;
-    scopeFilterVal = "team"; showFilterVal = "all";
-    renderCatFilterMenu(); updateCatFilterButton();
-    renderLeagueFilterMenu(); updateLeagueFilterButton();
-    populateTeamFilter();
-    updateTeamSelectButton();
-    document.getElementById("oddsMin").value = "1.5";
-    document.getElementById("oddsMax").value = "3";
-    Array.prototype.forEach.call(document.querySelectorAll("#scopeSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="team"); });
-    Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
-    renderToolbarAndRows();
-  });
+  document.getElementById("fsReset").addEventListener("click", resetFiltersToDefaults);
 })();
+
+/* ---------- αποθηκευμένα bets: το κουμπί-indicator στο header + η λίστα ---------- */
+document.getElementById("savedBetsBtn").addEventListener("click", openSavedBetsSheet);
+document.getElementById("savedBetsClose").addEventListener("click", closeSavedBetsSheet);
+document.getElementById("savedBetsBackdrop").addEventListener("click", closeSavedBetsSheet);
+document.getElementById("savedBetsClearAll").addEventListener("click", function(){
+  savedBets = {};
+  saveSavedBetsToStorage();
+  updateSavedBetsUI();
+  renderSavedBetsList();
+  Array.prototype.forEach.call(document.querySelectorAll(".saveBtn.saved"), function(b){ b.classList.remove("saved"); });
+});
+document.getElementById("savedBetsList").addEventListener("click", function(e){
+  var removeBtn = e.target.closest(".sbiRemove");
+  if(removeBtn){
+    var rk = removeBtn.getAttribute("data-remove");
+    delete savedBets[rk];
+    saveSavedBetsToStorage();
+    updateSavedBetsUI();
+    renderSavedBetsList();
+    var card = findRowCardByKey(rk);
+    if(card){ var sb = card.querySelector(".saveBtn"); if(sb) sb.classList.remove("saved"); }
+    return;
+  }
+  var item = e.target.closest(".savedBetItem");
+  if(!item) return;
+  jumpToSavedBet(item.getAttribute("data-key"));
+});
+updateSavedBetsUI();
 
 /* ---------- back to top: εμφανίζεται μόλις σκρολάρεις αρκετά κάτω, μένει ορατό
    μέχρι να ξαναγυρίσεις κοντά στην κορυφή ----------
