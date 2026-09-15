@@ -107,11 +107,52 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 }
 .toolbar-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .toolbar-row#toolbarRow2 #windowSeg{margin-left:auto}
+.seg-group{display:flex;gap:10px;align-items:center}
 .count{font-size:13px;color:var(--text-dim)}
 .count b{color:var(--text)}
 .seg{display:flex;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);overflow:hidden}
 .seg button{background:transparent;border:0;color:var(--text-dim);font-size:12.5px;padding:7px 13px;cursor:pointer;font-weight:600;font-family:"IBM Plex Mono",monospace}
 .seg button.active{background:var(--accent);color:#04231d;box-shadow:var(--glow-accent)}
+
+/* κουμπί ανοίγματος του mobile φίλτρων-sheet — κρυφό στο desktop */
+.mfToggle{
+  display:none;align-items:center;gap:7px;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:var(--radius-pill);padding:8px 14px;color:var(--text-dim);font-size:12.5px;font-weight:600;cursor:pointer;
+}
+.mfIcon{font-size:13px;line-height:1}
+.mfBadge{background:var(--accent);color:#04231d;border-radius:50%;min-width:18px;height:18px;padding:0 4px;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace}
+
+/* mobile φίλτρα ως bottom sheet — τα ίδια στοιχεία (toolbarRow1 + filterSegGroup)
+   μετακινούνται εδώ μέσα με JS όταν η οθόνη είναι κινητού, χωρίς διπλότυπα IDs. */
+.filtersBackdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300}
+.filtersSheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:301;max-height:82vh;overflow-y:auto;
+  background:var(--surface);border-top:1px solid var(--border);border-radius:16px 16px 0 0;
+  box-shadow:var(--shadow);padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));
+}
+.fsHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.fsHead h3{margin:0;font-size:15px;color:var(--text)}
+.fsHeadBtns{display:flex;align-items:center;gap:10px}
+.fsReset{background:none;border:0;color:var(--text-faint);font-size:12.5px;cursor:pointer;padding:4px}
+.fsReset:hover{color:var(--rose)}
+.fsClose{background:var(--surface-2);border:1px solid var(--border);border-radius:50%;width:30px;height:30px;color:var(--text-dim);cursor:pointer;font-size:14px;flex:none}
+.fsBody{display:flex;flex-direction:column;gap:14px}
+.fsApply{display:block;width:100%;margin-top:16px;padding:12px;border-radius:var(--radius-pill);background:var(--accent);color:#04231d;font-weight:700;border:0;cursor:pointer;font-size:14px}
+@media(max-width:640px){
+  /* Το child-combinator (>) είναι σκόπιμο: κρύβει το row1/filterSegGroup ΜΟΝΟ
+     όσο βρίσκονται στην "έξω" θέση τους (άμεσα παιδιά .toolbar/#toolbarRow2).
+     Όταν το JS τα μετακινήσει μέσα στο #filtersSheetBody (bottom sheet), το
+     selector δεν ταιριάζει πια και ξαναφαίνονται κανονικά εκεί μέσα. */
+  .toolbar > #toolbarRow1{display:none}
+  #toolbarRow2 > #filterSegGroup{display:none}
+  .mfToggle{display:inline-flex}
+  .toolbar-row#toolbarRow2{gap:8px}
+  .filtersSheet .toolbar-row{flex-direction:column;align-items:stretch;gap:12px}
+  .filtersSheet .pillselect,.filtersSheet .oddsFilter,.filtersSheet .teamSelect,.filtersSheet .seg-group{width:100%}
+  .filtersSheet .seg-group{flex-direction:column}
+  .filtersSheet .seg{width:100%}
+  .filtersSheet .seg button{flex:1}
+}
 
 #backToTop{
   position:fixed;right:22px;bottom:22px;z-index:150;
@@ -345,15 +386,20 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       </div>
     </div>
     <div class="toolbar-row" id="toolbarRow2">
-      <div class="seg" id="scopeSeg">
-        <button data-v="team" class="active">Ομάδες</button>
-        <button data-v="pair">Ζευγάρια</button>
-        <button data-v="all">Όλα</button>
-      </div>
-      <div class="seg" id="showSeg">
-        <button data-v="all" class="active">ALL</button>
-        <button data-v="under">UNDER</button>
-        <button data-v="over">OVER</button>
+      <button type="button" class="mfToggle" id="mfToggle">
+        <span class="mfIcon">▤</span>Φίλτρα<span class="mfBadge" id="mfBadge">0</span>
+      </button>
+      <div class="seg-group" id="filterSegGroup">
+        <div class="seg" id="scopeSeg">
+          <button data-v="team" class="active">Ομάδες</button>
+          <button data-v="pair">Ζευγάρια</button>
+          <button data-v="all">Όλα</button>
+        </div>
+        <div class="seg" id="showSeg">
+          <button data-v="all" class="active">ALL</button>
+          <button data-v="under">UNDER</button>
+          <button data-v="over">OVER</button>
+        </div>
       </div>
       <select class="pillselect" id="sortMode">
         <option value="hit">Ταξινόμηση: Hit rate</option>
@@ -366,6 +412,19 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       </div>
     </div>
     <div class="count" id="countLabel">—</div>
+  </div>
+
+  <div class="filtersBackdrop" id="filtersBackdrop" hidden></div>
+  <div class="filtersSheet" id="filtersSheet" hidden>
+    <div class="fsHead">
+      <h3>Φίλτρα</h3>
+      <div class="fsHeadBtns">
+        <button type="button" class="fsReset" id="fsReset">Επαναφορά</button>
+        <button type="button" class="fsClose" id="fsClose" aria-label="Κλείσιμο">✕</button>
+      </div>
+    </div>
+    <div class="fsBody" id="filtersSheetBody"></div>
+    <button type="button" class="fsApply" id="fsApply">Εφαρμογή φίλτρων</button>
   </div>
 
   <div class="rows" id="rowsList"></div>
@@ -919,7 +978,21 @@ function renderTeamSelectMenu(){
 function closeTeamSelectMenu(){ document.getElementById("teamSelectMenu").hidden = true; }
 function toggleTeamSelectMenu(){ var m = document.getElementById("teamSelectMenu"); m.hidden = !m.hidden; }
 
+function updateMobileFilterBadge(){
+  var badge = document.getElementById("mfBadge");
+  if(!badge) return;
+  var n = 0;
+  if(catFilterVal) n++;
+  if(leagueFilterVal) n++;
+  if(teamFilterVal) n++;
+  if(oddsMinVal!=null || oddsMaxVal!=null) n++;
+  if(scopeFilterVal!=="team") n++;
+  if(showFilterVal!=="all") n++;
+  badge.textContent = n;
+}
+
 function renderToolbarAndRows(){
+  updateMobileFilterBadge();
   var list = feedRows.slice();
   if(catFilterVal) list = list.filter(function(r){ return r.category===catFilterVal; });
   if(leagueFilterVal) list = list.filter(function(r){ return r.league===leagueFilterVal; });
@@ -1354,6 +1427,58 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   showFilterVal = e.target.getAttribute("data-v");
   renderToolbarAndRows();
 });
+
+/* ---------- mobile φίλτρα: bottom sheet ----------
+   Στο κινητό (βλ. λογική PropDunker) κρύβουμε τα λιγότερο συχνά φίλτρα από το
+   κύριο toolbar και τα μετακινούμε (τα ίδια DOM elements, όχι αντίγραφα — ώστε
+   να μη διπλασιάζονται id's) μέσα σε ένα "Φίλτρα" bottom sheet, ανοίγοντας με
+   ένα κουμπί + badge με τον αριθμό ενεργών φίλτρων. Έξω μένουν μόνο η
+   Ταξινόμηση και το L5/L10/L15/L20. */
+(function(){
+  var mq = window.matchMedia("(max-width:640px)");
+  var row1 = document.getElementById("toolbarRow1");
+  var segGroup = document.getElementById("filterSegGroup");
+  var toolbarRow2 = document.getElementById("toolbarRow2");
+  var toolbar = document.querySelector(".toolbar");
+  var sheetBody = document.getElementById("filtersSheetBody");
+  var backdrop = document.getElementById("filtersBackdrop");
+  var sheet = document.getElementById("filtersSheet");
+
+  function openSheet(){ backdrop.hidden = false; sheet.hidden = false; }
+  function closeSheet(){ backdrop.hidden = true; sheet.hidden = true; }
+
+  function layoutForViewport(e){
+    if(e.matches){
+      sheetBody.appendChild(row1);
+      sheetBody.appendChild(segGroup);
+    } else {
+      toolbar.insertBefore(row1, toolbar.firstChild);
+      toolbarRow2.insertBefore(segGroup, toolbarRow2.firstChild);
+      closeSheet();
+    }
+  }
+  mq.addEventListener("change", layoutForViewport);
+  layoutForViewport(mq);
+
+  document.getElementById("mfToggle").addEventListener("click", openSheet);
+  document.getElementById("fsClose").addEventListener("click", closeSheet);
+  backdrop.addEventListener("click", closeSheet);
+  document.getElementById("fsApply").addEventListener("click", closeSheet); // ήδη live-apply, το κουμπί απλά κλείνει το sheet
+  document.getElementById("fsReset").addEventListener("click", function(){
+    catFilterVal = ""; leagueFilterVal = ""; teamFilterVal = "";
+    oddsMinVal = null; oddsMaxVal = null;
+    scopeFilterVal = "team"; showFilterVal = "all";
+    document.getElementById("catFilter").value = "";
+    document.getElementById("leagueFilter").value = "";
+    populateTeamFilter();
+    updateTeamSelectButton();
+    document.getElementById("oddsMin").value = "";
+    document.getElementById("oddsMax").value = "";
+    Array.prototype.forEach.call(document.querySelectorAll("#scopeSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="team"); });
+    Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
+    renderToolbarAndRows();
+  });
+})();
 
 /* ---------- back to top: κρυφό όσο σκρολάρεις κάτω, εμφανίζεται με το παραμικρό σκρολ προς τα πάνω ---------- */
 (function(){
