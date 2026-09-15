@@ -173,22 +173,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 
 .pillsrow{display:flex;gap:7px}
 .hp{
-  --p:0; --ring:var(--border);
   width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;
-  background:
-    radial-gradient(closest-side, var(--surface-2) 62%, transparent 63% 100%),
-    conic-gradient(var(--ring) calc(var(--p)*1%), var(--border) 0);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.25);
+  background:var(--surface-2);border:1px solid var(--border);font-family:"IBM Plex Mono",monospace;
 }
-.hp .pct{font-size:13px;font-weight:800;letter-spacing:-.01em;color:var(--text);font-family:"IBM Plex Sans",sans-serif;line-height:1.1}
-.hp .lbl{font-size:7.5px;font-weight:700;letter-spacing:.05em;color:var(--text-faint);text-transform:uppercase;font-family:"IBM Plex Mono",monospace;margin-top:1px}
-.hp.tier-hi{--ring:var(--accent)}
-.hp.tier-hi .pct{color:var(--accent)}
-.hp.tier-mid{--ring:var(--gold)}
-.hp.tier-mid .pct{color:var(--gold)}
-.hp.tier-lo{--ring:var(--rose)}
-.hp.tier-lo .pct{color:var(--rose)}
-.hp.active{box-shadow:inset 0 0 0 1px rgba(0,0,0,.25),0 0 0 3px var(--surface-3),0 0 0 4px var(--accent),var(--glow-accent)}
+.hp .pct{font-size:13.5px;font-weight:800;letter-spacing:0;color:var(--text)}
+.hp .lbl{font-size:8.5px;font-weight:600;color:var(--text-dim)}
+.hp.active{background:var(--accent-soft);border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft),var(--glow-accent)}
+.hp.active .pct{color:var(--accent)}
 
 .stats{display:flex;gap:8px;align-items:flex-start}
 .pill{border-radius:var(--radius-md);padding:7px 12px;min-width:72px;text-align:center;background:var(--surface-2);border:1px solid var(--border)}
@@ -784,9 +775,6 @@ function buildFeedMulti(roots){
 
 /* ---------- rendering ---------- */
 function fmtPct(x){ return Math.round(x*100)+"%"; }
-// Ποιοτικό tier του ποσοστού επιτεύξεως για το χρώμα του δαχτυλιδιού/pct στα
-// κυκλικά "hp" pills — >=70% πράσινο (accent), 50-69% χρυσό, <50% ροζ.
-function hpTier(p){ return p>=70 ? "tier-hi" : p>=50 ? "tier-mid" : "tier-lo"; }
 function fmtOdds(x){ return x==null ? "—" : x.toFixed(2); }
 // Ημερομηνία/ώρα έναρξης του live αγώνα, πάντα σε ώρα Ελλάδος (Europe/Athens)
 // ανεξάρτητα από τη ζώνη ώρας της συσκευής που βλέπει τη σελίδα.
@@ -976,8 +964,7 @@ function renderRowCard(r){
 
   var pillsHtml = WINDOWS.map(function(n){
     var wr = r.windowResults[n];
-    var p = Math.round(wr.hitRate*100);
-    return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'" style="--p:'+p+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
+    return '<div class="hp'+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
   }).join("");
 
   var statsHtml = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
@@ -1218,7 +1205,7 @@ function renderDrawer(r, headEl){
         '<span>ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ <b>'+res.sample+'</b></span>'+
         '<span class="csRight">'+
           '<span>AVERAGE <b>'+(res.sample?avg.toFixed(2):"—")+'</b></span>'+
-          '<span class="hpwrap"><div class="hp active '+(res.sample?hpTier(Math.round(res.hitRate*100)):"")+'" style="--p:'+(res.sample?Math.round(res.hitRate*100):0)+'"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
+          '<span class="hpwrap"><div class="hp active"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
           '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+res.hits+'</b> / MISS <b>'+(res.sample-res.hits)+'</b></span>'+
         '</span>'+
       '</div>'+
