@@ -505,15 +505,17 @@ function evaluateCombinedTotal(homeTeam, awayTeam, leagueId, category, threshold
 
 /* ---------- market classifier ---------- */
 function guessLeagueId(leagueName, regionName){
+  // Ελέγχουμε ελληνικές ΚΑΙ αγγλικές λέξεις — ο live fetcher δίνει πλέον
+  // regionName στα αγγλικά (en.stoiximan.gr): "Italy", "Brazil", "England"...
   var r=(regionName||"").toLowerCase(), l=(leagueName||"").toLowerCase();
-  if(r.indexOf("ιταλ")>=0) return "serie-a-italy";
-  if(r.indexOf("βραζιλ")>=0) return "serie-a-brazil";
-  if(r.indexOf("αγγλ")>=0) return l.indexOf("champion")>=0 ? "championship" : "premier-league";
-  if(r.indexOf("γερμαν")>=0) return "bundesliga";
-  if(r.indexOf("ισπαν")>=0) return "la-liga";
-  if(r.indexOf("γαλλ")>=0) return "ligue-1";
-  if(r.indexOf("ελλ")>=0) return "super-league-greece";
-  if(r.indexOf("μεξικ")>=0) return "liga-mx";
+  if(r.indexOf("ιταλ")>=0 || r.indexOf("italy")>=0) return "serie-a-italy";
+  if(r.indexOf("βραζιλ")>=0 || r.indexOf("brazil")>=0) return "serie-a-brazil";
+  if(r.indexOf("αγγλ")>=0 || r.indexOf("england")>=0) return l.indexOf("champion")>=0 ? "championship" : "premier-league";
+  if(r.indexOf("γερμαν")>=0 || r.indexOf("german")>=0) return "bundesliga";
+  if(r.indexOf("ισπαν")>=0 || r.indexOf("spain")>=0) return "la-liga";
+  if(r.indexOf("γαλλ")>=0 || r.indexOf("france")>=0) return "ligue-1";
+  if(r.indexOf("ελλ")>=0 || r.indexOf("greece")>=0) return "super-league-greece";
+  if(r.indexOf("μεξικ")>=0 || r.indexOf("mexico")>=0) return "liga-mx";
   return null;
 }
 function classifyMarket(name, homeGr, awayGr){
@@ -521,15 +523,18 @@ function classifyMarket(name, homeGr, awayGr){
   if(homeGr && name.indexOf(homeGr)===0){ direction="home"; rest=name.slice(homeGr.length).trim(); }
   else if(awayGr && name.indexOf(awayGr)===0){ direction="away"; rest=name.slice(awayGr.length).trim(); }
   var cat=null;
-  if(/κόρνερ/i.test(rest)) cat="corners";
-  else if(/εστία/i.test(rest)) cat="shots_on_target";
-  else if(/σουτ|προσπάθειες/i.test(rest)) cat="shots";
-  else if(/φάουλ/i.test(rest)) cat="fouls";
-  else if(/κάρτ/i.test(rest)) cat="cards";
-  else if(/γκολ/i.test(rest)) cat="goals";
-  else if(/οφσάιντ/i.test(rest)) cat="unsupported";
-  else if(/τάκλιν/i.test(rest)) cat="unsupported";
-  else if(/πάσ/i.test(rest)) cat="unsupported";
+  // Ελέγχουμε ελληνικές ΚΑΙ αγγλικές λέξεις-κλειδιά — ο live fetcher δίνει πλέον
+  // αγγλικά (en.stoiximan.gr), αλλά κρατάμε και τα ελληνικά για συμβατότητα με
+  // παλιό/χειροκίνητο JSON. Η σειρά έχει σημασία: "on target" πριν από "shots".
+  if(/κόρνερ|corner/i.test(rest)) cat="corners";
+  else if(/εστία|on[\s-]?target/i.test(rest)) cat="shots_on_target";
+  else if(/σουτ|προσπάθειες|shots?|attempts?/i.test(rest)) cat="shots";
+  else if(/φάουλ|fouls?/i.test(rest)) cat="fouls";
+  else if(/κάρτ|cards?/i.test(rest)) cat="cards";
+  else if(/γκολ|goals?/i.test(rest)) cat="goals";
+  else if(/οφσάιντ|offsides?/i.test(rest)) cat="unsupported";
+  else if(/τάκλιν|tackles?/i.test(rest)) cat="unsupported";
+  else if(/πάσ|passes?/i.test(rest)) cat="unsupported";
   else return null;
   return {category:cat, direction:direction};
 }
@@ -537,7 +542,7 @@ function classifyMarket(name, homeGr, awayGr){
 // Asian-handicap variant). Our historical dataset only has full-match totals, so these
 // get priced with the WRONG baseline unless flagged — see isNonFullMatchMarket() below.
 function isNonFullMatchMarket(name){
-  return /ημίχρονο|1ο\s*ημ\b|2ο\s*ημ\b|\(\s*\d\d:\d\d\s*-\s*\d\d:\d\d\s*\)|ασιατικ[οό]/i.test(name||"");
+  return /ημίχρονο|1ο\s*ημ\b|2ο\s*ημ\b|half|\(\s*\d\d:\d\d\s*-\s*\d\d:\d\d\s*\)|ασιατικ[οό]|asian/i.test(name||"");
 }
 function parseSelectionName(name){
   var m = /^(Over|Under)\s+([\d.]+)$/i.exec((name||"").trim());
