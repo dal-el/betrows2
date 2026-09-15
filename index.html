@@ -216,7 +216,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .row-head{display:flex;align-items:center;gap:16px;padding:14px 16px;cursor:pointer;flex-wrap:wrap}
 .row-main{flex:1;min-width:210px}
 .row-main .team{font-size:14.5px;font-weight:600;display:flex;align-items:center;flex-wrap:wrap;row-gap:5px}
-.row-main .team .lgchip{font-size:10px;font-weight:500;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:8px;vertical-align:1px}
+.row-main .team .lgchip{font-size:10px;font-weight:500;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px 2px 6px;margin-left:8px;vertical-align:1px;display:inline-flex;align-items:center;gap:4px}
+.lglogo{width:16px;height:16px;object-fit:contain;flex:none}
+.lgchip .lglogo{width:12px;height:12px}
+.msMenu .msRow .lglogo{width:16px;height:16px}
 .row-main .team .dtchip{font-size:10px;font-weight:500;font-family:"IBM Plex Mono",monospace;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:6px;vertical-align:1px;white-space:nowrap}
 .row-main .team .infoBtn{
   display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;
@@ -515,6 +518,7 @@ var WINDOWS = [5,10,15,20];
 
 var DATA = [];
 var CREST_MAP = {};
+var LEAGUE_CREST_MAP = {}; // lg -> "crests/leagues/<lg>.png", βλ. league-crest-map.json
 var byLeague = {};
 var activeWindow = 10;
 // Σειρά εμφάνισης στο μενού κατηγοριών — ξεχωριστή από τη σειρά του CATS object,
@@ -974,6 +978,10 @@ function avatarHtml(name, league){
   }
   return '<span class="avatar" style="background:'+hashColor(name)+'">'+initialsOf(name)+'</span>';
 }
+function leagueLogoHtml(lg){
+  var src = lg && LEAGUE_CREST_MAP[lg];
+  return src ? '<img class="lglogo" src="'+src+'" alt="" loading="lazy">' : '';
+}
 function dirLabel(d){ return d==="total" ? "σύνολο αγώνα" : "ομάδας"; }
 
 /* ---------- info tooltip (ⓘ) — δείχνει ποιος είναι ο αγώνας χωρίς να ανοίγει το drawer ---------- */
@@ -1074,7 +1082,7 @@ function renderLeagueFilterMenu(){
   var rows = ['<div class="msRow msRowAll'+(leagueFilterVals.size===0?" active":"")+'" data-v="">Όλες οι λίγκες</div>'];
   LEAGUE_FILTER_ENTRIES.forEach(function(e){
     var on = leagueFilterVals.has(e.lg);
-    rows.push('<div class="msRow'+(on?" active":"")+'" data-v="'+e.lg+'"><span class="msCheck"></span><span>'+e.name+'</span></div>');
+    rows.push('<div class="msRow'+(on?" active":"")+'" data-v="'+e.lg+'"><span class="msCheck"></span>'+leagueLogoHtml(e.lg)+'<span>'+e.name+'</span></div>');
   });
   menu.innerHTML = rows.join("");
 }
@@ -1249,7 +1257,7 @@ function renderRowCard(r){
     '<div class="row-main">'+
       '<div class="team">'+teamLabel+
       (matchInfo ? '<span class="infoBtn" title="'+escAttr(matchInfo)+'">i</span>' : '')+
-      '<span class="lgchip">'+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
+      '<span class="lgchip">'+leagueLogoHtml(r.league)+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
       (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+'</div>'+
       '<div class="market">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
@@ -1829,9 +1837,11 @@ Promise.all([
   fetch("data.json").then(function(r){return r.json()}),
   fetch("sample-event.json").then(function(r){return r.text()}),
   fetch("crest-map.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
+  fetch("league-crest-map.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
 ]).then(function(res){
   DATA = res[0];
   CREST_MAP = res[2] || {};
+  LEAGUE_CREST_MAP = res[3] || {};
   var maxDate = "0000-00-00";
   DATA.forEach(function(m){
     if(!byLeague[m.lg]) byLeague[m.lg] = {name:m.ln, teams:new Set()};

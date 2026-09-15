@@ -1,0 +1,11 @@
+{
+ "premier-league": "crests/leagues/premier-league.png",
+ "championship": "crests/leagues/championship.png",
+ "la-liga": "crests/leagues/la-liga.png",
+ "bundesliga": "crests/leagues/bundesliga.png",
+ "ligue-1": "crests/leagues/ligue-1.png",
+ "serie-a-italy": "crests/leagues/serie-a-italy.png",
+ "super-league-greece": "crests/leagues/super-league-greece.png",
+ "liga-mx": "crests/leagues/liga-mx.png",
+ "serie-a-brazil": "crests/leagues/serie-a-brazil.png"
+}
