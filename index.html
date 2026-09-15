@@ -65,7 +65,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .avatar{
   width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
   font-size:9.5px;font-weight:700;color:#fff;margin-right:7px;vertical-align:-6px;box-shadow:0 0 0 2px var(--surface);
-  overflow:hidden;background:var(--surface-3);
+  overflow:hidden;background:var(--surface-3);flex:none;
 }
 .avatar.crest img{width:100%;height:100%;object-fit:contain;padding:2px;box-sizing:border-box}
 .row-main .team .avatar:not(:first-child){margin-left:9px}
@@ -137,7 +137,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .row-card:hover{border-color:var(--text-faint)}
 .row-head{display:flex;align-items:center;gap:16px;padding:14px 16px;cursor:pointer;flex-wrap:wrap}
 .row-main{flex:1;min-width:210px}
-.row-main .team{font-size:14.5px;font-weight:600;display:flex;align-items:center}
+.row-main .team{font-size:14.5px;font-weight:600;display:flex;align-items:center;flex-wrap:wrap;row-gap:5px}
 .row-main .team .lgchip{font-size:10px;font-weight:500;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:8px;vertical-align:1px}
 .row-main .team .dtchip{font-size:10px;font-weight:500;font-family:"IBM Plex Mono",monospace;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:6px;vertical-align:1px;white-space:nowrap}
 .row-main .team .infoBtn{
