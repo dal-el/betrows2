@@ -191,6 +191,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 /* drawer chart */
 .chart-summary{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 10px;font-size:11px;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px}
 .chart-summary b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
+/* AVERAGE + pill ποσοστού + HITS/MISS: ομαδοποιημένα προς τα δεξιά, με ίσες
+   αποστάσεις μεταξύ τους (ξεχωριστά από το ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ στα αριστερά). */
+.chart-summary .csRight{display:flex;align-items:center;gap:16px;margin-left:auto}
 /* pill κυκλικό με το ΤΡΕΧΟΝ (δυναμικό) ποσοστό επιτεύξεως — ίδιο στιλ με τα
    pill L5/L10/L15/L20 της κάρτας, αλλά ακολουθεί ΟΛΑ τα φίλτρα του drawer. */
 .chart-summary .hpwrap{display:inline-flex}
@@ -1170,9 +1173,11 @@ function renderDrawer(r, headEl){
     block.innerHTML =
       '<div class="chart-summary">'+
         '<span>ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ <b>'+res.sample+'</b></span>'+
-        '<span>AVERAGE <b>'+(res.sample?avg.toFixed(2):"—")+'</b></span>'+
-        '<span class="hpwrap"><div class="hp active"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
-        '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+res.hits+'</b> / MISS <b>'+(res.sample-res.hits)+'</b></span>'+
+        '<span class="csRight">'+
+          '<span>AVERAGE <b>'+(res.sample?avg.toFixed(2):"—")+'</b></span>'+
+          '<span class="hpwrap"><div class="hp active"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
+          '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+res.hits+'</b> / MISS <b>'+(res.sample-res.hits)+'</b></span>'+
+        '</span>'+
       '</div>'+
       '<div class="drawerCtrlRow">'+
         '<div class="seg small" id="drawerWin">'+
