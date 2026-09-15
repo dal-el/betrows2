@@ -158,7 +158,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   #toolbarRow2 #sortMode{flex:1 1 100px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:8px}
   #toolbarRow2 #windowSeg{margin-left:auto;flex:none}
   .filtersSheet .toolbar-row{flex-direction:column;align-items:stretch;gap:12px}
-  .filtersSheet .pillselect,.filtersSheet .oddsFilter,.filtersSheet .teamSelect,.filtersSheet .seg-group{width:100%}
+  .filtersSheet .pillselect,.filtersSheet .oddsFilter,.filtersSheet .teamSelect,.filtersSheet .msWrap,.filtersSheet .seg-group{width:100%}
+  .filtersSheet .msBtn.pillselect{max-width:none;width:100%}
   .filtersSheet .seg-group{flex-direction:column}
   .filtersSheet .seg{width:100%}
   .filtersSheet .seg button{flex:1}
@@ -176,18 +177,29 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 #backToTop.show{opacity:1;transform:translateY(0);pointer-events:auto}
 @media(max-width:600px){ #backToTop{right:14px;bottom:14px;width:42px;height:42px;font-size:18px} }
 .pillselect{background:var(--surface-2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius-pill);padding:7px 13px;font-size:12.5px}
-.teamSelect{position:relative}
-.teamSelectBtn.pillselect{display:inline-flex;align-items:center;gap:7px;cursor:pointer;max-width:220px;font-family:inherit}
+/* Γενικό πολλαπλής-επιλογής dropdown (κατηγορίες / λίγκες / ομάδες) — ίδιο
+   pattern και για τα τρία: κουμπί-pill + custom menu με checkboxes, ώστε να
+   μπορείς να διαλέξεις παραπάνω από ένα χωρίς να κλείνει το menu κάθε φορά. */
+.msWrap{position:relative}
+.msBtn.pillselect{display:inline-flex;align-items:center;gap:7px;cursor:pointer;max-width:220px;font-family:inherit}
 .teamSelectBtn .tsIcon{display:inline-flex;width:21px;height:21px;flex:none}
 .teamSelectBtn .tsIcon .avatar{width:21px;height:21px;margin-right:0;font-size:8.5px}
-.teamSelectBtn #teamSelectLabel{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.teamSelectBtn .tsCaret{color:var(--text-faint);font-size:11px;margin-left:2px}
-.teamSelectMenu{position:absolute;top:calc(100% + 6px);left:0;min-width:230px;max-height:320px;overflow-y:auto;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow);z-index:60;padding:6px}
-.teamSelectMenu .tsRow{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--text);white-space:nowrap}
-.teamSelectMenu .tsRow:hover{background:var(--surface-3)}
-.teamSelectMenu .tsRow.active{background:var(--surface-3);color:var(--accent)}
-.teamSelectMenu .tsRow .avatar{margin-right:0}
-.teamSelectMenu .tsRowAll{border-bottom:1px solid var(--border);margin-bottom:4px;padding-bottom:9px}
+.msBtn #teamSelectLabel,.msBtn #catFilterLabel,.msBtn #leagueFilterLabel{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.msBtn .tsCaret{color:var(--text-faint);font-size:11px;margin-left:2px}
+.msMenu{position:absolute;top:calc(100% + 6px);left:0;min-width:230px;max-height:320px;overflow-y:auto;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow);z-index:60;padding:6px}
+.msMenu .msRow{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--text);white-space:nowrap}
+.msMenu .msRow:hover{background:var(--surface-3)}
+.msMenu .msRow.active{background:var(--surface-3);color:var(--accent)}
+.msMenu .msRow .avatar{margin-right:0}
+.msMenu .msRowAll{border-bottom:1px solid var(--border);margin-bottom:4px;padding-bottom:9px}
+/* Checkbox-δείκτης πολλαπλής επιλογής (τετράγωνο, γεμίζει όταν είναι active) */
+.msCheck{width:14px;height:14px;border:1.5px solid var(--border);border-radius:4px;flex:none;background:transparent}
+.msRow.active .msCheck{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 2.5px var(--surface-2)}
+/* Διακεκομμένη γραμμή μέσα στο μενού κατηγοριών — χωρίζει τις "κύριες"
+   κατηγορίες (μέχρι το Οφσάιντ) από τις πιο δευτερεύουσες που ακολουθούν.
+   Πιο ανοιχτόχρωμη από το --border (πολύ σκούρο/αχνό μέσα στο μενού) ώστε να
+   φαίνεται καθαρά ο διαχωρισμός. */
+.msSep{border-top:1px dashed var(--text-faint);margin:7px 6px;pointer-events:none}
 .oddsFilter{display:flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);padding:5px 6px 5px 13px}
 .oddsFilter .ofLabel{font-size:11.5px;color:var(--text-faint)}
 .oddsInput{width:56px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:12px;text-align:center;padding:6px 4px;-moz-appearance:textfield}
@@ -392,35 +404,27 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 
   <div class="toolbar">
     <div class="toolbar-row" id="toolbarRow1">
-      <select class="pillselect" id="catFilter">
-        <option value="">Όλες οι κατηγορίες</option>
-        <option value="corners">Κόρνερ</option>
-        <option value="cards">Κάρτες</option>
-        <option value="fouls">Φάουλ</option>
-        <option value="shots">Σουτ</option>
-        <option value="shots_on_target">Σουτ στην εστία</option>
-        <option value="goals">Γκολ</option>
-        <option value="offsides">Οφσάιντ</option>
-        <option value="possession">Κατοχή μπάλας %</option>
-        <option value="passes">Πάσες</option>
-        <option value="passes_accurate">Πάσες (εύστοχες)</option>
-        <option value="free_kicks">Ελεύθερα</option>
-        <option value="gk_saves">Αποκρούσεις Τερματοφύλακα</option>
-        <option value="shots_off_target">Σουτ εκτός εστίας</option>
-        <option value="shots_insidebox">Σουτ εντός περιοχής</option>
-        <option value="shots_outsidebox">Σουτ εκτός περιοχής</option>
-        <option value="shots_blocked">Μπλοκαρισμένα σουτ</option>
-      </select>
-      <select class="pillselect" id="leagueFilter">
-        <option value="">Όλες οι λίγκες</option>
-      </select>
-      <div class="teamSelect" id="teamSelectWrap">
-        <button type="button" class="pillselect teamSelectBtn" id="teamSelectBtn">
+      <div class="msWrap" id="catFilterWrap">
+        <button type="button" class="pillselect msBtn" id="catFilterBtn">
+          <span id="catFilterLabel">Όλες οι κατηγορίες</span>
+          <span class="tsCaret">⌄</span>
+        </button>
+        <div class="msMenu" id="catFilterMenu" hidden></div>
+      </div>
+      <div class="msWrap" id="leagueFilterWrap">
+        <button type="button" class="pillselect msBtn" id="leagueFilterBtn">
+          <span id="leagueFilterLabel">Όλες οι λίγκες</span>
+          <span class="tsCaret">⌄</span>
+        </button>
+        <div class="msMenu" id="leagueFilterMenu" hidden></div>
+      </div>
+      <div class="msWrap teamSelect" id="teamSelectWrap">
+        <button type="button" class="pillselect msBtn teamSelectBtn" id="teamSelectBtn">
           <span class="tsIcon" id="teamSelectIcon"></span>
           <span id="teamSelectLabel">Όλες οι ομάδες</span>
           <span class="tsCaret">⌄</span>
         </button>
-        <div class="teamSelectMenu" id="teamSelectMenu" hidden></div>
+        <div class="msMenu" id="teamSelectMenu" hidden></div>
       </div>
       <div class="oddsFilter">
         <span class="ofLabel">Απόδοση</span>
@@ -513,9 +517,16 @@ var DATA = [];
 var CREST_MAP = {};
 var byLeague = {};
 var activeWindow = 10;
-var catFilterVal = "";
-var leagueFilterVal = "";
-var teamFilterVal = "";
+// Σειρά εμφάνισης στο μενού κατηγοριών — ξεχωριστή από τη σειρά του CATS object,
+// γιατί εδώ θέλουμε τις "κύριες" κατηγορίες πρώτα (μέχρι το Οφσάιντ) και μετά
+// διακεκομμένη γραμμή πριν τις πιο δευτερεύουσες (βλ. renderCatFilterMenu).
+var CAT_FILTER_ORDER = ["corners","cards","fouls","shots","shots_on_target","goals","offsides",
+  "possession","passes","passes_accurate","free_kicks","gk_saves","shots_off_target","shots_insidebox","shots_outsidebox","shots_blocked"];
+// Τα τρία βασικά φίλτρα (κατηγορία/λίγκα/ομάδα) είναι πλέον ΠΟΛΛΑΠΛΗΣ επιλογής —
+// κενό Set == "όλα" (χωρίς φίλτρο), όπως πριν το κενό string.
+var catFilterVals = new Set();
+var leagueFilterVals = new Set();
+var teamFilterVals = new Set();
 var sortMode = "edge";
 var oddsMinVal = 1.5;
 var oddsMaxVal = 3;
@@ -1011,35 +1022,98 @@ function showInfoTip(anchorEl, text){
   autoTimer = setTimeout(cleanup, 5000);
 }
 
-function populateLeagueFilter(){
-  var sel = document.getElementById("leagueFilter");
-  var current = leagueFilterVal;
-  var entries = Object.keys(byLeague).map(function(lg){ return {lg:lg, name:byLeague[lg].name}; });
-  entries.sort(function(a,b){ return a.name.localeCompare(b.name, "el"); });
-  sel.innerHTML = '<option value="">Όλες οι λίγκες</option>' +
-    entries.map(function(e){ return '<option value="'+e.lg+'">'+e.name+'</option>'; }).join("");
-  sel.value = byLeague[current] ? current : "";
-  leagueFilterVal = sel.value;
+/* ---------- πολλαπλής-επιλογής dropdowns: κατηγορία / λίγκα / ομάδα ----------
+   Κοινό pattern και για τα τρία: ένα Set κρατάει τις επιλεγμένες τιμές (κενό
+   Set = "όλες"), ένα .msMenu με .msRow ανά επιλογή (toggle on click, ΔΕΝ
+   κλείνει το μενού ώστε να διαλέγεις πολλά στη σειρά), και ένα .msRowAll
+   πάνω-πάνω που καθαρίζει το Set. */
+
+function closeAllMsMenus(exceptId){
+  ["catFilterMenu","leagueFilterMenu","teamSelectMenu"].forEach(function(id){
+    if(id!==exceptId) document.getElementById(id).hidden = true;
+  });
 }
 
-var TEAM_FILTER_ENTRIES = []; // [{t:teamName, lg:leagueId}], scoped by current leagueFilterVal
+function populateCatFilterMenu(){
+  renderCatFilterMenu();
+  updateCatFilterButton();
+}
+
+function renderCatFilterMenu(){
+  var menu = document.getElementById("catFilterMenu");
+  var rows = ['<div class="msRow msRowAll'+(catFilterVals.size===0?" active":"")+'" data-v="">Όλες οι κατηγορίες</div>'];
+  CAT_FILTER_ORDER.forEach(function(cat){
+    var on = catFilterVals.has(cat);
+    rows.push('<div class="msRow'+(on?" active":"")+'" data-v="'+cat+'"><span class="msCheck"></span><span>'+CATS[cat].label+'</span></div>');
+    if(cat==="offsides") rows.push('<div class="msSep" aria-hidden="true"></div>');
+  });
+  menu.innerHTML = rows.join("");
+}
+
+function updateCatFilterButton(){
+  var label = document.getElementById("catFilterLabel");
+  if(catFilterVals.size===0) label.textContent = "Όλες οι κατηγορίες";
+  else if(catFilterVals.size===1) label.textContent = CATS[Array.from(catFilterVals)[0]].label;
+  else label.textContent = catFilterVals.size+" κατηγορίες";
+}
+
+var LEAGUE_FILTER_ENTRIES = []; // [{lg, name}]
+
+function populateLeagueFilter(){
+  var entries = Object.keys(byLeague).map(function(lg){ return {lg:lg, name:byLeague[lg].name}; });
+  entries.sort(function(a,b){ return a.name.localeCompare(b.name, "el"); });
+  LEAGUE_FILTER_ENTRIES = entries;
+  // πέταξε επιλογές λιγκών που δεν υπάρχουν πια στα δεδομένα
+  Array.from(leagueFilterVals).forEach(function(lg){ if(!byLeague[lg]) leagueFilterVals.delete(lg); });
+  renderLeagueFilterMenu();
+  updateLeagueFilterButton();
+}
+
+function renderLeagueFilterMenu(){
+  var menu = document.getElementById("leagueFilterMenu");
+  var rows = ['<div class="msRow msRowAll'+(leagueFilterVals.size===0?" active":"")+'" data-v="">Όλες οι λίγκες</div>'];
+  LEAGUE_FILTER_ENTRIES.forEach(function(e){
+    var on = leagueFilterVals.has(e.lg);
+    rows.push('<div class="msRow'+(on?" active":"")+'" data-v="'+e.lg+'"><span class="msCheck"></span><span>'+e.name+'</span></div>');
+  });
+  menu.innerHTML = rows.join("");
+}
+
+function updateLeagueFilterButton(){
+  var label = document.getElementById("leagueFilterLabel");
+  if(leagueFilterVals.size===0) label.textContent = "Όλες οι λίγκες";
+  else if(leagueFilterVals.size===1){
+    var lg = Array.from(leagueFilterVals)[0];
+    label.textContent = byLeague[lg] ? byLeague[lg].name : lg;
+  } else label.textContent = leagueFilterVals.size+" λίγκες";
+}
+
+var TEAM_FILTER_ENTRIES = []; // [{t:teamName, lg:leagueId}], scoped by τις επιλεγμένες λίγκες
 
 function populateTeamFilter(){
   var entries;
-  if(leagueFilterVal && byLeague[leagueFilterVal]){
-    entries = Array.from(byLeague[leagueFilterVal].teams).map(function(t){ return {t:t, lg:leagueFilterVal}; });
-  } else {
+  if(leagueFilterVals.size){
     var seen = {};
+    entries = [];
+    leagueFilterVals.forEach(function(lg){
+      if(!byLeague[lg]) return;
+      byLeague[lg].teams.forEach(function(t){
+        if(!seen[t]){ seen[t]=true; entries.push({t:t, lg:lg}); }
+      });
+    });
+  } else {
+    var seenAll = {};
     entries = [];
     Object.keys(byLeague).forEach(function(lg){
       byLeague[lg].teams.forEach(function(t){
-        if(!seen[t]){ seen[t]=true; entries.push({t:t, lg:lg}); }
+        if(!seenAll[t]){ seenAll[t]=true; entries.push({t:t, lg:lg}); }
       });
     });
   }
   entries.sort(function(a,b){ return a.t.localeCompare(b.t, "el"); });
   TEAM_FILTER_ENTRIES = entries;
-  if(!entries.some(function(e){ return e.t===teamFilterVal; })) teamFilterVal = "";
+  var valid = {}; entries.forEach(function(e){ valid[e.t]=true; });
+  Array.from(teamFilterVals).forEach(function(t){ if(!valid[t]) teamFilterVals.delete(t); });
   renderTeamSelectMenu();
   updateTeamSelectButton();
 }
@@ -1052,34 +1126,44 @@ function teamFilterLeague(name){
 function updateTeamSelectButton(){
   var icon = document.getElementById("teamSelectIcon");
   var label = document.getElementById("teamSelectLabel");
-  if(teamFilterVal){
-    icon.innerHTML = avatarHtml(teamFilterVal, teamFilterLeague(teamFilterVal));
-    label.textContent = teamFilterVal;
-  } else {
+  if(teamFilterVals.size===0){
     icon.innerHTML = "";
     label.textContent = "Όλες οι ομάδες";
+  } else if(teamFilterVals.size===1){
+    var t = Array.from(teamFilterVals)[0];
+    icon.innerHTML = avatarHtml(t, teamFilterLeague(t));
+    label.textContent = t;
+  } else {
+    icon.innerHTML = "";
+    label.textContent = teamFilterVals.size+" ομάδες";
   }
 }
 
 function renderTeamSelectMenu(){
   var menu = document.getElementById("teamSelectMenu");
-  var rows = ['<div class="tsRow tsRowAll'+(teamFilterVal===""?" active":"")+'" data-t="">Όλες οι ομάδες</div>'];
+  var rows = ['<div class="msRow msRowAll'+(teamFilterVals.size===0?" active":"")+'" data-t="">Όλες οι ομάδες</div>'];
   TEAM_FILTER_ENTRIES.forEach(function(e){
-    rows.push('<div class="tsRow'+(e.t===teamFilterVal?" active":"")+'" data-t="'+escAttr(e.t)+'">'+avatarHtml(e.t, e.lg)+'<span>'+e.t+'</span></div>');
+    var on = teamFilterVals.has(e.t);
+    rows.push('<div class="msRow'+(on?" active":"")+'" data-t="'+escAttr(e.t)+'"><span class="msCheck"></span>'+avatarHtml(e.t, e.lg)+'<span>'+e.t+'</span></div>');
   });
   menu.innerHTML = rows.join("");
 }
 
 function closeTeamSelectMenu(){ document.getElementById("teamSelectMenu").hidden = true; }
-function toggleTeamSelectMenu(){ var m = document.getElementById("teamSelectMenu"); m.hidden = !m.hidden; }
+function toggleTeamSelectMenu(){
+  var m = document.getElementById("teamSelectMenu");
+  var willOpen = m.hidden;
+  closeAllMsMenus("teamSelectMenu");
+  m.hidden = !willOpen;
+}
 
 function updateMobileFilterBadge(){
   var badge = document.getElementById("mfBadge");
   if(!badge) return;
   var n = 0;
-  if(catFilterVal) n++;
-  if(leagueFilterVal) n++;
-  if(teamFilterVal) n++;
+  if(catFilterVals.size) n++;
+  if(leagueFilterVals.size) n++;
+  if(teamFilterVals.size) n++;
   if(oddsMinVal!==1.5 || oddsMaxVal!==3) n++; // 1.5–3 είναι πλέον η προεπιλογή, δεν μετράει ως "ενεργό" φίλτρο
   if(scopeFilterVal!=="team") n++;
   if(showFilterVal!=="all") n++;
@@ -1089,9 +1173,9 @@ function updateMobileFilterBadge(){
 function renderToolbarAndRows(){
   updateMobileFilterBadge();
   var list = feedRows.slice();
-  if(catFilterVal) list = list.filter(function(r){ return r.category===catFilterVal; });
-  if(leagueFilterVal) list = list.filter(function(r){ return r.league===leagueFilterVal; });
-  if(teamFilterVal) list = list.filter(function(r){ return r.isTotal ? (r.homeTeam===teamFilterVal || r.awayTeam===teamFilterVal) : r.team===teamFilterVal; });
+  if(catFilterVals.size) list = list.filter(function(r){ return catFilterVals.has(r.category); });
+  if(leagueFilterVals.size) list = list.filter(function(r){ return leagueFilterVals.has(r.league); });
+  if(teamFilterVals.size) list = list.filter(function(r){ return r.isTotal ? (teamFilterVals.has(r.homeTeam) || teamFilterVals.has(r.awayTeam)) : teamFilterVals.has(r.team); });
   if(oddsMinVal!=null) list = list.filter(function(r){ return r.price!=null && r.price>=oddsMinVal; });
   if(oddsMaxVal!=null) list = list.filter(function(r){ return r.price!=null && r.price<=oddsMaxVal; });
   if(scopeFilterVal==="team") list = list.filter(function(r){ return !r.isTotal; });
@@ -1483,26 +1567,69 @@ document.getElementById("windowSeg").addEventListener("click", function(e){
   activeWindow = parseInt(e.target.getAttribute("data-v"),10);
   renderToolbarAndRows();
 });
-document.getElementById("catFilter").addEventListener("change", function(){ catFilterVal=this.value; renderToolbarAndRows(); });
-document.getElementById("leagueFilter").addEventListener("change", function(){
-  leagueFilterVal = this.value;
-  teamFilterVal = ""; // reset team choice — it's scoped to the league
-  populateTeamFilter();
+document.getElementById("catFilterBtn").addEventListener("click", function(e){
+  e.stopPropagation();
+  var m = document.getElementById("catFilterMenu");
+  var willOpen = m.hidden;
+  closeAllMsMenus("catFilterMenu");
+  m.hidden = !willOpen;
+});
+document.getElementById("catFilterMenu").addEventListener("click", function(e){
+  var row = e.target.closest(".msRow");
+  if(!row) return;
+  var v = row.getAttribute("data-v");
+  if(v==="") catFilterVals.clear();
+  else if(catFilterVals.has(v)) catFilterVals.delete(v);
+  else catFilterVals.add(v);
+  renderCatFilterMenu();
+  updateCatFilterButton();
+  renderToolbarAndRows();
+});
+document.getElementById("leagueFilterBtn").addEventListener("click", function(e){
+  e.stopPropagation();
+  var m = document.getElementById("leagueFilterMenu");
+  var willOpen = m.hidden;
+  closeAllMsMenus("leagueFilterMenu");
+  m.hidden = !willOpen;
+});
+document.getElementById("leagueFilterMenu").addEventListener("click", function(e){
+  var row = e.target.closest(".msRow");
+  if(!row) return;
+  var v = row.getAttribute("data-v");
+  if(v==="") leagueFilterVals.clear();
+  else if(leagueFilterVals.has(v)) leagueFilterVals.delete(v);
+  else leagueFilterVals.add(v);
+  renderLeagueFilterMenu();
+  updateLeagueFilterButton();
+  populateTeamFilter(); // η λίστα ομάδων είναι scoped στις επιλεγμένες λίγκες
   renderToolbarAndRows();
 });
 document.getElementById("teamSelectBtn").addEventListener("click", function(e){ e.stopPropagation(); toggleTeamSelectMenu(); });
 document.getElementById("teamSelectMenu").addEventListener("click", function(e){
-  var row = e.target.closest(".tsRow");
+  var row = e.target.closest(".msRow");
   if(!row) return;
-  teamFilterVal = row.getAttribute("data-t") || "";
+  var t = row.getAttribute("data-t");
+  if(t==="") teamFilterVals.clear();
+  else if(teamFilterVals.has(t)) teamFilterVals.delete(t);
+  else teamFilterVals.add(t);
   updateTeamSelectButton();
   renderTeamSelectMenu();
-  closeTeamSelectMenu();
   renderToolbarAndRows();
 });
 document.addEventListener("click", function(e){
-  var wrap = document.getElementById("teamSelectWrap");
-  if(wrap && !wrap.contains(e.target)) closeTeamSelectMenu();
+  // Χρησιμοποιούμε composedPath() κι όχι wrap.contains(e.target): το click σε
+  // ένα .msRow ξαναχτίζει το menu.innerHTML ΚΑΤΑ τη διάρκεια του bubbling (στο
+  // δικό μας listener στο #catFilterMenu κ.λπ.), οπότε ως τη στιγμή που το
+  // event φτάνει εδώ στο document το e.target είναι ήδη αποκομμένο απ' το
+  // DOM — το .contains() θα επέστρεφε πάντα false και θα έκλεινε το menu
+  // αμέσως μετά από κάθε επιλογή. Το composedPath() κρατάει τη ΑΡΧΙΚΗ αλυσίδα
+  // προγόνων τη στιγμή του click, πριν από οποιαδήποτε μετέπειτα μεταβολή του DOM.
+  var path = (typeof e.composedPath === "function") ? e.composedPath() : [];
+  var inAnyMsWrap = ["catFilterWrap","leagueFilterWrap","teamSelectWrap"].some(function(id){
+    var wrap = document.getElementById(id);
+    return wrap && path.indexOf(wrap) !== -1;
+  });
+  if(!inAnyMsWrap) closeAllMsMenus(null);
 });
 document.getElementById("sortMode").addEventListener("change", function(){ sortMode=this.value; renderToolbarAndRows(); });
 document.getElementById("oddsMin").addEventListener("input", function(){
@@ -1570,11 +1697,11 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   document.getElementById("fsApply").addEventListener("click", closeSheet); // ήδη live-apply, το κουμπί απλά κλείνει το sheet
   document.getElementById("fsReset").addEventListener("click", function(){
     // Επαναφορά στις προεπιλογές (όχι σε κενό) — απόδοση 1.5–3, ομάδες/ALL.
-    catFilterVal = ""; leagueFilterVal = ""; teamFilterVal = "";
+    catFilterVals.clear(); leagueFilterVals.clear(); teamFilterVals.clear();
     oddsMinVal = 1.5; oddsMaxVal = 3;
     scopeFilterVal = "team"; showFilterVal = "all";
-    document.getElementById("catFilter").value = "";
-    document.getElementById("leagueFilter").value = "";
+    renderCatFilterMenu(); updateCatFilterButton();
+    renderLeagueFilterMenu(); updateLeagueFilterButton();
     populateTeamFilter();
     updateTeamSelectButton();
     document.getElementById("oddsMin").value = "1.5";
@@ -1714,6 +1841,7 @@ Promise.all([
   document.getElementById("dataBadge").innerHTML =
     '<span><span class="dot">●</span> <b>'+DATA.length.toLocaleString("el-GR")+'</b> ματς · 9 λίγκες</span><span>τελευταίο ματς: '+maxDate+'</span>';
   document.getElementById("jsonInput").value = res[1];
+  populateCatFilterMenu();
   populateLeagueFilter();
   populateTeamFilter();
 
