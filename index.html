@@ -120,6 +120,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 }
 .mfIcon{font-size:13px;line-height:1}
 .mfBadge{background:var(--accent);color:#04231d;border-radius:50%;min-width:18px;height:18px;padding:0 4px;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace}
+.toolbarBreak{display:none}
 
 /* mobile φίλτρα ως κεντραρισμένο modal — τα ίδια στοιχεία (toolbarRow1 +
    filterSegGroup) μετακινούνται εδώ μέσα με JS όταν η οθόνη είναι κινητού,
@@ -146,8 +147,16 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
      selector δεν ταιριάζει πια και ξαναφαίνονται κανονικά εκεί μέσα. */
   .toolbar > #toolbarRow1{display:none}
   #toolbarRow2 > #filterSegGroup{display:none}
-  .mfToggle{display:inline-flex;flex:1 0 100%} /* μόνο του στην πρώτη σειρά */
+  /* Το "Φίλτρα" μένει στο φυσικό του μέγεθος (όχι τεντωμένο) αλλά μόνο του
+     στην πρώτη σειρά, αριστερά — το κάνει ο αόρατος "break" από κάτω του,
+     που σπάει τη σειρά χωρίς να αλλάξει το πλάτος του ίδιου του κουμπιού. */
+  .mfToggle{display:inline-flex}
+  .toolbarBreak{display:block;flex-basis:100%;height:0}
   .toolbar-row#toolbarRow2{gap:8px}
+  /* 2η σειρά στο κινητό: Ταξινόμηση αριστερά (μαζεύεται όσο χρειάζεται ώστε
+     να χωράει σίγουρα δίπλα του), L5-L20 τέρμα δεξιά στο ΙΔΙΟ row. */
+  #toolbarRow2 #sortMode{flex:1 1 100px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:8px}
+  #toolbarRow2 #windowSeg{margin-left:auto;flex:none}
   .filtersSheet .toolbar-row{flex-direction:column;align-items:stretch;gap:12px}
   .filtersSheet .pillselect,.filtersSheet .oddsFilter,.filtersSheet .teamSelect,.filtersSheet .seg-group{width:100%}
   .filtersSheet .seg-group{flex-direction:column}
@@ -405,6 +414,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       <button type="button" class="mfToggle" id="mfToggle">
         <span class="mfIcon">▤</span>Φίλτρα<span class="mfBadge" id="mfBadge">0</span>
       </button>
+      <div class="toolbarBreak" aria-hidden="true"></div>
       <div class="seg-group" id="filterSegGroup">
         <div class="seg" id="scopeSeg">
           <button data-v="team" class="active">Ομάδες</button>
