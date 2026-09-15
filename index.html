@@ -225,6 +225,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lineadj{display:inline-flex;align-items:center;gap:8px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-pill);padding:4px 6px}
 .lineadj button{background:transparent;border:0;color:var(--text-dim);font-size:14px;font-weight:700;cursor:pointer;width:22px;height:22px;border-radius:50%;line-height:1}
 .lineadj button:hover{background:var(--surface-2);color:var(--text)}
+.lineadj button:disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
 .lineadj .lval{font-size:11.5px;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);min-width:60px;text-align:center}
 .lineadj .lval b{color:var(--accent)}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
@@ -922,11 +923,27 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, thresholdDelta:0, usingCustomN:false };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false };
 
-  // Ενεργό threshold (γραμμή) μετά το +/- του χρήστη, στρογγυλεμένο στο .5 grid.
+  // Όλα τα thresholds της ΙΔΙΑΣ αγοράς (ίδιο side/category/ομάδα) που έχουν
+  // ΠΡΑΓΜΑΤΙΚΗ τιμή (odds) μέσα στο τρέχον JSON feed — ταξινομημένα. Το +/-
+  // επιτρέπεται να κινείται ΜΟΝΟ μέσα σε αυτή τη λίστα, ποτέ εκτός της.
+  function siblingThresholds(){
+    var set = {};
+    feedRows.forEach(function(x){
+      if(x.side!==r.side || x.category!==r.category) return;
+      var match = r.isTotal
+        ? (x.isTotal && x.homeTeam===r.homeTeam && x.awayTeam===r.awayTeam)
+        : (!x.isTotal && x.team===r.team && x.direction===r.direction);
+      if(match) set[x.threshold] = true;
+    });
+    set[r.threshold] = true; // πάντα διαθέσιμο το αρχικό
+    return Object.keys(set).map(Number).sort(function(a,b){ return a-b; });
+  }
+
+  // Ενεργό threshold (γραμμή) μετά το +/- του χρήστη.
   function effThreshold(){
-    return Math.round((r.threshold + state.thresholdDelta) * 2) / 2;
+    return state.threshold;
   }
 
   // Ψάχνει στο ίδιο feed για την ΠΡΑΓΜΑΤΙΚΗ τιμή (odds) της ίδιας αγοράς σε
@@ -1069,6 +1086,11 @@ function renderDrawer(r, headEl){
         '</div>';
     }
 
+    var thrList = siblingThresholds();
+    var thrIdx = thrList.indexOf(thr);
+    var canGoDown = thrIdx>0;
+    var canGoUp = thrIdx>=0 && thrIdx<thrList.length-1;
+
     var block = document.createElement("div");
     block.innerHTML =
       '<div class="chart-summary">'+
@@ -1081,10 +1103,10 @@ function renderDrawer(r, headEl){
           [5,10,15,20].map(function(n){ return '<button data-n="'+n+'" class="'+(state.n===n&&!state.fullSeason&&!state.usingCustomN?"active":"")+'">L'+n+'</button>'; }).join("")+
         '</div>'+
         '<span class="lwrap"><input type="number" class="lninput'+(state.usingCustomN&&!state.fullSeason?" active":"")+'" min="3" max="60" placeholder="L?" value="'+(state.usingCustomN?state.n:"")+'"></span>'+
-        '<div class="lineadj" id="lineAdj">'+
-          '<button class="ladj" data-d="-1" title="Κατέβασε τη γραμμή">−</button>'+
+        '<div class="lineadj" id="lineAdj" title="Η γραμμή κινείται μόνο σε τιμές που υπάρχουν στο feed">'+
+          '<button class="ladj" data-d="-1"'+(canGoDown?"":" disabled")+' title="Κατέβασε τη γραμμή">−</button>'+
           '<span class="lval">LINE <b>'+thr+'</b></span>'+
-          '<button class="ladj" data-d="1" title="Ανέβασε τη γραμμή">+</button>'+
+          '<button class="ladj" data-d="1"'+(canGoUp?"":" disabled")+' title="Ανέβασε τη γραμμή">+</button>'+
         '</div>'+
       '</div>'+
       chartHtml+
@@ -1119,14 +1141,18 @@ function renderDrawer(r, headEl){
     lnInput.addEventListener("keydown", function(e){ if(e.key==="Enter"){ applyCustomN(); } });
     lnInput.addEventListener("change", applyCustomN);
 
-    // line +/- adjuster — μετακινεί δυναμικά το threshold και ξανατρέχει τα πάντα
+    // line +/- adjuster — μετακινεί το threshold ΜΟΝΟ σε γειτονικές τιμές που
+    // όντως υπάρχουν σαν αγορά (με απόδοση) στο τρέχον JSON feed. Αν δεν
+    // υπάρχει επόμενη/προηγούμενη τιμή, το κουμπί είναι disabled και δεν κάνει τίποτα.
     block.querySelectorAll(".ladj").forEach(function(btn){
+      if(btn.disabled) return;
       btn.addEventListener("click", function(){
         var d = parseInt(btn.getAttribute("data-d"),10);
-        var nextDelta = state.thresholdDelta + d;
-        var nextThr = Math.round((r.threshold + nextDelta) * 2) / 2;
-        if(nextThr < 0.5) return;
-        state.thresholdDelta = nextDelta;
+        var list = siblingThresholds();
+        var idx = list.indexOf(state.threshold);
+        var nextIdx = idx + d;
+        if(idx<0 || nextIdx<0 || nextIdx>=list.length) return;
+        state.threshold = list[nextIdx];
         state.selected = null;
         draw();
       });
