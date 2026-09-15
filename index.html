@@ -1046,21 +1046,130 @@ function parseSelectionName(name){
 }
 
 /* ---------- unresolved team UI ---------- */
+// Το Stoiximan feed δίνει τα ονόματα ομάδων σε "επίσημη"/μακριά μορφή
+// (π.χ. "Tottenham Hotspur", "FC Barcelona", "1. FC Köln") ενώ το ιστορικό
+// dataset έχει σύντομα/canonical ονόματα (π.χ. "Tottenham", "Barcelona",
+// "FC Koln"). Πριν αυτό το layer, οποιαδήποτε απόκλιση έβγαζε "Άγνωστη ομάδα"
+// στο UI, ακόμα κι όταν η ομάδα υπάρχει κανονικά στο ιστορικό — αυτό συνέβαινε
+// συστηματικά σε κάθε ανανέωση με νέους αγώνες. Λύση σε δύο επίπεδα:
+//  1) TEAM_ALIASES: ρητός πίνακας για ονόματα που δεν λύνονται με απλή
+//     αφαίρεση προθέματος/επιθέματος (π.χ. "Borussia Monchengladbach" -> "MGladbach").
+//  2) Γενική εξομάλυνση (strip τόνων/διαλυτικών, αριθμητικού προθέματος όπως
+//     "1. ", και συνηθισμένων προθεμάτων/επιθεμάτων τύπου συλλόγου όπως
+//     FC/CF/AC/City/United/Town) — πιάνει αυτόματα και μελλοντικές ομάδες
+//     (π.χ. νεοπροαχθείσες) που ακολουθούν τα ίδια patterns, χωρίς να
+//     χρειάζεται να ενημερώνεται συνέχεια το χειροκίνητο TEAM_MAP.
+var TEAM_ALIASES = {
+  "premier-league": {
+    "Brentford FC":"Brentford","Chelsea FC":"Chelsea","Tottenham Hotspur":"Tottenham",
+    "Newcastle United":"Newcastle","Hull City":"Hull","Brighton & Hove Albion":"Brighton",
+    "Arsenal FC":"Arsenal","Everton FC":"Everton","Ipswich Town":"Ipswich",
+    "Nottingham Forest":"Nottm Forest","Coventry City":"Coventry"
+  },
+  "championship": {
+    "Watford FC":"Watford","Millwall FC":"Millwall","West Ham United":"West Ham",
+    "Cardiff City":"Cardiff","Stoke City":"Stoke","Portsmouth FC":"Portsmouth",
+    "Blackburn Rovers":"Blackburn","Wrexham FC":"Wrexham","Southampton FC":"Southampton",
+    "Burnley FC":"Burnley","Derby County":"Derby","Middlesbrough FC":"Middlesbrough",
+    "Queens Park Rangers":"QPR","Lincoln City":"Lincoln","Swansea City":"Swansea"
+  },
+  "la-liga": {
+    "Atletico Madrid":"Ath Madrid","CA Osasuna":"Osasuna","Deportivo de A Coruña":"La Coruna",
+    "Sevilla FC":"Sevilla","FC Barcelona":"Barcelona","Racing Santander":"Santander",
+    "Levante UD":"Levante","Athletic Bilbao":"Ath Bilbao","Real Betis Balompie":"Betis",
+    "Getafe CF":"Getafe","Malaga CF":"Malaga","Villarreal CF":"Villarreal"
+  },
+  "serie-a-italy": {
+    "AC Monza":"Monza","US Sassuolo Calcio":"Sassuolo","Udinese Calcio":"Udinese",
+    "Cagliari Calcio":"Cagliari","Bologna FC":"Bologna","Torino FC":"Torino",
+    "AS Roma":"Roma","Inter Milan":"Inter","Venezia FC":"Venezia","SS Lazio":"Lazio"
+  },
+  "bundesliga": {
+    "FC Bayern Munchen":"Bayern Munich","FC Bayern München":"Bayern Munich",
+    "1. FC Union Berlin":"Union Berlin","Eintracht Frankfurt":"Ein Frankfurt",
+    "SC Freiburg":"Freiburg","FC Augsburg":"Augsburg",
+    "Borussia Monchengladbach":"MGladbach","Borussia Mönchengladbach":"MGladbach",
+    "FSV Mainz 05":"Mainz","Hamburger SV":"Hamburg","VfB Stuttgart":"Stuttgart",
+    "Borussia Dortmund":"Dortmund"
+  },
+  "ligue-1": {
+    "AS Monaco":"Monaco","RC Lens":"Lens","RC Strasbourg":"Strasbourg",
+    "Olympique Lyonnais":"Lyon","Stade Rennais FC":"Rennes","Le Mans UC 72":"Le Mans",
+    "FC Lorient":"Lorient","Toulouse FC":"Toulouse","Le Havre AC":"Le Havre",
+    "Angers SCO":"Angers","ES Troyes AC":"Troyes"
+  },
+  "super-league-greece": {
+    "Atromitos Athinon":"Atromitos","Aris Thessaloniki":"Aris"
+  },
+  "liga-mx": {
+    "Club Puebla":"Puebla","Deportivo Toluca FC":"Toluca","CF Tigres UANL":"Tigres UANL"
+  },
+  "serie-a-brazil": {
+    "Gremio RS":"Gremio","Clube Atletico MG":"Atletico-MG","Chapecoense SC":"Chapecoense-SC",
+    "Mirassol SP":"Mirassol"
+  }
+};
+var TEAM_NAME_PREFIX_TOKENS = ["FC","CF","AC","AS","SS","SC","SV","UD","US","CA","CD","RC","CP","SD","Real","Racing","Club","Deportivo","Clube"];
+var TEAM_NAME_SUFFIX_TOKENS = ["UC 72","FC","CF","AC","AS","SS","SC","SV","UD","US","CA","CD","RC","CP","SD","Calcio","Balompie","City","Town","County","United","Rovers"];
+function stripDiacritics(s){
+  try{ return s.normalize("NFD").replace(/[̀-ͯ]/g,""); }catch(e){ return s; }
+}
+function stripNumeralPrefix(s){ return s.replace(/^\d+\.\s*/, ""); }
+function stripPrefixToken(s){
+  for(var i=0;i<TEAM_NAME_PREFIX_TOKENS.length;i++){
+    var re = new RegExp("^"+TEAM_NAME_PREFIX_TOKENS[i]+"\\s+","i");
+    if(re.test(s)) return s.replace(re, "");
+  }
+  return s;
+}
+function stripSuffixToken(s){
+  for(var i=0;i<TEAM_NAME_SUFFIX_TOKENS.length;i++){
+    var re = new RegExp("\\s+"+TEAM_NAME_SUFFIX_TOKENS[i]+"$","i");
+    if(re.test(s)) return s.replace(re, "");
+  }
+  return s;
+}
+function teamNameCandidates(name){
+  var out = [name];
+  function push(v){ if(out.indexOf(v)===-1) out.push(v); }
+  var n1 = stripNumeralPrefix(name); push(n1);
+  var n2 = stripDiacritics(n1); push(n2);
+  var n3 = stripPrefixToken(n2); push(n3);
+  var n4 = stripSuffixToken(n2); push(n4);
+  var n5 = stripSuffixToken(n3); push(n5);
+  var n6 = stripPrefixToken(n4); push(n6);
+  return out;
+}
+// Επιστρέφει το canonical όνομα (όπως υπάρχει στο byLeague[lg].teams) αν
+// αντιστοιχεί στο name με οποιονδήποτε από τους παραπάνω μηχανισμούς, αλλιώς null.
+function matchTeamInLeague(name, lg){
+  var teams = byLeague[lg] && byLeague[lg].teams;
+  if(!teams) return null;
+  if(teams.has(name)) return name;
+  var alias = TEAM_ALIASES[lg] && TEAM_ALIASES[lg][name];
+  if(alias && teams.has(alias)) return alias;
+  var cands = teamNameCandidates(name), i;
+  for(i=0;i<cands.length;i++){ if(teams.has(cands[i])) return cands[i]; }
+  // τελευταία προσπάθεια: σύγκριση χωρίς τόνους/διαλυτικά και στις δύο πλευρές
+  var normTeams = {};
+  teams.forEach(function(t){ normTeams[stripDiacritics(t)] = t; });
+  for(i=0;i<cands.length;i++){ if(normTeams[cands[i]]) return normTeams[cands[i]]; }
+  return null;
+}
 function resolveTeam(participant, guessedLeague){
   var t = TEAM_MAP[participant.id];
   if(t) return t;
-  // Ο fetcher τώρα παίρνει τα ονόματα στα αγγλικά (en.stoiximan.gr) — αν το
-  // όνομα ταιριάζει ήδη ακριβώς με ομάδα του ιστορικού dataset, αυτόματη
-  // αντιστοίχιση χωρίς να χρειάζεται χειροκίνητο "άγνωστη ομάδα" βήμα.
   var name = (participant && participant.name || "").trim();
   if(!name) return null;
-  if(guessedLeague && byLeague[guessedLeague] && byLeague[guessedLeague].teams.has(name)){
-    return {name:name, league:guessedLeague};
+  if(guessedLeague && byLeague[guessedLeague]){
+    var m = matchTeamInLeague(name, guessedLeague);
+    if(m) return {name:m, league:guessedLeague};
   }
   var found = null;
   Object.keys(byLeague).forEach(function(lg){
     if(found) return;
-    if(byLeague[lg].teams.has(name)) found = {name:name, league:lg};
+    var m2 = matchTeamInLeague(name, lg);
+    if(m2) found = {name:m2, league:lg};
   });
   return found;
 }
