@@ -140,6 +140,17 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .row-main .team{font-size:14.5px;font-weight:600;display:flex;align-items:center}
 .row-main .team .lgchip{font-size:10px;font-weight:500;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:8px;vertical-align:1px}
 .row-main .team .dtchip{font-size:10px;font-weight:500;font-family:"IBM Plex Mono",monospace;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.row-main .team .infoBtn{
+  display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text-faint);
+  font-size:10px;font-style:italic;font-family:Georgia,"Times New Roman",serif;font-weight:700;
+  cursor:help;margin-left:8px;vertical-align:1px;flex:none;
+}
+.row-main .team .infoBtn:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.infoTip{
+  position:absolute;z-index:200;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:7px 11px;font-size:12.5px;color:var(--text);box-shadow:var(--shadow);white-space:nowrap;pointer-events:none;
+}
 .row-main .market{font-size:13px;color:var(--text-dim);margin-top:5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .side-tag{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:11.5px;padding:3px 9px;border-radius:var(--radius-pill)}
 .side-tag.over{background:var(--accent-soft);color:var(--accent);box-shadow:var(--glow-pos)}
@@ -679,6 +690,11 @@ function processEvent(root){
       feedRows.push({
         isTotal: isTotal, team: isTotal ? null : team.name, opponent: opponentName,
         homeTeam: isTotal ? homeR.name : null, awayTeam: isTotal ? awayR.name : null,
+        // Ονόματα ΕΝΤΟΣ/ΕΚΤΟΣ όπως τα έδωσε ζωντανά το Stoiximan — για ΕΜΦΑΝΙΣΗ
+        // μόνο (ποιος είναι ο πραγματικός αγώνας), ανεξάρτητα αν αντιστοιχίστηκαν
+        // ή όχι στο ιστορικό dataset. Σε αγορές ΜΙΑΣ ομάδας (isTotal=false) το
+        // header δείχνει μόνο ένα όνομα — αυτά τα δύο δίνουν το "εναντίον ποιου".
+        matchHome: home.name || null, matchAway: away.name || null,
         league: leagueForTeam, category: cls.category, direction: evalDirection,
         threshold: parsed.threshold, side: parsed.side, price: sel.price, windowResults: windowResults,
         marketName: market.name||"", startTime: root.startTime||null,
@@ -768,6 +784,40 @@ function avatarHtml(name, league){
   return '<span class="avatar" style="background:'+hashColor(name)+'">'+initialsOf(name)+'</span>';
 }
 function dirLabel(d){ return d==="total" ? "σύνολο αγώνα" : "ομάδας"; }
+
+/* ---------- info tooltip (ⓘ) — δείχνει ποιος είναι ο αγώνας χωρίς να ανοίγει το drawer ---------- */
+function showInfoTip(anchorEl, text){
+  var old = document.querySelector(".infoTip");
+  if(old) old.remove();
+  var tip = document.createElement("div");
+  tip.className = "infoTip";
+  tip.textContent = text;
+  document.body.appendChild(tip);
+  try{
+    var rect = anchorEl.getBoundingClientRect();
+    var top = rect.bottom + (window.scrollY||0) + 6;
+    var left = rect.left + (window.scrollX||0);
+    tip.style.top = top+"px";
+    tip.style.left = left+"px";
+    requestAnimationFrame(function(){
+      try{
+        var maxLeft = (window.scrollX||0) + document.documentElement.clientWidth - tip.offsetWidth - 8;
+        if(left > maxLeft) tip.style.left = Math.max(8, maxLeft)+"px";
+      }catch(e){}
+    });
+  }catch(e){}
+  function dismiss(ev){
+    if(ev.target===anchorEl) return;
+    tip.remove();
+    document.removeEventListener("click", dismiss);
+    document.removeEventListener("touchstart", dismiss);
+  }
+  setTimeout(function(){
+    document.addEventListener("click", dismiss);
+    document.addEventListener("touchstart", dismiss);
+  }, 0);
+  setTimeout(function(){ if(tip.parentNode) tip.remove(); }, 5000);
+}
 
 function populateLeagueFilter(){
   var sel = document.getElementById("leagueFilter");
@@ -893,11 +943,18 @@ function renderRowCard(r){
     (avatarHtml(r.team, r.league)+' '+r.team);
   var marketNote = r.isTotal ? 'σύνολο αγώνα (ιστ. '+r.homeTeam+' εντός + '+r.awayTeam+' εκτός)' : dirLabel(r.direction);
 
+  // Ποιος είναι πραγματικά ο αγώνας (εντός – εκτός), για το ⓘ δίπλα στο όνομα —
+  // στις αγορές ΜΙΑΣ ομάδας το header δείχνει μόνο ένα όνομα, όχι ενάντια σε
+  // ποιον παίζει, οπότε χρειάζεται αυτή η ένδειξη.
+  var matchInfo = (r.matchHome && r.matchAway) ? (r.matchHome+' – '+r.matchAway) : null;
+
   var head = document.createElement("div");
   head.className = "row-head";
   head.innerHTML =
     '<div class="row-main">'+
-      '<div class="team">'+teamLabel+'<span class="lgchip">'+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
+      '<div class="team">'+teamLabel+
+      (matchInfo ? '<span class="infoBtn" title="'+escAttr(matchInfo)+'">i</span>' : '')+
+      '<span class="lgchip">'+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
       (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+'</div>'+
       '<div class="market">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
@@ -911,6 +968,10 @@ function renderRowCard(r){
     '<div class="chev">▾</div>';
 
   head.addEventListener("click", function(){ card.classList.toggle("open"); if(card.classList.contains("open") && !card._drawerBuilt){ card.appendChild(renderDrawer(r, head)); card._drawerBuilt=true; } });
+  var infoBtn = head.querySelector(".infoBtn");
+  if(infoBtn && matchInfo){
+    infoBtn.addEventListener("click", function(e){ e.stopPropagation(); showInfoTip(infoBtn, matchInfo); });
+  }
 
   card.appendChild(head);
   return card;
