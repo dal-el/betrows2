@@ -287,7 +287,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .seg.small button{background:transparent;border:0;color:var(--text-dim);font-size:11.5px;padding:6px 12px;cursor:pointer;font-weight:600;font-family:"IBM Plex Mono",monospace}
 .seg.small button.active{background:var(--accent);color:#04231d;box-shadow:var(--glow-accent)}
 .chart-bars{
-  display:flex;align-items:flex-end;gap:6px;height:170px;padding:0 4px 0 0;overflow-x:auto;
+  display:flex;align-items:flex-end;gap:6px;height:182px;padding:0 4px 0 0;overflow-x:auto;
   border-bottom:1px solid var(--border);
 }
 .chart-strip-wrap{margin-bottom:18px}
@@ -311,13 +311,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    γραμμή και χάνεται. Δίνουμε στο .bar-val δικό του z-index (πάνω από τη γραμμή)
    + φόντο, ώστε να είναι ΠΑΝΤΑ ευανάγνωστο ό,τι κι αν βρίσκεται από πίσω του. */
 .bar-val{
-  font-size:10px;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);
+  font-size:10px;line-height:12px;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);
   position:relative;z-index:2;background:var(--surface);padding:1px 4px;border-radius:4px;
 }
 .bar{width:60%;border-radius:5px 5px 0 0;min-height:3px}
 .bar.hit{background:var(--accent);box-shadow:var(--glow-pos)}
 .bar.miss{background:var(--rose);opacity:.6}
-.bar-x{font-size:9px;color:var(--text-faint);font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+.bar-x{font-size:9px;line-height:12px;color:var(--text-faint);font-family:"IBM Plex Mono",monospace;white-space:nowrap}
 .bar-x b{color:var(--text-faint);font-weight:600;margin-left:2px}
 .bar-crest{margin-top:2px}
 .bar-crest .avatar{width:27px;height:27px;margin:0;vertical-align:middle;box-shadow:0 0 0 1px var(--border);font-size:10.5px}
@@ -1289,21 +1289,29 @@ function renderDrawer(r, headEl){
     var matchesNewestFirst = res.matches.slice().reverse(); // left = most recent
     var maxV = 0; matchesNewestFirst.forEach(function(x){ if(x.v>maxV) maxV=x.v; });
     var ceiling = Math.max(maxV*1.15, thr*1.15, 1);
-    var linePct = Math.min(96, (thr/ceiling)*100);
+    // Η μπάρα (.bar) και η γραμμή-στόχος (.threshold-line) ΠΡΕΠΕΙ να μοιράζονται την
+    // ΙΔΙΑ κλίμακα σε px, αλλιώς η γραμμή δείχνει λάθος ύψος σε σχέση με τις μπάρες.
+    // Παλιά και τα δύο ήταν % του .chart-bars (170px) — ΛΑΘΟΣ, γιατί η μπάρα δεν
+    // ξεκινάει από τη βάση του .chart-bars: από κάτω της υπάρχει ακόμα emblem +
+    // ετικέτα ομάδας (gap 4 + emblem 29 + gap 4 + label 12 = 49px "χαμένος" χώρος)
+    // που η γραμμή δεν το υπολόγιζε. Δουλεύουμε τώρα σε px και τα δύο μαζί.
+    var BAR_TRACK_PX = 100;    // ύψος σε px που αντιστοιχεί στο 0..ceiling της μπάρας
+    var CHROME_BELOW_PX = 49;  // χώρος ΚΑΤΩ από τη μπάρα μέσα στη στήλη (emblem+ετικέτα)
+    var lineBottomPx = CHROME_BELOW_PX + Math.min(BAR_TRACK_PX*0.96, (thr/ceiling)*BAR_TRACK_PX);
     var avg = res.matches.length ? (res.matches.reduce(function(s,x){ return s+x.v; },0) / res.matches.length) : 0;
     var emptyMsg = '<div class="empty" style="padding:20px">Δεν βρέθηκαν ματς με αυτά τα φίλτρα.</div>';
 
     function barColHtml(x, idx, grp){
       var ok = r.side==="over" ? x.v>thr : x.v<thr;
       var lbl = matchLabel(r, x);
-      var h = Math.max(4, Math.round((x.v/ceiling)*100));
+      var h = Math.max(4, Math.round((x.v/ceiling)*BAR_TRACK_PX));
       var isSel = state.selected && state.selected.grp===grp && state.selected.idx===idx;
       var sel = isSel ? " sel" : "";
       var venueLbl = lbl.venue==="home" ? "εντός" : "εκτός";
       var tip = escAttr(x.m.d+" · "+lbl.team+" vs "+lbl.opponent+" ("+venueLbl+") · τιμή "+x.v);
       return '<div class="bar-col'+sel+'" data-grp="'+grp+'" data-idx="'+idx+'" title="'+tip+'">'+
         '<div class="bar-val">'+x.v+'</div>'+
-        '<div class="bar '+(ok?"hit":"miss")+'" style="height:'+h+'%"></div>'+
+        '<div class="bar '+(ok?"hit":"miss")+'" style="height:'+h+'px"></div>'+
         '<div class="bar-crest">'+avatarHtml(lbl.opponent, r.league)+'</div>'+
         '<div class="bar-x">'+lbl.opponent.slice(0,3).toUpperCase()+'<b>'+(lbl.venue==="home"?"(H)":"(AW)")+'</b></div>'+
       '</div>';
@@ -1328,14 +1336,14 @@ function renderDrawer(r, headEl){
         '<div class="chart-strip-wrap">'+
           '<div class="chart-strip-title">'+avatarHtml(r.homeTeam, r.league)+'<span class="t">'+escAttr(r.homeTeam)+'</span><span class="v">εντός · '+homeList.length+' ματς</span></div>'+
           '<div class="chart-bars" style="position:relative">'+
-            '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+thr+'</span></div>'+
+            '<div class="threshold-line" style="bottom:'+lineBottomPx+'px"><span>'+thr+'</span></div>'+
             (homeBars || emptyMsg)+
           '</div>'+
         '</div>'+
         '<div class="chart-strip-wrap away">'+
           '<div class="chart-strip-title">'+avatarHtml(r.awayTeam, r.league)+'<span class="t">'+escAttr(r.awayTeam)+'</span><span class="v">εκτός · '+awayList.length+' ματς</span></div>'+
           '<div class="chart-bars" style="position:relative">'+
-            '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+thr+'</span></div>'+
+            '<div class="threshold-line" style="bottom:'+lineBottomPx+'px"><span>'+thr+'</span></div>'+
             (awayBars || emptyMsg)+
           '</div>'+
         '</div>';
@@ -1343,7 +1351,7 @@ function renderDrawer(r, headEl){
       var barsHtml = matchesNewestFirst.map(function(x, idx){ return barColHtml(x, idx, "s"); }).join("");
       chartHtml =
         '<div class="chart-bars" style="position:relative">'+
-          '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+thr+'</span></div>'+
+          '<div class="threshold-line" style="bottom:'+lineBottomPx+'px"><span>'+thr+'</span></div>'+
           (barsHtml || emptyMsg)+
         '</div>';
     }
