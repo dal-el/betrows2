@@ -106,7 +106,6 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   margin-top:22px;display:flex;flex-direction:column;gap:10px;
 }
 .toolbar-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.toolbar-row#toolbarRow2 #windowSeg{margin-left:auto}
 .seg-group{display:flex;gap:10px;align-items:center}
 .count{font-size:13px;color:var(--text-dim)}
 .count b{color:var(--text)}
@@ -122,12 +121,14 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .mfIcon{font-size:13px;line-height:1}
 .mfBadge{background:var(--accent);color:#04231d;border-radius:50%;min-width:18px;height:18px;padding:0 4px;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace}
 
-/* mobile φίλτρα ως bottom sheet — τα ίδια στοιχεία (toolbarRow1 + filterSegGroup)
-   μετακινούνται εδώ μέσα με JS όταν η οθόνη είναι κινητού, χωρίς διπλότυπα IDs. */
+/* mobile φίλτρα ως κεντραρισμένο modal — τα ίδια στοιχεία (toolbarRow1 +
+   filterSegGroup) μετακινούνται εδώ μέσα με JS όταν η οθόνη είναι κινητού,
+   χωρίς διπλότυπα IDs. */
 .filtersBackdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300}
 .filtersSheet{
-  position:fixed;left:0;right:0;bottom:0;z-index:301;max-height:82vh;overflow-y:auto;
-  background:var(--surface);border-top:1px solid var(--border);border-radius:16px 16px 0 0;
+  position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(92vw,420px);z-index:301;max-height:82vh;overflow-y:auto;
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
   box-shadow:var(--shadow);padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));
 }
 .fsHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
@@ -141,11 +142,11 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 @media(max-width:640px){
   /* Το child-combinator (>) είναι σκόπιμο: κρύβει το row1/filterSegGroup ΜΟΝΟ
      όσο βρίσκονται στην "έξω" θέση τους (άμεσα παιδιά .toolbar/#toolbarRow2).
-     Όταν το JS τα μετακινήσει μέσα στο #filtersSheetBody (bottom sheet), το
+     Όταν το JS τα μετακινήσει μέσα στο #filtersSheetBody (modal), το
      selector δεν ταιριάζει πια και ξαναφαίνονται κανονικά εκεί μέσα. */
   .toolbar > #toolbarRow1{display:none}
   #toolbarRow2 > #filterSegGroup{display:none}
-  .mfToggle{display:inline-flex}
+  .mfToggle{display:inline-flex;flex:1 0 100%} /* μόνο του στην πρώτη σειρά */
   .toolbar-row#toolbarRow2{gap:8px}
   .filtersSheet .toolbar-row{flex-direction:column;align-items:stretch;gap:12px}
   .filtersSheet .pillselect,.filtersSheet .oddsFilter,.filtersSheet .teamSelect,.filtersSheet .seg-group{width:100%}
@@ -394,9 +395,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       </div>
       <div class="oddsFilter">
         <span class="ofLabel">Απόδοση</span>
-        <input type="number" step="0.01" min="1" class="oddsInput" id="oddsMin" placeholder="από">
+        <input type="number" step="0.01" min="1" class="oddsInput" id="oddsMin" placeholder="από" value="1.5">
         <span class="sep">–</span>
-        <input type="number" step="0.01" min="1" class="oddsInput" id="oddsMax" placeholder="έως">
+        <input type="number" step="0.01" min="1" class="oddsInput" id="oddsMax" placeholder="έως" value="3">
         <button class="clearOdds" id="oddsClear" title="Καθαρισμός φίλτρου απόδοσης">✕</button>
       </div>
     </div>
@@ -418,7 +419,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       </div>
       <select class="pillselect" id="sortMode">
         <option value="hit">Ταξινόμηση: Hit rate</option>
-        <option value="edge">Ταξινόμηση: Edge</option>
+        <option value="edge" selected>Ταξινόμηση: Edge</option>
         <option value="price">Ταξινόμηση: Απόδοση</option>
       </select>
       <div class="seg" id="windowSeg">
@@ -471,9 +472,9 @@ var activeWindow = 10;
 var catFilterVal = "";
 var leagueFilterVal = "";
 var teamFilterVal = "";
-var sortMode = "hit";
-var oddsMinVal = null;
-var oddsMaxVal = null;
+var sortMode = "edge";
+var oddsMinVal = 1.5;
+var oddsMaxVal = 3;
 var scopeFilterVal = "team"; // "team" (μόνο ομάδες) | "pair" (μόνο ζευγάρια/σύνολο) | "all"
 var showFilterVal = "all"; // "all" | "under" | "over"
 var feedRows = [];
@@ -1003,7 +1004,7 @@ function updateMobileFilterBadge(){
   if(catFilterVal) n++;
   if(leagueFilterVal) n++;
   if(teamFilterVal) n++;
-  if(oddsMinVal!=null || oddsMaxVal!=null) n++;
+  if(oddsMinVal!==1.5 || oddsMaxVal!==3) n++; // 1.5–3 είναι πλέον η προεπιλογή, δεν μετράει ως "ενεργό" φίλτρο
   if(scopeFilterVal!=="team") n++;
   if(showFilterVal!=="all") n++;
   badge.textContent = n;
@@ -1484,15 +1485,16 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   backdrop.addEventListener("click", closeSheet);
   document.getElementById("fsApply").addEventListener("click", closeSheet); // ήδη live-apply, το κουμπί απλά κλείνει το sheet
   document.getElementById("fsReset").addEventListener("click", function(){
+    // Επαναφορά στις προεπιλογές (όχι σε κενό) — απόδοση 1.5–3, ομάδες/ALL.
     catFilterVal = ""; leagueFilterVal = ""; teamFilterVal = "";
-    oddsMinVal = null; oddsMaxVal = null;
+    oddsMinVal = 1.5; oddsMaxVal = 3;
     scopeFilterVal = "team"; showFilterVal = "all";
     document.getElementById("catFilter").value = "";
     document.getElementById("leagueFilter").value = "";
     populateTeamFilter();
     updateTeamSelectButton();
-    document.getElementById("oddsMin").value = "";
-    document.getElementById("oddsMax").value = "";
+    document.getElementById("oddsMin").value = "1.5";
+    document.getElementById("oddsMax").value = "3";
     Array.prototype.forEach.call(document.querySelectorAll("#scopeSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="team"); });
     Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
     renderToolbarAndRows();
