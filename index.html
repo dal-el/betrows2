@@ -191,8 +191,6 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 /* drawer chart */
 .chart-summary{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 10px;font-size:11px;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px}
 .chart-summary b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
-.chart-summary .posv b{color:var(--accent)}
-.chart-summary .negv b{color:var(--rose)}
 /* pill κυκλικό με το ΤΡΕΧΟΝ (δυναμικό) ποσοστό επιτεύξεως — ίδιο στιλ με τα
    pill L5/L10/L15/L20 της κάρτας, αλλά ακολουθεί ΟΛΑ τα φίλτρα του drawer. */
 .chart-summary .hpwrap{display:inline-flex}
@@ -1081,8 +1079,6 @@ function renderDrawer(r, headEl){
     var res = compute(thr);
     var price = findSiblingPrice(thr);
     updateHeader(res, thr, price);
-    var edgeVal = (price!=null && res.sample>0) ? (res.hitRate - impliedProb(price)) * 100 : null;
-    var evVal = (price!=null && res.sample>0) ? (res.hitRate*price - 1) * 100 : null;
     var matchesNewestFirst = res.matches.slice().reverse(); // left = most recent
     var maxV = 0; matchesNewestFirst.forEach(function(x){ if(x.v>maxV) maxV=x.v; });
     var ceiling = Math.max(maxV*1.15, thr*1.15, 1);
@@ -1177,8 +1173,6 @@ function renderDrawer(r, headEl){
         '<span>AVERAGE <b>'+(res.sample?avg.toFixed(2):"—")+'</b></span>'+
         '<span class="hpwrap"><div class="hp active"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
         '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+res.hits+'</b> / MISS <b>'+(res.sample-res.hits)+'</b></span>'+
-        '<span'+(edgeVal!=null?(edgeVal>=0?' class="posv"':' class="negv"'):'')+'>EDGE <b>'+(edgeVal!=null?edgeVal.toFixed(1)+"%":"—")+'</b></span>'+
-        '<span'+(evVal!=null?(evVal>=0?' class="posv"':' class="negv"'):'')+'>EXP VALUE <b>'+(evVal!=null?evVal.toFixed(1)+"%":"—")+'</b></span>'+
       '</div>'+
       '<div class="drawerCtrlRow">'+
         '<div class="seg small" id="drawerWin">'+
