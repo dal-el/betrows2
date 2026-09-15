@@ -216,23 +216,38 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .warn-tag{font-size:9.5px;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold);text-transform:none;letter-spacing:0;border-radius:var(--radius-pill);padding:2px 8px;cursor:help}
 
 .pillsrow{display:flex;gap:7px}
+/* Λογική χρωματισμού pills όπως στο PropDunker: απαλό κάθετο gradient tint
+   (από πάνω προς τα κάτω, σβήνοντας) + λεπτό έγχρωμο περίγραμμα, ΟΧΙ γεμάτο
+   χρώμα — και τα γράμματα/αριθμοί μέσα πάντα ΛΕΥΚΑ (όχι βαμμένο κείμενο). */
 .hp{
+  --tint:148,158,196; /* ουδέτερο default (δεν πρέπει να συμβεί, κάθε pill παίρνει tier) */
   width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;
-  background:var(--surface-2);border:1px solid var(--border);font-family:"IBM Plex Mono",monospace;
+  background:linear-gradient(rgba(var(--tint),.22),rgba(var(--tint),0)),var(--surface-2);
+  border:1px solid rgba(var(--tint),.35);font-family:"IBM Plex Mono",monospace;
+  transition:transform .15s ease,box-shadow .15s ease;
 }
-.hp .pct{font-size:13.5px;font-weight:800;letter-spacing:0;color:var(--text)}
-.hp .lbl{font-size:8.5px;font-weight:600;color:var(--text-dim)}
-.hp.active{background:var(--accent-soft);border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft),var(--glow-accent)}
-.hp.active .pct{color:var(--accent)}
+.hp .pct{font-size:13.5px;font-weight:800;letter-spacing:0;color:#fff}
+.hp .lbl{font-size:8.5px;font-weight:600;color:rgba(255,255,255,.68)}
+.hp.tier-hi{--tint:18,230,173}
+.hp.tier-mid{--tint:255,200,97}
+.hp.tier-lo{--tint:255,111,149}
+.hp.active{
+  border-color:rgba(var(--tint),.9);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 16px rgba(var(--tint),.5),0 0 30px rgba(var(--tint),.22);
+  transform:scale(1.08);
+}
 
 .stats{display:flex;gap:8px;align-items:flex-start}
-.pill{border-radius:var(--radius-md);padding:7px 12px;min-width:72px;text-align:center;background:var(--surface-2);border:1px solid var(--border)}
-.pill .k{font-size:9px;letter-spacing:.05em;color:var(--text-faint);text-transform:uppercase}
-.pill .v{font-size:14px;font-weight:700;font-family:"IBM Plex Mono",monospace;margin-top:1px}
-.pill.pos{background:var(--accent-soft);border-color:var(--accent);box-shadow:var(--glow-pos)}
-.pill.pos .v,.pill.pos .k{color:var(--accent)}
-.pill.neg{background:var(--rose-soft);border-color:var(--rose);box-shadow:var(--glow-neg)}
-.pill.neg .v,.pill.neg .k{color:var(--rose)}
+.pill{
+  --tint:18,230,173; /* FAIR: πάντα accent-tinted, όπως στο PropDunker (δεν έχει θετικό/αρνητικό πρόσημο) */
+  border-radius:var(--radius-md);padding:7px 12px;min-width:72px;text-align:center;
+  background:linear-gradient(rgba(var(--tint),.16),rgba(var(--tint),0)),var(--surface-2);
+  border:1px solid rgba(var(--tint),.35);
+}
+.pill .k{font-size:9px;letter-spacing:.05em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.pill .v{font-size:14px;font-weight:700;font-family:"IBM Plex Mono",monospace;margin-top:1px;color:#fff}
+.pill.pos{--tint:18,230,173}
+.pill.neg{--tint:255,111,149}
 .chev{color:var(--text-faint);font-size:12px;align-self:center}
 .row-card.open .chev{transform:rotate(180deg)}
 .row-card.open{border-color:var(--accent)}
@@ -839,6 +854,9 @@ function buildFeedMulti(roots){
 
 /* ---------- rendering ---------- */
 function fmtPct(x){ return Math.round(x*100)+"%"; }
+// Ποιοτικό tier του ποσοστού επιτεύξεως — καθορίζει το tint/border χρώμα του
+// pill (λογική PropDunker): >=70% πράσινο, 50-69% χρυσό, <50% ροζ.
+function hpTier(p){ return p>=70 ? "tier-hi" : p>=50 ? "tier-mid" : "tier-lo"; }
 function fmtOdds(x){ return x==null ? "—" : x.toFixed(2); }
 // Ημερομηνία/ώρα έναρξης του live αγώνα, πάντα σε ώρα Ελλάδος (Europe/Athens)
 // ανεξάρτητα από τη ζώνη ώρας της συσκευής που βλέπει τη σελίδα.
@@ -1042,7 +1060,8 @@ function renderRowCard(r){
 
   var pillsHtml = WINDOWS.map(function(n){
     var wr = r.windowResults[n];
-    return '<div class="hp'+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
+    var p = Math.round(wr.hitRate*100);
+    return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
   }).join("");
 
   var statsHtml = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
@@ -1283,7 +1302,7 @@ function renderDrawer(r, headEl){
         '<span>ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ <b>'+res.sample+'</b></span>'+
         '<span class="csRight">'+
           '<span>AVERAGE <b>'+(res.sample?avg.toFixed(2):"—")+'</b></span>'+
-          '<span class="hpwrap"><div class="hp active"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
+          '<span class="hpwrap"><div class="hp active '+(res.sample?hpTier(Math.round(res.hitRate*100)):"")+'"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
           '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+res.hits+'</b> / MISS <b>'+(res.sample-res.hits)+'</b></span>'+
         '</span>'+
       '</div>'+
