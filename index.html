@@ -215,6 +215,18 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .hitword{color:var(--accent);font-weight:600}
 .missword{color:var(--rose);font-weight:600}
 .minute-note{margin-top:6px;font-size:11px;color:var(--text-faint);line-height:1.5}
+.drawerCtrlRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.drawerCtrlRow .seg.small{margin-bottom:0}
+.lwrap{display:inline-flex}
+.lninput{width:52px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:11.5px;text-align:center;padding:6px 4px;-moz-appearance:textfield}
+.lninput::-webkit-outer-spin-button,.lninput::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.lninput:focus{outline:1px solid var(--accent)}
+.lninput.active{border-color:var(--accent);color:var(--accent);box-shadow:var(--glow-accent)}
+.lineadj{display:inline-flex;align-items:center;gap:8px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-pill);padding:4px 6px}
+.lineadj button{background:transparent;border:0;color:var(--text-dim);font-size:14px;font-weight:700;cursor:pointer;width:22px;height:22px;border-radius:50%;line-height:1}
+.lineadj button:hover{background:var(--surface-2);color:var(--text)}
+.lineadj .lval{font-size:11.5px;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);min-width:60px;text-align:center}
+.lineadj .lval b{color:var(--accent)}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .fchip{
   background:var(--surface-3);border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-pill);
@@ -887,7 +899,7 @@ function renderRowCard(r){
     '<div class="stats">'+statsHtml+'</div>'+
     '<div class="chev">▾</div>';
 
-  head.addEventListener("click", function(){ card.classList.toggle("open"); if(card.classList.contains("open") && !card._drawerBuilt){ card.appendChild(renderDrawer(r)); card._drawerBuilt=true; } });
+  head.addEventListener("click", function(){ card.classList.toggle("open"); if(card.classList.contains("open") && !card._drawerBuilt){ card.appendChild(renderDrawer(r, head)); card._drawerBuilt=true; } });
 
   card.appendChild(head);
   return card;
@@ -903,33 +915,87 @@ function matchLabel(r, x){
   return { team: r.team, opponent: x.m.h===r.team ? x.m.a : x.m.h, venue: x.m.h===r.team ? "home" : "away" };
 }
 
-function renderDrawer(r){
+function renderDrawer(r, headEl){
   var drawer = document.createElement("div");
   drawer.className = "drawer";
   var inner = document.createElement("div");
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, thresholdDelta:0, usingCustomN:false };
 
-  function compute(){
+  // Ενεργό threshold (γραμμή) μετά το +/- του χρήστη, στρογγυλεμένο στο .5 grid.
+  function effThreshold(){
+    return Math.round((r.threshold + state.thresholdDelta) * 2) / 2;
+  }
+
+  // Ψάχνει στο ίδιο feed για την ΠΡΑΓΜΑΤΙΚΗ τιμή (odds) της ίδιας αγοράς σε
+  // άλλο threshold (π.χ. όταν ο χρήστης ανεβοκατεβάζει τη γραμμή με +/-).
+  function findSiblingPrice(thr){
+    if(thr === r.threshold) return r.price;
+    var found = feedRows.filter(function(x){
+      if(x.side!==r.side || x.category!==r.category || x.threshold!==thr) return false;
+      return r.isTotal
+        ? (x.isTotal && x.homeTeam===r.homeTeam && x.awayTeam===r.awayTeam)
+        : (!x.isTotal && x.team===r.team && x.direction===r.direction);
+    })[0];
+    return found ? found.price : null;
+  }
+
+  // Ενημερώνει δυναμικά τα Fair/Edge/Exp Value + το side-tag/price-chip στην
+  // ΚΕΦΑΛΙΔΑ της κάρτας (έξω από το drawer), ώστε να ακολουθούν το L?/+-.
+  function updateHeader(res, thr){
+    if(!headEl) return;
+    var price = findSiblingPrice(thr);
+    var sideTagEl = headEl.querySelector(".side-tag");
+    if(sideTagEl) sideTagEl.textContent = (r.side==="over"?"OVER":"UNDER")+" "+thr;
+    var marketRow = headEl.querySelector(".market");
+    var priceChipEl = headEl.querySelector(".price-chip");
+    if(price!=null){
+      if(priceChipEl){ priceChipEl.textContent = "@ "+price.toFixed(2); }
+      else if(marketRow){
+        var span = document.createElement("span");
+        span.className = "price-chip";
+        span.textContent = "@ "+price.toFixed(2);
+        var srcTag = marketRow.querySelector(".src-tag");
+        if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
+      }
+    } else if(priceChipEl){
+      priceChipEl.remove();
+    }
+    var statsEl = headEl.querySelector(".stats");
+    if(!statsEl) return;
+    var html = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
+    if(price!=null && res.sample>0){
+      var edge = (res.hitRate - impliedProb(price)) * 100;
+      var ev = (res.hitRate*price - 1) * 100;
+      html += '<div class="pill '+(edge>=0?"pos":"neg")+'"><div class="k">Edge</div><div class="v">'+edge.toFixed(1)+'%</div></div>';
+      html += '<div class="pill '+(ev>=0?"pos":"neg")+'"><div class="k">Exp Value</div><div class="v">'+ev.toFixed(1)+'%</div></div>';
+    }
+    statsEl.innerHTML = html;
+  }
+
+  function compute(thr){
     var opts = { n: state.n, venue: state.venue, result: state.result, outlierTrim: state.outlierTrim,
                  fullSeason: state.fullSeason, h2h: state.h2h ? (r.isTotal ? true : r.opponent) : null };
     return r.isTotal
-      ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, r.threshold, r.side, opts)
-      : evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, opts);
+      ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, thr, r.side, opts)
+      : evaluate(r.team, r.league, r.category, r.direction, thr, r.side, opts);
   }
 
   function draw(){
-    var res = compute();
+    var thr = effThreshold();
+    var res = compute(thr);
+    updateHeader(res, thr);
     var matchesNewestFirst = res.matches.slice().reverse(); // left = most recent
     var maxV = 0; matchesNewestFirst.forEach(function(x){ if(x.v>maxV) maxV=x.v; });
-    var ceiling = Math.max(maxV*1.15, r.threshold*1.15, 1);
-    var linePct = Math.min(96, (r.threshold/ceiling)*100);
+    var ceiling = Math.max(maxV*1.15, thr*1.15, 1);
+    var linePct = Math.min(96, (thr/ceiling)*100);
+    var avg = res.matches.length ? (res.matches.reduce(function(s,x){ return s+x.v; },0) / res.matches.length) : 0;
     var emptyMsg = '<div class="empty" style="padding:20px">Δεν βρέθηκαν ματς με αυτά τα φίλτρα.</div>';
 
     function barColHtml(x, idx, grp){
-      var ok = r.side==="over" ? x.v>r.threshold : x.v<r.threshold;
+      var ok = r.side==="over" ? x.v>thr : x.v<thr;
       var lbl = matchLabel(r, x);
       var h = Math.max(4, Math.round((x.v/ceiling)*100));
       var isSel = state.selected && state.selected.grp===grp && state.selected.idx===idx;
@@ -940,7 +1006,7 @@ function renderDrawer(r){
         '<div class="bar-val">'+x.v+'</div>'+
         '<div class="bar '+(ok?"hit":"miss")+'" style="height:'+h+'%"></div>'+
         '<div class="bar-crest">'+avatarHtml(lbl.opponent, r.league)+'</div>'+
-        '<div class="bar-x">'+lbl.opponent.slice(0,3).toUpperCase()+'<b>'+(lbl.venue==="home"?"Ε":"Ξ")+'</b></div>'+
+        '<div class="bar-x">'+lbl.opponent.slice(0,3).toUpperCase()+'<b>'+(lbl.venue==="home"?"(H)":"(AW)")+'</b></div>'+
       '</div>';
     }
 
@@ -963,14 +1029,14 @@ function renderDrawer(r){
         '<div class="chart-strip-wrap">'+
           '<div class="chart-strip-title">'+avatarHtml(r.homeTeam, r.league)+'<span class="t">'+escAttr(r.homeTeam)+'</span><span class="v">εντός · '+homeList.length+' ματς</span></div>'+
           '<div class="chart-bars" style="position:relative">'+
-            '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+r.threshold+'</span></div>'+
+            '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+thr+'</span></div>'+
             (homeBars || emptyMsg)+
           '</div>'+
         '</div>'+
         '<div class="chart-strip-wrap away">'+
           '<div class="chart-strip-title">'+avatarHtml(r.awayTeam, r.league)+'<span class="t">'+escAttr(r.awayTeam)+'</span><span class="v">εκτός · '+awayList.length+' ματς</span></div>'+
           '<div class="chart-bars" style="position:relative">'+
-            '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+r.threshold+'</span></div>'+
+            '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+thr+'</span></div>'+
             (awayBars || emptyMsg)+
           '</div>'+
         '</div>';
@@ -978,7 +1044,7 @@ function renderDrawer(r){
       var barsHtml = matchesNewestFirst.map(function(x, idx){ return barColHtml(x, idx, "s"); }).join("");
       chartHtml =
         '<div class="chart-bars" style="position:relative">'+
-          '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+r.threshold+'</span></div>'+
+          '<div class="threshold-line" style="bottom:'+linePct+'%"><span>'+thr+'</span></div>'+
           (barsHtml || emptyMsg)+
         '</div>';
     }
@@ -994,7 +1060,7 @@ function renderDrawer(r){
     var selX = selectedMatch();
     if(selX){
       var lbl = matchLabel(r, selX);
-      var ok = r.side==="over" ? selX.v>r.threshold : selX.v<r.threshold;
+      var ok = r.side==="over" ? selX.v>thr : selX.v<thr;
       detailHtml =
         '<div class="bar-detail">'+
           '<b>'+selX.m.d+'</b> · '+lbl.team+' vs '+lbl.opponent+' ('+(lbl.venue==="home"?"εντός":"εκτός")+') · '+
@@ -1007,10 +1073,19 @@ function renderDrawer(r){
     block.innerHTML =
       '<div class="chart-summary">'+
         '<span>ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ <b>'+res.sample+'</b></span>'+
+        '<span>AVERAGE <b>'+(res.sample?avg.toFixed(2):"—")+'</b></span>'+
         '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+res.hits+'</b> / MISS <b>'+(res.sample-res.hits)+'</b></span>'+
       '</div>'+
-      '<div class="seg small" id="drawerWin">'+
-        [5,10,15,20].map(function(n){ return '<button data-n="'+n+'" class="'+(state.n===n&&!state.fullSeason?"active":"")+'">L'+n+'</button>'; }).join("")+
+      '<div class="drawerCtrlRow">'+
+        '<div class="seg small" id="drawerWin">'+
+          [5,10,15,20].map(function(n){ return '<button data-n="'+n+'" class="'+(state.n===n&&!state.fullSeason&&!state.usingCustomN?"active":"")+'">L'+n+'</button>'; }).join("")+
+        '</div>'+
+        '<span class="lwrap"><input type="number" class="lninput'+(state.usingCustomN&&!state.fullSeason?" active":"")+'" min="3" max="60" placeholder="L?" value="'+(state.usingCustomN?state.n:"")+'"></span>'+
+        '<div class="lineadj" id="lineAdj">'+
+          '<button class="ladj" data-d="-1" title="Κατέβασε τη γραμμή">−</button>'+
+          '<span class="lval">LINE <b>'+thr+'</b></span>'+
+          '<button class="ladj" data-d="1" title="Ανέβασε τη γραμμή">+</button>'+
+        '</div>'+
       '</div>'+
       chartHtml+
       detailHtml+
@@ -1031,7 +1106,30 @@ function renderDrawer(r){
     });
     block.querySelector("#drawerWin").addEventListener("click", function(e){
       if(e.target.tagName!=="BUTTON") return;
-      state.fullSeason = false; state.n = parseInt(e.target.getAttribute("data-n"),10); state.selected=null; draw();
+      state.fullSeason = false; state.usingCustomN = false; state.n = parseInt(e.target.getAttribute("data-n"),10); state.selected=null; draw();
+    });
+
+    // custom "L?" number of last games
+    var lnInput = block.querySelector(".lninput");
+    function applyCustomN(){
+      var val = parseInt(lnInput.value, 10);
+      if(!val || val<3) return;
+      state.fullSeason = false; state.usingCustomN = true; state.n = val; state.selected = null; draw();
+    }
+    lnInput.addEventListener("keydown", function(e){ if(e.key==="Enter"){ applyCustomN(); } });
+    lnInput.addEventListener("change", applyCustomN);
+
+    // line +/- adjuster — μετακινεί δυναμικά το threshold και ξανατρέχει τα πάντα
+    block.querySelectorAll(".ladj").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var d = parseInt(btn.getAttribute("data-d"),10);
+        var nextDelta = state.thresholdDelta + d;
+        var nextThr = Math.round((r.threshold + nextDelta) * 2) / 2;
+        if(nextThr < 0.5) return;
+        state.thresholdDelta = nextDelta;
+        state.selected = null;
+        draw();
+      });
     });
 
     var fp = block.querySelector("#drawerFilters");
