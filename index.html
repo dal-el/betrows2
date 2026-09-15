@@ -139,6 +139,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .row-main{flex:1;min-width:210px}
 .row-main .team{font-size:14.5px;font-weight:600;display:flex;align-items:center}
 .row-main .team .lgchip{font-size:10px;font-weight:500;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:8px;vertical-align:1px}
+.row-main .team .dtchip{font-size:10px;font-weight:500;font-family:"IBM Plex Mono",monospace;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:6px;vertical-align:1px;white-space:nowrap}
 .row-main .market{font-size:13px;color:var(--text-dim);margin-top:5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .side-tag{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:11.5px;padding:3px 9px;border-radius:var(--radius-pill)}
 .side-tag.over{background:var(--accent-soft);color:var(--accent);box-shadow:var(--glow-pos)}
@@ -657,7 +658,7 @@ function processEvent(root){
         homeTeam: isTotal ? homeR.name : null, awayTeam: isTotal ? awayR.name : null,
         league: leagueForTeam, category: cls.category, direction: evalDirection,
         threshold: parsed.threshold, side: parsed.side, price: sel.price, windowResults: windowResults,
-        marketName: market.name||"",
+        marketName: market.name||"", startTime: root.startTime||null,
       });
     });
   });
@@ -703,6 +704,17 @@ function buildFeedMulti(roots){
 /* ---------- rendering ---------- */
 function fmtPct(x){ return Math.round(x*100)+"%"; }
 function fmtOdds(x){ return x==null ? "—" : x.toFixed(2); }
+// Ημερομηνία/ώρα έναρξης του live αγώνα, πάντα σε ώρα Ελλάδος (Europe/Athens)
+// ανεξάρτητα από τη ζώνη ώρας της συσκευής που βλέπει τη σελίδα.
+function fmtMatchTime(ms){
+  if(!ms) return null;
+  try{
+    var d = new Date(ms);
+    var datePart = d.toLocaleDateString("el-GR", {timeZone:"Europe/Athens", day:"2-digit", month:"2-digit"});
+    var timePart = d.toLocaleTimeString("el-GR", {timeZone:"Europe/Athens", hour:"2-digit", minute:"2-digit", hour12:false});
+    return datePart+" "+timePart;
+  }catch(e){ return null; }
+}
 function catLabel(c){ return CATS[c].label; }
 
 /* ---------- deterministic team avatar (initials on a hashed hue) ---------- */
@@ -862,7 +874,8 @@ function renderRowCard(r){
   head.className = "row-head";
   head.innerHTML =
     '<div class="row-main">'+
-      '<div class="team">'+teamLabel+'<span class="lgchip">'+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span></div>'+
+      '<div class="team">'+teamLabel+'<span class="lgchip">'+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
+      (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+'</div>'+
       '<div class="market">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
         '<span>'+catLabel(r.category)+' · '+marketNote+'</span>'+
