@@ -63,8 +63,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .data-badge b{color:var(--text-dim);font-weight:600}
 .data-badge .dot{color:var(--accent);text-shadow:var(--glow-accent)}
 .avatar{
-  width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
-  font-size:9.5px;font-weight:700;color:#fff;margin-right:7px;vertical-align:-6px;box-shadow:0 0 0 2px var(--surface);
+  width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  font-size:11.5px;font-weight:700;color:#fff;margin-right:8px;vertical-align:-8px;box-shadow:0 0 0 2px var(--surface);
   overflow:hidden;background:var(--surface-3);flex:none;
 }
 .avatar.crest img{width:100%;height:100%;object-fit:contain;padding:2px;box-sizing:border-box}
@@ -268,17 +268,17 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   <header>
     <div class="title-block">
       <h1>Football <span class="accent">BetRows</span></h1>
-      <p>Επικόλλησε το JSON αγώνα από το Stoiximan — αυτόματα βγαίνουν όλες οι γραμμές με hit rate, fair odds, edge &amp; EV πάνω στο πραγματικό ιστορικό.</p>
+      <p style="display:none">Επικόλλησε το JSON αγώνα από το Stoiximan — αυτόματα βγαίνουν όλες οι γραμμές με hit rate, fair odds, edge &amp; EV πάνω στο πραγματικό ιστορικό.</p>
     </div>
-    <div class="data-badge" id="dataBadge"><span><span class="dot">●</span> φόρτωση ιστορικού…</span></div>
+    <div class="data-badge" id="dataBadge" style="display:none"><span><span class="dot">●</span> φόρτωση ιστορικού…</span></div>
   </header>
 
   <div class="row" id="liveRow">
-    <button class="btn" id="refreshLive">🔴 Ανανέωση live δεδομένων (τοπικός fetcher)</button>
-    <span class="note" id="liveStatus">φόρτωση…</span>
+    <button class="btn" id="refreshLive">🔴 Ανανέωση live δεδομένων</button>
+    <span class="note" id="liveStatus" style="display:none">φόρτωση…</span>
   </div>
 
-  <details class="source" id="sourcePanel">
+  <details class="source" id="sourcePanel" style="display:none">
     <summary><span class="arrow">▸</span> Χειροκίνητη εισαγωγή JSON (προχωρημένο — δεν χρειάζεται συνήθως)</summary>
     <div class="source-body">
       <textarea id="jsonInput" spellcheck="false"></textarea>
