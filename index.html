@@ -368,6 +368,24 @@ var TEAM_MAP = Object.assign({
   // Σημείωση: "Ρέμο" (Remo, Βραζιλία) δεν αντιστοιχίστηκε επίτηδες — μόλις
   // ανέβηκε κατηγορία, δεν υπάρχει καθόλου στο ιστορικό dataset ακόμα, οπότε
   // θα εμφανίζεται σωστά ως "άγνωστη ομάδα" μέχρι να μαζέψουμε ιστορικό γι' αυτήν.
+  // -- προστέθηκαν μετά το 2ο πραγματικό τρέξιμο του fetcher (2026-09-15, πολλαπλές λίγκες) --
+  "108215": {name:"Bayern München", league:"bundesliga"},
+  "107376": {name:"Union Berlin", league:"bundesliga"},
+  "107174": {name:"Watford", league:"championship"},
+  "107168": {name:"Atletico Madrid", league:"la-liga"},
+  "108639": {name:"Osasuna", league:"la-liga"},
+  "118748": {name:"Barcelona", league:"la-liga"},
+  "107153": {name:"Racing Santander", league:"la-liga"},
+  "107791": {name:"Deportivo La Coruna", league:"la-liga"},
+  "1970454": {name:"Sevilla", league:"la-liga"},
+  "109295": {name:"Levante", league:"la-liga"},
+  "107463": {name:"Athletic Club", league:"la-liga"},
+  "106311": {name:"Monaco", league:"ligue-1"},
+  "107542": {name:"Lens", league:"ligue-1"},
+  "106864": {name:"Brentford", league:"premier-league"},
+  "106835": {name:"Chelsea", league:"premier-league"},
+  "107248": {name:"Monza", league:"serie-a-italy"},
+  "107732": {name:"Sassuolo", league:"serie-a-italy"},
 }, loadTeamMap());
 
 /* ---------- evaluator (mirrors backend/evaluator.py) ---------- */
@@ -530,7 +548,21 @@ function parseSelectionName(name){
 /* ---------- unresolved team UI ---------- */
 function resolveTeam(participant, guessedLeague){
   var t = TEAM_MAP[participant.id];
-  return t ? t : null;
+  if(t) return t;
+  // Ο fetcher τώρα παίρνει τα ονόματα στα αγγλικά (en.stoiximan.gr) — αν το
+  // όνομα ταιριάζει ήδη ακριβώς με ομάδα του ιστορικού dataset, αυτόματη
+  // αντιστοίχιση χωρίς να χρειάζεται χειροκίνητο "άγνωστη ομάδα" βήμα.
+  var name = (participant && participant.name || "").trim();
+  if(!name) return null;
+  if(guessedLeague && byLeague[guessedLeague] && byLeague[guessedLeague].teams.has(name)){
+    return {name:name, league:guessedLeague};
+  }
+  var found = null;
+  Object.keys(byLeague).forEach(function(lg){
+    if(found) return;
+    if(byLeague[lg].teams.has(name)) found = {name:name, league:lg};
+  });
+  return found;
 }
 function renderUnresolved(list){
   var box = document.getElementById("unresolvedBox");

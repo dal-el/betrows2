@@ -3,160 +3,160 @@
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
   "eventId": "92004640",
-  "name": "Μπρέντφορντ - Τσέλσι",
+  "name": "Brentford FC - Chelsea FC",
   "startTime": 1789758000000,
   "dateStr": "2026-09-18",
   "marketCount": 76,
-  "file": "premier-league/2026-09-18_bredford-tselsi_92004640.json"
+  "file": "premier-league/2026-09-18_brentford-fc-chelsea-fc_92004640.json"
  },
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "92152350",
-  "name": "Μίντλεσμπρο - Μίλγουολ",
+  "name": "Middlesbrough FC - Millwall FC",
   "startTime": 1789497900000,
   "dateStr": "2026-09-15",
   "marketCount": 91,
-  "file": "championship/2026-09-15_midlesbro-milgouol_92152350.json"
+  "file": "championship/2026-09-15_middlesbrough-fc-millwall-fc_92152350.json"
  },
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "92152478",
-  "name": "Μπρίστολ Σίτι - Λίνκολν Σίτι",
+  "name": "Bristol City - Lincoln City",
   "startTime": 1789497900000,
   "dateStr": "2026-09-15",
   "marketCount": 91,
-  "file": "championship/2026-09-15_bristol-siti-linkoln-siti_92152478.json"
+  "file": "championship/2026-09-15_bristol-city-lincoln-city_92152478.json"
  },
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "92329575",
-  "name": "Μπρίστολ Σίτι - Γουότφορντ",
+  "name": "Bristol City - Watford FC",
   "startTime": 1789758000000,
   "dateStr": "2026-09-18",
   "marketCount": 75,
-  "file": "championship/2026-09-18_bristol-siti-gouotford_92329575.json"
+  "file": "championship/2026-09-18_bristol-city-watford-fc_92329575.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312222",
-  "name": "Ράγιο Βαγιεκάνο - Εσπανιόλ",
+  "name": "Rayo Vallecano - RCD Espanyol",
   "startTime": 1789491600000,
   "dateStr": "2026-09-15",
   "marketCount": 111,
-  "file": "la-liga/2026-09-15_ragio-vagiekano-espaniol_88312222.json"
+  "file": "la-liga/2026-09-15_rayo-vallecano-rcd-espanyol_88312222.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312333",
-  "name": "Αλαβές - Βαλένθια",
+  "name": "Deportivo Alaves - Valencia CF",
   "startTime": 1789495200000,
   "dateStr": "2026-09-15",
   "marketCount": 111,
-  "file": "la-liga/2026-09-15_alaves-valenthia_88312333.json"
+  "file": "la-liga/2026-09-15_deportivo-alaves-valencia-cf_88312333.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312379",
-  "name": "Έλτσε - Ρεάλ Μαδρίτης",
+  "name": "Elche CF - Real Madrid",
   "startTime": 1789500600000,
   "dateStr": "2026-09-15",
   "marketCount": 111,
-  "file": "la-liga/2026-09-15_eltse-real-madritis_88312379.json"
+  "file": "la-liga/2026-09-15_elche-cf-real-madrid_88312379.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312295",
-  "name": "Ατλέτικο Mαδρίτης - Οσασούνα",
+  "name": "Atletico Madrid - CA Osasuna",
   "startTime": 1789578000000,
   "dateStr": "2026-09-16",
   "marketCount": 108,
-  "file": "la-liga/2026-09-16_atletiko-madritis-osasouna_88312295.json"
+  "file": "la-liga/2026-09-16_atletico-madrid-ca-osasuna_88312295.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312357",
-  "name": "Ντεπορτίβο A Κορούνια - Σεβίλλη",
+  "name": "Deportivo de A Coruña - Sevilla FC",
   "startTime": 1789578000000,
   "dateStr": "2026-09-16",
   "marketCount": 108,
-  "file": "la-liga/2026-09-16_deportivo-a-korounia-sevilli_88312357.json"
+  "file": "la-liga/2026-09-16_deportivo-de-a-coruna-sevilla-fc_88312357.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312296",
-  "name": "Μπαρτσελόνα - Σανταντέρ",
+  "name": "FC Barcelona - Racing Santander",
   "startTime": 1789587000000,
   "dateStr": "2026-09-16",
-  "marketCount": 101,
-  "file": "la-liga/2026-09-16_bartselona-sadader_88312296.json"
+  "marketCount": 108,
+  "file": "la-liga/2026-09-16_fc-barcelona-racing-santander_88312296.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312368",
-  "name": "Λεβάντε - Αθλέτικ Μπιλμπάο",
+  "name": "Levante UD - Athletic Bilbao",
   "startTime": 1789587000000,
   "dateStr": "2026-09-16",
   "marketCount": 108,
-  "file": "la-liga/2026-09-16_levade-athletik-bilbao_88312368.json"
+  "file": "la-liga/2026-09-16_levante-ud-athletic-bilbao_88312368.json"
  },
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "91542711",
-  "name": "Μόντσα - Σασουόλο",
+  "name": "AC Monza - US Sassuolo Calcio",
   "startTime": 1789757100000,
   "dateStr": "2026-09-18",
   "marketCount": 90,
-  "file": "serie-a-italy/2026-09-18_modsa-sasouolo_91542711.json"
+  "file": "serie-a-italy/2026-09-18_ac-monza-us-sassuolo-calcio_91542711.json"
  },
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "91562901",
-  "name": "Μπάγερν Μονάχου - Ουνιόν Βερολίνου",
+  "name": "FC Bayern Munchen - 1. FC Union Berlin",
   "startTime": 1789756200000,
   "dateStr": "2026-09-18",
   "marketCount": 88,
-  "file": "bundesliga/2026-09-18_bagern-monaxou-ounion-verolinou_91562901.json"
+  "file": "bundesliga/2026-09-18_fc-bayern-munchen-1-fc-union-berlin_91562901.json"
  },
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "92057420",
-  "name": "Μονακό - Λανς",
+  "name": "AS Monaco - RC Lens",
   "startTime": 1789757100000,
   "dateStr": "2026-09-18",
   "marketCount": 90,
-  "file": "ligue-1/2026-09-18_monako-lans_92057420.json"
+  "file": "ligue-1/2026-09-18_as-monaco-rc-lens_92057420.json"
  },
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "92155802",
-  "name": "Πουέμπλα - Τολούκα",
+  "name": "Club Puebla - Deportivo Toluca FC",
   "startTime": 1789520400000,
   "dateStr": "2026-09-16",
   "marketCount": 92,
-  "file": "liga-mx/2026-09-16_pouebla-tolouka_92155802.json"
+  "file": "liga-mx/2026-09-16_club-puebla-deportivo-toluca-fc_92155802.json"
  },
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "92075540",
-  "name": "Μποταφόγκο - Γκρέμιο",
+  "name": "Botafogo RJ - Gremio RS",
   "startTime": 1789597800000,
   "dateStr": "2026-09-17",
   "marketCount": 107,
-  "file": "serie-a-brazil/2026-09-17_botafogo-gremio_92075540.json"
+  "file": "serie-a-brazil/2026-09-17_botafogo-rj-gremio-rs_92075540.json"
  }
 ]
