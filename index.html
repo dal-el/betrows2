@@ -10,12 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f2f4fb; --surface:#ffffff; --surface-2:#edf0f9; --surface-3:#e2e7f4; --border:#d5dcee;
-  --text:#0c1122; --text-dim:#565f7d; --text-faint:#848da9;
-  --accent:#00997a; --accent-strong:#00785f; --accent-soft:#00997a15;
-  --gold:#9a6b00; --gold-soft:#9a6b0014; --rose:#c22e57; --rose-soft:#c22e5714;
-  --glow-accent:0 0 0 rgba(0,0,0,0); --glow-pos:0 0 0 rgba(0,0,0,0); --glow-neg:0 0 0 rgba(0,0,0,0);
-  --shadow: 0 1px 2px rgba(16,22,40,.04), 0 8px 24px -12px rgba(16,22,40,.12);
+  /* Πάντα σκούρο θέμα από προεπιλογή (όχι μόνο όταν το σύστημα/browser έχει
+     dark mode) — έτσι δείχνει ίδιο σε PC, κινητό, tablet ανεξαρτήτου ρύθμισης. */
+  --bg:#04060c; --surface:#0b0f1c; --surface-2:#111627cc; --surface-3:#171d33; --border:#232a48;
+  --text:#f4f7ff; --text-dim:#9aa3c7; --text-faint:#5f6890;
+  --accent:#12e6ad; --accent-strong:#6bffda; --accent-soft:#12e6ad1e;
+  --gold:#ffc861; --gold-soft:#ffc8611c; --rose:#ff6f95; --rose-soft:#ff6f951c;
+  --glow-accent:0 0 16px -3px rgba(18,230,173,.6); --glow-pos:0 0 16px -3px rgba(18,230,173,.55);
+  --glow-neg:0 0 16px -3px rgba(255,111,149,.5);
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 14px 36px -16px rgba(0,0,0,.7);
   --radius-lg:16px; --radius-md:12px; --radius-sm:9px; --radius-pill:999px;
 }
 @media (prefers-color-scheme: dark){
