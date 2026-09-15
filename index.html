@@ -295,7 +295,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .chart-strip-title{display:flex;align-items:center;gap:2px;margin-bottom:8px;font-size:12.5px;color:var(--text-dim);font-weight:600}
 .chart-strip-title .t{margin-right:6px}
 .chart-strip-title .v{font-size:10.5px;color:var(--text-faint);font-weight:400;text-transform:uppercase;letter-spacing:.03em;font-family:"IBM Plex Mono",monospace}
-.threshold-line{position:absolute;left:0;right:0;border-top:2px dashed var(--gold);pointer-events:none}
+.threshold-line{position:absolute;left:0;right:0;border-top:2px dashed var(--gold);pointer-events:none;z-index:1}
 .threshold-line span{
   position:absolute;right:0;top:-21px;background:var(--surface-3);color:var(--gold);font-family:"IBM Plex Mono",monospace;
   font-size:12px;font-weight:700;padding:2px 8px;border-radius:5px;border:1px solid var(--gold);box-shadow:0 2px 8px rgba(0,0,0,.35);
@@ -305,7 +305,15 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   gap:4px;height:100%;cursor:pointer;padding-top:14px;border-radius:6px;
 }
 .bar-col:hover, .bar-col.sel{background:var(--surface-3)}
-.bar-val{font-size:10px;font-family:"IBM Plex Mono",monospace;color:var(--text-dim)}
+/* Η γραμμή στόχου (.threshold-line) είναι position:absolute, οπότε ζωγραφίζεται
+   ΠΑΝΩ από τα κανονικά (static) στοιχεία της μπάρας — αν η τιμή μιας μπάρας είναι
+   κοντά στο threshold, το νούμερο πέφτει ακριβώς πάνω στην κίτρινη διακεκομμένη
+   γραμμή και χάνεται. Δίνουμε στο .bar-val δικό του z-index (πάνω από τη γραμμή)
+   + φόντο, ώστε να είναι ΠΑΝΤΑ ευανάγνωστο ό,τι κι αν βρίσκεται από πίσω του. */
+.bar-val{
+  font-size:10px;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);
+  position:relative;z-index:2;background:var(--surface);padding:1px 4px;border-radius:4px;
+}
 .bar{width:60%;border-radius:5px 5px 0 0;min-height:3px}
 .bar.hit{background:var(--accent);box-shadow:var(--glow-pos)}
 .bar.miss{background:var(--rose);opacity:.6}
@@ -392,6 +400,16 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <option value="shots">Σουτ</option>
         <option value="shots_on_target">Σουτ στην εστία</option>
         <option value="goals">Γκολ</option>
+        <option value="offsides">Οφσάιντ</option>
+        <option value="possession">Κατοχή μπάλας %</option>
+        <option value="passes">Πάσες</option>
+        <option value="passes_accurate">Πάσες (εύστοχες)</option>
+        <option value="free_kicks">Ελεύθερα</option>
+        <option value="gk_saves">Αποκρούσεις Τερματοφύλακα</option>
+        <option value="shots_off_target">Σουτ εκτός εστίας</option>
+        <option value="shots_insidebox">Σουτ εντός περιοχής</option>
+        <option value="shots_outsidebox">Σουτ εκτός περιοχής</option>
+        <option value="shots_blocked">Μπλοκαρισμένα σουτ</option>
       </select>
       <select class="pillselect" id="leagueFilter">
         <option value="">Όλες οι λίγκες</option>
@@ -474,6 +492,20 @@ var CATS = {
   shots_on_target:{label:"Σουτ στην εστία", h:"hst", a:"ast"},
   goals:{label:"Γκολ", h:"fthg", a:"ftag"},
   cards:{label:"Κάρτες", h:null, a:null}, // h/a unused — statForSide() special-cases "cards" via cardCount()
+  // -- προστέθηκαν 2026-09-15 (API-Football Pro): έρχονται ήδη στην ίδια κλήση με τα
+  // παραπάνω, μηδενικό επιπλέον κόστος — αλλά υπάρχουν μόνο σε αγώνες που τραβήχτηκαν
+  // ΜΕΤΑ την προσθήκη τους, οπότε το δείγμα (sample) θα είναι μικρό μέχρι να μαζευτούν
+  // αρκετοί νέοι αγώνες. Ιστορικά (παλιά) ματς θα έχουν null σε αυτά τα πεδία.
+  offsides:{label:"Οφσάιντ", h:"hof", a:"aof"},
+  possession:{label:"Κατοχή μπάλας %", h:"hpos", a:"apos"},
+  passes:{label:"Πάσες", h:"hpt", a:"apt"},
+  passes_accurate:{label:"Πάσες (εύστοχες)", h:"hpa", a:"apa"},
+  free_kicks:{label:"Ελεύθερα", h:"hfk", a:"afk"},
+  gk_saves:{label:"Αποκρούσεις Τερματοφύλακα", h:"hgk", a:"agk"},
+  shots_off_target:{label:"Σουτ εκτός εστίας", h:"hso", a:"aso"},
+  shots_insidebox:{label:"Σουτ εντός περιοχής", h:"hsib", a:"asib"},
+  shots_outsidebox:{label:"Σουτ εκτός περιοχής", h:"hsob", a:"asob"},
+  shots_blocked:{label:"Μπλοκαρισμένα σουτ", h:"hsb", a:"asb"},
 };
 var WINDOWS = [5,10,15,20];
 
@@ -683,8 +715,17 @@ function classifyMarket(name, homeGr, awayGr){
   var cat=null;
   // Ελέγχουμε ελληνικές ΚΑΙ αγγλικές λέξεις-κλειδιά — ο live fetcher δίνει πλέον
   // αγγλικά (en.stoiximan.gr), αλλά κρατάμε και τα ελληνικά για συμβατότητα με
-  // παλιό/χειροκίνητο JSON. Η σειρά έχει σημασία: "on target" πριν από "shots".
+  // παλιό/χειροκίνητο JSON, ΚΑΙ για μελλοντικούς μπουκ που μπορεί να δίνουν
+  // ελληνικά ονόματα αγορών. Η σειρά έχει σημασία — οι πιο ΕΙΔΙΚΕΣ αγορές
+  // ελέγχονται ΠΡΙΝ τις γενικές, αλλιώς ένα ειδικό στατιστικό (π.χ. "σουτ εντός
+  // περιοχής") θα έπεφτε λανθασμένα στη γενική κατηγορία "σουτ" (bug ίδιας
+  // λογικής με το goal-kicks/goals παρακάτω).
   if(/κόρνερ|corner/i.test(rest)) cat="corners";
+  // -- σουτ: οι ειδικές παραλλαγές ΠΡΙΝ τη γενική "σουτ"/"on target" --
+  else if(/εντός\s*περιοχής|insidebox/i.test(rest)) cat="shots_insidebox";
+  else if(/εκτός\s*περιοχής|outsidebox/i.test(rest)) cat="shots_outsidebox";
+  else if(/μπλοκαρισμέν[αο]|blocked\s*shots?/i.test(rest)) cat="shots_blocked";
+  else if(/εκτός\s*εστίας|off[\s-]?(target|goal)/i.test(rest)) cat="shots_off_target";
   else if(/εστία|on[\s-]?target/i.test(rest)) cat="shots_on_target";
   else if(/σουτ|προσπάθειες|shots?|attempts?/i.test(rest)) cat="shots";
   else if(/φάουλ|fouls?/i.test(rest)) cat="fouls";
@@ -692,18 +733,28 @@ function classifyMarket(name, homeGr, awayGr){
   // cardCount()) — μια αγορά μόνο για κόκκινες (ή μόνο για κίτρινες) κάρτες
   // έχει εντελώς διαφορετική βάση σύγκρισης και ΔΕΝ πρέπει να μπαίνει στην
   // ίδια κατηγορία "cards", αλλιώς μπερδεύονται τα ποσοστά (bug: 15/9).
-  else if(/κόκκιν[ηα]?\s*κάρτ|red\s*cards?/i.test(rest)) cat="unsupported";
-  else if(/κίτριν[ηα]?\s*κάρτ|yellow\s*cards?/i.test(rest)) cat="unsupported";
-  else if(/κάρτ|cards?/i.test(rest)) cat="cards";
-  // "Goal Kicks" (φάουλ τέρματος) περιέχει τη λέξη "Goal" αλλά ΔΕΝ είναι γκολ —
-  // είναι εντελώς διαφορετικό στατιστικό (σαν το bug κόκκινες/σύνολο κάρτες).
-  // Πρέπει να αποκλειστεί ΠΡΙΝ τον γενικό έλεγχο /goals?/i, αλλιώς "Over 8.5
-  // Goal Kicks" ταξινομείται λανθασμένα σαν αγορά συνολικών γκολ.
-  else if(/goal\s*kicks?/i.test(rest)) cat="unsupported";
+  // Σημείωση: κ[άα]ρτ (όχι μόνο κάρτ) γιατί η γενική πτώση "καρτών" έχει το ά
+  // χωρίς τόνο (ο τόνος πάει στο "ών") — αλλιώς χάνεται σιωπηλά αγορά σαν το
+  // "Σύνολο Καρτών" (bug που βρέθηκε δοκιμάζοντας σε πραγματικά ονόματα αγορών).
+  else if(/κόκκιν[ηα]?\s*κ[άα]ρτ|red\s*cards?/i.test(rest)) cat="unsupported";
+  else if(/κίτριν[ηα]?\s*κ[άα]ρτ|yellow\s*cards?/i.test(rest)) cat="unsupported";
+  else if(/κ[άα]ρτ|cards?/i.test(rest)) cat="cards";
+  // "Goal Kicks" / "ελεύθερα ΑΠΟ ΤΟ ΤΕΡΜΑ" (φάουλ τέρματος — το πλάσιμο του
+  // τερματοφύλακα) ΔΕΝ είναι το ίδιο στατιστικό με "Free Kicks" (ελεύθερα από
+  // φάουλ) — εντελώς διαφορετική μέτρηση, σαν το bug κόκκινες/σύνολο καρτών
+  // παραπάνω. Πρέπει να αποκλειστεί ΠΡΙΝ τον γενικό έλεγχο /goals?/i (αλλιώς
+  // "Over 8.5 Goal Kicks" γίνεται λάθος αγορά γκολ) ΚΑΙ πριν το γενικό
+  // /ελεύθερα/ (αλλιώς μπερδεύεται με τα πραγματικά ελεύθερα φάουλ).
+  else if(/goal\s*kicks?|από\s*το\s*τέρμα/i.test(rest)) cat="unsupported";
   else if(/γκολ|goals?/i.test(rest)) cat="goals";
-  else if(/οφσάιντ|offsides?/i.test(rest)) cat="unsupported";
-  else if(/τάκλιν|tackles?/i.test(rest)) cat="unsupported";
-  else if(/πάσ|passes?/i.test(rest)) cat="unsupported";
+  else if(/οφσάιντ|offsides?/i.test(rest)) cat="offsides";
+  else if(/τάκλιν|tackles?/i.test(rest)) cat="unsupported"; // δεν υπάρχει καθόλου σε αυτό το API (επιβεβαιωμένο)
+  // -- πάσες: η ειδική "εύστοχες πάσες" ΠΡΙΝ τη γενική "πάσες" --
+  else if(/εύστοχ[ηεο]ς?\s*π[άα]σ|passes?\s*accurate/i.test(rest)) cat="passes_accurate";
+  else if(/π[άα]σ|passes?/i.test(rest)) cat="passes";
+  else if(/κατοχ[ήη]|possession/i.test(rest)) cat="possession";
+  else if(/αποκρούσε[ιί]ς|goalkeeper\s*saves?/i.test(rest)) cat="gk_saves";
+  else if(/ελεύθερα|free\s*kicks?/i.test(rest)) cat="free_kicks";
   else return null;
   return {category:cat, direction:direction};
 }
@@ -1062,7 +1113,7 @@ function renderToolbarAndRows(){
 
   document.getElementById("countLabel").innerHTML = "Εμφανίζονται <b>"+list.length+"</b> bet lines";
   var skipMsgs = [];
-  if(skipped.noHistory) skipMsgs.push(skipped.noHistory+" αγορές χωρίς διαθέσιμο ιστορικό (οφσάιντ/τάκλιν/πάσες)");
+  if(skipped.noHistory) skipMsgs.push(skipped.noHistory+" αγορές χωρίς διαθέσιμο ιστορικό (τάκλιν/γκολ τέρματος/μεμονωμένες κάρτες)");
   if(skipped.lowSample) skipMsgs.push(skipped.lowSample+" με πολύ μικρό δείγμα");
   if(skipped.scopeMismatch) skipMsgs.push(skipped.scopeMismatch+" αγορές ημιχρόνου/ζώνης λεπτών/ασιατικού (δεν έχουμε ιστορικό ανά ημίχρονο ακόμα)");
   document.getElementById("skipNote").textContent = skipMsgs.length ? "Παραλήφθηκαν: "+skipMsgs.join(" · ") : "";
