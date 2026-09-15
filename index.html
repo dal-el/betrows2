@@ -1104,7 +1104,7 @@ document.getElementById("jsonFiles").addEventListener("change", function(evt){
 });
 
 /* ---------- τοπικός live fetcher: φόρτωση όλων των αγώνων που κατέβασε ο fetch_stoiximan.py ---------- */
-var LIVE_MANIFEST_URL = "../betrows-fetcher/output/index.json";
+var LIVE_MANIFEST_URL = "live/index.json";
 function loadLiveMatches(){
   var statusEl = document.getElementById("liveStatus");
   statusEl.textContent = "φόρτωση…";
@@ -1116,7 +1116,7 @@ function loadLiveMatches(){
       return false;
     }
     return Promise.all(manifest.map(function(row){
-      return fetch("../betrows-fetcher/output/" + row.file, {cache:"no-store"})
+      return fetch("live/" + row.file, {cache:"no-store"})
         .then(function(r){ return r.ok ? r.json() : null; })
         .catch(function(){ return null; });
     })).then(function(jsons){

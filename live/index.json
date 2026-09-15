@@ -1,0 +1,92 @@
+[
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "92152350",
+  "name": "Μίντλεσμπρο - Μίλγουολ",
+  "startTime": 1789497900000,
+  "dateStr": "2026-09-15",
+  "marketCount": 91,
+  "file": "championship/2026-09-15_midlesbro-milgouol_92152350.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "92152478",
+  "name": "Μπρίστολ Σίτι - Λίνκολν Σίτι",
+  "startTime": 1789497900000,
+  "dateStr": "2026-09-15",
+  "marketCount": 91,
+  "file": "championship/2026-09-15_bristol-siti-linkoln-siti_92152478.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312222",
+  "name": "Ράγιο Βαγιεκάνο - Εσπανιόλ",
+  "startTime": 1789491600000,
+  "dateStr": "2026-09-15",
+  "marketCount": 111,
+  "file": "la-liga/2026-09-15_ragio-vagiekano-espaniol_88312222.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312333",
+  "name": "Αλαβές - Βαλένθια",
+  "startTime": 1789495200000,
+  "dateStr": "2026-09-15",
+  "marketCount": 111,
+  "file": "la-liga/2026-09-15_alaves-valenthia_88312333.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312379",
+  "name": "Έλτσε - Ρεάλ Μαδρίτης",
+  "startTime": 1789500600000,
+  "dateStr": "2026-09-15",
+  "marketCount": 111,
+  "file": "la-liga/2026-09-15_eltse-real-madritis_88312379.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "92126612",
+  "name": "Λεόν - Ατλέτικο Σαν Λούις",
+  "startTime": 1789434000000,
+  "dateStr": "2026-09-15",
+  "marketCount": 92,
+  "file": "liga-mx/2026-09-15_leon-atletiko-san-louis_92126612.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "92155802",
+  "name": "Πουέμπλα - Τολούκα",
+  "startTime": 1789520400000,
+  "dateStr": "2026-09-16",
+  "marketCount": 92,
+  "file": "liga-mx/2026-09-16_pouebla-tolouka_92155802.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "91752091",
+  "name": "Μπαΐα - Ρέμο",
+  "startTime": 1789426800000,
+  "dateStr": "2026-09-15",
+  "marketCount": 111,
+  "file": "serie-a-brazil/2026-09-15_baia-remo_91752091.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "92075540",
+  "name": "Μποταφόγκο - Γκρέμιο",
+  "startTime": 1789597800000,
+  "dateStr": "2026-09-17",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-09-17_botafogo-gremio_92075540.json"
+ }
+]
