@@ -71,11 +71,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .sbIcon{font-size:13px;line-height:1}
 .sbCount{background:var(--accent);color:#04231d;border-radius:50%;min-width:18px;height:18px;padding:0 4px;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace}
 .savedBetsNotice{background:rgba(255,111,149,.12);border:1px solid rgba(255,111,149,.35);color:var(--rose);font-size:12px;padding:8px 10px;border-radius:var(--radius-md);margin-bottom:12px}
-.savedBetItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface-2);cursor:pointer}
+#savedBetsSheet{width:min(94vw,500px)}
+.savedBetItem{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:12px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface-2);cursor:pointer}
 .savedBetItem:hover{border-color:var(--accent)}
-.savedBetItem .sbiMain{display:flex;flex-direction:column;gap:2px;min-width:0}
-.savedBetItem .sbiTeam{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.savedBetItem .sbiMeta{font-size:11px;color:var(--text-faint)}
+.savedBetItem .row-main{min-width:0}
 .savedBetItem .sbiRemove{background:none;border:0;color:var(--text-faint);font-size:16px;cursor:pointer;padding:2px 6px;flex:none}
 .savedBetItem .sbiRemove:hover{color:var(--rose)}
 .savedBetsEmpty{color:var(--text-faint);font-size:13px;text-align:center;padding:20px 0}
@@ -659,14 +658,26 @@ function renderSavedBetsList(){
   keys.sort(function(a,b){ return (savedBets[b].savedAt||0) - (savedBets[a].savedAt||0); });
   body.innerHTML = keys.map(function(k){
     var rec = savedBets[k];
-    var teamLabel = rec.isTotal ? (rec.homeTeam+" – "+rec.awayTeam) : rec.team;
+    // Ίδιο "βλέμμα" με τις κανονικές γραμμές: crest ομάδας/ζευγαριού, χρωματιστό
+    // OVER/UNDER pill, λογότυπο λίγκας, αγορά, απόδοση, tag πηγής — απλά
+    // ξαναχρησιμοποιούμε τις ΙΔΙΕΣ κλάσεις (.row-main .team .market κ.λπ.) που
+    // ήδη στυλάρει το CSS για τις κάρτες, ώστε να μη γράψουμε διπλό styling.
+    var teamLabel = rec.isTotal ?
+      (avatarHtml(rec.homeTeam, rec.league)+' '+rec.homeTeam+' <span class="vs">–</span> '+avatarHtml(rec.awayTeam, rec.league)+' '+rec.awayTeam) :
+      (avatarHtml(rec.team, rec.league)+' '+rec.team);
+    var marketNote = rec.isTotal ? 'σύνολο αγώνα' : dirLabel(rec.direction);
     var leagueLabel = byLeague[rec.league] ? byLeague[rec.league].name : rec.league;
-    var marketLabel = (rec.side==="over"?"OVER":"UNDER")+" "+rec.threshold+" · "+catLabel(rec.category);
-    var priceLabel = rec.price ? (" · "+rec.price.toFixed(2)) : "";
     return '<div class="savedBetItem" data-key="'+escAttr(k)+'">'+
-      '<div class="sbiMain">'+
-        '<div class="sbiTeam">'+teamLabel+'</div>'+
-        '<div class="sbiMeta">'+leagueLabel+' · '+marketLabel+priceLabel+'</div>'+
+      '<div class="row-main">'+
+        '<div class="team">'+teamLabel+
+          '<span class="lgchip">'+leagueLogoHtml(rec.league)+leagueLabel+'</span>'+
+        '</div>'+
+        '<div class="market">'+
+          '<span class="side-tag '+rec.side+'">'+(rec.side==="over"?"OVER":"UNDER")+' '+rec.threshold+'</span>'+
+          '<span>'+catLabel(rec.category)+' · '+marketNote+'</span>'+
+          (rec.price ? '<span class="price-chip">'+rec.price.toFixed(2)+'</span>' : '')+
+          '<span class="src-tag">Stoiximan</span>'+
+        '</div>'+
       '</div>'+
       '<button type="button" class="sbiRemove" data-remove="'+escAttr(k)+'" title="Αφαίρεση" aria-label="Αφαίρεση">✕</button>'+
     '</div>';
