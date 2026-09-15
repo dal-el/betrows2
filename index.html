@@ -99,11 +99,14 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .unresolved .card b{color:var(--gold)}
 .unresolved select{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:7px 9px;color:var(--text);font-size:13px}
 
-/* toolbar */
+/* toolbar — δύο σταθερές σειρές φίλτρων:
+   1η: Κατηγορίες / Λίγκες / Ομάδες / Απόδοση
+   2η: Ομάδες-Ζευγάρια-Όλα / ALL-UNDER-OVER / Ταξινόμηση / L5-L10-L15-L20 (δεξιά, πάνω από τα EDGE/EXP VALUE pills) */
 .toolbar{
-  margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+  margin-top:22px;display:flex;flex-direction:column;gap:10px;
 }
-.toolbar-left{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar-row#toolbarRow2 #windowSeg{margin-left:auto}
 .count{font-size:13px;color:var(--text-dim)}
 .count b{color:var(--text)}
 .seg{display:flex;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);overflow:hidden}
@@ -312,11 +315,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   <div class="unresolved" id="unresolvedBox"></div>
 
   <div class="toolbar">
-    <div class="toolbar-left">
-      <div class="seg" id="windowSeg">
-        <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
-        <button data-v="15">L15</button><button data-v="20">L20</button>
-      </div>
+    <div class="toolbar-row" id="toolbarRow1">
       <select class="pillselect" id="catFilter">
         <option value="">Όλες οι κατηγορίες</option>
         <option value="corners">Κόρνερ</option>
@@ -337,11 +336,6 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         </button>
         <div class="teamSelectMenu" id="teamSelectMenu" hidden></div>
       </div>
-      <select class="pillselect" id="sortMode">
-        <option value="hit">Ταξινόμηση: Hit rate</option>
-        <option value="edge">Ταξινόμηση: Edge</option>
-        <option value="price">Ταξινόμηση: Απόδοση</option>
-      </select>
       <div class="oddsFilter">
         <span class="ofLabel">Απόδοση</span>
         <input type="number" step="0.01" min="1" class="oddsInput" id="oddsMin" placeholder="από">
@@ -349,6 +343,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <input type="number" step="0.01" min="1" class="oddsInput" id="oddsMax" placeholder="έως">
         <button class="clearOdds" id="oddsClear" title="Καθαρισμός φίλτρου απόδοσης">✕</button>
       </div>
+    </div>
+    <div class="toolbar-row" id="toolbarRow2">
       <div class="seg" id="scopeSeg">
         <button data-v="team" class="active">Ομάδες</button>
         <button data-v="pair">Ζευγάρια</button>
@@ -358,6 +354,15 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <button data-v="all" class="active">ALL</button>
         <button data-v="under">UNDER</button>
         <button data-v="over">OVER</button>
+      </div>
+      <select class="pillselect" id="sortMode">
+        <option value="hit">Ταξινόμηση: Hit rate</option>
+        <option value="edge">Ταξινόμηση: Edge</option>
+        <option value="price">Ταξινόμηση: Απόδοση</option>
+      </select>
+      <div class="seg" id="windowSeg">
+        <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
+        <button data-v="15">L15</button><button data-v="20">L20</button>
       </div>
     </div>
     <div class="count" id="countLabel">—</div>
