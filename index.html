@@ -231,6 +231,27 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .oddsFilter .clearOdds{background:transparent;border:0;color:var(--text-faint);cursor:pointer;font-size:14px;padding:0 4px;line-height:1}
 .oddsFilter .clearOdds:hover{color:var(--rose)}
 
+/* φίλτρο ημερομηνίας — μόνο μικρό στρογγυλό εικονίδιο δίπλα στην Απόδοση.
+   Δεν δείχνει ποτέ την επιλεγμένη ημερομηνία σαν κείμενο· το πραγματικό
+   <input type="date"> μένει τελείως κρυφό (0×0, opacity:0) και ανοίγει μέσω
+   showPicker() όταν πατηθεί το εικονίδιο — μόνο ένα διακριτικό "active" tint
+   + ένα μικρό ✕ δείχνουν ότι υπάρχει ενεργό φίλτρο. */
+.dateFilter{display:inline-flex;align-items:center;gap:2px;position:relative}
+.dateIconBtn{
+  width:34px;height:34px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text-dim);
+  font-size:14px;cursor:pointer;padding:0;
+  transition:border-color .15s ease,box-shadow .15s ease,background .15s ease,color .15s ease;
+}
+.dateIconBtn:hover{border-color:var(--accent);color:var(--accent)}
+.dateIconBtn.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);box-shadow:var(--glow-accent)}
+.dateInputHidden{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;border:0;padding:0;margin:0}
+.dateClearIcon{background:transparent;border:0;color:var(--text-faint);cursor:pointer;font-size:13px;padding:2px 5px;line-height:1}
+.dateClearIcon:hover{color:var(--rose)}
+.dateFilterMobile{display:none}
+@media(max-width:640px){ .dateFilterMobile{display:inline-flex} }
+
 /* feed cards */
 .rows{margin-top:14px;display:flex;flex-direction:column;gap:10px}
 .row-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;transition:border-color .15s}
@@ -489,11 +510,21 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <input type="number" step="0.01" min="1" class="oddsInput" id="oddsMax" placeholder="έως" value="3">
         <button class="clearOdds" id="oddsClear" title="Καθαρισμός φίλτρου απόδοσης">✕</button>
       </div>
+      <div class="dateFilter" id="dateFilterWrapDesktop">
+        <button type="button" class="dateIconBtn" id="dateIconDesktop" title="Εμφάνιση μόνο παιχνιδιών συγκεκριμένης ημερομηνίας">📅</button>
+        <input type="date" class="dateInputHidden" id="dateFilterDesktop" tabindex="-1" aria-hidden="true">
+        <button type="button" class="dateClearIcon" id="dateClearDesktop" title="Καθαρισμός φίλτρου ημερομηνίας" hidden>✕</button>
+      </div>
     </div>
     <div class="toolbar-row" id="toolbarRow2">
       <button type="button" class="mfToggle" id="mfToggle">
         <span class="mfIcon">▤</span>Φίλτρα<span class="mfBadge" id="mfBadge">0</span>
       </button>
+      <div class="dateFilter dateFilterMobile" id="dateFilterWrapMobile">
+        <button type="button" class="dateIconBtn" id="dateIconMobile" title="Εμφάνιση μόνο παιχνιδιών συγκεκριμένης ημερομηνίας">📅</button>
+        <input type="date" class="dateInputHidden" id="dateFilterMobile" tabindex="-1" aria-hidden="true">
+        <button type="button" class="dateClearIcon" id="dateClearMobile" title="Καθαρισμός φίλτρου ημερομηνίας" hidden>✕</button>
+      </div>
       <div class="toolbarBreak" aria-hidden="true"></div>
       <div class="seg-group" id="filterSegGroup">
         <div class="seg" id="scopeSeg">
@@ -602,6 +633,7 @@ var oddsMinVal = 1.5;
 var oddsMaxVal = 3;
 var scopeFilterVal = "team"; // "team" (μόνο ομάδες) | "pair" (μόνο ζευγάρια/σύνολο) | "all"
 var showFilterVal = "all"; // "all" | "under" | "over"
+var dateFilterVal = null; // "YYYY-MM-DD" (ημέρα αγώνα σε ώρα Ελλάδος) ή null == όλες
 var feedRows = [];
 var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 
@@ -707,6 +739,7 @@ function resetFiltersToDefaults(){
   catFilterVals.clear(); leagueFilterVals.clear(); teamFilterVals.clear();
   oddsMinVal = 1.5; oddsMaxVal = 3;
   scopeFilterVal = "team"; showFilterVal = "all";
+  dateFilterVal = null;
   renderCatFilterMenu(); updateCatFilterButton();
   renderLeagueFilterMenu(); updateLeagueFilterButton();
   populateTeamFilter();
@@ -716,6 +749,29 @@ function resetFiltersToDefaults(){
   if(oddsMaxEl) oddsMaxEl.value = "3";
   Array.prototype.forEach.call(document.querySelectorAll("#scopeSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="team"); });
   Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
+  syncDateFilterUI();
+  renderToolbarAndRows();
+}
+function syncDateFilterUI(){
+  var d1 = document.getElementById("dateFilterDesktop"), d2 = document.getElementById("dateFilterMobile");
+  var i1 = document.getElementById("dateIconDesktop"), i2 = document.getElementById("dateIconMobile");
+  var c1 = document.getElementById("dateClearDesktop"), c2 = document.getElementById("dateClearMobile");
+  if(d1) d1.value = dateFilterVal || "";
+  if(d2) d2.value = dateFilterVal || "";
+  if(i1) i1.classList.toggle("active", !!dateFilterVal);
+  if(i2) i2.classList.toggle("active", !!dateFilterVal);
+  if(c1) c1.hidden = !dateFilterVal;
+  if(c2) c2.hidden = !dateFilterVal;
+}
+function openDatePicker(inputId){
+  var inp = document.getElementById(inputId);
+  if(!inp) return;
+  if(typeof inp.showPicker==="function"){ try{ inp.showPicker(); return; }catch(e){} }
+  inp.focus();
+}
+function setDateFilter(v){
+  dateFilterVal = v || null;
+  syncDateFilterUI();
   renderToolbarAndRows();
 }
 function jumpToSavedBet(key){
@@ -1160,6 +1216,14 @@ function fmtMatchTime(ms){
     return datePart+" "+timePart;
   }catch(e){ return null; }
 }
+// Ημερομηνία αγώνα ως "YYYY-MM-DD" σε ώρα Ελλάδος — ΙΔΙΑ μορφή με την τιμή
+// ενός <input type="date"> (πάντα ISO, ανεξάρτητα locale), ώστε να συγκρίνονται
+// απευθείας στο φίλτρο ημερομηνίας.
+function athensDateISO(ms){
+  if(!ms) return null;
+  try{ return new Date(ms).toLocaleDateString("en-CA", {timeZone:"Europe/Athens"}); }
+  catch(e){ return null; }
+}
 function catLabel(c){ return CATS[c].label; }
 
 /* ---------- deterministic team avatar (initials on a hashed hue) ---------- */
@@ -1387,6 +1451,7 @@ function updateMobileFilterBadge(){
   if(oddsMinVal!==1.5 || oddsMaxVal!==3) n++; // 1.5–3 είναι πλέον η προεπιλογή, δεν μετράει ως "ενεργό" φίλτρο
   if(scopeFilterVal!=="team") n++;
   if(showFilterVal!=="all") n++;
+  if(dateFilterVal) n++;
   badge.textContent = n;
 }
 
@@ -1402,6 +1467,7 @@ function renderToolbarAndRows(){
   else if(scopeFilterVal==="pair") list = list.filter(function(r){ return r.isTotal; });
   if(showFilterVal==="under") list = list.filter(function(r){ return r.side==="under"; });
   else if(showFilterVal==="over") list = list.filter(function(r){ return r.side==="over"; });
+  if(dateFilterVal) list = list.filter(function(r){ return athensDateISO(r.startTime)===dateFilterVal; });
 
   list.forEach(function(r){
     r._res = r.windowResults[activeWindow];
@@ -1883,6 +1949,12 @@ document.getElementById("oddsClear").addEventListener("click", function(){
   document.getElementById("oddsMax").value = "";
   renderToolbarAndRows();
 });
+document.getElementById("dateIconDesktop").addEventListener("click", function(){ openDatePicker("dateFilterDesktop"); });
+document.getElementById("dateIconMobile").addEventListener("click", function(){ openDatePicker("dateFilterMobile"); });
+document.getElementById("dateFilterDesktop").addEventListener("change", function(){ setDateFilter(this.value); });
+document.getElementById("dateFilterMobile").addEventListener("change", function(){ setDateFilter(this.value); });
+document.getElementById("dateClearDesktop").addEventListener("click", function(e){ e.stopPropagation(); setDateFilter(null); });
+document.getElementById("dateClearMobile").addEventListener("click", function(e){ e.stopPropagation(); setDateFilter(null); });
 document.getElementById("scopeSeg").addEventListener("click", function(e){
   if(e.target.tagName!=="BUTTON") return;
   Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
