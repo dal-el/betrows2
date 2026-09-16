@@ -337,6 +337,12 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    μέγεθος μεταξύ τους (justify-items:stretch στο .metrics πιο πάνω — τα δύο
    αυτά pills μοιράζονται πάντα την ίδια στήλη, οπότε γεμίζουν το ίδιο πλάτος). */
 .pill.average, .pill.oppstat{--tint:124,156,255}
+.pill.oppstat{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.pill.oppstat.active{
+  border-color:rgba(124,156,255,.9);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 16px rgba(124,156,255,.5),0 0 30px rgba(124,156,255,.22);
+  transform:scale(1.06);
+}
 /* grid-area ανά pill — ποιο όνομα πέφτει σε ποιο κελί το καθορίζουν οι
    grid-template-areas πιο κάτω, ξεχωριστά για pc/κινητό. */
 .pill.fair{grid-area:fair}
@@ -1435,7 +1441,7 @@ function statsBlockHtml(o){
   }
   html += '<div class="pill average"><div class="k">Average</div><div class="v">'+(o.avgSample?o.avgVal.toFixed(2):"—")+'</div></div>';
   if(o.oppInfo){
-    html += '<div class="pill oppstat"><div class="k">'+o.oppInfo.label+'</div><div class="v">'+(o.oppInfo.sample?o.oppInfo.avg.toFixed(2):"—")+'</div></div>';
+    html += '<div class="pill oppstat'+(o.oppActive?" active":"")+'"><div class="k">'+o.oppInfo.label+'</div><div class="v">'+(o.oppInfo.sample?o.oppInfo.avg.toFixed(2):"—")+'</div></div>';
   }
   return {cls:stateClass, html:html};
 }
@@ -1743,7 +1749,7 @@ function renderRowCard(r){
   var oppInfo = hasPrice ? r._oppInfo : null;
   var edge = hasPrice ? r._edge : null;
   var ev = hasPrice ? r._ev : null;
-  var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo});
+  var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppActive:!!r._oppMode});
   var statsHtml = sb.html;
 
   var teamLabel = r.isTotal ?
@@ -1790,6 +1796,24 @@ function renderRowCard(r){
     saveBtn.classList.toggle("saved", isSaved);
   });
 
+  var oppBtn = head.querySelector(".pill.oppstat");
+  if(oppBtn){
+    oppBtn.addEventListener("click", function(e){
+      e.stopPropagation();
+      r._oppMode = !r._oppMode;
+      oppBtn.classList.toggle("active", !!r._oppMode);
+      card.classList.add("open");
+      if(!card._drawerBuilt){
+        card.appendChild(renderDrawer(r, head));
+        card._drawerBuilt = true;
+      } else if(head._drawerState){
+        head._drawerState.oppMode = !!r._oppMode;
+        head._drawerState.selected = null;
+        if(head._drawerDraw) head._drawerDraw();
+      }
+    });
+  }
+
   card.appendChild(head);
   return card;
 }
@@ -1811,7 +1835,13 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: !!r._oppMode };
+  // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
+  // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
+  // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
+  // χωρίς να χρειάζεται να ξαναφτιάξει το drawer από την αρχή.
+  headEl._drawerState = state;
+  headEl._drawerDraw = draw;
 
   // Όλα τα thresholds της ΙΔΙΑΣ αγοράς (ίδιο side/category/ομάδα) που έχουν
   // ΠΡΑΓΜΑΤΙΚΗ τιμή (odds) μέσα στο τρέχον JSON feed — ταξινομημένα. Το +/-
@@ -1874,25 +1904,51 @@ function renderDrawer(r, headEl){
     var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason}) : null;
     var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
     var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
-    var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo});
+    var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppActive:!!state.oppMode});
     metricsEl.className = "metrics " + sb.cls;
     pillsEl.innerHTML = sb.html;
+    var newOppBtn = pillsEl.querySelector(".pill.oppstat");
+    if(newOppBtn){
+      newOppBtn.addEventListener("click", function(e){
+        e.stopPropagation();
+        state.oppMode = !state.oppMode;
+        r._oppMode = state.oppMode;
+        state.selected = null;
+        draw();
+      });
+    }
   }
 
-  function compute(thr){
+  // useOpp=true (μόνο για ΜΗ-isTotal στοιχήματα με γνωστό αντίπαλο) γυρίζει το
+  // ιστορικό στο "τι επιτρέπει/κάνει ο ΑΝΤΙΠΑΛΟΣ" αντί για "τι κάνει η ομάδα
+  // του στοιχήματος" — χρησιμοποιείται ΜΟΝΟ για το γράφημα (computeChart),
+  // ΠΟΤΕ για τα Fair/Edge/Exp Value/Average pills της κεφαλίδας (compute).
+  function computeFor(thr, useOpp){
+    var swap = !!(useOpp && !r.isTotal && r.opponent);
+    var target = swap ? r.opponent : r.team;
+    var direction = swap ? "against" : r.direction;
+    var h2hTarget = state.h2h ? (r.isTotal ? true : (swap ? r.team : r.opponent)) : null;
     var opts = { n: state.n, venue: state.venue, result: state.result, outlierTrim: state.outlierTrim,
-                 fullSeason: state.fullSeason, h2h: state.h2h ? (r.isTotal ? true : r.opponent) : null };
+                 fullSeason: state.fullSeason, h2h: h2hTarget };
     return r.isTotal
       ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, thr, r.side, opts)
-      : evaluate(r.team, r.league, r.category, r.direction, thr, r.side, opts);
+      : evaluate(target, r.league, r.category, direction, thr, r.side, opts);
   }
+
+  function compute(thr){ return computeFor(thr, false); }
+  function computeChart(thr){ return computeFor(thr, state.oppMode); }
 
   function draw(){
     var thr = effThreshold();
     var res = compute(thr);
+    var chartRes = computeChart(thr);
+    // Εικονικό r-like αντικείμενο με team/opponent αντεστραμμένα, ΜΟΝΟ για να
+    // βγαίνουν σωστά τα ονόματα/venue μέσα στο γράφημα (matchLabel) όσο είναι
+    // ενεργό το OPP mode — τα Fair/Edge/Exp Value/Average του header ΔΕΝ το βλέπουν.
+    var chartR = (state.oppMode && !r.isTotal && r.opponent) ? Object.assign({}, r, {team:r.opponent, opponent:r.team}) : r;
     var price = findSiblingPrice(thr);
     updateHeader(res, thr, price);
-    var matchesNewestFirst = res.matches.slice().reverse(); // left = most recent
+    var matchesNewestFirst = chartRes.matches.slice().reverse(); // left = most recent
     var maxV = 0; matchesNewestFirst.forEach(function(x){ if(x.v>maxV) maxV=x.v; });
     var ceiling = Math.max(maxV*1.15, thr*1.15, 1);
     // Η μπάρα (.bar) και η γραμμή-στόχος (.threshold-line) ΠΡΕΠΕΙ να μοιράζονται την
@@ -1904,12 +1960,12 @@ function renderDrawer(r, headEl){
     var BAR_TRACK_PX = 100;    // ύψος σε px που αντιστοιχεί στο 0..ceiling της μπάρας
     var CHROME_BELOW_PX = 49;  // χώρος ΚΑΤΩ από τη μπάρα μέσα στη στήλη (emblem+ετικέτα)
     var lineBottomPx = CHROME_BELOW_PX + Math.min(BAR_TRACK_PX*0.96, (thr/ceiling)*BAR_TRACK_PX);
-    var avg = res.matches.length ? (res.matches.reduce(function(s,x){ return s+x.v; },0) / res.matches.length) : 0;
+    var avg = chartRes.matches.length ? (chartRes.matches.reduce(function(s,x){ return s+x.v; },0) / chartRes.matches.length) : 0;
     var emptyMsg = '<div class="empty" style="padding:20px">Δεν βρέθηκαν ματς με αυτά τα φίλτρα.</div>';
 
     function barColHtml(x, idx, grp){
       var ok = r.side==="over" ? x.v>thr : x.v<thr;
-      var lbl = matchLabel(r, x);
+      var lbl = matchLabel(chartR, x);
       var h = Math.max(4, Math.round((x.v/ceiling)*BAR_TRACK_PX));
       var isSel = state.selected && state.selected.grp===grp && state.selected.idx===idx;
       var sel = isSel ? " sel" : "";
@@ -1925,13 +1981,13 @@ function renderDrawer(r, headEl){
       '</div>';
     }
 
-    // Στοιχήματα "και οι δύο ομάδες μαζί" (isTotal): το res.matches είναι ένα
+    // Στοιχήματα "και οι δύο ομάδες μαζί" (isTotal): το chartRes.matches είναι ένα
     // pool από τα σπίτι-ματς του γηπεδούχου + τα εκτός-ματς του φιλοξενούμενου.
     // Δείχνοντάς τα σε ΕΝΑ γράφημα μπερδεύει — φαίνεται σαν 20 τυχαία ματς.
     // Τα σπάμε σε δύο ξεχωριστά, ευδιάκριτα γραφήματα: γηπεδούχος πάνω, φιλοξενούμενος κάτω.
     var homeList = [], awayList = [];
     if(r.isTotal){
-      res.matches.forEach(function(x){ (x.src==="home" ? homeList : awayList).push(x); });
+      chartRes.matches.forEach(function(x){ (x.src==="home" ? homeList : awayList).push(x); });
       homeList = homeList.slice().reverse();
       awayList = awayList.slice().reverse();
     }
@@ -1980,7 +2036,7 @@ function renderDrawer(r, headEl){
     var detailHtml = "";
     var selX = selectedMatch();
     if(selX){
-      var lbl = matchLabel(r, selX);
+      var lbl = matchLabel(chartR, selX);
       var ok = r.side==="over" ? selX.v>thr : selX.v<thr;
       // Το ματς γράφεται όπως ήταν ΠΡΑΓΜΑΤΙΚΑ ορισμένο — γηπεδούχος πρώτα,
       // φιλοξενούμενος δεύτερος (π.χ. "Vallecano – Santander"), ΟΧΙ
@@ -2001,15 +2057,16 @@ function renderDrawer(r, headEl){
     var canGoDown = thrIdx>0;
     var canGoUp = thrIdx>=0 && thrIdx<thrList.length-1;
 
+    var oppModeOn = state.oppMode && !r.isTotal && r.opponent;
     var block = document.createElement("div");
     block.innerHTML =
       '<div class="chart-summary">'+
-        '<span>ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ <b>'+res.sample+'</b></span>'+
-        '<span class="csAvg">AVERAGE <b>'+(res.sample?avg.toFixed(2):"—")+'</b></span>'+
+        '<span>'+(oppModeOn ? 'ΑΓΩΝΕΣ ΑΝΤΙΠΑΛΟΥ ('+escAttr(r.opponent)+') ΣΤΟ ΓΡΑΦΗΜΑ' : 'ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ')+' <b>'+chartRes.sample+'</b></span>'+
+        '<span class="csAvg">AVERAGE <b>'+(chartRes.sample?avg.toFixed(2):"—")+'</b></span>'+
       '</div>'+
       '<div class="chart-hitrow">'+
-        '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+res.hits+'</b> / MISS <b>'+(res.sample-res.hits)+'</b></span>'+
-        '<span class="hpwrap"><div class="hp active '+(res.sample?hpTier(Math.round(res.hitRate*100)):"")+'"><div class="pct">'+(res.sample?fmtPct(res.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
+        '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+chartRes.hits+'</b> / MISS <b>'+(chartRes.sample-chartRes.hits)+'</b></span>'+
+        '<span class="hpwrap"><div class="hp active '+(chartRes.sample?hpTier(Math.round(chartRes.hitRate*100)):"")+'"><div class="pct">'+(chartRes.sample?fmtPct(chartRes.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
       '</div>'+
       '<div class="drawerCtrlRow">'+
         '<div class="seg small" id="drawerWin">'+
