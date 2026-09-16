@@ -2020,14 +2020,46 @@ function renderDrawer(r, headEl){
     // που η γραμμή δεν το υπολόγιζε. Δουλεύουμε τώρα σε px και τα δύο μαζί.
     var BAR_TRACK_PX = 100;    // ύψος σε px που αντιστοιχεί στο 0..ceiling της μπάρας
     var CHROME_BELOW_PX = 49;  // χώρος ΚΑΤΩ από τη μπάρα μέσα στη στήλη (emblem+ετικέτα)
-    var lineBottomPx = CHROME_BELOW_PX + Math.min(BAR_TRACK_PX*0.96, (thr/ceiling)*BAR_TRACK_PX);
+    function barHeightPx(v){ return Math.max(4, Math.round((v/ceiling)*BAR_TRACK_PX)); }
+    // Η "φυσική" αναλογική θέση της γραμμής (thr/ceiling) δείχνει σωστά ΣΕ ΘΕΩΡΙΑ,
+    // αλλά οι μπάρες στρογγυλοποιούνται στο πλησιέστερο px (barHeightPx) ενώ η
+    // γραμμή όχι — σε πυκνές κλίμακες (π.χ. L20 με μεγάλες τιμές) αυτό το μισό px
+    // στρογγυλοποίησης μπορεί να καταπιεί ολόκληρο το ήδη μικρό κενό, κάνοντας τη
+    // γραμμή να εφάπτεται οπτικά με τη μπάρα ακριβώς από κάτω ή/και από πάνω του
+    // ορίου. Διόρθωση: βρες, ΑΝΕΞΑΡΤΗΤΑ από over/under (εδώ μετράει μόνο η τιμή,
+    // όχι το hit/miss — για UNDER η πλησιέστερη "από κάτω" τιμή είναι hit ενώ για
+    // OVER είναι miss, οπότε το hit/miss ΔΕΝ πρέπει να καθορίζει ποια είναι η
+    // γειτονική μπάρα), την ψηλότερη μπάρα με τιμή ΚΑΤΩ από το threshold και τη
+    // χαμηλότερη μπάρα με τιμή ΠΑΝΩ από αυτό, ανάμεσα σε όλα τα ορατά ματς, και
+    // τοποθέτησε τη γραμμή ΕΓΓΥΗΜΕΝΑ ανάμεσά τους, με τουλάχιστον ~6px κενό από
+    // την καθεμία όποτε χωράει.
+    var belowMax = null, aboveMin = null;
+    matchesNewestFirst.forEach(function(x){
+      var hpx = barHeightPx(x.v);
+      if(x.v<thr){ if(belowMax===null || hpx>belowMax) belowMax = hpx; }
+      else if(x.v>thr){ if(aboveMin===null || hpx<aboveMin) aboveMin = hpx; }
+    });
+    // Το .threshold-line είναι ΟΛΟΚΛΗΡΟ ένα border-top πάχους BORDER_PX (η ίδια η
+    // γραμμή δεν έχει άλλο "περιεχόμενο" ύψους) — δηλαδή το ορατό κουτί της
+    // εκτείνεται ΠΡΟΣ ΤΑ ΠΑΝΩ κατά BORDER_PX από το σημείο αγκύρωσης (bottom:…px).
+    // Αν δεν το υπολογίσουμε, η μπάρα ΠΑΝΩ από το threshold (aboveMin) συγκρούεται
+    // με το πάνω άκρο της γραμμής ενώ φαινομενικά έχουμε αφήσει κενό — αυτό ήταν
+    // το bug που έκανε τη γραμμή να εφάπτεται σχεδόν παντού.
+    var BORDER_PX = 2;
+    var lineHeightPx = Math.min(BAR_TRACK_PX*0.96, (thr/ceiling)*BAR_TRACK_PX);
+    if(belowMax!==null && aboveMin!==null){
+      var totalRoom = aboveMin - belowMax - BORDER_PX;
+      var clearance = Math.max(0, Math.min(6, totalRoom/2));
+      lineHeightPx = belowMax + clearance;
+    }
+    var lineBottomPx = CHROME_BELOW_PX + lineHeightPx;
     var avg = chartRes.matches.length ? (chartRes.matches.reduce(function(s,x){ return s+x.v; },0) / chartRes.matches.length) : 0;
     var emptyMsg = '<div class="empty" style="padding:20px">Δεν βρέθηκαν ματς με αυτά τα φίλτρα.</div>';
 
     function barColHtml(x, idx, grp){
       var ok = r.side==="over" ? x.v>thr : x.v<thr;
       var lbl = matchLabel(chartR, x);
-      var h = Math.max(4, Math.round((x.v/ceiling)*BAR_TRACK_PX));
+      var h = barHeightPx(x.v);
       var isSel = state.selected && state.selected.grp===grp && state.selected.idx===idx;
       var sel = isSel ? " sel" : "";
       // Το ματς γράφεται ΠΑΝΤΑ με τη σειρά που παίχτηκε στην πραγματικότητα
