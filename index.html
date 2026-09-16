@@ -312,7 +312,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   transform:scale(1.08);
 }
 
-.stats{display:flex;gap:8px;align-items:flex-start}
+/* .stats: CSS grid, ΟΧΙ flex — η διάταξη (ποιο pill πάει πού) διαφέρει σκόπιμα
+   ανάμεσα σε pc/κινητό (βλ. media queries πιο κάτω) ανάλογα με το ποια πεδία
+   της .stats-<state> class ενεργοποιείται (st-full/st-noopp/st-noprice). Το
+   align-items:center + justify-items:start κρατάει κάθε pill στοιχισμένο στην
+   ίδια "ευθεία" ανεξάρτητα πόσες γραμμές πιάνει το κελί του (π.χ. Fair/Edge/Exp
+   Value που καλύπτουν 2 σειρές στον υπολογιστή, βλ. παρακάτω). */
+.stats{display:grid;gap:8px;align-items:center;justify-items:start}
 .pill{
   --tint:18,230,173; /* FAIR: πάντα accent-tinted, όπως στο PropDunker (δεν έχει θετικό/αρνητικό πρόσημο) */
   border-radius:var(--radius-md);padding:7px 12px;min-width:72px;text-align:center;
@@ -326,11 +332,29 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 /* AVERAGE + OPP ALLOWS/WINS/MAKES: δικό τους χρώμα (μπλε-μοβ) ώστε να
    ξεχωρίζουν καθαρά από τα πράσινα/κόκκινα Fair/Edge/Exp Value pills. */
 .pill.average, .pill.oppstat{--tint:124,156,255}
-/* Average + OPP pill: στοιβαγμένα σε δική τους στήλη, σπρωγμένα τέρμα δεξιά
-   μέσα στο .stats. Στον υπολογιστή το AVERAGE είναι πάνω και το OPP pill
-   από κάτω του· στο κινητό αντίστροφα (το OPP pill πάνω, βλ. media query
-   παρακάτω) — έτσι ζητήθηκε ρητά. */
-.statsSide{display:flex;flex-direction:column;gap:6px;margin-left:auto;align-items:stretch}
+/* grid-area ανά pill — ποιο όνομα πέφτει σε ποιο κελί το καθορίζουν οι
+   grid-template-areas πιο κάτω, ξεχωριστά για pc/κινητό. */
+.pill.fair{grid-area:fair}
+.pill.edge{grid-area:edge}
+.pill.expvalue{grid-area:exp}
+.pill.average{grid-area:avg}
+.pill.oppstat{grid-area:opp}
+/* Υπολογιστής: Fair/Edge/Exp Value καλύπτουν ΚΑΙ ΤΙΣ ΔΥΟ σειρές (ίδιο ύψος/
+   ευθεία με τα L5-L20 pills δίπλα τους) — το OPP pill πάνω δεξιά, το AVERAGE
+   από κάτω του. */
+@media(min-width:601px){
+  .stats.st-full{grid-template-columns:auto auto auto auto;grid-template-rows:auto auto;grid-template-areas:"fair edge exp opp" "fair edge exp avg"}
+  .stats.st-noopp{grid-template-columns:auto auto auto auto;grid-template-rows:auto;grid-template-areas:"fair edge exp avg"}
+  .stats.st-noprice{grid-template-columns:auto auto;grid-template-rows:auto;grid-template-areas:"fair avg"}
+}
+/* Κινητό: το OPP pill (μόνο όταν υπάρχει) παίρνει ΔΙΚΗ ΤΟΥ γραμμή από πάνω —
+   τα Fair/Average/Edge/Exp Value γυρνάνε στην ΙΔΙΑ γραμμή μεταξύ τους, ακριβώς
+   όπως πριν (ίδιο ύψος καρτέλας — δεν στοιβάζονται σε στήλη). */
+@media(max-width:600px){
+  .stats.st-full{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"opp opp opp opp" "fair avg edge exp"}
+  .stats.st-noopp{grid-template-columns:repeat(4,auto);grid-template-rows:auto;grid-template-areas:"fair avg edge exp"}
+  .stats.st-noprice{grid-template-columns:repeat(2,auto);grid-template-rows:auto;grid-template-areas:"fair avg"}
+}
 .chev{display:none}
 .row-card.open{border-color:var(--accent)}
 .saveBtn{
@@ -449,7 +473,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .pill{min-width:62px;padding:6px 9px}
   .pill .v{font-size:13px}
 }
-@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} .statsSide{flex-direction:column-reverse} }
+@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
 </style>
 </head>
 <body>
@@ -1370,6 +1394,25 @@ function oppStatAvg(r, opts){
   var res = evaluate(r.opponent, r.league, r.category, "against", r.threshold, r.side, opts||{});
   return {label:label, avg:res.avg, sample:res.sample};
 }
+// Χτίζει το περιεχόμενο + το "state" class του .stats (Fair/Edge/Exp Value/
+// Average/OPP pill) — μία λειτουργία και για την αρχική κάρτα (renderRowCard)
+// και για τη ζωντανή ενημέρωση μέσα στο drawer (updateHeader), ώστε τα δύο
+// σημεία να ΜΗΝ μπορούν ποτέ να αποκλίνουν στη διάταξη. Το "state" class
+// (st-full/st-noopp/st-noprice) καθορίζει το CSS grid layout — βλ. στυλ .stats
+// — που διαφέρει σκόπιμα ανάμεσα σε pc/κινητό (βλ. σχόλιο πάνω από το CSS).
+function statsBlockHtml(o){
+  var stateClass = !o.hasPrice ? "st-noprice" : (o.oppInfo ? "st-full" : "st-noopp");
+  var html = '<div class="pill fair"><div class="k">Fair</div><div class="v">'+fmtOdds(o.fairOdds)+'</div></div>';
+  if(o.hasPrice){
+    html += '<div class="pill edge '+(o.edge>=0?"pos":"neg")+'"><div class="k">Edge</div><div class="v">'+o.edge.toFixed(1)+'%</div></div>';
+    html += '<div class="pill expvalue '+(o.ev>=0?"pos":"neg")+'"><div class="k">Exp Value</div><div class="v">'+o.ev.toFixed(1)+'%</div></div>';
+  }
+  html += '<div class="pill average"><div class="k">Average</div><div class="v">'+(o.avgSample?o.avgVal.toFixed(2):"—")+'</div></div>';
+  if(o.oppInfo){
+    html += '<div class="pill oppstat"><div class="k">'+o.oppInfo.label+'</div><div class="v">'+(o.oppInfo.sample?o.oppInfo.avg.toFixed(2):"—")+'</div></div>';
+  }
+  return {cls:stateClass, html:html};
+}
 
 /* ---------- deterministic team avatar (initials on a hashed hue) ---------- */
 function hashColor(name){
@@ -1658,21 +1701,12 @@ function renderRowCard(r){
     return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
   }).join("");
 
-  var statsHtml = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
-  var oppInfo = null;
-  if(r.price){
-    var edge = r._edge;
-    var ev = (res.hitRate*r.price - 1)*100;
-    statsHtml += '<div class="pill '+(edge>=0?"pos":"neg")+'"><div class="k">Edge</div><div class="v">'+edge.toFixed(1)+'%</div></div>';
-    statsHtml += '<div class="pill '+(ev>=0?"pos":"neg")+'"><div class="k">Exp Value</div><div class="v">'+ev.toFixed(1)+'%</div></div>';
-    oppInfo = oppStatAvg(r, {n:activeWindow});
-  }
-  statsHtml += '<div class="statsSide">';
-  statsHtml += '<div class="pill average"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
-  if(oppInfo){
-    statsHtml += '<div class="pill oppstat"><div class="k">'+oppInfo.label+'</div><div class="v">'+(oppInfo.sample?oppInfo.avg.toFixed(2):"—")+'</div></div>';
-  }
-  statsHtml += '</div>';
+  var hasPrice = !!r.price;
+  var oppInfo = hasPrice ? oppStatAvg(r, {n:activeWindow}) : null;
+  var edge = hasPrice ? r._edge : null;
+  var ev = hasPrice ? (res.hitRate*r.price - 1)*100 : null;
+  var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo});
+  var statsHtml = sb.html;
 
   var teamLabel = r.isTotal ?
     (avatarHtml(r.homeTeam, r.league)+' '+r.homeTeam+' <span class="vs">–</span> '+avatarHtml(r.awayTeam, r.league)+' '+r.awayTeam) :
@@ -1700,7 +1734,7 @@ function renderRowCard(r){
       '</div>'+
     '</div>'+
     '<div class="pillsrow">'+pillsHtml+'</div>'+
-    '<div class="stats">'+statsHtml+'</div>'+
+    '<div class="stats '+sb.cls+'">'+statsHtml+'</div>'+
     '<div class="chev">▾</div>'+
     '<button type="button" class="saveBtn'+(savedBets[bKey]?" saved":"")+'" title="Αποθήκευση bet" aria-label="Αποθήκευση bet">+</button>';
 
@@ -1795,22 +1829,13 @@ function renderDrawer(r, headEl){
     }
     var statsEl = headEl.querySelector(".stats");
     if(!statsEl) return;
-    var html = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
-    var oppInfo = null;
-    if(price!=null && res.sample>0){
-      var edge = (res.hitRate - impliedProb(price)) * 100;
-      var ev = (res.hitRate*price - 1) * 100;
-      html += '<div class="pill '+(edge>=0?"pos":"neg")+'"><div class="k">Edge</div><div class="v">'+edge.toFixed(1)+'%</div></div>';
-      html += '<div class="pill '+(ev>=0?"pos":"neg")+'"><div class="k">Exp Value</div><div class="v">'+ev.toFixed(1)+'%</div></div>';
-      oppInfo = oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason});
-    }
-    html += '<div class="statsSide">';
-    html += '<div class="pill average"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
-    if(oppInfo){
-      html += '<div class="pill oppstat"><div class="k">'+oppInfo.label+'</div><div class="v">'+(oppInfo.sample?oppInfo.avg.toFixed(2):"—")+'</div></div>';
-    }
-    html += '</div>';
-    statsEl.innerHTML = html;
+    var hasPrice = (price!=null && res.sample>0);
+    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason}) : null;
+    var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
+    var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
+    var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo});
+    statsEl.className = "stats " + sb.cls;
+    statsEl.innerHTML = sb.html;
   }
 
   function compute(thr){
