@@ -609,7 +609,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       <select class="pillselect" id="sortMode">
         <option value="hit">Ταξινόμηση: Hit rate</option>
         <option value="edge" selected>Ταξινόμηση: Edge</option>
-        <option value="price">Ταξινόμηση: Απόδοση</option>
+        <option value="ev">Ταξινόμηση: Exp Value</option>
+        <option value="avgvsopp">Ταξινόμηση: Average vs Opponent</option>
       </select>
       <div class="seg" id="windowSeg">
         <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
@@ -1686,11 +1687,23 @@ function renderToolbarAndRows(){
     r._res = r.windowResults[activeWindow];
     // Edge = εκτιμώμενη πιθανότητα (hit rate) − implied probability της απόδοσης, σε ποσοστιαίες μονάδες
     r._edge = (r.price && r._res.sample>0) ? (r._res.hitRate - impliedProb(r.price)) * 100 : null;
+    // Exp Value = προσδοκώμενη απόδοση (%) του στοιχήματος — ίδιος τύπος με το pill "Exp Value".
+    r._ev = (r.price && r._res.sample>0) ? (r._res.hitRate*r.price - 1) * 100 : null;
+    // AVERAGE vs OPPONENT: ίδιος υπολογισμός με το pill OPP ALLOWS/WINS/MAKES — η
+    // διαφορά ΜΕ πρόσημο μένει αποθηκευμένη (π.χ. για μελλοντική χρήση), αλλά η
+    // ταξινόμηση παρακάτω χρησιμοποιεί ΑΠΟΛΥΤΗ τιμή, όπως ζητήθηκε ρητά.
+    r._oppInfo = oppStatAvg(r, {n:activeWindow});
+    r._avgVsOppDiff = (r._res.sample && r._oppInfo && r._oppInfo.sample) ? (r._res.avg - r._oppInfo.avg) : null;
   });
 
   list.sort(function(a,b){
-    if(sortMode==="edge") return (b._edge||-999) - (a._edge||-999);
-    if(sortMode==="price") return (b.price||-999) - (a.price||-999);
+    if(sortMode==="edge") return (b._edge==null?-999:b._edge) - (a._edge==null?-999:a._edge);
+    if(sortMode==="ev") return (b._ev==null?-999:b._ev) - (a._ev==null?-999:a._ev);
+    if(sortMode==="avgvsopp"){
+      var av = a._avgVsOppDiff==null ? -999 : Math.abs(a._avgVsOppDiff);
+      var bv = b._avgVsOppDiff==null ? -999 : Math.abs(b._avgVsOppDiff);
+      return bv - av;
+    }
     return b._res.hitRate - a._res.hitRate;
   });
 
@@ -1727,9 +1740,9 @@ function renderRowCard(r){
   }).join("");
 
   var hasPrice = !!r.price;
-  var oppInfo = hasPrice ? oppStatAvg(r, {n:activeWindow}) : null;
+  var oppInfo = hasPrice ? r._oppInfo : null;
   var edge = hasPrice ? r._edge : null;
-  var ev = hasPrice ? (res.hitRate*r.price - 1)*100 : null;
+  var ev = hasPrice ? r._ev : null;
   var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo});
   var statsHtml = sb.html;
 
