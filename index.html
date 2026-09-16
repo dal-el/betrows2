@@ -512,17 +512,21 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    .standingsWrap αν δεν χωράει, ίδιο pattern με τον ίδιο τον πίνακα. */
 .stDetailRow td{padding:0;background:var(--surface-3);border-bottom:1px solid var(--border)}
 .stDetailWrap{max-height:220px;overflow-y:auto;padding:6px 10px}
-.stDetailLine{display:flex;align-items:center;gap:10px;padding:5px 2px;font-size:11.5px;border-bottom:1px solid var(--border);white-space:nowrap}
+/* Σταθερά πλάτη σε ΟΛΕΣ τις στήλες (sdMatch/sdScore/sdCatScore/sdDate) ώστε
+   οι κάθετες διαχωριστικές (sdDiv) και οι τιμές να στοιχίζονται ΚΑΘΕΤΑ σε όλες
+   τις γραμμές του ιστορικού, ανεξάρτητα από το μήκος ονόματος/τιμής. */
+.stDetailLine{display:flex;align-items:center;gap:0;padding:5px 2px;font-size:11.5px;border-bottom:1px solid var(--border);white-space:nowrap}
 .stDetailLine:last-child{border-bottom:none}
-.sdMatch{display:inline-flex;align-items:center;gap:5px;flex:none}
-.sdTeam{display:inline-flex;align-items:center;gap:4px;color:var(--text-dim)}
+.sdMatch{display:inline-flex;align-items:center;gap:5px;flex:none;width:188px;overflow:hidden}
+.sdTeam{display:inline-flex;align-items:center;gap:4px;color:var(--text-dim);min-width:0}
 .sdTeam.sdMe{color:var(--text);font-weight:700}
 .sdTeam .avatar{width:16px;height:16px;margin:0;font-size:6.5px;flex:none}
-.sdVs{color:var(--text-faint);font-size:10px}
-.sdScore{color:var(--text);font-weight:800;font-family:"IBM Plex Mono",monospace;flex:none}
-.sdDate{color:var(--text-faint);font-family:"IBM Plex Mono",monospace;flex:none}
-.sdVal{color:var(--text);font-weight:700;font-family:"IBM Plex Mono",monospace;flex:none;margin-left:auto}
-.sdAgainst{color:var(--text-faint);font-weight:400}
+.sdTeamName{max-width:68px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:middle}
+.sdVs{color:var(--text-faint);font-size:10px;flex:none}
+.sdDiv{color:var(--text-faint);opacity:.4;flex:none;width:16px;text-align:center}
+.sdScore{color:var(--text);font-weight:800;font-family:"IBM Plex Mono",monospace;flex:none;width:38px;text-align:center}
+.sdCatScore{color:var(--text);font-weight:800;font-family:"IBM Plex Mono",monospace;flex:none;width:46px;text-align:center}
+.sdDate{color:var(--text-faint);font-family:"IBM Plex Mono",monospace;flex:none;width:56px;text-align:right}
 /* Σε στοιχήματα ΜΟΝΗΣ ομάδας το HITS/MISS έχει ήδη μετακομίσει μέσα στο
    .oppBigId (πιο πάνω) — εδώ μένει ΜΟΝΟ το pill με το ΤΡΕΧΟΝ ποσοστό,
    ακριβώς από κάτω, δεξιά στοιχισμένο. Σε isTotal (χωρίς .oppBigId) το
@@ -1215,25 +1219,38 @@ function fmtShortDate(d){
 // της μέσα στον πίνακα. Ίδια λίστα row.matches που ήδη τροφοδοτεί τη φόρμα.
 // Κάθε γραμμή γράφεται ΑΚΡΙΒΩΣ όπως ήταν ο αγώνας — λογότυπο+όνομα γηπεδούχου,
 // λογότυπο+όνομα φιλοξενούμενου (ΟΧΙ "opponent" αναδιατεταγμένο γύρω από την
-// ομάδα της γραμμής — μόνο τονίζεται/bold ποια απ' τις δύο είναι αυτή), το
-// σκορ, και δίπλα η ημερομηνία· το venue (Ε/Ξ) φαίνεται πλέον έμμεσα από τη
-// σειρά γηπεδούχος-φιλοξενούμενος, οπότε αφαιρέθηκε ως πλεονάζον.
+// ομάδα της γραμμής — μόνο τονίζεται/bold ποια απ' τις δύο είναι αυτή) — μετά
+// κάθετη διαχωριστική, το σκορ του αγώνα, (αν η κατηγορία ΔΕΝ είναι η κανονική)
+// άλλη κάθετη διαχωριστική και το "σκορ" της ίδιας της κατηγορίας σε καθαρή
+// μορφή Χ-Ψ χωρίς λέξεις (π.χ. κόρνερ 6-4, όχι "6 (κατά 4)") — και τέλος άλλη
+// κάθετη διαχωριστική με την ημερομηνία. Όλες οι στήλες έχουν ΣΤΑΘΕΡΟ πλάτος
+// (βλ. CSS .sdMatch/.sdScore/.sdCatScore/.sdDate) ώστε οι διαχωριστικές και οι
+// τιμές να στοιχίζονται κάθετα σε όλες τις γραμμές, ανεξάρτητα από το μήκος
+// των ονομάτων/τιμών. Το venue (Ε/Ξ) φαίνεται πλέον έμμεσα από τη σειρά
+// γηπεδούχος-φιλοξενούμενος, οπότε αφαιρέθηκε ως πλεονάζον.
 function standingsDetailRowHtml(row, category, colspan, leagueId){
   var showAgainst = !NO_AGAINST_CATS[category];
+  var isRegular = category==="regular";
+  var div = '<span class="sdDiv">|</span>';
   var lines = row.matches.slice().reverse().map(function(x){
     var m=x.m, side=x.side;
-    var score = (m.fthg==null || m.ftag==null) ? "—" : (fmtGoal(m.fthg)+"-"+fmtGoal(m.ftag));
+    var goalScore = (m.fthg==null || m.ftag==null) ? "—" : (fmtGoal(m.fthg)+"-"+fmtGoal(m.ftag));
     var matchHtml = '<span class="sdMatch">'+
         '<span class="sdTeam'+(side==="h"?" sdMe":"")+'">'+avatarHtml(m.h, leagueId)+'<span class="sdTeamName">'+escAttr(m.h)+'</span></span>'+
         '<span class="sdVs">–</span>'+
         '<span class="sdTeam'+(side==="a"?" sdMe":"")+'">'+avatarHtml(m.a, leagueId)+'<span class="sdTeamName">'+escAttr(m.a)+'</span></span>'+
-      '</span>'+
-      '<span class="sdScore">'+score+'</span>'+
-      '<span class="sdDate">'+fmtShortDate(m.d)+'</span>';
-    if(category==="regular") return '<div class="stDetailLine">'+matchHtml+'</div>';
-    var v = statForSide(m, category, side), av = statForSide(m, category, side==="h"?"a":"h");
+      '</span>';
+    var catScoreHtml = "";
+    if(!isRegular){
+      var v = statForSide(m, category, side), av = statForSide(m, category, side==="h"?"a":"h");
+      var txt = showAgainst ? ((v==null?"—":v)+"-"+(av==null?"—":av)) : (v==null?"—":String(v));
+      catScoreHtml = div+'<span class="sdCatScore">'+txt+'</span>';
+    }
     return '<div class="stDetailLine">'+matchHtml+
-      '<span class="sdVal">'+(v==null?"—":v)+(showAgainst?' <span class="sdAgainst">(κατά '+(av==null?"—":av)+')</span>':"")+'</span></div>';
+      div+'<span class="sdScore">'+goalScore+'</span>'+
+      catScoreHtml+
+      div+'<span class="sdDate">'+fmtShortDate(m.d)+'</span>'+
+    '</div>';
   }).join("");
   return '<tr class="stDetailRow"><td colspan="'+colspan+'"><div class="stDetailWrap">'+
     (lines || '<div class="empty" style="padding:10px">Δεν βρέθηκαν αγώνες.</div>')+
