@@ -1242,8 +1242,16 @@ function standingsDetailRowHtml(row, category, colspan, leagueId){
       '</span>';
     var catScoreHtml = "";
     if(!isRegular){
-      var v = statForSide(m, category, side), av = statForSide(m, category, side==="h"?"a":"h");
-      var txt = showAgainst ? ((v==null?"—":v)+"-"+(av==null?"—":av)) : (v==null?"—":String(v));
+      // ΠΡΟΣΟΧΗ: το "σκορ" της κατηγορίας πρέπει να ακολουθεί ΤΗΝ ΙΔΙΑ σειρά
+      // γηπεδούχος-φιλοξενούμενος με το goalScore (και με τα ονόματα/λογότυπα
+      // πιο πάνω) — ΟΧΙ τη σειρά "η ομάδα της γραμμής πρώτη" (statForSide(...,
+      // side)), αλλιώς όταν η ομάδα της γραμμής παίζει ΕΚΤΟΣ το νούμερό της θα
+      // εμφανίζεται λάθος στα αριστερά (π.χ. Elche–Real Madrid 2-3 στα γκολ
+      // αλλά κόρνερ γραμμένα ως "5-2" αντί για "2-5"). Ισχύει σε ΟΛΕΣ τις
+      // κατηγορίες, όχι μόνο στα κόρνερ.
+      var vHome = statForSide(m, category, "h"), vAway = statForSide(m, category, "a");
+      var vOwn = statForSide(m, category, side);
+      var txt = showAgainst ? ((vHome==null?"—":vHome)+"-"+(vAway==null?"—":vAway)) : (vOwn==null?"—":String(vOwn));
       catScoreHtml = div+'<span class="sdCatScore">'+txt+'</span>';
     }
     return '<div class="stDetailLine">'+matchHtml+
