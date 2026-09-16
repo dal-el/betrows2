@@ -450,21 +450,22 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .oppBigId .hitsText b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
 .chart-summary .csAvg{margin-left:auto}
 /* TABLE pill — κάτω από το λογότυπο/όνομα (.oppBigId) — ανοίγει τον βαθμολογικό
-   πίνακα της λίγκας στη θέση του γραφήματος. Χρώμα ξεχωριστό (χρυσό/amber) από
-   το μπλε-μοβ του OPP pill ώστε να μη μπερδεύονται οπτικά. */
-.tableToggleRow{margin:0 0 10px}
+   πίνακα της λίγκας στη θέση του γραφήματος. Χρώμα ξεχωριστό (σκούρο ατσαλί/slate)
+   από το μπλε-μοβ του OPP pill ώστε να μη μπερδεύονται οπτικά, αλλά πιο σοβαρό/ήρεμο
+   από το προηγούμενο χρυσό/amber. */
+.tableToggleRow{margin:8px 0 10px}
 .tableToggleBtn{
   display:inline-flex;align-items:center;gap:6px;
   padding:5px 12px;border-radius:var(--radius-pill);
   font-size:11px;font-weight:700;letter-spacing:.03em;
-  border:1px solid rgba(245,166,35,.4);color:rgba(245,166,35,.95);
-  background:linear-gradient(rgba(245,166,35,.14),rgba(245,166,35,0)),var(--surface-2);
+  border:1px solid rgba(140,158,180,.4);color:rgba(190,203,219,.95);
+  background:linear-gradient(rgba(140,158,180,.14),rgba(140,158,180,0)),var(--surface-2);
   cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
 }
-.tableToggleBtn:hover{border-color:rgba(245,166,35,.75)}
+.tableToggleBtn:hover{border-color:rgba(140,158,180,.75)}
 .tableToggleBtn.active{
-  border-color:rgba(245,166,35,.9);color:#fff;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 0 14px rgba(245,166,35,.45);
+  border-color:rgba(140,158,180,.9);color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 0 14px rgba(140,158,180,.4);
 }
 .standingsBlock{margin:2px 0 16px}
 .tcatRow{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--border)}
@@ -493,7 +494,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    ιστορικό της ανά αγώνα. */
 .standingsTable tbody tr[data-team]{cursor:pointer;transition:background .12s ease}
 .standingsTable tbody tr[data-team]:hover{background:var(--surface-3)}
-.standingsTable tr.stExpanded td.stTeam{color:var(--gold)}
+.standingsTable tr.stExpanded td.stTeam{color:rgb(190,203,219)}
 .formSeq{display:inline-flex;gap:3px}
 .formEmpty{color:var(--text-faint)}
 .formDot{
@@ -597,6 +598,23 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lineadj button:disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
 .lineadj .lval{font-size:11.5px;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);min-width:60px;text-align:center}
 .lineadj .lval b{color:var(--accent)}
+/* REVERSED LINE pill — δεξιά του LINE +/-. Όταν ενεργό, αντιστρέφει over<->under
+   στο ίδιο threshold: γραμμή, ράβδοι, edge/value/fair, hits/miss όλα δυναμικά
+   ξαναϋπολογίζονται (βλ. effSide()/computeFor στο renderDrawer). Ιώδες χρώμα,
+   ξεχωριστό από OPP (μπλε-μοβ), TABLE (ατσαλί) και streak (πορτοκαλί). */
+.reversedLineBtn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:6px 12px;border-radius:var(--radius-pill);
+  font-size:10.5px;font-weight:700;letter-spacing:.02em;white-space:nowrap;
+  border:1px solid var(--border);color:var(--text-dim);
+  background:var(--surface-3);cursor:pointer;
+}
+.reversedLineBtn:hover{border-color:rgba(167,139,250,.6);color:rgba(167,139,250,.9)}
+.reversedLineBtn.active{
+  border-color:rgba(167,139,250,.9);color:#fff;
+  background:linear-gradient(rgba(167,139,250,.22),rgba(167,139,250,.06)),var(--surface-2);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 12px rgba(167,139,250,.4);
+}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .fchip{
   background:var(--surface-3);border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-pill);
@@ -1120,11 +1138,17 @@ function collectStandingsMatches(leagueId, venue){
 // χωρίς αφαιρέσεις βαθμών (δεν είναι μέσα στα δεδομένα αγώνων, βλ. συζήτηση).
 // Οποιαδήποτε άλλη κατηγορία: μέσος όρος ΥΠΕΡ (ταξινόμηση, highlighted) ΚΑΙ
 // ΚΑΤΑ (πόσο δέχεται/επιτρέπει η ομάδα) δίπλα-δίπλα — εκτός από τις κατηγορίες
-// στο NO_AGAINST_CATS. venue: "any"|"home"|"away".
-function buildStandingsRows(leagueId, category, venue){
+// στο NO_AGAINST_CATS. venue: "any"|"home"|"away". formN: αν δοθεί, ΟΛΟΣ ο
+// πίνακας (όχι μόνο η στήλη ΦΟΡΜΑ) υπολογίζεται μόνο από τους τελευταίους N
+// αγώνες κάθε ομάδας — έτσι ζητήθηκε ρητά ("βαθμολογία για τους 5/10/15/20
+// τελευταίους"). Κόβουμε το row.matches ΠΡΙΝ από οποιονδήποτε υπολογισμό, ώστε
+// η ΦΟΡΜΑ (formSequenceHtml) και το αναλυτικό ιστορικό να δείχνουν ΑΚΡΙΒΩΣ τα
+// ίδια ματς που τροφοδότησαν τους αριθμούς — καμία απόκλιση.
+function buildStandingsRows(leagueId, category, venue, formN){
   var table = collectStandingsMatches(leagueId, venue);
   var rows = Object.keys(table).map(function(t){
     var row = table[t];
+    if(formN){ row.matches = row.matches.slice(-formN); }
     row.played = row.matches.length;
     if(category==="regular"){
       row.w=0; row.d=0; row.l=0; row.gf=0; row.ga=0;
@@ -1198,7 +1222,7 @@ function standingsDetailRowHtml(row, category, colspan){
   '</div></td></tr>';
 }
 function standingsTableHtml(leagueId, category, highlightTeams, venue, formN, expandedTeam){
-  var rows = buildStandingsRows(leagueId, category, venue);
+  var rows = buildStandingsRows(leagueId, category, venue, formN);
   if(!rows.length) return '<div class="empty" style="padding:20px">Δεν βρέθηκαν δεδομένα σεζόν για αυτή τη λίγκα.</div>';
   var hl = highlightTeams || [];
   function isHl(t){ return hl.indexOf(t)!==-1; }
@@ -2235,7 +2259,11 @@ function renderRowCard(r){
   var saveBtn = head.querySelector(".saveBtn");
   saveBtn.addEventListener("click", function(e){
     e.stopPropagation();
-    var isSaved = toggleSavedBet(r);
+    // Αν το drawer είναι ήδη χτισμένο, αποθηκεύουμε ΤΗΝ ΤΡΕΧΟΥΣΑ μορφή του
+    // στοιχήματος (π.χ. μετά από REVERSED LINE ή +/- στη γραμμή) — όχι πάντα
+    // το αρχικό r — βλ. headEl._drawerGetEffectiveRow στο renderDrawer.
+    var rowToSave = (head._drawerGetEffectiveRow ? head._drawerGetEffectiveRow() : r);
+    var isSaved = toggleSavedBet(rowToSave);
     saveBtn.classList.toggle("saved", isSaved);
   });
   var streakBtn = head.querySelector(".streakBtn");
@@ -2284,7 +2312,7 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableExpandedTeam:null };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -2292,13 +2320,20 @@ function renderDrawer(r, headEl){
   headEl._drawerState = state;
   headEl._drawerDraw = draw;
 
+  // REVERSED LINE: αντιστρέφει over<->under στο ΙΔΙΟ threshold — π.χ. UNDER 14.5
+  // ενεργό -> γίνεται OVER 14.5. Επηρεάζει το side που χρησιμοποιείται ΠΑΝΤΟΥ
+  // μέσα στο drawer (siblingThresholds/findSiblingPrice/computeFor/draw), ΟΧΙ
+  // το αρχικό r.side (που παραμένει η "εκ φύσεως" αγορά της κάρτας — βλ. head).
+  function effSide(){ return state.reversedLine ? (r.side==="over"?"under":"over") : r.side; }
+
   // Όλα τα thresholds της ΙΔΙΑΣ αγοράς (ίδιο side/category/ομάδα) που έχουν
   // ΠΡΑΓΜΑΤΙΚΗ τιμή (odds) μέσα στο τρέχον JSON feed — ταξινομημένα. Το +/-
   // επιτρέπεται να κινείται ΜΟΝΟ μέσα σε αυτή τη λίστα, ποτέ εκτός της.
   function siblingThresholds(){
     var set = {};
+    var side = effSide();
     feedRows.forEach(function(x){
-      if(x.side!==r.side || x.category!==r.category) return;
+      if(x.side!==side || x.category!==r.category) return;
       var match = r.isTotal
         ? (x.isTotal && x.homeTeam===r.homeTeam && x.awayTeam===r.awayTeam)
         : (!x.isTotal && x.team===r.team && x.direction===r.direction);
@@ -2316,9 +2351,10 @@ function renderDrawer(r, headEl){
   // Ψάχνει στο ίδιο feed για την ΠΡΑΓΜΑΤΙΚΗ τιμή (odds) της ίδιας αγοράς σε
   // άλλο threshold (π.χ. όταν ο χρήστης ανεβοκατεβάζει τη γραμμή με +/-).
   function findSiblingPrice(thr){
-    if(thr === r.threshold) return r.price;
+    var side = effSide();
+    if(!state.reversedLine && thr === r.threshold) return r.price;
     var found = feedRows.filter(function(x){
-      if(x.side!==r.side || x.category!==r.category || x.threshold!==thr) return false;
+      if(x.side!==side || x.category!==r.category || x.threshold!==thr) return false;
       return r.isTotal
         ? (x.isTotal && x.homeTeam===r.homeTeam && x.awayTeam===r.awayTeam)
         : (!x.isTotal && x.team===r.team && x.direction===r.direction);
@@ -2326,12 +2362,33 @@ function renderDrawer(r, headEl){
     return found ? found.price : null;
   }
 
+  // Επιστρέφει ένα "ενεργό" r-like αντικείμενο που αντανακλά ΤΗΝ ΤΡΕΧΟΥΣΑ
+  // κατάσταση (reversed line + τυχόν μετακίνηση της γραμμής +/-) — αυτό
+  // αποθηκεύεται όταν πατηθεί το + όσο το drawer είναι ανοιχτό (βλ. saveBtn
+  // στο renderRow, που διαβάζει headEl._drawerGetEffectiveRow αν υπάρχει).
+  function effectiveRow(){
+    var thr = effThreshold(), side = effSide();
+    if(!state.reversedLine && thr===r.threshold) return r;
+    var out = {};
+    for(var k in r){ if(Object.prototype.hasOwnProperty.call(r,k)) out[k] = r[k]; }
+    out.threshold = thr;
+    out.side = side;
+    out.price = findSiblingPrice(thr);
+    return out;
+  }
+  headEl._drawerGetEffectiveRow = effectiveRow;
+
   // Ενημερώνει δυναμικά τα Fair/Edge/Exp Value + το side-tag/price-chip στην
-  // ΚΕΦΑΛΙΔΑ της κάρτας (έξω από το drawer), ώστε να ακολουθούν το L?/+-.
+  // ΚΕΦΑΛΙΔΑ της κάρτας (έξω από το drawer), ώστε να ακολουθούν το L?/+-/REVERSED.
   function updateHeader(res, thr, price){
     if(!headEl) return;
+    var side = effSide();
     var sideTagEl = headEl.querySelector(".side-tag");
-    if(sideTagEl) sideTagEl.textContent = (r.side==="over"?"OVER":"UNDER")+" "+thr;
+    if(sideTagEl){
+      sideTagEl.textContent = (side==="over"?"OVER":"UNDER")+" "+thr;
+      sideTagEl.classList.remove("over","under");
+      sideTagEl.classList.add(side);
+    }
     var marketRow = headEl.querySelector(".market");
     var priceChipEl = headEl.querySelector(".price-chip");
     if(price!=null){
@@ -2402,9 +2459,10 @@ function renderDrawer(r, headEl){
     var h2hTarget = state.h2h ? (r.isTotal ? true : (swap ? r.team : r.opponent)) : null;
     var opts = { n: state.n, venue: state.venue, result: state.result, outlierTrim: state.outlierTrim,
                  fullSeason: state.fullSeason, h2h: h2hTarget };
+    var side = effSide();
     return r.isTotal
-      ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, thr, r.side, opts)
-      : evaluate(target, r.league, r.category, direction, thr, r.side, opts);
+      ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, thr, side, opts)
+      : evaluate(target, r.league, r.category, direction, thr, side, opts);
   }
 
   function compute(thr){ return computeFor(thr, false); }
@@ -2468,7 +2526,7 @@ function renderDrawer(r, headEl){
     var emptyMsg = '<div class="empty" style="padding:20px">Δεν βρέθηκαν ματς με αυτά τα φίλτρα.</div>';
 
     function barColHtml(x, idx, grp){
-      var ok = r.side==="over" ? x.v>thr : x.v<thr;
+      var ok = effSide()==="over" ? x.v>thr : x.v<thr;
       var lbl = matchLabel(chartR, x);
       var h = barHeightPx(x.v);
       var isSel = state.selected && state.selected.grp===grp && state.selected.idx===idx;
@@ -2541,7 +2599,7 @@ function renderDrawer(r, headEl){
     var selX = selectedMatch();
     if(selX){
       var lbl = matchLabel(chartR, selX);
-      var ok = r.side==="over" ? selX.v>thr : selX.v<thr;
+      var ok = effSide()==="over" ? selX.v>thr : selX.v<thr;
       // Το ματς γράφεται όπως ήταν ΠΡΑΓΜΑΤΙΚΑ ορισμένο — γηπεδούχος πρώτα,
       // φιλοξενούμενος δεύτερος (π.χ. "Vallecano – Santander"), ΟΧΙ
       // αναδιατεταγμένο γύρω από την ομάδα του στοιχήματος. Απλά τονίζουμε
@@ -2569,7 +2627,7 @@ function renderDrawer(r, headEl){
     // oppModeOn) ώστε το ύψος της να μην αλλάζει κατά το toggle — αλλιώς NOW/
     // L5-L20/LINE από κάτω μετατοπίζονται προς τα κάτω κάθε φορά που ενεργοποιείται.
     var idTeam = oppModeOn ? r.opponent : r.team;
-    var hitsTextHtml = '<span class="hitsText">'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+chartRes.hits+'</b> / MISS <b>'+(chartRes.sample-chartRes.hits)+'</b></span>';
+    var hitsTextHtml = '<span class="hitsText">'+(effSide()==="over"?"OVER":"UNDER")+' HITS <b>'+chartRes.hits+'</b> / MISS <b>'+(chartRes.sample-chartRes.hits)+'</b></span>';
     var nowPillHtml = '<span class="hpwrap"><div class="hp active '+(chartRes.sample?hpTier(Math.round(chartRes.hitRate*100)):"")+'"><div class="pct">'+(chartRes.sample?fmtPct(chartRes.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>';
     // Σε στοιχήματα μονής ομάδας (όχι isTotal): το "OVER/UNDER HITS x/MISS y"
     // μπαίνει ΣΤΗΝ ΙΔΙΑ γραμμή με το λογότυπο+όνομα (idHtml), και το NOW pill
@@ -2606,15 +2664,19 @@ function renderDrawer(r, headEl){
         return '<button type="button" class="tvbtn'+(state.tableVenue===v?" active":"")+'" data-v="'+v+'">'+lbl+'</button>';
       }).join("");
       var tfBtnsHtml = [5,10,15,20].map(function(n){
-        return '<button type="button" class="tfbtn'+(state.tableFormN===n?" active":"")+'" data-n="'+n+'">'+n+'</button>';
+        return '<button type="button" class="tfbtn'+(state.tableFormN===n&&!state.tableFormCustom?" active":"")+'" data-n="'+n+'">'+n+'</button>';
       }).join("");
+      // Η επιλογή ΦΟΡΜΑ (5/10/15/20/?) καθορίζει ΤΩΡΑ ολόκληρη τη βαθμολογία
+      // (όχι μόνο τη στήλη ΦΟΡΜΑ) — βλ. buildStandingsRows(formN). Custom "?"
+      // πλήθος αγώνων, ίδιο pattern με το L? του γραφήματος πιο πάνω.
       tableSectionHtml =
         '<div class="standingsBlock">'+
           '<div class="tcatRow">'+catBtnsHtml+'</div>'+
           '<div class="tableSubRow">'+
             '<div class="seg small tvSeg">'+tvBtnsHtml+'</div>'+
-            '<span class="tfLabel">ΦΟΡΜΑ</span>'+
+            '<span class="tfLabel">ΦΟΡΜΑ ΤΕΛ.</span>'+
             '<div class="seg small tfSeg">'+tfBtnsHtml+'</div>'+
+            '<span class="lwrap"><input type="number" class="lninput tfninput'+(state.tableFormCustom?" active":"")+'" min="3" max="60" placeholder="?" value="'+(state.tableFormCustom?state.tableFormN:"")+'"></span>'+
           '</div>'+
           standingsTableHtml(r.league, tableCat, hlTeams, state.tableVenue, state.tableFormN, state.tableExpandedTeam)+
         '</div>';
@@ -2642,6 +2704,7 @@ function renderDrawer(r, headEl){
           '<span class="lval">LINE <b>'+thr+'</b></span>'+
           '<button class="ladj" data-d="1"'+(canGoUp?"":" disabled")+' title="Ανέβασε τη γραμμή">+</button>'+
         '</div>'+
+        '<button type="button" class="reversedLineBtn'+(state.reversedLine?" active":"")+'" title="Αντιστροφή over/under στην ίδια γραμμή">⇄ REVERSED LINE</button>'+
       '</div>'+
       (state.tableMode ? tableSectionHtml : (chartHtml+detailHtml))+
       '<div class="filters" id="drawerFilters"></div>';
@@ -2689,8 +2752,22 @@ function renderDrawer(r, headEl){
         var btn = e.target.closest(".tfbtn");
         if(!btn) return;
         state.tableFormN = parseInt(btn.getAttribute("data-n"),10);
+        state.tableFormCustom = false;
         draw();
       });
+    }
+    // custom "?" πλήθος τελευταίων αγώνων για τη βαθμολογία (ίδιο pattern με
+    // το L? του γραφήματος).
+    var tfnInput = block.querySelector(".tfninput");
+    if(tfnInput){
+      tfnInput.addEventListener("click", function(e){ e.stopPropagation(); });
+      function applyTableCustomN(){
+        var val = parseInt(tfnInput.value, 10);
+        if(!val || val<3) return;
+        state.tableFormCustom = true; state.tableFormN = val; draw();
+      }
+      tfnInput.addEventListener("keydown", function(e){ e.stopPropagation(); if(e.key==="Enter"){ applyTableCustomN(); } });
+      tfnInput.addEventListener("change", applyTableCustomN);
     }
     // Κλικ πάνω σε γραμμή ομάδας μέσα στη βαθμολογία -> ανοίγει/κλείνει το
     // αναλυτικό ιστορικό της (ίδια ομάδα ξανά -> κλείνει). Delegation πάνω στο
@@ -2748,6 +2825,20 @@ function renderDrawer(r, headEl){
         draw();
       });
     });
+
+    // REVERSED LINE — αντιστρέφει over<->under στην ίδια γραμμή (effSide()).
+    // Ξαναϋπολογίζεται ΤΟ ΠΑΝ (ράβδοι/edge/value/fair/hits-miss/side-tag) μέσα
+    // στο ίδιο draw(). Το + (αποθήκευση) όσο το drawer είναι ανοιχτό διαβάζει
+    // αυτή την κατάσταση μέσω headEl._drawerGetEffectiveRow (βλ. renderRow).
+    var reversedBtn = block.querySelector(".reversedLineBtn");
+    if(reversedBtn){
+      reversedBtn.addEventListener("click", function(e){
+        e.stopPropagation();
+        state.reversedLine = !state.reversedLine;
+        state.selected = null;
+        draw();
+      });
+    }
 
     var fp = block.querySelector("#drawerFilters");
     function chip(label, active, disabled){
