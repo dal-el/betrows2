@@ -449,6 +449,39 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .oppBigId .hitsText{font-size:11px;font-weight:400;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
 .oppBigId .hitsText b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
 .chart-summary .csAvg{margin-left:auto}
+/* TABLE pill — κάτω από το λογότυπο/όνομα (.oppBigId) — ανοίγει τον βαθμολογικό
+   πίνακα της λίγκας στη θέση του γραφήματος. Χρώμα ξεχωριστό (χρυσό/amber) από
+   το μπλε-μοβ του OPP pill ώστε να μη μπερδεύονται οπτικά. */
+.tableToggleRow{margin:0 0 10px}
+.tableToggleBtn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:var(--radius-pill);
+  font-size:11px;font-weight:700;letter-spacing:.03em;
+  border:1px solid rgba(245,166,35,.4);color:rgba(245,166,35,.95);
+  background:linear-gradient(rgba(245,166,35,.14),rgba(245,166,35,0)),var(--surface-2);
+  cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+}
+.tableToggleBtn:hover{border-color:rgba(245,166,35,.75)}
+.tableToggleBtn.active{
+  border-color:rgba(245,166,35,.9);color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 0 14px rgba(245,166,35,.45);
+}
+.standingsBlock{margin:2px 0 16px}
+.tcatRow{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--border)}
+.tcatbtn{flex:none;font-size:10.5px;font-weight:600;letter-spacing:.02em;padding:5px 10px;border-radius:var(--radius-pill);
+  border:1px solid var(--border);background:var(--surface-2);color:var(--text-dim);cursor:pointer;white-space:nowrap;}
+.tcatbtn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.standingsWrap{overflow-x:auto}
+.standingsTable{width:100%;border-collapse:collapse;font-size:12px}
+.standingsTable th{text-align:left;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);padding:5px 8px;border-bottom:1px solid var(--border);white-space:nowrap}
+.standingsTable td{padding:6px 8px;border-bottom:1px solid var(--border);white-space:nowrap;color:var(--text-dim)}
+.standingsTable td.stRank{color:var(--text-faint);font-family:"IBM Plex Mono",monospace;width:22px}
+.standingsTable td.stTeam{display:flex;align-items:center;gap:7px;font-weight:600;color:var(--text)}
+.standingsTable td.stPts{font-weight:700;color:var(--text);font-family:"IBM Plex Mono",monospace}
+/* Το ζευγάρι που παίζει σε αυτόν τον αγώνα, τονισμένο μέσα στον πίνακα —
+   ίδιο πράσινο-accent με το υπόλοιπο app, ώστε να ξεχωρίζει αμέσως. */
+.standingsTable tr.stHl{background:rgba(18,230,173,.10)}
+.standingsTable tr.stHl td.stTeam{color:var(--accent)}
 /* Σε στοιχήματα ΜΟΝΗΣ ομάδας το HITS/MISS έχει ήδη μετακομίσει μέσα στο
    .oppBigId (πιο πάνω) — εδώ μένει ΜΟΝΟ το pill με το ΤΡΕΧΟΝ ποσοστό,
    ακριβώς από κάτω, δεξιά στοιχισμένο. Σε isTotal (χωρίς .oppBigId) το
@@ -996,6 +1029,109 @@ function matchResultForTeam(m, team){
   if(draw) return "draw";
   var isHome = m.h===team;
   return ((isHome&&homeWon)||(!isHome&&!homeWon)) ? "win" : "loss";
+}
+
+/* ---------- Βαθμολογικοί πίνακες (TABLE pill μέσα στο drawer) ----------
+   Υπολογίζονται εξ ολοκλήρου client-side, ζωντανά, απευθείας από το ήδη
+   φορτωμένο DATA — ΔΕΝ χρειάζεται κανένα ξεχωριστό "build" βήμα στο Python
+   fetcher ούτε νέο αρχείο για ανέβασμα στο git: μόλις ανανεώνεται το data.json
+   (μέσω refresh_history_api_football.py) και ανεβαίνει με το push_to_github.bat
+   όπως ήδη γίνεται, οι πίνακες είναι αυτόματα ενημερωμένοι, αφού διαβάζουν την
+   ίδια πηγή. "Τρέχουσα σεζόν" ανά λίγκα = η σεζόν (πεδίο "s") του πιο πρόσφατου
+   αγώνα που υπάρχει γι' αυτή τη λίγκα στο DATA — ίδια λογική με το φίλτρο
+   "Όλη τη σεζόν" που ήδη έχει η κάθε γραμμή, μόνο που εδώ εφαρμόζεται σε
+   επίπεδο λίγκας αντί για ομάδα. */
+var TABLE_CATS = ["regular"].concat(CAT_FILTER_ORDER);
+function tableCatLabel(c){ return c==="regular" ? "ΚΑΝΟΝΙΚΗ" : catLabel(c).toUpperCase(); }
+var _seasonByLeagueCache = {};
+function currentSeasonForLeague(leagueId){
+  if(_seasonByLeagueCache[leagueId]!==undefined) return _seasonByLeagueCache[leagueId];
+  var latestDate=null, latestSeason=null;
+  for(var i=0;i<DATA.length;i++){
+    var m = DATA[i];
+    if(m.lg===leagueId && (latestDate===null || m.d>latestDate)){ latestDate=m.d; latestSeason=m.s; }
+  }
+  _seasonByLeagueCache[leagueId] = latestSeason;
+  return latestSeason;
+}
+// category==="regular": κλασικός πίνακας (Ν/Ι/Η/βαθμοί), σαν το επίσημο —
+// χωρίς αφαιρέσεις βαθμών (δεν είναι μέσα στα δεδομένα αγώνων, βλ. συζήτηση).
+// Οποιαδήποτε άλλη κατηγορία: μέσος όρος ανά αγώνα σε αυτή την κατηγορία,
+// ταξινομημένος ΠΑΝΤΑ φθίνοντα (μεγαλύτερη επίτευξη πρώτη), ίδια λογική για
+// όλες τις κατηγορίες όπως ζητήθηκε.
+function buildStandingsRows(leagueId, category){
+  var season = currentSeasonForLeague(leagueId);
+  if(!season) return [];
+  var ms = DATA.filter(function(m){ return m.lg===leagueId && m.s===season; });
+  var table = {};
+  function ensure(team){
+    if(!table[team]) table[team] = {team:team, played:0, w:0, d:0, l:0, gf:0, ga:0, statSum:0, statCount:0};
+    return table[team];
+  }
+  if(category==="regular"){
+    ms.forEach(function(m){
+      if(m.fthg==null || m.ftag==null) return;
+      var h = ensure(m.h), a = ensure(m.a);
+      h.played++; a.played++;
+      h.gf += m.fthg; h.ga += m.ftag;
+      a.gf += m.ftag; a.ga += m.fthg;
+      if(m.fthg>m.ftag){ h.w++; a.l++; }
+      else if(m.fthg<m.ftag){ a.w++; h.l++; }
+      else { h.d++; a.d++; }
+    });
+    var rows = Object.keys(table).map(function(t){
+      var row = table[t];
+      row.points = row.w*3 + row.d;
+      row.gd = row.gf - row.ga;
+      return row;
+    });
+    rows.sort(function(x,y){ return y.points-x.points || y.gd-x.gd || y.gf-x.gf; });
+    return rows;
+  }
+  ms.forEach(function(m){
+    var hv = statForSide(m, category, "h"), av = statForSide(m, category, "a");
+    if(hv!=null){ var h = ensure(m.h); h.played++; h.statSum += hv; h.statCount++; }
+    if(av!=null){ var a = ensure(m.a); a.played++; a.statSum += av; a.statCount++; }
+  });
+  var rows2 = Object.keys(table).map(function(t){
+    var row = table[t];
+    row.avg = row.statCount ? row.statSum/row.statCount : 0;
+    return row;
+  });
+  rows2.sort(function(x,y){ return y.avg-x.avg || y.statCount-x.statCount; });
+  return rows2;
+}
+function standingsTableHtml(leagueId, category, highlightTeams){
+  var rows = buildStandingsRows(leagueId, category);
+  if(!rows.length) return '<div class="empty" style="padding:20px">Δεν βρέθηκαν δεδομένα σεζόν για αυτή τη λίγκα.</div>';
+  var hl = highlightTeams || [];
+  function isHl(t){ return hl.indexOf(t)!==-1; }
+  var body;
+  if(category==="regular"){
+    body = rows.map(function(row, i){
+      return '<tr class="'+(isHl(row.team)?"stHl":"")+'">'+
+        '<td class="stRank">'+(i+1)+'</td>'+
+        '<td class="stTeam">'+avatarHtml(row.team, leagueId)+'<span>'+escAttr(row.team)+'</span></td>'+
+        '<td>'+row.played+'</td><td>'+row.w+'</td><td>'+row.d+'</td><td>'+row.l+'</td>'+
+        '<td>'+row.gf+'-'+row.ga+'</td><td>'+(row.gd>0?"+":"")+row.gd+'</td>'+
+        '<td class="stPts">'+row.points+'</td>'+
+      '</tr>';
+    }).join("");
+    return '<div class="standingsWrap"><table class="standingsTable"><thead><tr>'+
+      '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th><th>Ν</th><th>Ι</th><th>Η</th><th>ΓΚΟΛ</th><th>ΔΙΑΦ</th><th>ΒΑΘ</th>'+
+      '</tr></thead><tbody>'+body+'</tbody></table></div>';
+  }
+  body = rows.map(function(row, i){
+    return '<tr class="'+(isHl(row.team)?"stHl":"")+'">'+
+      '<td class="stRank">'+(i+1)+'</td>'+
+      '<td class="stTeam">'+avatarHtml(row.team, leagueId)+'<span>'+escAttr(row.team)+'</span></td>'+
+      '<td>'+row.statCount+'</td>'+
+      '<td class="stPts">'+row.avg.toFixed(2)+'</td>'+
+    '</tr>';
+  }).join("");
+  return '<div class="standingsWrap"><table class="standingsTable"><thead><tr>'+
+    '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th><th>Μ.Ο.</th>'+
+    '</tr></thead><tbody>'+body+'</tbody></table></div>';
 }
 
 function impliedProb(odds){ return odds>0 ? 1/odds : 0; }
@@ -2043,7 +2179,7 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -2337,6 +2473,34 @@ function renderDrawer(r, headEl){
     // δεν υπάρχει ενιαία ταυτότητα ομάδας (idHtml άδειο) οπότε το hits-text
     // μένει όπως πριν, μέσα στο chart-hitrow μαζί με το pill.
     var idHtml = r.isTotal ? "" : ('<div class="oppBigId"><span class="idTeam">'+avatarHtml(idTeam, r.league)+escAttr(idTeam)+'</span>'+hitsTextHtml+'</div>');
+
+    // TABLE pill — βαθμολογικός πίνακας της λίγκας (κανονική ή ανά κατηγορία),
+    // "κάτω από το λογότυπο της ομάδας" (idHtml). Ανοίγει ΠΑΝΤΑ στην κατηγορία
+    // του ίδιου του στοιχήματος (π.χ. φάουλ -> πίνακας φάουλ) — η πλοήγηση σε
+    // άλλες κατηγορίες γίνεται με τα chip από κάτω, η "ΚΑΝΟΝΙΚΗ" πρώτη-πρώτη.
+    // Όταν ενεργοποιείται, παίρνει τη ΘΕΣΗ του γραφήματος (chartHtml+detailHtml
+    // αντικαθίστανται) — τα υπόλοιπα (HITS/MISS, NOW, L5-L20, LINE) μένουν όπως
+    // ήταν, ώστε να ξαναγυρίζει κανείς αμέσως στο γράφημα απενεργοποιώντας το.
+    var tableToggleHtml = '<div class="tableToggleRow"><button type="button" class="tableToggleBtn'+(state.tableMode?" active":"")+'">🏆 TABLE</button></div>';
+    var tableCat = state.tableCat || r.category;
+    // ΠΡΟΣΟΧΗ: r.matchHome/r.matchAway είναι τα ΩΜΑ (ελληνικά) ονόματα του Stoiximan
+    // — μόνο για εμφάνιση στο ⓘ tooltip, ΔΕΝ ταιριάζουν με τα (αγγλικά) ονόματα
+    // του ιστορικού dataset. Για το highlight μέσα στον πίνακα χρειάζονται τα ΗΔΗ
+    // αντιστοιχισμένα (canonical) ονόματα — r.team/r.opponent σε στοιχήματα μονής
+    // ομάδας, r.homeTeam/r.awayTeam σε isTotal (και τα δύο ήδη canonical, βλ. buildFeedFor).
+    var hlTeams = (r.isTotal ? [r.homeTeam, r.awayTeam] : [r.team, r.opponent]).filter(Boolean);
+    var tableSectionHtml = "";
+    if(state.tableMode){
+      var catBtnsHtml = TABLE_CATS.map(function(c){
+        return '<button type="button" class="tcatbtn'+(c===tableCat?" active":"")+'" data-cat="'+c+'">'+tableCatLabel(c)+'</button>';
+      }).join("");
+      tableSectionHtml =
+        '<div class="standingsBlock">'+
+          '<div class="tcatRow">'+catBtnsHtml+'</div>'+
+          standingsTableHtml(r.league, tableCat, hlTeams)+
+        '</div>';
+    }
+
     var block = document.createElement("div");
     block.innerHTML =
       '<div class="chart-summary">'+
@@ -2344,6 +2508,7 @@ function renderDrawer(r, headEl){
         '<span class="csAvg">AVERAGE <b>'+(chartRes.sample?avg.toFixed(2):"—")+'</b></span>'+
       '</div>'+
       idHtml+
+      tableToggleHtml+
       '<div class="chart-hitrow">'+
         (r.isTotal ? hitsTextHtml : "")+
         nowPillHtml+
@@ -2359,12 +2524,35 @@ function renderDrawer(r, headEl){
           '<button class="ladj" data-d="1"'+(canGoUp?"":" disabled")+' title="Ανέβασε τη γραμμή">+</button>'+
         '</div>'+
       '</div>'+
-      chartHtml+
-      detailHtml+
+      (state.tableMode ? tableSectionHtml : (chartHtml+detailHtml))+
       '<div class="filters" id="drawerFilters"></div>';
 
     inner.innerHTML = "";
     inner.appendChild(block);
+
+    // TABLE pill: toggle βαθμολογικού πίνακα αντί για το γράφημα. Κάθε ΕΝΕΡΓΟΠΟΙΗΣΗ
+    // (off -> on) μηδενίζει το state.tableCat, ώστε να ανοίγει ΠΑΝΤΑ στην κατηγορία
+    // του ίδιου του στοιχήματος (tableCat = state.tableCat || r.category πιο πάνω).
+    var tableBtn = block.querySelector(".tableToggleBtn");
+    if(tableBtn){
+      tableBtn.addEventListener("click", function(e){
+        e.stopPropagation();
+        state.tableMode = !state.tableMode;
+        if(state.tableMode) state.tableCat = null;
+        state.selected = null;
+        draw();
+      });
+    }
+    var tcatRow = block.querySelector(".tcatRow");
+    if(tcatRow){
+      tcatRow.addEventListener("click", function(e){
+        e.stopPropagation();
+        var btn = e.target.closest(".tcatbtn");
+        if(!btn) return;
+        state.tableCat = btn.getAttribute("data-cat");
+        draw();
+      });
+    }
 
     // bar click -> select for detail
     block.querySelectorAll(".bar-col").forEach(function(col){
