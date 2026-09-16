@@ -359,6 +359,12 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    OPP pill, οι κύκλοι μένουν μόνοι τους στη δική τους γραμμή, ακριβώς όπως
    πριν προστεθεί αυτό το feature. */
 @media(max-width:600px){
+  /* width:100% + justify-content:space-between: το grid απλώνεται σε ΟΛΟ το
+     πλάτος της κάρτας (όχι μόνο όσο χρειάζονται τα ίδια τα pills) και οι
+     στήλες/ομάδες στοιχείων απλώνονται με ίσες αποστάσεις ως την άκρη —
+     έτσι δεν μένει άδειος χώρος δεξιά ούτε στη γραμμή κύκλων+OPP ούτε στη
+     γραμμή Fair/Edge/Exp Value/Average. */
+  .metrics{width:100%;justify-content:space-between}
   .metrics.st-full{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles circles opp" "fair edge exp avg"}
   .metrics.st-noopp{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles circles circles" "fair edge exp avg"}
   .metrics.st-noprice{grid-template-columns:repeat(2,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles" "fair avg"}
@@ -481,7 +487,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .pill{min-width:62px;padding:6px 9px}
   .pill .v{font-size:13px}
 }
-@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
+@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{gap:7px} .chev{display:none} .saveBtn{top:14px;bottom:auto} }
 </style>
 </head>
 <body>
