@@ -323,6 +323,14 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .pill .v{font-size:14px;font-weight:700;font-family:"IBM Plex Mono",monospace;margin-top:1px;color:#fff}
 .pill.pos{--tint:18,230,173}
 .pill.neg{--tint:255,111,149}
+/* AVERAGE + OPP ALLOWS/WINS/MAKES: δικό τους χρώμα (μπλε-μοβ) ώστε να
+   ξεχωρίζουν καθαρά από τα πράσινα/κόκκινα Fair/Edge/Exp Value pills. */
+.pill.average, .pill.oppstat{--tint:124,156,255}
+/* Average + OPP pill: στοιβαγμένα σε δική τους στήλη, σπρωγμένα τέρμα δεξιά
+   μέσα στο .stats. Στον υπολογιστή το AVERAGE είναι πάνω και το OPP pill
+   από κάτω του· στο κινητό αντίστροφα (το OPP pill πάνω, βλ. media query
+   παρακάτω) — έτσι ζητήθηκε ρητά. */
+.statsSide{display:flex;flex-direction:column;gap:6px;margin-left:auto;align-items:stretch}
 .chev{display:none}
 .row-card.open{border-color:var(--accent)}
 .saveBtn{
@@ -441,7 +449,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .pill{min-width:62px;padding:6px 9px}
   .pill .v{font-size:13px}
 }
-@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
+@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} .statsSide{flex-direction:column-reverse} }
 </style>
 </head>
 <body>
@@ -1340,6 +1348,29 @@ function athensDateISO(ms){
 }
 function catLabel(c){ return CATS[c].label; }
 
+/* ---------- "OPP ALLOWS/WINS/MAKES" pill ----------
+   Δείχνει πόσο επιτρέπει/χάνει/κάνει κατά μέσο όρο ο ΑΝΤΙΠΑΛΟΣ σε αυτή την
+   κατηγορία — δηλαδή το evaluate() του αντιπάλου με direction "against"
+   (τι πετυχαίνουν συνήθως όσοι παίζουν ΕΝΑΝΤΙΟΝ του). Ίδιος υπολογισμός και
+   για τις τρεις ετικέτες — αλλάζει μόνο το κείμενο ανάλογα με την κατηγορία.
+   Δεν έχει νόημα σε στοιχήματα "σύνολο αγώνα" (isTotal) γιατί εκεί δεν
+   υπάρχει ένας μοναδικός αντίπαλος. Οι κατηγορίες offsides/shots_blocked
+   δεν έχουν pill καθόλου (δεν ζητήθηκε). */
+var OPP_LABEL = {
+  corners:"OPP ALLOWS", shots:"OPP ALLOWS", shots_on_target:"OPP ALLOWS", goals:"OPP ALLOWS",
+  passes:"OPP ALLOWS", passes_accurate:"OPP ALLOWS", shots_off_target:"OPP ALLOWS",
+  shots_insidebox:"OPP ALLOWS", shots_outsidebox:"OPP ALLOWS", possession:"OPP ALLOWS",
+  cards:"OPP WINS", fouls:"OPP WINS",
+  free_kicks:"OPP MAKES", gk_saves:"OPP MAKES"
+};
+function oppStatAvg(r, opts){
+  if(r.isTotal || !r.opponent) return null;
+  var label = OPP_LABEL[r.category];
+  if(!label) return null;
+  var res = evaluate(r.opponent, r.league, r.category, "against", r.threshold, r.side, opts||{});
+  return {label:label, avg:res.avg, sample:res.sample};
+}
+
 /* ---------- deterministic team avatar (initials on a hashed hue) ---------- */
 function hashColor(name){
   var str = String(name||"");
@@ -1628,13 +1659,20 @@ function renderRowCard(r){
   }).join("");
 
   var statsHtml = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
-  statsHtml += '<div class="pill"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
+  var oppInfo = null;
   if(r.price){
     var edge = r._edge;
     var ev = (res.hitRate*r.price - 1)*100;
     statsHtml += '<div class="pill '+(edge>=0?"pos":"neg")+'"><div class="k">Edge</div><div class="v">'+edge.toFixed(1)+'%</div></div>';
     statsHtml += '<div class="pill '+(ev>=0?"pos":"neg")+'"><div class="k">Exp Value</div><div class="v">'+ev.toFixed(1)+'%</div></div>';
+    oppInfo = oppStatAvg(r, {n:activeWindow});
   }
+  statsHtml += '<div class="statsSide">';
+  statsHtml += '<div class="pill average"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
+  if(oppInfo){
+    statsHtml += '<div class="pill oppstat"><div class="k">'+oppInfo.label+'</div><div class="v">'+(oppInfo.sample?oppInfo.avg.toFixed(2):"—")+'</div></div>';
+  }
+  statsHtml += '</div>';
 
   var teamLabel = r.isTotal ?
     (avatarHtml(r.homeTeam, r.league)+' '+r.homeTeam+' <span class="vs">–</span> '+avatarHtml(r.awayTeam, r.league)+' '+r.awayTeam) :
@@ -1758,13 +1796,20 @@ function renderDrawer(r, headEl){
     var statsEl = headEl.querySelector(".stats");
     if(!statsEl) return;
     var html = '<div class="pill"><div class="k">Fair</div><div class="v">'+fmtOdds(res.fairOdds)+'</div></div>';
-    html += '<div class="pill"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
+    var oppInfo = null;
     if(price!=null && res.sample>0){
       var edge = (res.hitRate - impliedProb(price)) * 100;
       var ev = (res.hitRate*price - 1) * 100;
       html += '<div class="pill '+(edge>=0?"pos":"neg")+'"><div class="k">Edge</div><div class="v">'+edge.toFixed(1)+'%</div></div>';
       html += '<div class="pill '+(ev>=0?"pos":"neg")+'"><div class="k">Exp Value</div><div class="v">'+ev.toFixed(1)+'%</div></div>';
+      oppInfo = oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason});
     }
+    html += '<div class="statsSide">';
+    html += '<div class="pill average"><div class="k">Average</div><div class="v">'+(res.sample?res.avg.toFixed(2):"—")+'</div></div>';
+    if(oppInfo){
+      html += '<div class="pill oppstat"><div class="k">'+oppInfo.label+'</div><div class="v">'+(oppInfo.sample?oppInfo.avg.toFixed(2):"—")+'</div></div>';
+    }
+    html += '</div>';
     statsEl.innerHTML = html;
   }
 
