@@ -482,6 +482,41 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    ίδιο πράσινο-accent με το υπόλοιπο app, ώστε να ξεχωρίζει αμέσως. */
 .standingsTable tr.stHl{background:rgba(18,230,173,.10)}
 .standingsTable tr.stHl td.stTeam{color:var(--accent)}
+.standingsTable td.stAgainst{color:var(--text-faint)}
+/* Εντός/Εκτός + επιλογή παραθύρου φόρμας — πάνω από τον πίνακα, κάτω από τα
+   category chips. Ξαναχρησιμοποιεί το ίδιο .seg.small στιλ με τα L5-L20 του
+   ίδιου του drawer, ώστε να μοιάζει οικείο. */
+.tableSubRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.tableSubRow .seg.small{margin-bottom:0}
+.tfLabel{font-size:9.5px;letter-spacing:.05em;color:var(--text-faint);text-transform:uppercase}
+/* Γραμμή ομάδας μέσα στη βαθμολογία — clickable, ανοίγει το αναλυτικό
+   ιστορικό της ανά αγώνα. */
+.standingsTable tbody tr[data-team]{cursor:pointer;transition:background .12s ease}
+.standingsTable tbody tr[data-team]:hover{background:var(--surface-3)}
+.standingsTable tr.stExpanded td.stTeam{color:var(--gold)}
+.formSeq{display:inline-flex;gap:3px}
+.formEmpty{color:var(--text-faint)}
+.formDot{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:16px;height:16px;border-radius:50%;font-size:8px;font-weight:800;color:#fff;flex:none;
+}
+.formDot.w{background:var(--accent)}
+.formDot.d{background:var(--text-faint)}
+.formDot.l{background:var(--rose)}
+.formDot.u{background:var(--surface-3);color:var(--text-faint)}
+/* Αναλυτικό ιστορικό ανά αγώνα (ανοίγει με κλικ σε γραμμή ομάδας) */
+.stDetailRow td{padding:0;background:var(--surface-3);border-bottom:1px solid var(--border)}
+.stDetailWrap{max-height:220px;overflow-y:auto;padding:6px 10px}
+.stDetailLine{display:flex;align-items:center;gap:10px;padding:5px 2px;font-size:11.5px;border-bottom:1px solid var(--border)}
+.stDetailLine:last-child{border-bottom:none}
+.sdDate{color:var(--text-faint);font-family:"IBM Plex Mono",monospace;flex:none;width:78px}
+.sdOpp{color:var(--text-dim);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sdVal{color:var(--text);font-weight:700;font-family:"IBM Plex Mono",monospace;flex:none}
+.sdAgainst{color:var(--text-faint);font-weight:400}
+.sdRes{flex:none;width:16px;text-align:center;font-weight:800;border-radius:4px}
+.sdRes.w{color:var(--accent)}
+.sdRes.d{color:var(--text-faint)}
+.sdRes.l{color:var(--rose)}
 /* Σε στοιχήματα ΜΟΝΗΣ ομάδας το HITS/MISS έχει ήδη μετακομίσει μέσα στο
    .oppBigId (πιο πάνω) — εδώ μένει ΜΟΝΟ το pill με το ΤΡΕΧΟΝ ποσοστό,
    ακριβώς από κάτω, δεξιά στοιχισμένο. Σε isTotal (χωρίς .oppBigId) το
@@ -1043,6 +1078,10 @@ function matchResultForTeam(m, team){
    επίπεδο λίγκας αντί για ομάδα. */
 var TABLE_CATS = ["regular"].concat(CAT_FILTER_ORDER);
 function tableCatLabel(c){ return c==="regular" ? "ΚΑΝΟΝΙΚΗ" : catLabel(c).toUpperCase(); }
+// Κατηγορίες όπου το "ΚΑΤΑ" (πόσο επιτρέπει/δέχεται η ομάδα) δεν έχει νόημα —
+// π.χ. δεν βγάζει νόημα "αποκρούσεις τερματοφύλακα ΚΑΤΑ". Λίστα ανοιχτή, μπορεί
+// να μεγαλώσει αργότερα αν κριθεί ότι δεν χρειάζεται ούτε σε άλλες κατηγορίες.
+var NO_AGAINST_CATS = {gk_saves:true, shots_blocked:true};
 var _seasonByLeagueCache = {};
 function currentSeasonForLeague(leagueId){
   if(_seasonByLeagueCache[leagueId]!==undefined) return _seasonByLeagueCache[leagueId];
@@ -1054,83 +1093,149 @@ function currentSeasonForLeague(leagueId){
   _seasonByLeagueCache[leagueId] = latestSeason;
   return latestSeason;
 }
-// category==="regular": κλασικός πίνακας (Ν/Ι/Η/βαθμοί), σαν το επίσημο —
-// χωρίς αφαιρέσεις βαθμών (δεν είναι μέσα στα δεδομένα αγώνων, βλ. συζήτηση).
-// Οποιαδήποτε άλλη κατηγορία: μέσος όρος ανά αγώνα σε αυτή την κατηγορία,
-// ταξινομημένος ΠΑΝΤΑ φθίνοντα (μεγαλύτερη επίτευξη πρώτη), ίδια λογική για
-// όλες τις κατηγορίες όπως ζητήθηκε.
-function buildStandingsRows(leagueId, category){
+// Μαζεύει, ανά ομάδα, τη λίστα των αγώνων της σεζόν (φιλτραρισμένη κατά
+// εντός/εκτός αν ζητήθηκε) ΜΙΑ φορά — {m, side} — από όπου παράγονται μετά ΚΑΙ
+// η κατάταξη ΚΑΙ η φόρμα ΚΑΙ το αναλυτικό ιστορικό ανά αγώνα (ίδια πηγή
+// δεδομένων και για τα τρία, ώστε να μη μπορούν ποτέ να αποκλίνουν).
+function collectStandingsMatches(leagueId, venue){
   var season = currentSeasonForLeague(leagueId);
-  if(!season) return [];
+  if(!season) return {};
   var ms = DATA.filter(function(m){ return m.lg===leagueId && m.s===season; });
+  var countHome = venue!=="away", countAway = venue!=="home";
   var table = {};
   function ensure(team){
-    if(!table[team]) table[team] = {team:team, played:0, w:0, d:0, l:0, gf:0, ga:0, statSum:0, statCount:0};
+    if(!table[team]) table[team] = {team:team, matches:[]};
     return table[team];
   }
-  if(category==="regular"){
-    ms.forEach(function(m){
-      if(m.fthg==null || m.ftag==null) return;
-      var h = ensure(m.h), a = ensure(m.a);
-      h.played++; a.played++;
-      h.gf += m.fthg; h.ga += m.ftag;
-      a.gf += m.ftag; a.ga += m.fthg;
-      if(m.fthg>m.ftag){ h.w++; a.l++; }
-      else if(m.fthg<m.ftag){ a.w++; h.l++; }
-      else { h.d++; a.d++; }
-    });
-    var rows = Object.keys(table).map(function(t){
-      var row = table[t];
+  ms.forEach(function(m){
+    if(countHome) ensure(m.h).matches.push({m:m, side:"h"});
+    if(countAway) ensure(m.a).matches.push({m:m, side:"a"});
+  });
+  Object.keys(table).forEach(function(t){
+    table[t].matches.sort(function(x,y){ return x.m.d<y.m.d?-1:(x.m.d>y.m.d?1:0); });
+  });
+  return table;
+}
+// category==="regular": κλασικός πίνακας (Ν/Ι/Η/βαθμοί), σαν το επίσημο —
+// χωρίς αφαιρέσεις βαθμών (δεν είναι μέσα στα δεδομένα αγώνων, βλ. συζήτηση).
+// Οποιαδήποτε άλλη κατηγορία: μέσος όρος ΥΠΕΡ (ταξινόμηση, highlighted) ΚΑΙ
+// ΚΑΤΑ (πόσο δέχεται/επιτρέπει η ομάδα) δίπλα-δίπλα — εκτός από τις κατηγορίες
+// στο NO_AGAINST_CATS. venue: "any"|"home"|"away".
+function buildStandingsRows(leagueId, category, venue){
+  var table = collectStandingsMatches(leagueId, venue);
+  var rows = Object.keys(table).map(function(t){
+    var row = table[t];
+    row.played = row.matches.length;
+    if(category==="regular"){
+      row.w=0; row.d=0; row.l=0; row.gf=0; row.ga=0;
+      row.matches.forEach(function(x){
+        var m=x.m, side=x.side;
+        if(m.fthg==null || m.ftag==null) return;
+        var gf = side==="h"?m.fthg:m.ftag, ga = side==="h"?m.ftag:m.fthg;
+        row.gf += gf; row.ga += ga;
+        if(gf>ga) row.w++; else if(gf<ga) row.l++; else row.d++;
+      });
       row.points = row.w*3 + row.d;
       row.gd = row.gf - row.ga;
-      return row;
-    });
-    rows.sort(function(x,y){ return y.points-x.points || y.gd-x.gd || y.gf-x.gf; });
-    return rows;
-  }
-  ms.forEach(function(m){
-    var hv = statForSide(m, category, "h"), av = statForSide(m, category, "a");
-    if(hv!=null){ var h = ensure(m.h); h.played++; h.statSum += hv; h.statCount++; }
-    if(av!=null){ var a = ensure(m.a); a.played++; a.statSum += av; a.statCount++; }
-  });
-  var rows2 = Object.keys(table).map(function(t){
-    var row = table[t];
-    row.avg = row.statCount ? row.statSum/row.statCount : 0;
+    } else {
+      row.statSum=0; row.statCount=0; row.againstSum=0; row.againstCount=0;
+      row.matches.forEach(function(x){
+        var m=x.m, side=x.side, other = side==="h"?"a":"h";
+        var v = statForSide(m, category, side), av = statForSide(m, category, other);
+        if(v!=null){ row.statSum += v; row.statCount++; }
+        if(av!=null){ row.againstSum += av; row.againstCount++; }
+      });
+      row.avg = row.statCount ? row.statSum/row.statCount : 0;
+      row.avgAgainst = row.againstCount ? row.againstSum/row.againstCount : null;
+    }
     return row;
   });
-  rows2.sort(function(x,y){ return y.avg-x.avg || y.statCount-x.statCount; });
-  return rows2;
+  if(category==="regular") rows.sort(function(x,y){ return y.points-x.points || y.gd-x.gd || y.gf-x.gf; });
+  else rows.sort(function(x,y){ return y.avg-x.avg || y.statCount-x.statCount; });
+  return rows;
 }
-function standingsTableHtml(leagueId, category, highlightTeams){
-  var rows = buildStandingsRows(leagueId, category);
+// Φόρμα (τελευταίοι Ν αγώνες, ΑΝΕΞΑΡΤΗΤΑ από την κατηγορία που κοιτάμε — πάντα
+// βάσει αποτελέσματος αγώνα) — ίδια στοίχιση/λογική σε ΟΛΟΥΣ τους πίνακες.
+function formSequence(rowMatches, n){
+  var last = rowMatches.slice(-n);
+  return last.map(function(x){
+    var m=x.m, side=x.side, opp = side==="h"?m.a:m.h;
+    if(m.fthg==null || m.ftag==null) return {r:"u", d:m.d, opp:opp, score:"—"};
+    var gf = side==="h"?m.fthg:m.ftag, ga = side==="h"?m.ftag:m.fthg;
+    var r = gf>ga ? "w" : (gf<ga ? "l" : "d");
+    return {r:r, d:m.d, opp:opp, venue: side==="h"?"Ε":"Ξ", score:gf+"-"+ga};
+  });
+}
+function formSequenceHtml(rowMatches, n){
+  var seq = formSequence(rowMatches, n);
+  if(!seq.length) return '<span class="formEmpty">—</span>';
+  var lbl = {w:"Ν", d:"Ι", l:"Η", u:"?"};
+  return '<span class="formSeq">'+seq.map(function(f){
+    var tip = f.r==="u" ? "" : (f.d+" · "+escAttr(f.opp)+" ("+f.venue+") · "+f.score);
+    return '<span class="formDot '+f.r+'" title="'+tip+'">'+lbl[f.r]+'</span>';
+  }).join("")+'</span>';
+}
+// Αναλυτικό ιστορικό ανά αγώνα μιας ομάδας — ανοίγει με κλικ πάνω στη γραμμή
+// της μέσα στον πίνακα. Ίδια λίστα row.matches που ήδη τροφοδοτεί τη φόρμα.
+function standingsDetailRowHtml(row, category, colspan){
+  var showAgainst = !NO_AGAINST_CATS[category];
+  var lines = row.matches.slice().reverse().map(function(x){
+    var m=x.m, side=x.side, opp = side==="h"?m.a:m.h, venueLbl = side==="h"?"Ε":"Ξ";
+    if(category==="regular"){
+      if(m.fthg==null || m.ftag==null){
+        return '<div class="stDetailLine"><span class="sdDate">'+m.d+'</span><span class="sdOpp">'+escAttr(opp)+' ('+venueLbl+')</span><span class="sdVal">—</span></div>';
+      }
+      var gf = side==="h"?m.fthg:m.ftag, ga = side==="h"?m.ftag:m.fthg;
+      var res = gf>ga?"Ν":(gf<ga?"Η":"Ι"), rc = gf>ga?"w":(gf<ga?"l":"d");
+      return '<div class="stDetailLine"><span class="sdDate">'+m.d+'</span><span class="sdOpp">'+escAttr(opp)+' ('+venueLbl+')</span><span class="sdVal">'+gf+'-'+ga+'</span><span class="sdRes '+rc+'">'+res+'</span></div>';
+    }
+    var v = statForSide(m, category, side), av = statForSide(m, category, side==="h"?"a":"h");
+    return '<div class="stDetailLine"><span class="sdDate">'+m.d+'</span><span class="sdOpp">'+escAttr(opp)+' ('+venueLbl+')</span>'+
+      '<span class="sdVal">'+(v==null?"—":v)+(showAgainst?' <span class="sdAgainst">(κατά '+(av==null?"—":av)+')</span>':"")+'</span></div>';
+  }).join("");
+  return '<tr class="stDetailRow"><td colspan="'+colspan+'"><div class="stDetailWrap">'+
+    (lines || '<div class="empty" style="padding:10px">Δεν βρέθηκαν αγώνες.</div>')+
+  '</div></td></tr>';
+}
+function standingsTableHtml(leagueId, category, highlightTeams, venue, formN, expandedTeam){
+  var rows = buildStandingsRows(leagueId, category, venue);
   if(!rows.length) return '<div class="empty" style="padding:20px">Δεν βρέθηκαν δεδομένα σεζόν για αυτή τη λίγκα.</div>';
   var hl = highlightTeams || [];
   function isHl(t){ return hl.indexOf(t)!==-1; }
+  var colspan = category==="regular" ? 11 : (NO_AGAINST_CATS[category] ? 5 : 6);
   var body;
   if(category==="regular"){
     body = rows.map(function(row, i){
-      return '<tr class="'+(isHl(row.team)?"stHl":"")+'">'+
+      var trHtml = '<tr class="'+(isHl(row.team)?"stHl ":"")+(expandedTeam===row.team?"stExpanded":"")+'" data-team="'+escAttr(row.team)+'">'+
         '<td class="stRank">'+(i+1)+'</td>'+
         '<td class="stTeam">'+avatarHtml(row.team, leagueId)+'<span>'+escAttr(row.team)+'</span></td>'+
         '<td>'+row.played+'</td><td>'+row.w+'</td><td>'+row.d+'</td><td>'+row.l+'</td>'+
-        '<td>'+row.gf+'-'+row.ga+'</td><td>'+(row.gd>0?"+":"")+row.gd+'</td>'+
+        '<td>'+row.gf+'</td><td>'+row.ga+'</td><td>'+(row.gd>0?"+":"")+row.gd+'</td>'+
+        '<td>'+formSequenceHtml(row.matches, formN)+'</td>'+
         '<td class="stPts">'+row.points+'</td>'+
       '</tr>';
+      if(expandedTeam===row.team) trHtml += standingsDetailRowHtml(row, category, colspan);
+      return trHtml;
     }).join("");
     return '<div class="standingsWrap"><table class="standingsTable"><thead><tr>'+
-      '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th><th>Ν</th><th>Ι</th><th>Η</th><th>ΓΚΟΛ</th><th>ΔΙΑΦ</th><th>ΒΑΘ</th>'+
+      '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th><th>Ν</th><th>Ι</th><th>Η</th><th>ΥΠΕΡ</th><th>ΚΑΤΑ</th><th>ΔΙΑΦ</th><th>ΦΟΡΜΑ</th><th>ΒΑΘ</th>'+
       '</tr></thead><tbody>'+body+'</tbody></table></div>';
   }
+  var showAgainst = !NO_AGAINST_CATS[category];
   body = rows.map(function(row, i){
-    return '<tr class="'+(isHl(row.team)?"stHl":"")+'">'+
+    var trHtml = '<tr class="'+(isHl(row.team)?"stHl ":"")+(expandedTeam===row.team?"stExpanded":"")+'" data-team="'+escAttr(row.team)+'">'+
       '<td class="stRank">'+(i+1)+'</td>'+
       '<td class="stTeam">'+avatarHtml(row.team, leagueId)+'<span>'+escAttr(row.team)+'</span></td>'+
       '<td>'+row.statCount+'</td>'+
       '<td class="stPts">'+row.avg.toFixed(2)+'</td>'+
+      (showAgainst ? '<td class="stAgainst">'+(row.avgAgainst==null?"—":row.avgAgainst.toFixed(2))+'</td>' : "")+
+      '<td>'+formSequenceHtml(row.matches, formN)+'</td>'+
     '</tr>';
+    if(expandedTeam===row.team) trHtml += standingsDetailRowHtml(row, category, colspan);
+    return trHtml;
   }).join("");
   return '<div class="standingsWrap"><table class="standingsTable"><thead><tr>'+
-    '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th><th>Μ.Ο.</th>'+
+    '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th><th>ΥΠΕΡ Μ.Ο.</th>'+(showAgainst?'<th>ΚΑΤΑ Μ.Ο.</th>':"")+'<th>ΦΟΡΜΑ</th>'+
     '</tr></thead><tbody>'+body+'</tbody></table></div>';
 }
 
@@ -2179,7 +2284,7 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableExpandedTeam:null };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -2494,10 +2599,24 @@ function renderDrawer(r, headEl){
       var catBtnsHtml = TABLE_CATS.map(function(c){
         return '<button type="button" class="tcatbtn'+(c===tableCat?" active":"")+'" data-cat="'+c+'">'+tableCatLabel(c)+'</button>';
       }).join("");
+      // Εντός/Εκτός: επηρεάζει ΚΑΙ την ίδια τη βαθμολογία (ποιοι αγώνες
+      // μετράνε ανά ομάδα) ΚΑΙ τη φόρμα — ίδιο dataset και για τα δύο.
+      var tvBtnsHtml = ['any','home','away'].map(function(v){
+        var lbl = v==="any" ? "ΟΛΟΙ" : (v==="home" ? "ΕΝΤΟΣ" : "ΕΚΤΟΣ");
+        return '<button type="button" class="tvbtn'+(state.tableVenue===v?" active":"")+'" data-v="'+v+'">'+lbl+'</button>';
+      }).join("");
+      var tfBtnsHtml = [5,10,15,20].map(function(n){
+        return '<button type="button" class="tfbtn'+(state.tableFormN===n?" active":"")+'" data-n="'+n+'">'+n+'</button>';
+      }).join("");
       tableSectionHtml =
         '<div class="standingsBlock">'+
           '<div class="tcatRow">'+catBtnsHtml+'</div>'+
-          standingsTableHtml(r.league, tableCat, hlTeams)+
+          '<div class="tableSubRow">'+
+            '<div class="seg small tvSeg">'+tvBtnsHtml+'</div>'+
+            '<span class="tfLabel">ΦΟΡΜΑ</span>'+
+            '<div class="seg small tfSeg">'+tfBtnsHtml+'</div>'+
+          '</div>'+
+          standingsTableHtml(r.league, tableCat, hlTeams, state.tableVenue, state.tableFormN, state.tableExpandedTeam)+
         '</div>';
     }
 
@@ -2538,7 +2657,7 @@ function renderDrawer(r, headEl){
       tableBtn.addEventListener("click", function(e){
         e.stopPropagation();
         state.tableMode = !state.tableMode;
-        if(state.tableMode) state.tableCat = null;
+        if(state.tableMode){ state.tableCat = null; state.tableExpandedTeam = null; }
         state.selected = null;
         draw();
       });
@@ -2550,6 +2669,40 @@ function renderDrawer(r, headEl){
         var btn = e.target.closest(".tcatbtn");
         if(!btn) return;
         state.tableCat = btn.getAttribute("data-cat");
+        draw();
+      });
+    }
+    var tvSeg = block.querySelector(".tvSeg");
+    if(tvSeg){
+      tvSeg.addEventListener("click", function(e){
+        e.stopPropagation();
+        var btn = e.target.closest(".tvbtn");
+        if(!btn) return;
+        state.tableVenue = btn.getAttribute("data-v");
+        draw();
+      });
+    }
+    var tfSeg = block.querySelector(".tfSeg");
+    if(tfSeg){
+      tfSeg.addEventListener("click", function(e){
+        e.stopPropagation();
+        var btn = e.target.closest(".tfbtn");
+        if(!btn) return;
+        state.tableFormN = parseInt(btn.getAttribute("data-n"),10);
+        draw();
+      });
+    }
+    // Κλικ πάνω σε γραμμή ομάδας μέσα στη βαθμολογία -> ανοίγει/κλείνει το
+    // αναλυτικό ιστορικό της (ίδια ομάδα ξανά -> κλείνει). Delegation πάνω στο
+    // wrapper αφού ο πίνακας ξαναχτίζεται ολόκληρος σε κάθε draw().
+    var standingsWrap = block.querySelector(".standingsWrap");
+    if(standingsWrap){
+      standingsWrap.addEventListener("click", function(e){
+        var tr = e.target.closest("tr[data-team]");
+        if(!tr) return;
+        e.stopPropagation();
+        var team = tr.getAttribute("data-team");
+        state.tableExpandedTeam = (state.tableExpandedTeam===team) ? null : team;
         draw();
       });
     }
@@ -2911,6 +3064,26 @@ Promise.all([
   DATA = res[0];
   CREST_MAP = res[2] || {};
   LEAGUE_CREST_MAP = res[3] || {};
+  // Γνωστά ζευγάρια της ΙΔΙΑΣ ομάδας γραμμένα διαφορετικά μέσα στο ιστορικό
+  // dataset (παλιό δωρεάν CSV vs νεότερο API-Football feed) — π.χ. "Nott'm
+  // Forest" (μόνο ματς 2026, API-Football) vs "Nottm Forest" (έως 2024-12,
+  // παλιό CSV) και "M'gladbach" vs "MGladbach". Χωρίς αυτή την ενοποίηση ΕΔΩ
+  // (πριν χρησιμοποιηθεί το DATA οπουδήποτε), η ομάδα σπάει σε ΔΥΟ γραμμές —
+  // όχι μόνο στη βαθμολογία, αλλά ΚΑΙ στο ίδιο το hit-rate/ιστορικό κάθε betrow
+  // της (το index.html ήδη ταυτίζει τα live ματς με "Nottm Forest"/"MGladbach"
+  // μέσω TEAM_ALIASES, οπότε τα πρόσφατα ματς με το άλλο όνομα ήταν ΑΟΡΑΤΑ σε
+  // κάθε υπολογισμό μέχρι τώρα — πραγματικό bug, όχι μόνο κοσμητικό). Ενοποιούμε
+  // πάντα προς το όνομα που ήδη ξέρει το TEAM_ALIASES/crest-map.
+  var TEAM_NAME_MERGES = {
+    "premier-league": { "Nott'm Forest": "Nottm Forest" },
+    "bundesliga": { "M'gladbach": "MGladbach" },
+  };
+  DATA.forEach(function(m){
+    var merges = TEAM_NAME_MERGES[m.lg];
+    if(!merges) return;
+    if(merges[m.h]) m.h = merges[m.h];
+    if(merges[m.a]) m.a = merges[m.a];
+  });
   var maxDate = "0000-00-00";
   DATA.forEach(function(m){
     if(!byLeague[m.lg]) byLeague[m.lg] = {name:m.ln, teams:new Set()};
