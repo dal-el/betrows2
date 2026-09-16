@@ -216,7 +216,7 @@
   "name": "Malaga CF - Villarreal CF",
   "startTime": 1789673400000,
   "dateStr": "2026-09-17",
-  "marketCount": 101,
+  "marketCount": 108,
   "file": "la-liga/2026-09-17_malaga-cf-villarreal-cf_88312265.json"
  },
  {
@@ -412,16 +412,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "92155802",
-  "name": "Club Puebla - Deportivo Toluca FC",
-  "startTime": 1789520400000,
-  "dateStr": "2026-09-16",
-  "marketCount": 92,
-  "file": "liga-mx/2026-09-16_club-puebla-deportivo-toluca-fc_92155802.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "92173625",
   "name": "Club Puebla - Atlante FC",
   "startTime": 1789779600000,
@@ -456,7 +446,7 @@
   "name": "Clube Atletico MG - Chapecoense SC",
   "startTime": 1789844400000,
   "dateStr": "2026-09-19",
-  "marketCount": 75,
+  "marketCount": 76,
   "file": "serie-a-brazil/2026-09-19_clube-atletico-mg-chapecoense-sc_92075504.json"
  },
  {
