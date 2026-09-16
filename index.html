@@ -417,10 +417,18 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    36px, ίδια κλάση) και ΙΔΙΑ γραμματοσειρά/μέγεθος ονόματος με το .team της
    κεφαλίδας (font-size 14.5px/weight 600) — αντιγραμμένο εδώ γιατί το .team
    selector είναι scoped μέσα σε .row-main και δεν εφαρμόζεται εδώ.  */
-.oppBigId{display:flex;align-items:center;font-size:14.5px;font-weight:600;margin:2px 0 12px}
+.oppBigId{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14.5px;font-weight:600;margin:2px 0 8px}
+.oppBigId .idTeam{display:flex;align-items:center}
+/* OVER/UNDER HITS x / MISS y δίπλα στο λογότυπο+όνομα (ίδια γραμμή) — ίδιο
+   στιλ κειμένου με το chart-summary, ώστε να μη μοιάζει άσχετο δίπλα σε ένα
+   14.5px/600 όνομα ομάδας. */
+.oppBigId .hitsText{font-size:11px;font-weight:400;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+.oppBigId .hitsText b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
 .chart-summary .csAvg{margin-left:auto}
-/* HITS/MISS + pill ποσοστού: σε δική τους σειρά, το pill ΑΚΡΙΒΩΣ κάτω από
-   το κείμενο HITS/MISS — ίδιο layout σε κινητό και pc, χωρίς wrap. */
+/* Σε στοιχήματα ΜΟΝΗΣ ομάδας το HITS/MISS έχει ήδη μετακομίσει μέσα στο
+   .oppBigId (πιο πάνω) — εδώ μένει ΜΟΝΟ το pill με το ΤΡΕΧΟΝ ποσοστό,
+   ακριβώς από κάτω, δεξιά στοιχισμένο. Σε isTotal (χωρίς .oppBigId) το
+   HITS/MISS παραμένει εδώ μέσα, όπως πριν. */
 .chart-hitrow{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-bottom:16px;font-size:11px;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase}
 .chart-hitrow b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
 /* pill κυκλικό με το ΤΡΕΧΟΝ (δυναμικό) ποσοστό επιτεύξεως — ίδιο στιλ με τα
@@ -2158,7 +2166,15 @@ function renderDrawer(r, headEl){
     // oppModeOn) ώστε το ύψος της να μην αλλάζει κατά το toggle — αλλιώς NOW/
     // L5-L20/LINE από κάτω μετατοπίζονται προς τα κάτω κάθε φορά που ενεργοποιείται.
     var idTeam = oppModeOn ? r.opponent : r.team;
-    var idHtml = r.isTotal ? "" : '<div class="oppBigId">'+avatarHtml(idTeam, r.league)+escAttr(idTeam)+'</div>';
+    var hitsTextHtml = '<span class="hitsText">'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+chartRes.hits+'</b> / MISS <b>'+(chartRes.sample-chartRes.hits)+'</b></span>';
+    var nowPillHtml = '<span class="hpwrap"><div class="hp active '+(chartRes.sample?hpTier(Math.round(chartRes.hitRate*100)):"")+'"><div class="pct">'+(chartRes.sample?fmtPct(chartRes.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>';
+    // Σε στοιχήματα μονής ομάδας (όχι isTotal): το "OVER/UNDER HITS x/MISS y"
+    // μπαίνει ΣΤΗΝ ΙΔΙΑ γραμμή με το λογότυπο+όνομα (idHtml), και το NOW pill
+    // ΑΚΡΙΒΩΣ από κάτω του (chart-hitrow μένει με ΜΟΝΟ το pill) — έτσι όπως
+    // ζητήθηκε, χωρίς το μεγάλο κενό που υπήρχε πριν ανάμεσά τους. Σε isTotal
+    // δεν υπάρχει ενιαία ταυτότητα ομάδας (idHtml άδειο) οπότε το hits-text
+    // μένει όπως πριν, μέσα στο chart-hitrow μαζί με το pill.
+    var idHtml = r.isTotal ? "" : ('<div class="oppBigId"><span class="idTeam">'+avatarHtml(idTeam, r.league)+escAttr(idTeam)+'</span>'+hitsTextHtml+'</div>');
     var block = document.createElement("div");
     block.innerHTML =
       '<div class="chart-summary">'+
@@ -2167,8 +2183,8 @@ function renderDrawer(r, headEl){
       '</div>'+
       idHtml+
       '<div class="chart-hitrow">'+
-        '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+chartRes.hits+'</b> / MISS <b>'+(chartRes.sample-chartRes.hits)+'</b></span>'+
-        '<span class="hpwrap"><div class="hp active '+(chartRes.sample?hpTier(Math.round(chartRes.hitRate*100)):"")+'"><div class="pct">'+(chartRes.sample?fmtPct(chartRes.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
+        (r.isTotal ? hitsTextHtml : "")+
+        nowPillHtml+
       '</div>'+
       '<div class="drawerCtrlRow">'+
         '<div class="seg small" id="drawerWin">'+
