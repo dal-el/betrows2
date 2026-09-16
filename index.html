@@ -343,6 +343,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 16px rgba(124,156,255,.5),0 0 30px rgba(124,156,255,.22);
   transform:scale(1.06);
 }
+/* "hint": pulsing 0→glow→0, μόνο όσο το drawer είναι ανοιχτό ΚΑΙ το OPP mode
+   δεν έχει ακόμα ενεργοποιηθεί — υπενθύμιση στο χρήστη πως το pill πατιέται. */
+@keyframes oppHintPulse{
+  0%,100%{ box-shadow:none; border-color:rgba(124,156,255,.35); transform:scale(1); }
+  50%{ box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 16px rgba(124,156,255,.5),0 0 30px rgba(124,156,255,.22); border-color:rgba(124,156,255,.9); transform:scale(1.06); }
+}
+.pill.oppstat.hint{ animation:oppHintPulse 1.3s ease-in-out infinite; }
 /* grid-area ανά pill — ποιο όνομα πέφτει σε ποιο κελί το καθορίζουν οι
    grid-template-areas πιο κάτω, ξεχωριστά για pc/κινητό. */
 .pill.fair{grid-area:fair}
@@ -1441,7 +1448,11 @@ function statsBlockHtml(o){
   }
   html += '<div class="pill average"><div class="k">Average</div><div class="v">'+(o.avgSample?o.avgVal.toFixed(2):"—")+'</div></div>';
   if(o.oppInfo){
-    html += '<div class="pill oppstat'+(o.oppActive?" active":"")+'"><div class="k">'+o.oppInfo.label+'</div><div class="v">'+(o.oppInfo.sample?o.oppInfo.avg.toFixed(2):"—")+'</div></div>';
+    // oppState: "off" (αρχική κάρτα, drawer κλειστό/όχι ακόμα χτισμένο — καμία
+    // κλάση), "hint" (drawer ανοιχτό, opponent mode ΟΧΙ ενεργό — παλμικό glow,
+    // υπενθύμιση), "active" (opponent mode ενεργό — σταθερό glow).
+    var oppCls = o.oppState==="active" ? " active" : (o.oppState==="hint" ? " hint" : "");
+    html += '<div class="pill oppstat'+oppCls+'"><div class="k">'+o.oppInfo.label+'</div><div class="v">'+(o.oppInfo.sample?o.oppInfo.avg.toFixed(2):"—")+'</div></div>';
   }
   return {cls:stateClass, html:html};
 }
@@ -1749,7 +1760,7 @@ function renderRowCard(r){
   var oppInfo = hasPrice ? r._oppInfo : null;
   var edge = hasPrice ? r._edge : null;
   var ev = hasPrice ? r._ev : null;
-  var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppActive:!!r._oppMode});
+  var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppState:"off"});
   var statsHtml = sb.html;
 
   var teamLabel = r.isTotal ?
@@ -1784,7 +1795,28 @@ function renderRowCard(r){
     '<div class="chev">▾</div>'+
     '<button type="button" class="saveBtn'+(savedBets[bKey]?" saved":"")+'" title="Αποθήκευση bet" aria-label="Αποθήκευση bet">+</button>';
 
-  head.addEventListener("click", function(){ card.classList.toggle("open"); if(card.classList.contains("open") && !card._drawerBuilt){ card.appendChild(renderDrawer(r, head)); card._drawerBuilt=true; } });
+  // Άνοιγμα/κλείσιμο drawer από ΟΠΟΙΟΔΗΠΟΤΕ άλλο σημείο της κεφαλίδας (εκτός του
+  // pill OPP …, που έχει το δικό του ειδικό handler πιο κάτω). Κάθε φορά που
+  // ΑΝΟΙΓΕΙ, το opponent mode μηδενίζεται (state.oppMode=false) ώστε να ξεκινάει
+  // πάντα από την αρχή το "hint" pulsing στο OPP pill — βλ. σχόλιο στο oppBtn.
+  head.addEventListener("click", function(){
+    if(card.classList.contains("open")){
+      card.classList.remove("open");
+      if(head._drawerState) head._drawerState.oppMode = false;
+      var btn0 = head.querySelector(".pill.oppstat");
+      if(btn0) btn0.classList.remove("hint","active");
+    } else {
+      card.classList.add("open");
+      if(!card._drawerBuilt){
+        card.appendChild(renderDrawer(r, head));
+        card._drawerBuilt = true;
+      } else if(head._drawerState){
+        head._drawerState.oppMode = false;
+        head._drawerState.selected = null;
+        if(head._drawerDraw) head._drawerDraw();
+      }
+    }
+  });
   var infoBtn = head.querySelector(".infoBtn");
   if(infoBtn && matchInfo){
     infoBtn.addEventListener("click", function(e){ e.stopPropagation(); showInfoTip(infoBtn, matchInfo); });
@@ -1796,20 +1828,19 @@ function renderRowCard(r){
     saveBtn.classList.toggle("saved", isSaved);
   });
 
+  // Πρώτο-ποτέ κλικ πάνω στο OPP pill (πριν χτιστεί καθόλου το drawer — μόλις
+  // χτιστεί, αυτό το DOM node αντικαθίσταται μέσα στο updateHeader και το δικό
+  // του click handler εκεί αναλαμβάνει, βλ. renderDrawer): ΜΟΝΟ ανοίγει το
+  // drawer, ΔΕΝ ενεργοποιεί το opponent mode — αυτό θα ζητηθεί με δεύτερο κλικ,
+  // αφού πρώτα δει το χρήστης το "hint" pulsing.
   var oppBtn = head.querySelector(".pill.oppstat");
   if(oppBtn){
     oppBtn.addEventListener("click", function(e){
       e.stopPropagation();
-      r._oppMode = !r._oppMode;
-      oppBtn.classList.toggle("active", !!r._oppMode);
       card.classList.add("open");
       if(!card._drawerBuilt){
         card.appendChild(renderDrawer(r, head));
         card._drawerBuilt = true;
-      } else if(head._drawerState){
-        head._drawerState.oppMode = !!r._oppMode;
-        head._drawerState.selected = null;
-        if(head._drawerDraw) head._drawerDraw();
       }
     });
   }
@@ -1835,7 +1866,7 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: !!r._oppMode };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -1904,17 +1935,40 @@ function renderDrawer(r, headEl){
     var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason}) : null;
     var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
     var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
-    var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppActive:!!state.oppMode});
+    var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppState: state.oppMode?"active":"hint"});
     metricsEl.className = "metrics " + sb.cls;
     pillsEl.innerHTML = sb.html;
+    // Το κλικ πάνω στο OPP pill έχει 3 διαφορετικά αποτελέσματα ανάλογα με την
+    // τρέχουσα κατάσταση — ΑΚΡΙΒΩΣ στο σημείο που πατάει συχνά ο χρήστης για να
+    // ανοίξει/κλείσει το drawer (εργονομία δεξιόχειρα στο κινητό), γι' αυτό
+    // χρειάζεται προσεκτικό διαχωρισμό ώστε να μη συγκρούεται με το άνοιγμα/
+    // κλείσιμο του ίδιου του drawer:
+    //  1) drawer ΚΛΕΙΣΤΟ  → μόνο ΑΝΟΙΓΕΙ το drawer (χωρίς opponent mode).
+    //  2) drawer ΑΝΟΙΧΤΟ, opponent mode ΑΝΕΝΕΡΓΟ (pill σε "hint" pulsing)
+    //     → ΕΝΕΡΓΟΠΟΙΕΙ το opponent mode, το glow σταθεροποιείται.
+    //  3) drawer ΑΝΟΙΧΤΟ, opponent mode ΕΝΕΡΓΟ → ΑΠΕΝΕΡΓΟΠΟΙΕΙ ΚΑΙ κλείνει το drawer.
     var newOppBtn = pillsEl.querySelector(".pill.oppstat");
     if(newOppBtn){
       newOppBtn.addEventListener("click", function(e){
         e.stopPropagation();
-        state.oppMode = !state.oppMode;
-        r._oppMode = state.oppMode;
-        state.selected = null;
-        draw();
+        var cardEl = headEl.parentElement;
+        var isOpen = !!(cardEl && cardEl.classList.contains("open"));
+        if(!isOpen){
+          if(cardEl) cardEl.classList.add("open");
+          state.oppMode = false;
+          state.selected = null;
+          draw();
+          return;
+        }
+        if(!state.oppMode){
+          state.oppMode = true;
+          state.selected = null;
+          draw();
+        } else {
+          state.oppMode = false;
+          if(cardEl) cardEl.classList.remove("open");
+          newOppBtn.classList.remove("hint","active");
+        }
       });
     }
   }
