@@ -505,19 +505,24 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .formDot.d{background:var(--text-faint)}
 .formDot.l{background:var(--rose)}
 .formDot.u{background:var(--surface-3);color:var(--text-faint)}
-/* Αναλυτικό ιστορικό ανά αγώνα (ανοίγει με κλικ σε γραμμή ομάδας) */
+/* Αναλυτικό ιστορικό ανά αγώνα (ανοίγει με κλικ σε γραμμή ομάδας) — κάθε
+   γραμμή γράφεται ΑΚΡΙΒΩΣ όπως ήταν ο αγώνας: λογότυπο+όνομα γηπεδούχου,
+   λογότυπο+όνομα φιλοξενούμενου (η ομάδα της γραμμής τονίζεται/bold, .sdMe),
+   σκορ, ημερομηνία (Δ/Μ/ΧΧ). nowrap + οριζόντιο scroll από το γονικό
+   .standingsWrap αν δεν χωράει, ίδιο pattern με τον ίδιο τον πίνακα. */
 .stDetailRow td{padding:0;background:var(--surface-3);border-bottom:1px solid var(--border)}
 .stDetailWrap{max-height:220px;overflow-y:auto;padding:6px 10px}
-.stDetailLine{display:flex;align-items:center;gap:10px;padding:5px 2px;font-size:11.5px;border-bottom:1px solid var(--border)}
+.stDetailLine{display:flex;align-items:center;gap:10px;padding:5px 2px;font-size:11.5px;border-bottom:1px solid var(--border);white-space:nowrap}
 .stDetailLine:last-child{border-bottom:none}
-.sdDate{color:var(--text-faint);font-family:"IBM Plex Mono",monospace;flex:none;width:78px}
-.sdOpp{color:var(--text-dim);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sdVal{color:var(--text);font-weight:700;font-family:"IBM Plex Mono",monospace;flex:none}
+.sdMatch{display:inline-flex;align-items:center;gap:5px;flex:none}
+.sdTeam{display:inline-flex;align-items:center;gap:4px;color:var(--text-dim)}
+.sdTeam.sdMe{color:var(--text);font-weight:700}
+.sdTeam .avatar{width:16px;height:16px;margin:0;font-size:6.5px;flex:none}
+.sdVs{color:var(--text-faint);font-size:10px}
+.sdScore{color:var(--text);font-weight:800;font-family:"IBM Plex Mono",monospace;flex:none}
+.sdDate{color:var(--text-faint);font-family:"IBM Plex Mono",monospace;flex:none}
+.sdVal{color:var(--text);font-weight:700;font-family:"IBM Plex Mono",monospace;flex:none;margin-left:auto}
 .sdAgainst{color:var(--text-faint);font-weight:400}
-.sdRes{flex:none;width:16px;text-align:center;font-weight:800;border-radius:4px}
-.sdRes.w{color:var(--accent)}
-.sdRes.d{color:var(--text-faint)}
-.sdRes.l{color:var(--rose)}
 /* Σε στοιχήματα ΜΟΝΗΣ ομάδας το HITS/MISS έχει ήδη μετακομίσει μέσα στο
    .oppBigId (πιο πάνω) — εδώ μένει ΜΟΝΟ το pill με το ΤΡΕΧΟΝ ποσοστό,
    ακριβώς από κάτω, δεξιά στοιχισμένο. Σε isTotal (χωρίς .oppBigId) το
@@ -588,10 +593,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .drawerCtrlRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .drawerCtrlRow .seg.small{margin-bottom:0}
 .lwrap{display:inline-flex}
-.lninput{width:52px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:11.5px;text-align:center;padding:6px 4px;-moz-appearance:textfield}
-.lninput::-webkit-outer-spin-button,.lninput::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.lninput:focus{outline:1px solid var(--accent)}
-.lninput.active{border-color:var(--accent);color:var(--accent);box-shadow:var(--glow-accent)}
+.lninput,.tfninput{width:52px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:11.5px;text-align:center;padding:6px 4px;-moz-appearance:textfield}
+.lninput::-webkit-outer-spin-button,.lninput::-webkit-inner-spin-button,.tfninput::-webkit-outer-spin-button,.tfninput::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.lninput:focus,.tfninput:focus{outline:1px solid var(--accent)}
+.lninput.active,.tfninput.active{border-color:var(--accent);color:var(--accent);box-shadow:var(--glow-accent)}
 .lineadj{display:inline-flex;align-items:center;gap:8px;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-pill);padding:4px 6px}
 .lineadj button{background:transparent;border:0;color:var(--text-dim);font-size:14px;font-weight:700;cursor:pointer;width:22px;height:22px;border-radius:50%;line-height:1}
 .lineadj button:hover{background:var(--surface-2);color:var(--text)}
@@ -1199,22 +1204,35 @@ function formSequenceHtml(rowMatches, n){
     return '<span class="formDot '+f.r+'" title="'+tip+'">'+lbl[f.r]+'</span>';
   }).join("")+'</span>';
 }
+// Ημερομηνία σε σύντομη μορφή Δ/Μ/ΧΧ (π.χ. "21/8/26", χωρίς μηδενικά μπροστά)
+// — έτσι ζητήθηκε ρητά για το αναλυτικό ιστορικό της βαθμολογίας.
+function fmtShortDate(d){
+  var p = String(d).split("-");
+  if(p.length<3) return d;
+  return parseInt(p[2],10)+"/"+parseInt(p[1],10)+"/"+p[0].slice(2);
+}
 // Αναλυτικό ιστορικό ανά αγώνα μιας ομάδας — ανοίγει με κλικ πάνω στη γραμμή
 // της μέσα στον πίνακα. Ίδια λίστα row.matches που ήδη τροφοδοτεί τη φόρμα.
-function standingsDetailRowHtml(row, category, colspan){
+// Κάθε γραμμή γράφεται ΑΚΡΙΒΩΣ όπως ήταν ο αγώνας — λογότυπο+όνομα γηπεδούχου,
+// λογότυπο+όνομα φιλοξενούμενου (ΟΧΙ "opponent" αναδιατεταγμένο γύρω από την
+// ομάδα της γραμμής — μόνο τονίζεται/bold ποια απ' τις δύο είναι αυτή), το
+// σκορ, και δίπλα η ημερομηνία· το venue (Ε/Ξ) φαίνεται πλέον έμμεσα από τη
+// σειρά γηπεδούχος-φιλοξενούμενος, οπότε αφαιρέθηκε ως πλεονάζον.
+function standingsDetailRowHtml(row, category, colspan, leagueId){
   var showAgainst = !NO_AGAINST_CATS[category];
   var lines = row.matches.slice().reverse().map(function(x){
-    var m=x.m, side=x.side, opp = side==="h"?m.a:m.h, venueLbl = side==="h"?"Ε":"Ξ";
-    if(category==="regular"){
-      if(m.fthg==null || m.ftag==null){
-        return '<div class="stDetailLine"><span class="sdDate">'+m.d+'</span><span class="sdOpp">'+escAttr(opp)+' ('+venueLbl+')</span><span class="sdVal">—</span></div>';
-      }
-      var gf = side==="h"?m.fthg:m.ftag, ga = side==="h"?m.ftag:m.fthg;
-      var res = gf>ga?"Ν":(gf<ga?"Η":"Ι"), rc = gf>ga?"w":(gf<ga?"l":"d");
-      return '<div class="stDetailLine"><span class="sdDate">'+m.d+'</span><span class="sdOpp">'+escAttr(opp)+' ('+venueLbl+')</span><span class="sdVal">'+gf+'-'+ga+'</span><span class="sdRes '+rc+'">'+res+'</span></div>';
-    }
+    var m=x.m, side=x.side;
+    var score = (m.fthg==null || m.ftag==null) ? "—" : (fmtGoal(m.fthg)+"-"+fmtGoal(m.ftag));
+    var matchHtml = '<span class="sdMatch">'+
+        '<span class="sdTeam'+(side==="h"?" sdMe":"")+'">'+avatarHtml(m.h, leagueId)+'<span class="sdTeamName">'+escAttr(m.h)+'</span></span>'+
+        '<span class="sdVs">–</span>'+
+        '<span class="sdTeam'+(side==="a"?" sdMe":"")+'">'+avatarHtml(m.a, leagueId)+'<span class="sdTeamName">'+escAttr(m.a)+'</span></span>'+
+      '</span>'+
+      '<span class="sdScore">'+score+'</span>'+
+      '<span class="sdDate">'+fmtShortDate(m.d)+'</span>';
+    if(category==="regular") return '<div class="stDetailLine">'+matchHtml+'</div>';
     var v = statForSide(m, category, side), av = statForSide(m, category, side==="h"?"a":"h");
-    return '<div class="stDetailLine"><span class="sdDate">'+m.d+'</span><span class="sdOpp">'+escAttr(opp)+' ('+venueLbl+')</span>'+
+    return '<div class="stDetailLine">'+matchHtml+
       '<span class="sdVal">'+(v==null?"—":v)+(showAgainst?' <span class="sdAgainst">(κατά '+(av==null?"—":av)+')</span>':"")+'</span></div>';
   }).join("");
   return '<tr class="stDetailRow"><td colspan="'+colspan+'"><div class="stDetailWrap">'+
@@ -1238,7 +1256,7 @@ function standingsTableHtml(leagueId, category, highlightTeams, venue, formN, ex
         '<td>'+formSequenceHtml(row.matches, formN)+'</td>'+
         '<td class="stPts">'+row.points+'</td>'+
       '</tr>';
-      if(expandedTeam===row.team) trHtml += standingsDetailRowHtml(row, category, colspan);
+      if(expandedTeam===row.team) trHtml += standingsDetailRowHtml(row, category, colspan, leagueId);
       return trHtml;
     }).join("");
     return '<div class="standingsWrap"><table class="standingsTable"><thead><tr>'+
@@ -1255,7 +1273,7 @@ function standingsTableHtml(leagueId, category, highlightTeams, venue, formN, ex
       (showAgainst ? '<td class="stAgainst">'+(row.avgAgainst==null?"—":row.avgAgainst.toFixed(2))+'</td>' : "")+
       '<td>'+formSequenceHtml(row.matches, formN)+'</td>'+
     '</tr>';
-    if(expandedTeam===row.team) trHtml += standingsDetailRowHtml(row, category, colspan);
+    if(expandedTeam===row.team) trHtml += standingsDetailRowHtml(row, category, colspan, leagueId);
     return trHtml;
   }).join("");
   return '<div class="standingsWrap"><table class="standingsTable"><thead><tr>'+
@@ -2676,7 +2694,7 @@ function renderDrawer(r, headEl){
             '<div class="seg small tvSeg">'+tvBtnsHtml+'</div>'+
             '<span class="tfLabel">ΦΟΡΜΑ ΤΕΛ.</span>'+
             '<div class="seg small tfSeg">'+tfBtnsHtml+'</div>'+
-            '<span class="lwrap"><input type="number" class="lninput tfninput'+(state.tableFormCustom?" active":"")+'" min="3" max="60" placeholder="?" value="'+(state.tableFormCustom?state.tableFormN:"")+'"></span>'+
+            '<span class="lwrap"><input type="number" class="tfninput'+(state.tableFormCustom?" active":"")+'" min="3" max="60" placeholder="?" value="'+(state.tableFormCustom?state.tableFormN:"")+'"></span>'+
           '</div>'+
           standingsTableHtml(r.league, tableCat, hlTeams, state.tableVenue, state.tableFormN, state.tableExpandedTeam)+
         '</div>';
@@ -2690,22 +2708,27 @@ function renderDrawer(r, headEl){
       '</div>'+
       idHtml+
       tableToggleHtml+
-      '<div class="chart-hitrow">'+
-        (r.isTotal ? hitsTextHtml : "")+
-        nowPillHtml+
-      '</div>'+
-      '<div class="drawerCtrlRow">'+
-        '<div class="seg small" id="drawerWin">'+
-          [5,10,15,20].map(function(n){ return '<button data-n="'+n+'" class="'+(state.n===n&&!state.fullSeason&&!state.usingCustomN?"active":"")+'">L'+n+'</button>'; }).join("")+
+      // Το NOW pill και το L5-L20/LINE +/-/REVERSED αφορούν ΜΟΝΟ το γράφημα
+      // (over/under σε συγκεκριμένη γραμμή) — δεν έχουν νόημα μέσα στον
+      // βαθμολογικό πίνακα, οπότε κρύβονται όσο το TABLE είναι ενεργό.
+      (state.tableMode ? "" :
+        '<div class="chart-hitrow">'+
+          (r.isTotal ? hitsTextHtml : "")+
+          nowPillHtml+
         '</div>'+
-        '<span class="lwrap"><input type="number" class="lninput'+(state.usingCustomN&&!state.fullSeason?" active":"")+'" min="3" max="60" placeholder="L?" value="'+(state.usingCustomN?state.n:"")+'"></span>'+
-        '<div class="lineadj" id="lineAdj" title="Η γραμμή κινείται μόνο σε τιμές που υπάρχουν στο feed">'+
-          '<button class="ladj" data-d="-1"'+(canGoDown?"":" disabled")+' title="Κατέβασε τη γραμμή">−</button>'+
-          '<span class="lval">LINE <b>'+thr+'</b></span>'+
-          '<button class="ladj" data-d="1"'+(canGoUp?"":" disabled")+' title="Ανέβασε τη γραμμή">+</button>'+
-        '</div>'+
-        '<button type="button" class="reversedLineBtn'+(state.reversedLine?" active":"")+'" title="Αντιστροφή over/under στην ίδια γραμμή">⇄ REVERSED LINE</button>'+
-      '</div>'+
+        '<div class="drawerCtrlRow">'+
+          '<div class="seg small" id="drawerWin">'+
+            [5,10,15,20].map(function(n){ return '<button data-n="'+n+'" class="'+(state.n===n&&!state.fullSeason&&!state.usingCustomN?"active":"")+'">L'+n+'</button>'; }).join("")+
+          '</div>'+
+          '<span class="lwrap"><input type="number" class="lninput'+(state.usingCustomN&&!state.fullSeason?" active":"")+'" min="3" max="60" placeholder="L?" value="'+(state.usingCustomN?state.n:"")+'"></span>'+
+          '<div class="lineadj" id="lineAdj" title="Η γραμμή κινείται μόνο σε τιμές που υπάρχουν στο feed">'+
+            '<button class="ladj" data-d="-1"'+(canGoDown?"":" disabled")+' title="Κατέβασε τη γραμμή">−</button>'+
+            '<span class="lval">LINE <b>'+thr+'</b></span>'+
+            '<button class="ladj" data-d="1"'+(canGoUp?"":" disabled")+' title="Ανέβασε τη γραμμή">+</button>'+
+          '</div>'+
+          '<button type="button" class="reversedLineBtn'+(state.reversedLine?" active":"")+'" title="Αντιστροφή over/under στην ίδια γραμμή">⇄ REVERSED LINE</button>'+
+        '</div>'
+      )+
       (state.tableMode ? tableSectionHtml : (chartHtml+detailHtml))+
       '<div class="filters" id="drawerFilters"></div>';
 
@@ -2794,20 +2817,26 @@ function renderDrawer(r, headEl){
         draw();
       });
     });
-    block.querySelector("#drawerWin").addEventListener("click", function(e){
-      if(e.target.tagName!=="BUTTON") return;
-      state.fullSeason = false; state.usingCustomN = false; state.n = parseInt(e.target.getAttribute("data-n"),10); state.selected=null; draw();
-    });
-
-    // custom "L?" number of last games
-    var lnInput = block.querySelector(".lninput");
-    function applyCustomN(){
-      var val = parseInt(lnInput.value, 10);
-      if(!val || val<3) return;
-      state.fullSeason = false; state.usingCustomN = true; state.n = val; state.selected = null; draw();
+    var drawerWinEl = block.querySelector("#drawerWin");
+    if(drawerWinEl){
+      drawerWinEl.addEventListener("click", function(e){
+        if(e.target.tagName!=="BUTTON") return;
+        state.fullSeason = false; state.usingCustomN = false; state.n = parseInt(e.target.getAttribute("data-n"),10); state.selected=null; draw();
+      });
     }
-    lnInput.addEventListener("keydown", function(e){ if(e.key==="Enter"){ applyCustomN(); } });
-    lnInput.addEventListener("change", applyCustomN);
+
+    // custom "L?" number of last games (μόνο εκτός TABLE mode — βλ. πιο κάτω το
+    // ξεχωριστό .tfninput για το custom πλήθος αγώνων ΤΗΣ βαθμολογίας)
+    var lnInput = block.querySelector(".lninput");
+    if(lnInput){
+      var applyCustomN = function(){
+        var val = parseInt(lnInput.value, 10);
+        if(!val || val<3) return;
+        state.fullSeason = false; state.usingCustomN = true; state.n = val; state.selected = null; draw();
+      };
+      lnInput.addEventListener("keydown", function(e){ if(e.key==="Enter"){ applyCustomN(); } });
+      lnInput.addEventListener("change", applyCustomN);
+    }
 
     // line +/- adjuster — μετακινεί το threshold ΜΟΝΟ σε γειτονικές τιμές που
     // όντως υπάρχουν σαν αγορά (με απόδοση) στο τρέχον JSON feed. Αν δεν
