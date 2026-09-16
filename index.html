@@ -290,7 +290,17 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .src-tag{font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px}
 .warn-tag{font-size:9.5px;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold);text-transform:none;letter-spacing:0;border-radius:var(--radius-pill);padding:2px 8px;cursor:help}
 
-.pillsrow{display:flex;gap:7px}
+/* .metrics: ενιαίο CSS grid που περιέχει ΚΑΙ τους κύκλους L5-L20 (.pillsrow,
+   ένα μπλοκ) ΚΑΙ τα pills (Fair/Edge/Exp Value/Average/OPP) σαν αδερφά grid
+   items — ΕΠΙΤΗΔΕΣ ένα container και όχι δύο ξεχωριστά (.pillsrow + .stats),
+   ώστε να μπορεί το OPP pill να μπει δίπλα στους κύκλους (κινητό) ή δίπλα στο
+   AVERAGE (pc) με καθαρό CSS grid-template-areas ανά breakpoint, χωρίς να
+   μετακινούμε DOM κόμβους. Το .statPills είναι display:contents — υπάρχει
+   μόνο για να μπορεί το updateHeader() να αντικαθιστά ΜΟΝΟ τα 5 pills (όχι
+   τους κύκλους) όταν αλλάζει η γραμμή/παράθυρο μέσα στο drawer. */
+.metrics{display:grid;gap:8px;align-items:center;justify-items:stretch}
+.statPills{display:contents}
+.pillsrow{display:flex;gap:7px;grid-area:circles;justify-self:start}
 /* Λογική χρωματισμού pills όπως στο PropDunker: απαλό κάθετο gradient tint
    (από πάνω προς τα κάτω, σβήνοντας) + λεπτό έγχρωμο περίγραμμα, ΟΧΙ γεμάτο
    χρώμα — και τα γράμματα/αριθμοί μέσα πάντα ΛΕΥΚΑ (όχι βαμμένο κείμενο). */
@@ -312,13 +322,6 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   transform:scale(1.08);
 }
 
-/* .stats: CSS grid, ΟΧΙ flex — η διάταξη (ποιο pill πάει πού) διαφέρει σκόπιμα
-   ανάμεσα σε pc/κινητό (βλ. media queries πιο κάτω) ανάλογα με το ποια πεδία
-   της .stats-<state> class ενεργοποιείται (st-full/st-noopp/st-noprice). Το
-   align-items:center + justify-items:start κρατάει κάθε pill στοιχισμένο στην
-   ίδια "ευθεία" ανεξάρτητα πόσες γραμμές πιάνει το κελί του (π.χ. Fair/Edge/Exp
-   Value που καλύπτουν 2 σειρές στον υπολογιστή, βλ. παρακάτω). */
-.stats{display:grid;gap:8px;align-items:center;justify-items:start}
 .pill{
   --tint:18,230,173; /* FAIR: πάντα accent-tinted, όπως στο PropDunker (δεν έχει θετικό/αρνητικό πρόσημο) */
   border-radius:var(--radius-md);padding:7px 12px;min-width:72px;text-align:center;
@@ -330,7 +333,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .pill.pos{--tint:18,230,173}
 .pill.neg{--tint:255,111,149}
 /* AVERAGE + OPP ALLOWS/WINS/MAKES: δικό τους χρώμα (μπλε-μοβ) ώστε να
-   ξεχωρίζουν καθαρά από τα πράσινα/κόκκινα Fair/Edge/Exp Value pills. */
+   ξεχωρίζουν καθαρά από τα πράσινα/κόκκινα Fair/Edge/Exp Value pills, ΚΑΙ ίδιο
+   μέγεθος μεταξύ τους (justify-items:stretch στο .metrics πιο πάνω — τα δύο
+   αυτά pills μοιράζονται πάντα την ίδια στήλη, οπότε γεμίζουν το ίδιο πλάτος). */
 .pill.average, .pill.oppstat{--tint:124,156,255}
 /* grid-area ανά pill — ποιο όνομα πέφτει σε ποιο κελί το καθορίζουν οι
    grid-template-areas πιο κάτω, ξεχωριστά για pc/κινητό. */
@@ -339,21 +344,24 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .pill.expvalue{grid-area:exp}
 .pill.average{grid-area:avg}
 .pill.oppstat{grid-area:opp}
-/* Υπολογιστής: Fair/Edge/Exp Value καλύπτουν ΚΑΙ ΤΙΣ ΔΥΟ σειρές (ίδιο ύψος/
-   ευθεία με τα L5-L20 pills δίπλα τους) — το OPP pill πάνω δεξιά, το AVERAGE
-   από κάτω του. */
+/* Υπολογιστής: circles + Fair/Edge/Exp Value καλύπτουν ΚΑΙ ΤΙΣ ΔΥΟ σειρές
+   (ίδιο ύψος/ευθεία μεταξύ τους) — το OPP pill πάνω δεξιά, το AVERAGE από
+   κάτω του, ίδιο πλάτος μεταξύ τους. */
 @media(min-width:601px){
-  .stats.st-full{grid-template-columns:auto auto auto auto;grid-template-rows:auto auto;grid-template-areas:"fair edge exp opp" "fair edge exp avg"}
-  .stats.st-noopp{grid-template-columns:auto auto auto auto;grid-template-rows:auto;grid-template-areas:"fair edge exp avg"}
-  .stats.st-noprice{grid-template-columns:auto auto;grid-template-rows:auto;grid-template-areas:"fair avg"}
+  .metrics.st-full{grid-template-columns:auto auto auto auto auto;grid-template-rows:auto auto;grid-template-areas:"circles fair edge exp opp" "circles fair edge exp avg"}
+  .metrics.st-noopp{grid-template-columns:auto auto auto auto auto;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
+  .metrics.st-noprice{grid-template-columns:auto auto auto;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
 }
-/* Κινητό: το OPP pill (μόνο όταν υπάρχει) παίρνει ΔΙΚΗ ΤΟΥ γραμμή από πάνω —
-   τα Fair/Average/Edge/Exp Value γυρνάνε στην ΙΔΙΑ γραμμή μεταξύ τους, ακριβώς
-   όπως πριν (ίδιο ύψος καρτέλας — δεν στοιβάζονται σε στήλη). */
+/* Κινητό: το OPP pill (μόνο όταν υπάρχει) μπαίνει ΔΙΠΛΑ στους κύκλους L5-L20
+   (ίδια γραμμή/ύψος με αυτούς) — το AVERAGE παίρνει τη θέση που είχε πριν το
+   OPP στη γραμμή Fair/Edge/Exp Value, ΙΔΙΟ ύψος καρτέλας με πριν (η βάση της
+   κάρτας είναι πλέον κάτω από τη γραμμή Fair/Edge/Exp Value/Average). Χωρίς
+   OPP pill, οι κύκλοι μένουν μόνοι τους στη δική τους γραμμή, ακριβώς όπως
+   πριν προστεθεί αυτό το feature. */
 @media(max-width:600px){
-  .stats.st-full{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"opp opp opp opp" "fair avg edge exp"}
-  .stats.st-noopp{grid-template-columns:repeat(4,auto);grid-template-rows:auto;grid-template-areas:"fair avg edge exp"}
-  .stats.st-noprice{grid-template-columns:repeat(2,auto);grid-template-rows:auto;grid-template-areas:"fair avg"}
+  .metrics.st-full{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles circles opp" "fair edge exp avg"}
+  .metrics.st-noopp{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles circles circles" "fair edge exp avg"}
+  .metrics.st-noprice{grid-template-columns:repeat(2,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles" "fair avg"}
 }
 .chev{display:none}
 .row-card.open{border-color:var(--accent)}
@@ -469,11 +477,11 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .hp .pct{font-size:12px}
   .hp .lbl{font-size:7.5px}
   .pillsrow{gap:6px}
-  .stats{gap:6px}
+  .metrics{gap:6px}
   .pill{min-width:62px;padding:6px 9px}
   .pill .v{font-size:13px}
 }
-@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .stats{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
+@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{width:auto;justify-content:flex-start;gap:7px} .chev{display:none} }
 </style>
 </head>
 <body>
@@ -1394,11 +1402,11 @@ function oppStatAvg(r, opts){
   var res = evaluate(r.opponent, r.league, r.category, "against", r.threshold, r.side, opts||{});
   return {label:label, avg:res.avg, sample:res.sample};
 }
-// Χτίζει το περιεχόμενο + το "state" class του .stats (Fair/Edge/Exp Value/
+// Χτίζει το περιεχόμενο + το "state" class του .metrics (Fair/Edge/Exp Value/
 // Average/OPP pill) — μία λειτουργία και για την αρχική κάρτα (renderRowCard)
 // και για τη ζωντανή ενημέρωση μέσα στο drawer (updateHeader), ώστε τα δύο
 // σημεία να ΜΗΝ μπορούν ποτέ να αποκλίνουν στη διάταξη. Το "state" class
-// (st-full/st-noopp/st-noprice) καθορίζει το CSS grid layout — βλ. στυλ .stats
+// (st-full/st-noopp/st-noprice) καθορίζει το CSS grid layout — βλ. στυλ .metrics
 // — που διαφέρει σκόπιμα ανάμεσα σε pc/κινητό (βλ. σχόλιο πάνω από το CSS).
 function statsBlockHtml(o){
   var stateClass = !o.hasPrice ? "st-noprice" : (o.oppInfo ? "st-full" : "st-noopp");
@@ -1733,8 +1741,10 @@ function renderRowCard(r){
         '<span class="src-tag">Stoiximan</span>'+
       '</div>'+
     '</div>'+
-    '<div class="pillsrow">'+pillsHtml+'</div>'+
-    '<div class="stats '+sb.cls+'">'+statsHtml+'</div>'+
+    '<div class="metrics '+sb.cls+'">'+
+      '<div class="pillsrow">'+pillsHtml+'</div>'+
+      '<div class="statPills">'+statsHtml+'</div>'+
+    '</div>'+
     '<div class="chev">▾</div>'+
     '<button type="button" class="saveBtn'+(savedBets[bKey]?" saved":"")+'" title="Αποθήκευση bet" aria-label="Αποθήκευση bet">+</button>';
 
@@ -1827,15 +1837,16 @@ function renderDrawer(r, headEl){
     } else if(priceChipEl){
       priceChipEl.remove();
     }
-    var statsEl = headEl.querySelector(".stats");
-    if(!statsEl) return;
+    var metricsEl = headEl.querySelector(".metrics");
+    var pillsEl = headEl.querySelector(".statPills");
+    if(!metricsEl || !pillsEl) return;
     var hasPrice = (price!=null && res.sample>0);
     var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason}) : null;
     var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
     var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
     var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo});
-    statsEl.className = "stats " + sb.cls;
-    statsEl.innerHTML = sb.html;
+    metricsEl.className = "metrics " + sb.cls;
+    pillsEl.innerHTML = sb.html;
   }
 
   function compute(thr){
