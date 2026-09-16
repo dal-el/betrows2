@@ -282,30 +282,6 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   position:absolute;z-index:200;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-sm);
   padding:7px 11px;font-size:12.5px;color:var(--text);box-shadow:var(--shadow);white-space:nowrap;pointer-events:none;
 }
-/* "streak" flame — ίδιο visual language με το PropDunker (πορτοκαλί κύκλος με
-   glow γύρω από 🔥) — εμφανίζεται ΜΟΝΟ όταν η ομάδα του betrow έχει ενεργό
-   streak (βλ. streakCandidatesFor). Θέση: ίδιο right:10px με το .saveBtn (ώστε
-   να μένουν στοιχισμένα κάθετα μεταξύ τους), πάνω από αυτό. */
-.streakBtn{
-  position:absolute;right:10px;top:50%;transform:translateY(-50%);
-  width:26px;height:26px;border-radius:50%;flex:none;
-  display:flex;align-items:center;justify-content:center;
-  border:1px solid rgba(251,146,60,.7);background:rgba(251,146,60,.12);
-  box-shadow:0 0 10px rgba(251,146,60,.5);
-  font-size:14px;line-height:1;cursor:pointer;padding:0;z-index:2;
-  transition:transform .15s ease;
-}
-.streakBtn:hover{transform:translateY(-50%) scale(1.1)}
-.streakTip{
-  position:fixed;z-index:250;width:230px;border-radius:12px;overflow:hidden;
-  border:1px solid rgba(251,146,60,.3);background:rgba(15,18,24,.98);
-  box-shadow:0 4px 24px rgba(251,146,60,.25),0 0 0 1px rgba(251,146,60,.15);
-}
-.streakTip .stAccent{position:absolute;left:0;top:0;bottom:0;width:3px;background:rgba(251,146,60,.8)}
-.streakTip .stHead{padding:9px 12px 4px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fb923c}
-.streakTip .stBody{padding:2px 12px 11px}
-.streakTip .stLine{font-size:11.5px;line-height:1.4;font-style:italic;color:rgba(255,255,255,.85)}
-.streakTip .stLine+.stLine{margin-top:7px;padding-top:7px;border-top:1px solid rgba(255,255,255,.1)}
 .row-main .market{font-size:13px;color:var(--text-dim);margin-top:5px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .side-tag{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:11.5px;padding:3px 9px;border-radius:var(--radius-pill)}
 .side-tag.over{background:var(--accent-soft);color:var(--accent);box-shadow:var(--glow-pos)}
@@ -550,7 +526,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .pill{min-width:62px;padding:6px 9px}
   .pill .v{font-size:13px}
 }
-@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{gap:7px} .chev{display:none} .saveBtn{top:14px;bottom:auto} .streakBtn{top:46px;bottom:auto;transform:none} .streakBtn:hover{transform:scale(1.1)} }
+@media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{gap:7px} .chev{display:none} .saveBtn{top:14px;bottom:auto} }
 </style>
 </head>
 <body>
@@ -1472,105 +1448,6 @@ function oppStatAvg(r, opts){
   var res = evaluate(r.opponent, r.league, r.category, "against", r.threshold, r.side, opts||{});
   return {label:label, avg:res.avg, sample:res.sample};
 }
-
-/* ---------- "streak" φλόγα 🔥 (ίδια λογική/εμφάνιση με το PropDunker) ----------
-   Το PropDunker παίρνει τα streaks έτοιμα από backend API. Εδώ δεν υπάρχει
-   backend, οπότε ο ίδιος στόχος ("η ομάδα πετυχαίνει σταθερά αυτή τη γραμμή
-   τελευταία") υπολογίζεται client-side: εξετάζουμε το evaluate() της ΙΔΙΑΣ
-   ομάδας/κατηγορίας/γραμμής στο μεγαλύτερο διαθέσιμο παράθυρο (L20) — μία φορά
-   "ΓΕΝΙΚΑ" (όλοι οι αγώνες) και μία φορά μόνο ΕΝΤΟΣ/ΕΚΤΟΣ αν ξέρουμε την έδρα
-   της ομάδας στο συγκεκριμένο επερχόμενο ματς (μέσω matchHome/matchAway) —
-   ακριβώς όπως το PropDunker ελέγχει "overall" + "home/away" ξεχωριστά. Ένα
-   αποτέλεσμα θεωρείται streak όταν το δείγμα είναι αρκετό ΚΑΙ το ποσοστό
-   επιτυχίας αρκετά υψηλό (κατώφλια placeholder, δεν έχουν επιβεβαιωθεί με τον
-   χρήστη). Δεν έχει νόημα σε isTotal (δεν υπάρχει μία ομάδα).
-   Σε αγορές "σκόπιμα" — π.χ. UNDER — "streak" σημαίνει ότι ΔΕΝ ξεπερνάει
-   σταθερά τη γραμμή (ίδια σημασιολογία με το side του ίδιου του betrow). */
-var STREAK_N = 20, STREAK_MIN_SAMPLE = 5, STREAK_MIN_RATE = 0.70;
-function ownVenueInMatch(r){
-  if(r.isTotal || !r.team) return null;
-  if(r.team===r.matchHome) return "home";
-  if(r.team===r.matchAway) return "away";
-  return null;
-}
-function streakCandidatesFor(r){
-  if(r.isTotal || !r.team) return [];
-  var out = [];
-  var overall = (r.windowResults && r.windowResults[STREAK_N])
-    ? r.windowResults[STREAK_N]
-    : evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, {n:STREAK_N});
-  if(overall.sample>=STREAK_MIN_SAMPLE && overall.hitRate>=STREAK_MIN_RATE){
-    out.push({scope:"overall", sample:overall.sample, hits:overall.hits, hitRate:overall.hitRate});
-  }
-  var venue = ownVenueInMatch(r);
-  if(venue){
-    var vRes = evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, {n:STREAK_N, venue:venue});
-    if(vRes.sample>=STREAK_MIN_SAMPLE && vRes.hitRate>=STREAK_MIN_RATE){
-      out.push({scope:venue, sample:vRes.sample, hits:vRes.hits, hitRate:vRes.hitRate});
-    }
-  }
-  return out;
-}
-// Ίδια προτεραιότητα με το PropDunker's pickStreaksForTooltip: "overall" +
-// "home/away" μαζί (έως 2), με "overall" πρώτο μόνο αν το δείγμα του (total)
-// είναι μεγαλύτερο από 20 — αλλιώς πρώτα το εντός/εκτός.
-function pickStreaksForFlame(cands){
-  var overall = null, venueOne = null;
-  cands.forEach(function(c){ if(c.scope==="overall") overall=c; else if(!venueOne) venueOne=c; });
-  var picks = [];
-  if(overall && overall.sample>20){
-    picks.push(overall); if(venueOne) picks.push(venueOne);
-  } else {
-    if(venueOne) picks.push(venueOne); if(overall) picks.push(overall);
-  }
-  return picks;
-}
-function buildStreakDescription(r, cand){
-  var verb = r.side==="over" ? "έχει ξεπεράσει" : "δεν έχει ξεπεράσει";
-  var loc = cand.scope==="home" ? " εντός έδρας" : (cand.scope==="away" ? " εκτός έδρας" : "");
-  return r.team+" "+verb+" "+r.threshold+" "+catLabel(r.category).toLowerCase()+" σε "+cand.hits+" από τους τελευταίους "+cand.sample+" αγώνες"+loc+".";
-}
-function showStreakTip(anchorEl, r, cands){
-  var existing = document.querySelector(".streakTip");
-  if(existing){
-    var wasSame = existing._anchor === anchorEl;
-    if(existing._cleanup) existing._cleanup();
-    if(wasSame) return; // δεύτερο πάτημα στην ίδια φλόγα = κλείσιμο, όχι επανάνοιγμα
-  }
-  var picks = pickStreaksForFlame(cands);
-  if(!picks.length) return;
-  var linesHtml = picks.map(function(c){ return '<div class="stLine">'+escAttr(buildStreakDescription(r,c))+'</div>'; }).join("");
-  var tip = document.createElement("div");
-  tip.className = "streakTip";
-  tip.innerHTML = '<span class="stAccent"></span><div class="stHead"><span>🔥</span>STREAK</div><div class="stBody">'+linesHtml+'</div>';
-  tip._anchor = anchorEl;
-  document.body.appendChild(tip);
-  try{
-    var rect = anchorEl.getBoundingClientRect();
-    var W = tip.offsetWidth || 230;
-    var cx = rect.left + rect.width/2;
-    var left = cx - W/2;
-    var minL = 8, maxL = document.documentElement.clientWidth - W - 8;
-    if(left<minL) left=minL; if(left>maxL) left=maxL;
-    tip.style.left = left+"px";
-    tip.style.top = (rect.top-8)+"px";
-    tip.style.transform = "translateY(-100%)";
-  }catch(e){}
-  function cleanup(){
-    if(tip.parentNode) tip.remove();
-    document.removeEventListener("pointerdown", dismiss, true);
-    document.removeEventListener("scroll", dismiss, true);
-  }
-  tip._cleanup = cleanup;
-  function dismiss(ev){
-    if(ev.target===anchorEl || tip.contains(ev.target)) return;
-    cleanup();
-  }
-  setTimeout(function(){
-    document.addEventListener("pointerdown", dismiss, true);
-    document.addEventListener("scroll", dismiss, true);
-  }, 0);
-}
 // Χτίζει το περιεχόμενο + το "state" class του .metrics (Fair/Edge/Exp Value/
 // Average/OPP pill) — μία λειτουργία και για την αρχική κάρτα (renderRowCard)
 // και για τη ζωντανή ενημέρωση μέσα στο drawer (updateHeader), ώστε τα δύο
@@ -1911,8 +1788,6 @@ function renderRowCard(r){
   // ποιον παίζει, οπότε χρειάζεται αυτή η ένδειξη.
   var matchInfo = (r.matchHome && r.matchAway) ? (r.matchHome+' – '+r.matchAway) : null;
 
-  var streakCands = streakCandidatesFor(r);
-
   var head = document.createElement("div");
   head.className = "row-head";
   head.innerHTML =
@@ -1933,7 +1808,6 @@ function renderRowCard(r){
       '<div class="statPills">'+statsHtml+'</div>'+
     '</div>'+
     '<div class="chev">▾</div>'+
-    (streakCands.length ? '<button type="button" class="streakBtn" title="Ενεργό streak" aria-label="Ενεργό streak">🔥</button>' : '')+
     '<button type="button" class="saveBtn'+(savedBets[bKey]?" saved":"")+'" title="Αποθήκευση bet" aria-label="Αποθήκευση bet">+</button>';
 
   // Άνοιγμα/κλείσιμο drawer από ΟΠΟΙΟΔΗΠΟΤΕ άλλο σημείο της κεφαλίδας (εκτός του
@@ -1968,13 +1842,6 @@ function renderRowCard(r){
     var isSaved = toggleSavedBet(r);
     saveBtn.classList.toggle("saved", isSaved);
   });
-  var streakBtn = head.querySelector(".streakBtn");
-  if(streakBtn){
-    streakBtn.addEventListener("click", function(e){
-      e.stopPropagation();
-      showStreakTip(streakBtn, r, streakCands);
-    });
-  }
 
   // Πρώτο-ποτέ κλικ πάνω στο OPP pill (πριν χτιστεί καθόλου το drawer — μόλις
   // χτιστεί, αυτό το DOM node αντικαθίσταται μέσα στο updateHeader και το δικό
