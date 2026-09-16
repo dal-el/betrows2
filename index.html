@@ -2151,13 +2151,21 @@ function renderDrawer(r, headEl){
     var canGoUp = thrIdx>=0 && thrIdx<thrList.length-1;
 
     var oppModeOn = state.oppMode && !r.isTotal && r.opponent;
+    // Η ταυτότητα (λογότυπο+όνομα) εμφανίζεται ΠΑΝΤΑ σε στοιχήματα μονής ομάδας
+    // (όχι σε isTotal, που έχει ήδη τους δικούς του δύο τίτλους home/away) —
+    // δείχνει την ΤΡΕΧΟΥΣΑ ομάδα (του betrow όταν είναι ανενεργό το OPP mode,
+    // του αντιπάλου όταν είναι ενεργό). ΠΡΕΠΕΙ να υπάρχει ΠΑΝΤΑ (όχι μόνο όταν
+    // oppModeOn) ώστε το ύψος της να μην αλλάζει κατά το toggle — αλλιώς NOW/
+    // L5-L20/LINE από κάτω μετατοπίζονται προς τα κάτω κάθε φορά που ενεργοποιείται.
+    var idTeam = oppModeOn ? r.opponent : r.team;
+    var idHtml = r.isTotal ? "" : '<div class="oppBigId">'+avatarHtml(idTeam, r.league)+escAttr(idTeam)+'</div>';
     var block = document.createElement("div");
     block.innerHTML =
       '<div class="chart-summary">'+
         '<span>'+(oppModeOn ? 'ΑΓΩΝΕΣ '+escAttr(r.opponent)+' ΣΤΟ ΓΡΑΦΗΜΑ' : 'ΑΓΩΝΕΣ ΣΤΟ ΓΡΑΦΗΜΑ')+' <b>'+chartRes.sample+'</b></span>'+
         '<span class="csAvg">AVERAGE <b>'+(chartRes.sample?avg.toFixed(2):"—")+'</b></span>'+
       '</div>'+
-      (oppModeOn ? '<div class="oppBigId">'+avatarHtml(r.opponent, r.league)+escAttr(r.opponent)+'</div>' : '')+
+      idHtml+
       '<div class="chart-hitrow">'+
         '<span>'+(r.side==="over"?"OVER":"UNDER")+' HITS <b>'+chartRes.hits+'</b> / MISS <b>'+(chartRes.sample-chartRes.hits)+'</b></span>'+
         '<span class="hpwrap"><div class="hp active '+(chartRes.sample?hpTier(Math.round(chartRes.hitRate*100)):"")+'"><div class="pct">'+(chartRes.sample?fmtPct(chartRes.hitRate):"—")+'</div><div class="lbl">NOW</div></div></span>'+
