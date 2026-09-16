@@ -484,6 +484,11 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .standingsTable tr.stHl{background:rgba(18,230,173,.10)}
 .standingsTable tr.stHl td.stTeam{color:var(--accent)}
 .standingsTable td.stAgainst{color:var(--text-faint)}
+/* ΥΠΕΡ Μ.Ο./ΚΑΤΑ Μ.Ο. headers — ενεργά/clickable: το "αναμμένο" καθορίζει με
+   ποιο απ' τα δύο σορτάρει ο πίνακας κατηγορίας. */
+.standingsTable th.stSortTh{cursor:pointer;user-select:none;transition:color .12s ease}
+.standingsTable th.stSortTh:hover{color:var(--text-dim)}
+.standingsTable th.stSortTh.active{color:var(--accent)}
 /* Εντός/Εκτός + επιλογή παραθύρου φόρμας — πάνω από τον πίνακα, κάτω από τα
    category chips. Ξαναχρησιμοποιεί το ίδιο .seg.small στιλ με τα L5-L20 του
    ίδιου του drawer, ώστε να μοιάζει οικείο. */
@@ -1153,7 +1158,11 @@ function collectStandingsMatches(leagueId, venue){
 // τελευταίους"). Κόβουμε το row.matches ΠΡΙΝ από οποιονδήποτε υπολογισμό, ώστε
 // η ΦΟΡΜΑ (formSequenceHtml) και το αναλυτικό ιστορικό να δείχνουν ΑΚΡΙΒΩΣ τα
 // ίδια ματς που τροφοδότησαν τους αριθμούς — καμία απόκλιση.
-function buildStandingsRows(leagueId, category, venue, formN){
+// sortBy: "for"|"against" — μόνο για μη-"regular" κατηγορίες (ΥΠΕΡ Μ.Ο./ΚΑΤΑ
+// Μ.Ο. είναι πλέον ενεργά/clickable headers — βλ. standingsTableHtml). Σε
+// κατηγορία χωρίς ΚΑΤΑ (NO_AGAINST_CATS) δεν έχει νόημα "against", γυρνάει σε
+// "for" αυτόματα.
+function buildStandingsRows(leagueId, category, venue, formN, sortBy){
   var table = collectStandingsMatches(leagueId, venue);
   var rows = Object.keys(table).map(function(t){
     var row = table[t];
@@ -1184,13 +1193,16 @@ function buildStandingsRows(leagueId, category, venue, formN){
     return row;
   });
   if(category==="regular") rows.sort(function(x,y){ return y.points-x.points || y.gd-x.gd || y.gf-x.gf; });
+  else if(sortBy==="against" && !NO_AGAINST_CATS[category]) rows.sort(function(x,y){ return (y.avgAgainst||0)-(x.avgAgainst||0) || y.statCount-x.statCount; });
   else rows.sort(function(x,y){ return y.avg-x.avg || y.statCount-x.statCount; });
   return rows;
 }
 // Φόρμα (τελευταίοι Ν αγώνες, ΑΝΕΞΑΡΤΗΤΑ από την κατηγορία που κοιτάμε — πάντα
 // βάσει αποτελέσματος αγώνα) — ίδια στοίχιση/λογική σε ΟΛΟΥΣ τους πίνακες.
+// Εμφανίζεται ΑΡΙΣΤΕΡΑ->ΔΕΞΙΑ = πιο πρόσφατο -> παλαιότερο (.reverse()) — έτσι
+// ζητήθηκε ρητά, ίδια σύμβαση με τις μπάρες του γραφήματος.
 function formSequence(rowMatches, n){
-  var last = rowMatches.slice(-n);
+  var last = rowMatches.slice(-n).reverse();
   return last.map(function(x){
     var m=x.m, side=x.side, opp = side==="h"?m.a:m.h;
     if(m.fthg==null || m.ftag==null) return {r:"u", d:m.d, opp:opp, score:"—"};
@@ -1264,8 +1276,8 @@ function standingsDetailRowHtml(row, category, colspan, leagueId){
     (lines || '<div class="empty" style="padding:10px">Δεν βρέθηκαν αγώνες.</div>')+
   '</div></td></tr>';
 }
-function standingsTableHtml(leagueId, category, highlightTeams, venue, formN, expandedTeam){
-  var rows = buildStandingsRows(leagueId, category, venue, formN);
+function standingsTableHtml(leagueId, category, highlightTeams, venue, formN, expandedTeam, sortBy){
+  var rows = buildStandingsRows(leagueId, category, venue, formN, sortBy);
   if(!rows.length) return '<div class="empty" style="padding:20px">Δεν βρέθηκαν δεδομένα σεζόν για αυτή τη λίγκα.</div>';
   var hl = highlightTeams || [];
   function isHl(t){ return hl.indexOf(t)!==-1; }
@@ -1289,20 +1301,27 @@ function standingsTableHtml(leagueId, category, highlightTeams, venue, formN, ex
       '</tr></thead><tbody>'+body+'</tbody></table></div>';
   }
   var showAgainst = !NO_AGAINST_CATS[category];
+  // ΥΠΕΡ Μ.Ο./ΚΑΤΑ Μ.Ο. είναι ΕΝΕΡΓΑ (clickable) headers — αυτό που είναι
+  // "αναμμένο" καθορίζει με ποιο απ' τα δύο σορτάρει ο πίνακας (βλ.
+  // buildStandingsRows). Προεπιλογή πάντα ΥΠΕΡ, ΚΑΤΑ ξεκινάει σβηστό.
+  var forActive = !(sortBy==="against" && showAgainst);
   body = rows.map(function(row, i){
     var trHtml = '<tr class="'+(isHl(row.team)?"stHl ":"")+(expandedTeam===row.team?"stExpanded":"")+'" data-team="'+escAttr(row.team)+'">'+
       '<td class="stRank">'+(i+1)+'</td>'+
       '<td class="stTeam">'+avatarHtml(row.team, leagueId)+'<span>'+escAttr(row.team)+'</span></td>'+
       '<td>'+row.statCount+'</td>'+
-      '<td class="stPts">'+row.avg.toFixed(2)+'</td>'+
-      (showAgainst ? '<td class="stAgainst">'+(row.avgAgainst==null?"—":row.avgAgainst.toFixed(2))+'</td>' : "")+
+      '<td class="'+(forActive?"stPts":"stAgainst")+'">'+row.avg.toFixed(2)+'</td>'+
+      (showAgainst ? '<td class="'+(forActive?"stAgainst":"stPts")+'">'+(row.avgAgainst==null?"—":row.avgAgainst.toFixed(2))+'</td>' : "")+
       '<td>'+formSequenceHtml(row.matches, formN)+'</td>'+
     '</tr>';
     if(expandedTeam===row.team) trHtml += standingsDetailRowHtml(row, category, colspan, leagueId);
     return trHtml;
   }).join("");
   return '<div class="standingsWrap"><table class="standingsTable"><thead><tr>'+
-    '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th><th>ΥΠΕΡ Μ.Ο.</th>'+(showAgainst?'<th>ΚΑΤΑ Μ.Ο.</th>':"")+'<th>ΦΟΡΜΑ</th>'+
+    '<th></th><th>ΟΜΑΔΑ</th><th>ΑΓ</th>'+
+    '<th class="stSortTh'+(forActive?" active":"")+'" data-sort="for" title="Ταξινόμηση κατά ΥΠΕΡ">ΥΠΕΡ Μ.Ο.</th>'+
+    (showAgainst?'<th class="stSortTh'+(forActive?"":" active")+'" data-sort="against" title="Ταξινόμηση κατά ΚΑΤΑ">ΚΑΤΑ Μ.Ο.</th>':"")+
+    '<th>ΦΟΡΜΑ</th>'+
     '</tr></thead><tbody>'+body+'</tbody></table></div>';
 }
 
@@ -2355,7 +2374,7 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false };
+  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -2721,7 +2740,7 @@ function renderDrawer(r, headEl){
             '<div class="seg small tfSeg">'+tfBtnsHtml+'</div>'+
             '<span class="lwrap"><input type="number" class="tfninput'+(state.tableFormCustom?" active":"")+'" min="3" max="60" placeholder="?" value="'+(state.tableFormCustom?state.tableFormN:"")+'"></span>'+
           '</div>'+
-          standingsTableHtml(r.league, tableCat, hlTeams, state.tableVenue, state.tableFormN, state.tableExpandedTeam)+
+          standingsTableHtml(r.league, tableCat, hlTeams, state.tableVenue, state.tableFormN, state.tableExpandedTeam, state.tableSortBy)+
         '</div>';
     }
 
@@ -2823,6 +2842,15 @@ function renderDrawer(r, headEl){
     var standingsWrap = block.querySelector(".standingsWrap");
     if(standingsWrap){
       standingsWrap.addEventListener("click", function(e){
+        // ΥΠΕΡ Μ.Ο./ΚΑΤΑ Μ.Ο. headers — ενεργά, καθορίζουν με ποιο απ' τα δύο
+        // σορτάρεται ο πίνακας κατηγορίας.
+        var sortTh = e.target.closest(".stSortTh");
+        if(sortTh){
+          e.stopPropagation();
+          state.tableSortBy = sortTh.getAttribute("data-sort");
+          draw();
+          return;
+        }
         var tr = e.target.closest("tr[data-team]");
         if(!tr) return;
         e.stopPropagation();
