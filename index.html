@@ -663,6 +663,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <option value="edge" selected>Ταξινόμηση: Edge</option>
         <option value="ev">Ταξινόμηση: Exp Value</option>
         <option value="avgvsopp">Ταξινόμηση: Average vs Opponent</option>
+        <option value="beststreak">Ταξινόμηση: Καλύτερα Streaks</option>
       </select>
       <div class="seg" id="windowSeg">
         <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
@@ -1511,6 +1512,16 @@ function streakCandidatesFor(r){
   }
   return out;
 }
+// Το "καλύτερο" streak μιας γραμμής (μεγαλύτερο ποσοστό επιτυχίας, στα ίσα
+// μεγαλύτερο δείγμα) — χρησιμοποιείται από τη ταξινόμηση "Καλύτερα Streaks".
+function bestStreakOf(cands){
+  if(!cands || !cands.length) return null;
+  var best = cands[0];
+  for(var i=1;i<cands.length;i++){
+    if(cands[i].hitRate>best.hitRate || (cands[i].hitRate===best.hitRate && cands[i].sample>best.sample)) best = cands[i];
+  }
+  return best;
+}
 // Ίδια προτεραιότητα με το PropDunker's pickStreaksForTooltip: "overall" +
 // "home/away" μαζί (έως 2), με "overall" πρώτο μόνο αν το δείγμα του (total)
 // είναι μεγαλύτερο από 20 — αλλιώς πρώτα το εντός/εκτός.
@@ -1849,7 +1860,17 @@ function renderToolbarAndRows(){
     // ταξινόμηση παρακάτω χρησιμοποιεί ΑΠΟΛΥΤΗ τιμή, όπως ζητήθηκε ρητά.
     r._oppInfo = oppStatAvg(r, {n:activeWindow});
     r._avgVsOppDiff = (r._res.sample && r._oppInfo && r._oppInfo.sample) ? (r._res.avg - r._oppInfo.avg) : null;
+    // Streaks (🔥) — υπολογίζονται ΜΙΑ φορά εδώ (ανεξάρτητα από το activeWindow,
+    // βλ. streakCandidatesFor) και ξαναχρησιμοποιούνται και από το renderRowCard
+    // (φλόγα/tooltip) και από τη ταξινόμηση "Καλύτερα Streaks" παρακάτω.
+    r._streakCands = streakCandidatesFor(r);
+    r._bestStreak = bestStreakOf(r._streakCands);
   });
+
+  // "Καλύτερα Streaks": λειτουργεί σαν αυτόνομη λίστα streaks — δείχνει ΜΟΝΟ
+  // τις γραμμές που έχουν ενεργό streak (αυτές με τη φλόγα 🔥), ταξινομημένες
+  // από το μεγαλύτερο ποσοστό επίτευξης προς το μικρότερο.
+  if(sortMode==="beststreak") list = list.filter(function(r){ return !!r._bestStreak; });
 
   list.sort(function(a,b){
     if(sortMode==="edge") return (b._edge==null?-999:b._edge) - (a._edge==null?-999:a._edge);
@@ -1858,6 +1879,14 @@ function renderToolbarAndRows(){
       var av = a._avgVsOppDiff==null ? -999 : Math.abs(a._avgVsOppDiff);
       var bv = b._avgVsOppDiff==null ? -999 : Math.abs(b._avgVsOppDiff);
       return bv - av;
+    }
+    if(sortMode==="beststreak"){
+      var ar = a._bestStreak ? a._bestStreak.hitRate : -1;
+      var br = b._bestStreak ? b._bestStreak.hitRate : -1;
+      if(br!==ar) return br - ar;
+      var as = a._bestStreak ? a._bestStreak.sample : 0;
+      var bs = b._bestStreak ? b._bestStreak.sample : 0;
+      return bs - as;
     }
     return b._res.hitRate - a._res.hitRate;
   });
@@ -1911,7 +1940,7 @@ function renderRowCard(r){
   // ποιον παίζει, οπότε χρειάζεται αυτή η ένδειξη.
   var matchInfo = (r.matchHome && r.matchAway) ? (r.matchHome+' – '+r.matchAway) : null;
 
-  var streakCands = streakCandidatesFor(r);
+  var streakCands = r._streakCands || streakCandidatesFor(r);
 
   var head = document.createElement("div");
   head.className = "row-head";
