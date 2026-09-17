@@ -338,19 +338,6 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .metrics{display:grid;gap:8px;align-items:center;justify-items:stretch}
 .statPills{display:contents}
 .pillsrow{display:flex;gap:7px;grid-area:circles;justify-self:start}
-/* Κύκλοι L5-L20 ΤΟΥ ΑΝΤΙΠΑΛΟΥ — ίδιο container/στυλ με το .pillsrow, μόνο σε
-   δική του grid-area (πάνω σειρά, ίδια στήλη), βλ. grid-template-areas πιο
-   κάτω. Μένει άδειο (0 ύψος, χωρίς gap) όταν δεν υπάρχει OPP pill γι' αυτή τη
-   γραμμή — ζητήθηκε ρητά 2026-09-17. */
-.oppPillsrow{display:flex;gap:7px;grid-area:oppcircles;justify-self:start}
-/* Όταν δεν υπάρχει καθόλου OPP pill γι' αυτή τη γραμμή (isTotal, άγνωστος
-   αντίπαλος, ή κατηγορία χωρίς OPP_LABEL), το .metrics πέφτει σε st-noopp/
-   st-noprice — grid-template-areas ΧΩΡΙΣ "oppcircles" καθόλου εκεί. Ένα άδειο
-   .oppPillsrow με grid-area:oppcircles που δεν αντιστοιχεί σε καμία περιοχή θα
-   έμπαινε στο implicit grid μέσω auto-placement και θα μπορούσε να μετατοπίσει
-   τα υπόλοιπα pills — γι' αυτό εδώ βγαίνει ΕΝΤΕΛΩΣ έξω από το grid (display:none)
-   όποτε είναι άδειο, ώστε το st-noopp/st-noprice layout να μένει ΑΚΡΙΒΩΣ όπως πριν. */
-.oppPillsrow:empty{display:none}
 /* Λογική χρωματισμού pills όπως στο PropDunker: απαλό κάθετο gradient tint
    (από πάνω προς τα κάτω, σβήνοντας) + λεπτό έγχρωμο περίγραμμα, ΟΧΙ γεμάτο
    χρώμα — και τα γράμματα/αριθμοί μέσα πάντα ΛΕΥΚΑ (όχι βαμμένο κείμενο). */
@@ -407,50 +394,30 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .pill.expvalue{grid-area:exp}
 .pill.average{grid-area:avg}
 .pill.oppstat{grid-area:opp}
-/* OPP FAIR/OPP EDGE/OPP EXP VALUE — ΠΑΝΩ σειρά, ίδια στήλη με το αντίστοιχό
-   τους (fair/edge/exp) πιο κάτω, βλ. grid-template-areas. Το OPP FAIR παίρνει
-   το ίδιο (προεπιλεγμένο, teal) tint με το Fair — δεν έχει πρόσημο θετικό/
-   αρνητικό, ίδια λογική. Το OPP EDGE/OPP EXP VALUE παίρνουν pos/neg tint
-   ακριβώς όπως το Edge/Exp Value (κοινή κλάση .pill.pos/.pill.neg πιο πάνω).
-   Ζητήθηκε ρητά 2026-09-17: πλήρες σετ pills βάσει του τι επιτρέπει/κάνει ο
-   ΑΝΤΙΠΑΛΟΣ, πάνω από το αντίστοιχο pill της ομάδας του προπ. */
-.pill.oppfair{grid-area:oppfair}
-.pill.oppedge{grid-area:oppedge}
-.pill.oppexpvalue{grid-area:oppexp}
-/* Υπολογιστής: OPP-σειρά πάνω (ευθυγραμμισμένη με OPP ALLOWS), δική της σειρά
-   Fair/Edge/Exp Value/Average της ομάδας του προπ από κάτω (ευθυγραμμισμένη
-   με AVERAGE) — κάθε OPP-pill ΑΚΡΙΒΩΣ πάνω από το αντίστοιχό του, ίδιο πλάτος
-   στήλης μεταξύ τους (justify-items:stretch στο .metrics). Χωρίς OPP pill
-   (st-noopp/st-noprice) μένει μία σειρά, όπως πριν. */
+/* Υπολογιστής: circles + Fair/Edge/Exp Value καλύπτουν ΚΑΙ ΤΙΣ ΔΥΟ σειρές
+   (ίδιο ύψος/ευθεία μεταξύ τους) — το OPP pill πάνω δεξιά, το AVERAGE από
+   κάτω του, ίδιο πλάτος μεταξύ τους. */
 @media(min-width:601px){
-  .metrics.st-full{grid-template-columns:auto auto auto auto auto;grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
+  .metrics.st-full{grid-template-columns:auto auto auto auto auto;grid-template-rows:auto auto;grid-template-areas:"circles fair edge exp opp" "circles fair edge exp avg"}
   .metrics.st-noopp{grid-template-columns:auto auto auto auto auto;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
   .metrics.st-noprice{grid-template-columns:auto auto auto;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
 }
-/* Κινητό: ΙΔΙΑ διάταξη δύο σειρών με το pc (πάνω = αντίπαλος, κάτω = ομάδα
-   του προπ, κάθε OPP-pill πάνω από το αντίστοιχό του) — αναγκαστικά μικρότερα
-   pills/κύκλοι (βλ. πιο κάτω) ώστε να χωρέσουν και οι 5 στήλες στο πλάτος του
-   betrow. Χωρίς OPP pill, οι κύκλοι μένουν μόνοι τους στη δική τους γραμμή,
-   ακριβώς όπως πριν προστεθεί αυτό το feature. Ζητήθηκε ρητά 2026-09-17. */
+/* Κινητό: το OPP pill (μόνο όταν υπάρχει) μπαίνει ΔΙΠΛΑ στους κύκλους L5-L20
+   (ίδια γραμμή/ύψος με αυτούς) — το AVERAGE παίρνει τη θέση που είχε πριν το
+   OPP στη γραμμή Fair/Edge/Exp Value, ΙΔΙΟ ύψος καρτέλας με πριν (η βάση της
+   κάρτας είναι πλέον κάτω από τη γραμμή Fair/Edge/Exp Value/Average). Χωρίς
+   OPP pill, οι κύκλοι μένουν μόνοι τους στη δική τους γραμμή, ακριβώς όπως
+   πριν προστεθεί αυτό το feature. */
 @media(max-width:600px){
   /* width:100% + justify-content:space-between: το grid απλώνεται σε ΟΛΟ το
      πλάτος της κάρτας (όχι μόνο όσο χρειάζονται τα ίδια τα pills) και οι
      στήλες/ομάδες στοιχείων απλώνονται με ίσες αποστάσεις ως την άκρη —
-     έτσι δεν μένει άδειος χώρος δεξιά σε καμία από τις δύο σειρές. */
+     έτσι δεν μένει άδειος χώρος δεξιά ούτε στη γραμμή κύκλων+OPP ούτε στη
+     γραμμή Fair/Edge/Exp Value/Average. */
   .metrics{width:100%;justify-content:space-between}
-  .metrics.st-full{grid-template-columns:repeat(5,auto);grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
+  .metrics.st-full{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles circles opp" "fair edge exp avg"}
   .metrics.st-noopp{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles circles circles" "fair edge exp avg"}
   .metrics.st-noprice{grid-template-columns:repeat(2,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles" "fair avg"}
-  /* Μικρότερα pills/κύκλοι ΜΟΝΟ όταν υπάρχουν ΚΑΙ οι δύο σειρές (5 στήλες) —
-     st-noopp/st-noprice κρατάνε το κανονικό μέγεθος, δεν στριμώχνονται. */
-  .metrics.st-full .pill{min-width:0;padding:4px 5px}
-  .metrics.st-full .pill .k{font-size:7px;letter-spacing:0}
-  .metrics.st-full .pill .v{font-size:10.5px}
-  .metrics.st-full .hp{width:32px;height:32px}
-  .metrics.st-full .hp .pct{font-size:9.5px}
-  .metrics.st-full .hp .lbl{font-size:6px}
-  .metrics.st-full .pillsrow, .metrics.st-full .oppPillsrow{gap:3px}
-  .metrics.st-full{gap:4px 5px}
 }
 .chev{display:none}
 .row-card.open{border-color:var(--accent)}
@@ -1987,18 +1954,6 @@ function processEvent(root){
           : evaluate(team.name, leagueForTeam, cls.category, evalDirection, parsed.threshold, parsed.side, {n:n});
       });
       if(windowResults[activeWindow].sample < 3){ skipped.lowSample++; return; }
-      // Ίδιο cache με το windowResults, αλλά για ΤΟΝ ΑΝΤΙΠΑΛΟ (direction
-      // "against", ό,τι επιτρέπει/δέχεται συνήθως) — τροφοδοτεί τα καινούργια
-      // OPP-pills (κύκλοι L5-L20 + FAIR/EDGE/EXP VALUE βάσει αντιπάλου,
-      // ζητήθηκε ρητά 2026-09-17). Άσχετο/null για isTotal (δεν υπάρχει ένας
-      // μοναδικός αντίπαλος) ή αν ο αντίπαλος δεν αντιστοιχίστηκε (opponentName).
-      var oppWindowResults = null;
-      if(!isTotal && opponentName){
-        oppWindowResults = {};
-        WINDOWS.forEach(function(n){
-          oppWindowResults[n] = evaluate(opponentName, leagueForTeam, cls.category, "against", parsed.threshold, parsed.side, {n:n});
-        });
-      }
       feedRows.push({
         isTotal: isTotal, team: isTotal ? null : team.name, opponent: opponentName,
         homeTeam: isTotal ? homeR.name : null, awayTeam: isTotal ? awayR.name : null,
@@ -2017,7 +1972,6 @@ function processEvent(root){
         ownVenue: isTotal ? null : (cls.direction==="home" ? "home" : cls.direction==="away" ? "away" : null),
         league: leagueForTeam, category: cls.category, direction: evalDirection,
         threshold: parsed.threshold, side: parsed.side, price: sel.price, windowResults: windowResults,
-        oppWindowResults: oppWindowResults,
         marketName: market.name||"", startTime: root.startTime||null,
       });
     });
@@ -2124,12 +2078,7 @@ function oppStatAvg(r, opts){
   var label = OPP_LABEL[r.category];
   if(!label) return null;
   var res = evaluate(r.opponent, r.league, r.category, "against", r.threshold, r.side, opts||{});
-  // ΠΡΟΣΟΧΗ: μαζί με avg/sample γυρνάμε ΚΑΙ hitRate/fairOdds/hits (ό,τι έχει
-  // ήδη το evaluate()) — χρειάζονται για τα καινούργια OPP FAIR/OPP EDGE/
-  // OPP EXP VALUE pills της κεφαλίδας (ζητήθηκε ρητά 2026-09-17: πλήρες σετ
-  // pills βάσει του τι επιτρέπει/κάνει ο ΑΝΤΙΠΑΛΟΣ, όχι μόνο ο μέσος όρος).
-  // Backward-compatible: οι παλιοί καλούντες χρησιμοποιούν μόνο avg/sample/label.
-  return {label:label, avg:res.avg, sample:res.sample, hitRate:res.hitRate, fairOdds:res.fairOdds, hits:res.hits, matches:res.matches};
+  return {label:label, avg:res.avg, sample:res.sample};
 }
 
 /* ---------- "streak" φλόγα 🔥 (ίδια λογική/εμφάνιση με το PropDunker) ----------
@@ -2263,27 +2212,7 @@ function showStreakTip(anchorEl, r, cands){
 // — που διαφέρει σκόπιμα ανάμεσα σε pc/κινητό (βλ. σχόλιο πάνω από το CSS).
 function statsBlockHtml(o){
   var stateClass = !o.hasPrice ? "st-noprice" : (o.oppInfo ? "st-full" : "st-noopp");
-  var html = "";
-  // ΠΑΝΩ σειρά (ευθυγραμμισμένη με OPP ALLOWS/WINS/MAKES, βλ. .metrics.st-full
-  // grid-template-areas): OPP FAIR/OPP EDGE/OPP EXP VALUE — ΑΚΡΙΒΩΣ ίδιοι τύποι
-  // με τα Fair/Edge/Exp Value από κάτω τους, μόνο που υπολογίζονται από την
-  // ιστορία ΤΟΥ ΑΝΤΙΠΑΛΟΥ (evaluate "against") αντί της ομάδας του προπ —
-  // ζητήθηκε ρητά 2026-09-17 (ομαδικά στοιχήματα: τα pills πρέπει να δείχνουν
-  // ΚΑΙ τι συνήθως επιτρέπει/κάνει ο αντίπαλος, όχι μόνο τι κάνει η ομάδα του
-  // προπ). Κάθε OPP-pill μπαίνει ΑΚΡΙΒΩΣ πάνω από το αντίστοιχό του (ίδια
-  // στήλη), όπως ήδη ίσχυε για OPP ALLOWS/AVERAGE.
-  if(o.oppInfo){
-    html += '<div class="pill oppfair"><div class="k">Opp Fair</div><div class="v">'+fmtOdds(o.oppFairOdds)+'</div></div>';
-    if(o.hasPrice){
-      var oppEdgeTxt = o.oppEdge!=null ? o.oppEdge.toFixed(1)+"%" : "—";
-      var oppEvTxt = o.oppEv!=null ? o.oppEv.toFixed(1)+"%" : "—";
-      html += '<div class="pill oppedge '+(o.oppEdge!=null && o.oppEdge>=0?"pos":"neg")+'"><div class="k">Opp Edge</div><div class="v">'+oppEdgeTxt+'</div></div>';
-      html += '<div class="pill oppexpvalue '+(o.oppEv!=null && o.oppEv>=0?"pos":"neg")+'"><div class="k">Opp Exp Value</div><div class="v">'+oppEvTxt+'</div></div>';
-    }
-  }
-  // ΚΑΤΩ σειρά (ευθυγραμμισμένη με AVERAGE): τα ήδη υπάρχοντα Fair/Edge/Exp
-  // Value/Average pills της ομάδας του προπ, χωρίς καμία αλλαγή στη λογική τους.
-  html += '<div class="pill fair"><div class="k">Fair</div><div class="v">'+fmtOdds(o.fairOdds)+'</div></div>';
+  var html = '<div class="pill fair"><div class="k">Fair</div><div class="v">'+fmtOdds(o.fairOdds)+'</div></div>';
   if(o.hasPrice){
     html += '<div class="pill edge '+(o.edge>=0?"pos":"neg")+'"><div class="k">Edge</div><div class="v">'+o.edge.toFixed(1)+'%</div></div>';
     html += '<div class="pill expvalue '+(o.ev>=0?"pos":"neg")+'"><div class="k">Exp Value</div><div class="v">'+o.ev.toFixed(1)+'%</div></div>';
@@ -2626,13 +2555,6 @@ function renderToolbarAndRows(){
     if(ownVenue) oppOpts.venue = ownVenue==="home" ? "away" : "home";
     if(lastFillGlobalOn){ oppOpts.fullSeason = true; oppOpts.lastSeason = true; }
     r._oppInfo = oppStatAvg(r, oppOpts);
-    // OPP FAIR/OPP EDGE/OPP EXP VALUE — ΑΚΡΙΒΩΣ οι ίδιοι τύποι με Fair/Edge/Exp
-    // Value πιο πάνω, μόνο που εδώ το hitRate είναι του ΑΝΤΙΠΑΛΟΥ (r._oppInfo,
-    // "against"-evaluation) αντί της ομάδας του στοιχήματος — καινούργιο pill
-    // σετ ζητήθηκε ρητά 2026-09-17 (ομαδικά στοιχήματα: τα υπάρχοντα pills
-    // αφορούσαν ΜΟΝΟ την ομάδα του προπ, όχι τι επιτρέπει ο αντίπαλος).
-    r._oppEdge = (r.price && r._oppInfo && r._oppInfo.sample>0) ? (r._oppInfo.hitRate - impliedProb(r.price)) * 100 : null;
-    r._oppEv = (r.price && r._oppInfo && r._oppInfo.sample>0) ? (r._oppInfo.hitRate*r.price - 1) * 100 : null;
     r._avgVsOppDiff = (r._res.sample && r._oppInfo && r._oppInfo.sample) ? (r._res.avg - r._oppInfo.avg) : null;
     // Streaks (🔥) — υπολογίζονται ΜΙΑ φορά εδώ (ανεξάρτητα από το activeWindow,
     // βλ. streakCandidatesFor) και ξαναχρησιμοποιούνται και από το renderRowCard
@@ -2720,34 +2642,8 @@ function cardPillsAndStats(r){
   var oppInfo = hasPrice ? r._oppInfo : null;
   var edge = hasPrice ? r._edge : null;
   var ev = hasPrice ? r._ev : null;
-  // Κύκλοι L5-L20 ΤΟΥ ΑΝΤΙΠΑΛΟΥ (πάνω σειρά, ίδια στήλη με τους κύκλους της
-  // ομάδας του προπ) — ίδια ΑΚΡΙΒΩΣ λογική με το pillsHtml πιο πάνω, μόνο που
-  // εδώ target είναι ο αντίπαλος (direction "against", έδρα αντεστραμμένη) —
-  // βλ. σχόλιο πάνω στο r._oppEdge/r._oppEv. Άδειο αν δεν υπάρχει OPP pill
-  // καθόλου γι' αυτή τη γραμμή (isTotal, άγνωστος αντίπαλος, ή κατηγορία χωρίς
-  // OPP_LABEL) ώστε να μη χαλάει το grid (βλ. CSS .metrics.st-noopp/st-noprice).
-  var oppPillsHtml = "";
-  if(oppInfo){
-    oppPillsHtml = WINDOWS.map(function(n){
-      var ownVenueForPills = (homeAwaySplitOn && !r.isTotal) ? ownVenueInMatch(r) : null;
-      var wr;
-      if(n===activeWindow){
-        wr = oppInfo;
-      } else if(ownVenueForPills || lastFillGlobalOn){
-        var pOpts = {n:n};
-        if(ownVenueForPills) pOpts.venue = ownVenueForPills==="home" ? "away" : "home";
-        if(lastFillGlobalOn){ pOpts.fullSeason = true; pOpts.lastSeason = true; }
-        wr = oppStatAvg(r, pOpts);
-      } else {
-        wr = r.oppWindowResults[n];
-      }
-      var p = Math.round(wr.hitRate*100);
-      return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
-    }).join("");
-  }
-  var sb = statsBlockHtml({fairOdds:r._res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:r._res.sample, avgVal:r._res.avg,
-    oppInfo:oppInfo, oppState:"off", oppFairOdds:oppInfo?oppInfo.fairOdds:null, oppEdge:hasPrice?r._oppEdge:null, oppEv:hasPrice?r._oppEv:null});
-  return {pillsHtml:pillsHtml, oppPillsHtml:oppPillsHtml, statsHtml:sb.html, cls:sb.cls};
+  var sb = statsBlockHtml({fairOdds:r._res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:r._res.sample, avgVal:r._res.avg, oppInfo:oppInfo, oppState:"off"});
+  return {pillsHtml:pillsHtml, statsHtml:sb.html, cls:sb.cls};
 }
 // Ξαναχτίζει ΤΗΝ ΚΕΦΑΛΙΔΑ της κάρτας (pillsrow+statPills, ΕΞΩ από το drawer)
 // από τα r._res/_edge/_ev/_oppInfo — δηλαδή ΜΟΝΟ από τους γενικούς διακόπτες,
@@ -2757,11 +2653,9 @@ function refreshCardHead(r, head){
   var pas = cardPillsAndStats(r);
   var metricsEl = head.querySelector(".metrics");
   var pillsRowEl = head.querySelector(".pillsrow");
-  var oppPillsRowEl = head.querySelector(".oppPillsrow");
   var statPillsEl = head.querySelector(".statPills");
   if(metricsEl) metricsEl.className = "metrics " + pas.cls;
   if(pillsRowEl) pillsRowEl.innerHTML = pas.pillsHtml;
-  if(oppPillsRowEl) oppPillsRowEl.innerHTML = pas.oppPillsHtml;
   if(statPillsEl) statPillsEl.innerHTML = pas.statsHtml;
 }
 
@@ -2803,7 +2697,6 @@ function renderRowCard(r){
       '</div>'+
     '</div>'+
     '<div class="metrics '+pas.cls+'">'+
-      '<div class="oppPillsrow">'+pas.oppPillsHtml+'</div>'+
       '<div class="pillsrow">'+pillsHtml+'</div>'+
       '<div class="statPills">'+statsHtml+'</div>'+
     '</div>'+
@@ -3017,25 +2910,10 @@ function renderDrawer(r, headEl){
     // OPP ALLOWS πρέπει να δείχνει τι επιτρέπει/κάνει ο αντίπαλος στα ΔΙΚΑ ΤΟΥ
     // ΕΚΤΟΣ ματς (και αντίστροφα) — ίδια λογική με το κύριο feed (renderToolbarAndRows).
     var oppVenue = state.venue==="home" ? "away" : state.venue==="away" ? "home" : "any";
-    // ΠΡΟΣΟΧΗ: το OPP ALLOWS/WINS pill πρέπει να ακολουθεί ΟΛΑ τα ενεργά
-    // φίλτρα του drawer (αποκοπή outliers, αποτέλεσμα, H2H) — όχι μόνο έδρα/
-    // σεζόν — αλλιώς το pill "παγώνει" ενώ οι ράβδοι/τα υπόλοιπα pills
-    // ενημερώνονται κανονικά· το h2hTarget εδώ είναι πάντα r.team (ο
-    // αντίπαλος βλέπεται ΠΑΝΤΑ ενάντια στην ομάδα του στοιχήματος), ίδια
-    // λογική με το ήδη σωστό swap-branch του computeFor — αναφέρθηκε ρητά
-    // 2026-09-17.
-    var oppH2h = state.h2h ? (r.isTotal ? true : r.team) : null;
-    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason, lastSeason:state.lastSeason, venue:oppVenue, result:state.result, outlierTrim:state.outlierTrim, h2h:oppH2h}) : null;
+    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason, lastSeason:state.lastSeason, venue:oppVenue}) : null;
     var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
     var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
-    // OPP FAIR/OPP EDGE/OPP EXP VALUE μέσα στο drawer — ΑΚΡΙΒΩΣ ίδιοι τύποι με
-    // Edge/Exp Value πιο πάνω, με το hitRate ΤΟΥ ΑΝΤΙΠΑΛΟΥ (oppInfo, ήδη
-    // υπολογισμένο με όλα τα ενεργά φίλτρα — έδρα/αποτέλεσμα/H2H/σεζόν/outlier
-    // trim, βλ. σχόλιο πιο πάνω) — ζητήθηκε ρητά 2026-09-17.
-    var oppEdge = (hasPrice && oppInfo && oppInfo.sample>0) ? (oppInfo.hitRate - impliedProb(price)) * 100 : null;
-    var oppEv = (hasPrice && oppInfo && oppInfo.sample>0) ? (oppInfo.hitRate*price - 1) * 100 : null;
-    var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg,
-      oppInfo:oppInfo, oppState: state.oppMode?"active":"hint", oppFairOdds:oppInfo?oppInfo.fairOdds:null, oppEdge:oppEdge, oppEv:oppEv});
+    var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppState: state.oppMode?"active":"hint"});
     metricsEl.className = "metrics " + sb.cls;
     pillsEl.innerHTML = sb.html;
     // Τα L5/L10/L15/L20 badges (πάνω, ΕΞΩ από το drawer) ξαναφτιάχνονται ΚΑΘΕ
@@ -3050,18 +2928,6 @@ function renderDrawer(r, headEl){
         var isActive = !state.fullSeason && !state.lastSeason && !state.usingCustomN && n===state.n;
         return '<div class="hp '+hpTier(p)+(isActive?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
       }).join("");
-    }
-    // Ίδιο, για τους κύκλους L5-L20 ΤΟΥ ΑΝΤΙΠΑΛΟΥ (πάνω σειρά) — βλ.
-    // computeOppForWindowN. Άδειο (καμία αλλαγή στο ήδη άδειο container) αν
-    // δεν υπάρχει OPP pill γι' αυτή τη γραμμή.
-    var oppPillsRowEl = headEl.querySelector(".oppPillsrow");
-    if(oppPillsRowEl){
-      oppPillsRowEl.innerHTML = oppInfo ? WINDOWS.map(function(n){
-        var wr = computeOppForWindowN(n);
-        var p = Math.round(wr.hitRate*100);
-        var isActive = !state.fullSeason && !state.lastSeason && !state.usingCustomN && n===state.n;
-        return '<div class="hp '+hpTier(p)+(isActive?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
-      }).join("") : "";
     }
     // Το κλικ πάνω στο OPP pill έχει 3 διαφορετικά αποτελέσματα ανάλογα με την
     // τρέχουσα κατάσταση — ΑΚΡΙΒΩΣ στο σημείο που πατάει συχνά ο χρήστης για να
@@ -3152,18 +3018,6 @@ function renderDrawer(r, headEl){
     return r.isTotal
       ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, thr, side, opts)
       : evaluate(r.team, r.league, r.category, r.direction, thr, side, opts);
-  }
-  // Ίδιο με το computeForWindowN, αλλά για ΤΟΝ ΑΝΤΙΠΑΛΟ (κύκλοι L5-L20 της
-  // πάνω σειράς, βλ. updateHeader) — ίδια λογική έδρας/H2H με το ήδη σωστό
-  // OPP ALLOWS pill (oppVenue αντεστραμμένη, h2h πάντα ενάντια σε r.team).
-  // oppStatAvg γυρνάει null αν η κατηγορία δεν έχει OPP_LABEL καθόλου — δεν
-  // συμβαίνει εδώ γιατί καλείται μόνο όταν ήδη υπάρχει oppInfo (βλ. updateHeader).
-  function computeOppForWindowN(n){
-    var oppVenue = state.venue==="home" ? "away" : state.venue==="away" ? "home" : "any";
-    var oppH2h = state.h2h ? (r.isTotal ? true : r.team) : null;
-    var opts = { n:n, venue: oppVenue, result: state.result, outlierTrim: state.outlierTrim,
-                 fullSeason: state.fullSeason, lastSeason: state.lastSeason, h2h: oppH2h };
-    return oppStatAvg(r, opts);
   }
 
   function draw(){
