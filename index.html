@@ -129,9 +129,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .seg{display:flex;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);overflow:hidden}
 .seg button{background:transparent;border:0;color:var(--text-dim);font-size:12.5px;padding:7px 13px;cursor:pointer;font-weight:600;font-family:"IBM Plex Mono",monospace}
 .seg button.active{background:var(--accent);color:#04231d;box-shadow:var(--glow-accent)}
-/* HOME/AWAY SPLIT: pill πάνω από το L5-L20 (βλ. #windowSegWrap) — ίδιο ύφος με
-   το TABLE toggle (.tableToggleBtn) για συνέπεια, μοιράζεται τα ίδια rules. */
-.windowSegWrap{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+/* HOME/AWAY SPLIT (#haSplitBtn) — ίδιο ύφος με το TABLE toggle (.tableToggleBtn)
+   για συνέπεια, μοιράζεται τα ίδια rules. Το ίδιο DOM element μετακινείται με
+   JS δίπλα-δεξιά από το ενεργό ημερολόγιο (desktop ή mobile) ανάλογα με το
+   viewport — βλ. IIFE στο τέλος του αρχείου, ζητήθηκε ρητά 2026-09-19. */
 .windowSegRow{display:flex;align-items:center;gap:8px}
 
 /* κουμπί ανοίγματος του mobile φίλτρων-sheet — κρυφό στο desktop */
@@ -177,7 +178,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   /* 2η σειρά στο κινητό: Ταξινόμηση αριστερά (μαζεύεται όσο χρειάζεται ώστε
      να χωράει σίγουρα δίπλα του), L5-L20 τέρμα δεξιά στο ΙΔΙΟ row. */
   #toolbarRow2 #sortMode{flex:1 1 100px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:8px}
-  #toolbarRow2 #windowSegWrap{margin-left:auto;flex:none}
+  #toolbarRow2 #windowSegRow{margin-left:auto;flex:none}
   .filtersSheet .toolbar-row{flex-direction:column;align-items:stretch;gap:12px}
   .filtersSheet .pillselect,.filtersSheet .oddsFilter,.filtersSheet .teamSelect,.filtersSheet .msWrap,.filtersSheet .seg-group{width:100%}
   .filtersSheet .msBtn.pillselect{max-width:none;width:100%}
@@ -779,6 +780,11 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         </div>
         <button type="button" class="dateClearIcon" id="dateClearDesktop" title="Καθαρισμός φίλτρου ημερομηνίας" hidden>✕</button>
       </div>
+      <!-- Θέση-αρχική του HOME/AWAY SPLIT (desktop) — το ΙΔΙΟ #haSplitBtn
+           μετακινείται εδώ με JS όταν το viewport είναι desktop, ώστε να μένει
+           ΠΑΝΤΑ δίπλα-δεξιά από το ενεργό ημερολόγιο, βλ. IIFE πιο κάτω
+           (ζητήθηκε ρητά 2026-09-19). -->
+      <button type="button" class="haSplitBtn" id="haSplitBtn" title="Μετράει μόνο τους αγώνες ΕΝΤΟΣ της κάθε ομάδας που παίζει εντός στον επόμενο αγώνα της, και μόνο τους ΕΚΤΟΣ για όσες παίζουν εκτός — συνδυάζεται με όλα τα άλλα φίλτρα">HOME/AWAY SPLIT</button>
     </div>
     <div class="toolbar-row" id="toolbarRow2">
       <button type="button" class="mfToggle" id="mfToggle">
@@ -811,20 +817,17 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <option value="avgvsopp">Ταξινόμηση: Average vs Opponent</option>
         <option value="beststreak">Ταξινόμηση: Καλύτερα Streaks</option>
       </select>
-      <div class="windowSegWrap" id="windowSegWrap">
-        <button type="button" class="haSplitBtn" id="haSplitBtn" title="Μετράει μόνο τους αγώνες ΕΝΤΟΣ της κάθε ομάδας που παίζει εντός στον επόμενο αγώνα της, και μόνο τους ΕΚΤΟΣ για όσες παίζουν εκτός — συνδυάζεται με όλα τα άλλα φίλτρα">HOME/AWAY SPLIT</button>
-        <div class="windowSegRow">
-          <div class="seg" id="windowSeg">
-            <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
-            <button data-v="15">L15</button><button data-v="20">L20</button>
-          </div>
-          <!-- Κεντρικό "+"/"i": ίδιο με αυτό μέσα σε κάθε drawer, αλλά καθολικό —
-               ενεργό σημαίνει ΚΑΘΕ γραμμή/drawer συμπληρώνει με περσινή σεζόν όποτε
-               η φετινή δεν φτάνει το επιλεγμένο LAST N. Ζητήθηκε ρητά 2026-09-17. -->
-          <div class="lastFillWrap">
-            <button type="button" class="lastFillBtn" id="lastFillGlobalBtn" title="Συμπλήρωση με περσινή σεζόν σε όλες τις γραμμές">+</button>
-            <button type="button" class="lastFillInfoBtn" id="lastFillGlobalInfoBtn" title="Πληροφορίες">i</button>
-          </div>
+      <div class="windowSegRow" id="windowSegRow">
+        <div class="seg" id="windowSeg">
+          <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
+          <button data-v="15">L15</button><button data-v="20">L20</button>
+        </div>
+        <!-- Κεντρικό "+"/"i": ίδιο με αυτό μέσα σε κάθε drawer, αλλά καθολικό —
+             ενεργό σημαίνει ΚΑΘΕ γραμμή/drawer συμπληρώνει με περσινή σεζόν όποτε
+             η φετινή δεν φτάνει το επιλεγμένο LAST N. Ζητήθηκε ρητά 2026-09-17. -->
+        <div class="lastFillWrap">
+          <button type="button" class="lastFillBtn" id="lastFillGlobalBtn" title="Συμπλήρωση με περσινή σεζόν σε όλες τις γραμμές">+</button>
+          <button type="button" class="lastFillInfoBtn" id="lastFillGlobalInfoBtn" title="Πληροφορίες">i</button>
         </div>
       </div>
     </div>
@@ -3233,16 +3236,25 @@ function renderDrawer(r, headEl){
         '<span class="csAvg">AVERAGE <b>'+(chartRes.sample?avg.toFixed(2):"—")+'</b></span>'+
       '</div>'+
       idHtml+
-      tableToggleHtml+
-      haSplitDrawerHtml+
-      // Το NOW pill και το L5-L20/LINE +/-/REVERSED αφορούν ΜΟΝΟ το γράφημα
-      // (over/under σε συγκεκριμένη γραμμή) — δεν έχουν νόημα μέσα στον
-      // βαθμολογικό πίνακα, οπότε κρύβονται όσο το TABLE είναι ενεργό.
+      // ΣΗΜΑΝΤΙΚΟ: το NOW pill (και το hitsText όταν isTotal) μένουν ΠΑΝΤΑ
+      // ΑΚΡΙΒΩΣ κάτω από το OVER/UNDER HITS-MISS (idHtml σε μονή ομάδα) —
+      // ΠΡΙΝ το TABLE/HOME-AWAY-SPLIT pill, όχι μετά. Αν μπουν ΑΛΛΕΣ γραμμές
+      // (π.χ. το νέο εσωτερικό HOME/AWAY SPLIT pill) ΑΝΑΜΕΣΑ σε idHtml και
+      // chart-hitrow, το NOW pill "μετατοπίζεται" οπτικά μακριά από το
+      // HITS/MISS που το συνοδεύει — ακριβώς αυτό αναφέρθηκε ρητά 2026-09-19.
+      // Το TABLE + το νέο HOME/AWAY SPLIT pill μπαίνουν ΜΕΤΑ το chart-hitrow.
       (state.tableMode ? "" :
         '<div class="chart-hitrow">'+
           (r.isTotal ? hitsTextHtml : "")+
           nowPillHtml+
-        '</div>'+
+        '</div>'
+      )+
+      tableToggleHtml+
+      haSplitDrawerHtml+
+      // Το L5-L20/LINE +/-/REVERSED αφορούν ΜΟΝΟ το γράφημα (over/under σε
+      // συγκεκριμένη γραμμή) — δεν έχουν νόημα μέσα στον βαθμολογικό πίνακα,
+      // οπότε κρύβονται όσο το TABLE είναι ενεργό.
+      (state.tableMode ? "" :
         '<div class="drawerCtrlRow">'+
           '<div class="seg small" id="drawerWin">'+
             [5,10,15,20].map(function(n){ return '<button data-n="'+n+'" class="'+(state.n===n&&!state.fullSeason&&!state.usingCustomN?"active":"")+'">L'+n+'</button>'; }).join("")+
@@ -3641,6 +3653,16 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   var sheetBody = document.getElementById("filtersSheetBody");
   var backdrop = document.getElementById("filtersBackdrop");
   var sheet = document.getElementById("filtersSheet");
+  // HOME/AWAY SPLIT: το ΙΔΙΟ κουμπί (όχι αντίγραφο, ίδια λογική με row1/segGroup
+  // πιο πάνω) μετακινείται δίπλα-δεξιά από το ημερομηνιακό φίλτρο (ημερολόγιο)
+  // ΠΟΥ ΕΙΝΑΙ ΟΡΑΤΟ κάθε φορά — desktop: μέσα στο toolbarRow1, δίπλα στο
+  // #dateFilterWrapDesktop (η φυσική/αρχική θέση στο HTML). Mobile: το row1
+  // φεύγει ολόκληρο μέσα στο sheet, οπότε το κουμπί ακολουθεί το
+  // #dateFilterWrapMobile που μένει ορατό μέσα στο toolbarRow2. Ζητήθηκε ρητά
+  // 2026-09-19.
+  var haSplitBtn = document.getElementById("haSplitBtn");
+  var dateFilterWrapDesktop = document.getElementById("dateFilterWrapDesktop");
+  var dateFilterWrapMobile = document.getElementById("dateFilterWrapMobile");
 
   function openSheet(){ backdrop.hidden = false; sheet.hidden = false; }
   function closeSheet(){ backdrop.hidden = true; sheet.hidden = true; }
@@ -3649,9 +3671,11 @@ document.getElementById("showSeg").addEventListener("click", function(e){
     if(e.matches){
       sheetBody.appendChild(row1);
       sheetBody.appendChild(segGroup);
+      dateFilterWrapMobile.parentNode.insertBefore(haSplitBtn, dateFilterWrapMobile.nextSibling);
     } else {
       toolbar.insertBefore(row1, toolbar.firstChild);
       toolbarRow2.insertBefore(segGroup, toolbarRow2.firstChild);
+      dateFilterWrapDesktop.parentNode.insertBefore(haSplitBtn, dateFilterWrapDesktop.nextSibling);
       closeSheet();
     }
   }
