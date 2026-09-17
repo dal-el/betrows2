@@ -585,6 +585,17 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   gap:4px;height:100%;cursor:pointer;padding-top:14px;border-radius:6px;
 }
 .bar-col:hover, .bar-col.sel{background:var(--surface-3)}
+/* Κάθετη διακεκομμένη λευκή διαχωριστική μέσα στο γράφημα, ανάμεσα στα ματς
+   της ΤΡΕΧΟΥΣΑΣ σεζόν (αριστερά, πιο πρόσφατα) και της ΠΕΡΣΙΝΗΣ (δεξιά) —
+   εμφανίζεται ΜΟΝΟ όταν η συμπλήρωση με περσινή σεζόν ("+"/"Όλη τη σεζόν"+
+   "Περσινή σεζόν" μαζί) φέρνει και τα δύο είδη ματς στο ίδιο γράφημα
+   (ζητήθηκε ρητά 2026-09-19). */
+.seasonSepCol{flex:0 0 auto;width:0;height:100%;align-self:stretch;margin:0 4px;position:relative}
+.seasonSepCol::before{content:"";position:absolute;top:0;bottom:0;left:0;border-left:2px dashed rgba(255,255,255,.55)}
+.seasonSepCol::after{
+  content:"ΠΕΡΣΙΝΗ ΣΕΖΟΝ →";position:absolute;top:-30px;left:6px;white-space:nowrap;
+  font-size:9px;letter-spacing:.03em;color:var(--text-faint);font-family:"IBM Plex Mono",monospace;
+}
 /* Η γραμμή στόχου (.threshold-line) είναι position:absolute, οπότε ζωγραφίζεται
    ΠΑΝΩ από τα κανονικά (static) στοιχεία της μπάρας — αν η τιμή μιας μπάρας είναι
    κοντά στο threshold, το νούμερο πέφτει ακριβώς πάνω στην κίτρινη διακεκομμένη
@@ -1517,15 +1528,25 @@ function evaluate(team, leagueId, category, direction, threshold, side, opts){
   if(opts.venue && opts.venue!=="any"){ ms = ms.filter(function(m){ return (m.h===team)===(opts.venue==="home"); }); }
   if(opts.result && opts.result!=="any"){ ms = ms.filter(function(m){ return matchResultForTeam(m,team)===opts.result; }); }
   if(opts.h2h){ ms = ms.filter(function(m){ return m.h===opts.h2h || m.a===opts.h2h; }); }
-  if(!!opts.fullSeason === !!opts.lastSeason){
-    // (false,false) -> κανονικό LAST N. (true,true) -> "συμπλήρωση" έως n συνολικά.
-    // ms είναι ΗΔΗ σωστά περιορισμένο στην τρέχουσα (ή τρέχουσα+περσινή) σεζόν,
-    // ΠΟΤΕ δεν φτάνει σε ακόμα παλιότερη σεζόν.
-    ms = ms.slice(Math.max(0, ms.length-(opts.n||10)));
-  }
+  // (false,false) -> κανονικό LAST N. (true,true) -> "συμπλήρωση" έως n συνολικά.
   // (true,false) ή (false,true): κρατάμε ΟΛΟΚΛΗΡΟ το ms (όλη η τρέχουσα ή όλη η περσινή σεζόν).
-  var values = [];
-  for(var i=0;i<ms.length;i++){ var v=teamMatchValue(ms[i], team, category, direction); if(v!=null) values.push({m:ms[i],v:v}); }
+  // ΠΡΟΣΟΧΗ: υπολογίζουμε ΠΡΩΤΑ τις έγκυρες (non-null) τιμές για ΟΛΟ το ms, και
+  // ΜΕΤΑ κόβουμε στις τελευταίες N — ΟΧΙ το αντίστροφο. Μερικά παλιά ματς (π.χ.
+  // πριν τις 2026-09-15, βλ. σχόλιο στο CATS για οφσάιντ/κατοχή/πάσες κλπ) δεν
+  // έχουν καταγεγραμμένη τιμή για κάποιες κατηγορίες· αν κόβαμε το ms ΠΡΙΝ
+  // αφαιρέσουμε αυτά τα null, ένα τέτοιο ματς "έκλεβε" μία από τις Ν θέσεις
+  // χωρίς τελικά να συνεισφέρει τιμή, και η συμπλήρωση με περσινή σεζόν έδειχνε
+  // λιγότερα ματς απ' τα ζητούμενα N παρόλο που υπήρχαν αρκετά διαθέσιμα πιο
+  // πίσω στην ίδια σεζόν (ζητήθηκε ρητά 2026-09-19 — Tottenham: 21 διαθέσιμα
+  // εντός έδρας ματς, LAST 10 έδειχνε μόνο 7).
+  var allValues = [];
+  for(var i=0;i<ms.length;i++){ var v=teamMatchValue(ms[i], team, category, direction); if(v!=null) allValues.push({m:ms[i],v:v}); }
+  var values;
+  if(!!opts.fullSeason === !!opts.lastSeason){
+    values = allValues.slice(Math.max(0, allValues.length-(opts.n||10)));
+  } else {
+    values = allValues;
+  }
   if(opts.outlierTrim && values.length>=5){
     values.sort(function(a,b){return a.v-b.v});
     var k = Math.floor(values.length*opts.outlierTrim);
@@ -1565,17 +1586,23 @@ function evaluateCombinedTotal(homeTeam, awayTeam, leagueId, category, threshold
     homeMs = homeMs.filter(function(m){ return m.a===awayTeam; });
     awayMs = awayMs.filter(function(m){ return m.h===homeTeam; });
   }
+  // homeMs/awayMs are already scoped correctly (current season only, or current+previous
+  // when both pills are active) — this mirrors evaluate()'s slicing rule above.
+  // ΠΡΟΣΟΧΗ (ίδιο fix με το evaluate(), ζητήθηκε ρητά 2026-09-19): υπολογίζουμε
+  // ΠΡΩΤΑ τις έγκυρες (non-null) τιμές ΓΙΑ ΚΑΘΕ πλευρά ξεχωριστά, και ΜΕΤΑ
+  // κόβουμε στις τελευταίες N — ΟΧΙ το αντίστροφο, αλλιώς ένα παλιό ματς χωρίς
+  // καταγεγραμμένη τιμή "έκλεβε" θέση από τις ζητούμενες N.
+  var homeValues = [];
+  homeMs.forEach(function(m){ var v=teamMatchValue(m, homeTeam, category, "total"); if(v!=null) homeValues.push({m:m, v:v, src:"home"}); });
+  var awayValues = [];
+  awayMs.forEach(function(m){ var v=teamMatchValue(m, awayTeam, category, "total"); if(v!=null) awayValues.push({m:m, v:v, src:"away"}); });
+  var values;
   if(!!opts.fullSeason === !!opts.lastSeason){
-    // homeMs/awayMs are already scoped correctly (current season only, or current+previous
-    // when both pills are active) — this mirrors evaluate()'s slicing rule above.
     var n = opts.n||10;
-    homeMs = homeMs.slice(Math.max(0, homeMs.length-n));
-    awayMs = awayMs.slice(Math.max(0, awayMs.length-n));
+    values = homeValues.slice(Math.max(0, homeValues.length-n)).concat(awayValues.slice(Math.max(0, awayValues.length-n)));
+  } else {
+    values = homeValues.concat(awayValues);
   }
-
-  var values = [];
-  homeMs.forEach(function(m){ var v=teamMatchValue(m, homeTeam, category, "total"); if(v!=null) values.push({m:m, v:v, src:"home"}); });
-  awayMs.forEach(function(m){ var v=teamMatchValue(m, awayTeam, category, "total"); if(v!=null) values.push({m:m, v:v, src:"away"}); });
   if(opts.outlierTrim && values.length>=5){
     values.sort(function(a,b){return a.v-b.v});
     var k = Math.floor(values.length*opts.outlierTrim);
@@ -2051,6 +2078,20 @@ function ownVenueInMatch(r){
   // μη συγκρίνεις r.team με r.matchHome/matchAway (διαφορετικές γλώσσες/πηγές
   // ονομάτων, δεν ταιριάζουν ποτέ ως string).
   return r.ownVenue || null;
+}
+// Επαναφέρει τα ΤΟΠΙΚΑ φίλτρα ενός drawer (αυτόματη έδρα HOME/AWAY SPLIT +
+// "+" συμπλήρωση περσινής σεζόν) στην ΤΡΕΧΟΥΣΑ κατάσταση των ΓΕΝΙΚΩΝ
+// διακοπτών (homeAwaySplitOn/lastFillGlobalOn). Καλείται σε ΚΑΘΕ άνοιγμα
+// ήδη-χτισμένου drawer (reopen), όχι μόνο στην πρώτη κατασκευή του — αλλιώς
+// ένα drawer που είχε ξανανοίξει/κλείσει "θυμόταν" την παλιά τοπική του
+// κατάσταση αντί να ακολουθήσει τον γενικό διακόπτη, όπως αναφέρθηκε ρητά
+// (ζητήθηκε ρητά 2026-09-19).
+function resyncDrawerLocalToGlobals(r, state){
+  var autoVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
+  state.venue = autoVenue;
+  state.tableVenue = autoVenue;
+  state.fullSeason = lastFillGlobalOn;
+  state.lastSeason = lastFillGlobalOn;
 }
 function streakCandidatesFor(r){
   if(r.isTotal || !r.team) return [];
@@ -2662,6 +2703,11 @@ function renderRowCard(r){
       } else if(head._drawerState){
         head._drawerState.oppMode = false;
         head._drawerState.selected = null;
+        // Σε ΚΑΘΕ ξανά-άνοιγμα (όχι μόνο στην πρώτη κατασκευή), τα τοπικά
+        // HOME/AWAY SPLIT + "+" ξαναπαίρνουν ό,τι λένε ΤΩΡΑ οι γενικοί
+        // διακόπτες — δεν "θυμούνται" τοπική απόκλιση από προηγούμενο άνοιγμα
+        // (ζητήθηκε ρητά 2026-09-19).
+        resyncDrawerLocalToGlobals(r, head._drawerState);
         if(head._drawerDraw) head._drawerDraw();
       }
     }
@@ -2879,6 +2925,9 @@ function renderDrawer(r, headEl){
           if(cardEl) cardEl.classList.add("open");
           state.oppMode = false;
           state.selected = null;
+          // Ίδιος επανασυγχρονισμός με το κύριο toggle του head όταν το
+          // drawer ξανανοίγει από εδώ (ζητήθηκε ρητά 2026-09-19).
+          resyncDrawerLocalToGlobals(r, state);
           draw();
           return;
         }
@@ -3012,6 +3061,22 @@ function renderDrawer(r, headEl){
       '</div>';
     }
 
+    // Εισάγει την κάθετη διακεκομμένη λευκή διαχωριστική (.seasonSepCol) στο
+    // ΑΚΡΙΒΕΣ σημείο όπου, διαβάζοντας τη λίστα "πιο πρόσφατο -> παλαιότερο"
+    // (ίδια σειρά με τις μπάρες), το τελευταίο φετινό ματς συναντά το πρώτο
+    // περσινό — δηλαδή ΜΟΝΟ όταν η "συμπλήρωση με περσινή σεζόν" έφερε και τα
+    // δύο είδη ματς στο ίδιο γράφημα. Χωρίς τέτοια μετάβαση (καθαρά φετινό ή
+    // καθαρά περσινό γράφημα) δεν προστίθεται τίποτα. Ζητήθηκε ρητά 2026-09-19.
+    var curSeasonMatchSet = new Set(currentSeasonMatches(r.league));
+    function withSeasonSeparator(barsArr, newestFirstList){
+      for(var i=1;i<newestFirstList.length;i++){
+        if(curSeasonMatchSet.has(newestFirstList[i-1].m) && !curSeasonMatchSet.has(newestFirstList[i].m)){
+          return barsArr.slice(0,i).concat(['<div class="seasonSepCol" title="Διαχωριστική: φετινή/περσινή σεζόν"></div>'], barsArr.slice(i));
+        }
+      }
+      return barsArr;
+    }
+
     // Στοιχήματα "και οι δύο ομάδες μαζί" (isTotal): το chartRes.matches είναι ένα
     // pool από τα σπίτι-ματς του γηπεδούχου + τα εκτός-ματς του φιλοξενούμενου.
     // Δείχνοντάς τα σε ΕΝΑ γράφημα μπερδεύει — φαίνεται σαν 20 τυχαία ματς.
@@ -3025,8 +3090,8 @@ function renderDrawer(r, headEl){
 
     var chartHtml;
     if(r.isTotal){
-      var homeBars = homeList.map(function(x, idx){ return barColHtml(x, idx, "home"); }).join("");
-      var awayBars = awayList.map(function(x, idx){ return barColHtml(x, idx, "away"); }).join("");
+      var homeBars = withSeasonSeparator(homeList.map(function(x, idx){ return barColHtml(x, idx, "home"); }), homeList).join("");
+      var awayBars = withSeasonSeparator(awayList.map(function(x, idx){ return barColHtml(x, idx, "away"); }), awayList).join("");
       chartHtml =
         '<div class="chart-strip-wrap">'+
           '<div class="chart-strip-title">'+avatarHtml(r.homeTeam, r.league)+'<span class="t">'+escAttr(r.homeTeam)+'</span><span class="v">εντός · '+homeList.length+' ματς</span></div>'+
@@ -3047,7 +3112,7 @@ function renderDrawer(r, headEl){
           '</div>'+
         '</div>';
     } else {
-      var barsHtml = matchesNewestFirst.map(function(x, idx){ return barColHtml(x, idx, "s"); }).join("");
+      var barsHtml = withSeasonSeparator(matchesNewestFirst.map(function(x, idx){ return barColHtml(x, idx, "s"); }), matchesNewestFirst).join("");
       chartHtml =
         '<div class="chart-bars">'+
           '<div class="chart-bars-inner">'+
