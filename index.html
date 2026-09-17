@@ -286,7 +286,14 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .row-main .team .infoBtn:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 .infoTip{
   position:absolute;z-index:200;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-sm);
-  padding:7px 11px;font-size:12.5px;color:var(--text);box-shadow:var(--shadow);white-space:nowrap;pointer-events:none;
+  padding:7px 11px;font-size:12.5px;color:var(--text);box-shadow:var(--shadow);pointer-events:none;
+  /* ΠΡΟΣΟΧΗ: ΟΧΙ white-space:nowrap — ένα μεγάλο κείμενο (π.χ. το "PRESS +
+     BUTTON TO ADD GAMES..." του "i" δίπλα στο +) γινόταν ΜΙΑ τεράστια γραμμή
+     που ξεχείλιζε έξω απ' την οθόνη τόσο σε κινητό όσο και σε PC, χωρίς να
+     διαβάζεται — ζητήθηκε ρητά 2026-09-19. Με max-width + κανονικό wrap, το
+     μπαλόνι σπάει σε πολλές γραμμές και χωράει πάντα μέσα στο ορατό πλάτος
+     (το υπάρχον JS clamp πιο κάτω χρειάζεται ΑΚΡΙΒΩΣ αυτό για να δουλέψει σωστά).*/
+  max-width:min(280px, calc(100vw - 32px));white-space:normal;word-wrap:break-word;line-height:1.4;
 }
 /* "streak" flame — ίδιο visual language με το PropDunker (πορτοκαλί κύκλος με
    glow γύρω από 🔥) — εμφανίζεται ΜΟΝΟ όταν η ομάδα του betrow έχει ενεργό
@@ -469,10 +476,14 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   background:linear-gradient(rgba(140,158,180,.14),rgba(140,158,180,0)),var(--surface-2);
   cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
 }
-.tableToggleBtn:hover,.haSplitBtn:hover,.haSplitDrawerBtn:hover{border-color:rgba(140,158,180,.75)}
+.tableToggleBtn:hover,.haSplitBtn:hover,.haSplitDrawerBtn:hover{border-color:rgba(18,230,173,.6);color:var(--accent-strong)}
+/* Ενεργό (active) χρώμα: το ΙΔΙΟ accent teal που ήδη σημαίνει "ενεργό" παντού
+   αλλού στην εφαρμογή (L5-L20, chips κλπ) — ΟΧΙ πια το μωβ ούτε το ατσαλί/slate
+   που δεν ξεχώριζε αρκετά πάνω στο σκούρο φόντο (ζητήθηκε ρητά 2026-09-19). */
 .tableToggleBtn.active,.haSplitBtn.active,.haSplitDrawerBtn.active{
-  border-color:rgba(140,158,180,.9);color:#fff;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 0 14px rgba(140,158,180,.4);
+  border-color:var(--accent);color:#04231d;
+  background:var(--accent);
+  box-shadow:var(--glow-accent);
 }
 .haSplitDrawerBtn:disabled{opacity:.35;cursor:default}
 .haSplitDrawerBtn:disabled:hover{border-color:rgba(140,158,180,.35)}
@@ -660,11 +671,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 }
 .lastFillBtn{font-family:inherit}
 .lastFillInfoBtn{font-size:11px;font-style:italic;font-family:Georgia,"Times New Roman",serif;cursor:help}
-.lastFillBtn:hover,.lastFillInfoBtn:hover{border-color:rgba(167,139,250,.6);color:rgba(167,139,250,.9)}
+.lastFillBtn:hover,.lastFillInfoBtn:hover{border-color:rgba(18,230,173,.6);color:var(--accent-strong)}
+/* Ίδιο accent teal με το HOME/AWAY SPLIT/TABLE (όχι πια μωβ) όταν είναι
+   ενεργό — ζητήθηκε ρητά 2026-09-19 ("το μωβ δε μου αρέσει"). */
 .lastFillBtn.active{
-  border-color:rgba(167,139,250,.9);color:#fff;
-  background:linear-gradient(rgba(167,139,250,.22),rgba(167,139,250,.06)),var(--surface-2);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 10px rgba(167,139,250,.4);
+  border-color:var(--accent);color:#04231d;
+  background:var(--accent);
+  box-shadow:var(--glow-accent);
 }
 .confirmTip{
   position:absolute;z-index:200;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-sm);
