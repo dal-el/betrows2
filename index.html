@@ -1100,17 +1100,25 @@ function teamMatchValue(m, team, category, direction){
   if(own==null||opp==null) return null;
   return own+opp;
 }
-function teamMatches(team, leagueId){
+function teamMatchesInPool(team, pool){
   var out = [];
+  for(var i=0;i<pool.length;i++){ var m=pool[i]; if(m.h===team||m.a===team) out.push(m); }
+  out.sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:0});
+  return out;
+}
+function teamMatches(team, leagueId){
   // ΜΟΝΟ η τρέχουσα σεζόν (βλ. currentSeasonMatches) — ποτέ δεν "διαρρέει" σε
   // περσινούς αγώνες όταν ζητηθεί LAST N/ΕΝΤΟΣ-ΕΚΤΟΣ/"Όλη τη σεζόν" και δεν
   // υπάρχουν αρκετοί φετινοί, ζητήθηκε ρητά 2026-09-17. Αν δεν δοθεί leagueId
   // (δεν συμβαίνει σήμερα σε κανένα σημείο κλήσης, αλλά για ασφάλεια) πέφτουμε
   // πίσω στην παλιά συμπεριφορά (όλο το ιστορικό, χωρίς φιλτράρισμα σεζόν).
-  var pool = leagueId ? currentSeasonMatches(leagueId) : DATA;
-  for(var i=0;i<pool.length;i++){ var m=pool[i]; if(m.h===team||m.a===team) out.push(m); }
-  out.sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:0});
-  return out;
+  return teamMatchesInPool(team, leagueId ? currentSeasonMatches(leagueId) : DATA);
+}
+// Οι αγώνες της ΙΔΙΑΣ ομάδας μόνο μέσα στην ΠΕΡΣΙΝΗ σεζόν — τροφοδοτεί το pill
+// "Περσινή σεζόν" και τον συνδυασμό του με "Όλη τη σεζόν" (βλ. evaluate, ζητήθηκε ρητά 2026-09-17).
+function teamMatchesPreviousSeason(team, leagueId){
+  if(!leagueId) return [];
+  return teamMatchesInPool(team, previousSeasonMatches(leagueId));
 }
 function matchResultForTeam(m, team){
   if(m.fthg==null||m.ftag==null) return null;
@@ -1187,6 +1195,44 @@ function currentSeasonMatches(leagueId){
     out = DATA.filter(function(m){ return m.lg===leagueId && m.s===season; });
   }
   _currentSeasonMatchesCache[leagueId] = out;
+  return out;
+}
+// Το season tag ΑΜΕΣΩΣ πριν το δοσμένο ("2025/26" -> "2024/25") — ίδια μορφή
+// σε όλες τις λίγκες του dataset (βλ. έλεγχος σε πραγματικά δεδομένα 2026-09-17).
+function previousSeasonTag(tag){
+  if(!tag) return null;
+  var parts = tag.split("/");
+  var y1 = parseInt(parts[0],10);
+  if(isNaN(y1)) return null;
+  var prevY1 = y1-1, prevY2 = (prevY1+1)%100;
+  return prevY1 + "/" + (prevY2<10?"0":"") + prevY2;
+}
+// Επιστρέφει ΜΟΝΟ τους αγώνες της ΠΕΡΣΙΝΗΣ (αμέσως προηγούμενης) σεζόν μιας
+// λίγκας — καινούργιο pill "Περσινή σεζόν" μέσα στο drawer (ζητήθηκε ρητά
+// 2026-09-17). Ίδια λογική ημερολογιακής/ευρωπαϊκής σεζόν με το
+// currentSeasonMatches, μετατοπισμένη κατά ένα έτος/season-tag προς τα πίσω.
+var _previousSeasonMatchesCache = {};
+function previousSeasonMatches(leagueId){
+  if(_previousSeasonMatchesCache[leagueId]!==undefined) return _previousSeasonMatchesCache[leagueId];
+  var out;
+  if(CALENDAR_YEAR_LEAGUES[leagueId]){
+    var latestDate = null;
+    for(var i=0;i<DATA.length;i++){
+      var mm = DATA[i];
+      if(mm.lg===leagueId && (latestDate===null || mm.d>latestDate)) latestDate = mm.d;
+    }
+    if(!latestDate){ out = []; }
+    else {
+      var prevYear = String(parseInt(latestDate.slice(0,4),10)-1);
+      out = DATA.filter(function(m){ return m.lg===leagueId && m.d.slice(0,4)===prevYear; });
+    }
+  } else {
+    var season = currentSeasonForLeague(leagueId);
+    var prevTag = previousSeasonTag(season);
+    out = prevTag ? DATA.filter(function(m){ return m.lg===leagueId && m.s===prevTag; }) : [];
+  }
+  out.sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:0});
+  _previousSeasonMatchesCache[leagueId] = out;
   return out;
 }
 // Μαζεύει, ανά ομάδα, τη λίστα των αγώνων της σεζόν (φιλτραρισμένη κατά
@@ -1400,19 +1446,38 @@ function hitStats(values, threshold, side){
   return {sample:sample, hits:hits, hitRate:hitRate, fairOdds:fairOdds, avg:avg};
 }
 
-// opts: {n, venue:'any'|'home'|'away', result:'any'|'win'|'loss', outlierTrim:0..0.4, h2h:opponentName|null, fullSeason:bool}
+// opts: {n, venue:'any'|'home'|'away', result:'any'|'win'|'loss', outlierTrim:0..0.4, h2h:opponentName|null, fullSeason:bool, lastSeason:bool}
+// fullSeason/lastSeason συνδυασμοί (pills "Όλη τη σεζόν" + "Περσινή σεζόν" μέσα στο drawer, ζητήθηκε ρητά 2026-09-17):
+//   κανένα από τα δύο   -> τρέχουσα σεζόν, ΤΕΛΕΥΤΑΙΟΙ n αγώνες (κανονικό LAST N).
+//   μόνο fullSeason     -> ΟΛΗ η τρέχουσα σεζόν (όπως πριν, αμετάβλητο).
+//   μόνο lastSeason     -> ΟΛΗ η ΠΕΡΣΙΝΗ σεζόν (το n αγνοείται).
+//   και τα δύο μαζί     -> "συμπλήρωση": όσοι φετινοί αγώνες υπάρχουν (μέχρι n) + οι πιο
+//                          πρόσφατοι περσινοί όσοι χρειάζονται για να συμπληρωθούν n συνολικά,
+//                          ξεκινώντας από το ΤΕΛΕΥΤΑΙΟ περσινό ματς προς τα πίσω.
 function evaluate(team, leagueId, category, direction, threshold, side, opts){
   opts = opts || {};
-  var ms = teamMatches(team, leagueId);
+  var ms;
+  if(opts.lastSeason && opts.fullSeason){
+    // Η ένωση περσινών+φετινών σε ΧΡΟΝΟΛΟΓΙΚΗ σειρά (τα περσινά πάντα πριν τα
+    // φετινά) + το slice(length-n) πιο κάτω δίνει ΑΚΡΙΒΩΣ τη ζητούμενη συμπλήρωση,
+    // χωρίς ξεχωριστή λογική "πόσα λείπουν" — απλά παίρνουμε τους n πιο πρόσφατους
+    // συνολικά, που ΠΟΤΕ δεν πάνε πιο πίσω από την περσινή σεζόν.
+    ms = teamMatchesPreviousSeason(team, leagueId).concat(teamMatches(team, leagueId));
+  } else if(opts.lastSeason){
+    ms = teamMatchesPreviousSeason(team, leagueId);
+  } else {
+    ms = teamMatches(team, leagueId);
+  }
   if(opts.venue && opts.venue!=="any"){ ms = ms.filter(function(m){ return (m.h===team)===(opts.venue==="home"); }); }
   if(opts.result && opts.result!=="any"){ ms = ms.filter(function(m){ return matchResultForTeam(m,team)===opts.result; }); }
   if(opts.h2h){ ms = ms.filter(function(m){ return m.h===opts.h2h || m.a===opts.h2h; }); }
-  if(!opts.fullSeason){
-    // ms is already scoped to the current season by teamMatches()/currentSeasonMatches()
-    // (which correctly spans multiple raw season-tags for calendar-year leagues like Brazil),
-    // so fullSeason just keeps everything; only the windowed (last N) case slices it down.
+  if(!!opts.fullSeason === !!opts.lastSeason){
+    // (false,false) -> κανονικό LAST N. (true,true) -> "συμπλήρωση" έως n συνολικά.
+    // ms είναι ΗΔΗ σωστά περιορισμένο στην τρέχουσα (ή τρέχουσα+περσινή) σεζόν,
+    // ΠΟΤΕ δεν φτάνει σε ακόμα παλιότερη σεζόν.
     ms = ms.slice(Math.max(0, ms.length-(opts.n||10)));
   }
+  // (true,false) ή (false,true): κρατάμε ΟΛΟΚΛΗΡΟ το ms (όλη η τρέχουσα ή όλη η περσινή σεζόν).
   var values = [];
   for(var i=0;i<ms.length;i++){ var v=teamMatchValue(ms[i], team, category, direction); if(v!=null) values.push({m:ms[i],v:v}); }
   if(opts.outlierTrim && values.length>=5){
@@ -1433,8 +1498,19 @@ function evaluate(team, leagueId, category, direction, threshold, side, opts){
 // slice of history that actually bears on this exact pairing.
 function evaluateCombinedTotal(homeTeam, awayTeam, leagueId, category, threshold, side, opts){
   opts = opts || {};
-  var homeMs = teamMatches(homeTeam, leagueId).filter(function(m){ return m.h===homeTeam; });
-  var awayMs = teamMatches(awayTeam, leagueId).filter(function(m){ return m.a===awayTeam; });
+  var homeMs, awayMs;
+  if(opts.lastSeason && opts.fullSeason){
+    homeMs = teamMatchesPreviousSeason(homeTeam, leagueId).filter(function(m){ return m.h===homeTeam; })
+      .concat(teamMatches(homeTeam, leagueId).filter(function(m){ return m.h===homeTeam; }));
+    awayMs = teamMatchesPreviousSeason(awayTeam, leagueId).filter(function(m){ return m.a===awayTeam; })
+      .concat(teamMatches(awayTeam, leagueId).filter(function(m){ return m.a===awayTeam; }));
+  } else if(opts.lastSeason){
+    homeMs = teamMatchesPreviousSeason(homeTeam, leagueId).filter(function(m){ return m.h===homeTeam; });
+    awayMs = teamMatchesPreviousSeason(awayTeam, leagueId).filter(function(m){ return m.a===awayTeam; });
+  } else {
+    homeMs = teamMatches(homeTeam, leagueId).filter(function(m){ return m.h===homeTeam; });
+    awayMs = teamMatches(awayTeam, leagueId).filter(function(m){ return m.a===awayTeam; });
+  }
   if(opts.result && opts.result!=="any"){
     homeMs = homeMs.filter(function(m){ return matchResultForTeam(m,homeTeam)===opts.result; });
     awayMs = awayMs.filter(function(m){ return matchResultForTeam(m,awayTeam)===opts.result; });
@@ -1443,10 +1519,9 @@ function evaluateCombinedTotal(homeTeam, awayTeam, leagueId, category, threshold
     homeMs = homeMs.filter(function(m){ return m.a===awayTeam; });
     awayMs = awayMs.filter(function(m){ return m.h===homeTeam; });
   }
-  if(!opts.fullSeason){
-    // homeMs/awayMs are already scoped to the current season by teamMatches()/currentSeasonMatches()
-    // (correctly spanning multiple raw season-tags for calendar-year leagues like Brazil),
-    // so fullSeason just keeps everything; only the windowed (last N) case slices it down.
+  if(!!opts.fullSeason === !!opts.lastSeason){
+    // homeMs/awayMs are already scoped correctly (current season only, or current+previous
+    // when both pills are active) — this mirrors evaluate()'s slicing rule above.
     var n = opts.n||10;
     homeMs = homeMs.slice(Math.max(0, homeMs.length-n));
     awayMs = awayMs.slice(Math.max(0, awayMs.length-n));
@@ -2504,7 +2579,11 @@ function renderDrawer(r, headEl){
   // "any" σαν να μην υπήρχε καμία επιλογή. Ο χρήστης μπορεί μετά να το σβήσει
   // χειροκίνητα μέσα στο drawer με το ίδιο πλήκτρο "Μόνο εντός/εκτός" (ζητήθηκε ρητά 2026-09-17).
   var presetVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
-  var state = { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
+  // Το tableVenue (φίλτρο ΟΛΟΙ/ΕΝΤΟΣ/ΕΚΤΟΣ ΜΕΣΑ στη βαθμολογία) ξεκινάει
+  // ΣΥΓΧΡΟΝΙΣΜΕΝΟ με το presetVenue, ώστε αν ήδη ξέρουμε την έδρα (HOME/AWAY
+  // SPLIT ενεργό) η βαθμολογία να ανοίγει ΚΑΤΕΥΘΕΙΑΝ φιλτραρισμένη στην ίδια
+  // έδρα αντί να ξεκινάει από "ΟΛΟΙ" σαν να μην είχε επιλεγεί τίποτα (ζητήθηκε ρητά 2026-09-17).
+  var state = { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false, fullSeason:false, lastSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:presetVenue, tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -2604,7 +2683,7 @@ function renderDrawer(r, headEl){
     // OPP ALLOWS πρέπει να δείχνει τι επιτρέπει/κάνει ο αντίπαλος στα ΔΙΚΑ ΤΟΥ
     // ΕΚΤΟΣ ματς (και αντίστροφα) — ίδια λογική με το κύριο feed (renderToolbarAndRows).
     var oppVenue = state.venue==="home" ? "away" : state.venue==="away" ? "home" : "any";
-    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason, venue:oppVenue}) : null;
+    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason, lastSeason:state.lastSeason, venue:oppVenue}) : null;
     var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
     var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
     var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppState: state.oppMode?"active":"hint"});
@@ -2655,7 +2734,7 @@ function renderDrawer(r, headEl){
     var direction = swap ? "against" : r.direction;
     var h2hTarget = state.h2h ? (r.isTotal ? true : (swap ? r.team : r.opponent)) : null;
     var opts = { n: state.n, venue: state.venue, result: state.result, outlierTrim: state.outlierTrim,
-                 fullSeason: state.fullSeason, h2h: h2hTarget };
+                 fullSeason: state.fullSeason, lastSeason: state.lastSeason, h2h: h2hTarget };
     var side = effSide();
     return r.isTotal
       ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, thr, side, opts)
@@ -2922,7 +3001,13 @@ function renderDrawer(r, headEl){
       tableBtn.addEventListener("click", function(e){
         e.stopPropagation();
         state.tableMode = !state.tableMode;
-        if(state.tableMode){ state.tableCat = null; state.tableExpandedTeam = null; }
+        if(state.tableMode){
+          state.tableCat = null; state.tableExpandedTeam = null;
+          // Συγχρονισμός με το ήδη ενεργό φίλτρο έδρας του γραφήματος (chip
+          // "Μόνο εντός/εκτός" ή αρχικό preset από HOME/AWAY SPLIT) — "τα ίδια
+          // φίλτρα να εφαρμόζονται και μέσα στις βαθμολογίες" (ζητήθηκε ρητά 2026-09-17).
+          state.tableVenue = state.venue;
+        }
         state.selected = null;
         draw();
       });
@@ -3009,7 +3094,7 @@ function renderDrawer(r, headEl){
     if(drawerWinEl){
       drawerWinEl.addEventListener("click", function(e){
         if(e.target.tagName!=="BUTTON") return;
-        state.fullSeason = false; state.usingCustomN = false; state.n = parseInt(e.target.getAttribute("data-n"),10); state.selected=null; draw();
+        state.fullSeason = false; state.lastSeason = false; state.usingCustomN = false; state.n = parseInt(e.target.getAttribute("data-n"),10); state.selected=null; draw();
       });
     }
 
@@ -3020,7 +3105,7 @@ function renderDrawer(r, headEl){
       var applyCustomN = function(){
         var val = parseInt(lnInput.value, 10);
         if(!val || val<3) return;
-        state.fullSeason = false; state.usingCustomN = true; state.n = val; state.selected = null; draw();
+        state.fullSeason = false; state.lastSeason = false; state.usingCustomN = true; state.n = val; state.selected = null; draw();
       };
       lnInput.addEventListener("keydown", function(e){ if(e.key==="Enter"){ applyCustomN(); } });
       lnInput.addEventListener("change", applyCustomN);
@@ -3066,15 +3151,24 @@ function renderDrawer(r, headEl){
       chip("Νίκες", state.result==="win") + chip("Ήττες", state.result==="loss") +
       chip("Head to Head", state.h2h, !r.opponent && !r.isTotal) +
       chip("Όλη τη σεζόν", state.fullSeason) +
+      // "Περσινή σεζόν": μόνη της δείχνει ΟΛΗ την περσινή σεζόν· μαζί με "Όλη τη
+      // σεζόν" ενεργό ΚΑΙ τα δύο, "συμπληρώνει" τη φετινή έλλειψη με τους πιο
+      // πρόσφατους περσινούς αγώνες μέχρι το επιλεγμένο LAST N (βλ. evaluate() —
+      // ζητήθηκε ρητά 2026-09-17).
+      chip("Περσινή σεζόν", state.lastSeason) +
       chip("Αποκοπή outliers 20%", state.outlierTrim>0);
     var fbtns = fp.querySelectorAll("button");
-    fbtns[0].addEventListener("click", function(){ state.venue = state.venue==="home"?"any":"home"; state.selected=null; draw(); });
-    fbtns[1].addEventListener("click", function(){ state.venue = state.venue==="away"?"any":"away"; state.selected=null; draw(); });
+    // Το ίδιο κλικ ενημερώνει ΚΑΙ το tableVenue (ώστε η βαθμολογία, αν είναι
+    // ήδη ανοιχτή, να ακολουθεί αμέσως το ίδιο φίλτρο έδρας — "τα ίδια φίλτρα
+    // να εφαρμόζονται και μέσα στις βαθμολογίες", ζητήθηκε ρητά 2026-09-17).
+    fbtns[0].addEventListener("click", function(){ state.venue = state.venue==="home"?"any":"home"; state.tableVenue = state.venue; state.selected=null; draw(); });
+    fbtns[1].addEventListener("click", function(){ state.venue = state.venue==="away"?"any":"away"; state.tableVenue = state.venue; state.selected=null; draw(); });
     fbtns[2].addEventListener("click", function(){ state.result = state.result==="win"?"any":"win"; state.selected=null; draw(); });
     fbtns[3].addEventListener("click", function(){ state.result = state.result==="loss"?"any":"loss"; state.selected=null; draw(); });
     fbtns[4].addEventListener("click", function(){ if(fbtns[4].disabled) return; state.h2h = !state.h2h; state.selected=null; draw(); });
     fbtns[5].addEventListener("click", function(){ state.fullSeason = !state.fullSeason; state.selected=null; draw(); });
-    fbtns[6].addEventListener("click", function(){ state.outlierTrim = state.outlierTrim>0?0:0.2; state.selected=null; draw(); });
+    fbtns[6].addEventListener("click", function(){ state.lastSeason = !state.lastSeason; state.selected=null; draw(); });
+    fbtns[7].addEventListener("click", function(){ state.outlierTrim = state.outlierTrim>0?0:0.2; state.selected=null; draw(); });
   }
 
   draw();
