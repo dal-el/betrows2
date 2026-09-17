@@ -559,7 +559,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 /* Σειρά: TABLE (αριστερά) στην ΙΔΙΑ ευθεία/ύψος με το NOW pill (δεξιά) — το
    HOME/AWAY SPLIT μπαίνει ΑΠΟ ΚΑΤΩ (δικό του row, .haSplitDrawerRow, αμέσως
    μετά) — ίδιο layout σε κινητό ΚΑΙ PC (ζητήθηκε ρητά 2026-09-19). */
-.chart-hitrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;font-size:11px;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase}
+/* margin-bottom:10px (όχι 16px) — ίσο με το .haSplitDrawerRow από κάτω, ώστε
+   η απόσταση TABLE-σειρά -> HOME/AWAY SPLIT να είναι ΙΔΙΑ με την απόσταση
+   HOME/AWAY SPLIT -> LAST N σειρά (ζητήθηκε ρητά 2026-09-19). */
+.chart-hitrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;font-size:11px;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase}
 .chart-hitrow-now{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .chart-hitrow b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
 /* pill κυκλικό με το ΤΡΕΧΟΝ (δυναμικό) ποσοστό επιτεύξεως — ίδιο στιλ με τα
