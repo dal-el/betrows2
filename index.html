@@ -1791,6 +1791,14 @@ function processEvent(root){
         // ή όχι στο ιστορικό dataset. Σε αγορές ΜΙΑΣ ομάδας (isTotal=false) το
         // header δείχνει μόνο ένα όνομα — αυτά τα δύο δίνουν το "εναντίον ποιου".
         matchHome: home.name || null, matchAway: away.name || null,
+        // Σε ΠΟΙΑ έδρα παίζει η ΙΔΙΑ η ομάδα του στοιχήματος ΣΕ ΑΥΤΟΝ τον
+        // επερχόμενο αγώνα — ήδη γνωστό εδώ (cls.direction), ΔΕΝ χρειάζεται να
+        // ξανα-μαντευτεί αργότερα συγκρίνοντας ονόματα (βλ. ownVenueInMatch:
+        // r.team είναι το canonical/αγγλικό όνομα ενώ matchHome/matchAway είναι
+        // τα ωμά ονόματα του Stoiximan — ΠΟΤΕ δεν ταιριάζουν ως string, οπότε η
+        // παλιά σύγκριση r.team===r.matchHome δεν έβρισκε ΠΟΤΕ έδρα, με αποτέλεσμα
+        // το HOME/AWAY SPLIT pill να μην άλλαζε καθόλου τιμές — διορθώθηκε 2026-09-17).
+        ownVenue: isTotal ? null : (cls.direction==="home" ? "home" : cls.direction==="away" ? "away" : null),
         league: leagueForTeam, category: cls.category, direction: evalDirection,
         threshold: parsed.threshold, side: parsed.side, price: sel.price, windowResults: windowResults,
         marketName: market.name||"", startTime: root.startTime||null,
@@ -1918,9 +1926,10 @@ function oppStatAvg(r, opts){
 var STREAK_N = 20, STREAK_MIN_SAMPLE = 5, STREAK_MIN_RATE = 0.70;
 function ownVenueInMatch(r){
   if(r.isTotal || !r.team) return null;
-  if(r.team===r.matchHome) return "home";
-  if(r.team===r.matchAway) return "away";
-  return null;
+  // r.ownVenue καθορίζεται ΜΙΑ φορά στο processEvent (βλ. σχόλιο εκεί) — ΠΟΤΕ
+  // μη συγκρίνεις r.team με r.matchHome/matchAway (διαφορετικές γλώσσες/πηγές
+  // ονομάτων, δεν ταιριάζουν ποτέ ως string).
+  return r.ownVenue || null;
 }
 function streakCandidatesFor(r){
   if(r.isTotal || !r.team) return [];
@@ -2489,7 +2498,13 @@ function renderDrawer(r, headEl){
   inner.className = "drawer-inner";
   drawer.appendChild(inner);
 
-  var state = { n: activeWindow, venue:"any", result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
+  // Αν το HOME/AWAY SPLIT pill (έξω, πάνω από το L5-L20) είναι ενεργό, το drawer
+  // πρέπει να ανοίγει ΗΔΗ φιλτραρισμένο στην ίδια έδρα που παίζει η ομάδα σε αυτόν
+  // τον αγώνα (ίδιο ακριβώς νούμερο με αυτό που ήδη δείχνει η κάρτα απ' έξω) — όχι
+  // "any" σαν να μην υπήρχε καμία επιλογή. Ο χρήστης μπορεί μετά να το σβήσει
+  // χειροκίνητα μέσα στο drawer με το ίδιο πλήκτρο "Μόνο εντός/εκτός" (ζητήθηκε ρητά 2026-09-17).
+  var presetVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
+  var state = { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false, fullSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:"any", tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -2584,7 +2599,12 @@ function renderDrawer(r, headEl){
     var pillsEl = headEl.querySelector(".statPills");
     if(!metricsEl || !pillsEl) return;
     var hasPrice = (price!=null && res.sample>0);
-    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason}) : null;
+    // Ο αντίπαλος παίζει ΠΑΝΤΑ την ΑΝΤΙΘΕΤΗ έδρα από την ομάδα του στοιχήματος σε
+    // αυτόν τον αγώνα — αν το "Μόνο εντός" είναι ενεργό (state.venue==="home"), το
+    // OPP ALLOWS πρέπει να δείχνει τι επιτρέπει/κάνει ο αντίπαλος στα ΔΙΚΑ ΤΟΥ
+    // ΕΚΤΟΣ ματς (και αντίστροφα) — ίδια λογική με το κύριο feed (renderToolbarAndRows).
+    var oppVenue = state.venue==="home" ? "away" : state.venue==="away" ? "home" : "any";
+    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason, venue:oppVenue}) : null;
     var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
     var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
     var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppState: state.oppMode?"active":"hint"});
