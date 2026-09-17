@@ -448,19 +448,23 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
      μείνουν μεγάλοι, στα υπόλοιπα 4 pills (τιμή/γράμμα) μένει πολύ λίγος
      χώρος και οι ΤΙΜΕΣ (π.χ. "187.0%", "91.3%", ή αρνητικές όπως "-100.0%")
      ξεχειλίζουν έξω από το στρογγυλεμένο περίγραμμα του pill — επιβεβαιώθηκε
-     με μέτρηση scrollWidth vs clientWidth στο πραγματικό DOM (ξεχείλισμα
-     3-16px ανάλογα το μέγεθος). Δοκιμάστηκαν πολλαπλοί συνδυασμοί μεγέθους
-     κύκλου/γραμματοσειράς πάνω σε πραγματικές ΚΑΙ ακραίες (π.χ. "-199.9%")
-     τιμές — το 24px κύκλος + 9px τιμή είναι το πρώτο που βγάζει 0 ξεχείλισμα
-     ΠΑΝΤΟΤΕ, incl. τα ακραία αρνητικά ποσοστά με το πρόσημο "−". */
-  .metrics.st-full .pill{min-width:0;padding:3px 3px}
-  .metrics.st-full .pill .k{font-size:6.3px;letter-spacing:0}
-  .metrics.st-full .pill .v{font-size:9px}
-  .metrics.st-full .hp{width:24px;height:24px}
-  .metrics.st-full .hp .pct{font-size:7.5px}
-  .metrics.st-full .hp .lbl{font-size:5px}
-  .metrics.st-full .pillsrow, .metrics.st-full .oppPillsrow{gap:2px}
-  .metrics.st-full{gap:3px 4px}
+     με μέτρηση scrollWidth vs clientWidth στο πραγματικό DOM. Αρχικά
+     επιλέχθηκε 24px κύκλος + 9px τιμή (0 ξεχείλισμα παντού) αλλά ζητήθηκε
+     ρητά 2026-09-17 να μεγαλώσουν τα pills γιατί ήταν πολύ μικρά/δυσανάγνωστα
+     σε πραγματικό κινητό — έγινε επανάληψη δοκιμών (ίδια μεθοδολογία,
+     πραγματικές ΚΑΙ ακραίες τιμές όπως "-199.9%") κρατώντας τα circles λίγο
+     πιο μικρά (22px) ώστε να κερδηθεί χώρος για μεγαλύτερη γραμματοσειρά στην
+     ΤΙΜΗ του κάθε pill (10.5px, +17% από πριν) — 0 ξεχείλισμα σε πλάτη
+     ≥375px (καλύπτει όλα τα σύγχρονα κινητά). */
+  .metrics.st-full .pill{min-width:0;padding:2px 1px}
+  .metrics.st-full .pill .k{font-size:5.8px;letter-spacing:-.02em}
+  .metrics.st-full .pill .v{font-size:10.5px}
+  .metrics.st-full .hp{width:22px;height:22px}
+  .metrics.st-full .hp .pct{font-size:7px}
+  .metrics.st-full .hp .lbl{font-size:4.5px}
+  .metrics.st-full .pillsrow, .metrics.st-full .oppPillsrow{gap:1px}
+  .metrics.st-full{gap:2px 1px}
+  .row-card:has(.metrics.st-full) .row-head{padding-right:42px}
 }
 .chev{display:none}
 .row-card.open{border-color:var(--accent)}
