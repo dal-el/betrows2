@@ -2443,8 +2443,17 @@ function renderRowCard(r){
   card.className = "row-card";
   card.dataset.betkey = bKey;
 
+  // Τα L5/L10/L15/L20 badges πρέπει ΚΙ ΑΥΤΑ να ακολουθούν το HOME/AWAY SPLIT
+  // (όπως ήδη κάνουν τα FAIR/EDGE/EXP VALUE/AVERAGE/OPP ALLOWS μέσω r._res) —
+  // πριν, χρησιμοποιούσαν ΠΑΝΤΑ το στατικό r.windowResults[n] (χωρίς έδρα,
+  // υπολογισμένο μία φορά στο boot), οπότε ΔΕΝ άλλαζαν ΚΑΘΟΛΟΥ ενεργοποιώντας
+  // το pill — bug αναφέρθηκε ρητά με screenshot 2026-09-17. Το ενεργό
+  // παράθυρο (activeWindow) ήδη έχει τη σωστή τιμή σε r._res· τα άλλα τρία
+  // υπολογίζονται φρέσκα με ΤΗΝ ΙΔΙΑ έδρα.
   var pillsHtml = WINDOWS.map(function(n){
-    var wr = r.windowResults[n];
+    var ownVenueForPills = (homeAwaySplitOn && !r.isTotal) ? ownVenueInMatch(r) : null;
+    var wr = (n===activeWindow) ? r._res
+      : (ownVenueForPills ? evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, {n:n, venue:ownVenueForPills}) : r.windowResults[n]);
     var p = Math.round(wr.hitRate*100);
     return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
   }).join("");
@@ -2689,6 +2698,19 @@ function renderDrawer(r, headEl){
     var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppState: state.oppMode?"active":"hint"});
     metricsEl.className = "metrics " + sb.cls;
     pillsEl.innerHTML = sb.html;
+    // Τα L5/L10/L15/L20 badges (πάνω, ΕΞΩ από το drawer) ξαναφτιάχνονται ΚΑΘΕ
+    // φορά που τρέχει το draw() (δηλαδή σε ΚΑΘΕ αλλαγή φίλτρου μέσα στο
+    // drawer) ώστε να δείχνουν πάντα το ίδιο πράγμα με ό,τι δείχνει το ίδιο
+    // το γράφημα/τα Fair/Edge/Exp Value pills — βλ. computeForWindowN.
+    var pillsRowEl = headEl.querySelector(".pillsrow");
+    if(pillsRowEl){
+      pillsRowEl.innerHTML = WINDOWS.map(function(n){
+        var wr = computeForWindowN(n);
+        var p = Math.round(wr.hitRate*100);
+        var isActive = !state.fullSeason && !state.lastSeason && !state.usingCustomN && n===state.n;
+        return '<div class="hp '+hpTier(p)+(isActive?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
+      }).join("");
+    }
     // Το κλικ πάνω στο OPP pill έχει 3 διαφορετικά αποτελέσματα ανάλογα με την
     // τρέχουσα κατάσταση — ΑΚΡΙΒΩΣ στο σημείο που πατάει συχνά ο χρήστης για να
     // ανοίξει/κλείσει το drawer (εργονομία δεξιόχειρα στο κινητό), γι' αυτό
@@ -2743,6 +2765,23 @@ function renderDrawer(r, headEl){
 
   function compute(thr){ return computeFor(thr, false); }
   function computeChart(thr){ return computeFor(thr, state.oppMode); }
+
+  // Ίδιος υπολογισμός με compute(), αλλά με ΣΥΓΚΕΚΡΙΜΕΝΟ n — τροφοδοτεί τα
+  // L5/L10/L15/L20 badges ΠΑΝΩ στην κάρτα (.pillsrow, ΕΞΩ από το ίδιο το
+  // drawer) ώστε να ακολουθούν ΟΛΑ τα ενεργά φίλτρα του drawer (έδρα/
+  // αποτέλεσμα/H2H/σεζόν/reversed line) — πριν έμεναν ΠΑΝΤΑ στατικά
+  // (r.windowResults, χωρίς έδρα) όσο κι αν άλλαζε κανείς μέσα στο drawer,
+  // αναφέρθηκε ρητά με screenshot 2026-09-17.
+  function computeForWindowN(n){
+    var thr = effThreshold();
+    var h2hTarget = state.h2h ? (r.isTotal ? true : r.opponent) : null;
+    var opts = { n:n, venue: state.venue, result: state.result, outlierTrim: state.outlierTrim,
+                 fullSeason: state.fullSeason, lastSeason: state.lastSeason, h2h: h2hTarget };
+    var side = effSide();
+    return r.isTotal
+      ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, thr, side, opts)
+      : evaluate(r.team, r.league, r.category, r.direction, thr, side, opts);
+  }
 
   function draw(){
     var thr = effThreshold();
