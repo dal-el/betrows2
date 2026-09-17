@@ -391,7 +391,17 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   background:linear-gradient(rgba(var(--tint),.16),rgba(var(--tint),0)),var(--surface-2);
   border:1px solid rgba(var(--tint),.35);
 }
-.pill .k{font-size:9px;letter-spacing:.05em;color:rgba(255,255,255,.7);text-transform:uppercase}
+/* white-space:nowrap ΡΗΤΑ ζητήθηκε 2026-09-19: χωρίς αυτό, ένα label 2+
+   λέξεων (π.χ. "Opp Exp Value") "έσπαγε" σε 2 σειρές ΜΕΣΑ στο pill όποτε η
+   στήλη του grid στενοχωρούνταν λίγο (π.χ. σε iPad landscape όπου το
+   row-main μοιράζεται πλάτος με το .metrics) — ΑΛΛΕΣ φορές σε 1 γραμμή,
+   άλλες σε 2, ανάλογα το διαθέσιμο πλάτος ανά γραμμή, δίνοντας
+   ασυνεπές/ασταθές ύψος pill γραμμή προς γραμμή. Με nowrap, το label ΠΟΤΕ
+   δεν σπάει — η στήλη είτε χωράει ολόκληρη σε 1 γραμμή είτε (αν δεν χωράει
+   καθόλου το .metrics) το row-head μεταπηδάει σε 2 σειρές (ήδη ντετερμινι-
+   στικό μηχανισμό, βλ. breakpoints πιο κάτω) — ΠΟΤΕ ενδιάμεση, ασταθής
+   συμπίεση. */
+.pill .k{font-size:9px;letter-spacing:.05em;color:rgba(255,255,255,.7);text-transform:uppercase;white-space:nowrap}
 .pill .v{font-size:14px;font-weight:700;font-family:"IBM Plex Mono",monospace;margin-top:1px;color:#fff}
 .pill.pos{--tint:18,230,173}
 .pill.neg{--tint:255,111,149}
@@ -434,11 +444,23 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    Fair/Edge/Exp Value/Average της ομάδας του προπ από κάτω (ευθυγραμμισμένη
    με AVERAGE) — κάθε OPP-pill ΑΚΡΙΒΩΣ πάνω από το αντίστοιχό του, ίδιο πλάτος
    στήλης μεταξύ τους (justify-items:stretch στο .metrics). Χωρίς OPP pill
-   (st-noopp/st-noprice) μένει μία σειρά, όπως πριν. */
+   (st-noopp/st-noprice) μένει μία σειρά, όπως πριν.
+
+   ΣΤΑΘΕΡΑ πλάτη στηλών (ΟΧΙ "auto") ζητήθηκε ρητά 2026-09-17: με "auto" κάθε
+   κάρτα υπολόγιζε το πλάτος της κάθε στήλης ΜΟΝΗ της, με βάση ΜΟΝΟ το δικό
+   της περιεχόμενο (π.χ. η στήλη OPP ALLOWS/OPP MAKES/OPP WINS/AVERAGE άλλαζε
+   πλάτος ανάλογα ποιο label είχε η ΚΑΘΕ γραμμή) — αποτέλεσμα: τα pills ΔΕΝ
+   έπεφταν ακριβώς η μία κάρτα κάτω από την άλλη σε ευθεία κάθετη γραμμή,
+   αλλά "τεθλασμένα" (zigzag) καθώς κατέβαινες τη λίστα, ακόμα κι όταν ΜΕΣΑ
+   σε μία κάρτα η στοίχιση OPP/δικό ήταν ήδη σωστή. Με σταθερά px πλάτη ΙΔΙΑ
+   σε ΟΛΕΣ τις κάρτες, κάθε στήλη πέφτει πάντα στην ΙΔΙΑ x-θέση ανεξαρτήτως
+   περιεχομένου — μετρήθηκαν (Playwright) τα χειρότερα ρεαλιστικά
+   label/value (π.χ. "Opp Exp Value"/"-199.9%", "OPP ALLOWS"/"123.45") και
+   δόθηκε extra περιθώριο ώστε να χωράνε άνετα χωρίς overflow. */
 @media(min-width:601px){
-  .metrics.st-full{grid-template-columns:auto auto auto auto auto;grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
-  .metrics.st-noopp{grid-template-columns:auto auto auto auto auto;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
-  .metrics.st-noprice{grid-template-columns:auto auto auto;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
+  .metrics.st-full{grid-template-columns:184px 68px 80px 100px 88px;grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
+  .metrics.st-noopp{grid-template-columns:184px 68px 80px 100px 88px;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
+  .metrics.st-noprice{grid-template-columns:184px 68px 88px;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
 }
 /* Κινητό: ΙΔΙΑ διάταξη δύο σειρών με το pc (πάνω = αντίπαλος, κάτω = ομάδα
    του προπ, κάθε OPP-pill πάνω από το αντίστοιχό του) — αναγκαστικά μικρότερα
@@ -467,20 +489,31 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .metrics.st-full{grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto auto auto;grid-template-areas:"oppcircles oppcircles oppcircles oppcircles" "oppfair oppedge oppexp opp" "circles circles circles circles" "fair edge exp avg"}
   .metrics.st-noopp{grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;grid-template-areas:"circles circles circles circles" "fair edge exp avg"}
   .metrics.st-noprice{grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;grid-template-areas:"circles circles" "fair avg"}
-  .metrics.st-full .pillsrow, .metrics.st-full .oppPillsrow{justify-content:flex-start}
+  /* Ζητήθηκε ρητά 2026-09-19: οι κύκλοι L5-L20 ("hit rate pills") ΚΕΝΤΡΑΡΙ-
+     ΣΜΕΝΟΙ αντί για αριστερά — η γραμμή τους πλέον απλώνεται σε ΟΛΟ το πλάτος
+     της κάρτας (grid-area σε 4 στήλες), οπότε justify-self:center την
+     κεντράρει μέσα σε αυτό το πλάτος αντί για το προεπιλεγμένο "start". */
+  .metrics .pillsrow, .metrics .oppPillsrow{justify-self:center}
   /* Ρητό "κανονικό" μέγεθος (ίδιο με το tablet breakpoint πιο πάνω) για ΟΛΑ
      τα states στο κινητό πλέον — πριν, χωρίς override εδώ, το st-full θα
      έπεφτε στο ΒΑΣΙΚΟ μέγεθος (46px/72px, πριν από ΟΠΟΙΟΔΗΠΟΤΕ breakpoint),
      που είναι ΜΕΓΑΛΥΤΕΡΟ ακόμα κι από το tablet/PC — ασυνεπές με "όπως
-     παντού αλλού". Εδώ κρατάμε ΤΟ ΙΔΙΟ μέγεθος παντού (κινητό/tablet/PC). */
-  .hp{width:36px;height:36px}
-  .hp .pct{font-size:11px}
-  .hp .lbl{font-size:7px}
-  .pill{min-width:54px;padding:5px 4px}
-  .pill .k{font-size:7.5px}
+     παντού αλλού". Ζητήθηκε ρητά 2026-09-19 να μεγαλώσουν λίγο ακόμα οι
+     κύκλοι ("pills hit rate") — έγιναν 40px, ΙΔΙΟ μέγεθος με το desktop
+     (≥961px), επιτρέποντας στο betrow να ψηλώσει όσο χρειαστεί (τα
+     grid-template-rows:auto προσαρμόζονται μόνα τους). */
+  .hp{width:40px;height:40px}
+  .hp .pct{font-size:12px}
+  .hp .lbl{font-size:7.5px}
+  .pill{min-width:54px;padding:5px 3px}
+  /* letter-spacing:0 (αντί για το βασικό .05em) + μικρότερη γραμματοσειρά
+     ΜΟΝΟ εδώ, ώστε το πιο μακρύ label ("Opp Exp Value", 13 γράμματα) να
+     χωράει σε ΜΙΑ γραμμή (nowrap, βλ. βασικό κανόνα .pill .k) μέσα στη
+     στενότερη στήλη του κινητού, χωρίς να ξεχειλίζει. */
+  .pill .k{font-size:6.5px;letter-spacing:0}
   .pill .v{font-size:12px}
-  .pillsrow, .oppPillsrow{gap:5px}
-  .metrics{gap:5px 5px}
+  .pillsrow, .oppPillsrow{gap:6px}
+  .metrics{gap:5px 4px}
 }
 .chev{display:none}
 .row-card.open{border-color:var(--accent)}
@@ -770,43 +803,42 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .foot{margin-top:30px;color:var(--text-faint);font-size:11px;text-align:center}
 .foot a{color:var(--text-dim);text-decoration:underline}
 
-/* ΤΑΜΠΛΕΤ (π.χ. iPad, portrait) — ζητήθηκε ρητά 2026-09-17: "στοιχισμένα και
-   καθετοποιημένα...φτιάξε το όπως το pc όλα σταθερά". Το παλιό breakpoint
-   (min-width:601px) άφηνε το .row-main και το .metrics να "παλεύουν" για
-   χώρο μέσω οργανικού flex-wrap, που εξαρτάται από το ΠΕΡΙΕΧΟΜΕΝΟ της κάθε
-   γραμμής (μήκος ονόματος ομάδας/chips) — άλλες γραμμές έμεναν σε μία
-   γραμμή, άλλες "έσπαγαν" σε δύο, ΧΩΡΙΣ συνέπεια μεταξύ τους στο ίδιο
-   ακριβώς πλάτος (επιβεβαιώθηκε με μέτρηση πλάτους σε πραγματικό DOM σε
-   εύρος 700-1194px — ζώνη ασυνέπειας ~860-920px). Λύση: σε ενδιάμεσα πλάτη
-   (601-960px) αναγκάζουμε το .row-main στη δική του πλήρη γραμμή
-   (min-width:100%, ΙΔΙΑ τεχνική με το κινητό πιο κάτω) ώστε το .metrics να
-   πηγαίνει ΠΑΝΤΑ στη δική του γραμμή από κάτω — ντετερμινιστικά, με τον ΙΔΙΟ
-   τρόπο σε ΚΑΘΕ γραμμή, ανεξάρτητα από το περιεχόμενό της. Τα pills/κύκλοι
-   μένουν σε αναπαυτικό μέγεθος (πιο μικρό από το πλήρες του PC, πολύ πιο
-   μεγάλο από το ακραίο κινητό) αφού πλέον έχουν όλο το πλάτος της κάρτας
-   διαθέσιμο, χωρίς να παλεύουν με το .row-main. Το "πλήρες" μέγεθος/μία-
-   γραμμή του PC μένει σε ≥961px, πλάτος στο οποίο ΠΑΝΤΑ χωράει άνετα σε μία
-   γραμμή (836px διαθέσιμα, επιβεβαιωμένο με το .wrap max-width:900px). */
-@media(min-width:601px) and (max-width:960px){
-  .row-head{gap:10px;padding-right:44px}
-  .row-main{min-width:100%}
-  .hp{width:36px;height:36px}
-  .hp .pct{font-size:11px}
-  .hp .lbl{font-size:7px}
-  .pillsrow, .oppPillsrow{gap:5px}
-  .metrics{gap:5px 7px}
-  .pill{min-width:54px;padding:5px 8px}
-  .pill .k{font-size:8px}
-  .pill .v{font-size:12px}
-}
-@media(min-width:961px){
+/* ΤΑΜΠΛΕΤ + PC (≥601px) — ζητήθηκε ρητά 2026-09-17 ("στοιχισμένα και
+   καθετοποιημένα...φτιάξε το όπως το pc όλα σταθερά") ΚΑΙ ξανά 2026-09-19
+   ("στοίχισε στο iPad landscape...δεν είναι καθετοποιημένα με σταθερές
+   θέσεις...κράτα τα pills σε σταθερό μέγεθος"). Ιστορικό: αρχικά δοκιμάστηκε
+   να μένει το .row-main δίπλα στο .metrics σε ΜΙΑ γραμμή για πλάτη ≥961px
+   (το .wrap έχει max-width:900px, άρα το row-head ΠΟΤΕ δεν βλέπει πάνω από
+   ~836px διαθέσιμο πλάτος — φαινόταν αρκετό). Αλλά μετά την προσθήκη της
+   .metaRow (ημερομηνία+μπουκμέικερ σε ΔΙΚΗ της γραμμή μέσα στο .row-main,
+   2026-09-19) το ελάχιστο πλάτος περιεχομένου του .row-main μεγάλωσε, και η
+   απόφαση wrap του flexbox (βάσει hypothetical content size, ΟΧΙ απλά
+   min-width) έγινε ΠΑΛΙ ασυνεπής ανά γραμμή στο ίδιο ακριβώς πλάτος
+   (επιβεβαιώθηκε ξανά με μέτρηση σε πραγματικό DOM: 9/12 ίδιας γραμμής, 3/12
+   όχι, σε 1194px — ζώνη ασυνέπειας 1000-1194px). ΟΡΙΣΤΙΚΗ λύση: αντί να
+   κυνηγάμε το ακριβές πλάτος όπου "πάντα χωράει" (ευάλωτο σε κάθε μελλοντική
+   αλλαγή περιεχομένου του .row-main), αναγκάζουμε το .row-main στη ΔΙΚΗ του
+   πλήρη γραμμή σε ΚΑΘΕ πλάτος ≥601px — ΙΔΙΑ τεχνική/μέγεθος με το κινητό
+   πιο κάτω, ΧΩΡΙΣ καμία εξάρτηση από περιεχόμενο πλέον. Ένα ΜΟΝΟ μέγεθος
+   pills/κύκλων για tablet+PC (40px κύκλος/62px pill, "κανονικό" μέγεθος)
+   — ΣΤΑΘΕΡΟ παντού από 601px και πάνω, καμία διαφορά tablet έναντι PC. */
+@media(min-width:601px){
   .row-head{gap:12px;padding-right:48px}
+  .row-main{min-width:100%}
+  /* flex-shrink:0 — ΧΩΡΙΣ αυτό, ακριβώς στο όριο ≥601px (πολύ στενό
+     παράθυρο/tablet), το .metrics (ως flex-παιδί του .row-head) μπορούσε να
+     σφιχτεί ΛΙΓΟ κάτω από το φυσικό του πλάτος πριν προλάβει να πιάσει το
+     δικό του nowrap minimum, ξεχειλίζοντας ελάχιστα το label "Opp Exp
+     Value". Με flex-shrink:0 το .metrics ΠΟΤΕ δεν σφίγγεται κάτω από το
+     φυσικό (nowrap) πλάτος του — σταθερό μέγεθος πάντα, όπως ζητήθηκε. */
+  .metrics{flex-shrink:0}
   .hp{width:40px;height:40px}
   .hp .pct{font-size:12px}
   .hp .lbl{font-size:7.5px}
-  .pillsrow{gap:6px}
+  .pillsrow, .oppPillsrow{gap:6px}
   .metrics{gap:6px}
   .pill{min-width:62px;padding:6px 9px}
+  .pill .k{font-size:9px}
   .pill .v{font-size:13px}
 }
 @media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{gap:7px} .chev{display:none} .saveBtn{top:14px;bottom:auto} .streakBtn{top:56px;bottom:auto;transform:none} .streakBtn:hover{transform:scale(1.1)} }
