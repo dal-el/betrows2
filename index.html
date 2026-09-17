@@ -114,6 +114,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 }
 .unresolved .card b{color:var(--gold)}
 .unresolved select{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:7px 9px;color:var(--text);font-size:13px}
+.unresolved .saveAllMap{align-self:flex-start}
 
 /* toolbar — δύο σταθερές σειρές φίλτρων:
    1η: Κατηγορίες / Λίγκες / Ομάδες / Απόδοση
@@ -1638,6 +1639,16 @@ function renderUnresolved(list){
   var box = document.getElementById("unresolvedBox");
   box.innerHTML = "";
   if(!list.length) return;
+  // Μία κοινή "Αποθήκευση όλων" αντί για κουμπί ανά γραμμή: ο χρήστης διαλέγει
+  // αντιστοίχιση σε όσες γραμμές θέλει και μετά αποθηκεύει τις πάντα μαζί, με
+  // ένα μόνο buildFeed() στο τέλος (ζητήθηκε ρητά — να ισχύει σε κάθε τέτοια
+  // λίστα αντιστοίχισης στο μέλλον, όχι μόνο εδώ).
+  var saveAllBtn = document.createElement("button");
+  saveAllBtn.type = "button";
+  saveAllBtn.className = "btn ghost saveAllMap";
+  saveAllBtn.textContent = "Αποθήκευση όλων";
+  box.appendChild(saveAllBtn);
+  var entries = [];
   list.forEach(function(u){
     var card = document.createElement("div");
     card.className = "card";
@@ -1648,16 +1659,20 @@ function renderUnresolved(list){
     }
     teams.sort(function(a,b){ return a.t.localeCompare(b.t); });
     var opts = teams.map(function(o){ return '<option value="'+o.t+'|'+o.lg+'">'+o.t+' ('+byLeague[o.lg].name+')</option>'; }).join("");
-    card.innerHTML = '<b>Άγνωστη ομάδα:</b> ' + u.name + ' <select data-id="'+u.id+'"><option value="">— διάλεξε αντιστοίχιση —</option>'+opts+'</select> <button class="btn ghost saveMap">Αποθήκευση</button>';
+    card.innerHTML = '<b>Άγνωστη ομάδα:</b> ' + u.name + ' <select data-id="'+u.id+'"><option value="">— διάλεξε αντιστοίχιση —</option>'+opts+'</select>';
     box.appendChild(card);
-    card.querySelector(".saveMap").addEventListener("click", function(){
-      var sel = card.querySelector("select"), val = sel.value;
+    entries.push({id:u.id, select:card.querySelector("select")});
+  });
+  saveAllBtn.addEventListener("click", function(){
+    var saved = 0;
+    entries.forEach(function(e){
+      var val = e.select.value;
       if(!val) return;
       var parts = val.split("|");
-      TEAM_MAP[u.id] = {name:parts[0], league:parts[1]};
-      saveTeamMap(TEAM_MAP);
-      buildFeed();
+      TEAM_MAP[e.id] = {name:parts[0], league:parts[1]};
+      saved++;
     });
+    if(saved){ saveTeamMap(TEAM_MAP); buildFeed(); }
   });
 }
 
@@ -1807,12 +1822,15 @@ function catLabel(c){ return CATS[c].label; }
    (τι πετυχαίνουν συνήθως όσοι παίζουν ΕΝΑΝΤΙΟΝ του). Ίδιος υπολογισμός και
    για τις τρεις ετικέτες — αλλάζει μόνο το κείμενο ανάλογα με την κατηγορία.
    Δεν έχει νόημα σε στοιχήματα "σύνολο αγώνα" (isTotal) γιατί εκεί δεν
-   υπάρχει ένας μοναδικός αντίπαλος. Οι κατηγορίες offsides/shots_blocked
-   δεν έχουν pill καθόλου (δεν ζητήθηκε). */
+   υπάρχει ένας μοναδικός αντίπαλος. Η κατηγορία shots_blocked δεν έχει pill
+   καθόλου (δεν ζητήθηκε). Το offsides ΕΧΕΙ pill (OPP ALLOWS — πόσα οφσάιντ
+   επιτρέπει/προκαλεί κατά μέσο όρο ο αντίπαλος στους ρίβαλ του, π.χ. λόγω
+   ψηλής γραμμής άμυνας — ζητήθηκε ρητά 2026-09-17). */
 var OPP_LABEL = {
   corners:"OPP ALLOWS", shots:"OPP ALLOWS", shots_on_target:"OPP ALLOWS", goals:"OPP ALLOWS",
   passes:"OPP ALLOWS", passes_accurate:"OPP ALLOWS", shots_off_target:"OPP ALLOWS",
   shots_insidebox:"OPP ALLOWS", shots_outsidebox:"OPP ALLOWS", possession:"OPP ALLOWS",
+  offsides:"OPP ALLOWS",
   cards:"OPP WINS", fouls:"OPP WINS",
   free_kicks:"OPP MAKES", gk_saves:"OPP MAKES"
 };
