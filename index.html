@@ -276,7 +276,20 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lglogo{width:16px;height:16px;object-fit:contain;flex:none}
 .lgchip .lglogo{width:12px;height:12px}
 .msMenu .msRow .lglogo{width:16px;height:16px}
-.row-main .team .dtchip{font-size:10px;font-weight:500;font-family:"IBM Plex Mono",monospace;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.row-main .dtchip{font-size:10px;font-weight:500;font-family:"IBM Plex Mono",monospace;color:var(--text-faint);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;vertical-align:1px;white-space:nowrap}
+/* .metaRow: ΗΜΕΡΟΜΗΝΙΑ + ΜΠΟΥΚΜΕΙΚΕΡ — δική τους σταθερή σειρά, ΑΝΑΜΕΣΑ στο
+   .team (εμβλημα/όνομα/i/πρωτάθλημα) και το .market (λάιν/περιγραφή/απόδοση).
+   Πριν, το dtchip ζούσε μέσα στο .team και το src-tag μέσα στο .market — και
+   τα δύο flex-wrap:wrap — οπότε ανάλογα το μήκος του ονόματος ομάδας/αγοράς
+   ΑΛΛΑΖΕ πότε "έσπαγαν" σε 2η γραμμή, δίνοντας ασταθή/ασυνεπή θέση στην
+   αριστερή στήλη ανάμεσα σε γραμμές (πιο έντονο σε πλάτη τύπου iPad landscape
+   όπου το row-main έχει μεταβλητό διαθέσιμο πλάτος ανά γραμμή). Ζητήθηκε ρητά
+   2026-09-19: 3 ΣΤΑΘΕΡΕΣ γραμμές πάντα στην ΙΔΙΑ ομαδοποίηση —
+   1) εμβλημα/όνομα/i/πρωτάθλημα, 2) ημερομηνία/μπουκμέικερ, 3) λάιν/
+   περιγραφή/απόδοση — ώστε κάθε στοιχείο να είναι ΠΑΝΤΑ στην ίδια σειρά,
+   ανεξάρτητα από διαθέσιμο πλάτος (το κάθε μπλοκ κρατάει flex-wrap:wrap σαν
+   δίχτυ ασφαλείας μόνο για ακραία μεγάλα ονόματα, όχι σαν βασικό μηχανισμό). */
+.row-main .metaRow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:4px}
 .row-main .team .infoBtn{
   display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;
   background:var(--surface-2);border:1px solid var(--border);color:var(--text-faint);
@@ -2837,12 +2850,15 @@ function renderRowCard(r){
       '<div class="team">'+teamLabel+
       (matchInfo ? '<span class="infoBtn" title="'+escAttr(matchInfo)+'">i</span>' : '')+
       '<span class="lgchip">'+leagueLogoHtml(r.league)+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
-      (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+'</div>'+
+      '</div>'+
+      '<div class="metaRow">'+
+        (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+
+        '<span class="src-tag">Stoiximan</span>'+
+      '</div>'+
       '<div class="market">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
         '<span>'+catLabel(r.category)+' · '+marketNote+'</span>'+
         (r.price? '<span class="price-chip">'+r.price.toFixed(2)+'</span>' : '')+
-        '<span class="src-tag">Stoiximan</span>'+
       '</div>'+
     '</div>'+
     '<div class="metrics '+pas.cls+'">'+
