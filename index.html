@@ -129,6 +129,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .seg{display:flex;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);overflow:hidden}
 .seg button{background:transparent;border:0;color:var(--text-dim);font-size:12.5px;padding:7px 13px;cursor:pointer;font-weight:600;font-family:"IBM Plex Mono",monospace}
 .seg button.active{background:var(--accent);color:#04231d;box-shadow:var(--glow-accent)}
+/* HOME/AWAY SPLIT: pill πάνω από το L5-L20 (βλ. #windowSegWrap) — ίδιο ύφος με
+   το TABLE toggle (.tableToggleBtn) για συνέπεια, μοιράζεται τα ίδια rules. */
+.windowSegWrap{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
 
 /* κουμπί ανοίγματος του mobile φίλτρων-sheet — κρυφό στο desktop */
 .mfToggle{
@@ -173,7 +176,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   /* 2η σειρά στο κινητό: Ταξινόμηση αριστερά (μαζεύεται όσο χρειάζεται ώστε
      να χωράει σίγουρα δίπλα του), L5-L20 τέρμα δεξιά στο ΙΔΙΟ row. */
   #toolbarRow2 #sortMode{flex:1 1 100px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:8px}
-  #toolbarRow2 #windowSeg{margin-left:auto;flex:none}
+  #toolbarRow2 #windowSegWrap{margin-left:auto;flex:none}
   .filtersSheet .toolbar-row{flex-direction:column;align-items:stretch;gap:12px}
   .filtersSheet .pillselect,.filtersSheet .oddsFilter,.filtersSheet .teamSelect,.filtersSheet .msWrap,.filtersSheet .seg-group{width:100%}
   .filtersSheet .msBtn.pillselect{max-width:none;width:100%}
@@ -455,7 +458,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    από το μπλε-μοβ του OPP pill ώστε να μη μπερδεύονται οπτικά, αλλά πιο σοβαρό/ήρεμο
    από το προηγούμενο χρυσό/amber. */
 .tableToggleRow{margin:8px 0 10px}
-.tableToggleBtn{
+.tableToggleBtn,.haSplitBtn{
   display:inline-flex;align-items:center;gap:6px;
   padding:5px 12px;border-radius:var(--radius-pill);
   font-size:11px;font-weight:700;letter-spacing:.03em;
@@ -463,8 +466,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   background:linear-gradient(rgba(140,158,180,.14),rgba(140,158,180,0)),var(--surface-2);
   cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
 }
-.tableToggleBtn:hover{border-color:rgba(140,158,180,.75)}
-.tableToggleBtn.active{
+.tableToggleBtn:hover,.haSplitBtn:hover{border-color:rgba(140,158,180,.75)}
+.tableToggleBtn.active,.haSplitBtn.active{
   border-color:rgba(140,158,180,.9);color:#fff;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 0 14px rgba(140,158,180,.4);
 }
@@ -766,9 +769,12 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <option value="avgvsopp">Ταξινόμηση: Average vs Opponent</option>
         <option value="beststreak">Ταξινόμηση: Καλύτερα Streaks</option>
       </select>
-      <div class="seg" id="windowSeg">
-        <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
-        <button data-v="15">L15</button><button data-v="20">L20</button>
+      <div class="windowSegWrap" id="windowSegWrap">
+        <button type="button" class="haSplitBtn" id="haSplitBtn" title="Μετράει μόνο τους αγώνες ΕΝΤΟΣ της κάθε ομάδας που παίζει εντός στον επόμενο αγώνα της, και μόνο τους ΕΚΤΟΣ για όσες παίζουν εκτός — συνδυάζεται με όλα τα άλλα φίλτρα">HOME/AWAY SPLIT</button>
+        <div class="seg" id="windowSeg">
+          <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
+          <button data-v="15">L15</button><button data-v="20">L20</button>
+        </div>
       </div>
     </div>
     <div class="count" id="countLabel">—</div>
@@ -857,6 +863,15 @@ var oddsMaxVal = 3;
 var scopeFilterVal = "team"; // "team" (μόνο ομάδες) | "pair" (μόνο ζευγάρια/σύνολο) | "all"
 var showFilterVal = "all"; // "all" | "under" | "over"
 var dateFilterVal = null; // "YYYY-MM-DD" (ημέρα αγώνα σε ώρα Ελλάδος) ή null == όλες
+// HOME/AWAY SPLIT (pill πάνω από το L5-L20, βλ. #haSplitBtn): όταν ενεργό,
+// μετράει για κάθε ομάδα ΜΟΝΟ τους αγώνες της στην ΙΔΙΑ έδρα που παίζει στον
+// επόμενο (ζωντανό) αγώνα της — ίδια λογική έδρας με το streak flame
+// (ownVenueInMatch), αλλά εφαρμοσμένη στο hit rate/edge/EV/OPP pill της
+// κύριας λίστας, όχι μόνο στο streak. Συνδυάζεται με όλα τα άλλα φίλτρα γιατί
+// απλώς αλλάζει ΠΩΣ υπολογίζεται το r._res/_edge/_ev/_oppInfo παρακάτω, ενώ
+// όλα τα υπόλοιπα (κατηγορία/λίγκα/ομάδα/απόδοση/scope/show/ημερομηνία)
+// συνεχίζουν να φιλτράρουν πάνω στο ίδιο list όπως πριν. Ζητήθηκε 2026-09-17.
+var homeAwaySplitOn = false;
 var feedRows = [];
 var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 
@@ -1087,7 +1102,13 @@ function teamMatchValue(m, team, category, direction){
 }
 function teamMatches(team, leagueId){
   var out = [];
-  for(var i=0;i<DATA.length;i++){ var m=DATA[i]; if((m.h===team||m.a===team)&&(!leagueId||m.lg===leagueId)) out.push(m); }
+  // ΜΟΝΟ η τρέχουσα σεζόν (βλ. currentSeasonMatches) — ποτέ δεν "διαρρέει" σε
+  // περσινούς αγώνες όταν ζητηθεί LAST N/ΕΝΤΟΣ-ΕΚΤΟΣ/"Όλη τη σεζόν" και δεν
+  // υπάρχουν αρκετοί φετινοί, ζητήθηκε ρητά 2026-09-17. Αν δεν δοθεί leagueId
+  // (δεν συμβαίνει σήμερα σε κανένα σημείο κλήσης, αλλά για ασφάλεια) πέφτουμε
+  // πίσω στην παλιά συμπεριφορά (όλο το ιστορικό, χωρίς φιλτράρισμα σεζόν).
+  var pool = leagueId ? currentSeasonMatches(leagueId) : DATA;
+  for(var i=0;i<pool.length;i++){ var m=pool[i]; if(m.h===team||m.a===team) out.push(m); }
   out.sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:0});
   return out;
 }
@@ -1137,25 +1158,44 @@ function currentSeasonForLeague(leagueId){
 // μόνο τους μετά τον Ιούλιο). Εδώ ενώνουμε τα δύο κομμάτια βάσει του
 // ημερολογιακού έτους του πιο πρόσφατου αγώνα, ΑΝΕΞΑΡΤΗΤΑ από season-tag.
 var CALENDAR_YEAR_LEAGUES = {"serie-a-brazil":true};
-// Μαζεύει, ανά ομάδα, τη λίστα των αγώνων της σεζόν (φιλτραρισμένη κατά
-// εντός/εκτός αν ζητήθηκε) ΜΙΑ φορά — {m, side} — από όπου παράγονται μετά ΚΑΙ
-// η κατάταξη ΚΑΙ η φόρμα ΚΑΙ το αναλυτικό ιστορικό ανά αγώνα (ίδια πηγή
-// δεδομένων και για τα τρία, ώστε να μη μπορούν ποτέ να αποκλίνουν).
-function collectStandingsMatches(leagueId, venue){
+// Επιστρέφει ΜΟΝΟ τους αγώνες της ΤΡΕΧΟΥΣΑΣ σεζόν μιας λίγκας — κοινή πηγή
+// για ΟΤΙΔΗΠΟΤΕ χρειάζεται "τρέχουσα σεζόν" (πίνακες βαθμολογίας, evaluate()/
+// teamMatches() δηλαδή ΚΑΙ το L5-L20 ΚΑΙ το "Όλη τη σεζόν" ΚΑΙ το ΕΝΤΟΣ/ΕΚΤΟΣ
+// φίλτρο μέσα στο drawer, ΚΑΙ το νέο HOME/AWAY SPLIT). ΠΟΤΕ δεν επιστρέφει
+// αγώνες από προηγούμενη σεζόν — ζητήθηκε ρητά 2026-09-17: πριν, το evaluate()
+// έψαχνε σε ΟΛΟ το ιστορικό της ομάδας (teamMatches δεν φιλτράριζε καθόλου
+// σεζόν), οπότε "Όλη τη σεζόν" σε λίγκα ημερολογιακής σεζόν (Βραζιλία) έδειχνε
+// μόνο το μισό κομμάτι (π.χ. 8 αντί 27), και ένα LAST 5/LAST 10 ή ΕΝΤΟΣ/ΕΚΤΟΣ
+// φίλτρο με λίγους φετινούς αγώνες διαθέσιμους "γέμιζε" κρυφά με περσινούς.
+// Cache ανά λίγκα (το DATA δεν αλλάζει μετά το boot).
+var _currentSeasonMatchesCache = {};
+function currentSeasonMatches(leagueId){
+  if(_currentSeasonMatchesCache[leagueId]!==undefined) return _currentSeasonMatchesCache[leagueId];
   var season = currentSeasonForLeague(leagueId);
-  if(!season) return {};
-  var ms;
-  if(CALENDAR_YEAR_LEAGUES[leagueId]){
+  var out;
+  if(!season){
+    out = [];
+  } else if(CALENDAR_YEAR_LEAGUES[leagueId]){
     var latestDate = null;
     for(var i=0;i<DATA.length;i++){
       var mm = DATA[i];
       if(mm.lg===leagueId && (latestDate===null || mm.d>latestDate)) latestDate = mm.d;
     }
     var year = latestDate.slice(0,4);
-    ms = DATA.filter(function(m){ return m.lg===leagueId && m.d.slice(0,4)===year; });
+    out = DATA.filter(function(m){ return m.lg===leagueId && m.d.slice(0,4)===year; });
   } else {
-    ms = DATA.filter(function(m){ return m.lg===leagueId && m.s===season; });
+    out = DATA.filter(function(m){ return m.lg===leagueId && m.s===season; });
   }
+  _currentSeasonMatchesCache[leagueId] = out;
+  return out;
+}
+// Μαζεύει, ανά ομάδα, τη λίστα των αγώνων της σεζόν (φιλτραρισμένη κατά
+// εντός/εκτός αν ζητήθηκε) ΜΙΑ φορά — {m, side} — από όπου παράγονται μετά ΚΑΙ
+// η κατάταξη ΚΑΙ η φόρμα ΚΑΙ το αναλυτικό ιστορικό ανά αγώνα (ίδια πηγή
+// δεδομένων και για τα τρία, ώστε να μη μπορούν ποτέ να αποκλίνουν).
+function collectStandingsMatches(leagueId, venue){
+  var ms = currentSeasonMatches(leagueId);
+  if(!ms.length) return {};
   var countHome = venue!=="away", countAway = venue!=="home";
   var table = {};
   function ensure(team){
@@ -1367,10 +1407,10 @@ function evaluate(team, leagueId, category, direction, threshold, side, opts){
   if(opts.venue && opts.venue!=="any"){ ms = ms.filter(function(m){ return (m.h===team)===(opts.venue==="home"); }); }
   if(opts.result && opts.result!=="any"){ ms = ms.filter(function(m){ return matchResultForTeam(m,team)===opts.result; }); }
   if(opts.h2h){ ms = ms.filter(function(m){ return m.h===opts.h2h || m.a===opts.h2h; }); }
-  if(opts.fullSeason){
-    var latest = ms.length ? ms[ms.length-1].s : null;
-    ms = ms.filter(function(m){ return m.s===latest; });
-  } else {
+  if(!opts.fullSeason){
+    // ms is already scoped to the current season by teamMatches()/currentSeasonMatches()
+    // (which correctly spans multiple raw season-tags for calendar-year leagues like Brazil),
+    // so fullSeason just keeps everything; only the windowed (last N) case slices it down.
     ms = ms.slice(Math.max(0, ms.length-(opts.n||10)));
   }
   var values = [];
@@ -1403,12 +1443,10 @@ function evaluateCombinedTotal(homeTeam, awayTeam, leagueId, category, threshold
     homeMs = homeMs.filter(function(m){ return m.a===awayTeam; });
     awayMs = awayMs.filter(function(m){ return m.h===homeTeam; });
   }
-  if(opts.fullSeason){
-    var latestH = homeMs.length ? homeMs[homeMs.length-1].s : null;
-    var latestA = awayMs.length ? awayMs[awayMs.length-1].s : null;
-    homeMs = homeMs.filter(function(m){ return m.s===latestH; });
-    awayMs = awayMs.filter(function(m){ return m.s===latestA; });
-  } else {
+  if(!opts.fullSeason){
+    // homeMs/awayMs are already scoped to the current season by teamMatches()/currentSeasonMatches()
+    // (correctly spanning multiple raw season-tags for calendar-year leagues like Brazil),
+    // so fullSeason just keeps everything; only the windowed (last N) case slices it down.
     var n = opts.n||10;
     homeMs = homeMs.slice(Math.max(0, homeMs.length-n));
     awayMs = awayMs.slice(Math.max(0, awayMs.length-n));
@@ -2240,15 +2278,26 @@ function renderToolbarAndRows(){
   if(dateFilterVal) list = list.filter(function(r){ return athensDateISO(r.startTime)===dateFilterVal; });
 
   list.forEach(function(r){
-    r._res = r.windowResults[activeWindow];
+    // HOME/AWAY SPLIT ενεργό: για γραμμές ΜΙΑΣ ομάδας (όχι σύνολο αγώνα, εκεί
+    // δεν υπάρχει μία έδρα να κοιτάξουμε) βρίσκουμε σε ποια έδρα παίζει η
+    // ομάδα ΣΕ ΑΥΤΟΝ τον επερχόμενο αγώνα (ownVenueInMatch, ίδια λογική με το
+    // streak flame) και ξαναϋπολογίζουμε το hit rate μόνο πάνω σε αγώνες της
+    // ίδιας έδρας — αλλιώς (toggle σβηστό, ή isTotal, ή άγνωστη έδρα) μένει η
+    // κανονική, ήδη υπολογισμένη τιμή απ' το windowResults cache.
+    var ownVenue = (homeAwaySplitOn && !r.isTotal) ? ownVenueInMatch(r) : null;
+    r._res = ownVenue ? evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, {n:activeWindow, venue:ownVenue}) : r.windowResults[activeWindow];
     // Edge = εκτιμώμενη πιθανότητα (hit rate) − implied probability της απόδοσης, σε ποσοστιαίες μονάδες
     r._edge = (r.price && r._res.sample>0) ? (r._res.hitRate - impliedProb(r.price)) * 100 : null;
     // Exp Value = προσδοκώμενη απόδοση (%) του στοιχήματος — ίδιος τύπος με το pill "Exp Value".
     r._ev = (r.price && r._res.sample>0) ? (r._res.hitRate*r.price - 1) * 100 : null;
     // AVERAGE vs OPPONENT: ίδιος υπολογισμός με το pill OPP ALLOWS/WINS/MAKES — η
     // διαφορά ΜΕ πρόσημο μένει αποθηκευμένη (π.χ. για μελλοντική χρήση), αλλά η
-    // ταξινόμηση παρακάτω χρησιμοποιεί ΑΠΟΛΥΤΗ τιμή, όπως ζητήθηκε ρητά.
-    r._oppInfo = oppStatAvg(r, {n:activeWindow});
+    // ταξινόμηση παρακάτω χρησιμοποιεί ΑΠΟΛΥΤΗ τιμή, όπως ζητήθηκε ρητά. Με
+    // HOME/AWAY SPLIT ενεργό, ο αντίπαλος παίζει την ΑΝΤΙΘΕΤΗ έδρα σε αυτόν
+    // τον αγώνα, οπότε το "OPP ALLOWS/WINS/MAKES" περιορίζεται κι αυτό εκεί.
+    var oppOpts = {n:activeWindow};
+    if(ownVenue) oppOpts.venue = ownVenue==="home" ? "away" : "home";
+    r._oppInfo = oppStatAvg(r, oppOpts);
     r._avgVsOppDiff = (r._res.sample && r._oppInfo && r._oppInfo.sample) ? (r._res.avg - r._oppInfo.avg) : null;
     // Streaks (🔥) — υπολογίζονται ΜΙΑ φορά εδώ (ανεξάρτητα από το activeWindow,
     // βλ. streakCandidatesFor) και ξαναχρησιμοποιούνται και από το renderRowCard
@@ -3018,6 +3067,11 @@ document.getElementById("windowSeg").addEventListener("click", function(e){
   Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
   e.target.classList.add("active");
   activeWindow = parseInt(e.target.getAttribute("data-v"),10);
+  renderToolbarAndRows();
+});
+document.getElementById("haSplitBtn").addEventListener("click", function(){
+  homeAwaySplitOn = !homeAwaySplitOn;
+  this.classList.toggle("active", homeAwaySplitOn);
   renderToolbarAndRows();
 });
 document.getElementById("catFilterBtn").addEventListener("click", function(e){
