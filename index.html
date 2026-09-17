@@ -2981,7 +2981,18 @@ function renderDrawer(r, headEl){
     var target = swap ? r.opponent : r.team;
     var direction = swap ? "against" : r.direction;
     var h2hTarget = state.h2h ? (r.isTotal ? true : (swap ? r.team : r.opponent)) : null;
-    var opts = { n: state.n, venue: state.venue, result: state.result, outlierTrim: state.outlierTrim,
+    // ΠΡΟΣΟΧΗ: το state.venue αναφέρεται ΠΑΝΤΑ στην έδρα ΤΗΣ ΟΜΑΔΑΣ ΤΟΥ
+    // ΣΤΟΙΧΗΜΑΤΟΣ σε αυτόν τον αγώνα (π.χ. "home" = η r.team παίζει εντός) —
+    // όταν κοιτάμε τον ΑΝΤΙΠΑΛΟ (swap/OPP mode), αυτός παίζει ΠΑΝΤΑ την
+    // ΑΝΤΙΘΕΤΗ έδρα στον ΙΔΙΟ αγώνα, οπότε το φίλτρο πρέπει να αντιστραφεί —
+    // ίδια λογική με το ήδη σωστό OPP ALLOWS pill (βλ. updateHeader). Πριν,
+    // περνούσε το state.venue αυτούσιο και στον αντίπαλο, δείχνοντας HOME
+    // αποτελέσματα ΚΑΙ για τις δύο πλευρές αντί για AWAY στον αντίπαλο —
+    // αναφέρθηκε ρητά 2026-09-19.
+    var venue = (swap && (state.venue==="home" || state.venue==="away"))
+      ? (state.venue==="home" ? "away" : "home")
+      : state.venue;
+    var opts = { n: state.n, venue: venue, result: state.result, outlierTrim: state.outlierTrim,
                  fullSeason: state.fullSeason, lastSeason: state.lastSeason, h2h: h2hTarget };
     var side = effSide();
     return r.isTotal
