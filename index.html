@@ -459,7 +459,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    από το μπλε-μοβ του OPP pill ώστε να μη μπερδεύονται οπτικά, αλλά πιο σοβαρό/ήρεμο
    από το προηγούμενο χρυσό/amber. */
 .tableToggleRow{margin:8px 0 10px}
-.tableToggleBtn,.haSplitBtn{
+.haSplitDrawerRow{margin:0 0 10px}
+.tableToggleBtn,.haSplitBtn,.haSplitDrawerBtn{
   display:inline-flex;align-items:center;gap:6px;
   padding:5px 12px;border-radius:var(--radius-pill);
   font-size:11px;font-weight:700;letter-spacing:.03em;
@@ -467,11 +468,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   background:linear-gradient(rgba(140,158,180,.14),rgba(140,158,180,0)),var(--surface-2);
   cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
 }
-.tableToggleBtn:hover,.haSplitBtn:hover{border-color:rgba(140,158,180,.75)}
-.tableToggleBtn.active,.haSplitBtn.active{
+.tableToggleBtn:hover,.haSplitBtn:hover,.haSplitDrawerBtn:hover{border-color:rgba(140,158,180,.75)}
+.tableToggleBtn.active,.haSplitBtn.active,.haSplitDrawerBtn.active{
   border-color:rgba(140,158,180,.9);color:#fff;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 0 14px rgba(140,158,180,.4);
 }
+.haSplitDrawerBtn:disabled{opacity:.35;cursor:default}
+.haSplitDrawerBtn:disabled:hover{border-color:rgba(140,158,180,.35)}
 .standingsBlock{margin:2px 0 16px}
 .tcatRow{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--border)}
 .tcatbtn{flex:none;font-size:10.5px;font-weight:600;letter-spacing:.02em;padding:5px 10px;border-radius:var(--radius-pill);
@@ -2542,20 +2545,16 @@ function renderToolbarAndRows(){
   list.forEach(function(r){ container.appendChild(renderRowCard(r)); });
 }
 
-function renderRowCard(r){
-  var res = r._res;
-  var bKey = betKey(r);
-  var card = document.createElement("div");
-  card.className = "row-card";
-  card.dataset.betkey = bKey;
-
-  // Τα L5/L10/L15/L20 badges πρέπει ΚΙ ΑΥΤΑ να ακολουθούν το HOME/AWAY SPLIT
-  // (όπως ήδη κάνουν τα FAIR/EDGE/EXP VALUE/AVERAGE/OPP ALLOWS μέσω r._res) —
-  // πριν, χρησιμοποιούσαν ΠΑΝΤΑ το στατικό r.windowResults[n] (χωρίς έδρα,
-  // υπολογισμένο μία φορά στο boot), οπότε ΔΕΝ άλλαζαν ΚΑΘΟΛΟΥ ενεργοποιώντας
-  // το pill — bug αναφέρθηκε ρητά με screenshot 2026-09-17. Το ενεργό
-  // παράθυρο (activeWindow) ήδη έχει τη σωστή τιμή σε r._res· τα άλλα τρία
-  // υπολογίζονται φρέσκα με ΤΗΝ ΙΔΙΑ έδρα.
+// Τα L5/L10/L15/L20 badges + τα FAIR/EDGE/EXP VALUE/AVERAGE/OPP ALLOWS pills
+// ΤΗΣ ΚΑΡΤΑΣ (ΕΞΩ από το drawer) — υπολογίζονται ΠΑΝΤΑ από τα r._res/_edge/
+// _ev/_oppInfo, δηλαδή ΜΟΝΟ από τους ΓΕΝΙΚΟΥΣ διακόπτες (homeAwaySplitOn/
+// lastFillGlobalOn μέσω renderToolbarAndRows), ΠΟΤΕ από το τοπικό state ενός
+// συγκεκριμένου ανοιχτού drawer. Κοινή συνάρτηση ώστε να μπορεί να ξανα-
+// χτιστεί ΚΑΙ στο αρχικό render ΚΑΙ όταν κλείνει ένα drawer (βλ.
+// refreshCardHead) — έτσι ό,τι άλλαξε ο χρήστης ΜΕΣΑ σε ένα συγκεκριμένο
+// drawer (τοπικά pills "HOME/AWAY SPLIT"/"+") ΔΕΝ μένει "κολλημένο" στην
+// κάρτα μετά το κλείσιμο. Ζητήθηκε ρητά 2026-09-17.
+function cardPillsAndStats(r){
   var pillsHtml = WINDOWS.map(function(n){
     var ownVenueForPills = (homeAwaySplitOn && !r.isTotal) ? ownVenueInMatch(r) : null;
     var wr;
@@ -2564,10 +2563,6 @@ function renderRowCard(r){
     } else if(ownVenueForPills || lastFillGlobalOn){
       var pOpts = {n:n};
       if(ownVenueForPills) pOpts.venue = ownVenueForPills;
-      // Κεντρικό "+" (lastFillGlobalOn): και τα τρία ΜΗ-ενεργά badges πρέπει
-      // κι αυτά να δείχνουν "συμπληρωμένο μέχρι n" (π.χ. L5 συμπληρωμένο μέχρι
-      // 5, L20 μέχρι 20 — ΔΙΑΦΟΡΕΤΙΚΟ αποτέλεσμα το καθένα, το n μετράει ΚΑΙ σε
-      // combine mode, βλ. evaluate()). Ζητήθηκε ρητά 2026-09-17.
       if(lastFillGlobalOn){ pOpts.fullSeason = true; pOpts.lastSeason = true; }
       wr = r.isTotal
         ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, r.threshold, r.side, pOpts)
@@ -2583,8 +2578,32 @@ function renderRowCard(r){
   var oppInfo = hasPrice ? r._oppInfo : null;
   var edge = hasPrice ? r._edge : null;
   var ev = hasPrice ? r._ev : null;
-  var sb = statsBlockHtml({fairOdds:res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:res.sample, avgVal:res.avg, oppInfo:oppInfo, oppState:"off"});
-  var statsHtml = sb.html;
+  var sb = statsBlockHtml({fairOdds:r._res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:r._res.sample, avgVal:r._res.avg, oppInfo:oppInfo, oppState:"off"});
+  return {pillsHtml:pillsHtml, statsHtml:sb.html, cls:sb.cls};
+}
+// Ξαναχτίζει ΤΗΝ ΚΕΦΑΛΙΔΑ της κάρτας (pillsrow+statPills, ΕΞΩ από το drawer)
+// από τα r._res/_edge/_ev/_oppInfo — δηλαδή ΜΟΝΟ από τους γενικούς διακόπτες,
+// αγνοώντας ό,τι local state είχε αφήσει πίσω του ένα (μόλις κλεισμένο)
+// drawer. Καλείται ΚΑΘΕ φορά που ένα drawer κλείνει.
+function refreshCardHead(r, head){
+  var pas = cardPillsAndStats(r);
+  var metricsEl = head.querySelector(".metrics");
+  var pillsRowEl = head.querySelector(".pillsrow");
+  var statPillsEl = head.querySelector(".statPills");
+  if(metricsEl) metricsEl.className = "metrics " + pas.cls;
+  if(pillsRowEl) pillsRowEl.innerHTML = pas.pillsHtml;
+  if(statPillsEl) statPillsEl.innerHTML = pas.statsHtml;
+}
+
+function renderRowCard(r){
+  var bKey = betKey(r);
+  var card = document.createElement("div");
+  card.className = "row-card";
+  card.dataset.betkey = bKey;
+
+  var pas = cardPillsAndStats(r);
+  var pillsHtml = pas.pillsHtml;
+  var statsHtml = pas.statsHtml;
 
   var teamLabel = r.isTotal ?
     (avatarHtml(r.homeTeam, r.league)+' '+r.homeTeam+' <span class="vs">–</span> '+avatarHtml(r.awayTeam, r.league)+' '+r.awayTeam) :
@@ -2613,7 +2632,7 @@ function renderRowCard(r){
         '<span class="src-tag">Stoiximan</span>'+
       '</div>'+
     '</div>'+
-    '<div class="metrics '+sb.cls+'">'+
+    '<div class="metrics '+pas.cls+'">'+
       '<div class="pillsrow">'+pillsHtml+'</div>'+
       '<div class="statPills">'+statsHtml+'</div>'+
     '</div>'+
@@ -2631,6 +2650,10 @@ function renderRowCard(r){
       if(head._drawerState) head._drawerState.oppMode = false;
       var btn0 = head.querySelector(".pill.oppstat");
       if(btn0) btn0.classList.remove("hint","active");
+      // Το drawer μπορεί να έχει αφήσει πίσω του τοπικά ενεργά pills (HOME/AWAY
+      // SPLIT, "+") που ΔΕΝ αγγίζουν τους γενικούς διακόπτες — όταν κλείνει,
+      // η κάρτα πρέπει να ξαναδείξει ΜΟΝΟ ό,τι λένε οι γενικοί (ζητήθηκε ρητά 2026-09-17).
+      refreshCardHead(r, head);
     } else {
       card.classList.add("open");
       if(!card._drawerBuilt){
@@ -2867,6 +2890,11 @@ function renderDrawer(r, headEl){
           state.oppMode = false;
           if(cardEl) cardEl.classList.remove("open");
           newOppBtn.classList.remove("hint","active");
+          // Ίδιος κανόνας με το κύριο toggle του head: όταν κλείνει το drawer
+          // (και από εδώ), η κάρτα πρέπει να ξαναδείξει ΜΟΝΟ ό,τι λένε οι
+          // γενικοί διακόπτες, όχι την τοπική κατάσταση του drawer που μόλις
+          // έκλεισε (ζητήθηκε ρητά 2026-09-17).
+          refreshCardHead(r, headEl);
         }
       });
     }
@@ -3086,6 +3114,16 @@ function renderDrawer(r, headEl){
     // αντικαθίστανται) — τα υπόλοιπα (HITS/MISS, NOW, L5-L20, LINE) μένουν όπως
     // ήταν, ώστε να ξαναγυρίζει κανείς αμέσως στο γράφημα απενεργοποιώντας το.
     var tableToggleHtml = '<div class="tableToggleRow"><button type="button" class="tableToggleBtn'+(state.tableMode?" active":"")+'">🏆 TABLE</button></div>';
+    // HOME/AWAY SPLIT pill ΜΕΣΑ στο drawer, ΚΑΤΩ από το TABLE — ίδια αυτόματη
+    // ανίχνευση έδρας με το εξωτερικό/γενικό HOME/AWAY SPLIT (ownVenueInMatch),
+    // αλλά αφορά ΜΟΝΟ αυτό το betrow/drawer: ΠΟΤΕ δεν αγγίζει το γενικό
+    // homeAwaySplitOn. Προ-αναμμένο αν state.venue ήδη ταυτίζεται με την
+    // αυτόματη έδρα (π.χ. γιατί το γενικό ήταν ενεργό όταν άνοιξε το drawer —
+    // βλ. presetVenue). Δεν υπάρχει (disabled) σε isTotal στοιχήματα, όπου δεν
+    // υπάρχει μία ενιαία "δική μας" έδρα. Ζητήθηκε ρητά 2026-09-17.
+    var haAutoVenue = (!r.isTotal) ? ownVenueInMatch(r) : null;
+    var haSplitDrawerActive = !!(haAutoVenue && state.venue===haAutoVenue);
+    var haSplitDrawerHtml = '<div class="haSplitDrawerRow"><button type="button" class="haSplitDrawerBtn'+(haSplitDrawerActive?" active":"")+'"'+(haAutoVenue?"":" disabled")+' title="Μετράει μόνο τους αγώνες '+(haAutoVenue==="away"?"ΕΚΤΟΣ":"ΕΝΤΟΣ")+' έδρας αυτού του betrow — ίδια λειτουργία με το εξωτερικό HOME/AWAY SPLIT, αφορά ΜΟΝΟ αυτό το betrow/drawer">HOME/AWAY SPLIT</button></div>';
     var tableCat = state.tableCat || r.category;
     // ΠΡΟΣΟΧΗ: r.matchHome/r.matchAway είναι τα ΩΜΑ (ελληνικά) ονόματα του Stoiximan
     // — μόνο για εμφάνιση στο ⓘ tooltip, ΔΕΝ ταιριάζουν με τα (αγγλικά) ονόματα
@@ -3131,6 +3169,7 @@ function renderDrawer(r, headEl){
       '</div>'+
       idHtml+
       tableToggleHtml+
+      haSplitDrawerHtml+
       // Το NOW pill και το L5-L20/LINE +/-/REVERSED αφορούν ΜΟΝΟ το γράφημα
       // (over/under σε συγκεκριμένη γραμμή) — δεν έχουν νόημα μέσα στον
       // βαθμολογικό πίνακα, οπότε κρύβονται όσο το TABLE είναι ενεργό.
@@ -3180,6 +3219,23 @@ function renderDrawer(r, headEl){
           // φίλτρα να εφαρμόζονται και μέσα στις βαθμολογίες" (ζητήθηκε ρητά 2026-09-17).
           state.tableVenue = state.venue;
         }
+        state.selected = null;
+        draw();
+      });
+    }
+    // HOME/AWAY SPLIT (τοπικό, ΜΕΣΑ στο drawer): toggle ανάμεσα σε "αυτόματη
+    // έδρα του betrow" και "any" — ΠΟΤΕ δεν γράφει στο γενικό homeAwaySplitOn
+    // (ζητήθηκε ρητά 2026-09-17: η ενεργοποίηση/απενεργοποίηση εδώ αφορά ΜΟΝΟ
+    // αυτό το betrow/drawer). Ενημερώνει και το tableVenue, όπως τα chip
+    // "Μόνο εντός/εκτός", ώστε η βαθμολογία (αν είναι ανοιχτή) να ακολουθεί.
+    var haSplitDrawerBtn = block.querySelector(".haSplitDrawerBtn");
+    if(haSplitDrawerBtn && !haSplitDrawerBtn.disabled){
+      haSplitDrawerBtn.addEventListener("click", function(e){
+        e.stopPropagation();
+        var autoVenue = (!r.isTotal) ? ownVenueInMatch(r) : null;
+        if(!autoVenue) return;
+        state.venue = (state.venue===autoVenue) ? "any" : autoVenue;
+        state.tableVenue = state.venue;
         state.selected = null;
         draw();
       });
