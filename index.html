@@ -451,33 +451,36 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
      στήλες/ομάδες στοιχείων απλώνονται με ίσες αποστάσεις ως την άκρη —
      έτσι δεν μένει άδειος χώρος δεξιά σε καμία από τις δύο σειρές. */
   .metrics{width:100%;justify-content:space-between}
-  .metrics.st-full{grid-template-columns:repeat(5,auto);grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
-  .metrics.st-noopp{grid-template-columns:repeat(4,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles circles circles" "fair edge exp avg"}
-  .metrics.st-noprice{grid-template-columns:repeat(2,auto);grid-template-rows:auto auto;grid-template-areas:"circles circles" "fair avg"}
-  /* Μικρότερα pills/κύκλοι ΜΟΝΟ όταν υπάρχουν ΚΑΙ οι δύο σειρές (5 στήλες) —
-     st-noopp/st-noprice κρατάνε το κανονικό μέγεθος, δεν στριμώχνονται.
-     ΠΡΟΣΟΧΗ (ζητήθηκε ρητά μετά από screenshot 2026-09-17): οι κύκλοι L5-L20
-     (4 ανά σειρά) καταλαμβάνουν ΤΟ ΜΙΣΟ πλάτος της σειράς μόνοι τους — αν
-     μείνουν μεγάλοι, στα υπόλοιπα 4 pills (τιμή/γράμμα) μένει πολύ λίγος
-     χώρος και οι ΤΙΜΕΣ (π.χ. "187.0%", "91.3%", ή αρνητικές όπως "-100.0%")
-     ξεχειλίζουν έξω από το στρογγυλεμένο περίγραμμα του pill — επιβεβαιώθηκε
-     με μέτρηση scrollWidth vs clientWidth στο πραγματικό DOM. Αρχικά
-     επιλέχθηκε 24px κύκλος + 9px τιμή (0 ξεχείλισμα παντού) αλλά ζητήθηκε
-     ρητά 2026-09-17 να μεγαλώσουν τα pills γιατί ήταν πολύ μικρά/δυσανάγνωστα
-     σε πραγματικό κινητό — έγινε επανάληψη δοκιμών (ίδια μεθοδολογία,
-     πραγματικές ΚΑΙ ακραίες τιμές όπως "-199.9%") κρατώντας τα circles λίγο
-     πιο μικρά (22px) ώστε να κερδηθεί χώρος για μεγαλύτερη γραμματοσειρά στην
-     ΤΙΜΗ του κάθε pill (10.5px, +17% από πριν) — 0 ξεχείλισμα σε πλάτη
-     ≥375px (καλύπτει όλα τα σύγχρονα κινητά). */
-  .metrics.st-full .pill{min-width:0;padding:2px 1px}
-  .metrics.st-full .pill .k{font-size:5.8px;letter-spacing:-.02em}
-  .metrics.st-full .pill .v{font-size:10.5px}
-  .metrics.st-full .hp{width:22px;height:22px}
-  .metrics.st-full .hp .pct{font-size:7px}
-  .metrics.st-full .hp .lbl{font-size:4.5px}
-  .metrics.st-full .pillsrow, .metrics.st-full .oppPillsrow{gap:1px}
-  .metrics.st-full{gap:2px 1px}
-  .row-card:has(.metrics.st-full) .row-head{padding-right:42px}
+  /* ΖΗΤΗΘΗΚΕ ΡΗΤΑ 2026-09-19: "κανονικά μεγέθη, όπως παντού αλλού" — το
+     st-full (ΜΕ opp pills) προηγουμένως στρίμωχνε 5 στήλες σε ΜΙΑ γραμμή
+     πλάτους και αναγκαστικά σμίκρυνε πολύ pills/κύκλους/γραμματοσειρά
+     (καρικατούρα σε σχέση με tablet/PC). Λύση: αντί να χωράνε όλα σε 1 σειρά
+     πλάτους, ΤΕΤΡΑΠΛΑΣΙΑΖΟΥΜΕ τις σειρές (κύκλοι αντιπάλου, pills αντιπάλου,
+     δικοί μας κύκλοι, δικά μας pills — 4 ξεχωριστές γραμμές αντί για 2) ώστε
+     ΚΑΘΕ pill να έχει όλο το πλάτος της κάρτας διαθέσιμο και να μείνει στο
+     ΚΑΝΟΝΙΚΟ μέγεθος — ΙΔΙΑ λογική/μέγεθος με το st-noopp/st-noprice από
+     κάτω, που ΠΑΝΤΑ είχαν τα κύκλους σε δική τους γραμμή και ΠΟΤΕ δεν
+     σμικρύνθηκαν. Το betrow μεγαλώνει σε ύψος (ζητήθηκε ρητά) αλλά τίποτα
+     δεν ξεχειλίζει ή σμικρύνεται πια. grid-template-columns:1fr (όχι auto)
+     ώστε τα 4 pills να μοιράζονται ΙΣΟ πλάτος μεταξύ τους (καμία ασυμμετρία
+     ανάμεσα σε γραμμές με διαφορετικού μήκους τιμές). */
+  .metrics.st-full{grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto auto auto;grid-template-areas:"oppcircles oppcircles oppcircles oppcircles" "oppfair oppedge oppexp opp" "circles circles circles circles" "fair edge exp avg"}
+  .metrics.st-noopp{grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;grid-template-areas:"circles circles circles circles" "fair edge exp avg"}
+  .metrics.st-noprice{grid-template-columns:repeat(2,1fr);grid-template-rows:auto auto;grid-template-areas:"circles circles" "fair avg"}
+  .metrics.st-full .pillsrow, .metrics.st-full .oppPillsrow{justify-content:flex-start}
+  /* Ρητό "κανονικό" μέγεθος (ίδιο με το tablet breakpoint πιο πάνω) για ΟΛΑ
+     τα states στο κινητό πλέον — πριν, χωρίς override εδώ, το st-full θα
+     έπεφτε στο ΒΑΣΙΚΟ μέγεθος (46px/72px, πριν από ΟΠΟΙΟΔΗΠΟΤΕ breakpoint),
+     που είναι ΜΕΓΑΛΥΤΕΡΟ ακόμα κι από το tablet/PC — ασυνεπές με "όπως
+     παντού αλλού". Εδώ κρατάμε ΤΟ ΙΔΙΟ μέγεθος παντού (κινητό/tablet/PC). */
+  .hp{width:36px;height:36px}
+  .hp .pct{font-size:11px}
+  .hp .lbl{font-size:7px}
+  .pill{min-width:54px;padding:5px 4px}
+  .pill .k{font-size:7.5px}
+  .pill .v{font-size:12px}
+  .pillsrow, .oppPillsrow{gap:5px}
+  .metrics{gap:5px 5px}
 }
 .chev{display:none}
 .row-card.open{border-color:var(--accent)}
