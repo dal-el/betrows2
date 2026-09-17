@@ -1537,18 +1537,30 @@ var TEAM_ALIASES = {
     "Angers SCO":"Angers","ES Troyes AC":"Troyes"
   },
   "super-league-greece": {
-    "Atromitos Athinon":"Atromitos","Aris Thessaloniki":"Aris"
+    "Atromitos Athinon":"Atromitos","Aris Thessaloniki":"Aris",
+    "Levadiakos":"Levadeiakos","Olympiacos Piraeus":"Olympiakos","Olympiacos":"Olympiakos",
+    "AEK Athens":"AEK","Panaitolikos":"Panetolikos"
   },
   "liga-mx": {
-    "Club Puebla":"Puebla","Deportivo Toluca FC":"Toluca","CF Tigres UANL":"Tigres UANL"
+    "Club Puebla":"Puebla","Deportivo Toluca FC":"Toluca","CF Tigres UANL":"U.A.N.L.- Tigres",
+    "UNAM Pumas":"U.N.A.M.- Pumas"
   },
   "serie-a-brazil": {
     "Gremio RS":"Gremio","Clube Atletico MG":"Atletico-MG","Chapecoense SC":"Chapecoense-SC",
-    "Mirassol SP":"Mirassol"
+    "Mirassol SP":"Mirassol",
+    "Remo PA":"Remo","Santos SP":"Santos","Vasco da Gama RJ":"Vasco","Coritiba PR":"Coritiba",
+    "Sao Paulo SP":"Sao Paulo","Internacional RS":"Internacional","Palmeiras SP":"Palmeiras"
   }
 };
 var TEAM_NAME_PREFIX_TOKENS = ["FC","CF","AC","AS","SS","SC","SV","UD","US","CA","CD","RC","CP","SD","Real","Racing","Club","Deportivo","Clube"];
 var TEAM_NAME_SUFFIX_TOKENS = ["UC 72","FC","CF","AC","AS","SS","SC","SV","UD","US","CA","CD","RC","CP","SD","Calcio","Balompie","City","Town","County","United","Rovers"];
+// Το live feed (Stoiximan) προσθέτει συχνά την αρχική της πολιτείας/κράτους ως
+// επίθημα στις βραζιλιάνικες ομάδες (π.χ. "Santos SP", "Coritiba PR", "Vasco
+// da Gama RJ") για να ξεχωρίζουν ομώνυμες πόλεις — το ιστορικό dataset δεν το
+// έχει πάντα. Στρίβουμε (μόνο ως ΤΕΛΕΥΤΑΙΑ προσπάθεια, βλ. matchTeamInLeague)
+// ένα τέτοιο επίθημα 2 γραμμάτων για να πιάνουμε αυτόματα και μελλοντικές
+// ομάδες χωρίς να χρειάζεται νέο TEAM_ALIASES entry για κάθε μία.
+var BR_STATE_SUFFIX_RE = /\s+(SP|RJ|MG|RS|PR|PA|BA|CE|GO|SC|DF|ES|PE|AM|PB|MA|MT|MS|AL|PI|RN|RO|TO|AC|AP|RR)$/;
 function stripDiacritics(s){
   try{ return s.normalize("NFD").replace(/[̀-ͯ]/g,""); }catch(e){ return s; }
 }
@@ -1592,6 +1604,17 @@ function matchTeamInLeague(name, lg){
   var normTeams = {};
   teams.forEach(function(t){ normTeams[stripDiacritics(t)] = t; });
   for(i=0;i<cands.length;i++){ if(normTeams[cands[i]]) return normTeams[cands[i]]; }
+  // αν το feed έβαλε επίθημα πολιτείας (βραζιλιάνικες ομάδες, π.χ. "Santos SP")
+  // δοκιμάζουμε ξανά όλα τα παραπάνω χωρίς αυτό
+  if(BR_STATE_SUFFIX_RE.test(name)){
+    var noState = name.replace(BR_STATE_SUFFIX_RE, "");
+    var m2 = matchTeamInLeague(noState, lg);
+    if(m2) return m2;
+  }
+  // τελευταία-τελευταία προσπάθεια: σύγκριση αγνοώντας πεζά/κεφαλαία
+  var lowerTeams = {};
+  teams.forEach(function(t){ lowerTeams[stripDiacritics(t).toLowerCase()] = t; });
+  for(i=0;i<cands.length;i++){ var lc = cands[i].toLowerCase(); if(lowerTeams[lc]) return lowerTeams[lc]; }
   return null;
 }
 function resolveTeam(participant, guessedLeague){
@@ -3250,12 +3273,29 @@ Promise.all([
   var TEAM_NAME_MERGES = {
     "premier-league": { "Nott'm Forest": "Nottm Forest" },
     "bundesliga": { "M'gladbach": "MGladbach" },
-    // 2026-09-17: ίδιο bug, δύο ακόμη ομάδες — παλιό δωρεάν CSV vs νέο
-    // API-Football με ελαφρώς διαφορετική γραφή (πεζά/κεφαλαία, κενό πριν
-    // την παύλα). Chapecoense-SC->TEAM_ALIASES ήδη το ξέρει έτσι· Pumas δεν
-    // έχει ακόμη TEAM_ALIASES entry, ενοποιούμε προς το πιο συχνό/παλιό.
-    "serie-a-brazil": { "Chapecoense-sc": "Chapecoense-SC" },
-    "liga-mx": { "U.N.A.M. - Pumas": "U.N.A.M.- Pumas" },
+    // 2026-09-17: πλήρης σάρωση όλου του data.json για ζευγάρια ίδιας ομάδας
+    // γραμμένα διαφορετικά (ίδια αιτία: παλιό δωρεάν CSV vs νεότερο
+    // API-Football feed). Ενοποιούμε πάντα προς τη γραφή με τις περισσότερες
+    // καταγεγραμμένες εμφανίσεις στο dataset (=η "τρέχουσα"/επικρατούσα).
+    "serie-a-brazil": {
+      "Chapecoense-sc": "Chapecoense-SC",
+      "Botafogo": "Botafogo RJ",
+      "Vasco DA Gama": "Vasco",
+      "Flamengo": "Flamengo RJ",
+      "Fortaleza EC": "Fortaleza",
+      "RB Bragantino": "Bragantino",
+      "Atletico Paranaense": "Athletico-PR",
+    },
+    "liga-mx": {
+      "U.N.A.M. - Pumas": "U.N.A.M.- Pumas",
+      "CF Pachuca": "Pachuca",
+      "Club Queretaro": "Queretaro",
+      "Leon": "Club Leon",
+      "FC Juarez": "Juarez",
+      "Mazatlán": "Mazatlan FC",
+      "Atletico San Luis": "Atl. San Luis",
+      "Tigres UANL": "U.A.N.L.- Tigres",
+    },
   };
   DATA.forEach(function(m){
     var merges = TEAM_NAME_MERGES[m.lg];
