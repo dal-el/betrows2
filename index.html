@@ -1126,6 +1126,17 @@ function currentSeasonForLeague(leagueId){
   _seasonByLeagueCache[leagueId] = latestSeason;
   return latestSeason;
 }
+// Λίγκες που παίζονται σε ημερολογιακή σεζόν (Ιαν-Δεκ, π.χ. Βραζιλία) αντί
+// για Αυγ-Μάιος (Ευρώπη). Το πεδίο "s" στο data.json παράγεται με το ΙΔΙΟ
+// ευρωπαϊκό όριο (γύρω στον Ιούλιο) για ΟΛΕΣ τις λίγκες αδιακρίτως, οπότε σε
+// μια τέτοια λίγκα η ΠΡΑΓΜΑΤΙΚΗ τρέχουσα σεζόν σπάει τεχνητά σε δύο
+// διαφορετικά season-tags (π.χ. Ιαν-Μάιος 2026 μπαίνει στο "2025/26" ενώ
+// Ιούλιος+ 2026 μπαίνει στο "2026/27") — αποτέλεσμα: οι ομάδες έδειχναν πολύ
+// λιγότερους αγώνες απ' όσους έχουν πράγματι παίξει φέτος (ζητήθηκε ρητά
+// 2026-09-17, επιβεβαιώθηκε: Βραζιλία έπρεπε να δείχνει 27 αγώνες/ομάδα, όχι
+// μόνο τους μετά τον Ιούλιο). Εδώ ενώνουμε τα δύο κομμάτια βάσει του
+// ημερολογιακού έτους του πιο πρόσφατου αγώνα, ΑΝΕΞΑΡΤΗΤΑ από season-tag.
+var CALENDAR_YEAR_LEAGUES = {"serie-a-brazil":true};
 // Μαζεύει, ανά ομάδα, τη λίστα των αγώνων της σεζόν (φιλτραρισμένη κατά
 // εντός/εκτός αν ζητήθηκε) ΜΙΑ φορά — {m, side} — από όπου παράγονται μετά ΚΑΙ
 // η κατάταξη ΚΑΙ η φόρμα ΚΑΙ το αναλυτικό ιστορικό ανά αγώνα (ίδια πηγή
@@ -1133,7 +1144,18 @@ function currentSeasonForLeague(leagueId){
 function collectStandingsMatches(leagueId, venue){
   var season = currentSeasonForLeague(leagueId);
   if(!season) return {};
-  var ms = DATA.filter(function(m){ return m.lg===leagueId && m.s===season; });
+  var ms;
+  if(CALENDAR_YEAR_LEAGUES[leagueId]){
+    var latestDate = null;
+    for(var i=0;i<DATA.length;i++){
+      var mm = DATA[i];
+      if(mm.lg===leagueId && (latestDate===null || mm.d>latestDate)) latestDate = mm.d;
+    }
+    var year = latestDate.slice(0,4);
+    ms = DATA.filter(function(m){ return m.lg===leagueId && m.d.slice(0,4)===year; });
+  } else {
+    ms = DATA.filter(function(m){ return m.lg===leagueId && m.s===season; });
+  }
   var countHome = venue!=="away", countAway = venue!=="home";
   var table = {};
   function ensure(team){
@@ -2246,7 +2268,10 @@ function renderToolbarAndRows(){
     if(sortMode==="avgvsopp"){
       var av = a._avgVsOppDiff==null ? -999 : Math.abs(a._avgVsOppDiff);
       var bv = b._avgVsOppDiff==null ? -999 : Math.abs(b._avgVsOppDiff);
-      return bv - av;
+      if(bv!==av) return bv - av;
+      // ζητήθηκε ρητά (2026-09-17): μέσα στο ίδιο avgVsOpp, να ταξινομεί
+      // ΚΑΙ κατά edge — μεγαλύτερο edge πρώτο, ακολουθούν τα μικρότερα.
+      return (b._edge==null?-999:b._edge) - (a._edge==null?-999:a._edge);
     }
     if(sortMode==="beststreak"){
       var ar = a._bestStreak ? a._bestStreak.hitRate : -1;
