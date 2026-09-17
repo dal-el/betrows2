@@ -132,6 +132,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 /* HOME/AWAY SPLIT: pill πάνω από το L5-L20 (βλ. #windowSegWrap) — ίδιο ύφος με
    το TABLE toggle (.tableToggleBtn) για συνέπεια, μοιράζεται τα ίδια rules. */
 .windowSegWrap{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.windowSegRow{display:flex;align-items:center;gap:8px}
 
 /* κουμπί ανοίγματος του mobile φίλτρων-sheet — κρυφό στο desktop */
 .mfToggle{
@@ -798,9 +799,18 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       </select>
       <div class="windowSegWrap" id="windowSegWrap">
         <button type="button" class="haSplitBtn" id="haSplitBtn" title="Μετράει μόνο τους αγώνες ΕΝΤΟΣ της κάθε ομάδας που παίζει εντός στον επόμενο αγώνα της, και μόνο τους ΕΚΤΟΣ για όσες παίζουν εκτός — συνδυάζεται με όλα τα άλλα φίλτρα">HOME/AWAY SPLIT</button>
-        <div class="seg" id="windowSeg">
-          <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
-          <button data-v="15">L15</button><button data-v="20">L20</button>
+        <div class="windowSegRow">
+          <div class="seg" id="windowSeg">
+            <button data-v="5">L5</button><button data-v="10" class="active">L10</button>
+            <button data-v="15">L15</button><button data-v="20">L20</button>
+          </div>
+          <!-- Κεντρικό "+"/"i": ίδιο με αυτό μέσα σε κάθε drawer, αλλά καθολικό —
+               ενεργό σημαίνει ΚΑΘΕ γραμμή/drawer συμπληρώνει με περσινή σεζόν όποτε
+               η φετινή δεν φτάνει το επιλεγμένο LAST N. Ζητήθηκε ρητά 2026-09-17. -->
+          <div class="lastFillWrap">
+            <button type="button" class="lastFillBtn" id="lastFillGlobalBtn" title="Συμπλήρωση με περσινή σεζόν σε όλες τις γραμμές">+</button>
+            <button type="button" class="lastFillInfoBtn" id="lastFillGlobalInfoBtn" title="Πληροφορίες">i</button>
+          </div>
         </div>
       </div>
     </div>
@@ -899,6 +909,12 @@ var dateFilterVal = null; // "YYYY-MM-DD" (ημέρα αγώνα σε ώρα Ε�
 // όλα τα υπόλοιπα (κατηγορία/λίγκα/ομάδα/απόδοση/scope/show/ημερομηνία)
 // συνεχίζουν να φιλτράρουν πάνω στο ίδιο list όπως πριν. Ζητήθηκε 2026-09-17.
 var homeAwaySplitOn = false;
+// "+" (κεντρικό, δίπλα στο LAST N — βλ. #lastFillGlobalBtn): ίδιο pill με αυτό
+// μέσα σε κάθε drawer, αλλά καθολικό — ενεργό σημαίνει ότι ΚΑΘΕ drawer που
+// ανοίγει ξεκινάει ΗΔΗ με τη συμπλήρωση περσινής σεζόν αναμμένη (Όλη τη
+// σεζόν+Περσινή σεζόν μαζί), ΚΑΙ η ίδια η κάρτα απ' έξω (r._res/_edge/_ev/
+// _oppInfo, ΚΑΙ τα L5-L20 badges) το αντανακλά αμέσως — ζητήθηκε ρητά 2026-09-17.
+var lastFillGlobalOn = false;
 var feedRows = [];
 var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 
@@ -2444,7 +2460,20 @@ function renderToolbarAndRows(){
     // ίδιας έδρας — αλλιώς (toggle σβηστό, ή isTotal, ή άγνωστη έδρα) μένει η
     // κανονική, ήδη υπολογισμένη τιμή απ' το windowResults cache.
     var ownVenue = (homeAwaySplitOn && !r.isTotal) ? ownVenueInMatch(r) : null;
-    r._res = ownVenue ? evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, {n:activeWindow, venue:ownVenue}) : r.windowResults[activeWindow];
+    // Κεντρικό "+" (lastFillGlobalOn, βλ. #lastFillGlobalBtn): ενεργό σημαίνει
+    // ΚΑΘΕ γραμμή συμπληρώνει με περσινή σεζόν αν η φετινή δεν φτάνει το
+    // activeWindow — ίδιος συνδυασμός fullSeason+lastSeason με το drawer,
+    // εφαρμοσμένος εδώ σε ΟΛΗ τη λίστα. Ζητήθηκε ρητά 2026-09-17.
+    if(ownVenue || lastFillGlobalOn){
+      var reOpts = {n:activeWindow};
+      if(ownVenue) reOpts.venue = ownVenue;
+      if(lastFillGlobalOn){ reOpts.fullSeason = true; reOpts.lastSeason = true; }
+      r._res = r.isTotal
+        ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, r.threshold, r.side, reOpts)
+        : evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, reOpts);
+    } else {
+      r._res = r.windowResults[activeWindow];
+    }
     // Edge = εκτιμώμενη πιθανότητα (hit rate) − implied probability της απόδοσης, σε ποσοστιαίες μονάδες
     r._edge = (r.price && r._res.sample>0) ? (r._res.hitRate - impliedProb(r.price)) * 100 : null;
     // Exp Value = προσδοκώμενη απόδοση (%) του στοιχήματος — ίδιος τύπος με το pill "Exp Value".
@@ -2453,9 +2482,11 @@ function renderToolbarAndRows(){
     // διαφορά ΜΕ πρόσημο μένει αποθηκευμένη (π.χ. για μελλοντική χρήση), αλλά η
     // ταξινόμηση παρακάτω χρησιμοποιεί ΑΠΟΛΥΤΗ τιμή, όπως ζητήθηκε ρητά. Με
     // HOME/AWAY SPLIT ενεργό, ο αντίπαλος παίζει την ΑΝΤΙΘΕΤΗ έδρα σε αυτόν
-    // τον αγώνα, οπότε το "OPP ALLOWS/WINS/MAKES" περιορίζεται κι αυτό εκεί.
+    // τον αγώνα, οπότε το "OPP ALLOWS/WINS/MAKES" περιορίζεται κι αυτό εκεί —
+    // και ακολουθεί το ίδιο lastFillGlobalOn.
     var oppOpts = {n:activeWindow};
     if(ownVenue) oppOpts.venue = ownVenue==="home" ? "away" : "home";
+    if(lastFillGlobalOn){ oppOpts.fullSeason = true; oppOpts.lastSeason = true; }
     r._oppInfo = oppStatAvg(r, oppOpts);
     r._avgVsOppDiff = (r._res.sample && r._oppInfo && r._oppInfo.sample) ? (r._res.avg - r._oppInfo.avg) : null;
     // Streaks (🔥) — υπολογίζονται ΜΙΑ φορά εδώ (ανεξάρτητα από το activeWindow,
@@ -2527,8 +2558,23 @@ function renderRowCard(r){
   // υπολογίζονται φρέσκα με ΤΗΝ ΙΔΙΑ έδρα.
   var pillsHtml = WINDOWS.map(function(n){
     var ownVenueForPills = (homeAwaySplitOn && !r.isTotal) ? ownVenueInMatch(r) : null;
-    var wr = (n===activeWindow) ? r._res
-      : (ownVenueForPills ? evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, {n:n, venue:ownVenueForPills}) : r.windowResults[n]);
+    var wr;
+    if(n===activeWindow){
+      wr = r._res;
+    } else if(ownVenueForPills || lastFillGlobalOn){
+      var pOpts = {n:n};
+      if(ownVenueForPills) pOpts.venue = ownVenueForPills;
+      // Κεντρικό "+" (lastFillGlobalOn): και τα τρία ΜΗ-ενεργά badges πρέπει
+      // κι αυτά να δείχνουν "συμπληρωμένο μέχρι n" (π.χ. L5 συμπληρωμένο μέχρι
+      // 5, L20 μέχρι 20 — ΔΙΑΦΟΡΕΤΙΚΟ αποτέλεσμα το καθένα, το n μετράει ΚΑΙ σε
+      // combine mode, βλ. evaluate()). Ζητήθηκε ρητά 2026-09-17.
+      if(lastFillGlobalOn){ pOpts.fullSeason = true; pOpts.lastSeason = true; }
+      wr = r.isTotal
+        ? evaluateCombinedTotal(r.homeTeam, r.awayTeam, r.league, r.category, r.threshold, r.side, pOpts)
+        : evaluate(r.team, r.league, r.category, r.direction, r.threshold, r.side, pOpts);
+    } else {
+      wr = r.windowResults[n];
+    }
     var p = Math.round(wr.hitRate*100);
     return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
   }).join("");
@@ -2667,7 +2713,12 @@ function renderDrawer(r, headEl){
   // ΣΥΓΧΡΟΝΙΣΜΕΝΟ με το presetVenue, ώστε αν ήδη ξέρουμε την έδρα (HOME/AWAY
   // SPLIT ενεργό) η βαθμολογία να ανοίγει ΚΑΤΕΥΘΕΙΑΝ φιλτραρισμένη στην ίδια
   // έδρα αντί να ξεκινάει από "ΟΛΟΙ" σαν να μην είχε επιλεγεί τίποτα (ζητήθηκε ρητά 2026-09-17).
-  var state = { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false, fullSeason:false, lastSeason:false, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:presetVenue, tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
+  // Το κεντρικό "+" (lastFillGlobalOn, δίπλα στο LAST N έξω από το drawer) —
+  // αν είναι ενεργό, ΚΑΘΕ drawer που ανοίγει ξεκινάει ΗΔΗ με τη συμπλήρωση
+  // περσινής σεζόν αναμμένη (fullSeason+lastSeason μαζί), ακριβώς όπως το
+  // presetVenue κάνει για την έδρα — "το κεντρικό το ανοίγει παντού όπου
+  // χρειαστεί", ζητήθηκε ρητά 2026-09-17.
+  var state = { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false, fullSeason:lastFillGlobalOn, lastSeason:lastFillGlobalOn, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:presetVenue, tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -3333,6 +3384,30 @@ document.getElementById("haSplitBtn").addEventListener("click", function(){
   homeAwaySplitOn = !homeAwaySplitOn;
   this.classList.toggle("active", homeAwaySplitOn);
   renderToolbarAndRows();
+});
+// Κεντρικό "+"/"i" (δίπλα στο LAST N, ζητήθηκε ρητά 2026-09-17): ίδια
+// συμπεριφορά με το πλήκτρο μέσα σε κάθε drawer, αλλά ΚΑΘΟΛΙΚΗ — ενεργό
+// σημαίνει ΚΑΘΕ γραμμή/drawer που ανοίγει από δω και πέρα το έχει ήδη
+// αναμμένο (βλ. presetVenue-style wiring στο renderDrawer/renderRowCard/
+// renderToolbarAndRows). Η αφαίρεση δεν χρειάζεται επιβεβαίωση, μόνο η προσθήκη.
+document.getElementById("lastFillGlobalBtn").addEventListener("click", function(e){
+  e.stopPropagation();
+  var btn = this;
+  if(lastFillGlobalOn){
+    lastFillGlobalOn = false;
+    btn.classList.remove("active");
+    renderToolbarAndRows();
+    return;
+  }
+  showConfirmTip(btn, "ADD LAST YEAR'S GAMES TO COMPLETE LAST N?", function(){
+    lastFillGlobalOn = true;
+    btn.classList.add("active");
+    renderToolbarAndRows();
+  });
+});
+document.getElementById("lastFillGlobalInfoBtn").addEventListener("click", function(e){
+  e.stopPropagation();
+  showInfoTip(this, "PRESS + BUTTON TO ADD GAMES FROM LAST SEASON TO COMPLETE THE DESIRED N GAMES");
 });
 document.getElementById("catFilterBtn").addEventListener("click", function(e){
   e.stopPropagation();
