@@ -3250,6 +3250,12 @@ Promise.all([
   var TEAM_NAME_MERGES = {
     "premier-league": { "Nott'm Forest": "Nottm Forest" },
     "bundesliga": { "M'gladbach": "MGladbach" },
+    // 2026-09-17: ίδιο bug, δύο ακόμη ομάδες — παλιό δωρεάν CSV vs νέο
+    // API-Football με ελαφρώς διαφορετική γραφή (πεζά/κεφαλαία, κενό πριν
+    // την παύλα). Chapecoense-SC->TEAM_ALIASES ήδη το ξέρει έτσι· Pumas δεν
+    // έχει ακόμη TEAM_ALIASES entry, ενοποιούμε προς το πιο συχνό/παλιό.
+    "serie-a-brazil": { "Chapecoense-sc": "Chapecoense-SC" },
+    "liga-mx": { "U.N.A.M. - Pumas": "U.N.A.M.- Pumas" },
   };
   DATA.forEach(function(m){
     var merges = TEAM_NAME_MERGES[m.lg];
