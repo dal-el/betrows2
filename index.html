@@ -556,7 +556,11 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    .oppBigId (πιο πάνω) — εδώ μένει ΜΟΝΟ το pill με το ΤΡΕΧΟΝ ποσοστό,
    ακριβώς από κάτω, δεξιά στοιχισμένο. Σε isTotal (χωρίς .oppBigId) το
    HITS/MISS παραμένει εδώ μέσα, όπως πριν. */
-.chart-hitrow{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-bottom:16px;font-size:11px;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase}
+/* Σειρά: TABLE (αριστερά) στην ΙΔΙΑ ευθεία/ύψος με το NOW pill (δεξιά) — το
+   HOME/AWAY SPLIT μπαίνει ΑΠΟ ΚΑΤΩ (δικό του row, .haSplitDrawerRow, αμέσως
+   μετά) — ίδιο layout σε κινητό ΚΑΙ PC (ζητήθηκε ρητά 2026-09-19). */
+.chart-hitrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;font-size:11px;color:var(--text-faint);letter-spacing:.03em;text-transform:uppercase}
+.chart-hitrow-now{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .chart-hitrow b{color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
 /* pill κυκλικό με το ΤΡΕΧΟΝ (δυναμικό) ποσοστό επιτεύξεως — ίδιο στιλ με τα
    pill L5/L10/L15/L20 της κάρτας, αλλά ακολουθεί ΟΛΑ τα φίλτρα του drawer. */
@@ -3194,7 +3198,11 @@ function renderDrawer(r, headEl){
     // Όταν ενεργοποιείται, παίρνει τη ΘΕΣΗ του γραφήματος (chartHtml+detailHtml
     // αντικαθίστανται) — τα υπόλοιπα (HITS/MISS, NOW, L5-L20, LINE) μένουν όπως
     // ήταν, ώστε να ξαναγυρίζει κανείς αμέσως στο γράφημα απενεργοποιώντας το.
-    var tableToggleHtml = '<div class="tableToggleRow"><button type="button" class="tableToggleBtn'+(state.tableMode?" active":"")+'">🏆 TABLE</button></div>';
+    // ΠΡΟΣΟΧΗ: μόνο το κουμπί, ΧΩΡΙΣ δικό του wrapping row — τοποθετείται
+    // διαφορετικά ανάλογα με το state.tableMode στο σημείο συναρμολόγησης πιο
+    // κάτω (μέσα στο .chart-hitrow δίπλα στο NOW pill όταν tableMode=false,
+    // αλλιώς μόνο του σε .tableToggleRow — ζητήθηκε ρητά 2026-09-19).
+    var tableToggleBtnHtml = '<button type="button" class="tableToggleBtn'+(state.tableMode?" active":"")+'">🏆 TABLE</button>';
     // HOME/AWAY SPLIT pill ΜΕΣΑ στο drawer, ΚΑΤΩ από το TABLE — ίδια αυτόματη
     // ανίχνευση έδρας με το εξωτερικό/γενικό HOME/AWAY SPLIT (ownVenueInMatch),
     // αλλά αφορά ΜΟΝΟ αυτό το betrow/drawer: ΠΟΤΕ δεν αγγίζει το γενικό
@@ -3249,20 +3257,24 @@ function renderDrawer(r, headEl){
         '<span class="csAvg">AVERAGE <b>'+(chartRes.sample?avg.toFixed(2):"—")+'</b></span>'+
       '</div>'+
       idHtml+
-      // ΣΗΜΑΝΤΙΚΟ: το NOW pill (και το hitsText όταν isTotal) μένουν ΠΑΝΤΑ
-      // ΑΚΡΙΒΩΣ κάτω από το OVER/UNDER HITS-MISS (idHtml σε μονή ομάδα) —
-      // ΠΡΙΝ το TABLE/HOME-AWAY-SPLIT pill, όχι μετά. Αν μπουν ΑΛΛΕΣ γραμμές
-      // (π.χ. το νέο εσωτερικό HOME/AWAY SPLIT pill) ΑΝΑΜΕΣΑ σε idHtml και
-      // chart-hitrow, το NOW pill "μετατοπίζεται" οπτικά μακριά από το
-      // HITS/MISS που το συνοδεύει — ακριβώς αυτό αναφέρθηκε ρητά 2026-09-19.
-      // Το TABLE + το νέο HOME/AWAY SPLIT pill μπαίνουν ΜΕΤΑ το chart-hitrow.
-      (state.tableMode ? "" :
-        '<div class="chart-hitrow">'+
-          (r.isTotal ? hitsTextHtml : "")+
-          nowPillHtml+
-        '</div>'
+      // ΣΗΜΑΝΤΙΚΟ: το TABLE μπαίνει ΣΤΗΝ ΙΔΙΑ γραμμή/ύψος με το NOW pill
+      // (αριστερά το TABLE, δεξιά το NOW pill — και το hitsText από πάνω του
+      // όταν isTotal), και το HOME/AWAY SPLIT ΑΠΟ ΚΑΤΩ του (δικό του row,
+      // haSplitDrawerHtml, αμέσως μετά) — ίδιο σε κινητό ΚΑΙ PC (ζητήθηκε
+      // ρητά 2026-09-19). Όταν το TABLE είναι ενεργό, το NOW pill κρύβεται
+      // (δεν έχει νόημα μέσα στον βαθμολογικό πίνακα) — το ίδιο το κουμπί
+      // TABLE μένει ορατό μόνο του σε δικιά του γραμμή ώστε να μπορεί να
+      // απενεργοποιηθεί ξανά.
+      (state.tableMode
+        ? '<div class="tableToggleRow">'+tableToggleBtnHtml+'</div>'
+        : '<div class="chart-hitrow">'+
+            tableToggleBtnHtml+
+            '<div class="chart-hitrow-now">'+
+              (r.isTotal ? hitsTextHtml : "")+
+              nowPillHtml+
+            '</div>'+
+          '</div>'
       )+
-      tableToggleHtml+
       haSplitDrawerHtml+
       // Το L5-L20/LINE +/-/REVERSED αφορούν ΜΟΝΟ το γράφημα (over/under σε
       // συγκεκριμένη γραμμή) — δεν έχουν νόημα μέσα στον βαθμολογικό πίνακα,
