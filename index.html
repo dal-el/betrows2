@@ -633,6 +633,33 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   background:linear-gradient(rgba(167,139,250,.22),rgba(167,139,250,.06)),var(--surface-2);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 12px rgba(167,139,250,.4);
 }
+/* "+" (συμπλήρωση με περσινή σεζόν αν λείπουν ματς) + "i" (εξήγηση) δίπλα στο
+   L5/L10/L15/L20/L? — ζητήθηκε ρητά 2026-09-17. Ίδιο κυκλικό μέγεθος με το
+   .infoBtn, λίγο μεγαλύτερο για άνετο tap σε κινητό. */
+.lastFillWrap{display:inline-flex;align-items:center;gap:6px}
+.lastFillBtn,.lastFillInfoBtn{
+  display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;
+  background:var(--surface-3);border:1px solid var(--border);color:var(--text-dim);
+  font-size:13px;font-weight:700;cursor:pointer;flex:none;padding:0;
+}
+.lastFillBtn{font-family:inherit}
+.lastFillInfoBtn{font-size:11px;font-style:italic;font-family:Georgia,"Times New Roman",serif;cursor:help}
+.lastFillBtn:hover,.lastFillInfoBtn:hover{border-color:rgba(167,139,250,.6);color:rgba(167,139,250,.9)}
+.lastFillBtn.active{
+  border-color:rgba(167,139,250,.9);color:#fff;
+  background:linear-gradient(rgba(167,139,250,.22),rgba(167,139,250,.06)),var(--surface-2);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 10px rgba(167,139,250,.4);
+}
+.confirmTip{
+  position:absolute;z-index:200;background:var(--surface-3);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:10px 11px;font-size:12.5px;color:var(--text);box-shadow:var(--shadow);max-width:220px;
+}
+.confirmTipText{margin-bottom:9px;line-height:1.35}
+.confirmTipBtns{display:flex;gap:8px}
+.confirmTipBtns button{flex:1;padding:6px 0;border-radius:var(--radius-pill);border:1px solid var(--border);background:var(--surface-2);color:var(--text);font-size:11.5px;font-weight:700;cursor:pointer}
+.confirmTipBtns .ctYes{border-color:rgba(167,139,250,.9);color:rgba(167,139,250,.95)}
+.confirmTipBtns .ctYes:hover{background:rgba(167,139,250,.15)}
+.confirmTipBtns .ctNo:hover{background:var(--surface)}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .fchip{
   background:var(--surface-3);border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-pill);
@@ -2198,6 +2225,54 @@ function showInfoTip(anchorEl, text){
   autoTimer = setTimeout(cleanup, 5000);
 }
 
+// Ίδιο "μπαλόνι" με το showInfoTip, αλλά με ΝΑΙ/ΟΧΙ κουμπιά αντί για απλό
+// κείμενο που κλείνει μόνο του — χρησιμοποιείται από το "+" δίπλα στο L5-L20
+// (συμπλήρωση με περσινή σεζόν, ζητήθηκε ρητά 2026-09-17). ΔΕΝ κλείνει μόνο
+// του με χρονόμετρο (ο χρήστης χρειάζεται χρόνο να διαβάσει/αποφασίσει) —
+// κλείνει μόνο σε ΝΑΙ/ΟΧΙ ή κλικ έξω.
+function showConfirmTip(anchorEl, text, onYes){
+  var existing = document.querySelector(".confirmTip");
+  if(existing){ if(existing._cleanup) existing._cleanup(); else existing.remove(); }
+  var existingInfo = document.querySelector(".infoTip");
+  if(existingInfo){ if(existingInfo._cleanup) existingInfo._cleanup(); else existingInfo.remove(); }
+  var tip = document.createElement("div");
+  tip.className = "confirmTip";
+  tip.innerHTML = '<div class="confirmTipText"></div><div class="confirmTipBtns">'+
+    '<button type="button" class="ctYes">YES</button><button type="button" class="ctNo">NO</button></div>';
+  tip.querySelector(".confirmTipText").textContent = text;
+  tip._anchor = anchorEl;
+  document.body.appendChild(tip);
+  try{
+    var rect = anchorEl.getBoundingClientRect();
+    var top = rect.bottom + (window.scrollY||0) + 6;
+    var left = rect.left + (window.scrollX||0);
+    tip.style.top = top+"px";
+    tip.style.left = left+"px";
+    requestAnimationFrame(function(){
+      try{
+        var maxLeft = (window.scrollX||0) + document.documentElement.clientWidth - tip.offsetWidth - 8;
+        if(left > maxLeft) tip.style.left = Math.max(8, maxLeft)+"px";
+      }catch(e){}
+    });
+  }catch(e){}
+  function cleanup(){
+    if(tip.parentNode) tip.remove();
+    document.removeEventListener("click", dismiss);
+    document.removeEventListener("touchstart", dismiss);
+  }
+  tip._cleanup = cleanup;
+  function dismiss(ev){
+    if(ev.target===anchorEl || tip.contains(ev.target)) return;
+    cleanup();
+  }
+  setTimeout(function(){
+    document.addEventListener("click", dismiss);
+    document.addEventListener("touchstart", dismiss);
+  }, 0);
+  tip.querySelector(".ctYes").addEventListener("click", function(e){ e.stopPropagation(); cleanup(); onYes(); });
+  tip.querySelector(".ctNo").addEventListener("click", function(e){ e.stopPropagation(); cleanup(); });
+}
+
 /* ---------- πολλαπλής-επιλογής dropdowns: κατηγορία / λίγκα / ομάδα ----------
    Κοινό pattern και για τα τρία: ένα Set κρατάει τις επιλεγμένες τιμές (κενό
    Set = "όλες"), ένα .msMenu με .msRow ανά επιλογή (toggle on click, ΔΕΝ
@@ -3018,6 +3093,13 @@ function renderDrawer(r, headEl){
             [5,10,15,20].map(function(n){ return '<button data-n="'+n+'" class="'+(state.n===n&&!state.fullSeason&&!state.usingCustomN?"active":"")+'">L'+n+'</button>'; }).join("")+
           '</div>'+
           '<span class="lwrap"><input type="number" class="lninput'+(state.usingCustomN&&!state.fullSeason?" active":"")+'" min="3" max="60" placeholder="L?" value="'+(state.usingCustomN?state.n:"")+'"></span>'+
+          // "+" συμπληρώνει με περσινή σεζόν αν η τρέχουσα δεν φτάνει το
+          // επιλεγμένο LAST N (ισοδύναμο με "Όλη τη σεζόν"+"Περσινή σεζόν"
+          // μαζί) — και "i" εξηγεί τι κάνει. Ζητήθηκε ρητά 2026-09-17.
+          '<div class="lastFillWrap">'+
+            '<button type="button" class="lastFillBtn'+(state.fullSeason&&state.lastSeason?" active":"")+'" title="Συμπλήρωση με περσινή σεζόν">+</button>'+
+            '<button type="button" class="lastFillInfoBtn" title="Πληροφορίες">i</button>'+
+          '</div>'+
           '<div class="lineadj" id="lineAdj" title="Η γραμμή κινείται μόνο σε τιμές που υπάρχουν στο feed">'+
             '<button class="ladj" data-d="-1"'+(canGoDown?"":" disabled")+' title="Κατέβασε τη γραμμή">−</button>'+
             '<span class="lval">LINE <b>'+thr+'</b></span>'+
@@ -3148,6 +3230,31 @@ function renderDrawer(r, headEl){
       };
       lnInput.addEventListener("keydown", function(e){ if(e.key==="Enter"){ applyCustomN(); } });
       lnInput.addEventListener("change", applyCustomN);
+    }
+
+    // "+" συμπλήρωση με περσινή σεζόν: αν είναι ήδη ενεργό (πατήθηκε ΝΑΙ πριν),
+    // ένα ακόμα κλικ το απενεργοποιεί κατευθείαν (χωρίς δεύτερη ερώτηση — η
+    // "αφαίρεση" δεν χρειάζεται επιβεβαίωση, μόνο η "προσθήκη" περσινών
+    // αγώνων). Αλλιώς ρωτάει πρώτα. Ζητήθηκε ρητά 2026-09-17.
+    var lastFillBtn = block.querySelector(".lastFillBtn");
+    if(lastFillBtn){
+      lastFillBtn.addEventListener("click", function(e){
+        e.stopPropagation();
+        if(state.fullSeason && state.lastSeason){
+          state.fullSeason = false; state.lastSeason = false; state.selected = null; draw();
+          return;
+        }
+        showConfirmTip(lastFillBtn, "ADD LAST YEAR'S GAMES TO COMPLETE LAST N?", function(){
+          state.fullSeason = true; state.lastSeason = true; state.selected = null; draw();
+        });
+      });
+    }
+    var lastFillInfoBtn = block.querySelector(".lastFillInfoBtn");
+    if(lastFillInfoBtn){
+      lastFillInfoBtn.addEventListener("click", function(e){
+        e.stopPropagation();
+        showInfoTip(lastFillInfoBtn, "PRESS + BUTTON TO ADD GAMES FROM LAST SEASON TO COMPLETE THE DESIRED N GAMES");
+      });
     }
 
     // line +/- adjuster — μετακινεί το threshold ΜΟΝΟ σε γειτονικές τιμές που
