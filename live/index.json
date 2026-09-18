@@ -6,7 +6,7 @@
   "name": "Brentford FC - Chelsea FC",
   "startTime": 1789758000000,
   "dateStr": "2026-09-18",
-  "marketCount": 126,
+  "marketCount": 127,
   "file": "premier-league/2026-09-18_brentford-fc-chelsea-fc_92004640.json"
  },
  {
@@ -162,32 +162,52 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "88312294",
-  "name": "Real Betis Balompie - Getafe CF",
-  "startTime": 1789664400000,
-  "dateStr": "2026-09-17",
-  "marketCount": 111,
-  "file": "la-liga/2026-09-17_real-betis-balompie-getafe-cf_88312294.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "88312265",
-  "name": "Malaga CF - Villarreal CF",
-  "startTime": 1789673400000,
-  "dateStr": "2026-09-17",
-  "marketCount": 108,
-  "file": "la-liga/2026-09-17_malaga-cf-villarreal-cf_88312265.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "88312291",
   "name": "RCD Espanyol - Elche CF",
   "startTime": 1789758000000,
   "dateStr": "2026-09-18",
   "marketCount": 113,
   "file": "la-liga/2026-09-18_rcd-espanyol-elche-cf_88312291.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312339",
+  "name": "CA Osasuna - Rayo Vallecano",
+  "startTime": 1789819200000,
+  "dateStr": "2026-09-19",
+  "marketCount": 113,
+  "file": "la-liga/2026-09-19_ca-osasuna-rayo-vallecano_88312339.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312335",
+  "name": "Athletic Bilbao - Deportivo Alaves",
+  "startTime": 1789827300000,
+  "dateStr": "2026-09-19",
+  "marketCount": 113,
+  "file": "la-liga/2026-09-19_athletic-bilbao-deportivo-alaves_88312335.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312331",
+  "name": "RC Celta de Vigo - Racing Santander",
+  "startTime": 1789835400000,
+  "dateStr": "2026-09-19",
+  "marketCount": 113,
+  "file": "la-liga/2026-09-19_rc-celta-de-vigo-racing-santander_88312331.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "88312266",
+  "name": "Sevilla FC - FC Barcelona",
+  "startTime": 1789844400000,
+  "dateStr": "2026-09-19",
+  "marketCount": 106,
+  "file": "la-liga/2026-09-19_sevilla-fc-fc-barcelona_88312266.json"
  },
  {
   "league": "serie-a-italy",
@@ -236,7 +256,7 @@
   "name": "Venezia FC - SS Lazio",
   "startTime": 1789843500000,
   "dateStr": "2026-09-19",
-  "marketCount": 111,
+  "marketCount": 104,
   "file": "serie-a-italy/2026-09-19_venezia-fc-ss-lazio_91542717.json"
  },
  {
@@ -326,7 +346,7 @@
   "name": "Olympique Lyonnais - Stade Rennais FC",
   "startTime": 1789843500000,
   "dateStr": "2026-09-19",
-  "marketCount": 110,
+  "marketCount": 103,
   "file": "ligue-1/2026-09-19_olympique-lyonnais-stade-rennais-fc_92057131.json"
  },
  {
@@ -356,7 +376,7 @@
   "name": "Angers SCO - ES Troyes AC",
   "startTime": 1789843500000,
   "dateStr": "2026-09-19",
-  "marketCount": 110,
+  "marketCount": 103,
   "file": "ligue-1/2026-09-19_angers-sco-es-troyes-ac_92057418.json"
  },
  {
@@ -496,7 +516,7 @@
   "name": "Clube Atletico MG - Chapecoense SC",
   "startTime": 1789844400000,
   "dateStr": "2026-09-19",
-  "marketCount": 103,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-19_clube-atletico-mg-chapecoense-sc_92075504.json"
  },
  {
@@ -506,7 +526,7 @@
   "name": "Mirassol SP - Botafogo RJ",
   "startTime": 1789848000000,
   "dateStr": "2026-09-19",
-  "marketCount": 103,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-19_mirassol-sp-botafogo-rj_92075457.json"
  },
  {
@@ -516,7 +536,7 @@
   "name": "Remo PA - Santos SP",
   "startTime": 1789853400000,
   "dateStr": "2026-09-20",
-  "marketCount": 103,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-20_remo-pa-santos-sp_92075539.json"
  },
  {
@@ -526,7 +546,7 @@
   "name": "Vasco da Gama RJ - Coritiba PR",
   "startTime": 1789860600000,
   "dateStr": "2026-09-20",
-  "marketCount": 103,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-20_vasco-da-gama-rj-coritiba-pr_92075456.json"
  },
  {
@@ -536,7 +556,7 @@
   "name": "Sao Paulo SP - Internacional RS",
   "startTime": 1789862400000,
   "dateStr": "2026-09-20",
-  "marketCount": 103,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-20_sao-paulo-sp-internacional-rs_92075458.json"
  },
  {
@@ -546,7 +566,7 @@
   "name": "Gremio RS - Palmeiras SP",
   "startTime": 1789912800000,
   "dateStr": "2026-09-20",
-  "marketCount": 110,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-20_gremio-rs-palmeiras-sp_92075455.json"
  },
  {
@@ -556,7 +576,7 @@
   "name": "Corinthians SP - Fluminense RJ",
   "startTime": 1789930800000,
   "dateStr": "2026-09-20",
-  "marketCount": 110,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-20_corinthians-sp-fluminense-rj_92075533.json"
  },
  {
@@ -566,7 +586,7 @@
   "name": "Vitoria BA - Cruzeiro MG",
   "startTime": 1789930800000,
   "dateStr": "2026-09-20",
-  "marketCount": 110,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-09-20_vitoria-ba-cruzeiro-mg_92075538.json"
  }
 ]
