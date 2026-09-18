@@ -364,6 +364,17 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    τα υπόλοιπα pills — γι' αυτό εδώ βγαίνει ΕΝΤΕΛΩΣ έξω από το grid (display:none)
    όποτε είναι άδειο, ώστε το st-noopp/st-noprice layout να μένει ΑΚΡΙΒΩΣ όπως πριν. */
 .oppPillsrow:empty{display:none}
+/* Ετικέτα ομάδας ΑΡΙΣΤΕΡΑ από τους κύκλους L5-L20 (ένα .pillsLabel μέσα σε
+   ΚΑΘΕ .pillsrow/.oppPillsrow, ζητήθηκε ρητά 2026-09-19) — έμβλημα + όνομα +
+   (Η)/(Α) ανάλογα με ποια έδρα παίζει η ΣΥΓΚΕΚΡΙΜΕΝΗ ομάδα σε ΑΥΤΟΝ τον αγώνα
+   (βλ. pillsLabelHtml). Λείπει εντελώς (καμία ετικέτα) σε isTotal στοιχήματα,
+   όπου δεν υπάρχει μία ενιαία "δική μας"/"αντίπαλος" ταυτότητα ομάδας. Το
+   όνομα κόβεται με ellipsis σε σταθερό μέγιστο πλάτος ώστε ΠΟΤΕ να μη
+   σπρώχνει τους κύκλους/σπάει τη σειρά σε μακριά ονόματα (π.χ. "Παναθηναϊκός"). */
+.pillsLabel{display:flex;align-items:center;gap:5px;margin-right:8px;flex:none;max-width:104px}
+.pillsLabel .avatar{width:20px;height:20px;margin-right:0;font-size:8px;flex:none;vertical-align:middle}
+.pillsLabel .plName{font-size:11px;font-weight:700;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:64px}
+.pillsLabel .plVenue{font-size:10px;font-weight:600;color:var(--text-faint);flex:none}
 /* Λογική χρωματισμού pills όπως στο PropDunker: απαλό κάθετο gradient tint
    (από πάνω προς τα κάτω, σβήνοντας) + λεπτό έγχρωμο περίγραμμα, ΟΧΙ γεμάτο
    χρώμα — και τα γράμματα/αριθμοί μέσα πάντα ΛΕΥΚΑ (όχι βαμμένο κείμενο). */
@@ -458,9 +469,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    label/value (π.χ. "Opp Exp Value"/"-199.9%", "OPP ALLOWS"/"123.45") και
    δόθηκε extra περιθώριο ώστε να χωράνε άνετα χωρίς overflow. */
 @media(min-width:601px){
-  .metrics.st-full{grid-template-columns:184px 68px 80px 100px 88px;grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
-  .metrics.st-noopp{grid-template-columns:184px 68px 80px 100px 88px;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
-  .metrics.st-noprice{grid-template-columns:184px 68px 88px;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
+  /* 184px -> 300px στη στήλη circles/oppcircles: χώρος για το καινούργιο
+     .pillsLabel (έμβλημα+όνομα+Η/Α) ΑΡΙΣΤΕΡΑ από τους 4 κύκλους (40px*4 +
+     3*6px gap = 178px) μέσα στην ΙΔΙΑ στήλη, χωρίς να ξεχειλίζει στη διπλανή
+     στήλη (fair) — ζητήθηκε ρητά 2026-09-19. */
+  .metrics.st-full{grid-template-columns:300px 68px 80px 100px 88px;grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
+  .metrics.st-noopp{grid-template-columns:300px 68px 80px 100px 88px;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
+  .metrics.st-noprice{grid-template-columns:300px 68px 88px;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
 }
 /* Κινητό: ΙΔΙΑ διάταξη δύο σειρών με το pc (πάνω = αντίπαλος, κάτω = ομάδα
    του προπ, κάθε OPP-pill πάνω από το αντίστοιχό του) — αναγκαστικά μικρότερα
@@ -2214,7 +2229,18 @@ function oppStatAvg(r, opts){
   if(r.isTotal || !r.opponent) return null;
   var label = OPP_LABEL[r.category];
   if(!label) return null;
-  var res = evaluate(r.opponent, r.league, r.category, "against", r.threshold, r.side, opts||{});
+  opts = opts || {};
+  // ΠΡΟΣΟΧΗ: threshold/side μπορούν να έρθουν ΡΗΤΑ μέσα στο opts (βλ. drawer:
+  // updateHeader/computeOppForWindowN, όπου η REVERSED LINE/LINE +/- πρέπει να
+  // επηρεάζει ΚΑΙ τα OPP pills, όχι μόνο τα δικά της της ομάδας) — αλλιώς πέφτει
+  // στο "εκ φύσεως" r.threshold/r.side, ΑΚΡΙΒΩΣ όπως πριν (κάρτα εκτός drawer,
+  // όπου δεν υπάρχει reversed-line κατάσταση). Πριν το OPP ALLOWS/WINS/MAKES,
+  // τα OPP FAIR/EDGE/EXP VALUE και οι κύκλοι L5-L20 του αντιπάλου έμεναν ΠΑΝΤΑ
+  // κολλημένα στην αρχική γραμμή/πλευρά ακόμα κι όταν πατιόταν REVERSED LINE ή
+  // μετακινούνταν η γραμμή +/- μέσα στο drawer (αναφέρθηκε ρητά).
+  var thr = (opts.threshold!=null) ? opts.threshold : r.threshold;
+  var side = opts.side || r.side;
+  var res = evaluate(r.opponent, r.league, r.category, "against", thr, side, opts);
   // ΠΡΟΣΟΧΗ: μαζί με avg/sample γυρνάμε ΚΑΙ hitRate/fairOdds/hits (ό,τι έχει
   // ήδη το evaluate()) — χρειάζονται για τα καινούργια OPP FAIR/OPP EDGE/
   // OPP EXP VALUE pills της κεφαλίδας (ζητήθηκε ρητά 2026-09-17: πλήρες σετ
@@ -2243,6 +2269,28 @@ function ownVenueInMatch(r){
   // μη συγκρίνεις r.team με r.matchHome/matchAway (διαφορετικές γλώσσες/πηγές
   // ονομάτων, δεν ταιριάζουν ποτέ ως string).
   return r.ownVenue || null;
+}
+// Ετικέτα (έμβλημα+όνομα+Η/Α) ΑΡΙΣΤΕΡΑ από τους κύκλους L5-L20, μία για τη
+// δική μας σειρά (.pillsrow) και μία για του αντιπάλου (.oppPillsrow) — ζητήθηκε
+// ρητά 2026-09-19: "να ξέρω με μία ματιά ποια ομάδα αφορά η κάθε σειρά pills,
+// και αν παίζει εντός/εκτός σε ΑΥΤΟΝ τον αγώνα, χωρίς να ψάχνω στα FAIR/OPP
+// FAIR labels". isOpp=false -> r.team (δική μας), isOpp=true -> r.opponent.
+// Καμία ετικέτα σε isTotal (δεν υπάρχει μία ενιαία ταυτότητα ομάδας) ή αν
+// λείπει το αντίστοιχο όνομα — ΙΔΙΟ guard με το idHtml/oppStatAvg.
+function pillsLabelHtml(r, isOpp){
+  if(r.isTotal) return "";
+  var team = isOpp ? r.opponent : r.team;
+  if(!team) return "";
+  var ownVenue = ownVenueInMatch(r); // "home"|"away"|null, πάντα η έδρα ΤΗΣ r.team
+  var teamVenue = isOpp ? (ownVenue==="home" ? "away" : (ownVenue==="away" ? "home" : null)) : ownVenue;
+  // Λατινικά H/A (ΟΧΙ ελληνικά Η/Α, οπτικά όμοια αλλά ασυνεπή σε copy/search) —
+  // ίδια σύμβαση με το υπόλοιπο Αγγλικό λεξιλόγιο του UI (L5-L20, TABLE,
+  // HOME/AWAY SPLIT, REVERSED LINE) — έτσι ζητήθηκε ρητά ("(H) ή (A)").
+  var venueChar = teamVenue==="home" ? "H" : (teamVenue==="away" ? "A" : null);
+  return '<div class="pillsLabel">'+avatarHtml(team, r.league)+
+    '<span class="plName" title="'+escAttr(team)+'">'+escAttr(team)+'</span>'+
+    (venueChar ? '<span class="plVenue">('+venueChar+')</span>' : "")+
+  '</div>';
 }
 // Επαναφέρει τα ΤΟΠΙΚΑ φίλτρα ενός drawer (αυτόματη έδρα HOME/AWAY SPLIT +
 // "+" συμπλήρωση περσινής σεζόν) στην ΤΡΕΧΟΥΣΑ κατάσταση των ΓΕΝΙΚΩΝ
@@ -2806,6 +2854,7 @@ function cardPillsAndStats(r){
     var p = Math.round(wr.hitRate*100);
     return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
   }).join("");
+  pillsHtml = pillsLabelHtml(r, false) + pillsHtml;
 
   var hasPrice = !!r.price;
   var oppInfo = hasPrice ? r._oppInfo : null;
@@ -2835,6 +2884,7 @@ function cardPillsAndStats(r){
       var p = Math.round(wr.hitRate*100);
       return '<div class="hp '+hpTier(p)+(n===activeWindow?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
     }).join("");
+    oppPillsHtml = pillsLabelHtml(r, true) + oppPillsHtml;
   }
   var sb = statsBlockHtml({fairOdds:r._res.fairOdds, hasPrice:hasPrice, edge:edge, ev:ev, avgSample:r._res.sample, avgVal:r._res.avg,
     oppInfo:oppInfo, oppState:"off", oppFairOdds:oppInfo?oppInfo.fairOdds:null, oppEdge:hasPrice?r._oppEdge:null, oppEv:hasPrice?r._oppEv:null});
@@ -3119,7 +3169,10 @@ function renderDrawer(r, headEl){
     // λογική με το ήδη σωστό swap-branch του computeFor — αναφέρθηκε ρητά
     // 2026-09-17.
     var oppH2h = state.h2h ? (r.isTotal ? true : r.team) : null;
-    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason, lastSeason:state.lastSeason, venue:oppVenue, result:state.result, outlierTrim:state.outlierTrim, h2h:oppH2h}) : null;
+    // threshold/side ΡΗΤΑ εδώ (effThreshold()/effSide(), ίδια με τον υπολογισμό
+    // της ίδιας ομάδας πιο πάνω) — αλλιώς το OPP ALLOWS/FAIR/EDGE/EXP VALUE
+    // αγνοούσε το REVERSED LINE/LINE +/- (ζητήθηκε ρητά, bug 2026-09-19).
+    var oppInfo = hasPrice ? oppStatAvg(r, {n:state.n, fullSeason:state.fullSeason, lastSeason:state.lastSeason, venue:oppVenue, result:state.result, outlierTrim:state.outlierTrim, h2h:oppH2h, threshold:thr, side:effSide()}) : null;
     var edge = hasPrice ? (res.hitRate - impliedProb(price)) * 100 : null;
     var ev = hasPrice ? (res.hitRate*price - 1) * 100 : null;
     // OPP FAIR/OPP EDGE/OPP EXP VALUE μέσα στο drawer — ΑΚΡΙΒΩΣ ίδιοι τύποι με
@@ -3144,6 +3197,7 @@ function renderDrawer(r, headEl){
         var isActive = !state.fullSeason && !state.lastSeason && !state.usingCustomN && n===state.n;
         return '<div class="hp '+hpTier(p)+(isActive?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
       }).join("");
+      pillsRowEl.innerHTML = pillsLabelHtml(r, false) + pillsRowEl.innerHTML;
     }
     // Ίδιο, για τους κύκλους L5-L20 ΤΟΥ ΑΝΤΙΠΑΛΟΥ (πάνω σειρά) — βλ.
     // computeOppForWindowN. Άδειο (καμία αλλαγή στο ήδη άδειο container) αν
@@ -3156,6 +3210,7 @@ function renderDrawer(r, headEl){
         var isActive = !state.fullSeason && !state.lastSeason && !state.usingCustomN && n===state.n;
         return '<div class="hp '+hpTier(p)+(isActive?" active":"")+'"><div class="pct">'+fmtPct(wr.hitRate)+'</div><div class="lbl">L'+n+'</div></div>';
       }).join("") : "";
+      if(oppInfo) oppPillsRowEl.innerHTML = pillsLabelHtml(r, true) + oppPillsRowEl.innerHTML;
     }
     // Το κλικ πάνω στο OPP pill έχει 3 διαφορετικά αποτελέσματα ανάλογα με την
     // τρέχουσα κατάσταση — ΑΚΡΙΒΩΣ στο σημείο που πατάει συχνά ο χρήστης για να
@@ -3255,8 +3310,12 @@ function renderDrawer(r, headEl){
   function computeOppForWindowN(n){
     var oppVenue = state.venue==="home" ? "away" : state.venue==="away" ? "home" : "any";
     var oppH2h = state.h2h ? (r.isTotal ? true : r.team) : null;
+    // ΙΔΙΟ effThreshold()/effSide() με το computeForWindowN (ίδια γραμμή, όχι
+    // ανά-n) — αλλιώς οι κύκλοι L5-L20 ΤΟΥ ΑΝΤΙΠΑΛΟΥ έμεναν κολλημένοι στην
+    // αρχική πλευρά ενώ της ομάδας άλλαζαν κανονικά με REVERSED LINE.
     var opts = { n:n, venue: oppVenue, result: state.result, outlierTrim: state.outlierTrim,
-                 fullSeason: state.fullSeason, lastSeason: state.lastSeason, h2h: oppH2h };
+                 fullSeason: state.fullSeason, lastSeason: state.lastSeason, h2h: oppH2h,
+                 threshold: effThreshold(), side: effSide() };
     return oppStatAvg(r, opts);
   }
 
@@ -3486,11 +3545,17 @@ function renderDrawer(r, headEl){
         return '<button type="button" class="tvbtn'+(state.tableVenue===v?" active":"")+'" data-v="'+v+'">'+lbl+'</button>';
       }).join("");
       var tfBtnsHtml = [5,10,15,20].map(function(n){
-        return '<button type="button" class="tfbtn'+(state.tableFormN===n&&!state.tableFormCustom?" active":"")+'" data-n="'+n+'">'+n+'</button>';
+        return '<button type="button" class="tfbtn'+(state.tableFormN===n&&!state.tableFormCustom&&!state.fullSeason?" active":"")+'" data-n="'+n+'">'+n+'</button>';
       }).join("");
       // Η επιλογή ΦΟΡΜΑ (5/10/15/20/?) καθορίζει ΤΩΡΑ ολόκληρη τη βαθμολογία
       // (όχι μόνο τη στήλη ΦΟΡΜΑ) — βλ. buildStandingsRows(formN). Custom "?"
       // πλήθος αγώνων, ίδιο pattern με το L? του γραφήματος πιο πάνω.
+      // "Όλη τη σεζόν" (το ΙΔΙΟ chip κάτω στο drawerFilters, ζητήθηκε ρητά να
+      // δουλεύει ΚΑΙ μέσα στη βαθμολογία, bug 2026-09-19): formN=0 σημαίνει
+      // "όλα τα ματς της σεζόν, χωρίς κόψιμο στα τελευταία Ν" — βλ.
+      // buildStandingsRows (if(formN){...slice...}), ήδη υποστηριζόταν εκεί,
+      // απλά δεν περνούσε ποτέ 0/falsy από εδώ.
+      var tableFormNEff = state.fullSeason ? 0 : state.tableFormN;
       tableSectionHtml =
         '<div class="standingsBlock">'+
           '<div class="tcatRow">'+catBtnsHtml+'</div>'+
@@ -3498,9 +3563,9 @@ function renderDrawer(r, headEl){
             '<div class="seg small tvSeg">'+tvBtnsHtml+'</div>'+
             '<span class="tfLabel">ΦΟΡΜΑ ΤΕΛ.</span>'+
             '<div class="seg small tfSeg">'+tfBtnsHtml+'</div>'+
-            '<span class="lwrap"><input type="number" class="tfninput'+(state.tableFormCustom?" active":"")+'" min="3" max="60" placeholder="?" value="'+(state.tableFormCustom?state.tableFormN:"")+'"></span>'+
+            '<span class="lwrap"><input type="number" class="tfninput'+(state.tableFormCustom&&!state.fullSeason?" active":"")+'" min="3" max="60" placeholder="?" value="'+(state.tableFormCustom?state.tableFormN:"")+'"></span>'+
           '</div>'+
-          standingsTableHtml(r.league, tableCat, hlTeams, state.tableVenue, state.tableFormN, state.tableExpandedTeam, state.tableSortBy)+
+          standingsTableHtml(r.league, tableCat, hlTeams, state.tableVenue, tableFormNEff, state.tableExpandedTeam, state.tableSortBy)+
         '</div>';
     }
 
@@ -3624,6 +3689,7 @@ function renderDrawer(r, headEl){
         if(!btn) return;
         state.tableFormN = parseInt(btn.getAttribute("data-n"),10);
         state.tableFormCustom = false;
+        state.fullSeason = false; // επιλογή συγκεκριμένου Ν βγάζει από "Όλη τη σεζόν"
         draw();
       });
     }
@@ -3635,7 +3701,7 @@ function renderDrawer(r, headEl){
       function applyTableCustomN(){
         var val = parseInt(tfnInput.value, 10);
         if(!val || val<3) return;
-        state.tableFormCustom = true; state.tableFormN = val; draw();
+        state.tableFormCustom = true; state.tableFormN = val; state.fullSeason = false; draw();
       }
       tfnInput.addEventListener("keydown", function(e){ e.stopPropagation(); if(e.key==="Enter"){ applyTableCustomN(); } });
       tfnInput.addEventListener("change", applyTableCustomN);
