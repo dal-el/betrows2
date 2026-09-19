@@ -371,9 +371,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    όπου δεν υπάρχει μία ενιαία "δική μας"/"αντίπαλος" ταυτότητα ομάδας. Το
    όνομα κόβεται με ellipsis σε σταθερό μέγιστο πλάτος ώστε ΠΟΤΕ να μη
    σπρώχνει τους κύκλους/σπάει τη σειρά σε μακριά ονόματα (π.χ. "Παναθηναϊκός"). */
-.pillsLabel{display:flex;align-items:center;gap:5px;margin-right:8px;flex:none;max-width:104px}
+.pillsLabel{display:flex;align-items:center;gap:5px;margin-right:8px;flex:none;width:114px;box-sizing:border-box}
 .pillsLabel .avatar{width:20px;height:20px;margin-right:0;font-size:8px;flex:none;vertical-align:middle}
-.pillsLabel .plName{font-size:11px;font-weight:700;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:64px}
+.pillsLabel .plName{font-size:11px;font-weight:700;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1 1 auto;min-width:0}
 .pillsLabel .plVenue{font-size:10px;font-weight:600;color:var(--text-faint);flex:none}
 /* Λογική χρωματισμού pills όπως στο PropDunker: απαλό κάθετο gradient tint
    (από πάνω προς τα κάτω, σβήνοντας) + λεπτό έγχρωμο περίγραμμα, ΟΧΙ γεμάτο
@@ -473,9 +473,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
      .pillsLabel (έμβλημα+όνομα+Η/Α) ΑΡΙΣΤΕΡΑ από τους 4 κύκλους (40px*4 +
      3*6px gap = 178px) μέσα στην ΙΔΙΑ στήλη, χωρίς να ξεχειλίζει στη διπλανή
      στήλη (fair) — ζητήθηκε ρητά 2026-09-19. */
-  .metrics.st-full{grid-template-columns:300px 68px 80px 100px 88px;grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
-  .metrics.st-noopp{grid-template-columns:300px 68px 80px 100px 88px;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
-  .metrics.st-noprice{grid-template-columns:300px 68px 88px;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
+  .metrics.st-full{grid-template-columns:310px 68px 80px 100px 88px;grid-template-rows:auto auto;grid-template-areas:"oppcircles oppfair oppedge oppexp opp" "circles fair edge exp avg"}
+  .metrics.st-noopp{grid-template-columns:310px 68px 80px 100px 88px;grid-template-rows:auto;grid-template-areas:"circles fair edge exp avg"}
+  .metrics.st-noprice{grid-template-columns:310px 68px 88px;grid-template-rows:auto;grid-template-areas:"circles fair avg"}
 }
 /* Κινητό: ΙΔΙΑ διάταξη δύο σειρών με το pc (πάνω = αντίπαλος, κάτω = ομάδα
    του προπ, κάθε OPP-pill πάνω από το αντίστοιχό του) — αναγκαστικά μικρότερα
