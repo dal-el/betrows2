@@ -975,6 +975,7 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
         <option value="ev">Ταξινόμηση: Exp Value</option>
         <option value="avgvsopp">Ταξινόμηση: Average vs Opponent</option>
         <option value="beststreak">Ταξινόμηση: Καλύτερα Streaks</option>
+        <option value="green">Ταξινόμηση: GREEN</option>
       </select>
       <div class="windowSegRow" id="windowSegRow">
         <div class="seg" id="windowSeg">
@@ -2785,7 +2786,32 @@ function renderToolbarAndRows(){
   // από το μεγαλύτερο ποσοστό επίτευξης προς το μικρότερο.
   if(sortMode==="beststreak") list = list.filter(function(r){ return !!r._bestStreak; });
 
+  // "GREEN" (ζητήθηκε ρητά 2026-09-20): πάνω-πάνω οι γραμμές όπου ΚΑΙ ΟΙ ΔΥΟ
+  // σειρές κύκλων (η ομάδα του προπ + ο αντίπαλος) είναι πράσινες (tier-hi,
+  // >=70%) στο ΕΝΕΡΓΟ LAST N (L5/L10/L15/L20). Μέσα σε κάθε ομάδα ταξινόμηση
+  // κατά ΑΘΡΟΙΣΜΑ των δύο ποσοστών, από το μεγαλύτερο προς το μικρότερο. Το
+  // ποσοστό στρογγυλεύεται ΟΠΩΣ ΑΚΡΙΒΩΣ στους κύκλους (Math.round(hitRate*100))
+  // ώστε ό,τι φαίνεται πράσινο στην οθόνη να μετράει ως πράσινο εδώ. Γραμμές
+  // χωρίς αντίπαλο (σύνολο αγώνα/ζευγάρια) έχουν ΜΙΑ μόνο σειρά κύκλων: αν
+  // είναι πράσινη (>=70%) μπαίνουν στις πράσινες με άθροισμα ×2 (ίδια κλίμακα
+  // 0-200), αλλιώς πάνε στο τέλος. Δεν φιλτράρει τίποτα — απλά ταξινομεί.
+  function greenInfo(r){
+    var own = Math.round(r._res.hitRate*100);
+    var hasOpp = !!(r._oppInfo && r._oppInfo.sample>0);
+    var opp = hasOpp ? Math.round(r._oppInfo.hitRate*100) : null;
+    var bothGreen = hasOpp ? (own>=70 && opp>=70) : (r.isTotal && own>=70);
+    // tier 0: πράσινες | tier 1: έχουν και τις δύο σειρές κύκλων αλλά όχι και οι δύο πράσινες |
+    // tier 2: μία μόνο σειρά κύκλων (χωρίς αντίπαλο) και όχι πράσινες
+    return {tier: bothGreen ? 0 : (hasOpp ? 1 : 2), sum: hasOpp ? own+opp : own*2};
+  }
+
   list.sort(function(a,b){
+    if(sortMode==="green"){
+      var ga = greenInfo(a), gb = greenInfo(b);
+      if(ga.tier!==gb.tier) return ga.tier - gb.tier;
+      if(gb.sum!==ga.sum) return gb.sum - ga.sum;
+      return (b._edge==null?-999:b._edge) - (a._edge==null?-999:a._edge);
+    }
     if(sortMode==="edge") return (b._edge==null?-999:b._edge) - (a._edge==null?-999:a._edge);
     if(sortMode==="ev") return (b._ev==null?-999:b._ev) - (a._ev==null?-999:a._ev);
     if(sortMode==="avgvsopp"){
