@@ -338,6 +338,20 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .side-tag.under{background:var(--rose-soft);color:var(--rose);box-shadow:var(--glow-neg)}
 .price-chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--text-dim);background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);padding:3px 9px}
 .src-tag{font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px}
+/* Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την προηγούμενη ανανέωση των
+   lines (βλ. lineMoveChipHtml). Δίπλα-δεξιά από το pill "Stoiximan". */
+.lmWrap{display:inline-flex}
+.lmChip{display:inline-flex;align-items:center;gap:5px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;background:var(--surface-2);cursor:help}
+.lmChip .lmOld{color:var(--text-faint);text-decoration:line-through}
+.lmChip b{font-weight:800;color:var(--text)}
+.lmChip .lmArrow{font-size:10px;line-height:1}
+.lmChip.up{border-color:rgba(18,230,173,.45)}
+.lmChip.up .lmArrow{color:var(--accent)}
+.lmChip.down{border-color:rgba(255,111,149,.45)}
+.lmChip.down .lmArrow{color:var(--rose)}
+.lmChip.flat{border-color:rgba(255,200,97,.45)}
+.lmChip.flat .lmArrow{color:var(--gold);font-weight:800}
 .warn-tag{font-size:9.5px;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold);text-transform:none;letter-spacing:0;border-radius:var(--radius-pill);padding:2px 8px;cursor:help}
 
 /* .metrics: ενιαίο CSS grid που περιέχει ΚΑΙ τους κύκλους L5-L20 (.pillsrow,
@@ -857,6 +871,226 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .pill .v{font-size:13px}
 }
 @media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{gap:7px} .chev{display:none} .saveBtn{top:14px;bottom:auto} .streakBtn{top:56px;bottom:auto;transform:none} .streakBtn:hover{transform:scale(1.1)} }
+
+/* ---------- BET BUILDER (BB) — ζητήθηκε ρητά 2026-09-20 ----------
+   Κουμπί "BB" ΠΑΝΩ-ΔΕΞΙΑ στο betrow, στην ΙΔΙΑ κάθετη ευθεία (right:10px) με τη
+   φωτιά (.streakBtn) και το "+" (.saveBtn). PC: κορυφή (top:8px), φωτιά στη μέση,
+   "+" κάτω. Κινητό/portrait: ΣΤΑΘΕΡΗ θέση κάτω από τη φωτιά (top:98px) — ίδιος
+   κανόνας "μόνιμης καρφωμένης θέσης" με τα υπόλοιπα, ώστε να υπάρχει στοίχιση
+   ανεξάρτητα από το αν η κάρτα έχει streak ή όχι. */
+.bbBtn{
+  position:absolute;right:10px;top:8px;
+  width:26px;height:26px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);border:1px solid rgba(18,230,173,.55);color:var(--accent);
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:800;letter-spacing:-.02em;line-height:1;cursor:pointer;padding:0;
+  transition:background .15s ease,box-shadow .15s ease,color .15s ease,transform .15s ease;z-index:2;
+}
+.bbBtn:hover{box-shadow:var(--glow-accent);transform:scale(1.1)}
+.bbBtn.active{background:var(--accent);color:#04231d;box-shadow:var(--glow-accent)}
+@media(max-width:600px){ .bbBtn{top:98px} }
+@media(max-width:600px){ .bbTop .bbTitle{order:3;flex:1 0 100%} }
+
+.bbWrap{display:flex;flex-direction:column;gap:12px}
+.bbTop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bbBackBtn{
+  background:var(--surface-3);border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-pill);
+  padding:6px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:"IBM Plex Mono",monospace;
+}
+.bbBackBtn:hover{border-color:var(--accent);color:var(--accent)}
+.bbBackBtn:disabled{opacity:.35;cursor:default}
+.bbBackBtn:disabled:hover{border-color:var(--border);color:var(--text-dim)}
+.bbTitle{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;min-width:0;flex:1}
+.bbTitle .bbTeam{display:inline-flex;align-items:center;gap:7px;text-transform:none;letter-spacing:0;color:var(--text);font-weight:600;min-width:0}
+.bbTitle .bbTeam .avatar{width:22px;height:22px;font-size:9px;margin-right:0}
+.bbTitle .bbVs{color:var(--text-faint);font-weight:500;text-transform:none;letter-spacing:0;font-size:12px}
+.bbTitle .bbTag{color:var(--accent)}
+.bbCtrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bbCtrl .seg.small{margin-bottom:0}
+.bbNote{font-size:11px;color:var(--text-faint);line-height:1.45}
+.bbEmpty{padding:26px 14px;text-align:center;color:var(--text-faint);font-size:13px;border:1px dashed var(--border);border-radius:var(--radius-md)}
+
+.bbCombos{display:flex;flex-direction:column;gap:8px}
+.bbCombo{
+  text-align:left;cursor:pointer;border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;
+  background:linear-gradient(rgba(18,230,173,.06),rgba(18,230,173,0)),var(--surface);color:var(--text);
+  display:flex;flex-direction:column;gap:8px;font-family:inherit;width:100%;
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+.bbCombo:hover{border-color:var(--accent);box-shadow:var(--glow-accent)}
+.bbComboHead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bbKind{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border-radius:6px;border:1px solid;font-family:"IBM Plex Mono",monospace}
+.bbKind.duo{color:#7dd3fc;border-color:rgba(125,211,252,.4);background:rgba(125,211,252,.1)}
+.bbKind.trio{color:#c4b5fd;border-color:rgba(196,181,253,.4);background:rgba(196,181,253,.1)}
+.bbKind.ext{color:var(--accent);border-color:rgba(18,230,173,.4);background:var(--accent-soft)}
+.bbPct{font-family:"IBM Plex Mono",monospace;font-weight:800;font-size:13px}
+.bbPct.hi{color:var(--accent)} .bbPct.mid{color:var(--gold)} .bbPct.lo{color:var(--rose)}
+.bbHits{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim)}
+.bbComboMeta{margin-left:auto;display:flex;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim);flex-wrap:wrap}
+.bbComboMeta b{color:var(--text)}
+/* Ένδειξη διόρθωσης συσχέτισης δίπλα στο EST ODDS (βλ. bbEstOdds): πόσο % πάνω/κάτω
+   πήγε η τιμή σε σχέση με το σκέτο γινόμενο των legs. */
+/* --- Φίλτρο BETBUILDER στο toolbar (στη θέση του παλιού Ομάδες/Ζευγάρια/Όλα) --- */
+.bbFilterMenu{min-width:250px;background:#111627}  /* αδιαφανές: το μενού πέφτει πάνω σε κάρτες */
+.bbMenuHead{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:800;letter-spacing:.18em;
+  color:var(--text-faint);text-transform:uppercase;padding:6px 10px 4px}
+.bbLegsSeg{margin:0 6px 6px}
+.bbLegsSeg button{flex:1}
+.bbGoRow{border-top:1px solid var(--border);margin-top:4px;padding-top:9px;color:var(--accent);font-weight:700}
+/* --- BETBUILDERS PAGE --- */
+body.bbPageOn .toolbar,
+body.bbPageOn #rowsList,
+body.bbPageOn #skipNote,
+body.bbPageOn .foot,
+body.bbPageOn #liveRow,
+body.bbPageOn .unresolved{display:none !important}
+.bbPage{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+.bbPageHead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface-2);
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px;box-shadow:var(--shadow)}
+.bbPageTitle{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin-right:auto}
+.bbPageSub{font-size:11px;color:var(--text-faint);letter-spacing:0;text-transform:none;font-weight:500;display:block}
+.bbPageCtrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bbPageCtrl .segLbl{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--text-faint)}
+.bbTeamCard{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.bbTeamCard.open{border-color:rgba(18,230,173,.45)}
+.bbTeamHead{display:flex;align-items:center;gap:10px;padding:11px 13px;cursor:pointer}
+.bbTeamHead:hover{background:var(--surface-3)}
+.bbTeamName{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;min-width:0;flex:0 1 auto}
+.bbTeamName .bbTn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bbTeamName .avatar{width:24px;height:24px;font-size:9.5px;margin-right:0}
+.bbTeamVs{color:var(--text-faint);font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}
+.bbTeamMeta{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim);flex:none}
+.bbTeamBest{padding:3px 8px;border-radius:var(--radius-pill);font-weight:800}
+.bbTeamBest.tier-hi{background:var(--accent-soft);color:var(--accent)}
+.bbTeamBest.tier-mid{background:var(--gold-soft);color:var(--gold)}
+.bbTeamBest.tier-lo{background:var(--rose-soft);color:var(--rose)}
+.bbTeamBest.tier-none{background:var(--surface-3);color:var(--text-faint)}
+.bbTeamChev{color:var(--text-faint);transition:transform .15s}
+.bbTeamCard.open .bbTeamChev{transform:rotate(180deg)}
+.bbTeamBody{padding:0 13px 13px;border-top:1px solid var(--border)}
+.bbTeamBody .bbCombos{margin-top:11px}
+.bbPageEmpty{padding:24px;text-align:center;color:var(--text-faint);font-size:13px}
+@media(max-width:600px){
+  .bbTeamMeta{font-size:10px;gap:6px}
+  .bbTeamName{font-size:13px;flex:0 0 auto}  /* το όνομα της ομάδας δεν κόβεται ποτέ */
+  .bbTeamMeta .bbTime{display:none}          /* η ώρα φεύγει πρώτη στο στενό πλάτος */
+  .bbPageHead{padding:9px 10px;gap:8px}
+}
+.bbCorr{margin-left:4px;padding:1px 4px;border-radius:5px;font-size:9px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
+.bbCorr.down{background:var(--accent-soft);color:var(--accent)}
+.bbCorr.up{background:var(--rose-soft);color:var(--rose)}
+.bbLegs{display:flex;flex-wrap:wrap;gap:6px}
+.bbLeg{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:8px;border:1px solid;font-size:11px;font-weight:600}
+.bbLeg b{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em}
+.bbLeg i{font-style:normal;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);font-weight:500}
+.bbLeg.over{background:rgba(18,230,173,.09);border-color:rgba(18,230,173,.3);color:#c9fff0}
+.bbLeg.over b{color:var(--accent)}
+.bbLeg.under{background:rgba(255,111,149,.09);border-color:rgba(255,111,149,.3);color:#ffd6e1}
+.bbLeg.under b{color:var(--rose)}
+
+.bbGrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start}
+@media(max-width:700px){ .bbGrid{grid-template-columns:minmax(0,1fr)} .bbSlip{order:-1} }
+.bbMain{display:flex;flex-direction:column;gap:10px;min-width:0}
+.bbOpps{border:1px solid var(--border);border-radius:var(--radius-md);padding:8px 10px;background:var(--surface)}
+.bbOppsHead{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;font-family:"IBM Plex Mono",monospace}
+.bbOppsRow{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.bbOpp{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;cursor:pointer;border-radius:8px;padding:2px}
+.bbOpp:hover{background:var(--surface-3)}
+.bbAllStrip .bbSq{cursor:pointer}
+/* Μπαλόνι "λεπτομέρειες συνδυασμού" (κλικ σε τουλίπα αντιπάλου / all-hit τετράγωνο) */
+.comboTip{position:fixed;z-index:250;width:min(270px, calc(100vw - 24px));border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);background:#0e1322;box-shadow:0 4px 24px rgba(0,0,0,.55);padding:10px 12px}
+.comboTip .ctHead{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.comboTip .ctWhere{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-dim);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.comboTip .ctVerdict{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:800;letter-spacing:.08em;
+  padding:2px 7px;border-radius:var(--radius-pill);flex:none}
+.comboTip .ctVerdict.hit{background:var(--gold-soft);color:var(--gold)}
+.comboTip .ctVerdict.miss{background:var(--rose-soft);color:var(--rose)}
+.comboTip .ctScore{font-size:11px;color:var(--text-faint);margin-bottom:8px;line-height:1.35}
+.comboTip .ctScore b{color:var(--text)}
+.comboTip .ctLegs{display:flex;flex-direction:column;gap:4px}
+.comboTip .ctLeg{display:flex;align-items:center;gap:7px;font-size:11.5px;background:rgba(255,255,255,.04);
+  border-radius:8px;padding:5px 8px}
+.comboTip .ctLeg .ctMark{flex:none;width:16px;height:16px;border-radius:5px;font-size:10px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+.comboTip .ctLeg.ok .ctMark{background:var(--accent-soft);color:var(--accent)}
+.comboTip .ctLeg.no .ctMark{background:var(--rose-soft);color:var(--rose)}
+.comboTip .ctLeg .ctName{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-dim)}
+.comboTip .ctLeg .ctName b{color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:10.5px}
+.comboTip .ctLeg .ctVal{flex:none;font-family:"IBM Plex Mono",monospace;font-weight:800;font-size:12px;color:var(--text)}
+.comboTip .ctHint{font-size:11px;color:var(--text-faint);line-height:1.4}
+.bbOpp .vsat{font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);font-family:"IBM Plex Mono",monospace}
+.bbOpp .avatar{width:28px;height:28px;font-size:10px;margin-right:0}
+.bbOpp .dot2{width:6px;height:6px;border-radius:50%;background:transparent}
+.bbOpp.hit .dot2{background:var(--gold)}
+.bbOpp.hit .avatar{box-shadow:0 0 0 2px rgba(255,200,97,.55)}
+
+.bbProps{display:flex;flex-direction:column;gap:8px}
+.bbProp{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;background:var(--surface);
+}
+.bbProp.inslip{border-color:rgba(18,230,173,.5);background:linear-gradient(rgba(18,230,173,.08),rgba(18,230,173,0)),var(--surface);box-shadow:0 0 14px -6px rgba(18,230,173,.6)}
+.bbPropInfo{flex:1 1 150px;min-width:0}
+.bbPropName{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700}
+.bbPropName small{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--text-faint);font-weight:500}
+.bbHot{font-size:8.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(255,200,97,.4);background:var(--gold-soft);padding:1px 6px;border-radius:6px;font-family:"IBM Plex Mono",monospace}
+.bbStrip{display:flex;gap:3px;height:10px;margin-top:7px}
+.bbSq{flex:1;min-width:4px;border-radius:3px}
+.bbSq.hit{background:rgba(18,230,173,.85)} .bbSq.miss{background:rgba(255,111,149,.75)}
+.bbPicks{display:flex;gap:6px;flex:none}
+.bbPick{
+  display:flex;flex-direction:column;align-items:center;min-width:72px;padding:6px 8px;border-radius:var(--radius-md);cursor:pointer;
+  font-family:"IBM Plex Mono",monospace;border:1px solid;background:transparent;color:var(--text);
+}
+.bbPick .k{font-size:8.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.bbPick .p{font-size:13px;font-weight:800;margin-top:2px}
+.bbPick .o{font-size:9.5px;color:var(--text-dim);margin-top:1px}
+.bbPick.over{border-color:rgba(18,230,173,.3);background:rgba(18,230,173,.06)} .bbPick.over .k{color:var(--accent)}
+.bbPick.under{border-color:rgba(255,111,149,.3);background:rgba(255,111,149,.06)} .bbPick.under .k{color:var(--rose)}
+.bbPick.over:hover{border-color:var(--accent)} .bbPick.under:hover{border-color:var(--rose)}
+.bbPick.on.over{background:rgba(18,230,173,.28);border-color:var(--accent);box-shadow:var(--glow-accent)}
+.bbPick.on.under{background:rgba(255,111,149,.28);border-color:var(--rose);box-shadow:var(--glow-neg)}
+.bbPick:disabled{opacity:.3;cursor:default}
+
+.bbSlip{border:1px solid var(--border);border-radius:var(--radius-md);padding:12px;background:linear-gradient(rgba(18,230,173,.05),rgba(18,230,173,0)),var(--surface);display:flex;flex-direction:column;gap:10px;min-width:0}
+.bbSlipHead{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.bbSlipHead span:last-child{font-size:10px;color:var(--text-dim);border:1px solid var(--border);border-radius:var(--radius-pill);padding:1px 8px;letter-spacing:.06em}
+.bbSlipHint{font-size:12px;color:var(--text-faint);font-style:italic;text-align:center;padding:8px 0}
+.bbAllHitHead{display:flex;justify-content:space-between;align-items:center;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px;font-family:"IBM Plex Mono",monospace}
+.bbAllStrip{display:flex;gap:2px;height:12px;padding:1px;background:rgba(0,0,0,.3);border-radius:6px;overflow:hidden}
+.bbAllStrip .bbSq{border-radius:2px}
+.bbSlipLegs{display:flex;flex-direction:column;gap:5px}
+.bbSlipLeg{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.04);border-radius:8px;padding:5px 8px;font-size:11.5px}
+.bbSlipLeg .sd{flex:none;width:20px;height:20px;border-radius:5px;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace}
+.bbSlipLeg .sd.over{background:rgba(18,230,173,.2);color:var(--accent)} .bbSlipLeg .sd.under{background:rgba(255,111,149,.2);color:var(--rose)}
+.bbSlipLeg .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.bbSlipLeg .od{flex:none;font-family:"IBM Plex Mono",monospace;font-weight:700;color:var(--accent);font-size:11px}
+.bbSlipLeg .rm{flex:none;width:20px;height:20px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font-size:11px;line-height:1;padding:0}
+.bbSlipLeg .rm:hover{border-color:var(--rose);color:var(--rose)}
+.bbOdds{border:1px solid var(--border);border-radius:var(--radius-md);padding:9px 10px;transition:border-color .15s ease,background .15s ease}
+.bbOdds.auto{border-color:rgba(124,156,255,.35);background:rgba(124,156,255,.05)}
+.bbOdds.pos{border-color:rgba(18,230,173,.4);background:rgba(18,230,173,.06)}
+.bbOdds.neg{border-color:rgba(255,111,149,.35);background:rgba(255,111,149,.05)}
+.bbOddsRow{display:flex;gap:12px;align-items:flex-end}
+.bbOddsRow>div{flex:1;min-width:0}
+.bbOdds .k{display:block;font-size:8.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint);margin-bottom:3px;font-family:"IBM Plex Mono",monospace}
+.bbOdds .v{font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:800}
+.bbOddsInput{width:100%;background:transparent;border:0;border-bottom:1px solid var(--border);color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:800;padding:0;outline:none}
+.bbOddsInput:focus{border-bottom-color:var(--accent)}
+.bbEvRow{display:flex;justify-content:space-between;margin-top:8px;padding-top:7px;border-top:1px solid var(--border);font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);font-family:"IBM Plex Mono",monospace}
+.bbEvRow b{font-size:12px;letter-spacing:0;margin-left:5px}
+.bbEvRow b.pos{color:var(--accent)} .bbEvRow b.neg{color:var(--rose)}
+.bbOddsNote{font-size:9.5px;color:var(--text-faint);line-height:1.4;margin-top:6px}
+.bbSlipBtns{display:flex;gap:8px}
+.bbGhost{flex:1;background:transparent;border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-pill);padding:6px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:"IBM Plex Mono",monospace;letter-spacing:.04em}
+.bbGhost:hover{border-color:var(--rose);color:var(--rose)}
+.bbSugHead{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-top:1px solid var(--border);padding-top:10px}
+.bbSug{border:1px solid var(--border);border-radius:var(--radius-md);padding:9px 10px;display:flex;flex-direction:column;gap:7px;background:var(--surface-2)}
+.bbSugBtn{width:100%;background:var(--accent-soft);border:1px solid rgba(18,230,173,.4);color:var(--accent);border-radius:var(--radius-pill);padding:6px 10px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:"IBM Plex Mono",monospace}
+.bbSugBtn:hover{background:var(--accent);color:#04231d}
 </style>
 </head>
 <body>
@@ -877,6 +1111,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 
   <div class="row" id="liveRow">
     <button class="btn" id="refreshLive">🔴 Ανανέωση live δεδομένων</button>
+    <!-- Φαίνεται ΜΟΝΟ όταν υπάρχουν αντιστοιχίσεις ομάδων που δεν έχουν ανέβει
+         ακόμα στο GitHub (βλ. team-map.json / updateTeamMapExportUI). -->
+    <button type="button" class="btn ghost" id="teamMapExportBtn" hidden
+      title="Κατεβάζει το team-map.json με ΟΛΕΣ τις αντιστοιχίσεις ομάδων — βάλ' το στον φάκελο betrows-app και κάνε push, ώστε να μην ξαναζητηθούν σε καμία συσκευή">💾 Αποθήκευση αντιστοιχίσεων</button>
     <span class="note" id="liveStatus" style="display:none">φόρτωση…</span>
   </div>
 
@@ -958,10 +1196,24 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       </div>
       <div class="toolbarBreak" aria-hidden="true"></div>
       <div class="seg-group" id="filterSegGroup">
-        <div class="seg" id="scopeSeg">
-          <button data-v="team" class="active">Ομάδες</button>
-          <button data-v="pair">Ζευγάρια</button>
-          <button data-v="all">Όλα</button>
+        <!-- Στη θέση του παλιού φίλτρου Ομάδες/Ζευγάρια/Όλα (2026-09-20: η σελίδα
+             είναι ΑΠΟΚΛΕΙΣΤΙΚΑ για μεμονωμένες ομάδες, τα ζευγάρια/σύνολα αγώνα
+             δεν εμφανίζονται πουθενά πλέον) μπαίνει το φίλτρο BETBUILDER με τις
+             δύο επιλογές: πόσα legs θα βγάζει ο Builder, και μετάβαση στη
+             σελίδα BETBUILDERS. -->
+        <div class="msWrap" id="bbFilterWrap">
+          <button type="button" class="pillselect msBtn" id="bbFilterBtn">
+            <span id="bbFilterLabel">BetBuilder: 3 legs</span>
+            <span class="tsCaret">⌄</span>
+          </button>
+          <div class="msMenu bbFilterMenu" id="bbFilterMenu" hidden>
+            <div class="bbMenuHead">SELECT LEGS FOR BUILDER</div>
+            <div class="seg small bbLegsSeg" id="bbLegsSeg">
+              <button type="button" data-legs="2">2</button>
+              <button type="button" data-legs="3" class="active">3</button>
+            </div>
+            <div class="msRow bbGoRow" id="bbGoPageRow">⚒ GO TO BETBUILDERS PAGE →</div>
+          </div>
         </div>
         <div class="seg" id="showSeg">
           <button data-v="all" class="active">ALL</button>
@@ -1021,6 +1273,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   </div>
 
   <div class="rows" id="rowsList"></div>
+  <!-- BETBUILDERS PAGE: ολόκληρη σελίδα (όχι drawer) στη μορφή του PropDunker —
+       λίστα ομάδων που ανοίγουν και δείχνουν τα combos τους, και από εκεί στον
+       πλήρη Builder. Ζητήθηκε ρητά 2026-09-20. -->
+  <div class="bbPage" id="bbPage" hidden></div>
   <div class="skipnote" id="skipNote"></div>
 
   <div class="foot">Ιστορικό: <a href="https://github.com/xgabora/Club-Football-Match-Data-2000-2025" target="_blank" rel="noopener">Club Football Match Data</a> (δωρεάν, πηγή football-data.co.uk). Αποδόσεις: ακριβώς ό,τι τιμές περιέχει το JSON που επικολλάς από το Stoiximan — καμία τιμή δεν είναι επινοημένη. Το δείγμα Τορίνο–Ρόμα δείχνει μόνο τις αγορές (σουτ, σουτ στην εστία, φάουλ) που όντως περιείχε το JSON που μου έδωσες· βάλε το JSON από το tab Κόρνερ/Κάρτες για να δεις και αυτές.</div>
@@ -1074,7 +1330,12 @@ var teamFilterVals = new Set();
 var sortMode = "edge";
 var oddsMinVal = 1.5;
 var oddsMaxVal = 3;
-var scopeFilterVal = "team"; // "team" (μόνο ομάδες) | "pair" (μόνο ζευγάρια/σύνολο) | "all"
+// 2026-09-20: το φίλτρο Ομάδες/Ζευγάρια/Όλα καταργήθηκε — η σελίδα είναι
+// ΑΠΟΚΛΕΙΣΤΙΚΑ για μεμονωμένες ομάδες, οι γραμμές "σύνολο αγώνα" (isTotal)
+// ΔΕΝ εμφανίζονται ποτέ. Ο κώδικας για isTotal μένει (αποθηκευμένα bets από
+// παλιά, δείγματα κ.λπ.) αλλά δεν τροφοδοτείται πλέον με ορατές γραμμές.
+// Στη θέση του μπήκε το φίλτρο BETBUILDER (bbLegsMode + BETBUILDERS PAGE).
+var bbLegsMode = 3;  // 2 = δυάδες, 3 = τριάδες (όπως ήταν) στα combos του Builder
 var showFilterVal = "all"; // "all" | "under" | "over"
 var dateFilterVal = null; // "YYYY-MM-DD" (ημέρα αγώνα σε ώρα Ελλάδος) ή null == όλες
 // HOME/AWAY SPLIT (pill πάνω από το L5-L20, βλ. #haSplitBtn): όταν ενεργό,
@@ -1098,6 +1359,56 @@ var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 var TEAM_MAP_KEY = "fbd_team_map_v1";
 function loadTeamMap(){ try{ return JSON.parse(localStorage.getItem(TEAM_MAP_KEY)||"{}"); }catch(e){ return {}; } }
 function saveTeamMap(map){ try{ localStorage.setItem(TEAM_MAP_KEY, JSON.stringify(map)); }catch(e){} }
+/* ---------- ΜΟΝΙΜΕΣ αντιστοιχίσεις ομάδων: team-map.json (ζητήθηκε ρητά 2026-09-20) ----------
+   Πρόβλημα: οι χειροκίνητες αντιστοιχίσεις ("Άγνωστη ομάδα: ... διάλεξε") έμεναν
+   ΜΟΝΟ στο localStorage της κάθε συσκευής, οπότε το tablet/άλλο κινητό/άλλος
+   browser ξαναζητούσε τις ΙΔΙΕΣ ομάδες, και το ίδιο μετά από κάθε νέο κατέβασμα
+   lines. Λύση: ένα κοινό αρχείο team-map.json δίπλα στο index.html, που ανεβαίνει
+   στο GitHub μαζί με τα υπόλοιπα (push_to_github.bat) και διαβάζεται σε ΚΑΘΕ
+   συσκευή στο boot. Σειρά προτεραιότητας: ενσωματωμένος πίνακας < team-map.json
+   < localStorage (η τοπική επιλογή του χρήστη υπερισχύει πάντα για ΝΕΕΣ ομάδες).
+   Ό,τι υπάρχει ήδη ΙΔΙΟ στο αρχείο καθαρίζεται από το localStorage, ώστε το
+   "εκκρεμεί ανέβασμα" να δείχνει μόνο ό,τι πραγματικά λείπει από το GitHub. */
+var TEAM_MAP_FILE = {};   // ό,τι ήρθε από το team-map.json
+function teamMapPendingIds(){
+  // ids που έχει ο χρήστης τοπικά αλλά ΔΕΝ υπάρχουν (ίδια) στο κοινό αρχείο
+  var local = loadTeamMap(), out = [];
+  Object.keys(local).forEach(function(id){
+    var f = TEAM_MAP_FILE[id], l = local[id];
+    if(!l || !l.name) return;
+    if(f && f.name===l.name && f.league===l.league) return;
+    out.push(id);
+  });
+  return out;
+}
+// Το πλήρες αρχείο που πρέπει να ανέβει: κοινό αρχείο + τοπικές αντιστοιχίσεις.
+function teamMapExportObject(){
+  var out = {}, local = loadTeamMap();
+  Object.keys(TEAM_MAP_FILE).forEach(function(id){ out[id] = TEAM_MAP_FILE[id]; });
+  Object.keys(local).forEach(function(id){ if(local[id] && local[id].name) out[id] = local[id]; });
+  return out;
+}
+function updateTeamMapExportUI(){
+  var btn = document.getElementById("teamMapExportBtn");
+  if(!btn) return;
+  var pending = teamMapPendingIds().length;
+  btn.hidden = pending===0;
+  btn.textContent = "💾 Αποθήκευση αντιστοιχίσεων ("+pending+")";
+}
+function exportTeamMapFile(){
+  var obj = teamMapExportObject();
+  var txt = JSON.stringify(obj, null, 1);
+  try{
+    var blob = new Blob([txt], {type:"application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "team-map.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  }catch(e){}
+  var btn = document.getElementById("teamMapExportBtn");
+  if(btn) showInfoTip(btn, "Κατέβηκε το team-map.json ("+Object.keys(obj).length+" ομάδες). Βάλ' το στον φάκελο betrows-app (αντικατέστησε το παλιό) και πάτα push_to_github.bat — μετά καμία συσκευή δεν θα ξαναζητήσει αυτές τις ομάδες.");
+}
 
 /* ---------- αποθηκευμένα bets (το + πάνω σε κάθε γραμμή) ----------
    Αποθηκεύονται στο localStorage ως αντικείμενο key -> record, ώστε να
@@ -1196,7 +1507,7 @@ function resetFiltersToDefaults(){
   // αποθηκευμένων bets, όταν το bet είναι κρυμμένο πίσω από τα τρέχοντα φίλτρα.
   catFilterVals.clear(); leagueFilterVals.clear(); teamFilterVals.clear();
   oddsMinVal = 1.5; oddsMaxVal = 3;
-  scopeFilterVal = "team"; showFilterVal = "all";
+  showFilterVal = "all";
   dateFilterVal = null;
   renderCatFilterMenu(); updateCatFilterButton();
   renderLeagueFilterMenu(); updateLeagueFilterButton();
@@ -1205,8 +1516,13 @@ function resetFiltersToDefaults(){
   var oddsMinEl = document.getElementById("oddsMin"), oddsMaxEl = document.getElementById("oddsMax");
   if(oddsMinEl) oddsMinEl.value = "1.5";
   if(oddsMaxEl) oddsMaxEl.value = "3";
-  Array.prototype.forEach.call(document.querySelectorAll("#scopeSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="team"); });
   Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
+  // Το φίλτρο BETBUILDER (legs) επανέρχεται κι αυτό στην προεπιλογή (3 legs).
+  bbLegsMode = 3;
+  _bbPageCache = {};
+  Array.prototype.forEach.call(document.querySelectorAll("#bbLegsSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-legs")==="3"); });
+  var bbLbl = document.getElementById("bbFilterLabel");
+  if(bbLbl) bbLbl.textContent = "BetBuilder: 3 legs";
   syncDateFilterUI();
   renderToolbarAndRows();
 }
@@ -1248,7 +1564,7 @@ function jumpToSavedBet(key){
     if(head) head.click();
   }
 }
-var TEAM_MAP = Object.assign({
+var TEAM_MAP_BUILTIN = {
   "108134": {name:"Torino", league:"serie-a-italy"},
   "107363": {name:"Roma", league:"serie-a-italy"},
   "106731": {name:"Leeds", league:"premier-league"},
@@ -1297,7 +1613,10 @@ var TEAM_MAP = Object.assign({
   "106835": {name:"Chelsea", league:"premier-league"},
   "107248": {name:"Monza", league:"serie-a-italy"},
   "107732": {name:"Sassuolo", league:"serie-a-italy"},
-}, loadTeamMap());
+};
+// Ο ενσωματωμένος πίνακας είναι η βάση· από πάνω μπαίνει το κοινό team-map.json
+// (στο boot) και πάνω απ' όλα οι τοπικές επιλογές του χρήστη.
+var TEAM_MAP = Object.assign({}, TEAM_MAP_BUILTIN, loadTeamMap());
 
 /* ---------- evaluator (mirrors backend/evaluator.py) ---------- */
 function cardCount(m, side){
@@ -1874,7 +2193,9 @@ var TEAM_ALIASES = {
     "Brentford FC":"Brentford","Chelsea FC":"Chelsea","Tottenham Hotspur":"Tottenham",
     "Newcastle United":"Newcastle","Hull City":"Hull","Brighton & Hove Albion":"Brighton",
     "Arsenal FC":"Arsenal","Everton FC":"Everton","Ipswich Town":"Ipswich",
-    "Nottingham Forest":"Nottm Forest","Coventry City":"Coventry"
+    "Nottingham Forest":"Nottm Forest","Coventry City":"Coventry",
+    // 2026-09-20: ζητούσαν χειροκίνητη αντιστοίχιση σε ΚΑΘΕ συσκευή/κατέβασμα.
+    "AFC Bournemouth":"Bournemouth","Manchester City":"Man City","Manchester United":"Man United"
   },
   "championship": {
     "Watford FC":"Watford","Millwall FC":"Millwall","West Ham United":"West Ham",
@@ -1900,13 +2221,16 @@ var TEAM_ALIASES = {
     "SC Freiburg":"Freiburg","FC Augsburg":"Augsburg",
     "Borussia Monchengladbach":"MGladbach","Borussia Mönchengladbach":"MGladbach",
     "FSV Mainz 05":"Mainz","Hamburger SV":"Hamburg","VfB Stuttgart":"Stuttgart",
-    "Borussia Dortmund":"Dortmund"
+    "Borussia Dortmund":"Dortmund",
+    "Bayer 04 Leverkusen":"Leverkusen","Bayer Leverkusen":"Leverkusen"
   },
   "ligue-1": {
     "AS Monaco":"Monaco","RC Lens":"Lens","RC Strasbourg":"Strasbourg",
     "Olympique Lyonnais":"Lyon","Stade Rennais FC":"Rennes","Le Mans UC 72":"Le Mans",
     "FC Lorient":"Lorient","Toulouse FC":"Toulouse","Le Havre AC":"Le Havre",
-    "Angers SCO":"Angers","ES Troyes AC":"Troyes"
+    "Angers SCO":"Angers","ES Troyes AC":"Troyes",
+    "Olympique Marseille":"Marseille","Olympique de Marseille":"Marseille",
+    "Paris Saint-Germain":"Paris SG","Paris Saint Germain":"Paris SG"
   },
   "super-league-greece": {
     "Atromitos Athinon":"Atromitos","Aris Thessaloniki":"Aris",
@@ -2043,7 +2367,19 @@ function renderUnresolved(list){
       TEAM_MAP[e.id] = {name:parts[0], league:parts[1]};
       saved++;
     });
-    if(saved){ saveTeamMap(TEAM_MAP); buildFeed(); }
+    if(saved){
+      // Στο localStorage κρατάμε ΜΟΝΟ ό,τι δεν υπάρχει ήδη στο κοινό αρχείο.
+      var localOnly = {};
+      Object.keys(TEAM_MAP).forEach(function(id){
+        var f = TEAM_MAP_FILE[id], t = TEAM_MAP[id];
+        if(f && f.name===t.name && f.league===t.league) return;
+        if(TEAM_MAP_BUILTIN[id] && TEAM_MAP_BUILTIN[id].name===t.name && TEAM_MAP_BUILTIN[id].league===t.league) return;
+        localOnly[id] = t;
+      });
+      saveTeamMap(localOnly);
+      updateTeamMapExportUI();
+      buildFeed();
+    }
   });
 }
 
@@ -2300,12 +2636,29 @@ function pillsLabelHtml(r, isOpp){
 // ένα drawer που είχε ξανανοίξει/κλείσει "θυμόταν" την παλιά τοπική του
 // κατάσταση αντί να ακολουθήσει τον γενικό διακόπτη, όπως αναφέρθηκε ρητά
 // (ζητήθηκε ρητά 2026-09-19).
+// ΕΡΓΟΣΤΑΣΙΑΚΕΣ τιμές ενός drawer — μία και μόνη πηγή αλήθειας, ώστε το
+// "άνοιγμα από το μηδέν" (renderDrawer) και το "ρεσετ" (resyncDrawerLocalToGlobals)
+// να μη μπορούν ποτέ να ξεφύγουν μεταξύ τους.
+function drawerDefaultState(r){
+  var presetVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
+  return { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false,
+           fullSeason:lastFillGlobalOn, lastSeason:lastFillGlobalOn, selected:null,
+           threshold: r.threshold, usingCustomN:false, oppMode:false, tableMode:false,
+           tableCat:null, tableVenue:presetVenue, tableFormN:5, tableFormCustom:false,
+           tableExpandedTeam:null, reversedLine:false, tableSortBy:"for", bb:null };
+}
+// ΠΛΗΡΗΣ επαναφορά ενός drawer στις εργοστασιακές του τιμές (ζητήθηκε ρητά
+// 2026-09-20: "όταν κλείνω το betdrawer να επανέρχονται στην αρχική τους τιμή
+// που συμφωνούσε με τα αρχικά εξωτερικά φίλτρα, σαν να κάνει ρεσετ"). Καλείται
+// σε ΚΑΘΕ κλείσιμο ΚΑΙ σε κάθε ξανά-άνοιγμα ήδη-χτισμένου drawer. Πριν,
+// επανέφερε μόνο έδρα + "+", οπότε LINE +/-, REVERSED LINE, custom L?, TABLE,
+// H2H, outlier trim και BetBuilder "επιβίωναν" στο επόμενο άνοιγμα και η κάρτα
+// ξεκινούσε με νούμερα που δεν συμφωνούσαν με τα εξωτερικά φίλτρα.
+// ΠΡΟΣΟΧΗ: μεταλλάσσει το ΙΔΙΟ αντικείμενο (το κρατάει το headEl._drawerState).
 function resyncDrawerLocalToGlobals(r, state){
-  var autoVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
-  state.venue = autoVenue;
-  state.tableVenue = autoVenue;
-  state.fullSeason = lastFillGlobalOn;
-  state.lastSeason = lastFillGlobalOn;
+  var d = drawerDefaultState(r);
+  for(var k in d){ if(Object.prototype.hasOwnProperty.call(d,k)) state[k] = d[k]; }
+  return state;
 }
 function streakCandidatesFor(r){
   if(r.isTotal || !r.team) return [];
@@ -2574,8 +2927,9 @@ function showConfirmTip(anchorEl, text, onYes){
    πάνω-πάνω που καθαρίζει το Set. */
 
 function closeAllMsMenus(exceptId){
-  ["catFilterMenu","leagueFilterMenu","teamSelectMenu"].forEach(function(id){
-    if(id!==exceptId) document.getElementById(id).hidden = true;
+  ["catFilterMenu","leagueFilterMenu","teamSelectMenu","bbFilterMenu"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && id!==exceptId) el.hidden = true;
   });
 }
 
@@ -2710,7 +3064,6 @@ function updateMobileFilterBadge(){
   if(leagueFilterVals.size) n++;
   if(teamFilterVals.size) n++;
   if(oddsMinVal!==1.5 || oddsMaxVal!==3) n++; // 1.5–3 είναι πλέον η προεπιλογή, δεν μετράει ως "ενεργό" φίλτρο
-  if(scopeFilterVal!=="team") n++;
   if(showFilterVal!=="all") n++;
   if(dateFilterVal) n++;
   badge.textContent = n;
@@ -2724,8 +3077,9 @@ function renderToolbarAndRows(){
   if(teamFilterVals.size) list = list.filter(function(r){ return r.isTotal ? (teamFilterVals.has(r.homeTeam) || teamFilterVals.has(r.awayTeam)) : teamFilterVals.has(r.team); });
   if(oddsMinVal!=null) list = list.filter(function(r){ return r.price!=null && r.price>=oddsMinVal; });
   if(oddsMaxVal!=null) list = list.filter(function(r){ return r.price!=null && r.price<=oddsMaxVal; });
-  if(scopeFilterVal==="team") list = list.filter(function(r){ return !r.isTotal; });
-  else if(scopeFilterVal==="pair") list = list.filter(function(r){ return r.isTotal; });
+  // ΠΑΝΤΑ μόνο γραμμές μεμονωμένης ομάδας — τα ζευγάρια/σύνολα αγώνα
+  // καταργήθηκαν από τη σελίδα (2026-09-20).
+  list = list.filter(function(r){ return !r.isTotal; });
   if(showFilterVal==="under") list = list.filter(function(r){ return r.side==="under"; });
   else if(showFilterVal==="over") list = list.filter(function(r){ return r.side==="over"; });
   if(dateFilterVal) list = list.filter(function(r){ return athensDateISO(r.startTime)===dateFilterVal; });
@@ -2850,6 +3204,10 @@ function renderToolbarAndRows(){
     return;
   }
   list.forEach(function(r){ container.appendChild(renderRowCard(r)); });
+  // Κρατάμε την ΤΕΛΙΚΗ (φιλτραρισμένη+ταξινομημένη) λίστα ώστε η σελίδα
+  // BETBUILDERS να δουλεύει πάνω στα ΙΔΙΑ ακριβώς betrows που βλέπει ο χρήστης.
+  lastRenderedRows = list;
+  if(bbPageOn) renderBbPage();
 }
 
 // Τα L5/L10/L15/L20 badges + τα FAIR/EDGE/EXP VALUE/AVERAGE/OPP ALLOWS pills
@@ -2930,6 +3288,31 @@ function refreshCardHead(r, head){
   if(pillsRowEl) pillsRowEl.innerHTML = pas.pillsHtml;
   if(oppPillsRowEl) oppPillsRowEl.innerHTML = pas.oppPillsHtml;
   if(statPillsEl) statPillsEl.innerHTML = pas.statsHtml;
+  // ΚΑΙ η γραμμή/πλευρά/απόδοση της κεφαλίδας ξαναγίνεται η ΑΡΧΙΚΗ του betrow:
+  // το updateHeader τα αλλάζει όσο το drawer είναι ανοιχτό (LINE +/-, REVERSED
+  // LINE), οπότε χωρίς αυτό η κάρτα έμενε με γραμμή π.χ. OVER 1.5 ενώ τα pills
+  // είχαν ήδη γυρίσει στο αρχικό OVER 2.5 — "ρεσετ στις εργοστασιακές" όταν
+  // κλείνει το drawer, ζητήθηκε ρητά 2026-09-20.
+  var sideTagEl = head.querySelector(".side-tag");
+  if(sideTagEl){
+    sideTagEl.textContent = (r.side==="over"?"OVER":"UNDER")+" "+r.threshold;
+    sideTagEl.classList.remove("over","under");
+    sideTagEl.classList.add(r.side);
+  }
+  var marketRow = head.querySelector(".market");
+  var priceChipEl = head.querySelector(".price-chip");
+  if(r.price!=null){
+    if(priceChipEl) priceChipEl.textContent = r.price.toFixed(2);
+    else if(marketRow){
+      var span = document.createElement("span");
+      span.className = "price-chip";
+      span.textContent = r.price.toFixed(2);
+      var srcTag = marketRow.querySelector(".src-tag");
+      if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
+    }
+  } else if(priceChipEl){ priceChipEl.remove(); }
+  var lmWrapEl = head.querySelector(".lmWrap");
+  if(lmWrapEl) lmWrapEl.innerHTML = lineMoveChipHtml(r, r.threshold, r.side, r.price);
 }
 
 function renderRowCard(r){
@@ -2965,6 +3348,9 @@ function renderRowCard(r){
       '<div class="metaRow">'+
         (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+
         '<span class="src-tag">Stoiximan</span>'+
+        // Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την ΠΡΟΗΓΟΥΜΕΝΗ ανανέωση
+        // (live-prev). Κενό αν δεν υπάρχει προηγούμενο στιγμιότυπο.
+        '<span class="lmWrap">'+lineMoveChipHtml(r, r.threshold, r.side, r.price)+'</span>'+
       '</div>'+
       '<div class="market">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
@@ -2978,6 +3364,7 @@ function renderRowCard(r){
       '<div class="statPills">'+statsHtml+'</div>'+
     '</div>'+
     '<div class="chev">▾</div>'+
+    (!r.isTotal ? '<button type="button" class="bbBtn" title="Bet Builder" aria-label="Bet Builder">BB</button>' : '')+
     (streakCands.length ? '<button type="button" class="streakBtn" title="Ενεργό streak" aria-label="Ενεργό streak">🔥</button>' : '')+
     '<button type="button" class="saveBtn'+(savedBets[bKey]?" saved":"")+'" title="Αποθήκευση bet" aria-label="Αποθήκευση bet">+</button>';
 
@@ -2988,7 +3375,12 @@ function renderRowCard(r){
   head.addEventListener("click", function(){
     if(card.classList.contains("open")){
       card.classList.remove("open");
-      if(head._drawerState) head._drawerState.oppMode = false;
+      // ΠΛΗΡΕΣ ρεσετ του drawer στις εργοστασιακές (όχι μόνο oppMode/BB): LINE,
+      // REVERSED, L?, TABLE, H2H κ.λπ. ξαναγίνονται ό,τι λένε ΤΩΡΑ οι γενικοί
+      // διακόπτες, ώστε και τα pills και η γραμμή της κάρτας να επανέρχονται
+      // στην αρχική τους τιμή (ζητήθηκε ρητά 2026-09-20).
+      if(head._drawerState) resyncDrawerLocalToGlobals(r, head._drawerState);
+      var bbBtnC = head.querySelector(".bbBtn"); if(bbBtnC) bbBtnC.classList.remove("active");
       var btn0 = head.querySelector(".pill.oppstat");
       if(btn0) btn0.classList.remove("hint","active");
       // Το drawer μπορεί να έχει αφήσει πίσω του τοπικά ενεργά pills (HOME/AWAY
@@ -3034,6 +3426,31 @@ function renderRowCard(r){
     });
   }
 
+  // BB (Bet Builder): ανοίγει το drawer (αν είναι κλειστό) και βάζει ΜΕΣΑ του, στη
+  // θέση των υπαρχόντων δεδομένων, το μενού των combos της ομάδας (βλ. bbRender).
+  // Δεύτερο πάτημα πάνω στο BB (όσο είναι ενεργό) γυρνάει στο κανονικό drawer.
+  var bbBtn = head.querySelector(".bbBtn");
+  if(bbBtn){
+    bbBtn.addEventListener("click", function(e){
+      e.stopPropagation();
+      var wasOpen = card.classList.contains("open");
+      card.classList.add("open");
+      if(!card._drawerBuilt){
+        card.appendChild(renderDrawer(r, head));
+        card._drawerBuilt = true;
+      } else if(!wasOpen && head._drawerState){
+        head._drawerState.oppMode = false;
+        head._drawerState.selected = null;
+        resyncDrawerLocalToGlobals(r, head._drawerState);
+      }
+      var st = head._drawerState;
+      if(!st) return;
+      if(wasOpen && st.bb){ bbRestoreState(st); st.bb = null; bbBtn.classList.remove("active"); }
+      else { st.bb = bbInit(st); bbBtn.classList.add("active"); }
+      if(head._drawerDraw) head._drawerDraw();
+    });
+  }
+
   // Πρώτο-ποτέ κλικ πάνω στο OPP pill (πριν χτιστεί καθόλου το drawer — μόλις
   // χτιστεί, αυτό το DOM node αντικαθίσταται μέσα στο updateHeader και το δικό
   // του click handler εκεί αναλαμβάνει, βλ. renderDrawer): ΜΟΝΟ ανοίγει το
@@ -3065,6 +3482,732 @@ function matchLabel(r, x){
   return { team: r.team, opponent: x.m.h===r.team ? x.m.a : x.m.h, venue: x.m.h===r.team ? "home" : "away" };
 }
 
+/* ---------- BET BUILDER (BB) — ζητήθηκε ρητά 2026-09-20 ----------
+   Λογική αντιγραμμένη από το Bet Builder του PropDunker (builder/page.tsx +
+   backend top_suggestions.py), προσαρμοσμένη στο ποδόσφαιρο. ΜΟΝΟ legs της ΙΔΙΑΣ
+   ομάδας (ξεχωριστά για κάθε ομάδα) — έτσι όλα τα legs ευθυγραμμίζονται στους
+   ΙΔΙΟΥΣ αγώνες και ένα combo "χτυπάει" σε έναν αγώνα μόνο αν χτυπούν ΟΛΑ τα legs
+   ΜΑΖΙ στον ίδιο αγώνα (countAllHits του PropDunker). Ένα leg ανά κατηγορία
+   (όπως ένα leg ανά prop στο PropDunker). Δείγμα = οι τελευταίοι N αγώνες της
+   ομάδας όπου ΟΛΑ τα legs έχουν καταγεγραμμένη τιμή (ίδιος κανόνας με το
+   evaluate(): ένας αγώνας χωρίς τιμή ΔΕΝ "κλέβει" θέση από τα N).
+   Fair = 1/hitRate. Απόδοση combo = ΓΙΝΟΜΕΝΟ των αποδόσεων των legs (όχι η τιμή
+   bet builder του bookmaker, που λαμβάνει υπόψη συσχέτιση). Edge/EV: ΙΔΙΟΙ τύποι
+   με τα pills της κάρτας. Ρυθμίσεις (ίδιες με το backend του PropDunker): ελάχιστο
+   δείγμα 3 (ΙΔΙΟ όριο με το lowSample του κύριου feed — το PropDunker έχει 5, αλλά
+   στην αρχή της σεζόν οι ομάδες έχουν μόλις 4-5 αγώνες), ελάχιστα 2 hits, ελάχιστο
+   ποσοστό 50%, pool 24 legs, τρίδες από τα
+   6 καλύτερα ζευγάρια, πρώτα τρίδες μετά ζευγάρια. Τα auto-προτεινόμενα legs
+   σέβονται το φίλτρο απόδοσης (oddsMin/oddsMax) της κεντρικής μπάρας. */
+var BB_MIN_SAMPLE = 3, BB_MIN_HITS = 2, BB_MIN_PCT = 50, BB_POOL_CAP = 24, BB_LIST_TOP = 8;
+function bbPct(h,t){ return t ? Math.round(h/t*100) : 0; }
+function bbTier(p){ return p>=70 ? "hi" : p>=50 ? "mid" : "lo"; }
+function bbLegsOfTeam(r){
+  var out = [], seen = {};
+  feedRows.forEach(function(x){
+    if(x.isTotal || x.team!==r.team || x.league!==r.league) return;
+    if(x.matchHome!==r.matchHome || x.matchAway!==r.matchAway) return;
+    if(x.price==null || !isFinite(x.price)) return;
+    var id = x.category+"|"+x.threshold+"|"+x.side;
+    if(seen[id]) return; seen[id] = 1;
+    out.push({id:id, category:x.category, threshold:x.threshold, side:x.side, price:x.price});
+  });
+  return out;
+}
+function bbInRange(l){ return (oddsMinVal==null || l.price>=oddsMinVal) && (oddsMaxVal==null || l.price<=oddsMaxVal); }
+// Αγώνες ομάδας σε χρονολογική σειρά (παλιός -> νέος), με φίλτρο έδρας και προαιρετική συμπλήρωση περσινής σεζόν.
+function bbMatchPool(team, league, venue, fill){
+  var ms = teamMatches(team, league);
+  if(fill) ms = teamMatchesPreviousSeason(team, league).concat(ms);
+  if(venue==="home" || venue==="away") ms = ms.filter(function(m){ return (m.h===team)===(venue==="home"); });
+  return ms;
+}
+// legs: [{category,threshold,side}] — n: αριθμός ή "all". matches: ΝΕΟΤΕΡΟΣ πρώτος.
+function bbEval(team, ms, legs, n){
+  var lim = (n==="all") ? Infinity : n;
+  var out = [], hits = 0;
+  for(var i=ms.length-1; i>=0 && out.length<lim; i--){
+    var m = ms[i], vals = [], ok = true, allHit = true;
+    for(var k=0;k<legs.length;k++){
+      var v = teamMatchValue(m, team, legs[k].category, "for");
+      if(v==null){ ok = false; break; }
+      vals.push(v);
+      var hit = legs[k].side==="over" ? v>legs[k].threshold : v<legs[k].threshold;
+      if(!hit) allHit = false;
+    }
+    if(!ok) continue;
+    if(allHit) hits++;
+    out.push({m:m, vals:vals, hit:allHit});
+  }
+  var sample = out.length;
+  return {sample:sample, hits:hits, hitRate: sample ? hits/sample : 0, fairOdds: hits ? sample/hits : null, matches:out};
+}
+/* ---------- EST ODDS — διόρθωση συσχέτισης (ζητήθηκε 2026-09-20) ----------
+   Η τιμή ενός combo ΔΕΝ είναι η πραγματική τιμή bet builder του bookmaker:
+   την φτιάχνουμε εμείς από τα legs. Το σκέτο γινόμενο όμως υποθέτει ότι τα
+   legs είναι ανεξάρτητα, που δεν ισχύει σε κατηγορίες που είναι μεταξύ τους
+   αλληλένδετες (σουτ με σουτ στην εστία, κάρτες με φάουλ): όταν "συμπλέουν"
+   (ίδια κατεύθυνση) η πραγματική πιθανότητα είναι ΜΕΓΑΛΥΤΕΡΗ από το γινόμενο,
+   άρα η τιμή πρέπει να πέσει (έκπτωση), ενώ όταν αντικρούονται (OVER με UNDER)
+   η πιθανότητα πέφτει, άρα η τιμή ανεβαίνει (προσαύξηση).
+   ΠΡΟΣΟΧΗ: οι συντελεστές παρακάτω είναι ΧΕΙΡΟΚΙΝΗΤΟΙ, δοσμένοι από τον
+   χρήστη — ΔΕΝ έχουν εκπαιδευτεί σε δεδομένα. Θα αντικατασταθούν από
+   εκπαιδευμένο μοντέλο σε επόμενη φάση, οπότε αλλάζουμε ΜΟΝΟ τους δύο πίνακες
+   εδώ και τίποτε άλλο. Εφαρμόζονται ΑΝΑ ΖΕΥΓΟΣ legs της ίδιας οικογένειας,
+   ΠΡΙΝ μπουν στο γινόμενο οι υπόλοιπες (ανεξάρτητες) κατηγορίες. */
+var BB_CORR_FAMILY = {
+  shots:"shots", shots_on_target:"shots", shots_off_target:"shots",
+  shots_insidebox:"shots", shots_outsidebox:"shots", shots_blocked:"shots",
+  cards:"discipline", fouls:"discipline"
+};
+var BB_CORR_FACTORS = {
+  // over = ΟΒΕΡ με ΟΒΕΡ, under = ΑΝΤΕΡ με ΑΝΤΕΡ, mixed = ΟΒΕΡ με ΑΝΤΕΡ
+  shots:      {over:0.80, under:0.80, mixed:1.45},
+  discipline: {over:0.90, under:0.75, mixed:1.12}
+};
+function bbPairFactor(a, b){
+  var fam = BB_CORR_FAMILY[a.category];
+  if(!fam || fam!==BB_CORR_FAMILY[b.category]) return 1;
+  var f = BB_CORR_FACTORS[fam];
+  if(a.side!==b.side) return f.mixed;
+  return a.side==="over" ? f.over : f.under;
+}
+// {raw: σκέτο γινόμενο, factor: συνολικός συντελεστής συσχέτισης, odds: raw*factor}
+function bbEstOdds(legs){
+  if(!legs.length) return null;
+  var raw = 1, i, j;
+  for(i=0;i<legs.length;i++){ if(!(legs[i].price>1)) return null; raw *= legs[i].price; }
+  var factor = 1;
+  for(i=0;i<legs.length;i++) for(j=i+1;j<legs.length;j++) factor *= bbPairFactor(legs[i], legs[j]);
+  return {raw:raw, factor:factor, odds:raw*factor};
+}
+function bbCorrChip(est){
+  if(!est || Math.abs(est.factor-1)<0.001) return "";
+  var d = Math.round((est.factor-1)*100);
+  return '<span class="bbCorr '+(d<0?"down":"up")+'" title="Διόρθωση συσχέτισης: γινόμενο '+est.raw.toFixed(2)+' × '+est.factor.toFixed(2)+'">'+(d>0?"+":"")+d+'%</span>';
+}
+function bbProduct(legs){ var e = bbEstOdds(legs); return e ? e.odds : null; }
+function bbKey(legs){ return legs.map(function(l){ return l.id; }).sort().join("·"); }
+function bbTopCombos(r, bb, topN){
+  var ms = bbMatchPool(r.team, r.league, bb.venue, bb.fill);
+  var pool = [];
+  bbLegsOfTeam(r).filter(bbInRange).forEach(function(l){
+    var e = bbEval(r.team, ms, [l], bb.n);
+    if(e.sample>=BB_MIN_SAMPLE) pool.push({leg:l, single:e.hitRate, sample:e.sample});
+  });
+  pool.sort(function(a,b){ return (b.single-a.single) || (b.sample-a.sample); });
+  pool = pool.slice(0, BB_POOL_CAP);
+  var duos = [], i, j;
+  for(i=0;i<pool.length;i++){
+    for(j=i+1;j<pool.length;j++){
+      if(pool[i].leg.category===pool[j].leg.category) continue;
+      var lg = [pool[i].leg, pool[j].leg], e = bbEval(r.team, ms, lg, bb.n);
+      if(e.sample<BB_MIN_SAMPLE || e.hits<BB_MIN_HITS) continue;
+      var p = bbPct(e.hits, e.sample);
+      if(p<BB_MIN_PCT) continue;
+      duos.push({legs:lg, ev:e, pct:p, kind:"duo"});
+    }
+  }
+  var byPct = function(a,b){ return (b.pct-a.pct) || (b.ev.hits-a.ev.hits); };
+  duos.sort(byPct);
+  // Φίλτρο "SELECT LEGS FOR BUILDER" (toolbar): 2 -> ΜΟΝΟ δυάδες, 3 -> τριάδες
+  // πρώτα και μετά δυάδες όπως ήταν (ζητήθηκε ρητά 2026-09-20).
+  if(bbLegsMode === 2) return duos.slice(0, topN);
+  var trios = [];
+  duos.slice(0,6).forEach(function(d){
+    var cats = {}; d.legs.forEach(function(l){ cats[l.category] = 1; });
+    pool.forEach(function(x){
+      if(cats[x.leg.category]) return;
+      var lg = d.legs.concat([x.leg]), e = bbEval(r.team, ms, lg, bb.n);
+      if(e.sample<BB_MIN_SAMPLE || e.hits<BB_MIN_HITS) return;
+      var p = bbPct(e.hits, e.sample);
+      if(p<BB_MIN_PCT) return;
+      trios.push({legs:lg, ev:e, pct:p, kind:"trio"});
+    });
+  });
+  trios.sort(byPct);
+  var res2 = [], seen = {};
+  trios.concat(duos).forEach(function(c){
+    var k = bbKey(c.legs);
+    if(seen[k] || res2.length>=topN) return;
+    seen[k] = 1; res2.push(c);
+  });
+  return res2;
+}
+function bbExtensions(r, bb, ms, slipLegs, allLegs){
+  // Δεν προτείνουμε leg που θα ξεπερνούσε το επιλεγμένο μέγεθος combo (2 ή 3).
+  if(slipLegs.length + 1 > bbLegsMode) return [];
+  var cats = {}; slipLegs.forEach(function(l){ cats[l.category] = 1; });
+  var out = [];
+  allLegs.filter(bbInRange).forEach(function(c){
+    if(cats[c.category]) return;
+    var lg = slipLegs.concat([c]), e = bbEval(r.team, ms, lg, bb.n);
+    if(e.sample<3 || e.hits<1) return;
+    var p = bbPct(e.hits, e.sample);
+    if(p<50) return;
+    out.push({legs:[c], all:lg, ev:e, pct:p, kind:"ext"});
+  });
+  out.sort(function(a,b){ return (b.pct-a.pct) || (b.ev.hits-a.ev.hits); });
+  return out.slice(0,5);
+}
+function bbLegChip(l){
+  return '<span class="bbLeg '+l.side+'"><b>'+(l.side==="over"?"OVER":"UNDER")+'</b> '+l.threshold+' '+escAttr(catLabel(l.category))+' <i>'+l.price.toFixed(2)+'</i></span>';
+}
+function bbEvHtml(hitRate, odds){
+  if(!(odds>1)) return '<span class="bbOddsNote" style="margin:0">Βάλε απόδοση για έλεγχο value.</span>';
+  var edge = (hitRate - 1/odds)*100, ev = (hitRate*odds - 1)*100;
+  return '<span>Edge<b class="'+(edge>=0?"pos":"neg")+'">'+(edge>=0?"+":"")+edge.toFixed(1)+'%</b></span>'+
+         '<span>EV<b class="'+(ev>=0?"pos":"neg")+'">'+(ev>=0?"+":"")+ev.toFixed(1)+'%</b></span>';
+}
+function bbOddsBoxHtml(hits, total, est, manual){
+  var hr = total ? hits/total : 0;
+  var fair = hr>0 ? 1/hr : null;
+  var auto = est ? est.odds : null;
+  var val = manual!=="" ? manual : (auto ? auto.toFixed(2) : "");
+  var odds = parseFloat(val);
+  var cls = (odds>1) ? ((hr*odds-1)>=0 ? "pos" : "neg") : (manual==="" && auto ? "auto" : "");
+  var corr = est && Math.abs(est.factor-1)>=0.001;
+  return '<div class="bbOdds '+cls+'" data-hits="'+hits+'" data-total="'+total+'">'+
+    '<div class="bbOddsRow"><div><span class="k">Fair</span><span class="v">'+(fair?fair.toFixed(2):"—")+'</span></div>'+
+    '<div><span class="k">EST ODDS'+bbCorrChip(est)+'</span><input type="text" inputmode="decimal" class="bbOddsInput" placeholder="1.55" value="'+escAttr(val)+'"></div></div>'+
+    '<div class="bbEvRow">'+bbEvHtml(hr, odds)+'</div>'+
+    '<div class="bbOddsNote">'+(corr
+      ? 'Γινόμενο legs '+est.raw.toFixed(2)+' × '+est.factor.toFixed(2)+' (συσχέτιση σουτ / καρτών-φάουλ) = EST ODDS.'
+      : 'Γινόμενο αποδόσεων των legs (EST ODDS).')+
+      ' Δική μας εκτίμηση — όχι η τιμή bet builder του bookmaker. Μπορείς να γράψεις τη δική σου.</div>'+
+  '</div>';
+}
+function bbSquares(matches, team, actName, tipRow, tipLegs){
+  return matches.map(function(x, i){
+    var home = x.m.h===team, opp = home ? x.m.a : x.m.h;
+    var tip = (actName && tipRow) ? bbMatchTipText(tipRow, tipLegs, x)
+                                  : ((home?"vs ":"at ")+opp+" · "+x.vals.join(" / "));
+    return '<div class="bbSq '+(x.hit?"hit":"miss")+'"'+(actName?' data-act="'+actName+'" data-idx="'+i+'"':'')+
+           ' title="'+escAttr(tip)+'"></div>';
+  }).join("");
+}
+/* ---------- Λεπτομέρειες συνδυασμού ανά αγώνα (ζητήθηκε ρητά 2026-09-20) ----------
+   Κάθε "τουλίπα" της λωρίδας αντιπάλων (κύκλος αντιπάλου + κίτρινη βούλα από κάτω
+   όταν πέτυχε ο συνδυασμός) και κάθε τετραγωνάκι του all-hit strip δείχνει ΤΩΡΑ
+   αναλυτικά τι έγινε ΣΕ ΕΚΕΙΝΟ ΤΟ ΜΑΤΣ: σκορ, και leg-leg την πραγματική τιμή
+   με ✓/✗ πάνω στη γραμμή του, και τελικό HIT/MISS του συνδυασμού.
+   x = {m, vals, hit} όπως το γυρνάει το bbEval (vals στη ΣΕΙΡΑ των legs). */
+function bbLegHitAt(leg, v){
+  if(v==null) return null;
+  return leg.side==="over" ? v>leg.threshold : v<leg.threshold;
+}
+function bbMatchTipText(r, legs, x){
+  var home = x.m.h===r.team, opp = home ? x.m.a : x.m.h;
+  var out = x.m.d+" · "+(home?"ΕΝΤΟΣ vs ":"ΕΚΤΟΣ at ")+opp;
+  if(x.m.fthg!=null && x.m.ftag!=null) out += " · "+x.m.fthg+"-"+x.m.ftag;
+  if(legs && legs.length && x.vals){
+    out += "\n";
+    legs.forEach(function(l, i){
+      var v = x.vals[i], ok = bbLegHitAt(l, v);
+      out += "\n"+(ok?"✓":"✗")+" "+(l.side==="over"?"OVER":"UNDER")+" "+l.threshold+" "+catLabel(l.category)+" → "+(v==null?"—":v);
+    });
+    out += "\n\n"+(x.hit ? "COMBO HIT" : "COMBO MISS")+" ("+legs.filter(function(l,i){ return bbLegHitAt(l, x.vals[i]); }).length+"/"+legs.length+" legs)";
+  }
+  return out;
+}
+function bbMatchTipHtml(r, legs, x){
+  var home = x.m.h===r.team, opp = home ? x.m.a : x.m.h;
+  var hitCount = (legs && legs.length && x.vals) ? legs.filter(function(l,i){ return bbLegHitAt(l, x.vals[i]); }).length : 0;
+  var head = '<div class="ctHead">'+
+      '<span class="ctWhere">'+(home?"ΕΝΤΟΣ vs":"ΕΚΤΟΣ at")+' '+escAttr(opp)+'</span>'+
+      (legs && legs.length ? '<span class="ctVerdict '+(x.hit?"hit":"miss")+'">'+(x.hit?"HIT":"MISS")+' '+hitCount+'/'+legs.length+'</span>' : '')+
+    '</div>';
+  var score = '<div class="ctScore">'+escAttr(x.m.d)+
+    ((x.m.fthg!=null && x.m.ftag!=null) ? ' · <b>'+escAttr(x.m.h)+' '+fmtGoal(x.m.fthg)+'-'+fmtGoal(x.m.ftag)+' '+escAttr(x.m.a)+'</b>' : '')+
+    '</div>';
+  var body;
+  if(legs && legs.length && x.vals){
+    body = '<div class="ctLegs">'+legs.map(function(l, i){
+      var v = x.vals[i], ok = bbLegHitAt(l, v);
+      return '<div class="ctLeg '+(ok?"ok":"no")+'">'+
+        '<span class="ctMark">'+(ok?"✓":"✗")+'</span>'+
+        '<span class="ctName"><b>'+(l.side==="over"?"OVER":"UNDER")+' '+l.threshold+'</b> '+escAttr(catLabel(l.category))+'</span>'+
+        '<span class="ctVal">'+(v==null?"—":v)+'</span>'+
+      '</div>';
+    }).join("")+'</div>';
+  } else {
+    body = '<div class="ctHint">Διάλεξε legs για να δεις τον συνδυασμό σε αυτό το ματς.</div>';
+  }
+  return head+score+body;
+}
+// Μπαλόνι λεπτομερειών (ίδια μηχανική με το showStreakTip της φλόγας).
+function showComboTip(anchorEl, html){
+  var existing = document.querySelector(".comboTip");
+  if(existing){
+    var wasSame = existing._anchor === anchorEl;
+    if(existing._cleanup) existing._cleanup();
+    if(wasSame) return;
+  }
+  var tip = document.createElement("div");
+  tip.className = "comboTip";
+  tip.innerHTML = html;
+  tip._anchor = anchorEl;
+  document.body.appendChild(tip);
+  try{
+    var rect = anchorEl.getBoundingClientRect();
+    var W = tip.offsetWidth || 250;
+    var left = rect.left + rect.width/2 - W/2;
+    var minL = 8, maxL = document.documentElement.clientWidth - W - 8;
+    if(left<minL) left = minL;
+    if(left>maxL) left = Math.max(minL, maxL);
+    tip.style.left = left+"px";
+    // Πάνω από το στοιχείο· αν δεν χωράει (ψηλά στην οθόνη), από κάτω.
+    if(rect.top > tip.offsetHeight + 16){
+      tip.style.top = (rect.top-8)+"px";
+      tip.style.transform = "translateY(-100%)";
+    } else {
+      tip.style.top = (rect.bottom+8)+"px";
+    }
+  }catch(e){}
+  function cleanup(){
+    if(tip.parentNode) tip.remove();
+    document.removeEventListener("pointerdown", dismiss, true);
+    document.removeEventListener("scroll", dismiss, true);
+  }
+  tip._cleanup = cleanup;
+  function dismiss(ev){
+    if(ev.target===anchorEl || tip.contains(ev.target)) return;
+    cleanup();
+  }
+  setTimeout(function(){
+    document.addEventListener("pointerdown", dismiss, true);
+    document.addEventListener("scroll", dismiss, true);
+  }, 0);
+}
+function bbComboCard(c, idx, actName){
+  var est = bbEstOdds(c.legs), odds = est ? est.odds : null;
+  var p = bbPct(c.ev.hits, c.ev.sample);
+  var extra = "";
+  if(odds>1){
+    var edge = (c.ev.hitRate - 1/odds)*100, evp = (c.ev.hitRate*odds-1)*100;
+    extra = '<span>Edge <b>'+(edge>=0?"+":"")+edge.toFixed(1)+'%</b></span><span>EV <b>'+(evp>=0?"+":"")+evp.toFixed(1)+'%</b></span>';
+  }
+  return '<button type="button" class="bbCombo" data-act="'+(actName||"combo")+'" data-idx="'+idx+'">'+
+    '<div class="bbComboHead"><span class="bbKind '+c.kind+'">'+c.kind+'</span>'+
+      '<span class="bbPct '+bbTier(p)+'">'+p+'%</span><span class="bbHits">'+c.ev.hits+'/'+c.ev.sample+'</span>'+
+      '<div class="bbComboMeta"><span>Fair <b>'+(c.ev.fairOdds?c.ev.fairOdds.toFixed(2):"—")+'</b></span>'+(odds?'<span>EST ODDS <b>'+odds.toFixed(2)+'</b>'+bbCorrChip(est)+'</span>':'')+extra+'</div></div>'+
+    '<div class="bbLegs">'+c.legs.map(bbLegChip).join("")+'</div>'+
+  '</button>';
+}
+
+// Οι κύκλοι L5-L20 της ΚΕΦΑΛΙΔΑΣ (έξω από το drawer) πρέπει να ακολουθούν ΚΑΙ
+// τους διακόπτες του BetBuilder, όχι μόνο του κανονικού drawer: όσο το BB είναι
+// ανοιχτό, το L5/L10/L15/L20/ΟΛΑ, το ΕΝΤΟΣ/ΕΚΤΟΣ και το "+" του BB γράφονται
+// ΚΑΙ στο state του drawer, οπότε το updateHeader (που τρέχει σε κάθε draw)
+// ξαναϋπολογίζει τα pills με ΑΚΡΙΒΩΣ ό,τι βλέπει ο χρήστης στο BB. Πριν, τα
+// pills έμεναν παγωμένα σε ό,τι είχε το drawer πριν ανοίξει το BB (ζητήθηκε
+// ρητά 2026-09-20). Αντιστοιχίσεις: BB "ΟΛΑ" -> fullSeason (όλη η σεζόν),
+// BB "+" -> fullSeason+lastSeason μαζί (ίδιο με το "+" του drawer).
+function bbSyncStateFromBB(state, bb){
+  state.venue = bb.venue;
+  state.tableVenue = bb.venue;
+  state.selected = null;
+  if(bb.n === "all"){
+    state.fullSeason = true;
+    state.lastSeason = !!bb.fill;
+    state.usingCustomN = false;
+  } else {
+    state.n = bb.n;
+    state.usingCustomN = (WINDOWS.indexOf(bb.n) < 0);
+    state.fullSeason = !!bb.fill;
+    state.lastSeason = !!bb.fill;
+  }
+}
+function bbInit(state){
+  return {view:"list", n:([5,10,15,20].indexOf(state.n)>=0 ? state.n : activeWindow), venue:state.venue||"any",
+          fill:!!(state.fullSeason && state.lastSeason), slip:[], hist:[], manual:"", _combos:[], _sugs:[],
+          // Φωτογραφία των φίλτρων του drawer τη στιγμή που άνοιξε το BB: όσο το BB
+          // είναι ανοιχτό τα γράφουμε από πάνω (bbSyncStateFromBB) ώστε να
+          // ακολουθούν τα pills της κεφαλίδας, και στην έξοδο τα επαναφέρουμε
+          // ώστε το κανονικό drawer να μη μείνει με φίλτρο που δεν έχει ορατό
+          // διακόπτη (2026-09-20).
+          _prev:{n:state.n, venue:state.venue, tableVenue:state.tableVenue, fullSeason:state.fullSeason,
+                 lastSeason:state.lastSeason, usingCustomN:state.usingCustomN}};
+}
+// Επαναφορά των φίλτρων του drawer όπως ήταν πριν ανοίξει το BB (βλ. bbInit._prev).
+function bbRestoreState(state){
+  var pv = state.bb && state.bb._prev;
+  if(!pv) return;
+  for(var k in pv){ if(Object.prototype.hasOwnProperty.call(pv,k)) state[k] = pv[k]; }
+}
+
+// opts (προαιρετικό): {exitLabel} — η σελίδα BETBUILDERS θέλει το "πίσω" να
+// λέει ότι γυρνάει στη λίστα ομάδων, όχι "Κλείσιμο BB" (2026-09-20).
+function bbRender(r, state, inner, redraw, opts){
+  var bb = state.bb;
+  var exitLabel = (opts && opts.exitLabel) || null;
+  var ms = bbMatchPool(r.team, r.league, bb.venue, bb.fill);
+  var allLegs = bbLegsOfTeam(r);
+  var legById = {}; allLegs.forEach(function(l){ legById[l.id] = l; });
+  bb.slip = bb.slip.filter(function(id){ return !!legById[id]; });
+
+  var teamHtml = '<span class="bbTeam">'+avatarHtml(r.team, r.league)+escAttr(r.team)+'</span>'+
+                 (r.opponent ? '<span class="bbVs">vs '+escAttr(r.opponent)+'</span>' : '');
+  var nBtns = [5,10,15,20,"all"].map(function(n){
+    return '<button data-act="n" data-n="'+n+'" class="'+(bb.n===n?"active":"")+'">'+(n==="all"?"ΟΛΑ":"L"+n)+'</button>';
+  }).join("");
+  var vBtns = [["any","ΟΛΟΙ"],["home","ΕΝΤΟΣ"],["away","ΕΚΤΟΣ"]].map(function(x){
+    return '<button data-act="venue" data-v="'+x[0]+'" class="'+(bb.venue===x[0]?"active":"")+'">'+x[1]+'</button>';
+  }).join("");
+  var ctrlHtml = '<div class="bbCtrl"><div class="seg small">'+nBtns+'</div>'+
+    '<div class="lastFillWrap"><button type="button" class="lastFillBtn'+(bb.fill?" active":"")+'" data-act="fill" title="Συμπλήρωση με περσινή σεζόν">+</button></div>'+
+    '<div class="seg small">'+vBtns+'</div>'+
+    (bb.view==="builder" ? '<button type="button" class="bbBackBtn" data-act="undo"'+(bb.hist.length?"":" disabled")+'>↶ Undo</button>' : '')+
+  '</div>';
+
+  var html = '';
+  if(bb.view==="list"){
+    var combos = bbTopCombos(r, bb, BB_LIST_TOP);
+    bb._combos = combos;
+    html =
+      '<div class="bbTop"><button type="button" class="bbBackBtn" data-act="exit">'+(exitLabel||"← Πίσω")+'</button>'+
+        '<div class="bbTitle"><span class="bbTag">BET BUILDER</span>'+teamHtml+'</div>'+
+        '<button type="button" class="bbBackBtn" data-act="open">⚒ Πλήρες Builder</button></div>'+
+      ctrlHtml+
+      '<div class="bbNote">Καλύτεροι συνδυασμοί για '+escAttr(r.team)+' (μόνο legs της ίδιας ομάδας) με ≥'+BB_MIN_PCT+'% στα '+(bb.n==="all"?"όλα τα ματς":"τελευταία "+bb.n)+
+        ' · legs με απόδοση '+(oddsMinVal!=null?oddsMinVal:"—")+'–'+(oddsMaxVal!=null?oddsMaxVal:"—")+' · πάτα ένα combo για το πλήρες Builder.</div>'+
+      (combos.length
+        ? '<div class="bbCombos">'+combos.map(function(c,i){ return bbComboCard(c,i); }).join("")+'</div>'
+        : '<div class="bbEmpty">Δεν βρέθηκαν combos με ≥'+BB_MIN_PCT+'% για αυτά τα φίλτρα. Δοκίμασε άλλο LAST N ή έδρα, ή άνοιξε το φίλτρο απόδοσης.</div>');
+  } else {
+    var slipLegs = bb.slip.map(function(id){ return legById[id]; });
+    var slipEv = slipLegs.length ? bbEval(r.team, ms, slipLegs, bb.n) : null;
+    // Λωρίδα αντιπάλων: οι αγώνες που μετράνε τώρα (του slip αν υπάρχει, αλλιώς οι τελευταίοι N της ομάδας).
+    var view;
+    if(slipEv) view = slipEv.matches;
+    else {
+      var lim = bb.n==="all" ? ms.length : bb.n;
+      view = ms.slice(Math.max(0, ms.length-lim)).reverse().map(function(m){ return {m:m, hit:false}; });
+    }
+    var oppsHtml = view.length ? '<div class="bbOpps"><div class="bbOppsHead"><span>Last opponents</span><span>'+view.length+'</span></div><div class="bbOppsRow">'+
+      view.map(function(x, i){
+        var home = x.m.h===r.team, opp = home ? x.m.a : x.m.h;
+        return '<div class="bbOpp'+(slipEv && x.hit?" hit":"")+'" data-act="opp" data-idx="'+i+'" title="'+escAttr(bbMatchTipText(r, slipLegs, x))+'"><span class="vsat">'+(home?"vs":"at")+'</span>'+avatarHtml(opp, r.league)+'<span class="dot2"></span></div>';
+      }).join("")+'</div></div>' : '';
+
+    // Κάρτες: μία ανά (κατηγορία, γραμμή), με OVER/UNDER όπου προσφέρονται.
+    var groups = {}, order = [];
+    allLegs.forEach(function(l){
+      var k = l.category+"|"+l.threshold;
+      if(!groups[k]){ groups[k] = {category:l.category, threshold:l.threshold, over:null, under:null}; order.push(k); }
+      groups[k][l.side] = l;
+    });
+    var cards = order.map(function(k){
+      var g = groups[k];
+      var eo = g.over ? bbEval(r.team, ms, [g.over], bb.n) : null;
+      var eu = g.under ? bbEval(r.team, ms, [g.under], bb.n) : null;
+      var score = -999;
+      [[g.over,eo],[g.under,eu]].forEach(function(x){ if(x[0] && x[1].sample) score = Math.max(score, x[1].hitRate*100 - 100/x[0].price); });
+      var slipSide = (g.over && bb.slip.indexOf(g.over.id)>=0) ? "over" : ((g.under && bb.slip.indexOf(g.under.id)>=0) ? "under" : null);
+      return {g:g, eo:eo, eu:eu, score:score, slipSide:slipSide};
+    });
+    cards.sort(function(a,b){
+      if(!!a.slipSide !== !!b.slipSide) return a.slipSide ? -1 : 1;
+      return b.score - a.score;
+    });
+    var cardsHtml = cards.map(function(c){
+      var g = c.g;
+      var po = c.eo && c.eo.sample ? bbPct(c.eo.hits, c.eo.sample) : null;
+      var pu = c.eu && c.eu.sample ? bbPct(c.eu.hits, c.eu.sample) : null;
+      var showSide = c.slipSide || ((po!=null && (pu==null || po>=pu)) ? "over" : "under");
+      var se = showSide==="over" ? c.eo : c.eu, sp = showSide==="over" ? po : pu;
+      var hot = sp!=null && sp>=70;
+      function pick(side, leg, pctv){
+        if(!leg) return '<button type="button" class="bbPick '+side+'" disabled><span class="k">'+(side==="over"?"OVER":"UNDER")+' '+g.threshold+'</span><span class="p">—</span><span class="o">&nbsp;</span></button>';
+        return '<button type="button" class="bbPick '+side+(c.slipSide===side?" on":"")+'" data-act="pick" data-id="'+escAttr(leg.id)+'">'+
+          '<span class="k">'+(side==="over"?"OVER":"UNDER")+' '+g.threshold+'</span><span class="p">'+(pctv==null?"—":pctv+"%")+'</span><span class="o">@'+leg.price.toFixed(2)+'</span></button>';
+      }
+      return '<div class="bbProp'+(c.slipSide?" inslip":"")+'">'+
+        '<div class="bbPropInfo"><div class="bbPropName">'+escAttr(catLabel(g.category))+' '+g.threshold+
+          '<small>'+(bb.n==="all"?"ΟΛΑ":"L"+(se?se.sample:0))+' · '+(se?se.hits:0)+'/'+(se?se.sample:0)+' · '+(sp==null?"—":sp+"%")+'</small>'+
+          (hot ? '<span class="bbHot">HOT '+(showSide==="over"?"O":"U")+'</span>' : '')+'</div>'+
+          '<div class="bbStrip">'+(se ? bbSquares(se.matches, r.team) : '')+'</div></div>'+
+        '<div class="bbPicks">'+pick("over", g.over, po)+pick("under", g.under, pu)+'</div>'+
+      '</div>';
+    }).join("");
+
+    // Slip
+    var slipHtml = '<div class="bbSlipHead"><span>Bet Slip</span><span>'+slipLegs.length+' '+(slipLegs.length===1?"LEG":"LEGS")+'</span></div>';
+    if(!slipLegs.length){
+      slipHtml += '<div class="bbSlipHint">Διάλεξε OVER/UNDER σε οποιοδήποτε line για να χτίσεις.</div>';
+    } else {
+      var sp2 = bbPct(slipEv.hits, slipEv.sample);
+      slipHtml +=
+        '<div><div class="bbAllHitHead"><span>All-hit ('+(bb.n==="all"?"ΟΛΑ":"L"+slipEv.sample)+')</span><span class="bbPct '+bbTier(sp2)+'">'+slipEv.hits+'/'+slipEv.sample+' · '+sp2+'%</span></div>'+
+        '<div class="bbAllStrip">'+bbSquares(slipEv.matches, r.team, "opp", r, slipLegs)+'</div></div>'+
+        '<div class="bbSlipLegs">'+slipLegs.map(function(l){
+          return '<div class="bbSlipLeg"><span class="sd '+l.side+'">'+(l.side==="over"?"O":"U")+'</span><span class="nm">'+l.threshold+' '+escAttr(catLabel(l.category))+'</span><span class="od">'+l.price.toFixed(2)+'</span><button type="button" class="rm" data-act="rm" data-id="'+escAttr(l.id)+'" title="Αφαίρεση">✕</button></div>';
+        }).join("")+'</div>'+
+        bbOddsBoxHtml(slipEv.hits, slipEv.sample, bbEstOdds(slipLegs), bb.manual)+
+        '<div class="bbSlipBtns"><button type="button" class="bbGhost" data-act="clear">↺ Clear all</button></div>';
+    }
+    var sugs = slipLegs.length ? bbExtensions(r, bb, ms, slipLegs, allLegs) : bbTopCombos(r, bb, 5);
+    bb._sugs = sugs;
+    if(sugs.length){
+      slipHtml += '<div class="bbSugHead">✦ '+(slipLegs.length ? "Add to slip" : "Top combos")+'</div>'+
+        sugs.map(function(c,i){
+          var all = c.all || c.legs;
+          var p = bbPct(c.ev.hits, c.ev.sample);
+          return '<div class="bbSug"><div class="bbComboHead"><span class="bbKind '+c.kind+'">'+(c.kind==="ext"?"if added":c.kind)+'</span>'+
+            '<span class="bbPct '+bbTier(p)+'">'+c.ev.hits+'/'+c.ev.sample+' · '+p+'%</span></div>'+
+            '<div class="bbLegs">'+c.legs.map(bbLegChip).join("")+'</div>'+
+            '<button type="button" class="bbSugBtn" data-act="sug" data-idx="'+i+'">'+(c.kind==="ext"?"Add to slip":"Load combo")+'</button></div>';
+        }).join("");
+    }
+
+    html =
+      '<div class="bbTop"><button type="button" class="bbBackBtn" data-act="back">← Combos</button>'+
+        '<button type="button" class="bbBackBtn" data-act="exit">'+(exitLabel||"✕ Κλείσιμο BB")+'</button>'+
+        '<div class="bbTitle"><span class="bbTag">BET BUILDER</span>'+teamHtml+'</div></div>'+
+      ctrlHtml+
+      (cards.length
+        ? '<div class="bbGrid"><div class="bbMain">'+oppsHtml+'<div class="bbProps">'+cardsHtml+'</div></div><div class="bbSlip">'+slipHtml+'</div></div>'
+        : '<div class="bbEmpty">Δεν υπάρχουν lines για την ομάδα σε αυτόν τον αγώνα.</div>');
+  }
+
+  var el = document.createElement("div");
+  el.className = "bbWrap";
+  el.innerHTML = html;
+  inner.innerHTML = "";
+  inner.appendChild(el);
+
+  function pushHist(){ bb.hist.push(bb.slip.slice()); }
+  el.addEventListener("click", function(e){
+    e.stopPropagation();
+    var t = e.target.closest("[data-act]");
+    if(!t || !el.contains(t) || t.disabled) return;
+    var act = t.getAttribute("data-act"), id = t.getAttribute("data-id");
+    // Λεπτομέρειες συνδυασμού για ΕΝΑ ματς (τουλίπα αντιπάλου ή τετραγωνάκι
+    // του all-hit strip) — ανοίγει μπαλόνι, ΔΕΝ ξανασχεδιάζει (θα έσβηνε).
+    if(act==="opp"){
+      var xi = (typeof view!=="undefined" && view) ? view[parseInt(t.getAttribute("data-idx"),10)] : null;
+      if(xi) showComboTip(t, bbMatchTipHtml(r, (typeof slipLegs!=="undefined" ? slipLegs : null), xi));
+      return;
+    }
+    if(act==="exit"){ bbRestoreState(state); state.bb = null; }
+    else if(act==="back"){ bb.view = "list"; }
+    else if(act==="open"){ bb.slip = []; bb.hist = []; bb.manual = ""; bb.view = "builder"; }
+    else if(act==="n"){ var nv = t.getAttribute("data-n"); bb.n = nv==="all" ? "all" : parseInt(nv,10); bb.manual = ""; bbSyncStateFromBB(state, bb); }
+    else if(act==="venue"){ bb.venue = t.getAttribute("data-v"); bb.manual = ""; bbSyncStateFromBB(state, bb); }
+    else if(act==="fill"){ bb.fill = !bb.fill; bb.manual = ""; bbSyncStateFromBB(state, bb); }
+    else if(act==="combo"){ var c = bb._combos[parseInt(t.getAttribute("data-idx"),10)]; if(!c) return; bb.slip = c.legs.map(function(l){ return l.id; }); bb.hist = []; bb.manual = ""; bb.view = "builder"; }
+    else if(act==="pick"){
+      var leg = legById[id]; if(!leg) return;
+      pushHist();
+      if(bb.slip.indexOf(id)>=0) bb.slip = bb.slip.filter(function(x){ return x!==id; });
+      else bb.slip = bb.slip.filter(function(x){ return legById[x].category!==leg.category; }).concat([id]);
+      bb.manual = "";
+    }
+    else if(act==="rm"){ pushHist(); bb.slip = bb.slip.filter(function(x){ return x!==id; }); bb.manual = ""; }
+    else if(act==="clear"){ if(!bb.slip.length) return; pushHist(); bb.slip = []; bb.manual = ""; }
+    else if(act==="undo"){ if(!bb.hist.length) return; bb.slip = bb.hist.pop(); bb.manual = ""; }
+    else if(act==="sug"){
+      var s = bb._sugs[parseInt(t.getAttribute("data-idx"),10)]; if(!s) return;
+      pushHist();
+      bb.slip = (s.kind==="ext") ? bb.slip.concat(s.legs.map(function(l){ return l.id; })) : s.legs.map(function(l){ return l.id; });
+      bb.manual = "";
+    }
+    else return;
+    redraw();
+  });
+  // Πληκτρολόγηση απόδοσης: ενημερώνει ΜΟΝΟ το Edge/EV στη θέση τους (χωρίς ξανα-σχεδιασμό, ώστε να μη χάνεται το focus).
+  el.addEventListener("input", function(e){
+    var inp = e.target;
+    if(!inp.classList || !inp.classList.contains("bbOddsInput")) return;
+    var v = inp.value.replace(",", ".");
+    if(!(v==="" || /^\d*\.?\d*$/.test(v))){ inp.value = bb.manual; return; }
+    bb.manual = v;
+    var box = inp.closest(".bbOdds");
+    var hits = parseInt(box.getAttribute("data-hits"),10), total = parseInt(box.getAttribute("data-total"),10);
+    var hr = total ? hits/total : 0, odds = parseFloat(v);
+    box.querySelector(".bbEvRow").innerHTML = bbEvHtml(hr, odds);
+    box.className = "bbOdds " + ((odds>1) ? ((hr*odds-1)>=0 ? "pos" : "neg") : "");
+  });
+}
+
+/* ---------- BETBUILDERS PAGE (ζητήθηκε ρητά 2026-09-20) ----------
+   Ολόκληρη σελίδα (όχι drawer) στη μορφή του PropDunker: λίστα με ΟΛΕΣ τις
+   ομάδες των betrows που βλέπει ο χρήστης (ίδια φίλτρα με την κύρια λίστα),
+   κάθε γραμμή ανοίγει και δείχνει τα καλύτερα combos της ομάδας, και με κλικ
+   σε ένα combo μπαίνουμε στον ΠΛΗΡΗ Builder (ίδιο ακριβώς view με το BB του
+   drawer — ξαναχρησιμοποιούμε το bbRender, δεν γράφουμε δεύτερη υλοποίηση).
+   Πλήκτρα επιστροφής: από τον Builder πίσω στη λίστα ομάδων, από τη λίστα πίσω
+   στη βασική σελίδα. Το SELECT LEGS (2/3) υπάρχει και εδώ πάνω. */
+var lastRenderedRows = [];
+var bbPageOn = false;
+var bbPageState = { n:10, venue:"any", fill:false, expanded:{}, row:null, state:null };
+var _bbPageCache = {};
+
+function bbPageKey(r){ return r.team+"|"+r.league+"|"+r.matchHome+"|"+r.matchAway; }
+// Μία γραμμή ανά (ομάδα, αγώνας) από ΟΤΙ βλέπει τώρα ο χρήστης στην κύρια λίστα.
+function bbPageTeams(){
+  var seen = {}, out = [];
+  lastRenderedRows.forEach(function(r){
+    if(r.isTotal || !r.team) return;
+    var k = bbPageKey(r);
+    if(seen[k]) return;
+    seen[k] = 1; out.push(r);
+  });
+  return out;
+}
+function bbPageBb(){ return {n:bbPageState.n, venue:bbPageState.venue, fill:bbPageState.fill}; }
+// Cache ανά ομάδα+ρυθμίσεις: η λίστα ξαναχτίζεται σε κάθε κλικ (άνοιγμα/κλείσιμο
+// γραμμής), δεν έχει νόημα να ξαναϋπολογίζονται τα combos όλων των ομάδων.
+function bbPageCombos(r){
+  var k = bbPageKey(r)+"|"+bbPageState.n+"|"+bbPageState.venue+"|"+(bbPageState.fill?1:0)+
+          "|"+bbLegsMode+"|"+oddsMinVal+"|"+oddsMaxVal;
+  if(!_bbPageCache[k]) _bbPageCache[k] = bbTopCombos(r, bbPageBb(), BB_LIST_TOP);
+  return _bbPageCache[k];
+}
+function openBbPage(){
+  bbPageState.n = ([5,10,15,20].indexOf(activeWindow)>=0) ? activeWindow : 10;
+  bbPageState.venue = "any";
+  bbPageState.fill = lastFillGlobalOn;
+  bbPageState.expanded = {};
+  bbPageState.row = null; bbPageState.state = null;
+  _bbPageCache = {};
+  bbPageOn = true;
+  // Στο κινητό το φίλτρο ζει μέσα στο bottom sheet — αν μείνει ανοιχτό,
+  // σκεπάζει τη σελίδα BETBUILDERS (ίδιο με το closeSheet του sheet IIFE).
+  var fsB = document.getElementById("filtersBackdrop"), fsS = document.getElementById("filtersSheet");
+  if(fsB) fsB.hidden = true;
+  if(fsS) fsS.hidden = true;
+  document.body.classList.add("bbPageOn");
+  document.getElementById("bbPage").hidden = false;
+  renderBbPage();
+  window.scrollTo(0, 0);
+}
+function closeBbPage(){
+  bbPageOn = false;
+  bbPageState.row = null; bbPageState.state = null;
+  document.body.classList.remove("bbPageOn");
+  var el = document.getElementById("bbPage");
+  el.hidden = true; el.innerHTML = "";
+  window.scrollTo(0, 0);
+}
+function bbPageOpenTeam(r, comboIdx){
+  var st = { n: ([5,10,15,20].indexOf(bbPageState.n)>=0 ? bbPageState.n : activeWindow),
+             venue: bbPageState.venue, result:"any", outlierTrim:0, h2h:false,
+             fullSeason: !!bbPageState.fill, lastSeason: !!bbPageState.fill, selected:null,
+             threshold: r.threshold, usingCustomN:false, oppMode:false, tableMode:false,
+             tableVenue: bbPageState.venue, reversedLine:false, bb:null };
+  st.bb = bbInit(st);
+  st.bb.n = bbPageState.n;
+  st.bb.venue = bbPageState.venue;
+  st.bb.fill = !!bbPageState.fill;
+  // comboIdx<0 = "Πλήρες Builder" (άδειο slip) — αλλιώς φορτώνουμε το combo.
+  var c = (comboIdx>=0) ? bbPageCombos(r)[comboIdx] : null;
+  if(c) st.bb.slip = c.legs.map(function(l){ return l.id; });
+  st.bb.view = "builder";
+  bbPageState.row = r; bbPageState.state = st;
+  renderBbPage();
+}
+function bbPageCtrlHtml(){
+  var nBtns = [5,10,15,20,"all"].map(function(n){
+    return '<button type="button" data-pact="n" data-n="'+n+'" class="'+(bbPageState.n===n?"active":"")+'">'+(n==="all"?"ΟΛΑ":"L"+n)+'</button>';
+  }).join("");
+  var vBtns = [["any","ΟΛΟΙ"],["home","ΕΝΤΟΣ"],["away","ΕΚΤΟΣ"]].map(function(x){
+    return '<button type="button" data-pact="venue" data-v="'+x[0]+'" class="'+(bbPageState.venue===x[0]?"active":"")+'">'+x[1]+'</button>';
+  }).join("");
+  var lBtns = [2,3].map(function(n){
+    return '<button type="button" data-pact="legs" data-legs="'+n+'" class="'+(bbLegsMode===n?"active":"")+'">'+n+'</button>';
+  }).join("");
+  return '<div class="bbPageCtrl"><span class="segLbl">LEGS</span><div class="seg small">'+lBtns+'</div>'+
+         '<div class="seg small">'+nBtns+'</div>'+
+         '<div class="lastFillWrap"><button type="button" class="lastFillBtn'+(bbPageState.fill?" active":"")+'" data-pact="fill" title="Συμπλήρωση με περσινή σεζόν">+</button></div>'+
+         '<div class="seg small">'+vBtns+'</div></div>';
+}
+function renderBbPage(){
+  var el = document.getElementById("bbPage");
+  if(!el) return;
+  var ps = bbPageState;
+  // --- Πλήρης Builder μιας ομάδας ---
+  if(ps.row && ps.state && ps.state.bb){
+    // ό,τι άλλαξε ο χρήστης μέσα στον Builder (παράθυρο/έδρα/"+") το κρατάμε
+    // και για τη λίστα, ώστε να μη "χάνεται" όταν γυρίσει πίσω.
+    ps.n = ps.state.bb.n; ps.venue = ps.state.bb.venue; ps.fill = !!ps.state.bb.fill;
+    // Μόνο το "πίσω στη βασική σελίδα" εδώ — το "← Combos"/"≡ Λίστα ομάδων" τα
+    // βάζει ήδη το ίδιο το bbRender από κάτω (να μη διπλογράφονται).
+    el.innerHTML = '<div class="bbPageHead">'+
+        '<button type="button" class="bbBackBtn" data-pact="back">← Βασική σελίδα</button>'+
+        '<div class="bbPageTitle">BET BUILDERS</div>'+
+      '</div><div id="bbPageBody"></div>';
+    bbRender(ps.row, ps.state, document.getElementById("bbPageBody"), renderBbPage,
+             {exitLabel:"≡ Λίστα ομάδων"});
+    return;
+  }
+  ps.row = null; ps.state = null;
+  // --- Λίστα ομάδων ---
+  var teams = bbPageTeams();
+  var items = teams.map(function(r){
+    var combos = bbPageCombos(r);
+    return {r:r, combos:combos, best: combos.length ? combos[0].pct : -1};
+  });
+  items.sort(function(a,b){ return (b.best-a.best) || (b.combos.length-a.combos.length); });
+  var listHtml = items.length ? items.map(function(it, i){
+    var r = it.r, k = bbPageKey(r), open = !!ps.expanded[k];
+    var tier = it.best>=70 ? "tier-hi" : it.best>=50 ? "tier-mid" : it.best>=0 ? "tier-lo" : "tier-none";
+    return '<div class="bbTeamCard'+(open?" open":"")+'">'+
+      '<div class="bbTeamHead" data-pact="team" data-idx="'+i+'">'+
+        '<span class="bbTeamName">'+avatarHtml(r.team, r.league)+'<span class="bbTn">'+escAttr(r.team)+'</span></span>'+
+        '<span class="bbTeamVs">'+(r.opponent?"vs "+escAttr(r.opponent):"")+'</span>'+
+        '<span class="bbTeamMeta">'+
+          (fmtMatchTime(r.startTime) ? '<span class="bbTime">'+fmtMatchTime(r.startTime)+'</span>' : '')+
+          '<span class="bbTeamBest '+tier+'">'+(it.best>=0 ? it.best+"%" : "—")+'</span>'+
+          '<span>'+it.combos.length+' combos</span>'+
+          '<span class="bbTeamChev">▾</span>'+
+        '</span>'+
+      '</div>'+
+      (open ? '<div class="bbTeamBody">'+
+        (it.combos.length
+          ? '<div class="bbCombos">'+it.combos.map(function(c,ci){ return bbComboCard(c, ci, "pcombo"); }).join("")+'</div>'
+          : '<div class="bbEmpty">Δεν βρέθηκαν combos με ≥'+BB_MIN_PCT+'% για αυτά τα φίλτρα.</div>')+
+        '<div class="bbSlipBtns"><button type="button" class="bbGhost" data-pact="full" data-idx="'+i+'">⚒ Πλήρες Builder</button></div>'+
+      '</div>' : '')+
+    '</div>';
+  }).join("") : '<div class="bbPageEmpty">Καμία ομάδα με τα τρέχοντα φίλτρα.</div>';
+
+  el.innerHTML = '<div class="bbPageHead">'+
+      '<button type="button" class="bbBackBtn" data-pact="back">← Βασική σελίδα</button>'+
+      '<div class="bbPageTitle">BET BUILDERS<span class="bbPageSub">'+items.length+' ομάδες · combos '+bbLegsMode+' legs · μόνο legs της ίδιας ομάδας</span></div>'+
+      bbPageCtrlHtml()+
+    '</div>'+listHtml;
+  el._items = items;
+}
+document.getElementById("bbPage").addEventListener("click", function(e){
+  var t = e.target.closest("[data-pact],[data-act='pcombo']");
+  if(!t || !this.contains(t)) return;
+  var items = this._items || [];
+  var pact = t.getAttribute("data-pact");
+  if(pact==="back"){ closeBbPage(); return; }
+  if(pact==="list"){ bbPageState.row = null; bbPageState.state = null; renderBbPage(); return; }
+  if(pact==="n"){ var nv = t.getAttribute("data-n"); bbPageState.n = nv==="all" ? "all" : parseInt(nv,10); renderBbPage(); return; }
+  if(pact==="venue"){ bbPageState.venue = t.getAttribute("data-v"); renderBbPage(); return; }
+  if(pact==="fill"){ bbPageState.fill = !bbPageState.fill; renderBbPage(); return; }
+  if(pact==="legs"){ setBbLegsMode(parseInt(t.getAttribute("data-legs"),10)); return; }
+  if(pact==="team"){
+    var it = items[parseInt(t.getAttribute("data-idx"),10)]; if(!it) return;
+    bbPageState.expanded[bbPageKey(it.r)] = !bbPageState.expanded[bbPageKey(it.r)];
+    renderBbPage(); return;
+  }
+  if(pact==="full"){
+    var it2 = items[parseInt(t.getAttribute("data-idx"),10)]; if(!it2) return;
+    bbPageOpenTeam(it2.r, -1); return;
+  }
+  if(t.getAttribute("data-act")==="pcombo"){
+    var card = t.closest(".bbTeamCard");
+    var head = card && card.querySelector("[data-pact='team']");
+    var it3 = head ? items[parseInt(head.getAttribute("data-idx"),10)] : null;
+    if(!it3) return;
+    bbPageOpenTeam(it3.r, parseInt(t.getAttribute("data-idx"),10));
+  }
+});
+
 function renderDrawer(r, headEl){
   var drawer = document.createElement("div");
   drawer.className = "drawer";
@@ -3077,7 +4220,7 @@ function renderDrawer(r, headEl){
   // τον αγώνα (ίδιο ακριβώς νούμερο με αυτό που ήδη δείχνει η κάρτα απ' έξω) — όχι
   // "any" σαν να μην υπήρχε καμία επιλογή. Ο χρήστης μπορεί μετά να το σβήσει
   // χειροκίνητα μέσα στο drawer με το ίδιο πλήκτρο "Μόνο εντός/εκτός" (ζητήθηκε ρητά 2026-09-17).
-  var presetVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
+  // (το presetVenue/tableVenue υπολογίζονται πλέον μέσα στο drawerDefaultState)
   // Το tableVenue (φίλτρο ΟΛΟΙ/ΕΝΤΟΣ/ΕΚΤΟΣ ΜΕΣΑ στη βαθμολογία) ξεκινάει
   // ΣΥΓΧΡΟΝΙΣΜΕΝΟ με το presetVenue, ώστε αν ήδη ξέρουμε την έδρα (HOME/AWAY
   // SPLIT ενεργό) η βαθμολογία να ανοίγει ΚΑΤΕΥΘΕΙΑΝ φιλτραρισμένη στην ίδια
@@ -3087,7 +4230,7 @@ function renderDrawer(r, headEl){
   // περσινής σεζόν αναμμένη (fullSeason+lastSeason μαζί), ακριβώς όπως το
   // presetVenue κάνει για την έδρα — "το κεντρικό το ανοίγει παντού όπου
   // χρειαστεί", ζητήθηκε ρητά 2026-09-17.
-  var state = { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false, fullSeason:lastFillGlobalOn, lastSeason:lastFillGlobalOn, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:presetVenue, tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
+  var state = drawerDefaultState(r);
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -3178,6 +4321,9 @@ function renderDrawer(r, headEl){
     } else if(priceChipEl){
       priceChipEl.remove();
     }
+    // Το chip μετατόπισης ακολουθεί την ΕΝΕΡΓΗ γραμμή/πλευρά του drawer.
+    var lmWrapEl = headEl.querySelector(".lmWrap");
+    if(lmWrapEl) lmWrapEl.innerHTML = lineMoveChipHtml(r, thr, side, price);
     var metricsEl = headEl.querySelector(".metrics");
     var pillsEl = headEl.querySelector(".statPills");
     if(!metricsEl || !pillsEl) return;
@@ -3253,6 +4399,7 @@ function renderDrawer(r, headEl){
         e.stopPropagation();
         var cardEl = headEl.parentElement;
         var isOpen = !!(cardEl && cardEl.classList.contains("open"));
+        if(state.bb){ bbRestoreState(state); state.bb = null; var bbB = headEl.querySelector(".bbBtn"); if(bbB) bbB.classList.remove("active"); }
         if(!isOpen){
           if(cardEl) cardEl.classList.add("open");
           state.oppMode = false;
@@ -3271,6 +4418,8 @@ function renderDrawer(r, headEl){
           state.oppMode = false;
           if(cardEl) cardEl.classList.remove("open");
           newOppBtn.classList.remove("hint","active");
+          // Ίδιο πλήρες ρεσετ με το κλείσιμο από την κεφαλίδα (2026-09-20).
+          resyncDrawerLocalToGlobals(r, state);
           // Ίδιος κανόνας με το κύριο toggle του head: όταν κλείνει το drawer
           // (και από εδώ), η κάρτα πρέπει να ξαναδείξει ΜΟΝΟ ό,τι λένε οι
           // γενικοί διακόπτες, όχι την τοπική κατάσταση του drawer που μόλις
@@ -3355,6 +4504,7 @@ function renderDrawer(r, headEl){
     var chartR = (state.oppMode && !r.isTotal && r.opponent) ? Object.assign({}, r, {team:r.opponent, opponent:r.team}) : r;
     var price = findSiblingPrice(thr);
     updateHeader(res, thr, price);
+    if(state.bb){ bbRender(r, state, inner, draw); return; }
     var matchesNewestFirst = chartRes.matches.slice().reverse(); // left = most recent
     var maxV = 0; matchesNewestFirst.forEach(function(x){ if(x.v>maxV) maxV=x.v; });
     var ceiling = Math.max(maxV*1.15, thr*1.15, 1);
@@ -3971,7 +5121,7 @@ document.addEventListener("click", function(e){
   // αμέσως μετά από κάθε επιλογή. Το composedPath() κρατάει τη ΑΡΧΙΚΗ αλυσίδα
   // προγόνων τη στιγμή του click, πριν από οποιαδήποτε μετέπειτα μεταβολή του DOM.
   var path = (typeof e.composedPath === "function") ? e.composedPath() : [];
-  var inAnyMsWrap = ["catFilterWrap","leagueFilterWrap","teamSelectWrap"].some(function(id){
+  var inAnyMsWrap = ["catFilterWrap","leagueFilterWrap","teamSelectWrap","bbFilterWrap"].some(function(id){
     var wrap = document.getElementById(id);
     return wrap && path.indexOf(wrap) !== -1;
   });
@@ -3994,12 +5144,40 @@ document.getElementById("dateFilterDesktop").addEventListener("change", function
 document.getElementById("dateFilterMobile").addEventListener("change", function(){ setDateFilter(this.value); });
 document.getElementById("dateClearDesktop").addEventListener("click", function(e){ e.stopPropagation(); setDateFilter(null); });
 document.getElementById("dateClearMobile").addEventListener("click", function(e){ e.stopPropagation(); setDateFilter(null); });
-document.getElementById("scopeSeg").addEventListener("click", function(e){
-  if(e.target.tagName!=="BUTTON") return;
-  Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
-  e.target.classList.add("active");
-  scopeFilterVal = e.target.getAttribute("data-v");
+/* ---------- φίλτρο BETBUILDER στο toolbar (2026-09-20) ----------
+   Δύο επιλογές: SELECT LEGS FOR BUILDER (2 ή 3 legs στα combos που παράγει ο
+   Builder παντού — drawer ΚΑΙ σελίδα BETBUILDERS) και GO TO BETBUILDERS PAGE. */
+function setBbLegsMode(n){
+  if(n!==2 && n!==3) return;
+  bbLegsMode = n;
+  _bbPageCache = {};
+  Array.prototype.forEach.call(document.querySelectorAll("#bbLegsSeg button"), function(b){
+    b.classList.toggle("active", parseInt(b.getAttribute("data-legs"),10)===n);
+  });
+  var lbl = document.getElementById("bbFilterLabel");
+  if(lbl) lbl.textContent = "BetBuilder: "+n+" legs";
+  if(bbPageOn) renderBbPage();
+  // Οι ανοιχτές κάρτες ξαναχτίζονται ώστε ένα ανοιχτό BB να δείξει αμέσως
+  // combos με το νέο πλήθος legs.
   renderToolbarAndRows();
+}
+document.getElementById("bbFilterBtn").addEventListener("click", function(e){
+  e.stopPropagation();
+  var m = document.getElementById("bbFilterMenu");
+  var willOpen = m.hidden;
+  closeAllMsMenus("bbFilterMenu");
+  m.hidden = !willOpen;
+});
+document.getElementById("bbLegsSeg").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-legs]");
+  if(!b) return;
+  e.stopPropagation();
+  setBbLegsMode(parseInt(b.getAttribute("data-legs"),10));
+});
+document.getElementById("bbGoPageRow").addEventListener("click", function(e){
+  e.stopPropagation();
+  closeAllMsMenus(null);
+  openBbPage();
 });
 document.getElementById("showSeg").addEventListener("click", function(e){
   if(e.target.tagName!=="BUTTON") return;
@@ -4168,6 +5346,101 @@ document.getElementById("jsonFiles").addEventListener("change", function(evt){
 });
 
 /* ---------- τοπικός live fetcher: φόρτωση όλων των αγώνων που κατέβασε ο fetch_stoiximan.py ---------- */
+/* ---------- ΜΕΤΑΤΟΠΙΣΗ LINE / ΝΕΑ ΑΠΟΔΟΣΗ (ζητήθηκε ρητά 2026-09-20) ----------
+   Το push_to_github.bat κρατάει ΑΝΤΙΓΡΑΦΟ των lines ΠΡΙΝ από κάθε ανανέωση στον
+   φάκελο live-prev/ (ίδια δομή με το live/). Εδώ διαβάζουμε ΜΟΝΟ τις τιμές από
+   εκείνο το στιγμιότυπο — χωρίς κανέναν υπολογισμό ιστορικού — και τις κρατάμε
+   ανά "αγορά": ματς + πλευρά ομάδας + κατηγορία + OVER/UNDER -> {γραμμή: απόδοση}.
+   Έτσι κάθε betrow ξέρει αν η ΙΔΙΑ γραμμή υπήρχε πριν (άρα άλλαξε μόνο η τιμή)
+   ή αν είναι ΝΕΑ γραμμή (άρα μετατοπίστηκε το line). Αν δεν υπάρχει ο φάκελος
+   (πρώτη φορά), δεν δείχνουμε τίποτα — καμία ένδειξη, όχι λάθος ένδειξη. */
+var PREV_LINES = {};        // marketKey -> {threshold: price}
+var PREV_LINES_LOADED = false;
+function lineMarketKey(matchHome, matchAway, dir, category, side){
+  return (matchHome||"")+"|"+(matchAway||"")+"|"+dir+"|"+category+"|"+side;
+}
+function extractLineSnapshot(root, out){
+  var participants = root.participants || [];
+  var home = participants[0], away = participants[1];
+  if(!home || !away) return;
+  (root.markets||[]).forEach(function(market){
+    var cls = classifyMarket(market.name||"", home.name, away.name);
+    if(!cls || cls.category==="unsupported") return;
+    if(isNonFullMatchMarket(market.name||"")) return;
+    (market.selections||[]).forEach(function(sel){
+      var parsed = parseSelectionName(sel.name);
+      if(!parsed || sel.price==null) return;
+      var mk = lineMarketKey(home.name, away.name, cls.direction, cls.category, parsed.side);
+      if(!out[mk]) out[mk] = {};
+      out[mk][parsed.threshold] = sel.price;
+    });
+  });
+}
+function loadPrevLines(){
+  if(PREV_LINES_LOADED) return Promise.resolve();
+  return fetch("live-prev/index.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .catch(function(){ return null; })
+    .then(function(manifest){
+      PREV_LINES_LOADED = true;
+      if(!manifest || !manifest.length) return;
+      return Promise.all(manifest.map(function(row){
+        return fetch("live-prev/" + row.file, {cache:"no-store"})
+          .then(function(r){ return r.ok ? r.json() : null; })
+          .catch(function(){ return null; });
+      })).then(function(jsons){
+        var snap = {};
+        jsons.filter(Boolean).forEach(function(j){
+          try{ extractLineSnapshot(eventRootOf(j), snap); }catch(e){}
+        });
+        PREV_LINES = snap;
+      });
+    });
+}
+/* Τι άλλαξε για ΜΙΑ γραμμή: {kind:"price"|"line"|"same", dir:-1|0|1, ...}
+   - υπήρχε ΙΔΙΑ γραμμή πριν  -> σύγκριση αποδόσεων ("price" ή "same")
+   - ΔΕΝ υπήρχε              -> "line": βρίσκουμε την ΠΙΟ ΚΟΝΤΙΝΗ προηγούμενη
+     γραμμή της ίδιας αγοράς (στα ίσα, αυτήν με την πιο κοντινή απόδοση).
+   Το βελάκι δείχνει τη ΓΡΑΜΜΗ όταν η γραμμή μετατοπίστηκε, αλλιώς την ΤΙΜΗ. */
+function lineMoveFor(r, thr, side, price){
+  if(price==null || !isFinite(price)) return null;
+  var dir = r.isTotal ? "total" : (r.ownVenue || "");
+  var prev = PREV_LINES[lineMarketKey(r.matchHome, r.matchAway, dir, r.category, side)];
+  if(!prev) return null;
+  var op = prev[thr];
+  if(op!=null){
+    if(Math.abs(op-price) < 0.0001) return {kind:"same", dir:0, price:price, oldPrice:op, oldLine:thr};
+    return {kind:"price", dir:(price>op?1:-1), price:price, oldPrice:op, oldLine:thr};
+  }
+  var best = null;
+  Object.keys(prev).forEach(function(k){
+    var v = parseFloat(k);
+    if(!isFinite(v)) return;
+    var d = Math.abs(v-thr), pd = Math.abs(prev[k]-price);
+    if(!best || d<best.d || (d===best.d && pd<best.pd)) best = {line:v, d:d, pd:pd};
+  });
+  if(!best) return null;
+  return {kind:"line", dir:(thr>best.line?1:-1), price:price, oldLine:best.line, oldPrice:prev[best.line]};
+}
+function lineMoveChipHtml(r, thr, side, price){
+  var mv = lineMoveFor(r, thr, side, price);
+  if(!mv) return "";
+  var cls = mv.dir>0 ? "up" : mv.dir<0 ? "down" : "flat";
+  var mark = mv.dir>0 ? "▲" : mv.dir<0 ? "▼" : "—";
+  var sideTxt = side==="over" ? "OVER" : "UNDER";
+  var tip;
+  if(mv.kind==="line"){
+    tip = "Μετατόπιση γραμμής: πριν "+sideTxt+" "+mv.oldLine+" @"+mv.oldPrice.toFixed(2)+
+          " → τώρα "+sideTxt+" "+thr+" @"+price.toFixed(2);
+  } else if(mv.kind==="price"){
+    tip = "Ίδια γραμμή ("+sideTxt+" "+thr+"): απόδοση "+mv.oldPrice.toFixed(2)+" → "+price.toFixed(2);
+  } else {
+    tip = "Καμία αλλαγή από την προηγούμενη ανανέωση ("+sideTxt+" "+thr+" @"+price.toFixed(2)+")";
+  }
+  return '<span class="lmChip '+cls+'" title="'+escAttr(tip)+'">'+
+    (mv.kind==="line" ? '<span class="lmOld">'+mv.oldLine+'</span>' : '')+
+    '<b>'+price.toFixed(2)+'</b><span class="lmArrow">'+mark+'</span></span>';
+}
 var LIVE_MANIFEST_URL = "live/index.json";
 function loadLiveMatches(){
   var statusEl = document.getElementById("liveStatus");
@@ -4189,14 +5462,17 @@ function loadLiveMatches(){
         statusEl.textContent = "Το index.json υπάρχει αλλά δεν διαβάστηκε κανένα αρχείο αγώνα.";
         return false;
       }
+      return loadPrevLines().then(function(){
       buildFeedMulti(roots);
       var names = manifest.map(function(r){ return r.name; }).join(" · ");
       statusEl.textContent = roots.length + " ζωντανοί αγώνες από Stoiximan: " + names;
       return true;
+      });
     });
   });
 }
 document.getElementById("refreshLive").addEventListener("click", loadLiveMatches);
+document.getElementById("teamMapExportBtn").addEventListener("click", exportTeamMapFile);
 
 /* ---------- boot ---------- */
 Promise.all([
@@ -4204,10 +5480,28 @@ Promise.all([
   fetch("sample-event.json").then(function(r){return r.text()}),
   fetch("crest-map.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
   fetch("league-crest-map.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
+  // Κοινές (μόνιμες) αντιστοιχίσεις ομάδων — ανεβαίνει στο GitHub, ισχύει σε ΟΛΕΣ τις συσκευές.
+  fetch("team-map.json", {cache:"no-store"}).then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
 ]).then(function(res){
   DATA = res[0];
   CREST_MAP = res[2] || {};
   LEAGUE_CREST_MAP = res[3] || {};
+  TEAM_MAP_FILE = res[4] || {};
+  // αρχείο πάνω από τον ενσωματωμένο πίνακα, τοπικές επιλογές πάνω απ' όλα
+  var _localMap = loadTeamMap();
+  Object.keys(TEAM_MAP_FILE).forEach(function(id){
+    var rec = TEAM_MAP_FILE[id];
+    if(rec && rec.name) TEAM_MAP[id] = rec;
+  });
+  Object.keys(_localMap).forEach(function(id){
+    var rec = _localMap[id];
+    if(rec && rec.name) TEAM_MAP[id] = rec;
+  });
+  // ό,τι έχει ήδη ανέβει (ίδιο) φεύγει από το localStorage — μένει "εκκρεμές" μόνο ό,τι λείπει
+  var _pending = teamMapPendingIds(), _clean = {};
+  _pending.forEach(function(id){ _clean[id] = _localMap[id]; });
+  if(Object.keys(_clean).length !== Object.keys(_localMap).length) saveTeamMap(_clean);
+  updateTeamMapExportUI();
   // Γνωστά ζευγάρια της ΙΔΙΑΣ ομάδας γραμμένα διαφορετικά μέσα στο ιστορικό
   // dataset (παλιό δωρεάν CSV vs νεότερο API-Football feed) — π.χ. "Nott'm
   // Forest" (μόνο ματς 2026, API-Football) vs "Nottm Forest" (έως 2024-12,
