@@ -8,6 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+try { document.documentElement.dataset.theme = localStorage.getItem('betrows-theme') === 'light' ? 'light' : 'dark'; }
+catch(e) { document.documentElement.dataset.theme = 'dark'; }
+</script>
 <style>
 :root{
   /* Πάντα σκούρο θέμα από προεπιλογή (όχι μόνο όταν το σύστημα/browser έχει
@@ -1123,6 +1127,31 @@ body.bbPageOn .unresolved{display:none !important}
 .bbSug{border:1px solid var(--border);border-radius:var(--radius-md);padding:9px 10px;display:flex;flex-direction:column;gap:7px;background:var(--surface-2)}
 .bbSugBtn{width:100%;background:var(--accent-soft);border:1px solid rgba(18,230,173,.4);color:var(--accent);border-radius:var(--radius-pill);padding:6px 10px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:"IBM Plex Mono",monospace}
 .bbSugBtn:hover{background:var(--accent);color:#04231d}
+
+/* Cream theme: semantic pill colors, surfaces and effects stay unchanged. */
+:root{color-scheme:dark}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f4eedf;--surface:#fffaf0;--surface-2:#eee6d6;--surface-3:#e6dcc8;
+  --border:#cfc2a9;--text:#282923;--text-dim:#505249;--text-faint:#68685c;
+  --shadow:0 1px 2px rgba(74,57,29,.08),0 14px 36px -16px rgba(74,57,29,.22);
+}
+.themeToggle{font-size:10.5px;letter-spacing:.04em;white-space:nowrap}
+.themeToggle svg{width:16px;height:16px;flex:none}
+.themeToggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.header-right{margin-left:auto}
+:root[data-theme="light"] :is(.hp,.pill,.side-tag,.price-chip,.lmChip,.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){
+  --surface-2:#111627cc;--border:#232a48;--text:#f4f7ff;--text-dim:#9aa3c7;--text-faint:#5f6890;
+}
+:root[data-theme="light"] :is(.hp,.pill,.lmChip){color:var(--text)}
+:root[data-theme="light"] :is(.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){background-color:#111627}
+:root[data-theme="light"] :is(.bbFilterMenu,.comboTip,.streakTip){background:var(--surface);color:var(--text)}
+:root[data-theme="light"] .streakTip .stLine{color:var(--text-dim)}
+:root[data-theme="light"] :is(.tableToggleBtn,.haSplitBtn,.haSplitDrawerBtn,.reversedLineBtn,.savedBetsNotice,.unresolved .card b,.bbTitle .bbTag,.bbSlipHead,.bbSugHead,.bbSugBtn,.bbBtn,.bbSlipLeg .od,.bbEvRow b,.streakTip .stHead){color:var(--text)}
+:root[data-theme="light"] .title-block h1 .accent{background:none;color:#08765c}
+:root[data-theme="light"] .seasonSepCol::before{border-color:var(--border)}
+:root[data-theme="light"] a{color:#08765c}
+@media(max-width:600px){.header-right{gap:8px}.themeToggle{padding:7px 9px}}
 </style>
 </head>
 <body>
@@ -1135,6 +1164,9 @@ body.bbPageOn .unresolved{display:none !important}
     </div>
     <div class="header-right">
       <div class="data-badge" id="dataBadge" style="display:none"><span><span class="dot">●</span> φόρτωση ιστορικού…</span></div>
+      <button type="button" class="savedBetsBtn themeToggle" id="themeToggle" aria-label="Εναλλαγή σε light mode" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span id="themeLabel">LIGHT MODE</span>
+      </button>
       <button type="button" class="savedBetsBtn" id="savedBetsBtn" title="Αποθηκευμένα bets" aria-label="Αποθηκευμένα bets">
         <span class="sbIcon">🔖</span><span class="sbCount" id="savedBetsCount">0</span>
       </button>
@@ -5272,6 +5304,24 @@ document.getElementById("showSeg").addEventListener("click", function(e){
 })();
 
 /* ---------- αποθηκευμένα bets: το κουμπί-indicator στο header + η λίστα ---------- */
+
+(function(){
+  var toggle=document.getElementById('themeToggle');
+  function syncThemeButton(){
+    var light=document.documentElement.dataset.theme==='light';
+    document.getElementById('themeLabel').textContent=light?'DARK MODE':'LIGHT MODE';
+    toggle.setAttribute('aria-pressed',String(light));
+    toggle.setAttribute('aria-label',light?'Εναλλαγή σε dark mode':'Εναλλαγή σε light mode');
+    toggle.title=light?'DARK MODE':'LIGHT MODE';
+  }
+  toggle.addEventListener('click',function(){
+    var theme=document.documentElement.dataset.theme==='light'?'dark':'light';
+    document.documentElement.dataset.theme=theme;
+    try { localStorage.setItem('betrows-theme',theme); } catch(e) {}
+    syncThemeButton();
+  });
+  syncThemeButton();
+})();
 document.getElementById("savedBetsBtn").addEventListener("click", openSavedBetsSheet);
 document.getElementById("savedBetsClose").addEventListener("click", closeSavedBetsSheet);
 document.getElementById("savedBetsBackdrop").addEventListener("click", closeSavedBetsSheet);
