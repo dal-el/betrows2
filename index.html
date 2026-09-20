@@ -914,6 +914,11 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .bbHits{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim)}
 .bbComboMeta{margin-left:auto;display:flex;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim);flex-wrap:wrap}
 .bbComboMeta b{color:var(--text)}
+/* Ένδειξη διόρθωσης συσχέτισης δίπλα στο EST ODDS (βλ. bbEstOdds): πόσο % πάνω/κάτω
+   πήγε η τιμή σε σχέση με το σκέτο γινόμενο των legs. */
+.bbCorr{margin-left:4px;padding:1px 4px;border-radius:5px;font-size:9px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
+.bbCorr.down{background:var(--accent-soft);color:var(--accent)}
+.bbCorr.up{background:var(--rose-soft);color:var(--rose)}
 .bbLegs{display:flex;flex-wrap:wrap;gap:6px}
 .bbLeg{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:8px;border:1px solid;font-size:11px;font-weight:600}
 .bbLeg b{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em}
@@ -3295,11 +3300,51 @@ function bbEval(team, ms, legs, n){
   var sample = out.length;
   return {sample:sample, hits:hits, hitRate: sample ? hits/sample : 0, fairOdds: hits ? sample/hits : null, matches:out};
 }
-function bbProduct(legs){
-  var p = 1;
-  for(var i=0;i<legs.length;i++){ if(!(legs[i].price>1)) return null; p *= legs[i].price; }
-  return legs.length ? p : null;
+/* ---------- EST ODDS — διόρθωση συσχέτισης (ζητήθηκε 2026-09-20) ----------
+   Η τιμή ενός combo ΔΕΝ είναι η πραγματική τιμή bet builder του bookmaker:
+   την φτιάχνουμε εμείς από τα legs. Το σκέτο γινόμενο όμως υποθέτει ότι τα
+   legs είναι ανεξάρτητα, που δεν ισχύει σε κατηγορίες που είναι μεταξύ τους
+   αλληλένδετες (σουτ με σουτ στην εστία, κάρτες με φάουλ): όταν "συμπλέουν"
+   (ίδια κατεύθυνση) η πραγματική πιθανότητα είναι ΜΕΓΑΛΥΤΕΡΗ από το γινόμενο,
+   άρα η τιμή πρέπει να πέσει (έκπτωση), ενώ όταν αντικρούονται (OVER με UNDER)
+   η πιθανότητα πέφτει, άρα η τιμή ανεβαίνει (προσαύξηση).
+   ΠΡΟΣΟΧΗ: οι συντελεστές παρακάτω είναι ΧΕΙΡΟΚΙΝΗΤΟΙ, δοσμένοι από τον
+   χρήστη — ΔΕΝ έχουν εκπαιδευτεί σε δεδομένα. Θα αντικατασταθούν από
+   εκπαιδευμένο μοντέλο σε επόμενη φάση, οπότε αλλάζουμε ΜΟΝΟ τους δύο πίνακες
+   εδώ και τίποτε άλλο. Εφαρμόζονται ΑΝΑ ΖΕΥΓΟΣ legs της ίδιας οικογένειας,
+   ΠΡΙΝ μπουν στο γινόμενο οι υπόλοιπες (ανεξάρτητες) κατηγορίες. */
+var BB_CORR_FAMILY = {
+  shots:"shots", shots_on_target:"shots", shots_off_target:"shots",
+  shots_insidebox:"shots", shots_outsidebox:"shots", shots_blocked:"shots",
+  cards:"discipline", fouls:"discipline"
+};
+var BB_CORR_FACTORS = {
+  // over = ΟΒΕΡ με ΟΒΕΡ, under = ΑΝΤΕΡ με ΑΝΤΕΡ, mixed = ΟΒΕΡ με ΑΝΤΕΡ
+  shots:      {over:0.80, under:0.80, mixed:1.45},
+  discipline: {over:0.90, under:0.75, mixed:1.12}
+};
+function bbPairFactor(a, b){
+  var fam = BB_CORR_FAMILY[a.category];
+  if(!fam || fam!==BB_CORR_FAMILY[b.category]) return 1;
+  var f = BB_CORR_FACTORS[fam];
+  if(a.side!==b.side) return f.mixed;
+  return a.side==="over" ? f.over : f.under;
 }
+// {raw: σκέτο γινόμενο, factor: συνολικός συντελεστής συσχέτισης, odds: raw*factor}
+function bbEstOdds(legs){
+  if(!legs.length) return null;
+  var raw = 1, i, j;
+  for(i=0;i<legs.length;i++){ if(!(legs[i].price>1)) return null; raw *= legs[i].price; }
+  var factor = 1;
+  for(i=0;i<legs.length;i++) for(j=i+1;j<legs.length;j++) factor *= bbPairFactor(legs[i], legs[j]);
+  return {raw:raw, factor:factor, odds:raw*factor};
+}
+function bbCorrChip(est){
+  if(!est || Math.abs(est.factor-1)<0.001) return "";
+  var d = Math.round((est.factor-1)*100);
+  return '<span class="bbCorr '+(d<0?"down":"up")+'" title="Διόρθωση συσχέτισης: γινόμενο '+est.raw.toFixed(2)+' × '+est.factor.toFixed(2)+'">'+(d>0?"+":"")+d+'%</span>';
+}
+function bbProduct(legs){ var e = bbEstOdds(legs); return e ? e.odds : null; }
 function bbKey(legs){ return legs.map(function(l){ return l.id; }).sort().join("·"); }
 function bbTopCombos(r, bb, topN){
   var ms = bbMatchPool(r.team, r.league, bb.venue, bb.fill);
@@ -3367,17 +3412,22 @@ function bbEvHtml(hitRate, odds){
   return '<span>Edge<b class="'+(edge>=0?"pos":"neg")+'">'+(edge>=0?"+":"")+edge.toFixed(1)+'%</b></span>'+
          '<span>EV<b class="'+(ev>=0?"pos":"neg")+'">'+(ev>=0?"+":"")+ev.toFixed(1)+'%</b></span>';
 }
-function bbOddsBoxHtml(hits, total, auto, manual){
+function bbOddsBoxHtml(hits, total, est, manual){
   var hr = total ? hits/total : 0;
   var fair = hr>0 ? 1/hr : null;
+  var auto = est ? est.odds : null;
   var val = manual!=="" ? manual : (auto ? auto.toFixed(2) : "");
   var odds = parseFloat(val);
   var cls = (odds>1) ? ((hr*odds-1)>=0 ? "pos" : "neg") : (manual==="" && auto ? "auto" : "");
+  var corr = est && Math.abs(est.factor-1)>=0.001;
   return '<div class="bbOdds '+cls+'" data-hits="'+hits+'" data-total="'+total+'">'+
     '<div class="bbOddsRow"><div><span class="k">Fair</span><span class="v">'+(fair?fair.toFixed(2):"—")+'</span></div>'+
-    '<div><span class="k">Απόδοση</span><input type="text" inputmode="decimal" class="bbOddsInput" placeholder="1.55" value="'+escAttr(val)+'"></div></div>'+
+    '<div><span class="k">EST ODDS'+bbCorrChip(est)+'</span><input type="text" inputmode="decimal" class="bbOddsInput" placeholder="1.55" value="'+escAttr(val)+'"></div></div>'+
     '<div class="bbEvRow">'+bbEvHtml(hr, odds)+'</div>'+
-    '<div class="bbOddsNote">Γινόμενο αποδόσεων των legs — όχι η τιμή bet builder του bookmaker.</div>'+
+    '<div class="bbOddsNote">'+(corr
+      ? 'Γινόμενο legs '+est.raw.toFixed(2)+' × '+est.factor.toFixed(2)+' (συσχέτιση σουτ / καρτών-φάουλ) = EST ODDS.'
+      : 'Γινόμενο αποδόσεων των legs (EST ODDS).')+
+      ' Δική μας εκτίμηση — όχι η τιμή bet builder του bookmaker. Μπορείς να γράψεις τη δική σου.</div>'+
   '</div>';
 }
 function bbSquares(matches, team){
@@ -3387,7 +3437,7 @@ function bbSquares(matches, team){
   }).join("");
 }
 function bbComboCard(c, idx){
-  var odds = bbProduct(c.legs);
+  var est = bbEstOdds(c.legs), odds = est ? est.odds : null;
   var p = bbPct(c.ev.hits, c.ev.sample);
   var extra = "";
   if(odds>1){
@@ -3397,7 +3447,7 @@ function bbComboCard(c, idx){
   return '<button type="button" class="bbCombo" data-act="combo" data-idx="'+idx+'">'+
     '<div class="bbComboHead"><span class="bbKind '+c.kind+'">'+c.kind+'</span>'+
       '<span class="bbPct '+bbTier(p)+'">'+p+'%</span><span class="bbHits">'+c.ev.hits+'/'+c.ev.sample+'</span>'+
-      '<div class="bbComboMeta"><span>Fair <b>'+(c.ev.fairOdds?c.ev.fairOdds.toFixed(2):"—")+'</b></span>'+(odds?'<span>Odds <b>'+odds.toFixed(2)+'</b></span>':'')+extra+'</div></div>'+
+      '<div class="bbComboMeta"><span>Fair <b>'+(c.ev.fairOdds?c.ev.fairOdds.toFixed(2):"—")+'</b></span>'+(odds?'<span>EST ODDS <b>'+odds.toFixed(2)+'</b>'+bbCorrChip(est)+'</span>':'')+extra+'</div></div>'+
     '<div class="bbLegs">'+c.legs.map(bbLegChip).join("")+'</div>'+
   '</button>';
 }
@@ -3511,7 +3561,7 @@ function bbRender(r, state, inner, redraw){
         '<div class="bbSlipLegs">'+slipLegs.map(function(l){
           return '<div class="bbSlipLeg"><span class="sd '+l.side+'">'+(l.side==="over"?"O":"U")+'</span><span class="nm">'+l.threshold+' '+escAttr(catLabel(l.category))+'</span><span class="od">'+l.price.toFixed(2)+'</span><button type="button" class="rm" data-act="rm" data-id="'+escAttr(l.id)+'" title="Αφαίρεση">✕</button></div>';
         }).join("")+'</div>'+
-        bbOddsBoxHtml(slipEv.hits, slipEv.sample, bbProduct(slipLegs), bb.manual)+
+        bbOddsBoxHtml(slipEv.hits, slipEv.sample, bbEstOdds(slipLegs), bb.manual)+
         '<div class="bbSlipBtns"><button type="button" class="bbGhost" data-act="clear">↺ Clear all</button></div>';
     }
     var sugs = slipLegs.length ? bbExtensions(r, bb, ms, slipLegs, allLegs) : bbTopCombos(r, bb, 5);
