@@ -354,6 +354,24 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lmChip.down .lmArrow{color:var(--rose)}
 .lmChip.flat{border-color:rgba(255,200,97,.45)}
 .lmChip.flat .lmArrow{color:var(--gold);font-weight:800}
+/* Shared fixed odds column on desktop and mobile; reserve the arrow slot below too. */
+.row-main.oddsAligned .metaRow,.row-main.oddsAligned .market{
+  display:grid;grid-template-columns:minmax(0,1fr) 112px;column-gap:8px;
+  width:min(100%,400px);align-items:center;
+}
+.oddsAligned .metaDetails,.oddsAligned .marketDetails{
+  display:flex;align-items:center;flex-wrap:wrap;gap:6px;min-width:0;
+}
+.oddsAligned .marketDetails .side-tag{white-space:nowrap}
+.oddsAligned .lmWrap{grid-column:2;width:112px}
+.oddsAligned .lmChip,.oddsAligned .price-chip{
+  box-sizing:border-box;width:112px;min-height:25px;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-variant-numeric:tabular-nums;
+}
+.oddsAligned .lmChip{display:grid;grid-template-columns:minmax(0,1fr) 10px;gap:5px;padding:3px 8px;white-space:nowrap}
+.oddsAligned .lmChip>:first-child{text-align:right}
+.oddsAligned .lmArrow{text-align:center}
+.oddsAligned .price-chip{grid-column:2;text-align:right;padding:3px 23px 3px 8px}
 .warn-tag{font-size:9.5px;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold);text-transform:none;letter-spacing:0;border-radius:var(--radius-pill);padding:2px 8px;cursor:help}
 
 /* .metrics: ενιαίο CSS grid που περιέχει ΚΑΙ τους κύκλους L5-L20 (.pillsrow,
@@ -3342,21 +3360,21 @@ function renderRowCard(r){
   var head = document.createElement("div");
   head.className = "row-head";
   head.innerHTML =
-    '<div class="row-main">'+
+    '<div class="row-main oddsAligned">'+
       '<div class="team">'+teamLabel+
       (matchInfo ? '<span class="infoBtn" title="'+escAttr(matchInfo)+'">i</span>' : '')+
       '<span class="lgchip">'+leagueLogoHtml(r.league)+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
       '</div>'+
-      '<div class="metaRow">'+
+      '<div class="metaRow"><div class="metaDetails">'+
         (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+
-        '<span class="src-tag">Stoiximan</span>'+
+        '<span class="src-tag">Stoiximan</span></div>'+
         // Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την ΠΡΟΗΓΟΥΜΕΝΗ ανανέωση
         // (live-prev). Κενό αν δεν υπάρχει προηγούμενο στιγμιότυπο.
         '<span class="lmWrap">'+lineMoveChipHtml(r, r.threshold, r.side, r.price)+'</span>'+
       '</div>'+
-      '<div class="market">'+
+      '<div class="market"><div class="marketDetails">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
-        '<span>'+catLabel(r.category)+' · '+marketNote+'</span>'+
+        '<span>'+catLabel(r.category)+' · '+marketNote+'</span></div>'+
         (r.price? '<span class="price-chip">'+r.price.toFixed(2)+'</span>' : '')+
       '</div>'+
     '</div>'+
