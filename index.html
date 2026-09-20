@@ -981,7 +981,32 @@ body.bbPageOn .unresolved{display:none !important}
 .bbOpps{border:1px solid var(--border);border-radius:var(--radius-md);padding:8px 10px;background:var(--surface)}
 .bbOppsHead{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;font-family:"IBM Plex Mono",monospace}
 .bbOppsRow{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
-.bbOpp{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none}
+.bbOpp{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;cursor:pointer;border-radius:8px;padding:2px}
+.bbOpp:hover{background:var(--surface-3)}
+.bbAllStrip .bbSq{cursor:pointer}
+/* Μπαλόνι "λεπτομέρειες συνδυασμού" (κλικ σε τουλίπα αντιπάλου / all-hit τετράγωνο) */
+.comboTip{position:fixed;z-index:250;width:min(270px, calc(100vw - 24px));border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);background:#0e1322;box-shadow:0 4px 24px rgba(0,0,0,.55);padding:10px 12px}
+.comboTip .ctHead{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.comboTip .ctWhere{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-dim);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.comboTip .ctVerdict{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:800;letter-spacing:.08em;
+  padding:2px 7px;border-radius:var(--radius-pill);flex:none}
+.comboTip .ctVerdict.hit{background:var(--gold-soft);color:var(--gold)}
+.comboTip .ctVerdict.miss{background:var(--rose-soft);color:var(--rose)}
+.comboTip .ctScore{font-size:11px;color:var(--text-faint);margin-bottom:8px;line-height:1.35}
+.comboTip .ctScore b{color:var(--text)}
+.comboTip .ctLegs{display:flex;flex-direction:column;gap:4px}
+.comboTip .ctLeg{display:flex;align-items:center;gap:7px;font-size:11.5px;background:rgba(255,255,255,.04);
+  border-radius:8px;padding:5px 8px}
+.comboTip .ctLeg .ctMark{flex:none;width:16px;height:16px;border-radius:5px;font-size:10px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+.comboTip .ctLeg.ok .ctMark{background:var(--accent-soft);color:var(--accent)}
+.comboTip .ctLeg.no .ctMark{background:var(--rose-soft);color:var(--rose)}
+.comboTip .ctLeg .ctName{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-dim)}
+.comboTip .ctLeg .ctName b{color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:10.5px}
+.comboTip .ctLeg .ctVal{flex:none;font-family:"IBM Plex Mono",monospace;font-weight:800;font-size:12px;color:var(--text)}
+.comboTip .ctHint{font-size:11px;color:var(--text-faint);line-height:1.4}
 .bbOpp .vsat{font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);font-family:"IBM Plex Mono",monospace}
 .bbOpp .avatar{width:28px;height:28px;font-size:10px;margin-right:0}
 .bbOpp .dot2{width:6px;height:6px;border-radius:50%;background:transparent}
@@ -1072,6 +1097,10 @@ body.bbPageOn .unresolved{display:none !important}
 
   <div class="row" id="liveRow">
     <button class="btn" id="refreshLive">🔴 Ανανέωση live δεδομένων</button>
+    <!-- Φαίνεται ΜΟΝΟ όταν υπάρχουν αντιστοιχίσεις ομάδων που δεν έχουν ανέβει
+         ακόμα στο GitHub (βλ. team-map.json / updateTeamMapExportUI). -->
+    <button type="button" class="btn ghost" id="teamMapExportBtn" hidden
+      title="Κατεβάζει το team-map.json με ΟΛΕΣ τις αντιστοιχίσεις ομάδων — βάλ' το στον φάκελο betrows-app και κάνε push, ώστε να μην ξαναζητηθούν σε καμία συσκευή">💾 Αποθήκευση αντιστοιχίσεων</button>
     <span class="note" id="liveStatus" style="display:none">φόρτωση…</span>
   </div>
 
@@ -1316,6 +1345,56 @@ var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 var TEAM_MAP_KEY = "fbd_team_map_v1";
 function loadTeamMap(){ try{ return JSON.parse(localStorage.getItem(TEAM_MAP_KEY)||"{}"); }catch(e){ return {}; } }
 function saveTeamMap(map){ try{ localStorage.setItem(TEAM_MAP_KEY, JSON.stringify(map)); }catch(e){} }
+/* ---------- ΜΟΝΙΜΕΣ αντιστοιχίσεις ομάδων: team-map.json (ζητήθηκε ρητά 2026-09-20) ----------
+   Πρόβλημα: οι χειροκίνητες αντιστοιχίσεις ("Άγνωστη ομάδα: ... διάλεξε") έμεναν
+   ΜΟΝΟ στο localStorage της κάθε συσκευής, οπότε το tablet/άλλο κινητό/άλλος
+   browser ξαναζητούσε τις ΙΔΙΕΣ ομάδες, και το ίδιο μετά από κάθε νέο κατέβασμα
+   lines. Λύση: ένα κοινό αρχείο team-map.json δίπλα στο index.html, που ανεβαίνει
+   στο GitHub μαζί με τα υπόλοιπα (push_to_github.bat) και διαβάζεται σε ΚΑΘΕ
+   συσκευή στο boot. Σειρά προτεραιότητας: ενσωματωμένος πίνακας < team-map.json
+   < localStorage (η τοπική επιλογή του χρήστη υπερισχύει πάντα για ΝΕΕΣ ομάδες).
+   Ό,τι υπάρχει ήδη ΙΔΙΟ στο αρχείο καθαρίζεται από το localStorage, ώστε το
+   "εκκρεμεί ανέβασμα" να δείχνει μόνο ό,τι πραγματικά λείπει από το GitHub. */
+var TEAM_MAP_FILE = {};   // ό,τι ήρθε από το team-map.json
+function teamMapPendingIds(){
+  // ids που έχει ο χρήστης τοπικά αλλά ΔΕΝ υπάρχουν (ίδια) στο κοινό αρχείο
+  var local = loadTeamMap(), out = [];
+  Object.keys(local).forEach(function(id){
+    var f = TEAM_MAP_FILE[id], l = local[id];
+    if(!l || !l.name) return;
+    if(f && f.name===l.name && f.league===l.league) return;
+    out.push(id);
+  });
+  return out;
+}
+// Το πλήρες αρχείο που πρέπει να ανέβει: κοινό αρχείο + τοπικές αντιστοιχίσεις.
+function teamMapExportObject(){
+  var out = {}, local = loadTeamMap();
+  Object.keys(TEAM_MAP_FILE).forEach(function(id){ out[id] = TEAM_MAP_FILE[id]; });
+  Object.keys(local).forEach(function(id){ if(local[id] && local[id].name) out[id] = local[id]; });
+  return out;
+}
+function updateTeamMapExportUI(){
+  var btn = document.getElementById("teamMapExportBtn");
+  if(!btn) return;
+  var pending = teamMapPendingIds().length;
+  btn.hidden = pending===0;
+  btn.textContent = "💾 Αποθήκευση αντιστοιχίσεων ("+pending+")";
+}
+function exportTeamMapFile(){
+  var obj = teamMapExportObject();
+  var txt = JSON.stringify(obj, null, 1);
+  try{
+    var blob = new Blob([txt], {type:"application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "team-map.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+  }catch(e){}
+  var btn = document.getElementById("teamMapExportBtn");
+  if(btn) showInfoTip(btn, "Κατέβηκε το team-map.json ("+Object.keys(obj).length+" ομάδες). Βάλ' το στον φάκελο betrows-app (αντικατέστησε το παλιό) και πάτα push_to_github.bat — μετά καμία συσκευή δεν θα ξαναζητήσει αυτές τις ομάδες.");
+}
 
 /* ---------- αποθηκευμένα bets (το + πάνω σε κάθε γραμμή) ----------
    Αποθηκεύονται στο localStorage ως αντικείμενο key -> record, ώστε να
@@ -1471,7 +1550,7 @@ function jumpToSavedBet(key){
     if(head) head.click();
   }
 }
-var TEAM_MAP = Object.assign({
+var TEAM_MAP_BUILTIN = {
   "108134": {name:"Torino", league:"serie-a-italy"},
   "107363": {name:"Roma", league:"serie-a-italy"},
   "106731": {name:"Leeds", league:"premier-league"},
@@ -1520,7 +1599,10 @@ var TEAM_MAP = Object.assign({
   "106835": {name:"Chelsea", league:"premier-league"},
   "107248": {name:"Monza", league:"serie-a-italy"},
   "107732": {name:"Sassuolo", league:"serie-a-italy"},
-}, loadTeamMap());
+};
+// Ο ενσωματωμένος πίνακας είναι η βάση· από πάνω μπαίνει το κοινό team-map.json
+// (στο boot) και πάνω απ' όλα οι τοπικές επιλογές του χρήστη.
+var TEAM_MAP = Object.assign({}, TEAM_MAP_BUILTIN, loadTeamMap());
 
 /* ---------- evaluator (mirrors backend/evaluator.py) ---------- */
 function cardCount(m, side){
@@ -2097,7 +2179,9 @@ var TEAM_ALIASES = {
     "Brentford FC":"Brentford","Chelsea FC":"Chelsea","Tottenham Hotspur":"Tottenham",
     "Newcastle United":"Newcastle","Hull City":"Hull","Brighton & Hove Albion":"Brighton",
     "Arsenal FC":"Arsenal","Everton FC":"Everton","Ipswich Town":"Ipswich",
-    "Nottingham Forest":"Nottm Forest","Coventry City":"Coventry"
+    "Nottingham Forest":"Nottm Forest","Coventry City":"Coventry",
+    // 2026-09-20: ζητούσαν χειροκίνητη αντιστοίχιση σε ΚΑΘΕ συσκευή/κατέβασμα.
+    "AFC Bournemouth":"Bournemouth","Manchester City":"Man City","Manchester United":"Man United"
   },
   "championship": {
     "Watford FC":"Watford","Millwall FC":"Millwall","West Ham United":"West Ham",
@@ -2123,13 +2207,16 @@ var TEAM_ALIASES = {
     "SC Freiburg":"Freiburg","FC Augsburg":"Augsburg",
     "Borussia Monchengladbach":"MGladbach","Borussia Mönchengladbach":"MGladbach",
     "FSV Mainz 05":"Mainz","Hamburger SV":"Hamburg","VfB Stuttgart":"Stuttgart",
-    "Borussia Dortmund":"Dortmund"
+    "Borussia Dortmund":"Dortmund",
+    "Bayer 04 Leverkusen":"Leverkusen","Bayer Leverkusen":"Leverkusen"
   },
   "ligue-1": {
     "AS Monaco":"Monaco","RC Lens":"Lens","RC Strasbourg":"Strasbourg",
     "Olympique Lyonnais":"Lyon","Stade Rennais FC":"Rennes","Le Mans UC 72":"Le Mans",
     "FC Lorient":"Lorient","Toulouse FC":"Toulouse","Le Havre AC":"Le Havre",
-    "Angers SCO":"Angers","ES Troyes AC":"Troyes"
+    "Angers SCO":"Angers","ES Troyes AC":"Troyes",
+    "Olympique Marseille":"Marseille","Olympique de Marseille":"Marseille",
+    "Paris Saint-Germain":"Paris SG","Paris Saint Germain":"Paris SG"
   },
   "super-league-greece": {
     "Atromitos Athinon":"Atromitos","Aris Thessaloniki":"Aris",
@@ -2266,7 +2353,19 @@ function renderUnresolved(list){
       TEAM_MAP[e.id] = {name:parts[0], league:parts[1]};
       saved++;
     });
-    if(saved){ saveTeamMap(TEAM_MAP); buildFeed(); }
+    if(saved){
+      // Στο localStorage κρατάμε ΜΟΝΟ ό,τι δεν υπάρχει ήδη στο κοινό αρχείο.
+      var localOnly = {};
+      Object.keys(TEAM_MAP).forEach(function(id){
+        var f = TEAM_MAP_FILE[id], t = TEAM_MAP[id];
+        if(f && f.name===t.name && f.league===t.league) return;
+        if(TEAM_MAP_BUILTIN[id] && TEAM_MAP_BUILTIN[id].name===t.name && TEAM_MAP_BUILTIN[id].league===t.league) return;
+        localOnly[id] = t;
+      });
+      saveTeamMap(localOnly);
+      updateTeamMapExportUI();
+      buildFeed();
+    }
   });
 }
 
@@ -3559,11 +3658,107 @@ function bbOddsBoxHtml(hits, total, est, manual){
       ' Δική μας εκτίμηση — όχι η τιμή bet builder του bookmaker. Μπορείς να γράψεις τη δική σου.</div>'+
   '</div>';
 }
-function bbSquares(matches, team){
-  return matches.map(function(x){
+function bbSquares(matches, team, actName, tipRow, tipLegs){
+  return matches.map(function(x, i){
     var home = x.m.h===team, opp = home ? x.m.a : x.m.h;
-    return '<div class="bbSq '+(x.hit?"hit":"miss")+'" title="'+escAttr((home?"vs ":"at ")+opp+" · "+x.vals.join(" / "))+'"></div>';
+    var tip = (actName && tipRow) ? bbMatchTipText(tipRow, tipLegs, x)
+                                  : ((home?"vs ":"at ")+opp+" · "+x.vals.join(" / "));
+    return '<div class="bbSq '+(x.hit?"hit":"miss")+'"'+(actName?' data-act="'+actName+'" data-idx="'+i+'"':'')+
+           ' title="'+escAttr(tip)+'"></div>';
   }).join("");
+}
+/* ---------- Λεπτομέρειες συνδυασμού ανά αγώνα (ζητήθηκε ρητά 2026-09-20) ----------
+   Κάθε "τουλίπα" της λωρίδας αντιπάλων (κύκλος αντιπάλου + κίτρινη βούλα από κάτω
+   όταν πέτυχε ο συνδυασμός) και κάθε τετραγωνάκι του all-hit strip δείχνει ΤΩΡΑ
+   αναλυτικά τι έγινε ΣΕ ΕΚΕΙΝΟ ΤΟ ΜΑΤΣ: σκορ, και leg-leg την πραγματική τιμή
+   με ✓/✗ πάνω στη γραμμή του, και τελικό HIT/MISS του συνδυασμού.
+   x = {m, vals, hit} όπως το γυρνάει το bbEval (vals στη ΣΕΙΡΑ των legs). */
+function bbLegHitAt(leg, v){
+  if(v==null) return null;
+  return leg.side==="over" ? v>leg.threshold : v<leg.threshold;
+}
+function bbMatchTipText(r, legs, x){
+  var home = x.m.h===r.team, opp = home ? x.m.a : x.m.h;
+  var out = x.m.d+" · "+(home?"ΕΝΤΟΣ vs ":"ΕΚΤΟΣ at ")+opp;
+  if(x.m.fthg!=null && x.m.ftag!=null) out += " · "+x.m.fthg+"-"+x.m.ftag;
+  if(legs && legs.length && x.vals){
+    out += "\n";
+    legs.forEach(function(l, i){
+      var v = x.vals[i], ok = bbLegHitAt(l, v);
+      out += "\n"+(ok?"✓":"✗")+" "+(l.side==="over"?"OVER":"UNDER")+" "+l.threshold+" "+catLabel(l.category)+" → "+(v==null?"—":v);
+    });
+    out += "\n\n"+(x.hit ? "COMBO HIT" : "COMBO MISS")+" ("+legs.filter(function(l,i){ return bbLegHitAt(l, x.vals[i]); }).length+"/"+legs.length+" legs)";
+  }
+  return out;
+}
+function bbMatchTipHtml(r, legs, x){
+  var home = x.m.h===r.team, opp = home ? x.m.a : x.m.h;
+  var hitCount = (legs && legs.length && x.vals) ? legs.filter(function(l,i){ return bbLegHitAt(l, x.vals[i]); }).length : 0;
+  var head = '<div class="ctHead">'+
+      '<span class="ctWhere">'+(home?"ΕΝΤΟΣ vs":"ΕΚΤΟΣ at")+' '+escAttr(opp)+'</span>'+
+      (legs && legs.length ? '<span class="ctVerdict '+(x.hit?"hit":"miss")+'">'+(x.hit?"HIT":"MISS")+' '+hitCount+'/'+legs.length+'</span>' : '')+
+    '</div>';
+  var score = '<div class="ctScore">'+escAttr(x.m.d)+
+    ((x.m.fthg!=null && x.m.ftag!=null) ? ' · <b>'+escAttr(x.m.h)+' '+fmtGoal(x.m.fthg)+'-'+fmtGoal(x.m.ftag)+' '+escAttr(x.m.a)+'</b>' : '')+
+    '</div>';
+  var body;
+  if(legs && legs.length && x.vals){
+    body = '<div class="ctLegs">'+legs.map(function(l, i){
+      var v = x.vals[i], ok = bbLegHitAt(l, v);
+      return '<div class="ctLeg '+(ok?"ok":"no")+'">'+
+        '<span class="ctMark">'+(ok?"✓":"✗")+'</span>'+
+        '<span class="ctName"><b>'+(l.side==="over"?"OVER":"UNDER")+' '+l.threshold+'</b> '+escAttr(catLabel(l.category))+'</span>'+
+        '<span class="ctVal">'+(v==null?"—":v)+'</span>'+
+      '</div>';
+    }).join("")+'</div>';
+  } else {
+    body = '<div class="ctHint">Διάλεξε legs για να δεις τον συνδυασμό σε αυτό το ματς.</div>';
+  }
+  return head+score+body;
+}
+// Μπαλόνι λεπτομερειών (ίδια μηχανική με το showStreakTip της φλόγας).
+function showComboTip(anchorEl, html){
+  var existing = document.querySelector(".comboTip");
+  if(existing){
+    var wasSame = existing._anchor === anchorEl;
+    if(existing._cleanup) existing._cleanup();
+    if(wasSame) return;
+  }
+  var tip = document.createElement("div");
+  tip.className = "comboTip";
+  tip.innerHTML = html;
+  tip._anchor = anchorEl;
+  document.body.appendChild(tip);
+  try{
+    var rect = anchorEl.getBoundingClientRect();
+    var W = tip.offsetWidth || 250;
+    var left = rect.left + rect.width/2 - W/2;
+    var minL = 8, maxL = document.documentElement.clientWidth - W - 8;
+    if(left<minL) left = minL;
+    if(left>maxL) left = Math.max(minL, maxL);
+    tip.style.left = left+"px";
+    // Πάνω από το στοιχείο· αν δεν χωράει (ψηλά στην οθόνη), από κάτω.
+    if(rect.top > tip.offsetHeight + 16){
+      tip.style.top = (rect.top-8)+"px";
+      tip.style.transform = "translateY(-100%)";
+    } else {
+      tip.style.top = (rect.bottom+8)+"px";
+    }
+  }catch(e){}
+  function cleanup(){
+    if(tip.parentNode) tip.remove();
+    document.removeEventListener("pointerdown", dismiss, true);
+    document.removeEventListener("scroll", dismiss, true);
+  }
+  tip._cleanup = cleanup;
+  function dismiss(ev){
+    if(ev.target===anchorEl || tip.contains(ev.target)) return;
+    cleanup();
+  }
+  setTimeout(function(){
+    document.addEventListener("pointerdown", dismiss, true);
+    document.addEventListener("scroll", dismiss, true);
+  }, 0);
 }
 function bbComboCard(c, idx, actName){
   var est = bbEstOdds(c.legs), odds = est ? est.odds : null;
@@ -3671,9 +3866,9 @@ function bbRender(r, state, inner, redraw, opts){
       view = ms.slice(Math.max(0, ms.length-lim)).reverse().map(function(m){ return {m:m, hit:false}; });
     }
     var oppsHtml = view.length ? '<div class="bbOpps"><div class="bbOppsHead"><span>Last opponents</span><span>'+view.length+'</span></div><div class="bbOppsRow">'+
-      view.map(function(x){
+      view.map(function(x, i){
         var home = x.m.h===r.team, opp = home ? x.m.a : x.m.h;
-        return '<div class="bbOpp'+(slipEv && x.hit?" hit":"")+'" title="'+escAttr((home?"vs ":"at ")+opp+(slipEv&&x.hit?" · combo hit":""))+'"><span class="vsat">'+(home?"vs":"at")+'</span>'+avatarHtml(opp, r.league)+'<span class="dot2"></span></div>';
+        return '<div class="bbOpp'+(slipEv && x.hit?" hit":"")+'" data-act="opp" data-idx="'+i+'" title="'+escAttr(bbMatchTipText(r, slipLegs, x))+'"><span class="vsat">'+(home?"vs":"at")+'</span>'+avatarHtml(opp, r.league)+'<span class="dot2"></span></div>';
       }).join("")+'</div></div>' : '';
 
     // Κάρτες: μία ανά (κατηγορία, γραμμή), με OVER/UNDER όπου προσφέρονται.
@@ -3725,7 +3920,7 @@ function bbRender(r, state, inner, redraw, opts){
       var sp2 = bbPct(slipEv.hits, slipEv.sample);
       slipHtml +=
         '<div><div class="bbAllHitHead"><span>All-hit ('+(bb.n==="all"?"ΟΛΑ":"L"+slipEv.sample)+')</span><span class="bbPct '+bbTier(sp2)+'">'+slipEv.hits+'/'+slipEv.sample+' · '+sp2+'%</span></div>'+
-        '<div class="bbAllStrip">'+bbSquares(slipEv.matches, r.team)+'</div></div>'+
+        '<div class="bbAllStrip">'+bbSquares(slipEv.matches, r.team, "opp", r, slipLegs)+'</div></div>'+
         '<div class="bbSlipLegs">'+slipLegs.map(function(l){
           return '<div class="bbSlipLeg"><span class="sd '+l.side+'">'+(l.side==="over"?"O":"U")+'</span><span class="nm">'+l.threshold+' '+escAttr(catLabel(l.category))+'</span><span class="od">'+l.price.toFixed(2)+'</span><button type="button" class="rm" data-act="rm" data-id="'+escAttr(l.id)+'" title="Αφαίρεση">✕</button></div>';
         }).join("")+'</div>'+
@@ -3768,6 +3963,13 @@ function bbRender(r, state, inner, redraw, opts){
     var t = e.target.closest("[data-act]");
     if(!t || !el.contains(t) || t.disabled) return;
     var act = t.getAttribute("data-act"), id = t.getAttribute("data-id");
+    // Λεπτομέρειες συνδυασμού για ΕΝΑ ματς (τουλίπα αντιπάλου ή τετραγωνάκι
+    // του all-hit strip) — ανοίγει μπαλόνι, ΔΕΝ ξανασχεδιάζει (θα έσβηνε).
+    if(act==="opp"){
+      var xi = (typeof view!=="undefined" && view) ? view[parseInt(t.getAttribute("data-idx"),10)] : null;
+      if(xi) showComboTip(t, bbMatchTipHtml(r, (typeof slipLegs!=="undefined" ? slipLegs : null), xi));
+      return;
+    }
     if(act==="exit"){ bbRestoreState(state); state.bb = null; }
     else if(act==="back"){ bb.view = "list"; }
     else if(act==="open"){ bb.slip = []; bb.hist = []; bb.manual = ""; bb.view = "builder"; }
@@ -5151,6 +5353,7 @@ function loadLiveMatches(){
   });
 }
 document.getElementById("refreshLive").addEventListener("click", loadLiveMatches);
+document.getElementById("teamMapExportBtn").addEventListener("click", exportTeamMapFile);
 
 /* ---------- boot ---------- */
 Promise.all([
@@ -5158,10 +5361,28 @@ Promise.all([
   fetch("sample-event.json").then(function(r){return r.text()}),
   fetch("crest-map.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
   fetch("league-crest-map.json").then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
+  // Κοινές (μόνιμες) αντιστοιχίσεις ομάδων — ανεβαίνει στο GitHub, ισχύει σε ΟΛΕΣ τις συσκευές.
+  fetch("team-map.json", {cache:"no-store"}).then(function(r){return r.ok?r.json():{}}).catch(function(){return {};}),
 ]).then(function(res){
   DATA = res[0];
   CREST_MAP = res[2] || {};
   LEAGUE_CREST_MAP = res[3] || {};
+  TEAM_MAP_FILE = res[4] || {};
+  // αρχείο πάνω από τον ενσωματωμένο πίνακα, τοπικές επιλογές πάνω απ' όλα
+  var _localMap = loadTeamMap();
+  Object.keys(TEAM_MAP_FILE).forEach(function(id){
+    var rec = TEAM_MAP_FILE[id];
+    if(rec && rec.name) TEAM_MAP[id] = rec;
+  });
+  Object.keys(_localMap).forEach(function(id){
+    var rec = _localMap[id];
+    if(rec && rec.name) TEAM_MAP[id] = rec;
+  });
+  // ό,τι έχει ήδη ανέβει (ίδιο) φεύγει από το localStorage — μένει "εκκρεμές" μόνο ό,τι λείπει
+  var _pending = teamMapPendingIds(), _clean = {};
+  _pending.forEach(function(id){ _clean[id] = _localMap[id]; });
+  if(Object.keys(_clean).length !== Object.keys(_localMap).length) saveTeamMap(_clean);
+  updateTeamMapExportUI();
   // Γνωστά ζευγάρια της ΙΔΙΑΣ ομάδας γραμμένα διαφορετικά μέσα στο ιστορικό
   // dataset (παλιό δωρεάν CSV vs νεότερο API-Football feed) — π.χ. "Nott'm
   // Forest" (μόνο ματς 2026, API-Football) vs "Nottm Forest" (έως 2024-12,

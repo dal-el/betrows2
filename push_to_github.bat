@@ -13,6 +13,7 @@ copy /Y "C:\SOCCER_BETROWS\betrows-app\data.json" "data.json" >nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\index.html" "index.html" >nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\crest-map.json" "crest-map.json" >nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\league-crest-map.json" "league-crest-map.json" >nul 2>nul
+copy /Y "C:\SOCCER_BETROWS\betrows-app\team-map.json" "team-map.json" >nul 2>nul
 if not exist "live" mkdir "live"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live" "live" /MIR /NFL /NDL /NJH /NJS >nul
 if not exist "crests" mkdir "crests"
