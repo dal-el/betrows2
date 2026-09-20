@@ -2448,12 +2448,29 @@ function pillsLabelHtml(r, isOpp){
 // ένα drawer που είχε ξανανοίξει/κλείσει "θυμόταν" την παλιά τοπική του
 // κατάσταση αντί να ακολουθήσει τον γενικό διακόπτη, όπως αναφέρθηκε ρητά
 // (ζητήθηκε ρητά 2026-09-19).
+// ΕΡΓΟΣΤΑΣΙΑΚΕΣ τιμές ενός drawer — μία και μόνη πηγή αλήθειας, ώστε το
+// "άνοιγμα από το μηδέν" (renderDrawer) και το "ρεσετ" (resyncDrawerLocalToGlobals)
+// να μη μπορούν ποτέ να ξεφύγουν μεταξύ τους.
+function drawerDefaultState(r){
+  var presetVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
+  return { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false,
+           fullSeason:lastFillGlobalOn, lastSeason:lastFillGlobalOn, selected:null,
+           threshold: r.threshold, usingCustomN:false, oppMode:false, tableMode:false,
+           tableCat:null, tableVenue:presetVenue, tableFormN:5, tableFormCustom:false,
+           tableExpandedTeam:null, reversedLine:false, tableSortBy:"for", bb:null };
+}
+// ΠΛΗΡΗΣ επαναφορά ενός drawer στις εργοστασιακές του τιμές (ζητήθηκε ρητά
+// 2026-09-20: "όταν κλείνω το betdrawer να επανέρχονται στην αρχική τους τιμή
+// που συμφωνούσε με τα αρχικά εξωτερικά φίλτρα, σαν να κάνει ρεσετ"). Καλείται
+// σε ΚΑΘΕ κλείσιμο ΚΑΙ σε κάθε ξανά-άνοιγμα ήδη-χτισμένου drawer. Πριν,
+// επανέφερε μόνο έδρα + "+", οπότε LINE +/-, REVERSED LINE, custom L?, TABLE,
+// H2H, outlier trim και BetBuilder "επιβίωναν" στο επόμενο άνοιγμα και η κάρτα
+// ξεκινούσε με νούμερα που δεν συμφωνούσαν με τα εξωτερικά φίλτρα.
+// ΠΡΟΣΟΧΗ: μεταλλάσσει το ΙΔΙΟ αντικείμενο (το κρατάει το headEl._drawerState).
 function resyncDrawerLocalToGlobals(r, state){
-  var autoVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
-  state.venue = autoVenue;
-  state.tableVenue = autoVenue;
-  state.fullSeason = lastFillGlobalOn;
-  state.lastSeason = lastFillGlobalOn;
+  var d = drawerDefaultState(r);
+  for(var k in d){ if(Object.prototype.hasOwnProperty.call(d,k)) state[k] = d[k]; }
+  return state;
 }
 function streakCandidatesFor(r){
   if(r.isTotal || !r.team) return [];
@@ -3078,6 +3095,29 @@ function refreshCardHead(r, head){
   if(pillsRowEl) pillsRowEl.innerHTML = pas.pillsHtml;
   if(oppPillsRowEl) oppPillsRowEl.innerHTML = pas.oppPillsHtml;
   if(statPillsEl) statPillsEl.innerHTML = pas.statsHtml;
+  // ΚΑΙ η γραμμή/πλευρά/απόδοση της κεφαλίδας ξαναγίνεται η ΑΡΧΙΚΗ του betrow:
+  // το updateHeader τα αλλάζει όσο το drawer είναι ανοιχτό (LINE +/-, REVERSED
+  // LINE), οπότε χωρίς αυτό η κάρτα έμενε με γραμμή π.χ. OVER 1.5 ενώ τα pills
+  // είχαν ήδη γυρίσει στο αρχικό OVER 2.5 — "ρεσετ στις εργοστασιακές" όταν
+  // κλείνει το drawer, ζητήθηκε ρητά 2026-09-20.
+  var sideTagEl = head.querySelector(".side-tag");
+  if(sideTagEl){
+    sideTagEl.textContent = (r.side==="over"?"OVER":"UNDER")+" "+r.threshold;
+    sideTagEl.classList.remove("over","under");
+    sideTagEl.classList.add(r.side);
+  }
+  var marketRow = head.querySelector(".market");
+  var priceChipEl = head.querySelector(".price-chip");
+  if(r.price!=null){
+    if(priceChipEl) priceChipEl.textContent = r.price.toFixed(2);
+    else if(marketRow){
+      var span = document.createElement("span");
+      span.className = "price-chip";
+      span.textContent = r.price.toFixed(2);
+      var srcTag = marketRow.querySelector(".src-tag");
+      if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
+    }
+  } else if(priceChipEl){ priceChipEl.remove(); }
 }
 
 function renderRowCard(r){
@@ -3137,7 +3177,11 @@ function renderRowCard(r){
   head.addEventListener("click", function(){
     if(card.classList.contains("open")){
       card.classList.remove("open");
-      if(head._drawerState){ head._drawerState.oppMode = false; head._drawerState.bb = null; }
+      // ΠΛΗΡΕΣ ρεσετ του drawer στις εργοστασιακές (όχι μόνο oppMode/BB): LINE,
+      // REVERSED, L?, TABLE, H2H κ.λπ. ξαναγίνονται ό,τι λένε ΤΩΡΑ οι γενικοί
+      // διακόπτες, ώστε και τα pills και η γραμμή της κάρτας να επανέρχονται
+      // στην αρχική τους τιμή (ζητήθηκε ρητά 2026-09-20).
+      if(head._drawerState) resyncDrawerLocalToGlobals(r, head._drawerState);
       var bbBtnC = head.querySelector(".bbBtn"); if(bbBtnC) bbBtnC.classList.remove("active");
       var btn0 = head.querySelector(".pill.oppstat");
       if(btn0) btn0.classList.remove("hint","active");
@@ -3203,7 +3247,7 @@ function renderRowCard(r){
       }
       var st = head._drawerState;
       if(!st) return;
-      if(wasOpen && st.bb){ st.bb = null; bbBtn.classList.remove("active"); }
+      if(wasOpen && st.bb){ bbRestoreState(st); st.bb = null; bbBtn.classList.remove("active"); }
       else { st.bb = bbInit(st); bbBtn.classList.add("active"); }
       if(head._drawerDraw) head._drawerDraw();
     });
@@ -3452,9 +3496,45 @@ function bbComboCard(c, idx){
   '</button>';
 }
 
+// Οι κύκλοι L5-L20 της ΚΕΦΑΛΙΔΑΣ (έξω από το drawer) πρέπει να ακολουθούν ΚΑΙ
+// τους διακόπτες του BetBuilder, όχι μόνο του κανονικού drawer: όσο το BB είναι
+// ανοιχτό, το L5/L10/L15/L20/ΟΛΑ, το ΕΝΤΟΣ/ΕΚΤΟΣ και το "+" του BB γράφονται
+// ΚΑΙ στο state του drawer, οπότε το updateHeader (που τρέχει σε κάθε draw)
+// ξαναϋπολογίζει τα pills με ΑΚΡΙΒΩΣ ό,τι βλέπει ο χρήστης στο BB. Πριν, τα
+// pills έμεναν παγωμένα σε ό,τι είχε το drawer πριν ανοίξει το BB (ζητήθηκε
+// ρητά 2026-09-20). Αντιστοιχίσεις: BB "ΟΛΑ" -> fullSeason (όλη η σεζόν),
+// BB "+" -> fullSeason+lastSeason μαζί (ίδιο με το "+" του drawer).
+function bbSyncStateFromBB(state, bb){
+  state.venue = bb.venue;
+  state.tableVenue = bb.venue;
+  state.selected = null;
+  if(bb.n === "all"){
+    state.fullSeason = true;
+    state.lastSeason = !!bb.fill;
+    state.usingCustomN = false;
+  } else {
+    state.n = bb.n;
+    state.usingCustomN = (WINDOWS.indexOf(bb.n) < 0);
+    state.fullSeason = !!bb.fill;
+    state.lastSeason = !!bb.fill;
+  }
+}
 function bbInit(state){
   return {view:"list", n:([5,10,15,20].indexOf(state.n)>=0 ? state.n : activeWindow), venue:state.venue||"any",
-          fill:!!(state.fullSeason && state.lastSeason), slip:[], hist:[], manual:"", _combos:[], _sugs:[]};
+          fill:!!(state.fullSeason && state.lastSeason), slip:[], hist:[], manual:"", _combos:[], _sugs:[],
+          // Φωτογραφία των φίλτρων του drawer τη στιγμή που άνοιξε το BB: όσο το BB
+          // είναι ανοιχτό τα γράφουμε από πάνω (bbSyncStateFromBB) ώστε να
+          // ακολουθούν τα pills της κεφαλίδας, και στην έξοδο τα επαναφέρουμε
+          // ώστε το κανονικό drawer να μη μείνει με φίλτρο που δεν έχει ορατό
+          // διακόπτη (2026-09-20).
+          _prev:{n:state.n, venue:state.venue, tableVenue:state.tableVenue, fullSeason:state.fullSeason,
+                 lastSeason:state.lastSeason, usingCustomN:state.usingCustomN}};
+}
+// Επαναφορά των φίλτρων του drawer όπως ήταν πριν ανοίξει το BB (βλ. bbInit._prev).
+function bbRestoreState(state){
+  var pv = state.bb && state.bb._prev;
+  if(!pv) return;
+  for(var k in pv){ if(Object.prototype.hasOwnProperty.call(pv,k)) state[k] = pv[k]; }
 }
 
 function bbRender(r, state, inner, redraw){
@@ -3600,12 +3680,12 @@ function bbRender(r, state, inner, redraw){
     var t = e.target.closest("[data-act]");
     if(!t || !el.contains(t) || t.disabled) return;
     var act = t.getAttribute("data-act"), id = t.getAttribute("data-id");
-    if(act==="exit"){ state.bb = null; }
+    if(act==="exit"){ bbRestoreState(state); state.bb = null; }
     else if(act==="back"){ bb.view = "list"; }
     else if(act==="open"){ bb.slip = []; bb.hist = []; bb.manual = ""; bb.view = "builder"; }
-    else if(act==="n"){ var nv = t.getAttribute("data-n"); bb.n = nv==="all" ? "all" : parseInt(nv,10); bb.manual = ""; }
-    else if(act==="venue"){ bb.venue = t.getAttribute("data-v"); bb.manual = ""; }
-    else if(act==="fill"){ bb.fill = !bb.fill; bb.manual = ""; }
+    else if(act==="n"){ var nv = t.getAttribute("data-n"); bb.n = nv==="all" ? "all" : parseInt(nv,10); bb.manual = ""; bbSyncStateFromBB(state, bb); }
+    else if(act==="venue"){ bb.venue = t.getAttribute("data-v"); bb.manual = ""; bbSyncStateFromBB(state, bb); }
+    else if(act==="fill"){ bb.fill = !bb.fill; bb.manual = ""; bbSyncStateFromBB(state, bb); }
     else if(act==="combo"){ var c = bb._combos[parseInt(t.getAttribute("data-idx"),10)]; if(!c) return; bb.slip = c.legs.map(function(l){ return l.id; }); bb.hist = []; bb.manual = ""; bb.view = "builder"; }
     else if(act==="pick"){
       var leg = legById[id]; if(!leg) return;
@@ -3653,7 +3733,7 @@ function renderDrawer(r, headEl){
   // τον αγώνα (ίδιο ακριβώς νούμερο με αυτό που ήδη δείχνει η κάρτα απ' έξω) — όχι
   // "any" σαν να μην υπήρχε καμία επιλογή. Ο χρήστης μπορεί μετά να το σβήσει
   // χειροκίνητα μέσα στο drawer με το ίδιο πλήκτρο "Μόνο εντός/εκτός" (ζητήθηκε ρητά 2026-09-17).
-  var presetVenue = (homeAwaySplitOn && !r.isTotal) ? (ownVenueInMatch(r) || "any") : "any";
+  // (το presetVenue/tableVenue υπολογίζονται πλέον μέσα στο drawerDefaultState)
   // Το tableVenue (φίλτρο ΟΛΟΙ/ΕΝΤΟΣ/ΕΚΤΟΣ ΜΕΣΑ στη βαθμολογία) ξεκινάει
   // ΣΥΓΧΡΟΝΙΣΜΕΝΟ με το presetVenue, ώστε αν ήδη ξέρουμε την έδρα (HOME/AWAY
   // SPLIT ενεργό) η βαθμολογία να ανοίγει ΚΑΤΕΥΘΕΙΑΝ φιλτραρισμένη στην ίδια
@@ -3663,7 +3743,7 @@ function renderDrawer(r, headEl){
   // περσινής σεζόν αναμμένη (fullSeason+lastSeason μαζί), ακριβώς όπως το
   // presetVenue κάνει για την έδρα — "το κεντρικό το ανοίγει παντού όπου
   // χρειαστεί", ζητήθηκε ρητά 2026-09-17.
-  var state = { n: activeWindow, venue:presetVenue, result:"any", outlierTrim:0, h2h:false, fullSeason:lastFillGlobalOn, lastSeason:lastFillGlobalOn, selected:null, threshold: r.threshold, usingCustomN:false, oppMode: false, tableMode:false, tableCat:null, tableVenue:presetVenue, tableFormN:5, tableFormCustom:false, tableExpandedTeam:null, reversedLine:false, tableSortBy:"for" };
+  var state = drawerDefaultState(r);
   // Χερούλια πάνω στο headEl ώστε το click στο pill OPP ALLOWS/WINS/MAKES (που
   // ζει ΕΞΩ από το drawer, μέσα στην κεφαλίδα της κάρτας) να μπορεί να αλλάξει
   // το state.oppMode ενός ΗΔΗ χτισμένου drawer και να ζητήσει ξανά-σχεδιασμό,
@@ -3829,7 +3909,7 @@ function renderDrawer(r, headEl){
         e.stopPropagation();
         var cardEl = headEl.parentElement;
         var isOpen = !!(cardEl && cardEl.classList.contains("open"));
-        if(state.bb){ state.bb = null; var bbB = headEl.querySelector(".bbBtn"); if(bbB) bbB.classList.remove("active"); }
+        if(state.bb){ bbRestoreState(state); state.bb = null; var bbB = headEl.querySelector(".bbBtn"); if(bbB) bbB.classList.remove("active"); }
         if(!isOpen){
           if(cardEl) cardEl.classList.add("open");
           state.oppMode = false;
@@ -3848,6 +3928,8 @@ function renderDrawer(r, headEl){
           state.oppMode = false;
           if(cardEl) cardEl.classList.remove("open");
           newOppBtn.classList.remove("hint","active");
+          // Ίδιο πλήρες ρεσετ με το κλείσιμο από την κεφαλίδα (2026-09-20).
+          resyncDrawerLocalToGlobals(r, state);
           // Ίδιος κανόνας με το κύριο toggle του head: όταν κλείνει το drawer
           // (και από εδώ), η κάρτα πρέπει να ξαναδείξει ΜΟΝΟ ό,τι λένε οι
           // γενικοί διακόπτες, όχι την τοπική κατάσταση του drawer που μόλις
