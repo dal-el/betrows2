@@ -1141,7 +1141,8 @@ body.bbPageOn .unresolved{display:none !important}
 .themeToggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .header-right{margin-left:auto}
 :root[data-theme="light"] :is(.hp,.pill,.side-tag,.price-chip,.lmChip,.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){
-  --surface-2:#111627cc;--border:#232a48;--text:#f4f7ff;--text-dim:#9aa3c7;--text-faint:#5f6890;
+  /* Same translucent dark fill composited over the original dark card, never over cream. */
+  --surface-2:linear-gradient(#111627cc,#111627cc),#0b0f1c;--border:#232a48;--text:#f4f7ff;--text-dim:#9aa3c7;--text-faint:#5f6890;
 }
 :root[data-theme="light"] :is(.hp,.pill,.lmChip){color:var(--text)}
 :root[data-theme="light"] :is(.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){background-color:#111627}
