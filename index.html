@@ -354,6 +354,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lmChip.down .lmArrow{color:var(--rose)}
 .lmChip.flat{border-color:rgba(255,200,97,.45)}
 .lmChip.flat .lmArrow{color:var(--gold);font-weight:800}
+/* Lift the three header rows together and leave room above the hit-rate circles. */
+.row-head > .row-main.oddsAligned{position:relative;top:-5px;margin-bottom:3px}
 /* Compact shared columns: pills sit directly beside the text at their natural size. */
 .oddsAligned .oddsRows{
   display:grid;grid-template-columns:minmax(0,max-content) max-content;
@@ -3385,6 +3387,7 @@ function renderRowCard(r){
         '<span>'+catLabel(r.category)+' · '+marketNote+'</span></div>'+
         (r.price? '<span class="price-chip">'+r.price.toFixed(2)+'</span>' : '')+
       '</div>'+
+    '</div>'+
     '</div>'+
     '<div class="metrics '+pas.cls+'">'+
       '<div class="oppPillsrow">'+pas.oppPillsHtml+'</div>'+
