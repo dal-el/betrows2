@@ -338,6 +338,20 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .side-tag.under{background:var(--rose-soft);color:var(--rose);box-shadow:var(--glow-neg)}
 .price-chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--text-dim);background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);padding:3px 9px}
 .src-tag{font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px}
+/* Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την προηγούμενη ανανέωση των
+   lines (βλ. lineMoveChipHtml). Δίπλα-δεξιά από το pill "Stoiximan". */
+.lmWrap{display:inline-flex}
+.lmChip{display:inline-flex;align-items:center;gap:5px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;background:var(--surface-2);cursor:help}
+.lmChip .lmOld{color:var(--text-faint);text-decoration:line-through}
+.lmChip b{font-weight:800;color:var(--text)}
+.lmChip .lmArrow{font-size:10px;line-height:1}
+.lmChip.up{border-color:rgba(18,230,173,.45)}
+.lmChip.up .lmArrow{color:var(--accent)}
+.lmChip.down{border-color:rgba(255,111,149,.45)}
+.lmChip.down .lmArrow{color:var(--rose)}
+.lmChip.flat{border-color:rgba(255,200,97,.45)}
+.lmChip.flat .lmArrow{color:var(--gold);font-weight:800}
 .warn-tag{font-size:9.5px;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold);text-transform:none;letter-spacing:0;border-radius:var(--radius-pill);padding:2px 8px;cursor:help}
 
 /* .metrics: ενιαίο CSS grid που περιέχει ΚΑΙ τους κύκλους L5-L20 (.pillsrow,
@@ -3297,6 +3311,8 @@ function refreshCardHead(r, head){
       if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
     }
   } else if(priceChipEl){ priceChipEl.remove(); }
+  var lmWrapEl = head.querySelector(".lmWrap");
+  if(lmWrapEl) lmWrapEl.innerHTML = lineMoveChipHtml(r, r.threshold, r.side, r.price);
 }
 
 function renderRowCard(r){
@@ -3332,6 +3348,9 @@ function renderRowCard(r){
       '<div class="metaRow">'+
         (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+
         '<span class="src-tag">Stoiximan</span>'+
+        // Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την ΠΡΟΗΓΟΥΜΕΝΗ ανανέωση
+        // (live-prev). Κενό αν δεν υπάρχει προηγούμενο στιγμιότυπο.
+        '<span class="lmWrap">'+lineMoveChipHtml(r, r.threshold, r.side, r.price)+'</span>'+
       '</div>'+
       '<div class="market">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
@@ -4302,6 +4321,9 @@ function renderDrawer(r, headEl){
     } else if(priceChipEl){
       priceChipEl.remove();
     }
+    // Το chip μετατόπισης ακολουθεί την ΕΝΕΡΓΗ γραμμή/πλευρά του drawer.
+    var lmWrapEl = headEl.querySelector(".lmWrap");
+    if(lmWrapEl) lmWrapEl.innerHTML = lineMoveChipHtml(r, thr, side, price);
     var metricsEl = headEl.querySelector(".metrics");
     var pillsEl = headEl.querySelector(".statPills");
     if(!metricsEl || !pillsEl) return;
@@ -5324,6 +5346,101 @@ document.getElementById("jsonFiles").addEventListener("change", function(evt){
 });
 
 /* ---------- τοπικός live fetcher: φόρτωση όλων των αγώνων που κατέβασε ο fetch_stoiximan.py ---------- */
+/* ---------- ΜΕΤΑΤΟΠΙΣΗ LINE / ΝΕΑ ΑΠΟΔΟΣΗ (ζητήθηκε ρητά 2026-09-20) ----------
+   Το push_to_github.bat κρατάει ΑΝΤΙΓΡΑΦΟ των lines ΠΡΙΝ από κάθε ανανέωση στον
+   φάκελο live-prev/ (ίδια δομή με το live/). Εδώ διαβάζουμε ΜΟΝΟ τις τιμές από
+   εκείνο το στιγμιότυπο — χωρίς κανέναν υπολογισμό ιστορικού — και τις κρατάμε
+   ανά "αγορά": ματς + πλευρά ομάδας + κατηγορία + OVER/UNDER -> {γραμμή: απόδοση}.
+   Έτσι κάθε betrow ξέρει αν η ΙΔΙΑ γραμμή υπήρχε πριν (άρα άλλαξε μόνο η τιμή)
+   ή αν είναι ΝΕΑ γραμμή (άρα μετατοπίστηκε το line). Αν δεν υπάρχει ο φάκελος
+   (πρώτη φορά), δεν δείχνουμε τίποτα — καμία ένδειξη, όχι λάθος ένδειξη. */
+var PREV_LINES = {};        // marketKey -> {threshold: price}
+var PREV_LINES_LOADED = false;
+function lineMarketKey(matchHome, matchAway, dir, category, side){
+  return (matchHome||"")+"|"+(matchAway||"")+"|"+dir+"|"+category+"|"+side;
+}
+function extractLineSnapshot(root, out){
+  var participants = root.participants || [];
+  var home = participants[0], away = participants[1];
+  if(!home || !away) return;
+  (root.markets||[]).forEach(function(market){
+    var cls = classifyMarket(market.name||"", home.name, away.name);
+    if(!cls || cls.category==="unsupported") return;
+    if(isNonFullMatchMarket(market.name||"")) return;
+    (market.selections||[]).forEach(function(sel){
+      var parsed = parseSelectionName(sel.name);
+      if(!parsed || sel.price==null) return;
+      var mk = lineMarketKey(home.name, away.name, cls.direction, cls.category, parsed.side);
+      if(!out[mk]) out[mk] = {};
+      out[mk][parsed.threshold] = sel.price;
+    });
+  });
+}
+function loadPrevLines(){
+  if(PREV_LINES_LOADED) return Promise.resolve();
+  return fetch("live-prev/index.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .catch(function(){ return null; })
+    .then(function(manifest){
+      PREV_LINES_LOADED = true;
+      if(!manifest || !manifest.length) return;
+      return Promise.all(manifest.map(function(row){
+        return fetch("live-prev/" + row.file, {cache:"no-store"})
+          .then(function(r){ return r.ok ? r.json() : null; })
+          .catch(function(){ return null; });
+      })).then(function(jsons){
+        var snap = {};
+        jsons.filter(Boolean).forEach(function(j){
+          try{ extractLineSnapshot(eventRootOf(j), snap); }catch(e){}
+        });
+        PREV_LINES = snap;
+      });
+    });
+}
+/* Τι άλλαξε για ΜΙΑ γραμμή: {kind:"price"|"line"|"same", dir:-1|0|1, ...}
+   - υπήρχε ΙΔΙΑ γραμμή πριν  -> σύγκριση αποδόσεων ("price" ή "same")
+   - ΔΕΝ υπήρχε              -> "line": βρίσκουμε την ΠΙΟ ΚΟΝΤΙΝΗ προηγούμενη
+     γραμμή της ίδιας αγοράς (στα ίσα, αυτήν με την πιο κοντινή απόδοση).
+   Το βελάκι δείχνει τη ΓΡΑΜΜΗ όταν η γραμμή μετατοπίστηκε, αλλιώς την ΤΙΜΗ. */
+function lineMoveFor(r, thr, side, price){
+  if(price==null || !isFinite(price)) return null;
+  var dir = r.isTotal ? "total" : (r.ownVenue || "");
+  var prev = PREV_LINES[lineMarketKey(r.matchHome, r.matchAway, dir, r.category, side)];
+  if(!prev) return null;
+  var op = prev[thr];
+  if(op!=null){
+    if(Math.abs(op-price) < 0.0001) return {kind:"same", dir:0, price:price, oldPrice:op, oldLine:thr};
+    return {kind:"price", dir:(price>op?1:-1), price:price, oldPrice:op, oldLine:thr};
+  }
+  var best = null;
+  Object.keys(prev).forEach(function(k){
+    var v = parseFloat(k);
+    if(!isFinite(v)) return;
+    var d = Math.abs(v-thr), pd = Math.abs(prev[k]-price);
+    if(!best || d<best.d || (d===best.d && pd<best.pd)) best = {line:v, d:d, pd:pd};
+  });
+  if(!best) return null;
+  return {kind:"line", dir:(thr>best.line?1:-1), price:price, oldLine:best.line, oldPrice:prev[best.line]};
+}
+function lineMoveChipHtml(r, thr, side, price){
+  var mv = lineMoveFor(r, thr, side, price);
+  if(!mv) return "";
+  var cls = mv.dir>0 ? "up" : mv.dir<0 ? "down" : "flat";
+  var mark = mv.dir>0 ? "▲" : mv.dir<0 ? "▼" : "—";
+  var sideTxt = side==="over" ? "OVER" : "UNDER";
+  var tip;
+  if(mv.kind==="line"){
+    tip = "Μετατόπιση γραμμής: πριν "+sideTxt+" "+mv.oldLine+" @"+mv.oldPrice.toFixed(2)+
+          " → τώρα "+sideTxt+" "+thr+" @"+price.toFixed(2);
+  } else if(mv.kind==="price"){
+    tip = "Ίδια γραμμή ("+sideTxt+" "+thr+"): απόδοση "+mv.oldPrice.toFixed(2)+" → "+price.toFixed(2);
+  } else {
+    tip = "Καμία αλλαγή από την προηγούμενη ανανέωση ("+sideTxt+" "+thr+" @"+price.toFixed(2)+")";
+  }
+  return '<span class="lmChip '+cls+'" title="'+escAttr(tip)+'">'+
+    (mv.kind==="line" ? '<span class="lmOld">'+mv.oldLine+'</span>' : '')+
+    '<b>'+price.toFixed(2)+'</b><span class="lmArrow">'+mark+'</span></span>';
+}
 var LIVE_MANIFEST_URL = "live/index.json";
 function loadLiveMatches(){
   var statusEl = document.getElementById("liveStatus");
@@ -5345,10 +5462,12 @@ function loadLiveMatches(){
         statusEl.textContent = "Το index.json υπάρχει αλλά δεν διαβάστηκε κανένα αρχείο αγώνα.";
         return false;
       }
+      return loadPrevLines().then(function(){
       buildFeedMulti(roots);
       var names = manifest.map(function(r){ return r.name; }).join(" · ");
       statusEl.textContent = roots.length + " ζωντανοί αγώνες από Stoiximan: " + names;
       return true;
+      });
     });
   });
 }
