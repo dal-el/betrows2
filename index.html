@@ -916,6 +916,53 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .bbComboMeta b{color:var(--text)}
 /* Ένδειξη διόρθωσης συσχέτισης δίπλα στο EST ODDS (βλ. bbEstOdds): πόσο % πάνω/κάτω
    πήγε η τιμή σε σχέση με το σκέτο γινόμενο των legs. */
+/* --- Φίλτρο BETBUILDER στο toolbar (στη θέση του παλιού Ομάδες/Ζευγάρια/Όλα) --- */
+.bbFilterMenu{min-width:250px;background:#111627}  /* αδιαφανές: το μενού πέφτει πάνω σε κάρτες */
+.bbMenuHead{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:800;letter-spacing:.18em;
+  color:var(--text-faint);text-transform:uppercase;padding:6px 10px 4px}
+.bbLegsSeg{margin:0 6px 6px}
+.bbLegsSeg button{flex:1}
+.bbGoRow{border-top:1px solid var(--border);margin-top:4px;padding-top:9px;color:var(--accent);font-weight:700}
+/* --- BETBUILDERS PAGE --- */
+body.bbPageOn .toolbar,
+body.bbPageOn #rowsList,
+body.bbPageOn #skipNote,
+body.bbPageOn .foot,
+body.bbPageOn #liveRow,
+body.bbPageOn .unresolved{display:none !important}
+.bbPage{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+.bbPageHead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface-2);
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px;box-shadow:var(--shadow)}
+.bbPageTitle{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin-right:auto}
+.bbPageSub{font-size:11px;color:var(--text-faint);letter-spacing:0;text-transform:none;font-weight:500;display:block}
+.bbPageCtrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bbPageCtrl .segLbl{font-family:"IBM Plex Mono",monospace;font-size:9px;font-weight:800;letter-spacing:.16em;color:var(--text-faint)}
+.bbTeamCard{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.bbTeamCard.open{border-color:rgba(18,230,173,.45)}
+.bbTeamHead{display:flex;align-items:center;gap:10px;padding:11px 13px;cursor:pointer}
+.bbTeamHead:hover{background:var(--surface-3)}
+.bbTeamName{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;min-width:0;flex:0 1 auto}
+.bbTeamName .bbTn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bbTeamName .avatar{width:24px;height:24px;font-size:9.5px;margin-right:0}
+.bbTeamVs{color:var(--text-faint);font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}
+.bbTeamMeta{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim);flex:none}
+.bbTeamBest{padding:3px 8px;border-radius:var(--radius-pill);font-weight:800}
+.bbTeamBest.tier-hi{background:var(--accent-soft);color:var(--accent)}
+.bbTeamBest.tier-mid{background:var(--gold-soft);color:var(--gold)}
+.bbTeamBest.tier-lo{background:var(--rose-soft);color:var(--rose)}
+.bbTeamBest.tier-none{background:var(--surface-3);color:var(--text-faint)}
+.bbTeamChev{color:var(--text-faint);transition:transform .15s}
+.bbTeamCard.open .bbTeamChev{transform:rotate(180deg)}
+.bbTeamBody{padding:0 13px 13px;border-top:1px solid var(--border)}
+.bbTeamBody .bbCombos{margin-top:11px}
+.bbPageEmpty{padding:24px;text-align:center;color:var(--text-faint);font-size:13px}
+@media(max-width:600px){
+  .bbTeamMeta{font-size:10px;gap:6px}
+  .bbTeamName{font-size:13px;flex:0 0 auto}  /* το όνομα της ομάδας δεν κόβεται ποτέ */
+  .bbTeamMeta .bbTime{display:none}          /* η ώρα φεύγει πρώτη στο στενό πλάτος */
+  .bbPageHead{padding:9px 10px;gap:8px}
+}
 .bbCorr{margin-left:4px;padding:1px 4px;border-radius:5px;font-size:9px;font-weight:800;letter-spacing:.04em;vertical-align:1px}
 .bbCorr.down{background:var(--accent-soft);color:var(--accent)}
 .bbCorr.up{background:var(--rose-soft);color:var(--rose)}
@@ -1106,10 +1153,24 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
       </div>
       <div class="toolbarBreak" aria-hidden="true"></div>
       <div class="seg-group" id="filterSegGroup">
-        <div class="seg" id="scopeSeg">
-          <button data-v="team" class="active">Ομάδες</button>
-          <button data-v="pair">Ζευγάρια</button>
-          <button data-v="all">Όλα</button>
+        <!-- Στη θέση του παλιού φίλτρου Ομάδες/Ζευγάρια/Όλα (2026-09-20: η σελίδα
+             είναι ΑΠΟΚΛΕΙΣΤΙΚΑ για μεμονωμένες ομάδες, τα ζευγάρια/σύνολα αγώνα
+             δεν εμφανίζονται πουθενά πλέον) μπαίνει το φίλτρο BETBUILDER με τις
+             δύο επιλογές: πόσα legs θα βγάζει ο Builder, και μετάβαση στη
+             σελίδα BETBUILDERS. -->
+        <div class="msWrap" id="bbFilterWrap">
+          <button type="button" class="pillselect msBtn" id="bbFilterBtn">
+            <span id="bbFilterLabel">BetBuilder: 3 legs</span>
+            <span class="tsCaret">⌄</span>
+          </button>
+          <div class="msMenu bbFilterMenu" id="bbFilterMenu" hidden>
+            <div class="bbMenuHead">SELECT LEGS FOR BUILDER</div>
+            <div class="seg small bbLegsSeg" id="bbLegsSeg">
+              <button type="button" data-legs="2">2</button>
+              <button type="button" data-legs="3" class="active">3</button>
+            </div>
+            <div class="msRow bbGoRow" id="bbGoPageRow">⚒ GO TO BETBUILDERS PAGE →</div>
+          </div>
         </div>
         <div class="seg" id="showSeg">
           <button data-v="all" class="active">ALL</button>
@@ -1169,6 +1230,10 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   </div>
 
   <div class="rows" id="rowsList"></div>
+  <!-- BETBUILDERS PAGE: ολόκληρη σελίδα (όχι drawer) στη μορφή του PropDunker —
+       λίστα ομάδων που ανοίγουν και δείχνουν τα combos τους, και από εκεί στον
+       πλήρη Builder. Ζητήθηκε ρητά 2026-09-20. -->
+  <div class="bbPage" id="bbPage" hidden></div>
   <div class="skipnote" id="skipNote"></div>
 
   <div class="foot">Ιστορικό: <a href="https://github.com/xgabora/Club-Football-Match-Data-2000-2025" target="_blank" rel="noopener">Club Football Match Data</a> (δωρεάν, πηγή football-data.co.uk). Αποδόσεις: ακριβώς ό,τι τιμές περιέχει το JSON που επικολλάς από το Stoiximan — καμία τιμή δεν είναι επινοημένη. Το δείγμα Τορίνο–Ρόμα δείχνει μόνο τις αγορές (σουτ, σουτ στην εστία, φάουλ) που όντως περιείχε το JSON που μου έδωσες· βάλε το JSON από το tab Κόρνερ/Κάρτες για να δεις και αυτές.</div>
@@ -1222,7 +1287,12 @@ var teamFilterVals = new Set();
 var sortMode = "edge";
 var oddsMinVal = 1.5;
 var oddsMaxVal = 3;
-var scopeFilterVal = "team"; // "team" (μόνο ομάδες) | "pair" (μόνο ζευγάρια/σύνολο) | "all"
+// 2026-09-20: το φίλτρο Ομάδες/Ζευγάρια/Όλα καταργήθηκε — η σελίδα είναι
+// ΑΠΟΚΛΕΙΣΤΙΚΑ για μεμονωμένες ομάδες, οι γραμμές "σύνολο αγώνα" (isTotal)
+// ΔΕΝ εμφανίζονται ποτέ. Ο κώδικας για isTotal μένει (αποθηκευμένα bets από
+// παλιά, δείγματα κ.λπ.) αλλά δεν τροφοδοτείται πλέον με ορατές γραμμές.
+// Στη θέση του μπήκε το φίλτρο BETBUILDER (bbLegsMode + BETBUILDERS PAGE).
+var bbLegsMode = 3;  // 2 = δυάδες, 3 = τριάδες (όπως ήταν) στα combos του Builder
 var showFilterVal = "all"; // "all" | "under" | "over"
 var dateFilterVal = null; // "YYYY-MM-DD" (ημέρα αγώνα σε ώρα Ελλάδος) ή null == όλες
 // HOME/AWAY SPLIT (pill πάνω από το L5-L20, βλ. #haSplitBtn): όταν ενεργό,
@@ -1344,7 +1414,7 @@ function resetFiltersToDefaults(){
   // αποθηκευμένων bets, όταν το bet είναι κρυμμένο πίσω από τα τρέχοντα φίλτρα.
   catFilterVals.clear(); leagueFilterVals.clear(); teamFilterVals.clear();
   oddsMinVal = 1.5; oddsMaxVal = 3;
-  scopeFilterVal = "team"; showFilterVal = "all";
+  showFilterVal = "all";
   dateFilterVal = null;
   renderCatFilterMenu(); updateCatFilterButton();
   renderLeagueFilterMenu(); updateLeagueFilterButton();
@@ -1353,8 +1423,13 @@ function resetFiltersToDefaults(){
   var oddsMinEl = document.getElementById("oddsMin"), oddsMaxEl = document.getElementById("oddsMax");
   if(oddsMinEl) oddsMinEl.value = "1.5";
   if(oddsMaxEl) oddsMaxEl.value = "3";
-  Array.prototype.forEach.call(document.querySelectorAll("#scopeSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="team"); });
   Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
+  // Το φίλτρο BETBUILDER (legs) επανέρχεται κι αυτό στην προεπιλογή (3 legs).
+  bbLegsMode = 3;
+  _bbPageCache = {};
+  Array.prototype.forEach.call(document.querySelectorAll("#bbLegsSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-legs")==="3"); });
+  var bbLbl = document.getElementById("bbFilterLabel");
+  if(bbLbl) bbLbl.textContent = "BetBuilder: 3 legs";
   syncDateFilterUI();
   renderToolbarAndRows();
 }
@@ -2739,8 +2814,9 @@ function showConfirmTip(anchorEl, text, onYes){
    πάνω-πάνω που καθαρίζει το Set. */
 
 function closeAllMsMenus(exceptId){
-  ["catFilterMenu","leagueFilterMenu","teamSelectMenu"].forEach(function(id){
-    if(id!==exceptId) document.getElementById(id).hidden = true;
+  ["catFilterMenu","leagueFilterMenu","teamSelectMenu","bbFilterMenu"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && id!==exceptId) el.hidden = true;
   });
 }
 
@@ -2875,7 +2951,6 @@ function updateMobileFilterBadge(){
   if(leagueFilterVals.size) n++;
   if(teamFilterVals.size) n++;
   if(oddsMinVal!==1.5 || oddsMaxVal!==3) n++; // 1.5–3 είναι πλέον η προεπιλογή, δεν μετράει ως "ενεργό" φίλτρο
-  if(scopeFilterVal!=="team") n++;
   if(showFilterVal!=="all") n++;
   if(dateFilterVal) n++;
   badge.textContent = n;
@@ -2889,8 +2964,9 @@ function renderToolbarAndRows(){
   if(teamFilterVals.size) list = list.filter(function(r){ return r.isTotal ? (teamFilterVals.has(r.homeTeam) || teamFilterVals.has(r.awayTeam)) : teamFilterVals.has(r.team); });
   if(oddsMinVal!=null) list = list.filter(function(r){ return r.price!=null && r.price>=oddsMinVal; });
   if(oddsMaxVal!=null) list = list.filter(function(r){ return r.price!=null && r.price<=oddsMaxVal; });
-  if(scopeFilterVal==="team") list = list.filter(function(r){ return !r.isTotal; });
-  else if(scopeFilterVal==="pair") list = list.filter(function(r){ return r.isTotal; });
+  // ΠΑΝΤΑ μόνο γραμμές μεμονωμένης ομάδας — τα ζευγάρια/σύνολα αγώνα
+  // καταργήθηκαν από τη σελίδα (2026-09-20).
+  list = list.filter(function(r){ return !r.isTotal; });
   if(showFilterVal==="under") list = list.filter(function(r){ return r.side==="under"; });
   else if(showFilterVal==="over") list = list.filter(function(r){ return r.side==="over"; });
   if(dateFilterVal) list = list.filter(function(r){ return athensDateISO(r.startTime)===dateFilterVal; });
@@ -3015,6 +3091,10 @@ function renderToolbarAndRows(){
     return;
   }
   list.forEach(function(r){ container.appendChild(renderRowCard(r)); });
+  // Κρατάμε την ΤΕΛΙΚΗ (φιλτραρισμένη+ταξινομημένη) λίστα ώστε η σελίδα
+  // BETBUILDERS να δουλεύει πάνω στα ΙΔΙΑ ακριβώς betrows που βλέπει ο χρήστης.
+  lastRenderedRows = list;
+  if(bbPageOn) renderBbPage();
 }
 
 // Τα L5/L10/L15/L20 badges + τα FAIR/EDGE/EXP VALUE/AVERAGE/OPP ALLOWS pills
@@ -3412,6 +3492,9 @@ function bbTopCombos(r, bb, topN){
   }
   var byPct = function(a,b){ return (b.pct-a.pct) || (b.ev.hits-a.ev.hits); };
   duos.sort(byPct);
+  // Φίλτρο "SELECT LEGS FOR BUILDER" (toolbar): 2 -> ΜΟΝΟ δυάδες, 3 -> τριάδες
+  // πρώτα και μετά δυάδες όπως ήταν (ζητήθηκε ρητά 2026-09-20).
+  if(bbLegsMode === 2) return duos.slice(0, topN);
   var trios = [];
   duos.slice(0,6).forEach(function(d){
     var cats = {}; d.legs.forEach(function(l){ cats[l.category] = 1; });
@@ -3434,6 +3517,8 @@ function bbTopCombos(r, bb, topN){
   return res2;
 }
 function bbExtensions(r, bb, ms, slipLegs, allLegs){
+  // Δεν προτείνουμε leg που θα ξεπερνούσε το επιλεγμένο μέγεθος combo (2 ή 3).
+  if(slipLegs.length + 1 > bbLegsMode) return [];
   var cats = {}; slipLegs.forEach(function(l){ cats[l.category] = 1; });
   var out = [];
   allLegs.filter(bbInRange).forEach(function(c){
@@ -3480,7 +3565,7 @@ function bbSquares(matches, team){
     return '<div class="bbSq '+(x.hit?"hit":"miss")+'" title="'+escAttr((home?"vs ":"at ")+opp+" · "+x.vals.join(" / "))+'"></div>';
   }).join("");
 }
-function bbComboCard(c, idx){
+function bbComboCard(c, idx, actName){
   var est = bbEstOdds(c.legs), odds = est ? est.odds : null;
   var p = bbPct(c.ev.hits, c.ev.sample);
   var extra = "";
@@ -3488,7 +3573,7 @@ function bbComboCard(c, idx){
     var edge = (c.ev.hitRate - 1/odds)*100, evp = (c.ev.hitRate*odds-1)*100;
     extra = '<span>Edge <b>'+(edge>=0?"+":"")+edge.toFixed(1)+'%</b></span><span>EV <b>'+(evp>=0?"+":"")+evp.toFixed(1)+'%</b></span>';
   }
-  return '<button type="button" class="bbCombo" data-act="combo" data-idx="'+idx+'">'+
+  return '<button type="button" class="bbCombo" data-act="'+(actName||"combo")+'" data-idx="'+idx+'">'+
     '<div class="bbComboHead"><span class="bbKind '+c.kind+'">'+c.kind+'</span>'+
       '<span class="bbPct '+bbTier(p)+'">'+p+'%</span><span class="bbHits">'+c.ev.hits+'/'+c.ev.sample+'</span>'+
       '<div class="bbComboMeta"><span>Fair <b>'+(c.ev.fairOdds?c.ev.fairOdds.toFixed(2):"—")+'</b></span>'+(odds?'<span>EST ODDS <b>'+odds.toFixed(2)+'</b>'+bbCorrChip(est)+'</span>':'')+extra+'</div></div>'+
@@ -3537,8 +3622,11 @@ function bbRestoreState(state){
   for(var k in pv){ if(Object.prototype.hasOwnProperty.call(pv,k)) state[k] = pv[k]; }
 }
 
-function bbRender(r, state, inner, redraw){
+// opts (προαιρετικό): {exitLabel} — η σελίδα BETBUILDERS θέλει το "πίσω" να
+// λέει ότι γυρνάει στη λίστα ομάδων, όχι "Κλείσιμο BB" (2026-09-20).
+function bbRender(r, state, inner, redraw, opts){
   var bb = state.bb;
+  var exitLabel = (opts && opts.exitLabel) || null;
   var ms = bbMatchPool(r.team, r.league, bb.venue, bb.fill);
   var allLegs = bbLegsOfTeam(r);
   var legById = {}; allLegs.forEach(function(l){ legById[l.id] = l; });
@@ -3563,7 +3651,7 @@ function bbRender(r, state, inner, redraw){
     var combos = bbTopCombos(r, bb, BB_LIST_TOP);
     bb._combos = combos;
     html =
-      '<div class="bbTop"><button type="button" class="bbBackBtn" data-act="exit">← Πίσω</button>'+
+      '<div class="bbTop"><button type="button" class="bbBackBtn" data-act="exit">'+(exitLabel||"← Πίσω")+'</button>'+
         '<div class="bbTitle"><span class="bbTag">BET BUILDER</span>'+teamHtml+'</div>'+
         '<button type="button" class="bbBackBtn" data-act="open">⚒ Πλήρες Builder</button></div>'+
       ctrlHtml+
@@ -3660,7 +3748,7 @@ function bbRender(r, state, inner, redraw){
 
     html =
       '<div class="bbTop"><button type="button" class="bbBackBtn" data-act="back">← Combos</button>'+
-        '<button type="button" class="bbBackBtn" data-act="exit">✕ Κλείσιμο BB</button>'+
+        '<button type="button" class="bbBackBtn" data-act="exit">'+(exitLabel||"✕ Κλείσιμο BB")+'</button>'+
         '<div class="bbTitle"><span class="bbTag">BET BUILDER</span>'+teamHtml+'</div></div>'+
       ctrlHtml+
       (cards.length
@@ -3720,6 +3808,184 @@ function bbRender(r, state, inner, redraw){
     box.className = "bbOdds " + ((odds>1) ? ((hr*odds-1)>=0 ? "pos" : "neg") : "");
   });
 }
+
+/* ---------- BETBUILDERS PAGE (ζητήθηκε ρητά 2026-09-20) ----------
+   Ολόκληρη σελίδα (όχι drawer) στη μορφή του PropDunker: λίστα με ΟΛΕΣ τις
+   ομάδες των betrows που βλέπει ο χρήστης (ίδια φίλτρα με την κύρια λίστα),
+   κάθε γραμμή ανοίγει και δείχνει τα καλύτερα combos της ομάδας, και με κλικ
+   σε ένα combo μπαίνουμε στον ΠΛΗΡΗ Builder (ίδιο ακριβώς view με το BB του
+   drawer — ξαναχρησιμοποιούμε το bbRender, δεν γράφουμε δεύτερη υλοποίηση).
+   Πλήκτρα επιστροφής: από τον Builder πίσω στη λίστα ομάδων, από τη λίστα πίσω
+   στη βασική σελίδα. Το SELECT LEGS (2/3) υπάρχει και εδώ πάνω. */
+var lastRenderedRows = [];
+var bbPageOn = false;
+var bbPageState = { n:10, venue:"any", fill:false, expanded:{}, row:null, state:null };
+var _bbPageCache = {};
+
+function bbPageKey(r){ return r.team+"|"+r.league+"|"+r.matchHome+"|"+r.matchAway; }
+// Μία γραμμή ανά (ομάδα, αγώνας) από ΟΤΙ βλέπει τώρα ο χρήστης στην κύρια λίστα.
+function bbPageTeams(){
+  var seen = {}, out = [];
+  lastRenderedRows.forEach(function(r){
+    if(r.isTotal || !r.team) return;
+    var k = bbPageKey(r);
+    if(seen[k]) return;
+    seen[k] = 1; out.push(r);
+  });
+  return out;
+}
+function bbPageBb(){ return {n:bbPageState.n, venue:bbPageState.venue, fill:bbPageState.fill}; }
+// Cache ανά ομάδα+ρυθμίσεις: η λίστα ξαναχτίζεται σε κάθε κλικ (άνοιγμα/κλείσιμο
+// γραμμής), δεν έχει νόημα να ξαναϋπολογίζονται τα combos όλων των ομάδων.
+function bbPageCombos(r){
+  var k = bbPageKey(r)+"|"+bbPageState.n+"|"+bbPageState.venue+"|"+(bbPageState.fill?1:0)+
+          "|"+bbLegsMode+"|"+oddsMinVal+"|"+oddsMaxVal;
+  if(!_bbPageCache[k]) _bbPageCache[k] = bbTopCombos(r, bbPageBb(), BB_LIST_TOP);
+  return _bbPageCache[k];
+}
+function openBbPage(){
+  bbPageState.n = ([5,10,15,20].indexOf(activeWindow)>=0) ? activeWindow : 10;
+  bbPageState.venue = "any";
+  bbPageState.fill = lastFillGlobalOn;
+  bbPageState.expanded = {};
+  bbPageState.row = null; bbPageState.state = null;
+  _bbPageCache = {};
+  bbPageOn = true;
+  // Στο κινητό το φίλτρο ζει μέσα στο bottom sheet — αν μείνει ανοιχτό,
+  // σκεπάζει τη σελίδα BETBUILDERS (ίδιο με το closeSheet του sheet IIFE).
+  var fsB = document.getElementById("filtersBackdrop"), fsS = document.getElementById("filtersSheet");
+  if(fsB) fsB.hidden = true;
+  if(fsS) fsS.hidden = true;
+  document.body.classList.add("bbPageOn");
+  document.getElementById("bbPage").hidden = false;
+  renderBbPage();
+  window.scrollTo(0, 0);
+}
+function closeBbPage(){
+  bbPageOn = false;
+  bbPageState.row = null; bbPageState.state = null;
+  document.body.classList.remove("bbPageOn");
+  var el = document.getElementById("bbPage");
+  el.hidden = true; el.innerHTML = "";
+  window.scrollTo(0, 0);
+}
+function bbPageOpenTeam(r, comboIdx){
+  var st = { n: ([5,10,15,20].indexOf(bbPageState.n)>=0 ? bbPageState.n : activeWindow),
+             venue: bbPageState.venue, result:"any", outlierTrim:0, h2h:false,
+             fullSeason: !!bbPageState.fill, lastSeason: !!bbPageState.fill, selected:null,
+             threshold: r.threshold, usingCustomN:false, oppMode:false, tableMode:false,
+             tableVenue: bbPageState.venue, reversedLine:false, bb:null };
+  st.bb = bbInit(st);
+  st.bb.n = bbPageState.n;
+  st.bb.venue = bbPageState.venue;
+  st.bb.fill = !!bbPageState.fill;
+  // comboIdx<0 = "Πλήρες Builder" (άδειο slip) — αλλιώς φορτώνουμε το combo.
+  var c = (comboIdx>=0) ? bbPageCombos(r)[comboIdx] : null;
+  if(c) st.bb.slip = c.legs.map(function(l){ return l.id; });
+  st.bb.view = "builder";
+  bbPageState.row = r; bbPageState.state = st;
+  renderBbPage();
+}
+function bbPageCtrlHtml(){
+  var nBtns = [5,10,15,20,"all"].map(function(n){
+    return '<button type="button" data-pact="n" data-n="'+n+'" class="'+(bbPageState.n===n?"active":"")+'">'+(n==="all"?"ΟΛΑ":"L"+n)+'</button>';
+  }).join("");
+  var vBtns = [["any","ΟΛΟΙ"],["home","ΕΝΤΟΣ"],["away","ΕΚΤΟΣ"]].map(function(x){
+    return '<button type="button" data-pact="venue" data-v="'+x[0]+'" class="'+(bbPageState.venue===x[0]?"active":"")+'">'+x[1]+'</button>';
+  }).join("");
+  var lBtns = [2,3].map(function(n){
+    return '<button type="button" data-pact="legs" data-legs="'+n+'" class="'+(bbLegsMode===n?"active":"")+'">'+n+'</button>';
+  }).join("");
+  return '<div class="bbPageCtrl"><span class="segLbl">LEGS</span><div class="seg small">'+lBtns+'</div>'+
+         '<div class="seg small">'+nBtns+'</div>'+
+         '<div class="lastFillWrap"><button type="button" class="lastFillBtn'+(bbPageState.fill?" active":"")+'" data-pact="fill" title="Συμπλήρωση με περσινή σεζόν">+</button></div>'+
+         '<div class="seg small">'+vBtns+'</div></div>';
+}
+function renderBbPage(){
+  var el = document.getElementById("bbPage");
+  if(!el) return;
+  var ps = bbPageState;
+  // --- Πλήρης Builder μιας ομάδας ---
+  if(ps.row && ps.state && ps.state.bb){
+    // ό,τι άλλαξε ο χρήστης μέσα στον Builder (παράθυρο/έδρα/"+") το κρατάμε
+    // και για τη λίστα, ώστε να μη "χάνεται" όταν γυρίσει πίσω.
+    ps.n = ps.state.bb.n; ps.venue = ps.state.bb.venue; ps.fill = !!ps.state.bb.fill;
+    // Μόνο το "πίσω στη βασική σελίδα" εδώ — το "← Combos"/"≡ Λίστα ομάδων" τα
+    // βάζει ήδη το ίδιο το bbRender από κάτω (να μη διπλογράφονται).
+    el.innerHTML = '<div class="bbPageHead">'+
+        '<button type="button" class="bbBackBtn" data-pact="back">← Βασική σελίδα</button>'+
+        '<div class="bbPageTitle">BET BUILDERS</div>'+
+      '</div><div id="bbPageBody"></div>';
+    bbRender(ps.row, ps.state, document.getElementById("bbPageBody"), renderBbPage,
+             {exitLabel:"≡ Λίστα ομάδων"});
+    return;
+  }
+  ps.row = null; ps.state = null;
+  // --- Λίστα ομάδων ---
+  var teams = bbPageTeams();
+  var items = teams.map(function(r){
+    var combos = bbPageCombos(r);
+    return {r:r, combos:combos, best: combos.length ? combos[0].pct : -1};
+  });
+  items.sort(function(a,b){ return (b.best-a.best) || (b.combos.length-a.combos.length); });
+  var listHtml = items.length ? items.map(function(it, i){
+    var r = it.r, k = bbPageKey(r), open = !!ps.expanded[k];
+    var tier = it.best>=70 ? "tier-hi" : it.best>=50 ? "tier-mid" : it.best>=0 ? "tier-lo" : "tier-none";
+    return '<div class="bbTeamCard'+(open?" open":"")+'">'+
+      '<div class="bbTeamHead" data-pact="team" data-idx="'+i+'">'+
+        '<span class="bbTeamName">'+avatarHtml(r.team, r.league)+'<span class="bbTn">'+escAttr(r.team)+'</span></span>'+
+        '<span class="bbTeamVs">'+(r.opponent?"vs "+escAttr(r.opponent):"")+'</span>'+
+        '<span class="bbTeamMeta">'+
+          (fmtMatchTime(r.startTime) ? '<span class="bbTime">'+fmtMatchTime(r.startTime)+'</span>' : '')+
+          '<span class="bbTeamBest '+tier+'">'+(it.best>=0 ? it.best+"%" : "—")+'</span>'+
+          '<span>'+it.combos.length+' combos</span>'+
+          '<span class="bbTeamChev">▾</span>'+
+        '</span>'+
+      '</div>'+
+      (open ? '<div class="bbTeamBody">'+
+        (it.combos.length
+          ? '<div class="bbCombos">'+it.combos.map(function(c,ci){ return bbComboCard(c, ci, "pcombo"); }).join("")+'</div>'
+          : '<div class="bbEmpty">Δεν βρέθηκαν combos με ≥'+BB_MIN_PCT+'% για αυτά τα φίλτρα.</div>')+
+        '<div class="bbSlipBtns"><button type="button" class="bbGhost" data-pact="full" data-idx="'+i+'">⚒ Πλήρες Builder</button></div>'+
+      '</div>' : '')+
+    '</div>';
+  }).join("") : '<div class="bbPageEmpty">Καμία ομάδα με τα τρέχοντα φίλτρα.</div>';
+
+  el.innerHTML = '<div class="bbPageHead">'+
+      '<button type="button" class="bbBackBtn" data-pact="back">← Βασική σελίδα</button>'+
+      '<div class="bbPageTitle">BET BUILDERS<span class="bbPageSub">'+items.length+' ομάδες · combos '+bbLegsMode+' legs · μόνο legs της ίδιας ομάδας</span></div>'+
+      bbPageCtrlHtml()+
+    '</div>'+listHtml;
+  el._items = items;
+}
+document.getElementById("bbPage").addEventListener("click", function(e){
+  var t = e.target.closest("[data-pact],[data-act='pcombo']");
+  if(!t || !this.contains(t)) return;
+  var items = this._items || [];
+  var pact = t.getAttribute("data-pact");
+  if(pact==="back"){ closeBbPage(); return; }
+  if(pact==="list"){ bbPageState.row = null; bbPageState.state = null; renderBbPage(); return; }
+  if(pact==="n"){ var nv = t.getAttribute("data-n"); bbPageState.n = nv==="all" ? "all" : parseInt(nv,10); renderBbPage(); return; }
+  if(pact==="venue"){ bbPageState.venue = t.getAttribute("data-v"); renderBbPage(); return; }
+  if(pact==="fill"){ bbPageState.fill = !bbPageState.fill; renderBbPage(); return; }
+  if(pact==="legs"){ setBbLegsMode(parseInt(t.getAttribute("data-legs"),10)); return; }
+  if(pact==="team"){
+    var it = items[parseInt(t.getAttribute("data-idx"),10)]; if(!it) return;
+    bbPageState.expanded[bbPageKey(it.r)] = !bbPageState.expanded[bbPageKey(it.r)];
+    renderBbPage(); return;
+  }
+  if(pact==="full"){
+    var it2 = items[parseInt(t.getAttribute("data-idx"),10)]; if(!it2) return;
+    bbPageOpenTeam(it2.r, -1); return;
+  }
+  if(t.getAttribute("data-act")==="pcombo"){
+    var card = t.closest(".bbTeamCard");
+    var head = card && card.querySelector("[data-pact='team']");
+    var it3 = head ? items[parseInt(head.getAttribute("data-idx"),10)] : null;
+    if(!it3) return;
+    bbPageOpenTeam(it3.r, parseInt(t.getAttribute("data-idx"),10));
+  }
+});
 
 function renderDrawer(r, headEl){
   var drawer = document.createElement("div");
@@ -4631,7 +4897,7 @@ document.addEventListener("click", function(e){
   // αμέσως μετά από κάθε επιλογή. Το composedPath() κρατάει τη ΑΡΧΙΚΗ αλυσίδα
   // προγόνων τη στιγμή του click, πριν από οποιαδήποτε μετέπειτα μεταβολή του DOM.
   var path = (typeof e.composedPath === "function") ? e.composedPath() : [];
-  var inAnyMsWrap = ["catFilterWrap","leagueFilterWrap","teamSelectWrap"].some(function(id){
+  var inAnyMsWrap = ["catFilterWrap","leagueFilterWrap","teamSelectWrap","bbFilterWrap"].some(function(id){
     var wrap = document.getElementById(id);
     return wrap && path.indexOf(wrap) !== -1;
   });
@@ -4654,12 +4920,40 @@ document.getElementById("dateFilterDesktop").addEventListener("change", function
 document.getElementById("dateFilterMobile").addEventListener("change", function(){ setDateFilter(this.value); });
 document.getElementById("dateClearDesktop").addEventListener("click", function(e){ e.stopPropagation(); setDateFilter(null); });
 document.getElementById("dateClearMobile").addEventListener("click", function(e){ e.stopPropagation(); setDateFilter(null); });
-document.getElementById("scopeSeg").addEventListener("click", function(e){
-  if(e.target.tagName!=="BUTTON") return;
-  Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
-  e.target.classList.add("active");
-  scopeFilterVal = e.target.getAttribute("data-v");
+/* ---------- φίλτρο BETBUILDER στο toolbar (2026-09-20) ----------
+   Δύο επιλογές: SELECT LEGS FOR BUILDER (2 ή 3 legs στα combos που παράγει ο
+   Builder παντού — drawer ΚΑΙ σελίδα BETBUILDERS) και GO TO BETBUILDERS PAGE. */
+function setBbLegsMode(n){
+  if(n!==2 && n!==3) return;
+  bbLegsMode = n;
+  _bbPageCache = {};
+  Array.prototype.forEach.call(document.querySelectorAll("#bbLegsSeg button"), function(b){
+    b.classList.toggle("active", parseInt(b.getAttribute("data-legs"),10)===n);
+  });
+  var lbl = document.getElementById("bbFilterLabel");
+  if(lbl) lbl.textContent = "BetBuilder: "+n+" legs";
+  if(bbPageOn) renderBbPage();
+  // Οι ανοιχτές κάρτες ξαναχτίζονται ώστε ένα ανοιχτό BB να δείξει αμέσως
+  // combos με το νέο πλήθος legs.
   renderToolbarAndRows();
+}
+document.getElementById("bbFilterBtn").addEventListener("click", function(e){
+  e.stopPropagation();
+  var m = document.getElementById("bbFilterMenu");
+  var willOpen = m.hidden;
+  closeAllMsMenus("bbFilterMenu");
+  m.hidden = !willOpen;
+});
+document.getElementById("bbLegsSeg").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-legs]");
+  if(!b) return;
+  e.stopPropagation();
+  setBbLegsMode(parseInt(b.getAttribute("data-legs"),10));
+});
+document.getElementById("bbGoPageRow").addEventListener("click", function(e){
+  e.stopPropagation();
+  closeAllMsMenus(null);
+  openBbPage();
 });
 document.getElementById("showSeg").addEventListener("click", function(e){
   if(e.target.tagName!=="BUTTON") return;
