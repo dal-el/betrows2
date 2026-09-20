@@ -857,6 +857,149 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   .pill .v{font-size:13px}
 }
 @media(max-width:600px){ .row-head{gap:10px;padding-right:44px} .row-main{min-width:100%} .metrics{gap:7px} .chev{display:none} .saveBtn{top:14px;bottom:auto} .streakBtn{top:56px;bottom:auto;transform:none} .streakBtn:hover{transform:scale(1.1)} }
+
+/* ---------- BET BUILDER (BB) — ζητήθηκε ρητά 2026-09-20 ----------
+   Κουμπί "BB" ΠΑΝΩ-ΔΕΞΙΑ στο betrow, στην ΙΔΙΑ κάθετη ευθεία (right:10px) με τη
+   φωτιά (.streakBtn) και το "+" (.saveBtn). PC: κορυφή (top:8px), φωτιά στη μέση,
+   "+" κάτω. Κινητό/portrait: ΣΤΑΘΕΡΗ θέση κάτω από τη φωτιά (top:98px) — ίδιος
+   κανόνας "μόνιμης καρφωμένης θέσης" με τα υπόλοιπα, ώστε να υπάρχει στοίχιση
+   ανεξάρτητα από το αν η κάρτα έχει streak ή όχι. */
+.bbBtn{
+  position:absolute;right:10px;top:8px;
+  width:26px;height:26px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);border:1px solid rgba(18,230,173,.55);color:var(--accent);
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:800;letter-spacing:-.02em;line-height:1;cursor:pointer;padding:0;
+  transition:background .15s ease,box-shadow .15s ease,color .15s ease,transform .15s ease;z-index:2;
+}
+.bbBtn:hover{box-shadow:var(--glow-accent);transform:scale(1.1)}
+.bbBtn.active{background:var(--accent);color:#04231d;box-shadow:var(--glow-accent)}
+@media(max-width:600px){ .bbBtn{top:98px} }
+@media(max-width:600px){ .bbTop .bbTitle{order:3;flex:1 0 100%} }
+
+.bbWrap{display:flex;flex-direction:column;gap:12px}
+.bbTop{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bbBackBtn{
+  background:var(--surface-3);border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-pill);
+  padding:6px 12px;font-size:11.5px;font-weight:700;cursor:pointer;font-family:"IBM Plex Mono",monospace;
+}
+.bbBackBtn:hover{border-color:var(--accent);color:var(--accent)}
+.bbBackBtn:disabled{opacity:.35;cursor:default}
+.bbBackBtn:disabled:hover{border-color:var(--border);color:var(--text-dim)}
+.bbTitle{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;min-width:0;flex:1}
+.bbTitle .bbTeam{display:inline-flex;align-items:center;gap:7px;text-transform:none;letter-spacing:0;color:var(--text);font-weight:600;min-width:0}
+.bbTitle .bbTeam .avatar{width:22px;height:22px;font-size:9px;margin-right:0}
+.bbTitle .bbVs{color:var(--text-faint);font-weight:500;text-transform:none;letter-spacing:0;font-size:12px}
+.bbTitle .bbTag{color:var(--accent)}
+.bbCtrl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bbCtrl .seg.small{margin-bottom:0}
+.bbNote{font-size:11px;color:var(--text-faint);line-height:1.45}
+.bbEmpty{padding:26px 14px;text-align:center;color:var(--text-faint);font-size:13px;border:1px dashed var(--border);border-radius:var(--radius-md)}
+
+.bbCombos{display:flex;flex-direction:column;gap:8px}
+.bbCombo{
+  text-align:left;cursor:pointer;border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;
+  background:linear-gradient(rgba(18,230,173,.06),rgba(18,230,173,0)),var(--surface);color:var(--text);
+  display:flex;flex-direction:column;gap:8px;font-family:inherit;width:100%;
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+.bbCombo:hover{border-color:var(--accent);box-shadow:var(--glow-accent)}
+.bbComboHead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bbKind{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border-radius:6px;border:1px solid;font-family:"IBM Plex Mono",monospace}
+.bbKind.duo{color:#7dd3fc;border-color:rgba(125,211,252,.4);background:rgba(125,211,252,.1)}
+.bbKind.trio{color:#c4b5fd;border-color:rgba(196,181,253,.4);background:rgba(196,181,253,.1)}
+.bbKind.ext{color:var(--accent);border-color:rgba(18,230,173,.4);background:var(--accent-soft)}
+.bbPct{font-family:"IBM Plex Mono",monospace;font-weight:800;font-size:13px}
+.bbPct.hi{color:var(--accent)} .bbPct.mid{color:var(--gold)} .bbPct.lo{color:var(--rose)}
+.bbHits{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim)}
+.bbComboMeta{margin-left:auto;display:flex;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--text-dim);flex-wrap:wrap}
+.bbComboMeta b{color:var(--text)}
+.bbLegs{display:flex;flex-wrap:wrap;gap:6px}
+.bbLeg{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:8px;border:1px solid;font-size:11px;font-weight:600}
+.bbLeg b{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em}
+.bbLeg i{font-style:normal;font-family:"IBM Plex Mono",monospace;color:var(--text-dim);font-weight:500}
+.bbLeg.over{background:rgba(18,230,173,.09);border-color:rgba(18,230,173,.3);color:#c9fff0}
+.bbLeg.over b{color:var(--accent)}
+.bbLeg.under{background:rgba(255,111,149,.09);border-color:rgba(255,111,149,.3);color:#ffd6e1}
+.bbLeg.under b{color:var(--rose)}
+
+.bbGrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start}
+@media(max-width:700px){ .bbGrid{grid-template-columns:minmax(0,1fr)} .bbSlip{order:-1} }
+.bbMain{display:flex;flex-direction:column;gap:10px;min-width:0}
+.bbOpps{border:1px solid var(--border);border-radius:var(--radius-md);padding:8px 10px;background:var(--surface)}
+.bbOppsHead{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px;font-family:"IBM Plex Mono",monospace}
+.bbOppsRow{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.bbOpp{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none}
+.bbOpp .vsat{font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);font-family:"IBM Plex Mono",monospace}
+.bbOpp .avatar{width:28px;height:28px;font-size:10px;margin-right:0}
+.bbOpp .dot2{width:6px;height:6px;border-radius:50%;background:transparent}
+.bbOpp.hit .dot2{background:var(--gold)}
+.bbOpp.hit .avatar{box-shadow:0 0 0 2px rgba(255,200,97,.55)}
+
+.bbProps{display:flex;flex-direction:column;gap:8px}
+.bbProp{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 12px;background:var(--surface);
+}
+.bbProp.inslip{border-color:rgba(18,230,173,.5);background:linear-gradient(rgba(18,230,173,.08),rgba(18,230,173,0)),var(--surface);box-shadow:0 0 14px -6px rgba(18,230,173,.6)}
+.bbPropInfo{flex:1 1 150px;min-width:0}
+.bbPropName{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700}
+.bbPropName small{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--text-faint);font-weight:500}
+.bbHot{font-size:8.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(255,200,97,.4);background:var(--gold-soft);padding:1px 6px;border-radius:6px;font-family:"IBM Plex Mono",monospace}
+.bbStrip{display:flex;gap:3px;height:10px;margin-top:7px}
+.bbSq{flex:1;min-width:4px;border-radius:3px}
+.bbSq.hit{background:rgba(18,230,173,.85)} .bbSq.miss{background:rgba(255,111,149,.75)}
+.bbPicks{display:flex;gap:6px;flex:none}
+.bbPick{
+  display:flex;flex-direction:column;align-items:center;min-width:72px;padding:6px 8px;border-radius:var(--radius-md);cursor:pointer;
+  font-family:"IBM Plex Mono",monospace;border:1px solid;background:transparent;color:var(--text);
+}
+.bbPick .k{font-size:8.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.bbPick .p{font-size:13px;font-weight:800;margin-top:2px}
+.bbPick .o{font-size:9.5px;color:var(--text-dim);margin-top:1px}
+.bbPick.over{border-color:rgba(18,230,173,.3);background:rgba(18,230,173,.06)} .bbPick.over .k{color:var(--accent)}
+.bbPick.under{border-color:rgba(255,111,149,.3);background:rgba(255,111,149,.06)} .bbPick.under .k{color:var(--rose)}
+.bbPick.over:hover{border-color:var(--accent)} .bbPick.under:hover{border-color:var(--rose)}
+.bbPick.on.over{background:rgba(18,230,173,.28);border-color:var(--accent);box-shadow:var(--glow-accent)}
+.bbPick.on.under{background:rgba(255,111,149,.28);border-color:var(--rose);box-shadow:var(--glow-neg)}
+.bbPick:disabled{opacity:.3;cursor:default}
+
+.bbSlip{border:1px solid var(--border);border-radius:var(--radius-md);padding:12px;background:linear-gradient(rgba(18,230,173,.05),rgba(18,230,173,0)),var(--surface);display:flex;flex-direction:column;gap:10px;min-width:0}
+.bbSlipHead{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:8px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.bbSlipHead span:last-child{font-size:10px;color:var(--text-dim);border:1px solid var(--border);border-radius:var(--radius-pill);padding:1px 8px;letter-spacing:.06em}
+.bbSlipHint{font-size:12px;color:var(--text-faint);font-style:italic;text-align:center;padding:8px 0}
+.bbAllHitHead{display:flex;justify-content:space-between;align-items:center;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:5px;font-family:"IBM Plex Mono",monospace}
+.bbAllStrip{display:flex;gap:2px;height:12px;padding:1px;background:rgba(0,0,0,.3);border-radius:6px;overflow:hidden}
+.bbAllStrip .bbSq{border-radius:2px}
+.bbSlipLegs{display:flex;flex-direction:column;gap:5px}
+.bbSlipLeg{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.04);border-radius:8px;padding:5px 8px;font-size:11.5px}
+.bbSlipLeg .sd{flex:none;width:20px;height:20px;border-radius:5px;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace}
+.bbSlipLeg .sd.over{background:rgba(18,230,173,.2);color:var(--accent)} .bbSlipLeg .sd.under{background:rgba(255,111,149,.2);color:var(--rose)}
+.bbSlipLeg .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.bbSlipLeg .od{flex:none;font-family:"IBM Plex Mono",monospace;font-weight:700;color:var(--accent);font-size:11px}
+.bbSlipLeg .rm{flex:none;width:20px;height:20px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;font-size:11px;line-height:1;padding:0}
+.bbSlipLeg .rm:hover{border-color:var(--rose);color:var(--rose)}
+.bbOdds{border:1px solid var(--border);border-radius:var(--radius-md);padding:9px 10px;transition:border-color .15s ease,background .15s ease}
+.bbOdds.auto{border-color:rgba(124,156,255,.35);background:rgba(124,156,255,.05)}
+.bbOdds.pos{border-color:rgba(18,230,173,.4);background:rgba(18,230,173,.06)}
+.bbOdds.neg{border-color:rgba(255,111,149,.35);background:rgba(255,111,149,.05)}
+.bbOddsRow{display:flex;gap:12px;align-items:flex-end}
+.bbOddsRow>div{flex:1;min-width:0}
+.bbOdds .k{display:block;font-size:8.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint);margin-bottom:3px;font-family:"IBM Plex Mono",monospace}
+.bbOdds .v{font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:800}
+.bbOddsInput{width:100%;background:transparent;border:0;border-bottom:1px solid var(--border);color:var(--text);font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:800;padding:0;outline:none}
+.bbOddsInput:focus{border-bottom-color:var(--accent)}
+.bbEvRow{display:flex;justify-content:space-between;margin-top:8px;padding-top:7px;border-top:1px solid var(--border);font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);font-family:"IBM Plex Mono",monospace}
+.bbEvRow b{font-size:12px;letter-spacing:0;margin-left:5px}
+.bbEvRow b.pos{color:var(--accent)} .bbEvRow b.neg{color:var(--rose)}
+.bbOddsNote{font-size:9.5px;color:var(--text-faint);line-height:1.4;margin-top:6px}
+.bbSlipBtns{display:flex;gap:8px}
+.bbGhost{flex:1;background:transparent;border:1px solid var(--border);color:var(--text-dim);border-radius:var(--radius-pill);padding:6px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:"IBM Plex Mono",monospace;letter-spacing:.04em}
+.bbGhost:hover{border-color:var(--rose);color:var(--rose)}
+.bbSugHead{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border-top:1px solid var(--border);padding-top:10px}
+.bbSug{border:1px solid var(--border);border-radius:var(--radius-md);padding:9px 10px;display:flex;flex-direction:column;gap:7px;background:var(--surface-2)}
+.bbSugBtn{width:100%;background:var(--accent-soft);border:1px solid rgba(18,230,173,.4);color:var(--accent);border-radius:var(--radius-pill);padding:6px 10px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:"IBM Plex Mono",monospace}
+.bbSugBtn:hover{background:var(--accent);color:#04231d}
 </style>
 </head>
 <body>
@@ -2978,6 +3121,7 @@ function renderRowCard(r){
       '<div class="statPills">'+statsHtml+'</div>'+
     '</div>'+
     '<div class="chev">▾</div>'+
+    (!r.isTotal ? '<button type="button" class="bbBtn" title="Bet Builder" aria-label="Bet Builder">BB</button>' : '')+
     (streakCands.length ? '<button type="button" class="streakBtn" title="Ενεργό streak" aria-label="Ενεργό streak">🔥</button>' : '')+
     '<button type="button" class="saveBtn'+(savedBets[bKey]?" saved":"")+'" title="Αποθήκευση bet" aria-label="Αποθήκευση bet">+</button>';
 
@@ -2988,7 +3132,8 @@ function renderRowCard(r){
   head.addEventListener("click", function(){
     if(card.classList.contains("open")){
       card.classList.remove("open");
-      if(head._drawerState) head._drawerState.oppMode = false;
+      if(head._drawerState){ head._drawerState.oppMode = false; head._drawerState.bb = null; }
+      var bbBtnC = head.querySelector(".bbBtn"); if(bbBtnC) bbBtnC.classList.remove("active");
       var btn0 = head.querySelector(".pill.oppstat");
       if(btn0) btn0.classList.remove("hint","active");
       // Το drawer μπορεί να έχει αφήσει πίσω του τοπικά ενεργά pills (HOME/AWAY
@@ -3034,6 +3179,31 @@ function renderRowCard(r){
     });
   }
 
+  // BB (Bet Builder): ανοίγει το drawer (αν είναι κλειστό) και βάζει ΜΕΣΑ του, στη
+  // θέση των υπαρχόντων δεδομένων, το μενού των combos της ομάδας (βλ. bbRender).
+  // Δεύτερο πάτημα πάνω στο BB (όσο είναι ενεργό) γυρνάει στο κανονικό drawer.
+  var bbBtn = head.querySelector(".bbBtn");
+  if(bbBtn){
+    bbBtn.addEventListener("click", function(e){
+      e.stopPropagation();
+      var wasOpen = card.classList.contains("open");
+      card.classList.add("open");
+      if(!card._drawerBuilt){
+        card.appendChild(renderDrawer(r, head));
+        card._drawerBuilt = true;
+      } else if(!wasOpen && head._drawerState){
+        head._drawerState.oppMode = false;
+        head._drawerState.selected = null;
+        resyncDrawerLocalToGlobals(r, head._drawerState);
+      }
+      var st = head._drawerState;
+      if(!st) return;
+      if(wasOpen && st.bb){ st.bb = null; bbBtn.classList.remove("active"); }
+      else { st.bb = bbInit(st); bbBtn.classList.add("active"); }
+      if(head._drawerDraw) head._drawerDraw();
+    });
+  }
+
   // Πρώτο-ποτέ κλικ πάνω στο OPP pill (πριν χτιστεί καθόλου το drawer — μόλις
   // χτιστεί, αυτό το DOM node αντικαθίσταται μέσα στο updateHeader και το δικό
   // του click handler εκεί αναλαμβάνει, βλ. renderDrawer): ΜΟΝΟ ανοίγει το
@@ -3063,6 +3233,362 @@ function matchLabel(r, x){
     return { team: x.src==="home" ? r.homeTeam : r.awayTeam, opponent: x.src==="home" ? x.m.a : x.m.h, venue: x.src==="home" ? "home" : "away" };
   }
   return { team: r.team, opponent: x.m.h===r.team ? x.m.a : x.m.h, venue: x.m.h===r.team ? "home" : "away" };
+}
+
+/* ---------- BET BUILDER (BB) — ζητήθηκε ρητά 2026-09-20 ----------
+   Λογική αντιγραμμένη από το Bet Builder του PropDunker (builder/page.tsx +
+   backend top_suggestions.py), προσαρμοσμένη στο ποδόσφαιρο. ΜΟΝΟ legs της ΙΔΙΑΣ
+   ομάδας (ξεχωριστά για κάθε ομάδα) — έτσι όλα τα legs ευθυγραμμίζονται στους
+   ΙΔΙΟΥΣ αγώνες και ένα combo "χτυπάει" σε έναν αγώνα μόνο αν χτυπούν ΟΛΑ τα legs
+   ΜΑΖΙ στον ίδιο αγώνα (countAllHits του PropDunker). Ένα leg ανά κατηγορία
+   (όπως ένα leg ανά prop στο PropDunker). Δείγμα = οι τελευταίοι N αγώνες της
+   ομάδας όπου ΟΛΑ τα legs έχουν καταγεγραμμένη τιμή (ίδιος κανόνας με το
+   evaluate(): ένας αγώνας χωρίς τιμή ΔΕΝ "κλέβει" θέση από τα N).
+   Fair = 1/hitRate. Απόδοση combo = ΓΙΝΟΜΕΝΟ των αποδόσεων των legs (όχι η τιμή
+   bet builder του bookmaker, που λαμβάνει υπόψη συσχέτιση). Edge/EV: ΙΔΙΟΙ τύποι
+   με τα pills της κάρτας. Ρυθμίσεις (ίδιες με το backend του PropDunker): ελάχιστο
+   δείγμα 3 (ΙΔΙΟ όριο με το lowSample του κύριου feed — το PropDunker έχει 5, αλλά
+   στην αρχή της σεζόν οι ομάδες έχουν μόλις 4-5 αγώνες), ελάχιστα 2 hits, ελάχιστο
+   ποσοστό 50%, pool 24 legs, τρίδες από τα
+   6 καλύτερα ζευγάρια, πρώτα τρίδες μετά ζευγάρια. Τα auto-προτεινόμενα legs
+   σέβονται το φίλτρο απόδοσης (oddsMin/oddsMax) της κεντρικής μπάρας. */
+var BB_MIN_SAMPLE = 3, BB_MIN_HITS = 2, BB_MIN_PCT = 50, BB_POOL_CAP = 24, BB_LIST_TOP = 8;
+function bbPct(h,t){ return t ? Math.round(h/t*100) : 0; }
+function bbTier(p){ return p>=70 ? "hi" : p>=50 ? "mid" : "lo"; }
+function bbLegsOfTeam(r){
+  var out = [], seen = {};
+  feedRows.forEach(function(x){
+    if(x.isTotal || x.team!==r.team || x.league!==r.league) return;
+    if(x.matchHome!==r.matchHome || x.matchAway!==r.matchAway) return;
+    if(x.price==null || !isFinite(x.price)) return;
+    var id = x.category+"|"+x.threshold+"|"+x.side;
+    if(seen[id]) return; seen[id] = 1;
+    out.push({id:id, category:x.category, threshold:x.threshold, side:x.side, price:x.price});
+  });
+  return out;
+}
+function bbInRange(l){ return (oddsMinVal==null || l.price>=oddsMinVal) && (oddsMaxVal==null || l.price<=oddsMaxVal); }
+// Αγώνες ομάδας σε χρονολογική σειρά (παλιός -> νέος), με φίλτρο έδρας και προαιρετική συμπλήρωση περσινής σεζόν.
+function bbMatchPool(team, league, venue, fill){
+  var ms = teamMatches(team, league);
+  if(fill) ms = teamMatchesPreviousSeason(team, league).concat(ms);
+  if(venue==="home" || venue==="away") ms = ms.filter(function(m){ return (m.h===team)===(venue==="home"); });
+  return ms;
+}
+// legs: [{category,threshold,side}] — n: αριθμός ή "all". matches: ΝΕΟΤΕΡΟΣ πρώτος.
+function bbEval(team, ms, legs, n){
+  var lim = (n==="all") ? Infinity : n;
+  var out = [], hits = 0;
+  for(var i=ms.length-1; i>=0 && out.length<lim; i--){
+    var m = ms[i], vals = [], ok = true, allHit = true;
+    for(var k=0;k<legs.length;k++){
+      var v = teamMatchValue(m, team, legs[k].category, "for");
+      if(v==null){ ok = false; break; }
+      vals.push(v);
+      var hit = legs[k].side==="over" ? v>legs[k].threshold : v<legs[k].threshold;
+      if(!hit) allHit = false;
+    }
+    if(!ok) continue;
+    if(allHit) hits++;
+    out.push({m:m, vals:vals, hit:allHit});
+  }
+  var sample = out.length;
+  return {sample:sample, hits:hits, hitRate: sample ? hits/sample : 0, fairOdds: hits ? sample/hits : null, matches:out};
+}
+function bbProduct(legs){
+  var p = 1;
+  for(var i=0;i<legs.length;i++){ if(!(legs[i].price>1)) return null; p *= legs[i].price; }
+  return legs.length ? p : null;
+}
+function bbKey(legs){ return legs.map(function(l){ return l.id; }).sort().join("·"); }
+function bbTopCombos(r, bb, topN){
+  var ms = bbMatchPool(r.team, r.league, bb.venue, bb.fill);
+  var pool = [];
+  bbLegsOfTeam(r).filter(bbInRange).forEach(function(l){
+    var e = bbEval(r.team, ms, [l], bb.n);
+    if(e.sample>=BB_MIN_SAMPLE) pool.push({leg:l, single:e.hitRate, sample:e.sample});
+  });
+  pool.sort(function(a,b){ return (b.single-a.single) || (b.sample-a.sample); });
+  pool = pool.slice(0, BB_POOL_CAP);
+  var duos = [], i, j;
+  for(i=0;i<pool.length;i++){
+    for(j=i+1;j<pool.length;j++){
+      if(pool[i].leg.category===pool[j].leg.category) continue;
+      var lg = [pool[i].leg, pool[j].leg], e = bbEval(r.team, ms, lg, bb.n);
+      if(e.sample<BB_MIN_SAMPLE || e.hits<BB_MIN_HITS) continue;
+      var p = bbPct(e.hits, e.sample);
+      if(p<BB_MIN_PCT) continue;
+      duos.push({legs:lg, ev:e, pct:p, kind:"duo"});
+    }
+  }
+  var byPct = function(a,b){ return (b.pct-a.pct) || (b.ev.hits-a.ev.hits); };
+  duos.sort(byPct);
+  var trios = [];
+  duos.slice(0,6).forEach(function(d){
+    var cats = {}; d.legs.forEach(function(l){ cats[l.category] = 1; });
+    pool.forEach(function(x){
+      if(cats[x.leg.category]) return;
+      var lg = d.legs.concat([x.leg]), e = bbEval(r.team, ms, lg, bb.n);
+      if(e.sample<BB_MIN_SAMPLE || e.hits<BB_MIN_HITS) return;
+      var p = bbPct(e.hits, e.sample);
+      if(p<BB_MIN_PCT) return;
+      trios.push({legs:lg, ev:e, pct:p, kind:"trio"});
+    });
+  });
+  trios.sort(byPct);
+  var res2 = [], seen = {};
+  trios.concat(duos).forEach(function(c){
+    var k = bbKey(c.legs);
+    if(seen[k] || res2.length>=topN) return;
+    seen[k] = 1; res2.push(c);
+  });
+  return res2;
+}
+function bbExtensions(r, bb, ms, slipLegs, allLegs){
+  var cats = {}; slipLegs.forEach(function(l){ cats[l.category] = 1; });
+  var out = [];
+  allLegs.filter(bbInRange).forEach(function(c){
+    if(cats[c.category]) return;
+    var lg = slipLegs.concat([c]), e = bbEval(r.team, ms, lg, bb.n);
+    if(e.sample<3 || e.hits<1) return;
+    var p = bbPct(e.hits, e.sample);
+    if(p<50) return;
+    out.push({legs:[c], all:lg, ev:e, pct:p, kind:"ext"});
+  });
+  out.sort(function(a,b){ return (b.pct-a.pct) || (b.ev.hits-a.ev.hits); });
+  return out.slice(0,5);
+}
+function bbLegChip(l){
+  return '<span class="bbLeg '+l.side+'"><b>'+(l.side==="over"?"OVER":"UNDER")+'</b> '+l.threshold+' '+escAttr(catLabel(l.category))+' <i>'+l.price.toFixed(2)+'</i></span>';
+}
+function bbEvHtml(hitRate, odds){
+  if(!(odds>1)) return '<span class="bbOddsNote" style="margin:0">Βάλε απόδοση για έλεγχο value.</span>';
+  var edge = (hitRate - 1/odds)*100, ev = (hitRate*odds - 1)*100;
+  return '<span>Edge<b class="'+(edge>=0?"pos":"neg")+'">'+(edge>=0?"+":"")+edge.toFixed(1)+'%</b></span>'+
+         '<span>EV<b class="'+(ev>=0?"pos":"neg")+'">'+(ev>=0?"+":"")+ev.toFixed(1)+'%</b></span>';
+}
+function bbOddsBoxHtml(hits, total, auto, manual){
+  var hr = total ? hits/total : 0;
+  var fair = hr>0 ? 1/hr : null;
+  var val = manual!=="" ? manual : (auto ? auto.toFixed(2) : "");
+  var odds = parseFloat(val);
+  var cls = (odds>1) ? ((hr*odds-1)>=0 ? "pos" : "neg") : (manual==="" && auto ? "auto" : "");
+  return '<div class="bbOdds '+cls+'" data-hits="'+hits+'" data-total="'+total+'">'+
+    '<div class="bbOddsRow"><div><span class="k">Fair</span><span class="v">'+(fair?fair.toFixed(2):"—")+'</span></div>'+
+    '<div><span class="k">Απόδοση</span><input type="text" inputmode="decimal" class="bbOddsInput" placeholder="1.55" value="'+escAttr(val)+'"></div></div>'+
+    '<div class="bbEvRow">'+bbEvHtml(hr, odds)+'</div>'+
+    '<div class="bbOddsNote">Γινόμενο αποδόσεων των legs — όχι η τιμή bet builder του bookmaker.</div>'+
+  '</div>';
+}
+function bbSquares(matches, team){
+  return matches.map(function(x){
+    var home = x.m.h===team, opp = home ? x.m.a : x.m.h;
+    return '<div class="bbSq '+(x.hit?"hit":"miss")+'" title="'+escAttr((home?"vs ":"at ")+opp+" · "+x.vals.join(" / "))+'"></div>';
+  }).join("");
+}
+function bbComboCard(c, idx){
+  var odds = bbProduct(c.legs);
+  var p = bbPct(c.ev.hits, c.ev.sample);
+  var extra = "";
+  if(odds>1){
+    var edge = (c.ev.hitRate - 1/odds)*100, evp = (c.ev.hitRate*odds-1)*100;
+    extra = '<span>Edge <b>'+(edge>=0?"+":"")+edge.toFixed(1)+'%</b></span><span>EV <b>'+(evp>=0?"+":"")+evp.toFixed(1)+'%</b></span>';
+  }
+  return '<button type="button" class="bbCombo" data-act="combo" data-idx="'+idx+'">'+
+    '<div class="bbComboHead"><span class="bbKind '+c.kind+'">'+c.kind+'</span>'+
+      '<span class="bbPct '+bbTier(p)+'">'+p+'%</span><span class="bbHits">'+c.ev.hits+'/'+c.ev.sample+'</span>'+
+      '<div class="bbComboMeta"><span>Fair <b>'+(c.ev.fairOdds?c.ev.fairOdds.toFixed(2):"—")+'</b></span>'+(odds?'<span>Odds <b>'+odds.toFixed(2)+'</b></span>':'')+extra+'</div></div>'+
+    '<div class="bbLegs">'+c.legs.map(bbLegChip).join("")+'</div>'+
+  '</button>';
+}
+
+function bbInit(state){
+  return {view:"list", n:([5,10,15,20].indexOf(state.n)>=0 ? state.n : activeWindow), venue:state.venue||"any",
+          fill:!!(state.fullSeason && state.lastSeason), slip:[], hist:[], manual:"", _combos:[], _sugs:[]};
+}
+
+function bbRender(r, state, inner, redraw){
+  var bb = state.bb;
+  var ms = bbMatchPool(r.team, r.league, bb.venue, bb.fill);
+  var allLegs = bbLegsOfTeam(r);
+  var legById = {}; allLegs.forEach(function(l){ legById[l.id] = l; });
+  bb.slip = bb.slip.filter(function(id){ return !!legById[id]; });
+
+  var teamHtml = '<span class="bbTeam">'+avatarHtml(r.team, r.league)+escAttr(r.team)+'</span>'+
+                 (r.opponent ? '<span class="bbVs">vs '+escAttr(r.opponent)+'</span>' : '');
+  var nBtns = [5,10,15,20,"all"].map(function(n){
+    return '<button data-act="n" data-n="'+n+'" class="'+(bb.n===n?"active":"")+'">'+(n==="all"?"ΟΛΑ":"L"+n)+'</button>';
+  }).join("");
+  var vBtns = [["any","ΟΛΟΙ"],["home","ΕΝΤΟΣ"],["away","ΕΚΤΟΣ"]].map(function(x){
+    return '<button data-act="venue" data-v="'+x[0]+'" class="'+(bb.venue===x[0]?"active":"")+'">'+x[1]+'</button>';
+  }).join("");
+  var ctrlHtml = '<div class="bbCtrl"><div class="seg small">'+nBtns+'</div>'+
+    '<div class="lastFillWrap"><button type="button" class="lastFillBtn'+(bb.fill?" active":"")+'" data-act="fill" title="Συμπλήρωση με περσινή σεζόν">+</button></div>'+
+    '<div class="seg small">'+vBtns+'</div>'+
+    (bb.view==="builder" ? '<button type="button" class="bbBackBtn" data-act="undo"'+(bb.hist.length?"":" disabled")+'>↶ Undo</button>' : '')+
+  '</div>';
+
+  var html = '';
+  if(bb.view==="list"){
+    var combos = bbTopCombos(r, bb, BB_LIST_TOP);
+    bb._combos = combos;
+    html =
+      '<div class="bbTop"><button type="button" class="bbBackBtn" data-act="exit">← Πίσω</button>'+
+        '<div class="bbTitle"><span class="bbTag">BET BUILDER</span>'+teamHtml+'</div>'+
+        '<button type="button" class="bbBackBtn" data-act="open">⚒ Πλήρες Builder</button></div>'+
+      ctrlHtml+
+      '<div class="bbNote">Καλύτεροι συνδυασμοί για '+escAttr(r.team)+' (μόνο legs της ίδιας ομάδας) με ≥'+BB_MIN_PCT+'% στα '+(bb.n==="all"?"όλα τα ματς":"τελευταία "+bb.n)+
+        ' · legs με απόδοση '+(oddsMinVal!=null?oddsMinVal:"—")+'–'+(oddsMaxVal!=null?oddsMaxVal:"—")+' · πάτα ένα combo για το πλήρες Builder.</div>'+
+      (combos.length
+        ? '<div class="bbCombos">'+combos.map(function(c,i){ return bbComboCard(c,i); }).join("")+'</div>'
+        : '<div class="bbEmpty">Δεν βρέθηκαν combos με ≥'+BB_MIN_PCT+'% για αυτά τα φίλτρα. Δοκίμασε άλλο LAST N ή έδρα, ή άνοιξε το φίλτρο απόδοσης.</div>');
+  } else {
+    var slipLegs = bb.slip.map(function(id){ return legById[id]; });
+    var slipEv = slipLegs.length ? bbEval(r.team, ms, slipLegs, bb.n) : null;
+    // Λωρίδα αντιπάλων: οι αγώνες που μετράνε τώρα (του slip αν υπάρχει, αλλιώς οι τελευταίοι N της ομάδας).
+    var view;
+    if(slipEv) view = slipEv.matches;
+    else {
+      var lim = bb.n==="all" ? ms.length : bb.n;
+      view = ms.slice(Math.max(0, ms.length-lim)).reverse().map(function(m){ return {m:m, hit:false}; });
+    }
+    var oppsHtml = view.length ? '<div class="bbOpps"><div class="bbOppsHead"><span>Last opponents</span><span>'+view.length+'</span></div><div class="bbOppsRow">'+
+      view.map(function(x){
+        var home = x.m.h===r.team, opp = home ? x.m.a : x.m.h;
+        return '<div class="bbOpp'+(slipEv && x.hit?" hit":"")+'" title="'+escAttr((home?"vs ":"at ")+opp+(slipEv&&x.hit?" · combo hit":""))+'"><span class="vsat">'+(home?"vs":"at")+'</span>'+avatarHtml(opp, r.league)+'<span class="dot2"></span></div>';
+      }).join("")+'</div></div>' : '';
+
+    // Κάρτες: μία ανά (κατηγορία, γραμμή), με OVER/UNDER όπου προσφέρονται.
+    var groups = {}, order = [];
+    allLegs.forEach(function(l){
+      var k = l.category+"|"+l.threshold;
+      if(!groups[k]){ groups[k] = {category:l.category, threshold:l.threshold, over:null, under:null}; order.push(k); }
+      groups[k][l.side] = l;
+    });
+    var cards = order.map(function(k){
+      var g = groups[k];
+      var eo = g.over ? bbEval(r.team, ms, [g.over], bb.n) : null;
+      var eu = g.under ? bbEval(r.team, ms, [g.under], bb.n) : null;
+      var score = -999;
+      [[g.over,eo],[g.under,eu]].forEach(function(x){ if(x[0] && x[1].sample) score = Math.max(score, x[1].hitRate*100 - 100/x[0].price); });
+      var slipSide = (g.over && bb.slip.indexOf(g.over.id)>=0) ? "over" : ((g.under && bb.slip.indexOf(g.under.id)>=0) ? "under" : null);
+      return {g:g, eo:eo, eu:eu, score:score, slipSide:slipSide};
+    });
+    cards.sort(function(a,b){
+      if(!!a.slipSide !== !!b.slipSide) return a.slipSide ? -1 : 1;
+      return b.score - a.score;
+    });
+    var cardsHtml = cards.map(function(c){
+      var g = c.g;
+      var po = c.eo && c.eo.sample ? bbPct(c.eo.hits, c.eo.sample) : null;
+      var pu = c.eu && c.eu.sample ? bbPct(c.eu.hits, c.eu.sample) : null;
+      var showSide = c.slipSide || ((po!=null && (pu==null || po>=pu)) ? "over" : "under");
+      var se = showSide==="over" ? c.eo : c.eu, sp = showSide==="over" ? po : pu;
+      var hot = sp!=null && sp>=70;
+      function pick(side, leg, pctv){
+        if(!leg) return '<button type="button" class="bbPick '+side+'" disabled><span class="k">'+(side==="over"?"OVER":"UNDER")+' '+g.threshold+'</span><span class="p">—</span><span class="o">&nbsp;</span></button>';
+        return '<button type="button" class="bbPick '+side+(c.slipSide===side?" on":"")+'" data-act="pick" data-id="'+escAttr(leg.id)+'">'+
+          '<span class="k">'+(side==="over"?"OVER":"UNDER")+' '+g.threshold+'</span><span class="p">'+(pctv==null?"—":pctv+"%")+'</span><span class="o">@'+leg.price.toFixed(2)+'</span></button>';
+      }
+      return '<div class="bbProp'+(c.slipSide?" inslip":"")+'">'+
+        '<div class="bbPropInfo"><div class="bbPropName">'+escAttr(catLabel(g.category))+' '+g.threshold+
+          '<small>'+(bb.n==="all"?"ΟΛΑ":"L"+(se?se.sample:0))+' · '+(se?se.hits:0)+'/'+(se?se.sample:0)+' · '+(sp==null?"—":sp+"%")+'</small>'+
+          (hot ? '<span class="bbHot">HOT '+(showSide==="over"?"O":"U")+'</span>' : '')+'</div>'+
+          '<div class="bbStrip">'+(se ? bbSquares(se.matches, r.team) : '')+'</div></div>'+
+        '<div class="bbPicks">'+pick("over", g.over, po)+pick("under", g.under, pu)+'</div>'+
+      '</div>';
+    }).join("");
+
+    // Slip
+    var slipHtml = '<div class="bbSlipHead"><span>Bet Slip</span><span>'+slipLegs.length+' '+(slipLegs.length===1?"LEG":"LEGS")+'</span></div>';
+    if(!slipLegs.length){
+      slipHtml += '<div class="bbSlipHint">Διάλεξε OVER/UNDER σε οποιοδήποτε line για να χτίσεις.</div>';
+    } else {
+      var sp2 = bbPct(slipEv.hits, slipEv.sample);
+      slipHtml +=
+        '<div><div class="bbAllHitHead"><span>All-hit ('+(bb.n==="all"?"ΟΛΑ":"L"+slipEv.sample)+')</span><span class="bbPct '+bbTier(sp2)+'">'+slipEv.hits+'/'+slipEv.sample+' · '+sp2+'%</span></div>'+
+        '<div class="bbAllStrip">'+bbSquares(slipEv.matches, r.team)+'</div></div>'+
+        '<div class="bbSlipLegs">'+slipLegs.map(function(l){
+          return '<div class="bbSlipLeg"><span class="sd '+l.side+'">'+(l.side==="over"?"O":"U")+'</span><span class="nm">'+l.threshold+' '+escAttr(catLabel(l.category))+'</span><span class="od">'+l.price.toFixed(2)+'</span><button type="button" class="rm" data-act="rm" data-id="'+escAttr(l.id)+'" title="Αφαίρεση">✕</button></div>';
+        }).join("")+'</div>'+
+        bbOddsBoxHtml(slipEv.hits, slipEv.sample, bbProduct(slipLegs), bb.manual)+
+        '<div class="bbSlipBtns"><button type="button" class="bbGhost" data-act="clear">↺ Clear all</button></div>';
+    }
+    var sugs = slipLegs.length ? bbExtensions(r, bb, ms, slipLegs, allLegs) : bbTopCombos(r, bb, 5);
+    bb._sugs = sugs;
+    if(sugs.length){
+      slipHtml += '<div class="bbSugHead">✦ '+(slipLegs.length ? "Add to slip" : "Top combos")+'</div>'+
+        sugs.map(function(c,i){
+          var all = c.all || c.legs;
+          var p = bbPct(c.ev.hits, c.ev.sample);
+          return '<div class="bbSug"><div class="bbComboHead"><span class="bbKind '+c.kind+'">'+(c.kind==="ext"?"if added":c.kind)+'</span>'+
+            '<span class="bbPct '+bbTier(p)+'">'+c.ev.hits+'/'+c.ev.sample+' · '+p+'%</span></div>'+
+            '<div class="bbLegs">'+c.legs.map(bbLegChip).join("")+'</div>'+
+            '<button type="button" class="bbSugBtn" data-act="sug" data-idx="'+i+'">'+(c.kind==="ext"?"Add to slip":"Load combo")+'</button></div>';
+        }).join("");
+    }
+
+    html =
+      '<div class="bbTop"><button type="button" class="bbBackBtn" data-act="back">← Combos</button>'+
+        '<button type="button" class="bbBackBtn" data-act="exit">✕ Κλείσιμο BB</button>'+
+        '<div class="bbTitle"><span class="bbTag">BET BUILDER</span>'+teamHtml+'</div></div>'+
+      ctrlHtml+
+      (cards.length
+        ? '<div class="bbGrid"><div class="bbMain">'+oppsHtml+'<div class="bbProps">'+cardsHtml+'</div></div><div class="bbSlip">'+slipHtml+'</div></div>'
+        : '<div class="bbEmpty">Δεν υπάρχουν lines για την ομάδα σε αυτόν τον αγώνα.</div>');
+  }
+
+  var el = document.createElement("div");
+  el.className = "bbWrap";
+  el.innerHTML = html;
+  inner.innerHTML = "";
+  inner.appendChild(el);
+
+  function pushHist(){ bb.hist.push(bb.slip.slice()); }
+  el.addEventListener("click", function(e){
+    e.stopPropagation();
+    var t = e.target.closest("[data-act]");
+    if(!t || !el.contains(t) || t.disabled) return;
+    var act = t.getAttribute("data-act"), id = t.getAttribute("data-id");
+    if(act==="exit"){ state.bb = null; }
+    else if(act==="back"){ bb.view = "list"; }
+    else if(act==="open"){ bb.slip = []; bb.hist = []; bb.manual = ""; bb.view = "builder"; }
+    else if(act==="n"){ var nv = t.getAttribute("data-n"); bb.n = nv==="all" ? "all" : parseInt(nv,10); bb.manual = ""; }
+    else if(act==="venue"){ bb.venue = t.getAttribute("data-v"); bb.manual = ""; }
+    else if(act==="fill"){ bb.fill = !bb.fill; bb.manual = ""; }
+    else if(act==="combo"){ var c = bb._combos[parseInt(t.getAttribute("data-idx"),10)]; if(!c) return; bb.slip = c.legs.map(function(l){ return l.id; }); bb.hist = []; bb.manual = ""; bb.view = "builder"; }
+    else if(act==="pick"){
+      var leg = legById[id]; if(!leg) return;
+      pushHist();
+      if(bb.slip.indexOf(id)>=0) bb.slip = bb.slip.filter(function(x){ return x!==id; });
+      else bb.slip = bb.slip.filter(function(x){ return legById[x].category!==leg.category; }).concat([id]);
+      bb.manual = "";
+    }
+    else if(act==="rm"){ pushHist(); bb.slip = bb.slip.filter(function(x){ return x!==id; }); bb.manual = ""; }
+    else if(act==="clear"){ if(!bb.slip.length) return; pushHist(); bb.slip = []; bb.manual = ""; }
+    else if(act==="undo"){ if(!bb.hist.length) return; bb.slip = bb.hist.pop(); bb.manual = ""; }
+    else if(act==="sug"){
+      var s = bb._sugs[parseInt(t.getAttribute("data-idx"),10)]; if(!s) return;
+      pushHist();
+      bb.slip = (s.kind==="ext") ? bb.slip.concat(s.legs.map(function(l){ return l.id; })) : s.legs.map(function(l){ return l.id; });
+      bb.manual = "";
+    }
+    else return;
+    redraw();
+  });
+  // Πληκτρολόγηση απόδοσης: ενημερώνει ΜΟΝΟ το Edge/EV στη θέση τους (χωρίς ξανα-σχεδιασμό, ώστε να μη χάνεται το focus).
+  el.addEventListener("input", function(e){
+    var inp = e.target;
+    if(!inp.classList || !inp.classList.contains("bbOddsInput")) return;
+    var v = inp.value.replace(",", ".");
+    if(!(v==="" || /^\d*\.?\d*$/.test(v))){ inp.value = bb.manual; return; }
+    bb.manual = v;
+    var box = inp.closest(".bbOdds");
+    var hits = parseInt(box.getAttribute("data-hits"),10), total = parseInt(box.getAttribute("data-total"),10);
+    var hr = total ? hits/total : 0, odds = parseFloat(v);
+    box.querySelector(".bbEvRow").innerHTML = bbEvHtml(hr, odds);
+    box.className = "bbOdds " + ((odds>1) ? ((hr*odds-1)>=0 ? "pos" : "neg") : "");
+  });
 }
 
 function renderDrawer(r, headEl){
@@ -3253,6 +3779,7 @@ function renderDrawer(r, headEl){
         e.stopPropagation();
         var cardEl = headEl.parentElement;
         var isOpen = !!(cardEl && cardEl.classList.contains("open"));
+        if(state.bb){ state.bb = null; var bbB = headEl.querySelector(".bbBtn"); if(bbB) bbB.classList.remove("active"); }
         if(!isOpen){
           if(cardEl) cardEl.classList.add("open");
           state.oppMode = false;
@@ -3355,6 +3882,7 @@ function renderDrawer(r, headEl){
     var chartR = (state.oppMode && !r.isTotal && r.opponent) ? Object.assign({}, r, {team:r.opponent, opponent:r.team}) : r;
     var price = findSiblingPrice(thr);
     updateHeader(res, thr, price);
+    if(state.bb){ bbRender(r, state, inner, draw); return; }
     var matchesNewestFirst = chartRes.matches.slice().reverse(); // left = most recent
     var maxV = 0; matchesNewestFirst.forEach(function(x){ if(x.v>maxV) maxV=x.v; });
     var ceiling = Math.max(maxV*1.15, thr*1.15, 1);
