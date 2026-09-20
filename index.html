@@ -373,6 +373,12 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
   font-family:"IBM Plex Mono",monospace;font-size:10.5px;line-height:1.4;
   font-variant-numeric:tabular-nums;white-space:nowrap;
 }
+/* Both odds use the same trailing symbol slot, including when the lower one is empty. */
+.oddsAligned .lmChip,.oddsAligned .price-chip{justify-content:flex-end;gap:5px}
+.oddsAligned .lmArrow,.oddsAligned .price-chip::after{
+  display:block;flex:0 0 1ch;width:1ch;font-size:10px;line-height:1;text-align:center;
+}
+.oddsAligned .price-chip::after{content:""}
 .oddsAligned .price-chip{grid-column:2}
 .warn-tag{font-size:9.5px;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold);text-transform:none;letter-spacing:0;border-radius:var(--radius-pill);padding:2px 8px;cursor:help}
 
