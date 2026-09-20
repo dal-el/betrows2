@@ -356,6 +356,8 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lmChip.flat .lmArrow{color:var(--gold);font-weight:800}
 /* Lift the three header rows together and leave room above the hit-rate circles. */
 .row-head > .row-main.oddsAligned{position:relative;top:-5px;margin-bottom:3px}
+/* Move only row 3 visually; preserve every other row and the card height. */
+.row-main.oddsAligned .market{position:relative;top:6px}
 /* Compact shared columns: pills sit directly beside the text at their natural size. */
 .oddsAligned .oddsRows{
   display:grid;grid-template-columns:minmax(0,max-content) max-content;
