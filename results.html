@@ -106,6 +106,14 @@ td.mono,th.mono{font-family:"IBM Plex Mono",monospace}
 .win{color:var(--accent);font-weight:700} .loss{color:var(--rose);font-weight:700}
 .tableWrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .note{font-size:11.5px;color:var(--text-faint);line-height:1.5}
+.funnel{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 2px}
+.funnel span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;border:1px solid var(--border);
+  background:var(--surface);border-radius:var(--radius-pill);padding:3px 9px;color:var(--text-dim)}
+.funnel span b{color:var(--text);font-weight:800}
+.funnel span.cut b{color:var(--rose)}
+.funnel span.ok b{color:var(--accent)}
+.hint{border:1px solid rgba(255,200,97,.45);background:var(--gold-soft);color:var(--gold);
+  border-radius:var(--radius-md);padding:9px 12px;font-size:12.5px;line-height:1.5;margin-top:10px}
 .pill{font-family:"IBM Plex Mono",monospace;font-size:10.5px;border-radius:var(--radius-pill);padding:2px 8px;
   border:1px solid var(--border);background:var(--surface)}
 .pill.hi{color:var(--accent);border-color:rgba(18,230,173,.45)}
@@ -168,8 +176,8 @@ td.mono,th.mono{font-family:"IBM Plex Mono",monospace}
         <button data-n="15">L15</button><button data-n="20">L20</button>
       </div>
       <input type="number" id="winCustom" min="3" max="60" placeholder="L?">
-      <label class="chk" id="fillChk"><input type="checkbox" id="fillCb"> + περσινή σεζόν</label>
-      <label class="chk" id="haChk"><input type="checkbox" id="haCb"> HOME/AWAY SPLIT</label>
+      <label class="chk on" id="fillChk"><input type="checkbox" id="fillCb" checked> + περσινή σεζόν</label>
+      <label class="chk on" id="haChk"><input type="checkbox" id="haCb" checked> HOME/AWAY SPLIT</label>
     </div>
   </div>
 
@@ -965,7 +973,10 @@ function rowStats(r, cfg){
 
 /* ---------- κατάσταση φίλτρων ---------- */
 var catSel = new Set(), lgSel = new Set(), teamSel = new Set();
-var sideVal = "all", winN = 10, fillOn = false, haOn = false, exNotEnough = true;
+// Προεπιλογές ίδιες με το παράδειγμα που ζήτησε ο χρήστης: L10, "+" περσινή
+// σεζόν ΑΝΑΜΜΕΝΟ (αλλιώς τον Σεπτέμβρη σχεδόν όλα κόβονται από το EXCLUDE,
+// αφού οι ομάδες δεν έχουν ακόμα 10 φετινά ματς) και HOME/AWAY SPLIT.
+var sideVal = "all", winN = 10, fillOn = true, haOn = true, exNotEnough = true;
 var stakeRows = [];   // {oppFrom,oppTo,teamFrom,teamTo,sumFrom,sumTo,units}
 
 function defaultStakeRow(){
@@ -1182,12 +1193,29 @@ function renderReport(){
       '<td class="mono '+(c.pl>=0?"win":"loss")+'">'+fmtU(c.pl)+'</td>'+
     '</tr>';
   }).join("");
+  var S = R.stats;
+  var funnel = '<div class="funnel">'+
+    '<span>betrows <b>'+S.total+'</b></span>'+
+    '<span>με αποτέλεσμα <b>'+S.settled+'</b></span>'+
+    '<span class="ok">πέρασαν τα φίλτρα <b>'+S.passedBasic+'</b></span>'+
+    '<span class="cut">EXCLUDE <b>−'+S.excludedN+'</b></span>'+
+    '<span class="cut">εκτός σειρών <b>−'+S.noStake+'</b></span>'+
+    '<span class="ok">στοιχήματα <b>'+R.counted.length+'</b></span>'+
+  '</div>';
+  var hint = "";
+  if(!R.counted.length || S.excludedN > S.passedBasic/2){
+    var tips = [];
+    if(S.excludedN && !R.cfg.fill) tips.push("Κόπηκαν "+S.excludedN+" betrows επειδή η ομάδα ή ο αντίπαλος δεν έχουν ακόμα "+R.cfg.n+" φετινά ματς. Άναψε το <b>+ περσινή σεζόν</b> ή βάλε μικρότερο LAST N.");
+    else if(S.excludedN) tips.push("Κόπηκαν "+S.excludedN+" betrows από το EXCLUDE (δεν συμπληρώνουν "+R.cfg.n+" ματς ούτε με την περσινή σεζόν).");
+    if(S.noStake) tips.push("Άλλα "+S.noStake+" δεν ταίριαξαν σε καμία σειρά ποντάρισματος — άνοιξε τα «από–έως».");
+    if(!S.settled) tips.push("Καμία γραμμή δεν έχει ακόμα αποτέλεσμα: ανανέωσε το ιστορικό (run_refresh_history_api_football.bat) αφού παιχτούν οι αγώνες.");
+    if(!S.passedBasic && S.settled) tips.push("Κανένα betrow δεν πέρασε τα βασικά φίλτρα — δες κυρίως το φίλτρο απόδοσης.");
+    if(tips.length) hint = '<div class="hint">'+tips.join("<br>")+'</div>';
+  }
   document.getElementById("reportBox").innerHTML =
-    '<div class="card"><div class="cardHead">Αναφορά</div>'+kpis+
+    '<div class="card"><div class="cardHead">Αναφορά</div>'+funnel+hint+kpis+
       '<div class="tableWrap" style="margin-top:10px"><table><thead><tr><th>Σειρά</th><th>Στοιχήματα</th><th>Units</th><th>P/L</th><th>ROI</th><th>Επιτυχία</th></tr></thead><tbody>'+perRowHtml+'</tbody></table></div>'+
-      '<div class="note" style="margin-top:8px">Σύνολο betrows '+R.stats.total+' · με αποτέλεσμα '+R.stats.settled+
-      ' · πέρασαν τα βασικά φίλτρα '+R.stats.passedBasic+' · κόπηκαν από EXCLUDE '+R.stats.excludedN+
-      ' · δεν ταίριαξαν σε σειρά ποντάρισματος '+R.stats.noStake+'</div>'+
+      '<div class="note" style="margin-top:8px">LAST '+R.cfg.n+(R.cfg.fill?" + περσινή σεζόν":"")+(R.cfg.haSplit?" · HOME/AWAY SPLIT":"")+'</div>'+
     '</div>'+
     '<div class="card"><div class="cardHead">Τι μετρήθηκε <b>'+R.counted.length+'</b></div>'+
       (R.counted.length ? '<div class="tableWrap"><table><thead><tr><th>Ημ/νία</th><th>Ομάδα</th><th>Αγώνας</th><th>Κατηγορία</th><th>Γραμμή</th><th>Απόδοση</th><th>Αντ.%</th><th>Ομ.%</th><th>Άθρ.</th><th>Σειρά</th><th>Τιμή</th><th>Αποτ.</th><th>P/L</th></tr></thead><tbody>'+listHtml+'</tbody></table></div>'
@@ -1421,6 +1449,13 @@ function boot(){
         setReady(true);
         fillDaySelect(); updateDayNote(); refreshFilterMenus();
         if(selectedDates().length) compute();
+        else document.getElementById("reportBox").innerHTML =
+          '<div class="card"><div class="cardHead">Αναφορά</div><div class="hint">'+
+          'Δεν βρέθηκε καμία μέρα με betrows.<br>'+
+          '1) Τρέξε τον fetcher (run_py.bat) ώστε να υπάρχει ο φάκελος <b>live</b>.<br>'+
+          '2) Πάτα <b>push_to_github.bat</b> — δημιουργεί το <b>lines-archive</b> με τα betrows κάθε μέρας.<br>'+
+          '3) Μετά τους αγώνες, τρέξε <b>run_refresh_history_api_football.bat</b> για να μπουν τα αποτελέσματα.'+
+          '</div></div>';
       });
     });
   }).catch(function(e){
