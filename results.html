@@ -134,11 +134,16 @@ td.mono,th.mono{font-family:"IBM Plex Mono",monospace}
   <div class="card">
     <div class="cardHead">Ημέρα <b id="dayCount"></b></div>
     <div class="row">
-      <label class="lbl">Αγώνες της</label>
+      <label class="lbl">Από</label>
+      <input type="date" id="dayFrom">
+      <label class="lbl">Έως</label>
+      <input type="date" id="dayTo">
+      <button type="button" class="btn ghost sm" id="allDaysBtn">ΟΛΕΣ ΟΙ ΜΕΡΕΣ</button>
+      <label class="lbl">Διαθέσιμες</label>
       <select id="daySelect"></select>
       <button type="button" class="btn ghost sm" id="saveDayBtn" title="Κατεβάζει το results-archive.json με όλες τις ημέρες — βάλ' το στον φάκελο betrows-app και κάνε push">💾 Αποθήκευση ημερών</button>
-      <span class="note" id="dayNote"></span>
     </div>
+    <div class="row"><span class="note" id="dayNote"></span></div>
   </div>
 
   <div class="card">
@@ -1002,14 +1007,41 @@ function wireDropdown(btnId, menuId){
 }
 document.addEventListener("click", function(){ document.querySelectorAll(".msMenu").forEach(function(x){ x.classList.add("hidden"); }); });
 
+/* Ποιες μέρες μετράμε: ημερολόγιο από–έως (κενά = όλες). Το dropdown
+   "Διαθέσιμες" είναι απλώς συντόμευση που γεμίζει και τα δύο ημερολόγια. */
+function selectedDates(){
+  var from = document.getElementById("dayFrom").value;
+  var to   = document.getElementById("dayTo").value;
+  return Object.keys(DAYS).filter(function(d){
+    if(from && d < from) return false;
+    if(to && d > to) return false;
+    return true;
+  }).sort();
+}
 function currentDayRows(){
-  var v = document.getElementById("daySelect").value;
-  if(v==="__all__"){
-    var all = [];
-    Object.keys(DAYS).forEach(function(d){ all = all.concat(DAYS[d]); });
-    return all;
+  var all = [];
+  selectedDates().forEach(function(d){ all = all.concat(DAYS[d]); });
+  return all;
+}
+function updateDayNote(){
+  var ds = selectedDates();
+  var from = document.getElementById("dayFrom").value, to = document.getElementById("dayTo").value;
+  var avail = Object.keys(DAYS).sort();
+  var settled = 0, tot = 0;
+  ds.forEach(function(d){
+    tot += DAYS[d].length;
+    settled += DAYS[d].filter(function(r){ return r.hit!==undefined && r.hit!==null; }).length;
+  });
+  var txt;
+  if(!ds.length){
+    txt = (from||to) ? "Δεν υπάρχουν αποθηκευμένα betrows σε αυτό το διάστημα."
+                     : "Δεν υπάρχουν αποθηκευμένες μέρες ακόμα.";
+  } else {
+    txt = ds.length+(ds.length===1?" μέρα":" μέρες")+" ("+ds[0]+(ds.length>1?" έως "+ds[ds.length-1]:"")+") · "+
+          settled+"/"+tot+" betrows με αποτέλεσμα";
   }
-  return DAYS[v] || [];
+  if(avail.length) txt += " · διαθέσιμες: "+avail.join(", ");
+  document.getElementById("dayNote").textContent = txt;
 }
 function refreshFilterMenus(){
   var rows = currentDayRows();
@@ -1189,7 +1221,7 @@ function exportArchive(){
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
   }catch(e){}
-  document.getElementById("dayNote").textContent =
+  document.getElementById("calcStatus").textContent =
     "Κατέβηκε το results-archive.json με "+Object.keys(ARCHIVE).length+" ημέρες — βάλ' το στον φάκελο betrows-app και πάτα push_to_github.bat.";
 }
 
@@ -1197,11 +1229,19 @@ function fillDaySelect(){
   var sel = document.getElementById("daySelect");
   var days = Object.keys(DAYS).sort().reverse();
   function settledOf(d){ return (DAYS[d]||[]).filter(function(r){ return r.hit!==undefined && r.hit!==null; }).length; }
-  sel.innerHTML = days.map(function(d){
-    var st = settledOf(d), tot = DAYS[d].length;
-    return '<option value="'+d+'">'+d+' · '+st+'/'+tot+' με αποτέλεσμα</option>';
-  }).join("") + (days.length>1 ? '<option value="__all__">ΟΛΕΣ ΟΙ ΜΕΡΕΣ ('+days.reduce(function(a,d){return a+settledOf(d);},0)+')</option>' : '');
+  sel.innerHTML = '<option value="">— διάλεξε μέρα —</option>' + days.map(function(d){
+    return '<option value="'+d+'">'+d+' · '+settledOf(d)+'/'+DAYS[d].length+' με αποτέλεσμα</option>';
+  }).join("");
+  // τα ημερολόγια περιορίζονται στο διάστημα που όντως υπάρχει
+  var f = document.getElementById("dayFrom"), t = document.getElementById("dayTo");
+  if(days.length){
+    var min = days[days.length-1], max = days[0];
+    f.min = min; f.max = max; t.min = min; t.max = max;
+    // προεπιλογή: η πιο πρόσφατη μέρα
+    if(!f.value && !t.value){ f.value = max; t.value = max; }
+  }
   document.getElementById("dayCount").textContent = days.length+" ΑΠΟΘΗΚΕΥΜΕΝΕΣ";
+  updateDayNote();
 }
 
 /* ---------- boot ---------- */
@@ -1346,7 +1386,28 @@ document.getElementById("fillCb").addEventListener("change", function(){ fillOn 
 document.getElementById("haCb").addEventListener("change", function(){ haOn = this.checked; document.getElementById("haChk").classList.toggle("on", haOn); });
 document.getElementById("exNCb").addEventListener("change", function(){ exNotEnough = this.checked; document.getElementById("exNChk").classList.toggle("on", exNotEnough); });
 document.getElementById("exNChk").classList.add("on");
-document.getElementById("daySelect").addEventListener("change", function(){ refreshFilterMenus(); compute(); });
+function onDayChange(){ updateDayNote(); refreshFilterMenus(); compute(); }
+document.getElementById("daySelect").addEventListener("change", function(){
+  if(!this.value) return;
+  document.getElementById("dayFrom").value = this.value;
+  document.getElementById("dayTo").value = this.value;
+  onDayChange();
+});
+function manualDate(){
+  var f = document.getElementById("dayFrom").value, t = document.getElementById("dayTo").value;
+  var sel = document.getElementById("daySelect");
+  // το dropdown δείχνει μέρα μόνο όταν ταιριάζει ακριβώς με το διάστημα
+  sel.value = (f && f===t && DAYS[f]) ? f : "";
+  onDayChange();
+}
+document.getElementById("dayFrom").addEventListener("change", manualDate);
+document.getElementById("dayTo").addEventListener("change", manualDate);
+document.getElementById("allDaysBtn").addEventListener("click", function(){
+  document.getElementById("dayFrom").value = "";
+  document.getElementById("dayTo").value = "";
+  document.getElementById("daySelect").value = "";
+  onDayChange();
+});
 document.getElementById("okBtn").addEventListener("click", compute);
 document.getElementById("saveDayBtn").addEventListener("click", exportArchive);
 boot();
