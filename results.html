@@ -1184,6 +1184,11 @@ function diagHtml(){
     '<div class="tableWrap" style="margin-top:8px"><table><thead><tr><th>Μέρα</th><th>Betrows</th><th>Με αποτέλεσμα</th><th>Φορτωμένη</th><th>Αρχείο</th></tr></thead><tbody>'+
       (rows || '<tr><td colspan="5" class="note">καμία μέρα</td></tr>')+'</tbody></table></div>'+
     '<div class="note" style="margin-top:8px">live days: '+(DIAG.liveDays||"—")+'</div>'+
+    '<div class="note">διεύθυνση: '+escAttr(DIAG.url||location.href)+'</div>'+
+    (Object.keys(DIAG.fetch).length
+      ? '<div class="tableWrap" style="margin-top:6px"><table><thead><tr><th>Αρχείο</th><th>Κατάσταση</th></tr></thead><tbody>'+
+        Object.keys(DIAG.fetch).map(function(u){ return '<tr><td class="mono">'+escAttr(u)+'</td><td class="mono">'+DIAG.fetch[u]+'</td></tr>'; }).join("")+
+        '</tbody></table></div>' : '')+
   '</div>';
 }
 function fmtU(v){ return (v>=0?"+":"")+v.toFixed(2); }
@@ -1392,6 +1397,39 @@ function fillDaySelect(){
 }
 
 /* ---------- boot ---------- */
+function fetchJSON(url, fallback){
+  return fetch(url, {cache:"no-store"}).then(function(r){
+    DIAG.fetch[url] = r.status;
+    if(!r.ok) throw new Error(url+" → HTTP "+r.status);
+    return r.json();
+  }).catch(function(e){
+    if(DIAG.fetch[url]===undefined) DIAG.fetch[url] = "δεν διαβάστηκε";
+    if(arguments.length && fallback!==undefined) return fallback;
+    throw e;
+  });
+}
+/* Το πιο συχνό λάθος: η σελίδα ανοίγει με διπλό κλικ (file://) ή από φάκελο
+   όπου δεν υπάρχουν τα data.json/live — τότε ΚΑΝΕΝΑ fetch δεν δουλεύει και
+   όλα δείχνουν μηδενικά. Το λέμε καθαρά αντί να δείχνουμε άδεια αναφορά. */
+function loadErrorHtml(err){
+  var isFile = (location.protocol === "file:");
+  var rows = Object.keys(DIAG.fetch).map(function(u){
+    return '<tr><td class="mono">'+escAttr(u)+'</td><td class="mono">'+DIAG.fetch[u]+'</td></tr>';
+  }).join("");
+  return '<div class="card"><div class="cardHead">Δεν φόρτωσαν τα δεδομένα</div>'+
+    '<div class="hint">'+
+      (isFile
+        ? 'Άνοιξες τη σελίδα σαν <b>αρχείο</b> (file://). Έτσι ο browser δεν επιτρέπει να διαβαστούν τα data.json / live / lines-archive.<br><br>'+
+          'Άνοιξέ τη από τον τοπικό server: τρέξε το <b>run_app.bat</b> και μετά πήγαινε στο<br>'+
+          '<b>http://localhost:8765/betrows-app/results.html</b><br>'+
+          'ή online: <b>https://dal-el.github.io/betrows2/results.html</b> (αφού πατήσεις push_to_github.bat).'
+        : 'Η σελίδα τρέχει από <b>'+escAttr(location.href)+'</b> αλλά δεν βρίσκει τα αρχεία δεδομένων δίπλα της.<br>'+
+          'Το results.html πρέπει να είναι στον ΙΔΙΟ φάκελο με τα data.json, live/, lines-archive/ (δηλαδή στο betrows-app).')+
+    '</div>'+
+    '<div class="note" style="margin-top:8px">'+escAttr(String(err&&err.message||err||""))+'</div>'+
+    (rows ? '<div class="tableWrap" style="margin-top:8px"><table><thead><tr><th>Αρχείο</th><th>Κατάσταση</th></tr></thead><tbody>'+rows+'</tbody></table></div>' : '')+
+  '</div>';
+}
 function setReady(on){
   ["okBtn","saveDayBtn","allDaysBtn"].forEach(function(id){
     var el = document.getElementById(id);
@@ -1402,18 +1440,19 @@ function boot(){
   var st = document.getElementById("bootStatus");
   setReady(false);
   st.textContent = "φόρτωση ιστορικού… (μην πατήσεις ακόμα)";
+  DIAG.url = location.href;
   return Promise.all([
-    fetch("data.json").then(function(r){ return r.json(); }),
-    fetch("crest-map.json").then(function(r){ return r.ok?r.json():{}; }).catch(function(){ return {}; }),
-    fetch("league-crest-map.json").then(function(r){ return r.ok?r.json():{}; }).catch(function(){ return {}; }),
-    fetch("team-map.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():{}; }).catch(function(){ return {}; }),
-    fetch("results-archive.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():{}; }).catch(function(){ return {}; }),
-    fetch("live/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; }),
+    fetchJSON("data.json"),
+    fetchJSON("crest-map.json", {}),
+    fetchJSON("league-crest-map.json", {}),
+    fetchJSON("team-map.json", {}),
+    fetchJSON("results-archive.json", {}),
+    fetchJSON("live/index.json", []),
     // ΚΑΙ το προηγούμενο στιγμιότυπο: όταν ανανεώνονται τα lines, οι ΗΔΗ
     // ΠΑΙΓΜΕΝΟΙ αγώνες φεύγουν από το live/ — τα betrows τους σώζονται μόνο εδώ.
-    fetch("live-prev/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; }),
+    fetchJSON("live-prev/index.json", []),
     // ευρετήριο του αυτόματου αρχείου γραμμών (γράφεται από το archive_lines.py)
-    fetch("lines-archive/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; })
+    fetchJSON("lines-archive/index.json", [])
   ]).then(function(res){
     DATA = res[0]; CREST_MAP = res[1]||{}; LEAGUE_CREST_MAP = res[2]||{};
     DIAG.dataMatches = DATA.length;
@@ -1521,7 +1560,8 @@ function boot(){
     });
   }).catch(function(e){
     setReady(false);
-    st.textContent = "Σφάλμα φόρτωσης: "+e.message+" — κάνε refresh (Ctrl+F5).";
+    st.textContent = "Δεν φόρτωσαν τα δεδομένα — δες την εξήγηση πιο κάτω.";
+    document.getElementById("reportBox").innerHTML = loadErrorHtml(e);
   });
 }
 
