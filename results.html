@@ -200,6 +200,7 @@ td.mono,th.mono{font-family:"IBM Plex Mono",monospace}
 
   <div class="row" style="margin:14px 0">
     <button type="button" class="btn" id="okBtn" disabled>OK — Υπολογισμός</button>
+    <button type="button" class="btn ghost sm" id="diagBtn">🔍 Διάγνωση</button>
     <span class="status" id="calcStatus"></span>
   </div>
 
@@ -888,6 +889,8 @@ var ARCHIVE = {};      // "YYYY-MM-DD" -> {savedAt, rows:[...]}
 var DAYS = {};         // "YYYY-MM-DD" -> [rows]  (αρχείο + σημερινά μαζί)
 var MATCH_INDEX = {};  // "lg|home|away" -> [matches]
 var LAST_RESULT = null;
+/* Τι ακριβώς φόρτωσε η σελίδα — για να μη μαντεύουμε όταν κάτι δεν βγαίνει. */
+var DIAG = {fetch:{}, notes:[]};
 
 /* ---------- betrows από ένα live event (χωρίς κανέναν υπολογισμό ιστορικού) ---------- */
 function buildRowsFromRoot(root){
@@ -1160,6 +1163,29 @@ function compute(){
     stats.total+" betrows · "+stats.settled+" με αποτέλεσμα · "+counted.length+" στοιχήματα ("+LAST_RESULT.ms+" ms)";
 }
 
+function diagHtml(){
+  var days = allKnownDates();
+  var rows = days.map(function(d){
+    var r = DAYS[d] || null;
+    var settled = r ? r.filter(function(x){ return x.hit!==undefined && x.hit!==null; }).length : 0;
+    return '<tr><td class="mono">'+d+'</td><td class="mono">'+(r?r.length:"—")+'</td><td class="mono">'+(r?settled:"—")+
+           '</td><td class="mono">'+(LOADED[d]?"ναι":"όχι")+'</td><td class="mono">'+(DAY_FILES[d]||"—")+'</td></tr>';
+  }).join("");
+  return '<div class="card"><div class="cardHead">Διάγνωση</div>'+
+    '<div class="funnel">'+
+      '<span>ιστορικό <b>'+(DIAG.dataMatches||0)+'</b> ματς (τελευταίο '+(DIAG.dataLast||"—")+')</span>'+
+      '<span>live αρχεία <b>'+(DIAG.liveManifest||0)+'</b></span>'+
+      '<span>live-prev <b>'+(DIAG.prevManifest||0)+'</b></span>'+
+      '<span>διαβάστηκαν <b>'+(DIAG.filesOk||0)+'</b>'+(DIAG.filesFail?' <b style="color:var(--rose)">/ '+DIAG.filesFail+' απέτυχαν</b>':'')+'</span>'+
+      '<span>γραμμές από live <b>'+(DIAG.liveRows||0)+'</b></span>'+
+      '<span>lines-archive <b>'+(DIAG.archiveDays||0)+'</b> μέρες</span>'+
+      '<span>localStorage <b>'+(DIAG.localDays||0)+'</b> μέρες ('+(DIAG.localStorageKB||0)+' KB)</span>'+
+    '</div>'+
+    '<div class="tableWrap" style="margin-top:8px"><table><thead><tr><th>Μέρα</th><th>Betrows</th><th>Με αποτέλεσμα</th><th>Φορτωμένη</th><th>Αρχείο</th></tr></thead><tbody>'+
+      (rows || '<tr><td colspan="5" class="note">καμία μέρα</td></tr>')+'</tbody></table></div>'+
+    '<div class="note" style="margin-top:8px">live days: '+(DIAG.liveDays||"—")+'</div>'+
+  '</div>';
+}
 function fmtU(v){ return (v>=0?"+":"")+v.toFixed(2); }
 function renderReport(){
   var R = LAST_RESULT;
@@ -1215,7 +1241,7 @@ function renderReport(){
     if(S.noStake) tips.push("Άλλα "+S.noStake+" δεν ταίριαξαν σε καμία σειρά ποντάρισματος — άνοιξε τα «από–έως».");
     if(!S.settled) tips.push("Καμία γραμμή δεν έχει ακόμα αποτέλεσμα: ανανέωσε το ιστορικό (run_refresh_history_api_football.bat) αφού παιχτούν οι αγώνες.");
     if(!S.passedBasic && S.settled) tips.push("Κανένα betrow δεν πέρασε τα βασικά φίλτρα — δες κυρίως το φίλτρο απόδοσης.");
-    if(!S.total) tips = ["Το επιλεγμένο διάστημα δεν έχει betrows. Διάλεξε μέρα από τις <b>Διαθέσιμες</b> ή πάτα <b>ΟΛΕΣ ΟΙ ΜΕΡΕΣ</b>."];
+    if(!S.total) tips = ["Το επιλεγμένο διάστημα δεν έχει betrows. Διάλεξε μέρα από τις <b>Διαθέσιμες</b> ή πάτα <b>ΟΛΕΣ ΟΙ ΜΕΡΕΣ</b>. Πιο κάτω βλέπεις τι ακριβώς φόρτωσε η σελίδα."];
     if(tips.length) hint = '<div class="hint">'+tips.join("<br>")+'</div>';
   }
   document.getElementById("reportBox").innerHTML =
@@ -1223,6 +1249,7 @@ function renderReport(){
       '<div class="tableWrap" style="margin-top:10px"><table><thead><tr><th>Σειρά</th><th>Στοιχήματα</th><th>Units</th><th>P/L</th><th>ROI</th><th>Επιτυχία</th></tr></thead><tbody>'+perRowHtml+'</tbody></table></div>'+
       '<div class="note" style="margin-top:8px">LAST '+R.cfg.n+(R.cfg.fill?" + περσινή σεζόν":"")+(R.cfg.haSplit?" · HOME/AWAY SPLIT":"")+'</div>'+
     '</div>'+
+    (R.counted.length ? "" : diagHtml())+
     '<div class="card"><div class="cardHead">Τι μετρήθηκε <b>'+R.counted.length+'</b></div>'+
       (R.counted.length ? '<div class="tableWrap"><table><thead><tr><th>Ημ/νία</th><th>Ομάδα</th><th>Αγώνας</th><th>Κατηγορία</th><th>Γραμμή</th><th>Απόδοση</th><th>Αντ.%</th><th>Ομ.%</th><th>Άθρ.</th><th>Σειρά</th><th>Τιμή</th><th>Αποτ.</th><th>P/L</th></tr></thead><tbody>'+listHtml+'</tbody></table></div>'
                         : '<div class="note">Κανένα betrow δεν πέρασε όλα τα φίλτρα.</div>')+
@@ -1389,8 +1416,15 @@ function boot(){
     fetch("lines-archive/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; })
   ]).then(function(res){
     DATA = res[0]; CREST_MAP = res[1]||{}; LEAGUE_CREST_MAP = res[2]||{};
+    DIAG.dataMatches = DATA.length;
+    DIAG.dataLast = DATA.reduce(function(a,m){ return m.d>a?m.d:a; }, "");
     var fileMap = res[3]||{}, archiveFile = res[4]||{}, manifest = res[5]||[], manifestPrev = res[6]||[];
     (res[7]||[]).forEach(function(row){ if(row && row.date) DAY_FILES[row.date] = row.file || (row.date+".json"); });
+    DIAG.liveManifest = (manifest||[]).length;
+    DIAG.prevManifest = (manifestPrev||[]).length;
+    DIAG.archiveDays = Object.keys(DAY_FILES).length;
+    DIAG.archiveFileDays = Object.keys(archiveFile||{}).length;
+    DIAG.localDays = Object.keys(localArch||{}).length;
     Object.keys(fileMap).forEach(function(id){ if(fileMap[id] && fileMap[id].name) TEAM_MAP[id] = fileMap[id]; });
     var localMap = loadTeamMap();
     Object.keys(localMap).forEach(function(id){ if(localMap[id] && localMap[id].name) TEAM_MAP[id] = localMap[id]; });
@@ -1402,6 +1436,7 @@ function boot(){
     // αρχείο ημερών: αρχείο GitHub + ό,τι έχει η συσκευή
     ARCHIVE = {};
     var localArch = loadArchiveLocal();
+    DIAG.localStorageKB = (function(){ try{ var v=localStorage.getItem(ARCHIVE_KEY); return v?Math.round(v.length/1024):0; }catch(e){ return -1; } })();
     [archiveFile, localArch].forEach(function(src){
       Object.keys(src||{}).forEach(function(d){
         if(!ARCHIVE[d] || (src[d].savedAt||0) >= (ARCHIVE[d].savedAt||0)) ARCHIVE[d] = src[d];
@@ -1418,6 +1453,8 @@ function boot(){
       // Προτεραιότητα στο live/ (πιο πρόσφατη απόδοση)· ό,τι λείπει από εκεί
       // συμπληρώνεται από το live-prev/.
       var seen = {}, live = [];
+      DIAG.filesOk = jsons.filter(Boolean).length;
+      DIAG.filesFail = jsons.length - DIAG.filesOk;
       jsons.forEach(function(j, i){
         if(!j) return;
         var rows = [];
@@ -1444,6 +1481,8 @@ function boot(){
         if(s){ r.value = s.value; r.hit = s.hit; }
         (today[d] = today[d] || []).push(r);
       });
+      DIAG.liveRows = live.length;
+      DIAG.liveDays = Object.keys(today).map(function(d){ return d+":"+today[d].length; }).join(" ");
       Object.keys(today).forEach(function(d){ mergeDayIntoArchive(d, today[d]); LOADED[d] = true; });
       // Ξανα-κρίνουμε ό,τι έμεινε pending από προηγούμενες μέρες.
       Object.keys(ARCHIVE).forEach(function(d){
@@ -1559,6 +1598,9 @@ document.getElementById("allDaysBtn").addEventListener("click", function(){
   onDayChange();
 });
 document.getElementById("okBtn").addEventListener("click", compute);
+document.getElementById("diagBtn").addEventListener("click", function(){
+  document.getElementById("reportBox").innerHTML = diagHtml();
+});
 document.getElementById("saveDayBtn").addEventListener("click", exportArchive);
 boot();
 </script>
