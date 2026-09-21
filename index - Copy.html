@@ -8,6 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+try { document.documentElement.dataset.theme = localStorage.getItem('betrows-theme') === 'light' ? 'light' : 'dark'; }
+catch(e) { document.documentElement.dataset.theme = 'dark'; }
+</script>
 <style>
 :root{
   /* Πάντα σκούρο θέμα από προεπιλογή (όχι μόνο όταν το σύστημα/browser έχει
@@ -343,7 +347,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lmWrap{display:inline-flex}
 .lmChip{display:inline-flex;align-items:center;gap:5px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
   border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px;background:var(--surface-2);cursor:help}
-.lmChip .lmOld{color:var(--text-faint);text-decoration:line-through}
+.lmChip .lmOld{color:var(--text-faint)}
+.lmChip .lmOld s{opacity:.85}
+.lmChip .lmTo{color:var(--text-faint);font-size:9.5px}
 .lmChip b{font-weight:800;color:var(--text)}
 .lmChip .lmArrow{font-size:10px;line-height:1}
 .lmChip.up{border-color:rgba(18,230,173,.45)}
@@ -352,6 +358,36 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .lmChip.down .lmArrow{color:var(--rose)}
 .lmChip.flat{border-color:rgba(255,200,97,.45)}
 .lmChip.flat .lmArrow{color:var(--gold);font-weight:800}
+/* Lift the three header rows together and leave room above the hit-rate circles. */
+.row-head > .row-main.oddsAligned{position:relative;top:-5px;margin-bottom:3px}
+/* Move only row 3 visually; preserve every other row and the card height. */
+.row-main.oddsAligned .market{position:relative;top:6px}
+/* Compact shared columns: pills sit directly beside the text at their natural size. */
+.oddsAligned .oddsRows{
+  display:grid;grid-template-columns:minmax(0,max-content) max-content;
+  column-gap:6px;width:fit-content;max-width:100%;
+}
+.row-main.oddsAligned .metaRow,.row-main.oddsAligned .market{
+  display:grid;grid-template-columns:subgrid;grid-column:1 / -1;column-gap:6px;align-items:center;
+}
+.oddsAligned .metaDetails,.oddsAligned .marketDetails{
+  display:flex;align-items:center;flex-wrap:wrap;gap:6px;min-width:0;
+}
+.oddsAligned .marketDetails .side-tag{white-space:nowrap}
+.oddsAligned .lmWrap{grid-column:2;display:flex}
+.oddsAligned .lmChip,.oddsAligned .price-chip{
+  box-sizing:border-box;width:100%;padding:2px 8px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;line-height:1.4;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+/* Both odds use the same trailing symbol slot, including when the lower one is empty. */
+.oddsAligned .lmChip,.oddsAligned .price-chip{justify-content:flex-end;gap:5px}
+.oddsAligned .lmArrow,.oddsAligned .price-chip::after{
+  display:block;flex:0 0 1ch;width:1ch;font-size:10px;line-height:1;text-align:center;
+}
+.oddsAligned .price-chip::after{content:""}
+.oddsAligned .price-chip{grid-column:2}
 .warn-tag{font-size:9.5px;color:var(--gold);background:var(--gold-soft);border:1px solid var(--gold);text-transform:none;letter-spacing:0;border-radius:var(--radius-pill);padding:2px 8px;cursor:help}
 
 /* .metrics: ενιαίο CSS grid που περιέχει ΚΑΙ τους κύκλους L5-L20 (.pillsrow,
@@ -1091,6 +1127,40 @@ body.bbPageOn .unresolved{display:none !important}
 .bbSug{border:1px solid var(--border);border-radius:var(--radius-md);padding:9px 10px;display:flex;flex-direction:column;gap:7px;background:var(--surface-2)}
 .bbSugBtn{width:100%;background:var(--accent-soft);border:1px solid rgba(18,230,173,.4);color:var(--accent);border-radius:var(--radius-pill);padding:6px 10px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:"IBM Plex Mono",monospace}
 .bbSugBtn:hover{background:var(--accent);color:#04231d}
+
+/* Cream theme: semantic pill colors, surfaces and effects stay unchanged. */
+:root{color-scheme:dark}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f4eedf;--surface:#fffaf0;--surface-2:#eee6d6;--surface-3:#e6dcc8;
+  --border:#cfc2a9;--text:#282923;--text-dim:#505249;--text-faint:#68685c;
+  --shadow:0 1px 2px rgba(74,57,29,.08),0 14px 36px -16px rgba(74,57,29,.22);
+}
+.themeToggle{font-size:10.5px;letter-spacing:.04em;white-space:nowrap}
+.themeToggle svg{width:16px;height:16px;flex:none}
+.themeToggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.header-right{margin-left:auto}
+:root[data-theme="light"] :is(.hp,.pill,.side-tag,.price-chip,.lmChip,.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){
+  /* Same translucent dark fill composited over the original dark card, never over cream. */
+  --surface-2:linear-gradient(#111627cc,#111627cc),#0b0f1c;--border:#232a48;--text:#f4f7ff;--text-dim:#9aa3c7;--text-faint:#5f6890;
+}
+:root[data-theme="light"] :is(.hp,.pill,.lmChip){color:var(--text)}
+/* Keep each semantic hue visible against cream, including the bottom of the pill. */
+:root[data-theme="light"] .hp{
+  background:linear-gradient(rgba(var(--tint),.40),rgba(var(--tint),.18)),#101525;
+}
+:root[data-theme="light"] .pill{
+  background:linear-gradient(rgba(var(--tint),.36),rgba(var(--tint),.16)),#101525;
+}
+
+:root[data-theme="light"] :is(.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){background-color:#111627}
+:root[data-theme="light"] :is(.bbFilterMenu,.comboTip,.streakTip){background:var(--surface);color:var(--text)}
+:root[data-theme="light"] .streakTip .stLine{color:var(--text-dim)}
+:root[data-theme="light"] :is(.tableToggleBtn,.haSplitBtn,.haSplitDrawerBtn,.reversedLineBtn,.savedBetsNotice,.unresolved .card b,.bbTitle .bbTag,.bbSlipHead,.bbSugHead,.bbSugBtn,.bbBtn,.bbSlipLeg .od,.bbEvRow b,.streakTip .stHead){color:var(--text)}
+:root[data-theme="light"] .title-block h1 .accent{background:none;color:#08765c}
+:root[data-theme="light"] .seasonSepCol::before{border-color:var(--border)}
+:root[data-theme="light"] a{color:#08765c}
+@media(max-width:600px){.header-right{gap:8px}.themeToggle{padding:7px 9px}}
 </style>
 </head>
 <body>
@@ -1103,6 +1173,9 @@ body.bbPageOn .unresolved{display:none !important}
     </div>
     <div class="header-right">
       <div class="data-badge" id="dataBadge" style="display:none"><span><span class="dot">●</span> φόρτωση ιστορικού…</span></div>
+      <button type="button" class="savedBetsBtn themeToggle" id="themeToggle" aria-label="Εναλλαγή σε light mode" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span id="themeLabel">LIGHT MODE</span>
+      </button>
       <button type="button" class="savedBetsBtn" id="savedBetsBtn" title="Αποθηκευμένα bets" aria-label="Αποθηκευμένα bets">
         <span class="sbIcon">🔖</span><span class="sbCount" id="savedBetsCount">0</span>
       </button>
@@ -3340,23 +3413,24 @@ function renderRowCard(r){
   var head = document.createElement("div");
   head.className = "row-head";
   head.innerHTML =
-    '<div class="row-main">'+
+    '<div class="row-main oddsAligned">'+
       '<div class="team">'+teamLabel+
       (matchInfo ? '<span class="infoBtn" title="'+escAttr(matchInfo)+'">i</span>' : '')+
       '<span class="lgchip">'+leagueLogoHtml(r.league)+(byLeague[r.league]?byLeague[r.league].name:r.league)+'</span>'+
       '</div>'+
-      '<div class="metaRow">'+
+      '<div class="oddsRows"><div class="metaRow"><div class="metaDetails">'+
         (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+
-        '<span class="src-tag">Stoiximan</span>'+
+        '<span class="src-tag">Stoiximan</span></div>'+
         // Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την ΠΡΟΗΓΟΥΜΕΝΗ ανανέωση
         // (live-prev). Κενό αν δεν υπάρχει προηγούμενο στιγμιότυπο.
         '<span class="lmWrap">'+lineMoveChipHtml(r, r.threshold, r.side, r.price)+'</span>'+
       '</div>'+
-      '<div class="market">'+
+      '<div class="market"><div class="marketDetails">'+
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
-        '<span>'+catLabel(r.category)+' · '+marketNote+'</span>'+
+        '<span>'+catLabel(r.category)+' · '+marketNote+'</span></div>'+
         (r.price? '<span class="price-chip">'+r.price.toFixed(2)+'</span>' : '')+
       '</div>'+
+    '</div>'+
     '</div>'+
     '<div class="metrics '+pas.cls+'">'+
       '<div class="oppPillsrow">'+pas.oppPillsHtml+'</div>'+
@@ -5239,6 +5313,24 @@ document.getElementById("showSeg").addEventListener("click", function(e){
 })();
 
 /* ---------- αποθηκευμένα bets: το κουμπί-indicator στο header + η λίστα ---------- */
+
+(function(){
+  var toggle=document.getElementById('themeToggle');
+  function syncThemeButton(){
+    var light=document.documentElement.dataset.theme==='light';
+    document.getElementById('themeLabel').textContent=light?'DARK MODE':'LIGHT MODE';
+    toggle.setAttribute('aria-pressed',String(light));
+    toggle.setAttribute('aria-label',light?'Εναλλαγή σε dark mode':'Εναλλαγή σε light mode');
+    toggle.title=light?'DARK MODE':'LIGHT MODE';
+  }
+  toggle.addEventListener('click',function(){
+    var theme=document.documentElement.dataset.theme==='light'?'dark':'light';
+    document.documentElement.dataset.theme=theme;
+    try { localStorage.setItem('betrows-theme',theme); } catch(e) {}
+    syncThemeButton();
+  });
+  syncThemeButton();
+})();
 document.getElementById("savedBetsBtn").addEventListener("click", openSavedBetsSheet);
 document.getElementById("savedBetsClose").addEventListener("click", closeSavedBetsSheet);
 document.getElementById("savedBetsBackdrop").addEventListener("click", closeSavedBetsSheet);
@@ -5407,9 +5499,15 @@ function lineMoveFor(r, thr, side, price){
   var dir = r.isTotal ? "total" : (r.ownVenue || "");
   var prev = PREV_LINES[lineMarketKey(r.matchHome, r.matchAway, dir, r.category, side)];
   if(!prev) return null;
+  // Η σύγκριση γίνεται στα ΔΥΟ ΔΕΚΑΔΙΚΑ που βλέπει ο χρήστης: κάποιες αποδόσεις
+  // του Stoiximan έχουν 3 δεκαδικά (π.χ. 1.015) και μια ασήμαντη διαφορά έβγαζε
+  // βελάκι ενώ οι δύο τιμές εμφανίζονταν ΟΛΟΙΔΙΕΣ (αναφέρθηκε 2026-09-20).
+  var r2 = function(v){ return Math.round(v*100)/100; };
+  price = r2(price);
   var op = prev[thr];
   if(op!=null){
-    if(Math.abs(op-price) < 0.0001) return {kind:"same", dir:0, price:price, oldPrice:op, oldLine:thr};
+    op = r2(op);
+    if(op===price) return {kind:"same", dir:0, price:price, oldPrice:op, oldLine:thr};
     return {kind:"price", dir:(price>op?1:-1), price:price, oldPrice:op, oldLine:thr};
   }
   var best = null;
@@ -5420,7 +5518,7 @@ function lineMoveFor(r, thr, side, price){
     if(!best || d<best.d || (d===best.d && pd<best.pd)) best = {line:v, d:d, pd:pd};
   });
   if(!best) return null;
-  return {kind:"line", dir:(thr>best.line?1:-1), price:price, oldLine:best.line, oldPrice:prev[best.line]};
+  return {kind:"line", dir:(thr>best.line?1:-1), price:price, oldLine:best.line, oldPrice:r2(prev[best.line])};
 }
 function lineMoveChipHtml(r, thr, side, price){
   var mv = lineMoveFor(r, thr, side, price);
@@ -5431,15 +5529,24 @@ function lineMoveChipHtml(r, thr, side, price){
   var tip;
   if(mv.kind==="line"){
     tip = "Μετατόπιση γραμμής: πριν "+sideTxt+" "+mv.oldLine+" @"+mv.oldPrice.toFixed(2)+
-          " → τώρα "+sideTxt+" "+thr+" @"+price.toFixed(2);
+          " → τώρα "+sideTxt+" "+thr+" @"+mv.price.toFixed(2);
   } else if(mv.kind==="price"){
-    tip = "Ίδια γραμμή ("+sideTxt+" "+thr+"): απόδοση "+mv.oldPrice.toFixed(2)+" → "+price.toFixed(2);
+    tip = "Ίδια γραμμή ("+sideTxt+" "+thr+"): απόδοση "+mv.oldPrice.toFixed(2)+" → "+mv.price.toFixed(2);
   } else {
-    tip = "Καμία αλλαγή από την προηγούμενη ανανέωση ("+sideTxt+" "+thr+" @"+price.toFixed(2)+")";
+    tip = "Καμία αλλαγή από την προηγούμενη ανανέωση ("+sideTxt+" "+thr+" @"+mv.price.toFixed(2)+")";
   }
-  return '<span class="lmChip '+cls+'" title="'+escAttr(tip)+'">'+
-    (mv.kind==="line" ? '<span class="lmOld">'+mv.oldLine+'</span>' : '')+
-    '<b>'+price.toFixed(2)+'</b><span class="lmArrow">'+mark+'</span></span>';
+  // Το pill δείχνει την προηγούμενη τιμή διαγραμμένη και την κατεύθυνση.
+  // Η τρέχουσα γραμμή και απόδοση εμφανίζονται ήδη στην κάρτα.
+  var body;
+  if(mv.kind==="line"){
+    body = '<span class="lmOld"><s>'+mv.oldLine+' '+mv.oldPrice.toFixed(2)+'</s></span>';
+  } else if(mv.kind==="price"){
+    body = '<span class="lmOld"><s>'+mv.oldPrice.toFixed(2)+'</s></span>';
+  } else {
+    body = '<b>'+mv.price.toFixed(2)+'</b>';
+  }
+  return '<span class="lmChip '+cls+'" title="'+escAttr(tip)+'">'+body+
+    '<span class="lmArrow">'+mark+'</span></span>';
 }
 var LIVE_MANIFEST_URL = "live/index.json";
 function loadLiveMatches(){

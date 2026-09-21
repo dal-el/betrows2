@@ -1145,6 +1145,14 @@ body.bbPageOn .unresolved{display:none !important}
   --surface-2:linear-gradient(#111627cc,#111627cc),#0b0f1c;--border:#232a48;--text:#f4f7ff;--text-dim:#9aa3c7;--text-faint:#5f6890;
 }
 :root[data-theme="light"] :is(.hp,.pill,.lmChip){color:var(--text)}
+/* Keep each semantic hue visible against cream, including the bottom of the pill. */
+:root[data-theme="light"] .hp{
+  background:linear-gradient(rgba(var(--tint),.40),rgba(var(--tint),.18)),#101525;
+}
+:root[data-theme="light"] .pill{
+  background:linear-gradient(rgba(var(--tint),.36),rgba(var(--tint),.16)),#101525;
+}
+
 :root[data-theme="light"] :is(.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){background-color:#111627}
 :root[data-theme="light"] :is(.bbFilterMenu,.comboTip,.streakTip){background:var(--surface);color:var(--text)}
 :root[data-theme="light"] .streakTip .stLine{color:var(--text-dim)}
