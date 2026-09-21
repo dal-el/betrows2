@@ -1029,8 +1029,13 @@ document.addEventListener("click", function(){ document.querySelectorAll(".msMen
 /* Ποιες μέρες μετράμε: ημερολόγιο από–έως (κενά = όλες). Το dropdown
    "Διαθέσιμες" είναι απλώς συντόμευση που γεμίζει και τα δύο ημερολόγια. */
 function selectedDates(){
-  var from = document.getElementById("dayFrom").value;
-  var to   = document.getElementById("dayTo").value;
+  var fEl = document.getElementById("dayFrom"), tEl = document.getElementById("dayTo");
+  // Αν ο χρήστης βάλει "από" μεταγενέστερο του "έως" (πολύ εύκολο όταν αλλάζει
+  // πρώτα το ένα ημερολόγιο), τα ανταλλάσσουμε αντί να του δείξουμε άδειο.
+  if(fEl.value && tEl.value && fEl.value > tEl.value){
+    var tmp = fEl.value; fEl.value = tEl.value; tEl.value = tmp;
+  }
+  var from = fEl.value, to = tEl.value;
   return allKnownDates().filter(function(d){
     if(from && d < from) return false;
     if(to && d > to) return false;
@@ -1210,6 +1215,7 @@ function renderReport(){
     if(S.noStake) tips.push("Άλλα "+S.noStake+" δεν ταίριαξαν σε καμία σειρά ποντάρισματος — άνοιξε τα «από–έως».");
     if(!S.settled) tips.push("Καμία γραμμή δεν έχει ακόμα αποτέλεσμα: ανανέωσε το ιστορικό (run_refresh_history_api_football.bat) αφού παιχτούν οι αγώνες.");
     if(!S.passedBasic && S.settled) tips.push("Κανένα betrow δεν πέρασε τα βασικά φίλτρα — δες κυρίως το φίλτρο απόδοσης.");
+    if(!S.total) tips = ["Το επιλεγμένο διάστημα δεν έχει betrows. Διάλεξε μέρα από τις <b>Διαθέσιμες</b> ή πάτα <b>ΟΛΕΣ ΟΙ ΜΕΡΕΣ</b>."];
     if(tips.length) hint = '<div class="hint">'+tips.join("<br>")+'</div>';
   }
   document.getElementById("reportBox").innerHTML =
@@ -1258,16 +1264,26 @@ function saveArchiveLocal(a){
 // Κρίνει και προσθέτει γραμμές σε μια μέρα, χωρίς να χαλάει ό,τι υπάρχει ήδη
 // (οι γραμμές από το live/ έχουν προτεραιότητα στην απόδοση γιατί είναι οι πιο
 // πρόσφατες που είδαμε).
-function addRowsToDay(date, rows, lowPriority){
-  var day = DAYS[date] = DAYS[date] || [];
-  var byKey = {};
-  day.forEach(function(r){ byKey[rowKey(r)] = r; });
+function addRowsToDay(dateHint, rows, lowPriority){
+  // Κάθε γραμμή μπαίνει στη ΔΙΚΗ ΤΗΣ ημέρα (ημερομηνία αγώνα), όχι αναγκαστικά
+  // στην ημέρα του αρχείου — ένα ματς στις 01:00 μπορεί να ανήκει στην επόμενη.
+  var keyCache = {};
+  function bucket(d){
+    var day = DAYS[d] = DAYS[d] || [];
+    if(!keyCache[d]){
+      var bk = {};
+      day.forEach(function(r){ bk[rowKey(r)] = r; });
+      keyCache[d] = bk;
+    }
+    return day;
+  }
   rows.forEach(function(r){
     var s = settleRow(r);
-    var d = s ? s.matchDate : (r.startTime ? athensDateISO(r.startTime) : date);
-    if(d !== date) return;
+    var d = s ? s.matchDate : (r.startTime ? athensDateISO(r.startTime) : dateHint);
+    if(!d) return;
     r.matchDate = d;
     if(s){ r.value = s.value; r.hit = s.hit; }
+    var day = bucket(d), byKey = keyCache[d];
     var k = rowKey(r), old = byKey[k];
     if(old){
       if(lowPriority) return;                       // κρατάμε την υπάρχουσα
@@ -1336,7 +1352,13 @@ function fillDaySelect(){
     // Προεπιλογή (ΜΟΝΟ την πρώτη φορά): η πιο πρόσφατη μέρα. Αν ξαναγινόταν
     // κάθε φορά, το κουμπί "ΟΛΕΣ ΟΙ ΜΕΡΕΣ" (που αδειάζει τα ημερολόγια) θα
     // ακύρωνε τον εαυτό του.
-    if(!dayDefaultApplied && !f.value && !t.value){ f.value = max; t.value = max; dayDefaultApplied = true; }
+    if(!dayDefaultApplied && !f.value && !t.value){
+      // Προτιμάμε την πιο πρόσφατη μέρα που ΕΧΕΙ ήδη αποτελέσματα — η σημερινή
+      // (αγώνες που δεν έχουν παιχτεί) θα έδειχνε άδεια αναφορά.
+      var best = null;
+      days.forEach(function(d){ if(!best && settledOf(d)>0) best = d; });
+      f.value = best || max; t.value = best || max; dayDefaultApplied = true;
+    }
   }
   document.getElementById("dayCount").textContent = days.length+" ΑΠΟΘΗΚΕΥΜΕΝΕΣ";
   updateDayNote();
