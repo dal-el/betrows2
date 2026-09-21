@@ -142,7 +142,7 @@ td.mono,th.mono{font-family:"IBM Plex Mono",monospace}
       <button type="button" class="btn ghost sm" id="allDaysBtn" disabled>ΟΛΕΣ ΟΙ ΜΕΡΕΣ</button>
       <label class="lbl">Διαθέσιμες</label>
       <select id="daySelect"></select>
-      <button type="button" class="btn ghost sm" id="saveDayBtn" disabled title="Κατεβάζει το results-archive.json με όλες τις ημέρες — βάλ' το στον φάκελο betrows-app και κάνε push">💾 Αποθήκευση ημερών</button>
+      <button type="button" class="btn ghost sm" id="saveDayBtn" disabled title="Προαιρετικό αντίγραφο ασφαλείας — η αποθήκευση των betrows γίνεται ήδη αυτόματα με το push">💾 Αντίγραφο</button>
     </div>
     <div class="row"><span class="note" id="dayNote"></span></div>
   </div>
@@ -869,6 +869,13 @@ function teamMatchesInPool(team, pool){
 }
 
 var ARCHIVE_KEY = "fbd_results_archive_v1";
+/* lines-archive/: το ΑΥΤΟΜΑΤΟ αρχείο betrows/lines/αποδόσεων ανά ημέρα αγώνων.
+   Το γράφει το archive_lines.py μέσα από το push_to_github.bat — ο χρήστης δεν
+   μετακινεί κανένα αρχείο. Εδώ φορτώνουμε ΜΟΝΟ το ευρετήριο στο boot και την
+   κάθε μέρα όταν ζητηθεί (μια μέρα ~700 KB, δεν τις φορτώνουμε όλες τζάμπα). */
+var DAY_FILES = {};    // date -> filename μέσα στο lines-archive/
+var dayDefaultApplied = false;
+var LOADED = {};       // date -> true όταν έχει φορτωθεί/χτιστεί
 var ARCHIVE = {};      // "YYYY-MM-DD" -> {savedAt, rows:[...]}
 var DAYS = {};         // "YYYY-MM-DD" -> [rows]  (αρχείο + σημερινά μαζί)
 var MATCH_INDEX = {};  // "lg|home|away" -> [matches]
@@ -1013,25 +1020,53 @@ document.addEventListener("click", function(){ document.querySelectorAll(".msMen
 function selectedDates(){
   var from = document.getElementById("dayFrom").value;
   var to   = document.getElementById("dayTo").value;
-  return Object.keys(DAYS).filter(function(d){
+  return allKnownDates().filter(function(d){
     if(from && d < from) return false;
     if(to && d > to) return false;
     return true;
-  }).sort();
+  });
+}
+function ensureDaysLoaded(dates){
+  var todo = dates.filter(function(d){ return !LOADED[d] && DAY_FILES[d]; });
+  if(!todo.length) return Promise.resolve();
+  document.getElementById("calcStatus").textContent = "φόρτωση "+todo.length+" ημερών από το αρχείο…";
+  return Promise.all(todo.map(function(d){
+    return fetch("lines-archive/"+DAY_FILES[d], {cache:"no-store"})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .catch(function(){ return null; })
+      .then(function(j){
+        LOADED[d] = true;
+        if(!j) return;
+        var rows = [];
+        (j.events||[]).forEach(function(ev){
+          try{ rows = rows.concat(buildRowsFromRoot(eventRootOf(ev))); }catch(e){}
+        });
+        addRowsToDay(d, rows, true);   // ό,τι ήρθε από live/ υπερισχύει
+      });
+  })).then(function(){
+    document.getElementById("calcStatus").textContent = "";
+  });
+}
+function allKnownDates(){
+  var set = {};
+  Object.keys(DAYS).forEach(function(d){ set[d]=1; });
+  Object.keys(DAY_FILES).forEach(function(d){ set[d]=1; });
+  return Object.keys(set).sort();
 }
 function currentDayRows(){
   var all = [];
-  selectedDates().forEach(function(d){ all = all.concat(DAYS[d]); });
+  selectedDates().forEach(function(d){ if(DAYS[d]) all = all.concat(DAYS[d]); });
   return all;
 }
 function updateDayNote(){
   var ds = selectedDates();
   var from = document.getElementById("dayFrom").value, to = document.getElementById("dayTo").value;
-  var avail = Object.keys(DAYS).sort();
+  var avail = allKnownDates();
   var settled = 0, tot = 0;
   ds.forEach(function(d){
-    tot += DAYS[d].length;
-    settled += DAYS[d].filter(function(r){ return r.hit!==undefined && r.hit!==null; }).length;
+    var rows = DAYS[d] || [];
+    tot += rows.length;
+    settled += rows.filter(function(r){ return r.hit!==undefined && r.hit!==null; }).length;
   });
   var txt;
   if(!ds.length){
@@ -1192,6 +1227,30 @@ function saveArchiveLocal(a){
     }
   }
 }
+// Κρίνει και προσθέτει γραμμές σε μια μέρα, χωρίς να χαλάει ό,τι υπάρχει ήδη
+// (οι γραμμές από το live/ έχουν προτεραιότητα στην απόδοση γιατί είναι οι πιο
+// πρόσφατες που είδαμε).
+function addRowsToDay(date, rows, lowPriority){
+  var day = DAYS[date] = DAYS[date] || [];
+  var byKey = {};
+  day.forEach(function(r){ byKey[rowKey(r)] = r; });
+  rows.forEach(function(r){
+    var s = settleRow(r);
+    var d = s ? s.matchDate : (r.startTime ? athensDateISO(r.startTime) : date);
+    if(d !== date) return;
+    r.matchDate = d;
+    if(s){ r.value = s.value; r.hit = s.hit; }
+    var k = rowKey(r), old = byKey[k];
+    if(old){
+      if(lowPriority) return;                       // κρατάμε την υπάρχουσα
+      if(old.hit!==undefined && r.hit===undefined){ r.hit = old.hit; r.value = old.value; }
+      var i = day.indexOf(old); if(i>=0) day[i] = r;
+      byKey[k] = r;
+    } else {
+      day.push(r); byKey[k] = r;
+    }
+  });
+}
 function rowKey(r){
   return r.league+"|"+r.homeCanon+"|"+r.awayCanon+"|"+r.team+"|"+r.category+"|"+r.side+"|"+r.threshold;
 }
@@ -1229,23 +1288,27 @@ function exportArchive(){
     setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
   }catch(e){}
   document.getElementById("calcStatus").textContent =
-    "Κατέβηκε το results-archive.json με "+Object.keys(ARCHIVE).length+" ημέρες — βάλ' το στον φάκελο betrows-app και πάτα push_to_github.bat.";
+    "Κατέβηκε αντίγραφο ασφαλείας (results-archive.json) με "+Object.keys(ARCHIVE).length+" ημέρες. Δεν χρειάζεται να κάνεις τίποτα μ' αυτό — τα betrows αποθηκεύονται ήδη αυτόματα στο lines-archive με κάθε push.";
 }
 
 function fillDaySelect(){
   var sel = document.getElementById("daySelect");
-  var days = Object.keys(DAYS).sort().reverse();
+  var days = allKnownDates().slice().reverse();
   function settledOf(d){ return (DAYS[d]||[]).filter(function(r){ return r.hit!==undefined && r.hit!==null; }).length; }
   sel.innerHTML = '<option value="">— διάλεξε μέρα —</option>' + days.map(function(d){
-    return '<option value="'+d+'">'+d+' · '+settledOf(d)+'/'+DAYS[d].length+' με αποτέλεσμα</option>';
+    var rows = DAYS[d];
+    var lbl = rows ? (settledOf(d)+"/"+rows.length+" με αποτέλεσμα") : "από το αρχείο";
+    return '<option value="'+d+'">'+d+' · '+lbl+'</option>';
   }).join("");
   // τα ημερολόγια περιορίζονται στο διάστημα που όντως υπάρχει
   var f = document.getElementById("dayFrom"), t = document.getElementById("dayTo");
   if(days.length){
     var min = days[days.length-1], max = days[0];
     f.min = min; f.max = max; t.min = min; t.max = max;
-    // προεπιλογή: η πιο πρόσφατη μέρα
-    if(!f.value && !t.value){ f.value = max; t.value = max; }
+    // Προεπιλογή (ΜΟΝΟ την πρώτη φορά): η πιο πρόσφατη μέρα. Αν ξαναγινόταν
+    // κάθε φορά, το κουμπί "ΟΛΕΣ ΟΙ ΜΕΡΕΣ" (που αδειάζει τα ημερολόγια) θα
+    // ακύρωνε τον εαυτό του.
+    if(!dayDefaultApplied && !f.value && !t.value){ f.value = max; t.value = max; dayDefaultApplied = true; }
   }
   document.getElementById("dayCount").textContent = days.length+" ΑΠΟΘΗΚΕΥΜΕΝΕΣ";
   updateDayNote();
@@ -1271,10 +1334,13 @@ function boot(){
     fetch("live/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; }),
     // ΚΑΙ το προηγούμενο στιγμιότυπο: όταν ανανεώνονται τα lines, οι ΗΔΗ
     // ΠΑΙΓΜΕΝΟΙ αγώνες φεύγουν από το live/ — τα betrows τους σώζονται μόνο εδώ.
-    fetch("live-prev/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; })
+    fetch("live-prev/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; }),
+    // ευρετήριο του αυτόματου αρχείου γραμμών (γράφεται από το archive_lines.py)
+    fetch("lines-archive/index.json", {cache:"no-store"}).then(function(r){ return r.ok?r.json():[]; }).catch(function(){ return []; })
   ]).then(function(res){
     DATA = res[0]; CREST_MAP = res[1]||{}; LEAGUE_CREST_MAP = res[2]||{};
     var fileMap = res[3]||{}, archiveFile = res[4]||{}, manifest = res[5]||[], manifestPrev = res[6]||[];
+    (res[7]||[]).forEach(function(row){ if(row && row.date) DAY_FILES[row.date] = row.file || (row.date+".json"); });
     Object.keys(fileMap).forEach(function(id){ if(fileMap[id] && fileMap[id].name) TEAM_MAP[id] = fileMap[id]; });
     var localMap = loadTeamMap();
     Object.keys(localMap).forEach(function(id){ if(localMap[id] && localMap[id].name) TEAM_MAP[id] = localMap[id]; });
@@ -1328,7 +1394,7 @@ function boot(){
         if(s){ r.value = s.value; r.hit = s.hit; }
         (today[d] = today[d] || []).push(r);
       });
-      Object.keys(today).forEach(function(d){ mergeDayIntoArchive(d, today[d]); });
+      Object.keys(today).forEach(function(d){ mergeDayIntoArchive(d, today[d]); LOADED[d] = true; });
       // Ξανα-κρίνουμε ό,τι έμεινε pending από προηγούμενες μέρες.
       Object.keys(ARCHIVE).forEach(function(d){
         (ARCHIVE[d].rows||[]).forEach(function(r){
@@ -1350,8 +1416,12 @@ function boot(){
       });
       st.textContent = days ? (days+" ημέρες · "+totSettled+"/"+totRows+" betrows με αποτέλεσμα")
                             : "Δεν βρέθηκαν betrows — τρέξε τον fetcher (live JSONs) και ανανέωσε το ιστορικό.";
-      setReady(true);
-      if(days) compute();
+      // φόρτωσε (αν χρειάζεται) τη μέρα που είναι επιλεγμένη και μέτρα
+      return ensureDaysLoaded(selectedDates()).then(function(){
+        setReady(true);
+        fillDaySelect(); updateDayNote(); refreshFilterMenus();
+        if(selectedDates().length) compute();
+      });
     });
   }).catch(function(e){
     setReady(false);
@@ -1402,7 +1472,14 @@ document.getElementById("fillCb").addEventListener("change", function(){ fillOn 
 document.getElementById("haCb").addEventListener("change", function(){ haOn = this.checked; document.getElementById("haChk").classList.toggle("on", haOn); });
 document.getElementById("exNCb").addEventListener("change", function(){ exNotEnough = this.checked; document.getElementById("exNChk").classList.toggle("on", exNotEnough); });
 document.getElementById("exNChk").classList.add("on");
-function onDayChange(){ updateDayNote(); refreshFilterMenus(); compute(); }
+function onDayChange(){
+  setReady(false);
+  ensureDaysLoaded(selectedDates()).then(function(){
+    setReady(true);
+    fillDaySelect();
+    updateDayNote(); refreshFilterMenus(); compute();
+  });
+}
 document.getElementById("daySelect").addEventListener("change", function(){
   if(!this.value) return;
   document.getElementById("dayFrom").value = this.value;

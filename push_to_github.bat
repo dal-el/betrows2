@@ -21,6 +21,11 @@ if errorlevel 1 (
 
 robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output" "C:\SOCCER_BETROWS\betrows-app\live" /MIR /NFL /NDL /NJH /NJS >nul
 
+REM 1c) ΑΥΤΟΜΑΤΗ αρχειοθετηση των betrows/lines/αποδοσεων ανα ημερα αγωνων στο
+REM     betrows-app\lines-archive (μικρα JSON, ~700KB/ημερα). Απο εκει τα
+REM     διαβαζει ΜΟΝΗ ΤΗΣ η results.html — δεν μετακινει ο χρηστης κανενα αρχειο.
+python "C:\SOCCER_BETROWS\betrows-fetcher\archive_lines.py"
+
 REM 2) Αντιγραφη βασικων αρχειων + live φακελου + emblems (crests) μεσα στο local git repo
 copy /Y "C:\SOCCER_BETROWS\betrows-app\data.json" "data.json" >nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\index.html" "index.html" >nul
@@ -33,6 +38,8 @@ if not exist "live" mkdir "live"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live" "live" /MIR /NFL /NDL /NJH /NJS >nul
 if not exist "live-prev" mkdir "live-prev"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live-prev" "live-prev" /MIR /NFL /NDL /NJH /NJS >nul
+if not exist "lines-archive" mkdir "lines-archive"
+robocopy "C:\SOCCER_BETROWS\betrows-app\lines-archive" "lines-archive" /MIR /NFL /NDL /NJH /NJS >nul
 if not exist "crests" mkdir "crests"
 robocopy "C:\SOCCER_BETROWS\betrows-app\crests" "crests" /MIR /NFL /NDL /NJH /NJS >nul
 
