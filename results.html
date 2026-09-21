@@ -55,7 +55,8 @@ label.lbl{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:800;
 .btn.ghost{background:var(--surface-2);color:var(--text-dim);border:1px solid var(--border)}
 .btn.ghost:hover{color:var(--accent);border-color:var(--accent)}
 .btn.sm{padding:5px 11px;font-size:12px}
-input[type=number],input[type=text],select{background:var(--surface);border:1px solid var(--border);
+button[disabled]{opacity:.45;cursor:not-allowed}
+input[type=number],input[type=text],input[type=date],select{background:var(--surface);border:1px solid var(--border);
   border-radius:var(--radius-sm);padding:6px 8px;color:var(--text);font-size:12.5px}
 input[type=number]{width:70px;font-family:"IBM Plex Mono",monospace}
 .seg{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px}
@@ -138,10 +139,10 @@ td.mono,th.mono{font-family:"IBM Plex Mono",monospace}
       <input type="date" id="dayFrom">
       <label class="lbl">Έως</label>
       <input type="date" id="dayTo">
-      <button type="button" class="btn ghost sm" id="allDaysBtn">ΟΛΕΣ ΟΙ ΜΕΡΕΣ</button>
+      <button type="button" class="btn ghost sm" id="allDaysBtn" disabled>ΟΛΕΣ ΟΙ ΜΕΡΕΣ</button>
       <label class="lbl">Διαθέσιμες</label>
       <select id="daySelect"></select>
-      <button type="button" class="btn ghost sm" id="saveDayBtn" title="Κατεβάζει το results-archive.json με όλες τις ημέρες — βάλ' το στον φάκελο betrows-app και κάνε push">💾 Αποθήκευση ημερών</button>
+      <button type="button" class="btn ghost sm" id="saveDayBtn" disabled title="Κατεβάζει το results-archive.json με όλες τις ημέρες — βάλ' το στον φάκελο betrows-app και κάνε push">💾 Αποθήκευση ημερών</button>
     </div>
     <div class="row"><span class="note" id="dayNote"></span></div>
   </div>
@@ -190,7 +191,7 @@ td.mono,th.mono{font-family:"IBM Plex Mono",monospace}
   </div>
 
   <div class="row" style="margin:14px 0">
-    <button type="button" class="btn" id="okBtn">OK — Υπολογισμός</button>
+    <button type="button" class="btn" id="okBtn" disabled>OK — Υπολογισμός</button>
     <span class="status" id="calcStatus"></span>
   </div>
 
@@ -1105,7 +1106,7 @@ function compute(){
   LAST_RESULT = {counted:counted, stats:stats, perRow:perRow, tot:tot, cfg:cfg, ms:Date.now()-t0};
   renderReport();
   document.getElementById("calcStatus").textContent =
-    stats.total+" betrows · "+stats.settled+" με αποτέλεσμα · "+counted.length+" ποντάρισμα ("+LAST_RESULT.ms+" ms)";
+    stats.total+" betrows · "+stats.settled+" με αποτέλεσμα · "+counted.length+" στοιχήματα ("+LAST_RESULT.ms+" ms)";
 }
 
 function fmtU(v){ return (v>=0?"+":"")+v.toFixed(2); }
@@ -1115,9 +1116,9 @@ function renderReport(){
   var roi = R.tot.staked ? (R.tot.pl/R.tot.staked*100) : 0;
   var wr = R.tot.bets ? (R.tot.wins/R.tot.bets*100) : 0;
   var kpis = '<div class="kpis">'+
-    '<div class="kpi"><span class="k">Ποντάρισμα</span><span class="v">'+R.tot.bets+'</span></div>'+
-    '<div class="kpi"><span class="k">Units</span><span class="v">'+R.tot.staked.toFixed(0)+'</span></div>'+
-    '<div class="kpi"><span class="k">Κέρδος/Ζημιά</span><span class="v '+(R.tot.pl>=0?"pos":"neg")+'">'+fmtU(R.tot.pl)+'</span></div>'+
+    '<div class="kpi"><span class="k">Στοιχήματα</span><span class="v">'+R.tot.bets+'</span></div>'+
+    '<div class="kpi"><span class="k">Units που παίχτηκαν</span><span class="v">'+R.tot.staked.toFixed(0)+'u</span></div>'+
+    '<div class="kpi"><span class="k">Κέρδος/Ζημιά</span><span class="v '+(R.tot.pl>=0?"pos":"neg")+'">'+fmtU(R.tot.pl)+'u</span></div>'+
     '<div class="kpi"><span class="k">ROI</span><span class="v '+(roi>=0?"pos":"neg")+'">'+roi.toFixed(1)+'%</span></div>'+
     '<div class="kpi"><span class="k">Επιτυχία</span><span class="v">'+R.tot.wins+'/'+R.tot.bets+' · '+wr.toFixed(0)+'%</span></div>'+
   '</div>';
@@ -1148,7 +1149,7 @@ function renderReport(){
   }).join("");
   document.getElementById("reportBox").innerHTML =
     '<div class="card"><div class="cardHead">Αναφορά</div>'+kpis+
-      '<div class="tableWrap" style="margin-top:10px"><table><thead><tr><th>Σειρά</th><th>Bets</th><th>Units</th><th>P/L</th><th>ROI</th><th>Επιτυχία</th></tr></thead><tbody>'+perRowHtml+'</tbody></table></div>'+
+      '<div class="tableWrap" style="margin-top:10px"><table><thead><tr><th>Σειρά</th><th>Στοιχήματα</th><th>Units</th><th>P/L</th><th>ROI</th><th>Επιτυχία</th></tr></thead><tbody>'+perRowHtml+'</tbody></table></div>'+
       '<div class="note" style="margin-top:8px">Σύνολο betrows '+R.stats.total+' · με αποτέλεσμα '+R.stats.settled+
       ' · πέρασαν τα βασικά φίλτρα '+R.stats.passedBasic+' · κόπηκαν από EXCLUDE '+R.stats.excludedN+
       ' · δεν ταίριαξαν σε σειρά ποντάρισματος '+R.stats.noStake+'</div>'+
@@ -1212,6 +1213,12 @@ function mergeDayIntoArchive(date, rows){
   ARCHIVE[date] = {savedAt: Date.now(), rows: Object.keys(byKey).map(function(k){ return byKey[k]; })};
 }
 function exportArchive(){
+  var nDays = Object.keys(ARCHIVE).length;
+  if(!nDays){
+    document.getElementById("calcStatus").textContent =
+      "Δεν υπάρχει καμία μέρα ακόμα — περίμενε να φορτώσει η σελίδα (πάνω δεξιά γράφει πότε είναι έτοιμη) και ξαναπάτα.";
+    return;
+  }
   var txt = JSON.stringify(compactArchive(ARCHIVE));
   try{
     var blob = new Blob([txt], {type:"application/json"});
@@ -1245,9 +1252,16 @@ function fillDaySelect(){
 }
 
 /* ---------- boot ---------- */
+function setReady(on){
+  ["okBtn","saveDayBtn","allDaysBtn"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.disabled = !on;
+  });
+}
 function boot(){
   var st = document.getElementById("bootStatus");
-  st.textContent = "φόρτωση ιστορικού…";
+  setReady(false);
+  st.textContent = "φόρτωση ιστορικού… (μην πατήσεις ακόμα)";
   return Promise.all([
     fetch("data.json").then(function(r){ return r.json(); }),
     fetch("crest-map.json").then(function(r){ return r.ok?r.json():{}; }).catch(function(){ return {}; }),
@@ -1336,10 +1350,12 @@ function boot(){
       });
       st.textContent = days ? (days+" ημέρες · "+totSettled+"/"+totRows+" betrows με αποτέλεσμα")
                             : "Δεν βρέθηκαν betrows — τρέξε τον fetcher (live JSONs) και ανανέωσε το ιστορικό.";
+      setReady(true);
       if(days) compute();
     });
   }).catch(function(e){
-    st.textContent = "Σφάλμα φόρτωσης: "+e.message;
+    setReady(false);
+    st.textContent = "Σφάλμα φόρτωσης: "+e.message+" — κάνε refresh (Ctrl+F5).";
   });
 }
 
