@@ -66,7 +66,7 @@
   "name": "Getafe CF - Malaga CF",
   "startTime": 1789905600000,
   "dateStr": "2026-09-20",
-  "marketCount": 108,
+  "marketCount": 111,
   "file": "la-liga/2026-09-20_getafe-cf-malaga-cf_88312153.json"
  },
  {
@@ -272,46 +272,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "92116599",
-  "name": "Atlas FC - UNAM Pumas",
-  "startTime": 1789858800000,
-  "dateStr": "2026-09-20",
-  "marketCount": 92,
-  "file": "liga-mx/2026-09-20_atlas-fc-unam-pumas_92116599.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "92174214",
-  "name": "Atletico San Luis - Club Necaxa",
-  "startTime": 1789858800000,
-  "dateStr": "2026-09-20",
-  "marketCount": 92,
-  "file": "liga-mx/2026-09-20_atletico-san-luis-club-necaxa_92174214.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "92116484",
-  "name": "CF Monterrey - Cruz Azul",
-  "startTime": 1789866600000,
-  "dateStr": "2026-09-20",
-  "marketCount": 92,
-  "file": "liga-mx/2026-09-20_cf-monterrey-cruz-azul_92116484.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "92116678",
-  "name": "Club America - Guadalajara Chivas",
-  "startTime": 1789874100000,
-  "dateStr": "2026-09-20",
-  "marketCount": 92,
-  "file": "liga-mx/2026-09-20_club-america-guadalajara-chivas_92116678.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "92174384",
   "name": "Deportivo Toluca FC - Santos Laguna",
   "startTime": 1789948800000,
@@ -338,26 +298,6 @@
   "dateStr": "2026-09-21",
   "marketCount": 92,
   "file": "liga-mx/2026-09-21_queretaro-fc-club-leon_92174386.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "92075456",
-  "name": "Vasco da Gama RJ - Coritiba PR",
-  "startTime": 1789860600000,
-  "dateStr": "2026-09-20",
-  "marketCount": 108,
-  "file": "serie-a-brazil/2026-09-20_vasco-da-gama-rj-coritiba-pr_92075456.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "92075458",
-  "name": "Sao Paulo SP - Internacional RS",
-  "startTime": 1789862400000,
-  "dateStr": "2026-09-20",
-  "marketCount": 111,
-  "file": "serie-a-brazil/2026-09-20_sao-paulo-sp-internacional-rs_92075458.json"
  },
  {
   "league": "serie-a-brazil",
