@@ -2271,6 +2271,8 @@ var TEAM_ALIASES = {
     "AFC Bournemouth":"Bournemouth","Manchester City":"Man City","Manchester United":"Man United"
   },
   "championship": {
+    // 2026-10-08: ζητούσαν χειροκίνητη αντιστοίχιση σε κάθε νέα αγωνιστική.
+    "Wolverhampton Wanderers":"Wolves","West Bromwich Albion":"West Brom",
     "Watford FC":"Watford","Millwall FC":"Millwall","West Ham United":"West Ham",
     "Cardiff City":"Cardiff","Stoke City":"Stoke","Portsmouth FC":"Portsmouth",
     "Blackburn Rovers":"Blackburn","Wrexham FC":"Wrexham","Southampton FC":"Southampton",
@@ -2384,7 +2386,46 @@ function matchTeamInLeague(name, lg){
   var lowerTeams = {};
   teams.forEach(function(t){ lowerTeams[stripDiacritics(t).toLowerCase()] = t; });
   for(i=0;i<cands.length;i++){ var lc = cands[i].toLowerCase(); if(lowerTeams[lc]) return lowerTeams[lc]; }
+  // ΤΕΛΕΥΤΑΙΟ ΔΙΧΤΥ (2026-10-08): "χαλαρό" κλειδί — πεζά, χωρίς τόνους, χωρίς
+  // σημεία στίξης, χωρίς αριθμούς (π.χ. "Como 1907", "SC Paderborn 07") και
+  // χωρίς κοινές σωματειακές συντομογραφίες (FC/CFC/OSC/SSC/TSG/SV/Calcio...).
+  // Δέχεται ΜΟΝΟ ΜΟΝΑΔΙΚΟ ταίριασμα μέσα στη λίγκα, ώστε να μη "μαντεύει" ποτέ
+  // ανάμεσα σε δύο ομάδες. Έτσι δεν ξαναζητιέται χειροκίνητη αντιστοίχιση για
+  // ονόματα που διαφέρουν μόνο σε τέτοια στοιχεία.
+  var lk = looseTeamKey(name);
+  if(lk && lk.length>=4){
+    var byLoose = {}, dupLoose = {};
+    teams.forEach(function(t){
+      var k = looseTeamKey(t);
+      if(!k) return;
+      if(byLoose[k] && byLoose[k]!==t) dupLoose[k] = 1; else byLoose[k] = t;
+    });
+    if(byLoose[lk] && !dupLoose[lk]) return byLoose[lk];
+    // ...και "ξεκινάει από": π.χ. "West Bromwich Albion" -> "West Brom",
+    // "Stade Brestois 29" -> "Brest". Πάλι μόνο αν ταιριάζει ΜΙΑ ομάδα.
+    var hit = null, many = false;
+    Object.keys(byLoose).forEach(function(k){
+      if(k.length>=5 && !dupLoose[k] && lk.indexOf(k)===0){
+        if(hit && hit!==byLoose[k]) many = true; else hit = byLoose[k];
+      }
+    });
+    if(hit && !many) return hit;
+  }
   return null;
+}
+// Κοινές σωματειακές συντομογραφίες/λέξεις που ΔΕΝ ξεχωρίζουν ομάδα — φεύγουν
+// από το "χαλαρό" κλειδί. ΔΕΝ βάζουμε λέξεις ταυτότητας (Real, Atletico,
+// Borussia, Sporting κ.λπ.) γιατί αυτές ξεχωρίζουν ομάδες μεταξύ τους.
+var LOOSE_CLUB_TOKENS = ["fc","cf","afc","cfc","osc","sco","ssc","ss","sc","sv","fsv","tsg","vfb","vfl","bsc",
+  "spvgg","ac","as","ca","cd","rc","cp","sd","ud","us","uc","club","clube","calcio","balompie","stade","olympique"];
+function looseTeamKey(s){
+  var t = stripDiacritics(String(s||"")).toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\b\d+\b/g, " ");
+  var parts = t.split(/\s+/).filter(function(w){
+    return w && LOOSE_CLUB_TOKENS.indexOf(w) < 0;
+  });
+  return parts.join("");
 }
 function resolveTeam(participant, guessedLeague){
   var t = TEAM_MAP[participant.id];

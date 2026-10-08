@@ -1,8 +1,19 @@
 {
+ "108875": {"name": "Hoffenheim", "league": "bundesliga"},
+ "108822": {"name": "Leverkusen", "league": "bundesliga"},
+ "107643": {"name": "Paderborn", "league": "bundesliga"},
+ "106980": {"name": "West Brom", "league": "championship"},
+ "106368": {"name": "Wolves", "league": "championship"},
+ "106881": {"name": "Brest", "league": "ligue-1"},
+ "106887": {"name": "Lille", "league": "ligue-1"},
+ "108621": {"name": "Marseille", "league": "ligue-1"},
+ "107635": {"name": "Paris SG", "league": "ligue-1"},
  "106709": {"name": "Bournemouth", "league": "premier-league"},
  "106785": {"name": "Man City", "league": "premier-league"},
  "108757": {"name": "Man United", "league": "premier-league"},
- "108822": {"name": "Leverkusen", "league": "bundesliga"},
- "108621": {"name": "Marseille", "league": "ligue-1"},
- "107635": {"name": "Paris SG", "league": "ligue-1"}
+ "106692": {"name": "Athletico-PR", "league": "serie-a-brazil"},
+ "106478": {"name": "Como", "league": "serie-a-italy"},
+ "108232": {"name": "Genoa", "league": "serie-a-italy"},
+ "108856": {"name": "Napoli", "league": "serie-a-italy"},
+ "106462": {"name": "Parma", "league": "serie-a-italy"}
 }
