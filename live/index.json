@@ -66,7 +66,7 @@
   "name": "Crystal Palace FC - Nottingham Forest",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 126,
+  "marketCount": 106,
   "file": "premier-league/2026-10-11_crystal-palace-fc-nottingham-forest_92398246.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Hull City - Everton FC",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 126,
+  "marketCount": 121,
   "file": "premier-league/2026-10-11_hull-city-everton-fc_92398247.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Liverpool FC - Manchester City",
   "startTime": 1791732600000,
   "dateStr": "2026-10-11",
-  "marketCount": 126,
+  "marketCount": 121,
   "file": "premier-league/2026-10-11_liverpool-fc-manchester-city_92398258.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "SSC Napoli - Frosinone",
   "startTime": 1791657900000,
   "dateStr": "2026-10-10",
-  "marketCount": 107,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-10_ssc-napoli-frosinone_92097054.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "Como 1907 - AS Roma",
   "startTime": 1791714600000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_como-1907-as-roma_92097657.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "US Lecce - Bologna FC",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_us-lecce-bologna-fc_92097659.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "SS Lazio - AC Monza",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_ss-lazio-ac-monza_92097660.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "US Sassuolo Calcio - AC Milan",
   "startTime": 1791734400000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_us-sassuolo-calcio-ac-milan_92097665.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Cagliari Calcio - Juventus FC",
   "startTime": 1791744300000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_cagliari-calcio-juventus-fc_92097664.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Borussia Dortmund - Werder Bremen",
   "startTime": 1791570600000,
   "dateStr": "2026-10-09",
-  "marketCount": 97,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-09_borussia-dortmund-werder-bremen_91657122.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "TSG 1899 Hoffenheim - Hamburger SV",
   "startTime": 1791639000000,
   "dateStr": "2026-10-10",
-  "marketCount": 97,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-10_tsg-1899-hoffenheim-hamburger-sv_91657040.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "FC Augsburg - FC Bayern Munchen",
   "startTime": 1791639000000,
   "dateStr": "2026-10-10",
-  "marketCount": 96,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-10_fc-augsburg-fc-bayern-munchen_91657252.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "FSV Mainz 05 - Bayer 04 Leverkusen",
   "startTime": 1791639000000,
   "dateStr": "2026-10-10",
-  "marketCount": 97,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-10_fsv-mainz-05-bayer-04-leverkusen_91657259.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "1. FC Union Berlin - SV Elversberg",
   "startTime": 1791639000000,
   "dateStr": "2026-10-10",
-  "marketCount": 97,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-10_1-fc-union-berlin-sv-elversberg_91657262.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "SC Paderborn 07 - VfB Stuttgart",
   "startTime": 1791639000000,
   "dateStr": "2026-10-10",
-  "marketCount": 97,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-10_sc-paderborn-07-vfb-stuttgart_91657264.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "RB Leipzig - Eintracht Frankfurt",
   "startTime": 1791649800000,
   "dateStr": "2026-10-10",
-  "marketCount": 97,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-10_rb-leipzig-eintracht-frankfurt_91657237.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "AEK Athens - OFI Crete",
   "startTime": 1791649800000,
   "dateStr": "2026-10-10",
-  "marketCount": 87,
+  "marketCount": 105,
   "file": "super-league-greece/2026-10-10_aek-athens-ofi-crete_92774961.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "Asteras Tripolis - Atromitos Athinon",
   "startTime": 1791649800000,
   "dateStr": "2026-10-10",
-  "marketCount": 89,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-10_asteras-tripolis-atromitos-athinon_92774964.json"
  },
  {
@@ -486,7 +486,7 @@
   "name": "Iraklis - Levadiakos",
   "startTime": 1791727200000,
   "dateStr": "2026-10-11",
-  "marketCount": 89,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-11_iraklis-levadiakos_92774963.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Kifisia - Panaitolikos",
   "startTime": 1791727200000,
   "dateStr": "2026-10-11",
-  "marketCount": 89,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-11_kifisia-panaitolikos_92774965.json"
  },
  {
@@ -506,7 +506,7 @@
   "name": "Aris Thessaloniki - Volos NFC",
   "startTime": 1791734400000,
   "dateStr": "2026-10-11",
-  "marketCount": 89,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-11_aris-thessaloniki-volos-nfc_92774962.json"
  },
  {
@@ -516,7 +516,7 @@
   "name": "Olympiacos Piraeus - Panathinaikos",
   "startTime": 1791741600000,
   "dateStr": "2026-10-11",
-  "marketCount": 89,
+  "marketCount": 112,
   "file": "super-league-greece/2026-10-11_olympiacos-piraeus-panathinaikos_89190109.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Club Puebla - Club Leon",
   "startTime": 1791594000000,
   "dateStr": "2026-10-10",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "liga-mx/2026-10-10_club-puebla-club-leon_93288592.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "CF Tigres UANL - Deportivo Toluca FC",
   "startTime": 1791601200000,
   "dateStr": "2026-10-10",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "liga-mx/2026-10-10_cf-tigres-uanl-deportivo-toluca-fc_93288597.json"
  },
  {
@@ -582,51 +582,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "92517487",
-  "name": "Santos SP - Flamengo RJ",
-  "startTime": 1791498600000,
-  "dateStr": "2026-10-09",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-09_santos-sp-flamengo-rj_92517487.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "92517522",
-  "name": "Athletico PR - Clube Atletico MG",
-  "startTime": 1791500400000,
-  "dateStr": "2026-10-09",
-  "marketCount": 107,
-  "file": "serie-a-brazil/2026-10-09_athletico-pr-clube-atletico-mg_92517522.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "92517513",
-  "name": "Fluminense RJ - Coritiba PR",
-  "startTime": 1791505800000,
-  "dateStr": "2026-10-09",
-  "marketCount": 107,
-  "file": "serie-a-brazil/2026-10-09_fluminense-rj-coritiba-pr_92517513.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "92517532",
-  "name": "Palmeiras SP - EC Bahia BA",
-  "startTime": 1791505800000,
-  "dateStr": "2026-10-09",
-  "marketCount": 107,
-  "file": "serie-a-brazil/2026-10-09_palmeiras-sp-ec-bahia-ba_92517532.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93220024",
   "name": "Vasco da Gama RJ - Remo PA",
   "startTime": 1791666000000,
   "dateStr": "2026-10-11",
-  "marketCount": 63,
+  "marketCount": 106,
   "file": "serie-a-brazil/2026-10-11_vasco-da-gama-rj-remo-pa_93220024.json"
  },
  {
@@ -636,7 +596,7 @@
   "name": "Sao Paulo SP - Vitoria BA",
   "startTime": 1791676800000,
   "dateStr": "2026-10-11",
-  "marketCount": 65,
+  "marketCount": 106,
   "file": "serie-a-brazil/2026-10-11_sao-paulo-sp-vitoria-ba_93220025.json"
  },
  {
@@ -646,7 +606,7 @@
   "name": "Clube Atletico MG - Santos SP",
   "startTime": 1791745200000,
   "dateStr": "2026-10-11",
-  "marketCount": 65,
+  "marketCount": 108,
   "file": "serie-a-brazil/2026-10-11_clube-atletico-mg-santos-sp_93220030.json"
  },
  {
@@ -656,7 +616,7 @@
   "name": "Gremio RS - Internacional RS",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 65,
+  "marketCount": 111,
   "file": "serie-a-brazil/2026-10-11_gremio-rs-internacional-rs_93220023.json"
  },
  {
@@ -666,7 +626,7 @@
   "name": "Flamengo RJ - Fluminense RJ",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 63,
+  "marketCount": 111,
   "file": "serie-a-brazil/2026-10-11_flamengo-rj-fluminense-rj_93220026.json"
  },
  {
@@ -676,7 +636,27 @@
   "name": "Palmeiras SP - Corinthians SP",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 65,
+  "marketCount": 106,
   "file": "serie-a-brazil/2026-10-11_palmeiras-sp-corinthians-sp_93220028.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "93220031",
+  "name": "EC Bahia BA - Mirassol SP",
+  "startTime": 1791757800000,
+  "dateStr": "2026-10-12",
+  "marketCount": 106,
+  "file": "serie-a-brazil/2026-10-12_ec-bahia-ba-mirassol-sp_93220031.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "93220029",
+  "name": "Coritiba PR - Botafogo RJ",
+  "startTime": 1791831600000,
+  "dateStr": "2026-10-12",
+  "marketCount": 106,
+  "file": "serie-a-brazil/2026-10-12_coritiba-pr-botafogo-rj_93220029.json"
  }
 ]
