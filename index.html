@@ -350,12 +350,41 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .bookAlt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--text-dim);
   background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);
   padding:2px 7px;white-space:nowrap;opacity:.75}
-/* Το tag πηγής δείχνει πλέον ΠΟΙΑ εταιρεία, άρα χρειάζεται δικό του χρώμα. */
-.src-tag.sb{border-color:rgba(96,165,250,.55);color:rgba(147,197,253,.95)}
 #bookSeg button[data-v="superbet"].unavail{opacity:.45}
 /* REVERSED LINE κλειδωμένο (ALT: δεν υπάρχει αντίθετη πλευρά) */
 .reversedLineBtn.locked{opacity:.4;cursor:not-allowed}
-.src-tag{font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px}
+/* Σήμανση εταιρείας: ΠΑΝΤΑ λογότυπο + αμέσως δεξιά το όνομα (2026-10-10).
+   Τα λογότυπα είναι 64x64 PNG, οπότε μπαίνουν ΠΑΝΤΑ σε τετράγωνο κουτί με
+   σταθερή πλευρά — ποτέ τεντωμένα: ίδιο μέγεθος σε κάθε σημείο της σελίδας. */
+.src-tag{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;color:var(--text-faint);
+  text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border);
+  border-radius:var(--radius-pill);padding:2px 8px 2px 3px;line-height:1}
+.bkLogo{flex:0 0 auto;width:15px;height:15px;border-radius:4px;object-fit:contain;display:block;background:#fff}
+.bkLogo.lg{width:18px;height:18px;border-radius:5px}
+.bkLogo.sm{width:13px;height:13px;border-radius:3px}
+.src-tag.bk-stoiximan{border-color:rgba(96,165,250,.45);color:rgba(191,219,254,.95)}
+.src-tag.bk-superbet{border-color:rgba(248,113,113,.45);color:rgba(254,202,202,.95)}
+/* "i" δεξιά από την απόδοση: πράσινο στεφάνι όταν η ΙΔΙΑ γραμμή υπάρχει και
+   στην άλλη εταιρεία. Πατιέται και βγάζει tulip με λογότυπο + όνομα + απόδοση. */
+.alsoBtn{flex:0 0 auto;width:17px;height:17px;border-radius:50%;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:800;line-height:1;
+  background:var(--accent-soft);color:var(--accent);border:1.5px solid var(--accent);
+  box-shadow:var(--glow-pos);padding:0}
+.alsoBtn:hover{filter:brightness(1.25)}
+.alsoTip .atHead{display:flex;align-items:center;gap:6px;margin-bottom:8px;
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--accent)}
+.alsoTip .atRow{display:flex;align-items:center;gap:8px;font-size:12px;
+  background:rgba(255,255,255,.04);border-radius:8px;padding:6px 8px}
+.alsoTip .atRow+.atRow{margin-top:5px}
+.alsoTip .atName{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
+.alsoTip .atOdds{flex:none;font-family:"IBM Plex Mono",monospace;font-weight:800;font-size:13px;color:var(--text)}
+.alsoTip .atRow.best .atOdds{color:var(--accent)}
+.alsoTip .atLine{margin-top:8px;font-size:10.5px;color:var(--text-faint);line-height:1.4}
+#bookSeg button{display:inline-flex;align-items:center;gap:5px}
+#liveStatus .bkLogo{display:inline-block;vertical-align:-3px;margin:0 3px 0 1px}
+#liveStatus .liveWarn{color:var(--amber,#e0a63a)}
 /* Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την προηγούμενη ανανέωση των
    lines (βλ. lineMoveChipHtml). Δίπλα-δεξιά από το pill "Stoiximan". */
 .lmWrap{display:inline-flex}
@@ -380,7 +409,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .oddsAligned .oddsRows{
   display:grid;grid-template-columns:minmax(0,max-content) max-content;
   column-gap:6px;width:fit-content;max-width:100%;
+  padding-right:23px;   /* σταθερή θέση για το "i" δεξιά από την απόδοση */
 }
+.oddsAligned .market > .alsoBtn{position:absolute;right:0;top:50%;transform:translateY(-50%);margin:0}
 .row-main.oddsAligned .metaRow,.row-main.oddsAligned .market{
   display:grid;grid-template-columns:subgrid;grid-column:1 / -1;column-gap:6px;align-items:center;
 }
@@ -1154,7 +1185,7 @@ body.bbPageOn .unresolved{display:none !important}
 .themeToggle svg{width:16px;height:16px;flex:none}
 .themeToggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .header-right{margin-left:auto}
-:root[data-theme="light"] :is(.hp,.pill,.side-tag,.price-chip,.altTag,.bookAlt,.lmChip,.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){
+:root[data-theme="light"] :is(.hp,.pill,.side-tag,.price-chip,.altTag,.bookAlt,.alsoBtn,.lmChip,.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){
   /* Same translucent dark fill composited over the original dark card, never over cream. */
   --surface-2:linear-gradient(#111627cc,#111627cc),#0b0f1c;--border:#232a48;--text:#f4f7ff;--text-dim:#9aa3c7;--text-faint:#5f6890;
 }
@@ -1320,8 +1351,8 @@ body.bbPageOn .unresolved{display:none !important}
              εταιρεία επιλεγμένη = μόνο οι δικές της γραμμές και τιμές. -->
         <div class="seg" id="bookSeg">
           <button data-v="all" class="active">ALL BOOKMAKERS</button>
-          <button data-v="stoiximan">STOIXIMAN</button>
-          <button data-v="superbet">SUPERBET</button>
+          <button data-v="stoiximan"><img class="bkLogo sm" src="bookmakers/stoiximan.png" alt="" width="64" height="64">STOIXIMAN</button>
+          <button data-v="superbet"><img class="bkLogo sm" src="bookmakers/superbet.png" alt="" width="64" height="64">SUPERBET</button>
         </div>
       </div>
       <select class="pillselect" id="sortMode">
@@ -1475,6 +1506,25 @@ var BOOK_LABEL = {stoiximan:"Stoiximan", superbet:"Superbet"};
 var BOOK_SHORT = {stoiximan:"ST", superbet:"SB"};
 var BOOK_FEED = {stoiximan:"live", superbet:"live-superbet"};
 function bookLabel(b){ return BOOK_LABEL[b] || "Stoiximan"; }
+function bookId(b){ return b === "superbet" ? "superbet" : "stoiximan"; }
+// ΠΑΝΤΑ λογότυπο + αμέσως δεξιά το όνομα — όπου κι αν αναγράφεται εταιρεία
+// (κάρτα, αποθηκευμένα, φίλτρο, κατάσταση φόρτωσης, tulip). Ζητήθηκε 2026-10-10.
+// Τα αρχεία είναι 64x64 PNG στο bookmakers/ και μπαίνουν σε σταθερό τετράγωνο
+// κουτί μέσω CSS (.bkLogo), ώστε να έχουν ΠΑΝΤΟΥ ίδιο, άρτιο μέγεθος.
+function bookLogoHtml(b, size){
+  var id = bookId(b);
+  return '<img class="bkLogo'+(size?" "+size:"")+'" src="bookmakers/'+id+'.png" alt="" '+
+         'width="64" height="64" loading="lazy" decoding="async">';
+}
+function bookTagHtml(b){
+  var id = bookId(b);
+  return '<span class="src-tag bk-'+id+'">'+bookLogoHtml(id)+'<span class="bkName">'+
+         escAttr(BOOK_LABEL[id])+'</span></span>';
+}
+function bookInlineHtml(b, size){
+  var id = bookId(b);
+  return bookLogoHtml(id, size)+'<span>'+escAttr(BOOK_LABEL[id])+'</span>';
+}
 var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 
 var TEAM_MAP_KEY = "fbd_team_map_v1";
@@ -1607,7 +1657,7 @@ function renderSavedBetsList(){
           altTagHtml(rec)+
           '<span>'+catLabel(rec.category)+' · '+marketNote+'</span>'+
           (rec.price ? '<span class="price-chip">'+rec.price.toFixed(2)+'</span>' : '')+
-          '<span class="src-tag'+(rec.book==="superbet"?" sb":"")+'">'+escAttr(bookLabel(rec.book))+'</span>'+
+          bookTagHtml(rec.book)+
         '</div>'+
       '</div>'+
       '<button type="button" class="sbiRemove" data-remove="'+escAttr(k)+'" title="Αφαίρεση" aria-label="Αφαίρεση">✕</button>'+
@@ -2383,15 +2433,40 @@ function mergeBooks(list){
     return out;
   });
 }
-function bookAltChipHtml(r){
+// "i" με πράσινο στεφάνι, ΔΕΞΙΑ από την απόδοση: μπαίνει ΜΟΝΟ όταν η ΙΔΙΑ
+// γραμμή προσφέρεται και από την άλλη εταιρεία. Πατιέται και ανοίγει tulip με
+// λογότυπο + όνομα + απόδοση και των δύο (2026-10-10).
+function alsoBtnHtml(r){
   if(!r || !r._otherBook) return "";
+  return '<button type="button" class="alsoBtn" data-also="1" '+
+    'title="'+escAttr("Υπάρχει και στη "+bookLabel(r._otherBook.book)+" @ "+r._otherBook.price.toFixed(2))+'" '+
+    'aria-label="Διαθέσιμο και σε άλλη εταιρεία">i</button>';
+}
+function alsoTipHtml(r){
   var o = r._otherBook;
-  return '<span class="bookAlt" title="'+escAttr(bookLabel(o.book)+": "+o.price.toFixed(2)+
-    " (χαμηλότερη — δείχνεται η καλύτερη)")+'">'+(BOOK_SHORT[o.book]||"?")+' '+o.price.toFixed(2)+'</span>';
+  var rows = [{book:r.book, price:r.price}, {book:o.book, price:o.price}]
+    .sort(function(a,b){ return (b.price||0) - (a.price||0); });
+  var best = rows[0].price;
+  var html = '<div class="alsoTip">'+
+    '<div class="atHead">'+bookLogoHtml(o.book,"sm")+
+    '<span>ALSO AVAILABLE ON '+escAttr(BOOK_LABEL[bookId(o.book)].toUpperCase())+'</span></div>';
+  rows.forEach(function(x){
+    html += '<div class="atRow'+(x.price===best?" best":"")+'">'+
+      bookLogoHtml(x.book, "lg")+
+      '<span class="atName">'+escAttr(BOOK_LABEL[bookId(x.book)])+'</span>'+
+      '<span class="atOdds">'+(x.price==null?"—":x.price.toFixed(2))+'</span></div>';
+  });
+  var diff = (r.price!=null && o.price!=null) ? Math.abs(r.price-o.price) : null;
+  html += '<div class="atLine">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+' · '+
+    escAttr(catLabel(r.category))+
+    (diff!=null ? (diff>=0.005 ? (' · διαφορά '+diff.toFixed(2)) : ' · ίδια απόδοση') : '')+
+    '</div></div>';
+  return html;
 }
 function altTagHtml(r){
   return (r && r.lineKind==="alt")
-    ? '<span class="altTag" title="ALT γραμμή: το Stoiximan την προσφέρει μόνο από τη μία πλευρά, δεν υπάρχει αντίθετη πλευρά να παιχτεί.">ALT</span>'
+    ? '<span class="altTag" title="'+escAttr("ALT γραμμή: η "+bookLabel(r.book)+
+        " την προσφέρει μόνο από τη μία πλευρά, δεν υπάρχει αντίθετη πλευρά να παιχτεί.")+'">ALT</span>'
     : "";
 }
 
@@ -3356,8 +3431,29 @@ function renderToolbarAndRows(){
   // ΕΤΑΙΡΕΙΑ: ή μόνο μία, ή συνένωση στην καλύτερη απόδοση. ΠΡΙΝ το MAIN/ALT,
   // γιατί η συνένωση μπορεί να κάνει MAIN μια γραμμή που η μία εταιρεία τη
   // δίνει μονόπλευρη (βλ. mergeBooks).
-  if(bookFilterVal !== "all") list = list.filter(function(r){ return (r.book||"stoiximan") === bookFilterVal; });
-  else list = mergeBooks(list);
+  if(bookFilterVal !== "all"){
+    // Ακόμα κι όταν βλέπεις ΜΙΑ εταιρεία, το "i" πρέπει να λέει ότι η γραμμή
+    // υπάρχει και αλλού — οπότε ο δείκτης χτίζεται ΠΡΙΝ το φιλτράρισμα.
+    var acrossBooks = {};
+    list.forEach(function(r){
+      var k = bookMergeKey(r);
+      (acrossBooks[k] = acrossBooks[k] || []).push(r);
+    });
+    list = list.filter(function(r){ return (r.book||"stoiximan") === bookFilterVal; })
+               .map(function(r){
+      var others = (acrossBooks[bookMergeKey(r)] || []).filter(function(x){
+        return x !== r && (x.book||"stoiximan") !== (r.book||"stoiximan") && x.price != null;
+      });
+      if(!others.length) return r;
+      others.sort(function(a,b){ return b.price - a.price; });
+      var out = {};
+      for(var q in r){ if(Object.prototype.hasOwnProperty.call(r,q)) out[q] = r[q]; }
+      out._otherBook = {book: others[0].book, price: others[0].price};
+      return out;
+    });
+  } else {
+    list = mergeBooks(list);
+  }
   // MAIN/ALT LINES — προεπιλογή "main": οι μονόπλευρες γραμμές φαίνονται ΜΟΝΟ
   // σε ALT LINES και ALL LINES.
   if(lineKindVal==="main") list = list.filter(function(r){ return (r.lineKind||"main")==="main"; });
@@ -3634,8 +3730,9 @@ function refreshCardHead(r, head){
       var span = document.createElement("span");
       span.className = "price-chip";
       span.textContent = r.price.toFixed(2);
-      var srcTag = marketRow.querySelector(".src-tag");
-      if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
+      // ΠΡΙΝ το "i", ώστε η σειρά να μένει πάντα: απόδοση -> i
+      var anchor = marketRow.querySelector(".alsoBtn") || marketRow.querySelector(".src-tag");
+      if(anchor) marketRow.insertBefore(span, anchor); else marketRow.appendChild(span);
     }
   } else if(priceChipEl){ priceChipEl.remove(); }
   var lmWrapEl = head.querySelector(".lmWrap");
@@ -3674,8 +3771,7 @@ function renderRowCard(r){
       '</div>'+
       '<div class="oddsRows"><div class="metaRow"><div class="metaDetails">'+
         (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+
-        '<span class="src-tag'+(r.book==="superbet"?" sb":"")+'">'+escAttr(bookLabel(r.book))+'</span>'+
-        bookAltChipHtml(r)+'</div>'+
+        bookTagHtml(r.book)+'</div>'+
         // Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την ΠΡΟΗΓΟΥΜΕΝΗ ανανέωση
         // (live-prev). Κενό αν δεν υπάρχει προηγούμενο στιγμιότυπο.
         '<span class="lmWrap">'+lineMoveChipHtml(r, r.threshold, r.side, r.price)+'</span>'+
@@ -3685,6 +3781,7 @@ function renderRowCard(r){
         altTagHtml(r)+
         '<span>'+catLabel(r.category)+' · '+marketNote+'</span></div>'+
         (r.price? '<span class="price-chip">'+r.price.toFixed(2)+'</span>' : '')+
+        alsoBtnHtml(r)+
       '</div>'+
     '</div>'+
     '</div>'+
@@ -3702,6 +3799,16 @@ function renderRowCard(r){
   // pill OPP …, που έχει το δικό του ειδικό handler πιο κάτω). Κάθε φορά που
   // ΑΝΟΙΓΕΙ, το opponent mode μηδενίζεται (state.oppMode=false) ώστε να ξεκινάει
   // πάντα από την αρχή το "hint" pulsing στο OPP pill — βλ. σχόλιο στο oppBtn.
+  // Το "i" (ALSO AVAILABLE ON ...) ζει ΜΕΣΑ στην κεφαλίδα, οπότε το κλικ του
+  // πρέπει να σταματήσει εδώ — αλλιώς θα άνοιγε/έκλεινε και το drawer.
+  head.addEventListener("click", function(ev){
+    var ab = ev.target.closest ? ev.target.closest(".alsoBtn") : null;
+    if(ab && head.contains(ab)){
+      ev.stopPropagation();
+      ev.preventDefault();
+      showComboTip(ab, alsoTipHtml(r));
+    }
+  }, true);
   head.addEventListener("click", function(){
     if(card.classList.contains("open")){
       card.classList.remove("open");
@@ -4659,8 +4766,8 @@ function renderDrawer(r, headEl){
         var span = document.createElement("span");
         span.className = "price-chip";
         span.textContent = price.toFixed(2);
-        var srcTag = marketRow.querySelector(".src-tag");
-        if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
+        var anchor = marketRow.querySelector(".alsoBtn") || marketRow.querySelector(".src-tag");
+        if(anchor) marketRow.insertBefore(span, anchor); else marketRow.appendChild(span);
       }
     } else if(priceChipEl){
       priceChipEl.remove();
@@ -5141,7 +5248,8 @@ function renderDrawer(r, headEl){
           // 2026-10-10 — καμία εκτιμώμενη απόδοση, κανένα reversed σε ALT).
           '<button type="button" class="reversedLineBtn'+(state.reversedLine?" active":"")+(r.lineKind==="alt"?" locked":"")+'"'+
             (r.lineKind==="alt"
-              ? ' disabled title="ALT γραμμή: το Stoiximan δεν δίνει την αντίθετη πλευρά, δεν γίνεται αντιστροφή"'
+              ? ' disabled title="'+escAttr("ALT γραμμή: η "+bookLabel(r.book)+
+                  " δεν δίνει την αντίθετη πλευρά, δεν γίνεται αντιστροφή")+'"'
               : ' title="Αντιστροφή over/under στην ίδια γραμμή"')+
           '>⇄ REVERSED LINE</button>'+
         '</div>'
@@ -5539,10 +5647,12 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   renderToolbarAndRows();
 });
 document.getElementById("bookSeg").addEventListener("click", function(e){
-  if(e.target.tagName!=="BUTTON") return;
+  // Το κλικ μπορεί να πέσει πάνω στο <img> του λογοτύπου — ανεβαίνουμε στο κουμπί.
+  var btn = e.target.closest ? e.target.closest("button[data-v]") : null;
+  if(!btn || !this.contains(btn)) return;
   Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
-  e.target.classList.add("active");
-  bookFilterVal = e.target.getAttribute("data-v");
+  btn.classList.add("active");
+  bookFilterVal = btn.getAttribute("data-v");
   _bbPageCache = {};
   renderToolbarAndRows();
   if(bbPageOn) renderBbPage();
@@ -5907,8 +6017,12 @@ function loadLiveMatches(){
     updateBookSegAvailability();
     return loadPrevLines().then(function(){
       buildFeedMulti(roots);
-      statusEl.textContent = "ζωντανοί αγώνες: " + parts.join(" · ") +
-        (got.superbet ? "" : " (η Superbet δεν έχει κατέβει ακόμα — τρέξε τον fetch_superbet.py)");
+      // ΚΑΙ εδώ αναγράφεται εταιρεία, άρα λογότυπο + όνομα (2026-10-10).
+      var html = "ζωντανοί αγώνες: " + BOOKS.filter(function(b){ return got[b] > 0; })
+        .map(function(b){ return got[b] + " " + bookInlineHtml(b, "sm"); }).join(" · ");
+      if(!got.superbet) html += ' <span class="liveWarn">(η ' + bookInlineHtml("superbet","sm") +
+        ' δεν έχει κατέβει ακόμα — τρέξε το RUN_BOOKMAKERS.bat)</span>';
+      statusEl.innerHTML = html;
       return true;
     });
   });

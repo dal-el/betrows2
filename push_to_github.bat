@@ -73,6 +73,10 @@ if exist "C:\SOCCER_BETROWS\betrows-app\lines-archive-superbet" (
 )
 if not exist "crests" mkdir "crests"
 robocopy "C:\SOCCER_BETROWS\betrows-app\crests" "crests" /MIR /NFL /NDL /NJH /NJS >nul
+REM Λογοτυπα εταιρειων (stoiximan.png / superbet.png) — η σελιδα τα δειχνει
+REM διπλα σε καθε ονομα bookmaker, οποτε πρεπει να ανεβαινουν κι αυτα.
+if not exist "bookmakers" mkdir "bookmakers"
+robocopy "C:\SOCCER_BETROWS\betrows-app\bookmakers" "bookmakers" /MIR /NFL /NDL /NJH /NJS >nul
 
 REM 3) Commit + push στο GitHub
 git add -A
