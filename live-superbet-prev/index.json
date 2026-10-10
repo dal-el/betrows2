@@ -352,16 +352,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15148651",
-  "name": "UANL Tigres - Deportivo Toluca",
-  "startTime": 1791601200000,
-  "dateStr": "2026-10-10",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-10_uanl-tigres-deportivo-toluca_15148651.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15151617",
   "name": "Queretaro - Atlante",
   "startTime": 1791673200000,
@@ -456,7 +446,7 @@
   "name": "Atletico Mineiro - Santos",
   "startTime": 1791745200000,
   "dateStr": "2026-10-11",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "serie-a-brazil/2026-10-11_atletico-mineiro-santos_14040037.json"
  },
  {
@@ -466,7 +456,7 @@
   "name": "Flamengo - Fluminense",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "serie-a-brazil/2026-10-11_flamengo-fluminense_14040032.json"
  },
  {
@@ -476,7 +466,7 @@
   "name": "Palmeiras - Corinthians",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "serie-a-brazil/2026-10-11_palmeiras-corinthians_14040035.json"
  },
  {
@@ -486,7 +476,7 @@
   "name": "Gremio - Internacional RS",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "serie-a-brazil/2026-10-11_gremio-internacional-rs_14040038.json"
  },
  {
