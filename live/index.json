@@ -352,26 +352,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93288593",
-  "name": "Queretaro FC - Atlante FC",
-  "startTime": 1791673200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-11_queretaro-fc-atlante-fc_93288593.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93288602",
-  "name": "FC Juarez - Club Tijuana",
-  "startTime": 1791673200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-11_fc-juarez-club-tijuana_93288602.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "93288603",
   "name": "Atlas FC - Guadalajara Chivas",
   "startTime": 1791680400000,
@@ -426,7 +406,7 @@
   "name": "Sao Paulo SP - Vitoria BA",
   "startTime": 1791676800000,
   "dateStr": "2026-10-11",
-  "marketCount": 106,
+  "marketCount": 103,
   "file": "serie-a-brazil/2026-10-11_sao-paulo-sp-vitoria-ba_93220025.json"
  },
  {
