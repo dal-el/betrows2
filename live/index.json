@@ -206,7 +206,7 @@
   "name": "Rayo Vallecano - Athletic Bilbao",
   "startTime": 1791633600000,
   "dateStr": "2026-10-10",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-10_rayo-vallecano-athletic-bilbao_89353093.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Racing Santander - Valencia CF",
   "startTime": 1791745200000,
   "dateStr": "2026-10-11",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "la-liga/2026-10-11_racing-santander-valencia-cf_89353077.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Cagliari Calcio - Juventus FC",
   "startTime": 1791744300000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_cagliari-calcio-juventus-fc_92097664.json"
  },
  {
@@ -516,7 +516,7 @@
   "name": "ES Troyes AC - Olympique Marseille",
   "startTime": 1791744300000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-11_es-troyes-ac-olympique-marseille_92616977.json"
  },
  {
@@ -582,26 +582,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93288592",
-  "name": "Club Puebla - Club Leon",
-  "startTime": 1791594000000,
-  "dateStr": "2026-10-10",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-10_club-puebla-club-leon_93288592.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93288597",
-  "name": "CF Tigres UANL - Deportivo Toluca FC",
-  "startTime": 1791601200000,
-  "dateStr": "2026-10-10",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-10_cf-tigres-uanl-deportivo-toluca-fc_93288597.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "93288593",
   "name": "Queretaro FC - Atlante FC",
   "startTime": 1791673200000,
@@ -640,6 +620,36 @@
   "file": "liga-mx/2026-10-11_club-america-cf-monterrey_93288653.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "93288861",
+  "name": "Atletico San Luis - Santos Laguna",
+  "startTime": 1791759600000,
+  "dateStr": "2026-10-12",
+  "marketCount": 88,
+  "file": "liga-mx/2026-10-12_atletico-san-luis-santos-laguna_93288861.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "93288862",
+  "name": "CF Pachuca - Club Necaxa",
+  "startTime": 1791760200000,
+  "dateStr": "2026-10-12",
+  "marketCount": 88,
+  "file": "liga-mx/2026-10-12_cf-pachuca-club-necaxa_93288862.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "93288863",
+  "name": "UNAM Pumas - Cruz Azul",
+  "startTime": 1791767700000,
+  "dateStr": "2026-10-12",
+  "marketCount": 88,
+  "file": "liga-mx/2026-10-12_unam-pumas-cruz-azul_93288863.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93220024",
@@ -676,7 +686,7 @@
   "name": "Gremio RS - Internacional RS",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "serie-a-brazil/2026-10-11_gremio-rs-internacional-rs_93220023.json"
  },
  {
@@ -696,7 +706,7 @@
   "name": "Palmeiras SP - Corinthians SP",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "serie-a-brazil/2026-10-11_palmeiras-sp-corinthians-sp_93220028.json"
  },
  {
