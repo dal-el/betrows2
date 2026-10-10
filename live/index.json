@@ -56,7 +56,7 @@
   "name": "Manchester United - Tottenham Hotspur",
   "startTime": 1791649800000,
   "dateStr": "2026-10-10",
-  "marketCount": 121,
+  "marketCount": 122,
   "file": "premier-league/2026-10-10_manchester-united-tottenham-hotspur_92398245.json"
  },
  {
@@ -88,16 +88,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 121,
   "file": "premier-league/2026-10-11_liverpool-fc-manchester-city_92398258.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "92790443",
-  "name": "West Ham United - Queens Park Rangers",
-  "startTime": 1791572400000,
-  "dateStr": "2026-10-09",
-  "marketCount": 87,
-  "file": "championship/2026-10-09_west-ham-united-queens-park-rangers_92790443.json"
  },
  {
   "league": "championship",
@@ -200,14 +190,14 @@
   "file": "championship/2026-10-10_blackburn-rovers-cardiff-city_92790738.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "89353089",
-  "name": "Malaga CF - RCD Espanyol",
-  "startTime": 1791572400000,
-  "dateStr": "2026-10-09",
-  "marketCount": 104,
-  "file": "la-liga/2026-10-09_malaga-cf-rcd-espanyol_89353089.json"
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "92790445",
+  "name": "Southampton FC - Portsmouth FC",
+  "startTime": 1791716400000,
+  "dateStr": "2026-10-11",
+  "marketCount": 87,
+  "file": "championship/2026-10-11_southampton-fc-portsmouth-fc_92790445.json"
  },
  {
   "league": "la-liga",
@@ -248,6 +238,46 @@
   "dateStr": "2026-10-10",
   "marketCount": 104,
   "file": "la-liga/2026-10-10_real-madrid-villarreal-cf_89353092.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "89353065",
+  "name": "Elche CF - RC Celta de Vigo",
+  "startTime": 1791720000000,
+  "dateStr": "2026-10-11",
+  "marketCount": 104,
+  "file": "la-liga/2026-10-11_elche-cf-rc-celta-de-vigo_89353065.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "89353114",
+  "name": "Real Sociedad - Deportivo de A Coruña",
+  "startTime": 1791728100000,
+  "dateStr": "2026-10-11",
+  "marketCount": 104,
+  "file": "la-liga/2026-10-11_real-sociedad-deportivo-de-a-coruna_89353114.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "89353100",
+  "name": "Real Betis Balompie - CA Osasuna",
+  "startTime": 1791736200000,
+  "dateStr": "2026-10-11",
+  "marketCount": 104,
+  "file": "la-liga/2026-10-11_real-betis-balompie-ca-osasuna_89353100.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "89353077",
+  "name": "Racing Santander - Valencia CF",
+  "startTime": 1791745200000,
+  "dateStr": "2026-10-11",
+  "marketCount": 109,
+  "file": "la-liga/2026-10-11_racing-santander-valencia-cf_89353077.json"
  },
  {
   "league": "serie-a-italy",
@@ -326,18 +356,8 @@
   "name": "Cagliari Calcio - Juventus FC",
   "startTime": 1791744300000,
   "dateStr": "2026-10-11",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-italy/2026-10-11_cagliari-calcio-juventus-fc_92097664.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657122",
-  "name": "Borussia Dortmund - Werder Bremen",
-  "startTime": 1791570600000,
-  "dateStr": "2026-10-09",
-  "marketCount": 107,
-  "file": "bundesliga/2026-10-09_borussia-dortmund-werder-bremen_91657122.json"
  },
  {
   "league": "bundesliga",
@@ -400,14 +420,24 @@
   "file": "bundesliga/2026-10-10_rb-leipzig-eintracht-frankfurt_91657237.json"
  },
  {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92616708",
-  "name": "RC Lens - Olympique Lyonnais",
-  "startTime": 1791571500000,
-  "dateStr": "2026-10-09",
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "91657263",
+  "name": "1. FC Köln - Borussia Monchengladbach",
+  "startTime": 1791725400000,
+  "dateStr": "2026-10-11",
+  "marketCount": 112,
+  "file": "bundesliga/2026-10-11_1-fc-koln-borussia-monchengladbach_91657263.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "91657242",
+  "name": "SC Freiburg - FC Schalke 04",
+  "startTime": 1791732600000,
+  "dateStr": "2026-10-11",
   "marketCount": 107,
-  "file": "ligue-1/2026-10-09_rc-lens-olympique-lyonnais_92616708.json"
+  "file": "bundesliga/2026-10-11_sc-freiburg-fc-schalke-04_91657242.json"
  },
  {
   "league": "ligue-1",
@@ -458,6 +488,36 @@
   "dateStr": "2026-10-10",
   "marketCount": 107,
   "file": "ligue-1/2026-10-10_paris-saint-germain-le-mans-uc-72_92616711.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "92617063",
+  "name": "OGC Nice - RC Strasbourg",
+  "startTime": 1791723600000,
+  "dateStr": "2026-10-11",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-11_ogc-nice-rc-strasbourg_92617063.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "92617064",
+  "name": "Stade Rennais FC - AJ Auxerre",
+  "startTime": 1791731700000,
+  "dateStr": "2026-10-11",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-11_stade-rennais-fc-aj-auxerre_92617064.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "92616977",
+  "name": "ES Troyes AC - Olympique Marseille",
+  "startTime": 1791744300000,
+  "dateStr": "2026-10-11",
+  "marketCount": 112,
+  "file": "ligue-1/2026-10-11_es-troyes-ac-olympique-marseille_92616977.json"
  },
  {
   "league": "super-league-greece",
@@ -606,7 +666,7 @@
   "name": "Clube Atletico MG - Santos SP",
   "startTime": 1791745200000,
   "dateStr": "2026-10-11",
-  "marketCount": 108,
+  "marketCount": 103,
   "file": "serie-a-brazil/2026-10-11_clube-atletico-mg-santos-sp_93220030.json"
  },
  {
@@ -626,7 +686,7 @@
   "name": "Flamengo RJ - Fluminense RJ",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "serie-a-brazil/2026-10-11_flamengo-rj-fluminense-rj_93220026.json"
  },
  {
@@ -636,7 +696,7 @@
   "name": "Palmeiras SP - Corinthians SP",
   "startTime": 1791750600000,
   "dateStr": "2026-10-11",
-  "marketCount": 106,
+  "marketCount": 111,
   "file": "serie-a-brazil/2026-10-11_palmeiras-sp-corinthians-sp_93220028.json"
  },
  {
