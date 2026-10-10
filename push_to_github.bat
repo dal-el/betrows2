@@ -3,6 +3,22 @@ cd /d "%~dp0"
 echo Ενημερωση GitHub με τα τελευταια δεδομενα (BetRows)...
 echo.
 
+REM ============================================================================
+REM  ΑΣΦΑΛΕΙΑ ΖΩΗΣ (10/10/2026): το robocopy /MIR με ΑΔΕΙΑ πηγη ΣΒΗΝΕΙ τον
+REM  προορισμο. Οταν ο fetcher δεν κατεβασε τιποτα (σφαλμα δικτυου, Cloudflare,
+REM  μηδεν αγωνες στο παραθυρο) ο φακελος output εμενε αδειος, και αυτο το
+REM  script μετεφερε το κενο στο betrows-app\live -> ΧΑΘΗΚΑΝ ΟΛΑ ΤΑ LINES.
+REM  Απο εδω και περα: αν η πηγη δεν εχει index.json, ΔΕΝ αγγιζουμε τον
+REM  προορισμο. Καλυτερα παλια δεδομενα παρα κανενα.
+REM ============================================================================
+set "ST_OK=0"
+set "SB_OK=0"
+if exist "C:\SOCCER_BETROWS\betrows-fetcher\output\index.json" set "ST_OK=1"
+if exist "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet\index.json" set "SB_OK=1"
+if "%ST_OK%"=="0" echo ΠΡΟΣΟΧΗ: ο φακελος output (Stoiximan) ειναι αδειος - ΔΕΝ πειραζουμε το live.
+if "%SB_OK%"=="0" echo ΠΡΟΣΟΧΗ: ο φακελος output-superbet ειναι αδειος - ΔΕΝ πειραζουμε το live-superbet.
+echo.
+
 REM 1) Αντιγραφη των live Stoiximan JSONs απο τον fetcher στο betrows-app\live
 REM    (ετσι δουλευει και η τοπικη προβολη index.html με τα ιδια δεδομενα)
 if not exist "C:\SOCCER_BETROWS\betrows-app\live" mkdir "C:\SOCCER_BETROWS\betrows-app\live"
@@ -13,6 +29,7 @@ REM     (δειχνει διπλα στο pill STOIXIMAN ποσο ηταν το 
 REM     Γινεται ΜΟΝΟ αν ο fetcher εχει οντως νεα/αλλαγμενα αρχεια (robocopy /L =
 REM     δοκιμη χωρις αντιγραφη), ωστε δευτερο τρεξιμο του bat να μη σβηνει το
 REM     πραγματικο προηγουμενο στιγμιοτυπο.
+if "%ST_OK%"=="0" goto skip_stoiximan
 robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output" "C:\SOCCER_BETROWS\betrows-app\live" /L /MIR /NFL /NDL /NJH /NJS /NP >nul
 if errorlevel 1 (
   if not exist "C:\SOCCER_BETROWS\betrows-app\live-prev" mkdir "C:\SOCCER_BETROWS\betrows-app\live-prev"
@@ -20,6 +37,7 @@ if errorlevel 1 (
 )
 
 robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output" "C:\SOCCER_BETROWS\betrows-app\live" /MIR /NFL /NDL /NJH /NJS >nul
+:skip_stoiximan
 
 REM 1c) ΤΟ ΙΔΙΟ ROTATION ΓΙΑ ΤΗ SUPERBET: output-superbet -> live-superbet, με
 REM     αντιγραφο του προηγουμενου στο live-superbet-prev (απο εκει διαβαζει η
@@ -28,6 +46,7 @@ REM     fetch_superbet.py, ο φακελος δεν υπαρχει και το �
 REM     ΠΡΟΣΟΧΗ: το "if errorlevel 1" μενει σε ΠΡΩΤΟ επιπεδο (οχι μεσα σε αλλη
 REM     παρενθεση) — ιδιο μοτιβο με το 1b παραπανω, ωστε να διαβαζεται η τιμη
 REM     ΤΗΝ ΩΡΑ που τρεχει η γραμμη και οχι οταν γινεται parse το μπλοκ.
+if "%SB_OK%"=="0" goto :no_superbet
 if not exist "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet" goto :no_superbet
 if not exist "C:\SOCCER_BETROWS\betrows-app\live-superbet" mkdir "C:\SOCCER_BETROWS\betrows-app\live-superbet"
 robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet" "C:\SOCCER_BETROWS\betrows-app\live-superbet" /L /MIR /NFL /NDL /NJH /NJS /NP >nul
@@ -52,15 +71,19 @@ copy /Y "C:\SOCCER_BETROWS\betrows-app\league-crest-map.json" "league-crest-map.
 copy /Y "C:\SOCCER_BETROWS\betrows-app\team-map.json" "team-map.json" >nul 2>nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\results.html" "results.html" >nul 2>nul
 copy /Y "C:\SOCCER_BETROWS\betrows-app\results-archive.json" "results-archive.json" >nul 2>nul
+REM Ιδιος κανονας και προς το repo: αν το live ειναι αδειο, δεν σβηνουμε ο,τι
+REM ειναι ηδη ανεβασμενο στο GitHub.
+if not exist "C:\SOCCER_BETROWS\betrows-app\live\index.json" goto skip_live_repo
 if not exist "live" mkdir "live"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live" "live" /MIR /NFL /NDL /NJH /NJS >nul
+:skip_live_repo
 if not exist "live-prev" mkdir "live-prev"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live-prev" "live-prev" /MIR /NFL /NDL /NJH /NJS >nul
 REM Τα feeds της Superbet — η σελιδα τα διαβαζει απο τα ιδια ονοματα φακελων.
-if exist "C:\SOCCER_BETROWS\betrows-app\live-superbet" (
-  if not exist "live-superbet" mkdir "live-superbet"
-  robocopy "C:\SOCCER_BETROWS\betrows-app\live-superbet" "live-superbet" /MIR /NFL /NDL /NJH /NJS >nul
-)
+if not exist "C:\SOCCER_BETROWS\betrows-app\live-superbet\index.json" goto skip_sb_repo
+if not exist "live-superbet" mkdir "live-superbet"
+robocopy "C:\SOCCER_BETROWS\betrows-app\live-superbet" "live-superbet" /MIR /NFL /NDL /NJH /NJS >nul
+:skip_sb_repo
 if exist "C:\SOCCER_BETROWS\betrows-app\live-superbet-prev" (
   if not exist "live-superbet-prev" mkdir "live-superbet-prev"
   robocopy "C:\SOCCER_BETROWS\betrows-app\live-superbet-prev" "live-superbet-prev" /MIR /NFL /NDL /NJH /NJS >nul

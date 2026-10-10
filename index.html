@@ -295,10 +295,12 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
    δίχτυ ασφαλείας μόνο για ακραία μεγάλα ονόματα, όχι σαν βασικό μηχανισμό). */
 .row-main .metaRow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:4px}
 .row-main .team .infoBtn{
-  display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;
   background:var(--surface-2);border:1px solid var(--border);color:var(--text-faint);
-  font-size:10px;font-style:italic;font-family:Georgia,"Times New Roman",serif;font-weight:700;
-  cursor:help;margin-left:8px;vertical-align:1px;flex:none;
+  font-size:12px;font-style:italic;font-family:Georgia,"Times New Roman",serif;font-weight:700;
+  /* Αέρας ΚΑΙ ΑΠΟ ΤΙΣ ΔΥΟ ΠΛΕΥΡΕΣ: αριστερά από το όνομα της ομάδας, δεξιά από
+     το chip της λίγκας που ακολουθεί — να μην ακουμπάει πουθενά (2026-10-10). */
+  cursor:help;margin-left:10px;margin-right:4px;vertical-align:1px;flex:none;
 }
 .row-main .team .infoBtn:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
 .infoTip{
@@ -366,9 +368,9 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .src-tag.bk-superbet{border-color:rgba(248,113,113,.45);color:rgba(254,202,202,.95)}
 /* "i" δεξιά από την απόδοση: πράσινο στεφάνι όταν η ΙΔΙΑ γραμμή υπάρχει και
    στην άλλη εταιρεία. Πατιέται και βγάζει tulip με λογότυπο + όνομα + απόδοση. */
-.alsoBtn{flex:0 0 auto;width:17px;height:17px;border-radius:50%;cursor:pointer;
+.alsoBtn{flex:0 0 auto;width:21px;height:21px;border-radius:50%;cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;
-  font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:800;line-height:1;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:800;line-height:1;
   background:var(--accent-soft);color:var(--accent);border:1.5px solid var(--accent);
   box-shadow:var(--glow-pos);padding:0}
 .alsoBtn:hover{filter:brightness(1.25)}
@@ -383,6 +385,11 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .alsoTip .atRow.best .atOdds{color:var(--accent)}
 .alsoTip .atLine{margin-top:8px;font-size:10.5px;color:var(--text-faint);line-height:1.4}
 #bookSeg button{display:inline-flex;align-items:center;gap:5px}
+/* Δικό της κουμπί στη μπάρα — με το teal accent, ώστε να ξεχωρίζει ως
+   "σελίδα" και όχι ως φίλτρο. */
+.smOpenBtn{border-color:rgba(18,230,173,.45);color:var(--accent);font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.smOpenBtn:hover{border-color:var(--accent);background:var(--accent-soft)}
+body.smPageOn .smOpenBtn{display:none}
 #liveStatus .bkLogo{display:inline-block;vertical-align:-3px;margin:0 3px 0 1px}
 #liveStatus .liveWarn{color:var(--amber,#e0a63a)}
 /* Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την προηγούμενη ανανέωση των
@@ -409,9 +416,16 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .oddsAligned .oddsRows{
   display:grid;grid-template-columns:minmax(0,max-content) max-content;
   column-gap:6px;width:fit-content;max-width:100%;
-  padding-right:23px;   /* σταθερή θέση για το "i" δεξιά από την απόδοση */
+  /* Σταθερός χώρος δεξιά για το "i": πλάτος κουμπιού + κενό, ώστε να ΜΗΝ
+     κολλάει πάνω στο pill της απόδοσης (ζητήθηκε 2026-10-10). Είναι σταθερός
+     σε κάθε κάρτα, με ή χωρίς "i", ώστε να μη χαλάει η στοίχιση. */
+  padding-right:35px;
 }
-.oddsAligned .market > .alsoBtn{position:absolute;right:0;top:50%;transform:translateY(-50%);margin:0}
+/* ΠΡΟΣΟΧΗ: το padding-right μπαίνει στο .oddsRows, αλλά το .market (subgrid,
+   grid-column:1/-1) τελειώνει στο ΠΕΡΙΕΧΟΜΕΝΟ — δηλαδή ακριβώς στο δεξί άκρο
+   του pill της απόδοσης. Οπότε right:0 έβαζε το "i" ΠΑΝΩ στο pill. Το βγάζουμε
+   έξω, μέσα στον χώρο που κρατήσαμε, με κενό ~9px από το pill. */
+.oddsAligned .market > .alsoBtn{position:absolute;right:-30px;top:50%;transform:translateY(-50%);margin:0}
 .row-main.oddsAligned .metaRow,.row-main.oddsAligned .market{
   display:grid;grid-template-columns:subgrid;grid-column:1 / -1;column-gap:6px;align-items:center;
 }
@@ -1465,6 +1479,11 @@ body.bbPageOn .unresolved{display:none !important}
           <button data-v="superbet"><img class="bkLogo sm" src="bookmakers/superbet.png" alt="" width="64" height="64">SUPERBET</button>
         </div>
       </div>
+      <!-- ΕΚΤΟΣ #filterSegGroup επίτηδες: στο κινητό το segGroup μετακομίζει
+           ολόκληρο μέσα στο bottom sheet των φίλτρων και το κουμπί θα κρυβόταν.
+           Εδώ μένει πάντα ορατό στη μπάρα (2026-10-10). -->
+      <button type="button" class="pillselect smOpenBtn" id="smOpenBtn"
+              title="Arbitrage και middles ανάμεσα στις εταιρείες">◎ SURE &amp; MIDDLE BETS</button>
       <select class="pillselect" id="sortMode">
         <option value="hit">Ταξινόμηση: Hit rate</option>
         <option value="edge" selected>Ταξινόμηση: Edge</option>
@@ -2642,19 +2661,35 @@ var TEAM_ALIASES = {
     "Paris Saint-Germain":"Paris SG","Paris Saint Germain":"Paris SG"
   },
   "super-league-greece": {
+    // 2026-10-10: η Superbet δίνει ΣΥΝΤΟΜΟΤΕΡΑ ονόματα από το ιστορικό
+    // ("OFI" αντί "OFI Crete"), το αντίστροφο της Stoiximan.
+    "OFI":"OFI Crete","Volos":"Volos NFC","Volos NFC":"Volos NFC",
     "Atromitos Athinon":"Atromitos","Aris Thessaloniki":"Aris",
     "Levadiakos":"Levadeiakos","Olympiacos Piraeus":"Olympiakos","Olympiacos":"Olympiakos",
     "AEK Athens":"AEK","Panaitolikos":"Panetolikos"
   },
   "liga-mx": {
     "Club Puebla":"Puebla","Deportivo Toluca FC":"Toluca","CF Tigres UANL":"U.A.N.L.- Tigres",
-    "UNAM Pumas":"U.N.A.M.- Pumas"
+    "UNAM Pumas":"U.N.A.M.- Pumas",
+    // 2026-10-10 (Superbet): "Guadalajara" σκέτο, και "Atletico San Luis" ενώ
+    // το ιστορικό το γράφει "Atl. San Luis" — καμία από τις δύο δεν βγαίνει με
+    // κανόνα (η συντομογραφία "Atl." δεν είναι πρόθεμα του "Atletico").
+    "Guadalajara":"Guadalajara Chivas","Guadalajara Chivas":"Guadalajara Chivas",
+    "Atletico San Luis":"Atl. San Luis","Atl San Luis":"Atl. San Luis",
+    "UANL Tigres":"U.A.N.L.- Tigres","Deportivo Toluca":"Toluca",
+    "Tijuana":"Club Tijuana","Atlante":"Atlante FC","Leon":"Club Leon","America":"Club America"
   },
   "serie-a-brazil": {
     "Gremio RS":"Gremio","Clube Atletico MG":"Atletico-MG","Chapecoense SC":"Chapecoense-SC",
     "Mirassol SP":"Mirassol",
     "Remo PA":"Remo","Santos SP":"Santos","Vasco da Gama RJ":"Vasco","Coritiba PR":"Coritiba",
-    "Sao Paulo SP":"Sao Paulo","Internacional RS":"Internacional","Palmeiras SP":"Palmeiras"
+    "Sao Paulo SP":"Sao Paulo","Internacional RS":"Internacional","Palmeiras SP":"Palmeiras",
+    // 2026-10-10 (Superbet): "Atletico Mineiro" ενώ το ιστορικό το γράφει
+    // "Atletico-MG" — δεν είναι πρόθεμα το ένα του άλλου. Το "Flamengo" σκέτο
+    // λύνεται πλέον και με κανόνα, μένει κι εδώ ρητά για σιγουριά.
+    "Atletico Mineiro":"Atletico-MG","Clube Atletico Mineiro":"Atletico-MG",
+    "Flamengo":"Flamengo RJ","Athletico PR":"Athletico-PR","Athletico Paranaense":"Athletico-PR",
+    "Vasco da Gama":"Vasco","Vitoria BA":"Vitoria","Bahia BA":"Bahia","Mirassol SP":"Mirassol"
   }
 };
 var TEAM_NAME_PREFIX_TOKENS = ["FC","CF","AC","AS","SS","SC","SV","UD","US","CA","CD","RC","CP","SD","Real","Racing","Club","Deportivo","Clube"];
@@ -2737,9 +2772,25 @@ function matchTeamInLeague(name, lg){
     if(byLoose[lk] && !dupLoose[lk]) return byLoose[lk];
     // ...και "ξεκινάει από": π.χ. "West Bromwich Albion" -> "West Brom",
     // "Stade Brestois 29" -> "Brest". Πάλι μόνο αν ταιριάζει ΜΙΑ ομάδα.
+    // (α) το όνομα του feed είναι ΜΑΚΡΥΤΕΡΟ και ξεκινάει με το canonical
+    //     ("Wolverhampton Wanderers" -> "Wolves" δεν πιάνεται εδώ, αλλά
+    //      "Parma Calcio 1913" -> "Parma" ναι)
     var hit = null, many = false;
     Object.keys(byLoose).forEach(function(k){
       if(k.length>=5 && !dupLoose[k] && lk.indexOf(k)===0){
+        if(hit && hit!==byLoose[k]) many = true; else hit = byLoose[k];
+      }
+    });
+    if(hit && !many) return hit;
+    // (β) ΑΝΤΙΣΤΡΟΦΑ: το όνομα του feed είναι ΣΥΝΤΟΜΟΤΕΡΟ και το canonical
+    //     ξεκινάει με αυτό. Χρειάστηκε για τη Superbet (2026-10-10), που δίνει
+    //     "OFI" / "Volos" / "Guadalajara" / "Flamengo" ενώ το ιστορικό γράφει
+    //     "OFI Crete" / "Volos NFC" / "Guadalajara Chivas" / "Flamengo RJ".
+    //     Ίδιος κανόνας μοναδικότητας: αν ταιριάζουν ΔΥΟ διαφορετικές ομάδες
+    //     (π.χ. σκέτο "Atletico" -> Atletico-MG ΚΑΙ Atletico GO) δεν μαντεύουμε.
+    hit = null; many = false;
+    Object.keys(byLoose).forEach(function(k){
+      if(!dupLoose[k] && k.indexOf(lk) === 0 && k.length > lk.length){
         if(hit && hit!==byLoose[k]) many = true; else hit = byLoose[k];
       }
     });
@@ -6306,6 +6357,11 @@ document.getElementById("bbGoPageRow").addEventListener("click", function(e){
   e.stopPropagation();
   closeAllMsMenus(null);
   openBbPage();
+});
+document.getElementById("smOpenBtn").addEventListener("click", function(e){
+  e.stopPropagation();
+  closeAllMsMenus(null);
+  openSmPage();
 });
 document.getElementById("smGoPageRow").addEventListener("click", function(e){
   e.stopPropagation();
