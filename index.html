@@ -1069,6 +1069,7 @@ body.smPageOn .unresolved{display:none !important}
 .smChip.locked{cursor:not-allowed;opacity:.8}
 .smChip.cat.on{border-color:rgba(56,189,248,.55);background:rgba(56,189,248,.16);color:#7dd3fc}
 .smChip.cat.empty{opacity:.45}
+.smMoreWrap{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:6px 0}
 .smCnt{font-family:"IBM Plex Mono",monospace;font-size:10px;opacity:.65}
 .tmBook{font-size:11px;color:var(--text-faint)}
 .smToggle{font-size:11px;padding:4px 10px;cursor:pointer;border-radius:var(--radius-pill);
@@ -5101,7 +5102,18 @@ function smBuildMiddle(opts){
       });
     });
     cand.sort(smRankMiddle);
-    rows = rows.concat(cand.slice(0, perGroup));
+    // Το όριο perGroup ισχύει ΑΝΑ ΠΛΑΤΟΣ ΠΑΡΑΘΥΡΟΥ (2026-10-10). Πριν ίσχυε για
+    // όλη την ομάδα+κατηγορία, και επειδή τα μονά (παράθυρο 1) είναι πάντα τα
+    // φθηνότερα, έπιαναν και τις 6 θέσεις — το "Ελάχιστο παράθυρο 1" έδειχνε
+    // στην πράξη ΜΟΝΟ μονά και το "2" μόνο διπλά. Τώρα κάθε πλάτος έχει τις
+    // δικές του θέσεις, οπότε το 1 δείχνει μονά+διπλά+τριπλά, το 2 διπλά+τριπλά.
+    var perWidth = {};
+    cand.forEach(function(c){
+      var n = perWidth[c.width] || 0;
+      if(n >= perGroup) return;
+      perWidth[c.width] = n + 1;
+      rows.push(c);
+    });
   });
   rows.sort(smRankMiddle);
   return rows;   // cap στην εμφάνιση (βλ. smBuildSure)
@@ -5130,6 +5142,7 @@ var smState = {
   fill: false,
   venue: "any",
   minOdds: 1.30,               // ελάχιστη απόδοση ΚΑΘΕ σκέλους (ζητήθηκε 2026-10-10)
+  limit: 0,                    // πόσες κάρτες φαίνονται (0 = SM_LIST_CAP)· "Δείξε άλλα" το μεγαλώνει
   cats: []                     // κατηγορίες· κενό = όλες (πολλαπλή επιλογή, όπως PropDunker)
 };
 var _smCache = {sure:null, middle:null, key:""};
@@ -5375,7 +5388,8 @@ function smCtrlHtml(allRows){
       '<span class="smLbl">Μέγιστη ζημιά</span>'+smNumFieldHtml("maxLoss", smState.maxLoss, "%", 0, 100)+
       '<span class="smLbl">Ελάχιστο παράθυρο</span><span class="seg small" id="smWidthSeg">'+
         [1,2,3].map(function(n){
-          return '<button type="button" data-smwidth="'+n+'" class="'+(smState.minWidth===n?"active":"")+'">'+n+'</button>';
+          return '<button type="button" data-smwidth="'+n+'" class="'+(smState.minWidth===n?"active":"")+'" '+
+            'title="'+n+' αποτέλεσμα'+(n>1?"τα":"")+' και πάνω">'+n+'+</button>';
         }).join("")+'</span>'+
       '</div>'+
       '<div class="smRow">'+
@@ -5419,7 +5433,7 @@ function renderSmPage(){
   smState.cats = smState.cats.filter(function(c){ return present[c]; });
   var tabAll = smState.tab === "sure" ? res.sure : res.middle;
   var rowsAll = smCatFilter(tabAll);
-  var rows = rowsAll.slice(0, SM_LIST_CAP);
+  var rows = rowsAll.slice(0, smState.limit || SM_LIST_CAP);
   var nSure = smCatFilter(res.sure).length, nMid = smCatFilter(res.middle).length;
   var sub = smState.tab === "sure"
     ? "Ίδια ομάδα, ίδια κατηγορία, ίδια γραμμή — δύο εταιρείες που διαφωνούν αρκετά ώστε να πληρώνεσαι όπως κι αν έρθει."
@@ -5434,8 +5448,8 @@ function renderSmPage(){
            "Δοκίμασε μεγαλύτερη μέγιστη ζημιά, μεγαλύτερο παράθυρο ιστορικού, μικρότερο ελάχιστο παράθυρο ή χαμηλότερη ελάχιστη απόδοση."))+'</span></div>';
   } else {
     body = '<div class="smList">'+rows.map(smState.tab === "sure" ? smSureCardHtml : smMiddleCardHtml).join("")+'</div>'+
-      (rowsAll.length > rows.length ? '<div class="smHint smCapNote">Δείχνονται τα πρώτα '+rows.length+' από '+rowsAll.length+
-        ' — στένεψε με κατηγορία, ελάχιστη απόδοση ή μέγιστη ζημιά.</div>' : '');
+      (rowsAll.length > rows.length ? '<div class="smMoreWrap"><span class="smHint">Δείχνονται '+rows.length+' από '+rowsAll.length+'</span>'+
+        '<button type="button" class="smToggle" data-smmore="1">Δείξε άλλα '+Math.min(SM_LIST_CAP, rowsAll.length-rows.length)+'</button></div>' : '');
   }
   var foot = smState.tab === "sure"
     ? 'Οι αποδόσεις κινούνται. Έλεγξε ότι και οι δύο εταιρείες δείχνουν ακόμα αυτές τις τιμές πριν ποντάρεις, και βάλε πρώτο το σκέλος με τη μικρότερη απόδοση — αυτό είναι που αλλάζει πιο εύκολα.'
@@ -6624,6 +6638,10 @@ document.getElementById("smPage").addEventListener("click", function(e){
   if(!t) return;
   var back = t.closest("[data-smact='back']");
   if(back){ closeSmPage(); return; }
+  var more = t.closest("[data-smmore]");
+  if(more){ smState.limit = (smState.limit || SM_LIST_CAP) + SM_LIST_CAP; renderSmPage(); return; }
+  // Κάθε άλλη αλλαγή φίλτρου/καρτέλας ξεκινάει πάλι από τις πρώτες SM_LIST_CAP.
+  if(t.closest("[data-smtab],[data-smwin],[data-smwidth],[data-smcat],[data-smbook]")) smState.limit = 0;
   var tab = t.closest("[data-smtab]");
   if(tab){ smState.tab = tab.getAttribute("data-smtab"); renderSmPage(); return; }
   var win = t.closest("[data-smwin]");
