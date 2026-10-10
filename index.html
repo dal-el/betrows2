@@ -341,14 +341,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .side-tag.over{background:var(--accent-soft);color:var(--accent);box-shadow:var(--glow-pos)}
 .side-tag.under{background:var(--rose-soft);color:var(--rose);box-shadow:var(--glow-neg)}
 .price-chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--text-dim);background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);padding:3px 9px}
-/* Εκτιμώμενη απόδοση (μονόπλευρη αγορά, παραγόμενη αντίθετη πλευρά) — διάστικτο
-   περίγραμμα + αστερίσκος, ώστε να μη μπερδεύεται με πραγματική τιμή. */
-.price-chip.est{border-style:dashed;border-color:var(--amber,#e0a63a);color:var(--amber,#e0a63a)}
-/* ALT = μονόπλευρη γραμμή (το Stoiximan δίνει μόνο OVER). Μικρό tag δίπλα στο
-   OVER/UNDER pill, ώστε σε ALL LINES να ξεχωρίζει αμέσως από τις MAIN. */
+/* ALT = μονόπλευρη γραμμή. Μικρό tag δίπλα στο OVER/UNDER pill, ώστε σε
+   ALL LINES να ξεχωρίζει αμέσως από τις MAIN. */
 .altTag{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:10px;letter-spacing:.04em;
   padding:2px 6px;border-radius:var(--radius-pill);border:1px dashed var(--amber,#e0a63a);
   color:var(--amber,#e0a63a);white-space:nowrap}
+/* REVERSED LINE κλειδωμένο (ALT: δεν υπάρχει αντίθετη πλευρά) */
+.reversedLineBtn.locked{opacity:.4;cursor:not-allowed}
 .src-tag{font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px}
 /* Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την προηγούμενη ανανέωση των
    lines (βλ. lineMoveChipHtml). Δίπλα-δεξιά από το pill "Stoiximan". */
@@ -1301,9 +1300,9 @@ body.bbPageOn .unresolved{display:none !important}
           <button data-v="under">UNDER</button>
           <button data-v="over">OVER</button>
         </div>
-        <!-- MAIN = αμφίπλευρες γραμμές (Over ΚΑΙ Under από το Stoiximan)
-             ALT  = μονόπλευρες γραμμές (μόνο Over) — η αντίθετη πλευρά παράγεται
-             με εκτιμώμενη απόδοση (*). Προεπιλογή: MAIN. -->
+        <!-- MAIN = γραμμές με ΚΑΙ ΤΙΣ ΔΥΟ πλευρές από το Stoiximan.
+             ALT  = γραμμές με μόνο τη μία πλευρά (καμία εκτιμώμενη απόδοση,
+             καμία παραγόμενη γραμμή). Προεπιλογή: MAIN. -->
         <div class="seg" id="lineKindSeg">
           <button data-v="all">ALL LINES</button>
           <button data-v="main" class="active">MAIN LINES</button>
@@ -1426,9 +1425,7 @@ var oddsMaxVal = 3;
 // Στη θέση του μπήκε το φίλτρο BETBUILDER (bbLegsMode + BETBUILDERS PAGE).
 var bbLegsMode = 3;  // 2 = δυάδες, 3 = τριάδες (όπως ήταν) στα combos του Builder
 var showFilterVal = "all"; // "all" | "under" | "over"
-// MAIN / ALT LINES (ζητήθηκε ρητά 2026-10-10). ΠΡΟΕΠΙΛΟΓΗ: "main" — μόνο οι
-// γραμμές που το Stoiximan δίνει με ΚΑΙ ΤΙΣ ΔΥΟ πλευρές. "alt" = οι μονόπλευρες
-// (μόνο OVER), όπου η αντίθετη πλευρά είναι παραγόμενη με εκτιμώμενη απόδοση.
+// MAIN / ALT LINES — ΠΡΟΕΠΙΛΟΓΗ "main" (βλ. twoSidedThresholds).
 var lineKindVal = "main"; // "all" | "main" | "alt"
 var dateFilterVal = null; // "YYYY-MM-DD" (ημέρα αγώνα σε ώρα Ελλάδος) ή null == όλες
 // HOME/AWAY SPLIT (pill πάνω από το L5-L20, βλ. #haSplitBtn): όταν ενεργό,
@@ -1522,7 +1519,7 @@ function betRecord(r){
   return {
     isTotal: !!r.isTotal, team: r.team||null, homeTeam: r.homeTeam||null, awayTeam: r.awayTeam||null,
     league: r.league, category: r.category, side: r.side, threshold: r.threshold, direction: r.direction||null,
-    price: r.price||null, priceDerived: !!r.priceDerived, lineKind: r.lineKind||"main",
+    price: r.price||null, lineKind: r.lineKind||"main",
     startTime: r.startTime||null, savedAt: Date.now()
   };
 }
@@ -1578,7 +1575,7 @@ function renderSavedBetsList(){
           '<span class="side-tag '+rec.side+'">'+(rec.side==="over"?"OVER":"UNDER")+' '+rec.threshold+'</span>'+
           altTagHtml(rec)+
           '<span>'+catLabel(rec.category)+' · '+marketNote+'</span>'+
-          priceChipHtml(rec.price, rec.priceDerived)+
+          (rec.price ? '<span class="price-chip">'+rec.price.toFixed(2)+'</span>' : '')+
           '<span class="src-tag">Stoiximan</span>'+
         '</div>'+
       '</div>'+
@@ -2271,115 +2268,37 @@ function parseSelectionName(name){
   return {side: m[1].toLowerCase(), threshold: parseFloat(m[2])};
 }
 
-/* ---------- ΑΝΤΙΣΤΡΟΦΗ ΓΡΑΜΜΗΣ ΣΕ ΜΟΝΟΠΛΕΥΡΕΣ ΑΓΟΡΕΣ (2026-10-10) ----------
-   Το Stoiximan δίνει ΠΟΛΛΕΣ αγορές μόνο με OVER — π.χ. "Vasco da Gama RJ Total
-   Shots" -> Over 19.5 / 20.5 / 21.5 και ΚΑΜΙΑ Under. Μέχρι τώρα το UNDER αυτών
-   των γραμμών ΔΕΝ εμφανιζόταν καθόλου: όταν το OVER είχε κακή επίτευξη (π.χ.
-   30% η ομάδα, 20% ο αντίπαλος) το αντίστροφο UNDER — που είναι 70%/80%, άρα
-   ακριβώς η ενδιαφέρουσα γραμμή — έλειπε εντελώς από τη λίστα και από το GREEN.
-   Λύση: για κάθε γραμμή που λείπει η μία πλευρά, παράγουμε την αντίθετη με
-   ΕΚΤΙΜΩΜΕΝΗ απόδοση από το περιθώριο (overround) της ίδιας αγοράς:
-       1/pOver + 1/pUnder = overround   =>   pUnder = 1/(overround - 1/pOver)
-   Το overround βγαίνει ως ΔΙΑΜΕΣΟΣ από τις γραμμές της ίδιας αγοράς που έχουν
-   ΚΑΙ ΤΙΣ ΔΥΟ πλευρές· αν η αγορά δεν έχει καμία αμφίπλευρη γραμμή, πέφτουμε
-   στο overround ΟΛΟΥ του αγώνα και τελικά στο DEFAULT_OVERROUND.
-   Οι παραγόμενες γραμμές φέρουν priceDerived:true και η απόδοσή τους δείχνεται
-   με αστερίσκο (*) και διάστικτο περίγραμμα, για να ΜΗΝ μπερδεύεται ποτέ με
-   πραγματική τιμή του Stoiximan. Η επίτευξη (hit rate) ΔΕΝ είναι εκτίμηση:
-   υπολογίζεται κανονικά από το ιστορικό, ακριβώς όπως κάθε άλλη γραμμή. */
-var DEFAULT_OVERROUND = 1.07;
-function medianOf(arr){
-  if(!arr || !arr.length) return null;
-  var a = arr.slice().sort(function(x,y){ return x-y; });
-  var m = Math.floor(a.length/2);
-  return a.length % 2 ? a[m] : (a[m-1]+a[m])/2;
-}
-// Διάμεσο overround από ΟΛΕΣ τις αμφίπλευρες γραμμές των αγορών που δόθηκαν.
-function overroundOfMarkets(markets){
-  var vals = [];
-  (markets||[]).forEach(function(market){
-    var byThr = {};
-    (market.selections||[]).forEach(function(sel){
-      var p = parseSelectionName(sel.name);
-      if(!p || !(sel.price>1)) return;
-      if(!byThr[p.threshold]) byThr[p.threshold] = {};
-      byThr[p.threshold][p.side] = sel.price;
-    });
-    Object.keys(byThr).forEach(function(k){
-      var o = byThr[k].over, u = byThr[k].under;
-      if(o>1 && u>1){
-        var v = 1/o + 1/u;
-        // Σανίτι: αγνοούμε παράλογες τιμές (λάθος/μισοκλειστές αγορές).
-        if(v>1.0005 && v<1.6) vals.push(v);
-      }
-    });
-  });
-  return medianOf(vals);
-}
-function derivedOppositePrice(price, overround){
-  if(!(price>1) || !(overround>1)) return null;
-  var q = overround - 1/price;
-  q = Math.max(0.01, Math.min(0.985, q));   // 1.02 - 100.00
-  return Math.round((1/q)*100)/100;
-}
-// Οι selections μιας αγοράς ΜΑΖΙ με τις παραγόμενες αντίθετες πλευρές (όπου
-// λείπουν). Κάθε στοιχείο: {side, threshold, price, derived, srcPrice}.
-function selectionsWithReverse(market, eventOverround){
-  var byThr = {}, order = [];
+/* ---------- MAIN / ALT LINES (ζητήθηκε ρητά 2026-10-10) ----------
+   Το Stoiximan δίνει πολλές αγορές ΜΟΝΟ με OVER — π.χ. "Vasco da Gama RJ Total
+   Shots" -> Over 19.5 / 20.5 / 21.5 και ΚΑΜΙΑ Under. Αυτές είναι μισές αγορές:
+   δεν υπάρχει αντίθετη πλευρά για να παιχτεί, άρα ΔΕΝ παράγουμε UNDER και ΔΕΝ
+   εκτιμάμε αποδόσεις πουθενά — κάθε απόδοση στη σελίδα είναι πραγματική τιμή
+   του Stoiximan.
+     MAIN = η γραμμή (ίδιο threshold) υπάρχει ΚΑΙ σε Over ΚΑΙ σε Under.
+     ALT  = η γραμμή υπάρχει μόνο από τη μία πλευρά.
+   Προεπιλογή φίλτρου: MAIN. Οι ALT φαίνονται μόνο σε ALT LINES / ALL LINES, και
+   επειδή δεν έχουν αντίθετη πλευρά το REVERSED LINE κλειδώνει πάνω τους. */
+function twoSidedThresholds(market){
+  var byThr = {};
   (market.selections||[]).forEach(function(sel){
     var p = parseSelectionName(sel.name);
-    if(!p || !(sel.price>1)) return;
-    if(!byThr[p.threshold]){ byThr[p.threshold] = {}; order.push(p.threshold); }
-    byThr[p.threshold][p.side] = sel.price;
+    if(!p || sel.price==null) return;
+    if(!byThr[p.threshold]) byThr[p.threshold] = {};
+    byThr[p.threshold][p.side] = true;
   });
-  var ovr = overroundOfMarkets([market]) || eventOverround || DEFAULT_OVERROUND;
-  var out = [];
-  order.forEach(function(thr){
-    var pair = byThr[thr];
-    // MAIN = η γραμμή προσφέρεται από το Stoiximan και με τις ΔΥΟ πλευρές.
-    // ALT  = η γραμμή προσφέρεται μόνο με τη μία (σχεδόν πάντα μόνο OVER), οπότε
-    //        η αντίθετη πλευρά είναι παραγόμενη. Ζητήθηκε ρητά 2026-10-10:
-    //        φίλτρο ALL / MAIN / ALT LINES με προεπιλογή MAIN. ΚΑΙ οι δύο
-    //        πλευρές μιας μονόπλευρης γραμμής είναι ALT (η πραγματική OVER και
-    //        η παραγόμενη UNDER) — είναι η ίδια, μισή αγορά.
-    var kind = (pair.over!=null && pair.under!=null) ? "main" : "alt";
-    ["over","under"].forEach(function(side){
-      if(pair[side]!=null){
-        out.push({side:side, threshold:thr, price:pair[side], derived:false, lineKind:kind});
-        return;
-      }
-      var src = pair[side==="over" ? "under" : "over"];
-      var dp = derivedOppositePrice(src, ovr);
-      if(dp!=null) out.push({side:side, threshold:thr, price:dp, derived:true, srcPrice:src, lineKind:kind});
-    });
+  var out = {};
+  Object.keys(byThr).forEach(function(k){
+    if(byThr[k].over && byThr[k].under) out[k] = true;
   });
   return out;
 }
-var EST_PRICE_TIP = "ΕΚΤΙΜΩΜΕΝΗ απόδοση — το Stoiximan δεν προσφέρει αυτή την πλευρά της γραμμής. "+
-  "Υπολογίστηκε από την αντίθετη πλευρά και το περιθώριο της ίδιας αγοράς. Η ΕΠΙΤΕΥΞΗ είναι πραγματική (από το ιστορικό).";
+function lineKindOf(twoSided, threshold){
+  return twoSided[threshold] ? "main" : "alt";
+}
 function altTagHtml(r){
   return (r && r.lineKind==="alt")
-    ? '<span class="altTag" title="ALT γραμμή: το Stoiximan την προσφέρει μόνο από τη μία πλευρά (OVER). Η αντίθετη πλευρά παράγεται με εκτιμώμενη απόδοση (*).">ALT</span>'
+    ? '<span class="altTag" title="ALT γραμμή: το Stoiximan την προσφέρει μόνο από τη μία πλευρά, δεν υπάρχει αντίθετη πλευρά να παιχτεί.">ALT</span>'
     : "";
-}
-function priceChipHtml(price, derived){
-  if(price==null) return "";
-  return '<span class="price-chip'+(derived?" est":"")+'"'+
-    (derived?' title="'+escAttr(EST_PRICE_TIP)+'"':'')+'>'+
-    price.toFixed(2)+(derived?"*":"")+'</span>';
-}
-function applyPriceChip(marketRow, chipEl, price, derived){
-  if(price==null){ if(chipEl) chipEl.remove(); return; }
-  var el = chipEl;
-  if(!el){
-    if(!marketRow) return;
-    el = document.createElement("span");
-    var srcTag = marketRow.querySelector(".src-tag");
-    if(srcTag) marketRow.insertBefore(el, srcTag); else marketRow.appendChild(el);
-  }
-  el.className = "price-chip" + (derived ? " est" : "");
-  el.textContent = price.toFixed(2) + (derived ? "*" : "");
-  if(derived) el.setAttribute("title", EST_PRICE_TIP); else el.removeAttribute("title");
 }
 
 /* ---------- unresolved team UI ---------- */
@@ -2642,9 +2561,6 @@ function processEvent(root){
   var home = participants[0], away = participants[1];
   if(!home || !away) return unresolved;
 
-  // Περιθώριο ΟΛΟΥ του αγώνα — fallback για αγορές που δεν έχουν καμία
-  // αμφίπλευρη γραμμή (βλ. selectionsWithReverse).
-  var evOverround = overroundOfMarkets(root.markets||[]);
   var guessedLeague = guessLeagueId(root.leagueName, root.regionName);
   var homeR = resolveTeam(home, guessedLeague);
   var awayR = resolveTeam(away, guessedLeague);
@@ -2672,7 +2588,10 @@ function processEvent(root){
     var evalDirection = isTotal ? "total" : "for";
     var opponentName = isTotal ? null : (team===homeR ? (awayR?awayR.name:null) : (homeR?homeR.name:null));
 
-    selectionsWithReverse(market, evOverround).forEach(function(parsed){
+    var twoSided = twoSidedThresholds(market);
+    (market.selections||[]).forEach(function(sel){
+      var parsed = parseSelectionName(sel.name);
+      if(!parsed) return;
       var windowResults = {};
       WINDOWS.forEach(function(n){
         windowResults[n] = isTotal
@@ -2709,12 +2628,9 @@ function processEvent(root){
         // το HOME/AWAY SPLIT pill να μην άλλαζε καθόλου τιμές — διορθώθηκε 2026-09-17).
         ownVenue: isTotal ? null : (cls.direction==="home" ? "home" : cls.direction==="away" ? "away" : null),
         league: leagueForTeam, category: cls.category, direction: evalDirection,
-        threshold: parsed.threshold, side: parsed.side, price: parsed.price, windowResults: windowResults,
-        // true = η απόδοση ΔΕΝ είναι του Stoiximan αλλά παράχθηκε από την
-        // αντίθετη πλευρά (μονόπλευρη αγορά) — βλ. selectionsWithReverse.
-        priceDerived: !!parsed.derived, priceDerivedFrom: parsed.srcPrice||null,
-        // "main" = αμφίπλευρη γραμμή | "alt" = μονόπλευρη (βλ. selectionsWithReverse)
-        lineKind: parsed.lineKind || "main",
+        threshold: parsed.threshold, side: parsed.side, price: sel.price, windowResults: windowResults,
+        // "main" = η γραμμή υπάρχει και Over και Under | "alt" = μόνο η μία πλευρά
+        lineKind: lineKindOf(twoSided, parsed.threshold),
         oppWindowResults: oppWindowResults,
         marketName: market.name||"", startTime: root.startTime||null,
       });
@@ -3338,8 +3254,8 @@ function renderToolbarAndRows(){
   list = list.filter(function(r){ return !r.isTotal; });
   if(showFilterVal==="under") list = list.filter(function(r){ return r.side==="under"; });
   else if(showFilterVal==="over") list = list.filter(function(r){ return r.side==="over"; });
-  // MAIN/ALT LINES — προεπιλογή "main", οπότε οι μονόπλευρες γραμμές (και η
-  // παραγόμενη αντίθετη πλευρά τους) δεν εμφανίζονται παρά μόνο σε ALT/ALL.
+  // MAIN/ALT LINES — προεπιλογή "main": οι μονόπλευρες γραμμές φαίνονται ΜΟΝΟ
+  // σε ALT LINES και ALL LINES.
   if(lineKindVal==="main") list = list.filter(function(r){ return (r.lineKind||"main")==="main"; });
   else if(lineKindVal==="alt") list = list.filter(function(r){ return r.lineKind==="alt"; });
   if(dateFilterVal) list = list.filter(function(r){ return athensDateISO(r.startTime)===dateFilterVal; });
@@ -3559,7 +3475,18 @@ function refreshCardHead(r, head){
     sideTagEl.classList.remove("over","under");
     sideTagEl.classList.add(r.side);
   }
-  applyPriceChip(head.querySelector(".market"), head.querySelector(".price-chip"), r.price, r.priceDerived);
+  var marketRow = head.querySelector(".market");
+  var priceChipEl = head.querySelector(".price-chip");
+  if(r.price!=null){
+    if(priceChipEl) priceChipEl.textContent = r.price.toFixed(2);
+    else if(marketRow){
+      var span = document.createElement("span");
+      span.className = "price-chip";
+      span.textContent = r.price.toFixed(2);
+      var srcTag = marketRow.querySelector(".src-tag");
+      if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
+    }
+  } else if(priceChipEl){ priceChipEl.remove(); }
   var lmWrapEl = head.querySelector(".lmWrap");
   if(lmWrapEl) lmWrapEl.innerHTML = lineMoveChipHtml(r, r.threshold, r.side, r.price);
 }
@@ -3605,7 +3532,7 @@ function renderRowCard(r){
         '<span class="side-tag '+r.side+'">'+(r.side==="over"?"OVER":"UNDER")+' '+r.threshold+'</span>'+
         altTagHtml(r)+
         '<span>'+catLabel(r.category)+' · '+marketNote+'</span></div>'+
-        priceChipHtml(r.price, r.priceDerived)+
+        (r.price? '<span class="price-chip">'+r.price.toFixed(2)+'</span>' : '')+
       '</div>'+
     '</div>'+
     '</div>'+
@@ -3761,7 +3688,7 @@ function bbLegsOfTeam(r){
     if(x.price==null || !isFinite(x.price)) return;
     var id = x.category+"|"+x.threshold+"|"+x.side;
     if(seen[id]) return; seen[id] = 1;
-    out.push({id:id, category:x.category, threshold:x.threshold, side:x.side, price:x.price, derived:!!x.priceDerived, lineKind:x.lineKind||"main"});
+    out.push({id:id, category:x.category, threshold:x.threshold, side:x.side, price:x.price, lineKind:x.lineKind||"main"});
   });
   return out;
 }
@@ -3911,7 +3838,7 @@ function bbExtensions(r, bb, ms, slipLegs, allLegs){
   return out.slice(0,5);
 }
 function bbLegChip(l){
-  return '<span class="bbLeg '+l.side+'"'+(l.derived?' title="'+escAttr(EST_PRICE_TIP)+'"':'')+'><b>'+(l.side==="over"?"OVER":"UNDER")+'</b> '+l.threshold+' '+escAttr(catLabel(l.category))+' <i>'+l.price.toFixed(2)+(l.derived?"*":"")+'</i></span>';
+  return '<span class="bbLeg '+l.side+'"><b>'+(l.side==="over"?"OVER":"UNDER")+'</b> '+l.threshold+' '+escAttr(catLabel(l.category))+' <i>'+l.price.toFixed(2)+'</i></span>';
 }
 function bbEvHtml(hitRate, odds){
   if(!(odds>1)) return '<span class="bbOddsNote" style="margin:0">Βάλε απόδοση για έλεγχο value.</span>';
@@ -4201,7 +4128,7 @@ function bbRender(r, state, inner, redraw, opts){
         '<div><div class="bbAllHitHead"><span>All-hit ('+(bb.n==="all"?"ΟΛΑ":"L"+slipEv.sample)+')</span><span class="bbPct '+bbTier(sp2)+'">'+slipEv.hits+'/'+slipEv.sample+' · '+sp2+'%</span></div>'+
         '<div class="bbAllStrip">'+bbSquares(slipEv.matches, r.team, "opp", r, slipLegs)+'</div></div>'+
         '<div class="bbSlipLegs">'+slipLegs.map(function(l){
-          return '<div class="bbSlipLeg"'+(l.derived?' title="'+escAttr(EST_PRICE_TIP)+'"':'')+'><span class="sd '+l.side+'">'+(l.side==="over"?"O":"U")+'</span><span class="nm">'+l.threshold+' '+escAttr(catLabel(l.category))+'</span><span class="od">'+l.price.toFixed(2)+(l.derived?"*":"")+'</span><button type="button" class="rm" data-act="rm" data-id="'+escAttr(l.id)+'" title="Αφαίρεση">✕</button></div>';
+          return '<div class="bbSlipLeg"><span class="sd '+l.side+'">'+(l.side==="over"?"O":"U")+'</span><span class="nm">'+l.threshold+' '+escAttr(catLabel(l.category))+'</span><span class="od">'+l.price.toFixed(2)+'</span><button type="button" class="rm" data-act="rm" data-id="'+escAttr(l.id)+'" title="Αφαίρεση">✕</button></div>';
         }).join("")+'</div>'+
         bbOddsBoxHtml(slipEv.hits, slipEv.sample, bbEstOdds(slipLegs), bb.manual)+
         '<div class="bbSlipBtns"><button type="button" class="bbGhost" data-act="clear">↺ Clear all</button></div>';
@@ -4528,24 +4455,16 @@ function renderDrawer(r, headEl){
 
   // Ψάχνει στο ίδιο feed για την ΠΡΑΓΜΑΤΙΚΗ τιμή (odds) της ίδιας αγοράς σε
   // άλλο threshold (π.χ. όταν ο χρήστης ανεβοκατεβάζει τη γραμμή με +/-).
-  function findSiblingRow(thr, side){
-    return feedRows.filter(function(x){
+  function findSiblingPrice(thr){
+    var side = effSide();
+    if(!state.reversedLine && thr === r.threshold) return r.price;
+    var found = feedRows.filter(function(x){
       if(x.side!==side || x.category!==r.category || x.threshold!==thr) return false;
       return r.isTotal
         ? (x.isTotal && x.homeTeam===r.homeTeam && x.awayTeam===r.awayTeam)
         : (!x.isTotal && x.team===r.team && x.direction===r.direction);
-    })[0] || null;
-  }
-  function findSiblingPrice(thr){
-    if(!state.reversedLine && thr === r.threshold) return r.price;
-    var found = findSiblingRow(thr, effSide());
+    })[0];
     return found ? found.price : null;
-  }
-  // Είναι ΕΚΤΙΜΩΜΕΝΗ η απόδοση της ενεργής γραμμής/πλευράς του drawer;
-  function siblingDerived(thr){
-    if(!state.reversedLine && thr === r.threshold) return !!r.priceDerived;
-    var found = findSiblingRow(thr, effSide());
-    return found ? !!found.priceDerived : false;
   }
 
   // Επιστρέφει ένα "ενεργό" r-like αντικείμενο που αντανακλά ΤΗΝ ΤΡΕΧΟΥΣΑ
@@ -4560,7 +4479,6 @@ function renderDrawer(r, headEl){
     out.threshold = thr;
     out.side = side;
     out.price = findSiblingPrice(thr);
-    out.priceDerived = siblingDerived(thr);
     return out;
   }
   headEl._drawerGetEffectiveRow = effectiveRow;
@@ -4576,7 +4494,20 @@ function renderDrawer(r, headEl){
       sideTagEl.classList.remove("over","under");
       sideTagEl.classList.add(side);
     }
-    applyPriceChip(headEl.querySelector(".market"), headEl.querySelector(".price-chip"), price, siblingDerived(thr));
+    var marketRow = headEl.querySelector(".market");
+    var priceChipEl = headEl.querySelector(".price-chip");
+    if(price!=null){
+      if(priceChipEl){ priceChipEl.textContent = price.toFixed(2); }
+      else if(marketRow){
+        var span = document.createElement("span");
+        span.className = "price-chip";
+        span.textContent = price.toFixed(2);
+        var srcTag = marketRow.querySelector(".src-tag");
+        if(srcTag) marketRow.insertBefore(span, srcTag); else marketRow.appendChild(span);
+      }
+    } else if(priceChipEl){
+      priceChipEl.remove();
+    }
     // Το chip μετατόπισης ακολουθεί την ΕΝΕΡΓΗ γραμμή/πλευρά του drawer.
     var lmWrapEl = headEl.querySelector(".lmWrap");
     if(lmWrapEl) lmWrapEl.innerHTML = lineMoveChipHtml(r, thr, side, price);
@@ -5048,7 +4979,14 @@ function renderDrawer(r, headEl){
             '<span class="lval">LINE <b>'+thr+'</b></span>'+
             '<button class="ladj" data-d="1"'+(canGoUp?"":" disabled")+' title="Ανέβασε τη γραμμή">+</button>'+
           '</div>'+
-          '<button type="button" class="reversedLineBtn'+(state.reversedLine?" active":"")+'" title="Αντιστροφή over/under στην ίδια γραμμή">⇄ REVERSED LINE</button>'+
+          // ALT γραμμή = δεν υπάρχει αντίθετη πλευρά στο Stoiximan, οπότε δεν
+          // υπάρχει τίποτα να αντιστραφεί: το κουμπί κλειδώνει (ζητήθηκε ρητά
+          // 2026-10-10 — καμία εκτιμώμενη απόδοση, κανένα reversed σε ALT).
+          '<button type="button" class="reversedLineBtn'+(state.reversedLine?" active":"")+(r.lineKind==="alt"?" locked":"")+'"'+
+            (r.lineKind==="alt"
+              ? ' disabled title="ALT γραμμή: το Stoiximan δεν δίνει την αντίθετη πλευρά, δεν γίνεται αντιστροφή"'
+              : ' title="Αντιστροφή over/under στην ίδια γραμμή"')+
+          '>⇄ REVERSED LINE</button>'+
         '</div>'
       )+
       (state.tableMode ? tableSectionHtml : (chartHtml+detailHtml))+
@@ -5243,6 +5181,7 @@ function renderDrawer(r, headEl){
     if(reversedBtn){
       reversedBtn.addEventListener("click", function(e){
         e.stopPropagation();
+        if(r.lineKind==="alt") return;   // κλειδωμένο, βλ. markup παραπάνω
         state.reversedLine = !state.reversedLine;
         state.selected = null;
         draw();
@@ -5447,8 +5386,7 @@ document.getElementById("lineKindSeg").addEventListener("click", function(e){
   Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
   e.target.classList.add("active");
   lineKindVal = e.target.getAttribute("data-v");
-  // Το pool των legs του BetBuilder ακολουθεί το ΙΔΙΟ φίλτρο (βλ. bbInRange),
-  // οπότε τα ανοιχτά BB/η σελίδα BETBUILDERS ξαναχτίζονται.
+  // Το pool των legs του BetBuilder ακολουθεί το ΙΔΙΟ φίλτρο (βλ. bbInRange).
   _bbPageCache = {};
   renderToolbarAndRows();
   if(bbPageOn) renderBbPage();
@@ -5648,17 +5586,16 @@ function extractLineSnapshot(root, out){
   var participants = root.participants || [];
   var home = participants[0], away = participants[1];
   if(!home || !away) return;
-  // ΙΔΙΑ παραγωγή αντίθετης πλευράς με το feed (selectionsWithReverse), ώστε οι
-  // παραγόμενες γραμμές να έχουν κι αυτές μετατόπιση/νέα απόδοση στο pill.
-  var evOverround = overroundOfMarkets(root.markets||[]);
   (root.markets||[]).forEach(function(market){
     var cls = classifyMarket(market.name||"", home.name, away.name);
     if(!cls || cls.category==="unsupported") return;
     if(isNonFullMatchMarket(market.name||"")) return;
-    selectionsWithReverse(market, evOverround).forEach(function(parsed){
+    (market.selections||[]).forEach(function(sel){
+      var parsed = parseSelectionName(sel.name);
+      if(!parsed || sel.price==null) return;
       var mk = lineMarketKey(home.name, away.name, cls.direction, cls.category, parsed.side);
       if(!out[mk]) out[mk] = {};
-      out[mk][parsed.threshold] = parsed.price;
+      out[mk][parsed.threshold] = sel.price;
     });
   });
 }
