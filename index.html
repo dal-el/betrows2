@@ -1067,6 +1067,10 @@ body.smPageOn .unresolved{display:none !important}
   border-radius:var(--radius-pill);background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}
 .smChip.on{border-color:var(--gold);background:var(--gold-soft);color:var(--gold)}
 .smChip.locked{cursor:not-allowed;opacity:.8}
+.smChip.cat.on{border-color:rgba(56,189,248,.55);background:rgba(56,189,248,.16);color:#7dd3fc}
+.smChip.cat.empty{opacity:.45}
+.smCnt{font-family:"IBM Plex Mono",monospace;font-size:10px;opacity:.65}
+.tmBook{font-size:11px;color:var(--text-faint)}
 .smToggle{font-size:11px;padding:4px 10px;cursor:pointer;border-radius:var(--radius-pill);
   background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}
 .smToggle.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
@@ -1683,13 +1687,19 @@ function teamMapPendingIds(){
     if(f && f.name===l.name && f.league===l.league) return;
     out.push(id);
   });
+  // ...και λάθος εγγραφές του κοινού αρχείου που πρέπει να φύγουν από αυτό.
+  (typeof TEAM_MAP_FIXES !== "undefined" ? TEAM_MAP_FIXES : []).forEach(function(fx){
+    if(fx.fromFile && out.indexOf(fx.key) < 0) out.push(fx.key);
+  });
   return out;
 }
-// Το πλήρες αρχείο που πρέπει να ανέβει: κοινό αρχείο + τοπικές αντιστοιχίσεις.
+// Το πλήρες αρχείο που πρέπει να ανέβει: κοινό αρχείο + τοπικές αντιστοιχίσεις,
+// ΧΩΡΙΣ όσες βρέθηκαν λάθος (βλ. resolveTeam / TEAM_MAP_FIXES).
 function teamMapExportObject(){
-  var out = {}, local = loadTeamMap();
-  Object.keys(TEAM_MAP_FILE).forEach(function(id){ out[id] = TEAM_MAP_FILE[id]; });
-  Object.keys(local).forEach(function(id){ if(local[id] && local[id].name) out[id] = local[id]; });
+  var out = {}, local = loadTeamMap(), bad = {};
+  (typeof TEAM_MAP_FIXES !== "undefined" ? TEAM_MAP_FIXES : []).forEach(function(fx){ bad[fx.key] = 1; });
+  Object.keys(TEAM_MAP_FILE).forEach(function(id){ if(!bad[id]) out[id] = TEAM_MAP_FILE[id]; });
+  Object.keys(local).forEach(function(id){ if(local[id] && local[id].name && !bad[id]) out[id] = local[id]; });
   return out;
 }
 function updateTeamMapExportUI(){
@@ -2531,13 +2541,54 @@ function lineKindOf(twoSided, threshold){
 // ονόματα (όπως λύθηκαν πάνω στο ιστορικό) + την ΗΜΕΡΑ του αγώνα, που είναι τα
 // ίδια και στις δύο εταιρείες.
 function lineIdentityKey(r){
-  // ΔΕΝ μπαίνει ο αντίπαλος: αν σε μία εταιρεία το όνομα του αντιπάλου δεν
-  // αντιστοιχιστεί στο ιστορικό (r.opponent null), το κλειδί θα διέφερε και η
-  // ίδια γραμμή θα εμφανιζόταν δύο φορές. Ομάδα + ΗΜΕΡΑ αγώνα αρκούν: καμία
-  // ομάδα δεν παίζει δύο φορές την ίδια μέρα σε αυτές τις λίγκες.
+  // ΔΕΝ μπαίνει σκέτος ο αντίπαλος: αν σε μία εταιρεία το όνομα του αντιπάλου
+  // δεν αντιστοιχιστεί (r.opponent null), το κλειδί θα διέφερε και η ίδια γραμμή
+  // θα εμφανιζόταν δύο φορές. Μπαίνει το r._fx (βλ. assignFixtureKeys), που
+  // είναι ομάδα + ΗΜΕΡΑ, και ΧΩΡΙΖΕΙ μόνο όταν η ίδια "ομάδα" εμφανίζεται σε
+  // ΔΥΟ διαφορετικούς αγώνες την ίδια μέρα — που σημαίνει λάθος αντιστοίχιση.
   var who = r.isTotal ? ("T:"+r.homeTeam+"|"+r.awayTeam) : ("S:"+r.team);
   return who+"|"+r.league+"|"+r.category+"|"+(r.direction||"")+"|"+
-    r.threshold+"|"+(athensDateISO(r.startTime)||"");
+    r.threshold+"|"+(athensDateISO(r.startTime)||"")+(r._fx ? "|"+r._fx : "");
+}
+// Ωμό όνομα αντιπάλου ΟΠΩΣ το έδωσε η εταιρεία (για γραμμές μίας ομάδας).
+function rawOpponentOf(r){
+  if(r.ownVenue === "home") return r.matchAway || "";
+  if(r.ownVenue === "away") return r.matchHome || "";
+  return "";
+}
+// Δίχτυ ασφαλείας ΠΙΣΩ από το resolveTeam: δύο γραμμές της "ίδιας ομάδας" την
+// ίδια μέρα συνενώνονται/ζευγαρώνουν ΜΟΝΟ αν είναι ο ίδιος αγώνας. Αν για την
+// ίδια ομάδα-μέρα υπάρχουν ΔΙΑΦΟΡΕΤΙΚΟΙ αντίπαλοι (π.χ. Leverkusen–Mainz από
+// τη μία εταιρεία και "Leverkusen"–Augsburg από την άλλη, επειδή η Μπάγερν
+// αντιστοιχίστηκε λάθος), κάθε αγώνας παίρνει δικό του r._fx και δεν
+// ανακατεύονται ποτέ. Με έναν μόνο αντίπαλο το r._fx μένει κενό (=όπως πριν).
+var FIXTURE_CLASHES = [];
+function assignFixtureKeys(rows){
+  FIXTURE_CLASHES = [];
+  var groups = {};
+  rows.forEach(function(r){
+    r._fx = "";
+    if(r.isTotal || !r.team) return;
+    var k = r.team+"|"+r.league+"|"+(athensDateISO(r.startTime)||"");
+    (groups[k] = groups[k] || []).push(r);
+  });
+  Object.keys(groups).forEach(function(k){
+    var g = groups[k], opps = {};
+    g.forEach(function(r){ if(r.opponent) opps[r.opponent] = 1; });
+    var list = Object.keys(opps);
+    if(list.length <= 1){
+      // Ένας αντίπαλος, αλλά μήπως δύο διαφορετικές ώρες έναρξης (>3 ώρες);
+      var times = g.map(function(r){ return r.startTime||0; }).filter(Boolean);
+      if(!times.length || Math.max.apply(null, times) - Math.min.apply(null, times) <= 3*3600*1000) return;
+    }
+    var seen = {};
+    g.forEach(function(r){
+      var tag = r.opponent ? ("vs:"+r.opponent) : ("raw:"+(r.book||"stoiximan")+":"+looseTeamKey(rawOpponentOf(r)));
+      r._fx = tag + "@" + Math.round((r.startTime||0)/3600000);
+      seen[(r.matchHome||"")+" – "+(r.matchAway||"")+" ("+bookLabel(r.book||"stoiximan")+")"] = 1;
+    });
+    FIXTURE_CLASHES.push({team:g[0].team, league:g[0].league, matches:Object.keys(seen)});
+  });
 }
 function bookMergeKey(r){ return lineIdentityKey(r)+"|"+r.side; }
 function mergeBooks(list){
@@ -2659,7 +2710,7 @@ var TEAM_ALIASES = {
     "AS Monaco":"Monaco","RC Lens":"Lens","RC Strasbourg":"Strasbourg",
     "Olympique Lyonnais":"Lyon","Stade Rennais FC":"Rennes","Le Mans UC 72":"Le Mans",
     "FC Lorient":"Lorient","Toulouse FC":"Toulouse","Le Havre AC":"Le Havre",
-    "Angers SCO":"Angers","ES Troyes AC":"Troyes",
+    "Angers SCO":"Angers","ES Troyes AC":"Troyes","AJ Auxerre":"Auxerre",
     "Olympique Marseille":"Marseille","Olympique de Marseille":"Marseille",
     "Paris Saint-Germain":"Paris SG","Paris Saint Germain":"Paris SG"
   },
@@ -2735,9 +2786,19 @@ function teamNameCandidates(name){
 }
 // Επιστρέφει το canonical όνομα (όπως υπάρχει στο byLeague[lg].teams) αν
 // αντιστοιχεί στο name με οποιονδήποτε από τους παραπάνω μηχανισμούς, αλλιώς null.
+// = ΒΕΒΑΙΟ ταίριασμα (strictMatchInLeague) ή, αν δεν υπάρχει, το "χαλαρό"
+// ταίριασμα με πρόθεμα (fuzzyMatchInLeague).
 function matchTeamInLeague(name, lg){
+  return strictMatchInLeague(name, lg) || fuzzyMatchInLeague(name, lg);
+}
+// ΒΕΒΑΙΟ ταίριασμα (2026-10-10): ακριβές όνομα, ρητό alias, αφαίρεση
+// σωματειακών προθεμάτων/επιθεμάτων, τόνοι/πεζά, ή ΙΔΙΟ "χαλαρό" κλειδί που
+// ανήκει σε ΜΙΑ μόνο ομάδα της λίγκας. Τίποτα από αυτά δεν μπορεί να μπερδέψει
+// δύο διαφορετικούς συλλόγους — γι' αυτό ένα βέβαιο ταίριασμα ΥΠΕΡΙΣΧΥΕΙ πλέον
+// και μιας χειροκίνητης αντιστοίχισης που λέει άλλη ομάδα (βλ. resolveTeam).
+function strictMatchInLeague(name, lg){
   var teams = byLeague[lg] && byLeague[lg].teams;
-  if(!teams) return null;
+  if(!teams || !name) return null;
   if(teams.has(name)) return name;
   var alias = TEAM_ALIASES[lg] && TEAM_ALIASES[lg][name];
   if(alias && teams.has(alias)) return alias;
@@ -2751,13 +2812,43 @@ function matchTeamInLeague(name, lg){
   // δοκιμάζουμε ξανά όλα τα παραπάνω χωρίς αυτό
   if(BR_STATE_SUFFIX_RE.test(name)){
     var noState = name.replace(BR_STATE_SUFFIX_RE, "");
-    var m2 = matchTeamInLeague(noState, lg);
+    var m2 = strictMatchInLeague(noState, lg);
     if(m2) return m2;
   }
   // τελευταία-τελευταία προσπάθεια: σύγκριση αγνοώντας πεζά/κεφαλαία
   var lowerTeams = {};
   teams.forEach(function(t){ lowerTeams[stripDiacritics(t).toLowerCase()] = t; });
   for(i=0;i<cands.length;i++){ var lc = cands[i].toLowerCase(); if(lowerTeams[lc]) return lowerTeams[lc]; }
+  // ΙΔΙΟ "χαλαρό" κλειδί (βλ. looseTeamKey), μόνο αν ανήκει σε ΜΙΑ ομάδα.
+  var lk = looseTeamKey(name);
+  if(lk && lk.length>=4){
+    var lx = looseIndexOf(lg);
+    if(lx.byLoose[lk] && !lx.dupLoose[lk]) return lx.byLoose[lk];
+  }
+  return null;
+}
+// Ευρετήριο "χαλαρών" κλειδιών ανά λίγκα (υπολογίζεται μία φορά).
+var _looseIdx = {};
+function looseIndexOf(lg){
+  if(_looseIdx[lg]) return _looseIdx[lg];
+  var byLoose = {}, dupLoose = {};
+  var teams = byLeague[lg] && byLeague[lg].teams;
+  if(teams) teams.forEach(function(t){
+    var k = looseTeamKey(t);
+    if(!k) return;
+    if(byLoose[k] && byLoose[k]!==t) dupLoose[k] = 1; else byLoose[k] = t;
+  });
+  return (_looseIdx[lg] = {byLoose:byLoose, dupLoose:dupLoose});
+}
+// "ΧΑΛΑΡΟ" ταίριασμα με ΠΡΟΘΕΜΑ — χρήσιμο για καινούργια ονόματα, αλλά ΔΕΝ
+// είναι βέβαιο, οπότε μια χειροκίνητη αντιστοίχιση προηγείται.
+function fuzzyMatchInLeague(name, lg){
+  var teams = byLeague[lg] && byLeague[lg].teams;
+  if(!teams || !name) return null;
+  if(BR_STATE_SUFFIX_RE.test(name)){
+    var m2 = fuzzyMatchInLeague(name.replace(BR_STATE_SUFFIX_RE, ""), lg);
+    if(m2) return m2;
+  }
   // ΤΕΛΕΥΤΑΙΟ ΔΙΧΤΥ (2026-10-08): "χαλαρό" κλειδί — πεζά, χωρίς τόνους, χωρίς
   // σημεία στίξης, χωρίς αριθμούς (π.χ. "Como 1907", "SC Paderborn 07") και
   // χωρίς κοινές σωματειακές συντομογραφίες (FC/CFC/OSC/SSC/TSG/SV/Calcio...).
@@ -2815,22 +2906,93 @@ function looseTeamKey(s){
   });
   return parts.join("");
 }
-function resolveTeam(participant, guessedLeague){
-  var t = TEAM_MAP[participant.id];
-  if(t) return t;
-  var name = (participant && participant.name || "").trim();
-  if(!name) return null;
-  if(guessedLeague && byLeague[guessedLeague]){
-    var m = matchTeamInLeague(name, guessedLeague);
-    if(m) return {name:m, league:guessedLeague};
+/* ---------- ΑΝΤΙΣΤΟΙΧΙΣΗ ΟΜΑΔΑΣ (ξαναγράφτηκε 2026-10-10) ----------
+   BUG που γέμιζε τη μηχανή sure/middle με ψεύτικα στοιχήματα: μια ΧΕΙΡΟΚΙΝΗΤΗ
+   αντιστοίχιση στο localStorage (π.χ. "Bayern Munich" της Superbet -> Leverkusen,
+   από λάθος επιλογή στη λίστα) περνούσε ΠΑΝΩ από το αυτόματο ταίριασμα, ακόμα κι
+   όταν το όνομα υπήρχε ΑΥΤΟΥΣΙΟ στο ιστορικό. Από τη στιγμή που Μπάγερν και
+   Λεβερκούζεν γίνονταν "η ίδια ομάδα" την ίδια μέρα, οι γραμμές της μίας
+   ζευγάρωναν με της άλλης (π.χ. Over 6.5 σουτ εστίας 3.15 της Λεβερκούζεν με
+   Under 6.5 2.90 της Μπάγερν = "sure bet" που δεν υπάρχει).
+   Τώρα:
+    1) Τα IDs είναι ΑΝΑ ΕΤΑΙΡΕΙΑ ("superbet:37"): το 37 της Superbet και ένα 37
+       της Stoiximan δεν είναι η ίδια ομάδα. Οι Stoiximan κρατάνε το σκέτο id
+       (συμβατότητα με team-map.json / TEAM_MAP_BUILTIN).
+    2) Ένα ΒΕΒΑΙΟ ταίριασμα μέσα στη λίγκα του αγώνα (strictMatchInLeague)
+       υπερισχύει ΠΑΝΤΑ μιας χειροκίνητης αντιστοίχισης που διαφωνεί. Η λάθος
+       αντιστοίχιση σβήνεται αθόρυβα από το localStorage (χωρίς μήνυμα στη σελίδα).
+    3) Η χειροκίνητη αντιστοίχιση μετράει μόνο εκεί που δεν υπάρχει βέβαιο
+       ταίριασμα (εκεί είναι και ο λόγος ύπαρξής της).
+    4) Ψάξιμο σε ΑΛΛΗ λίγκα (π.χ. νεοφώτιστη ομάδα με ιστορικό στην κατώτερη)
+       μόνο με βέβαιο ταίριασμα και μόνο αν βρεθεί σε ΜΙΑ λίγκα — όχι με πρόθεμα. */
+var TEAM_MAP_FIXES = [];          // λάθος αντιστοιχίσεις που διορθώθηκαν σε αυτό το φόρτωμα
+function teamMapKey(book, id){
+  var b = book || "stoiximan";
+  return b === "stoiximan" ? String(id) : (b + ":" + id);
+}
+function manualTeamMapping(participant, book){
+  var key = teamMapKey(book, participant.id);
+  if(TEAM_MAP[key]) return {key:key, rec:TEAM_MAP[key]};
+  // Παλιές τοπικές επιλογές για ΜΗ-Stoiximan ομάδες σώζονταν με σκέτο id.
+  if(key !== String(participant.id)){
+    var local = loadTeamMap();
+    var legacy = local[String(participant.id)];
+    if(legacy && legacy.name) return {key:String(participant.id), rec:legacy, legacy:true};
   }
-  var found = null;
-  Object.keys(byLeague).forEach(function(lg){
-    if(found) return;
-    var m2 = matchTeamInLeague(name, lg);
-    if(m2) found = {name:m2, league:lg};
+  return null;
+}
+function resolveTeam(participant, guessedLeague, book){
+  var name = (participant && participant.name || "").trim();
+  var manual = participant ? manualTeamMapping(participant, book) : null;
+  var lg = (guessedLeague && byLeague[guessedLeague]) ? guessedLeague : null;
+  var strict = (lg && name) ? strictMatchInLeague(name, lg) : null;
+  if(strict){
+    if(manual && (manual.rec.name !== strict || manual.rec.league !== lg)){
+      TEAM_MAP_FIXES.push({key:manual.key, legacy:!!manual.legacy, raw:name, book:book||"stoiximan",
+                           wrong:manual.rec.name, right:strict, league:lg});
+    }
+    return {name:strict, league:lg};
+  }
+  if(manual) return manual.rec;
+  if(!name) return null;
+  if(lg){
+    var f = fuzzyMatchInLeague(name, lg);
+    if(f) return {name:f, league:lg};
+  }
+  // Άλλη λίγκα: μόνο ΒΕΒΑΙΟ ταίριασμα και μόνο αν είναι ΜΟΝΑΔΙΚΟ.
+  var found = null, many = false;
+  Object.keys(byLeague).forEach(function(l2){
+    if(l2 === lg) return;
+    var m2 = strictMatchInLeague(name, l2);
+    if(!m2) return;
+    if(found) many = true; else found = {name:m2, league:l2};
   });
-  return found;
+  if(found && !many) return found;
+  if(!lg){
+    // Άγνωστη λίγκα αγώνα: όπως πριν, και με το "χαλαρό" ταίριασμα (μοναδικό).
+    found = null; many = false;
+    Object.keys(byLeague).forEach(function(l3){
+      var m3 = fuzzyMatchInLeague(name, l3);
+      if(!m3) return;
+      if(found) many = true; else found = {name:m3, league:l3};
+    });
+    if(found && !many) return found;
+  }
+  return null;
+}
+// Σβήνει από το localStorage τις λάθος αντιστοιχίσεις που βρήκε το resolveTeam
+// και επιστρέφει όσες ήταν στο κοινό αρχείο (team-map.json — δεν σβήνεται από
+// εδώ, απλώς αγνοείται· διορθώνεται με το επόμενο "Αποθήκευση αντιστοιχίσεων").
+function applyTeamMapFixes(){
+  if(!TEAM_MAP_FIXES.length) return;
+  var local = loadTeamMap(), changed = false;
+  TEAM_MAP_FIXES.forEach(function(fx){
+    if(local[fx.key]){ delete local[fx.key]; changed = true; fx.fromLocal = true; }
+    if(TEAM_MAP_FILE[fx.key]) fx.fromFile = true;
+    if(!fx.legacy) delete TEAM_MAP[fx.key];
+  });
+  if(changed) saveTeamMap(local);
+  updateTeamMapExportUI();
 }
 function renderUnresolved(list){
   var box = document.getElementById("unresolvedBox");
@@ -2856,7 +3018,7 @@ function renderUnresolved(list){
     }
     teams.sort(function(a,b){ return a.t.localeCompare(b.t); });
     var opts = teams.map(function(o){ return '<option value="'+o.t+'|'+o.lg+'">'+o.t+' ('+byLeague[o.lg].name+')</option>'; }).join("");
-    card.innerHTML = '<b>Άγνωστη ομάδα:</b> ' + u.name + ' <select data-id="'+u.id+'"><option value="">— διάλεξε αντιστοίχιση —</option>'+opts+'</select>';
+    card.innerHTML = '<b>Άγνωστη ομάδα:</b> ' + u.name + (u.book && u.book!=="stoiximan" ? ' <span class="tmBook">('+escAttr(bookLabel(u.book))+')</span>' : '') + ' <select data-id="'+u.id+'"><option value="">— διάλεξε αντιστοίχιση —</option>'+opts+'</select>';
     box.appendChild(card);
     entries.push({id:u.id, select:card.querySelector("select")});
   });
@@ -2899,11 +3061,16 @@ function processEvent(root){
   if(!home || !away) return unresolved;
 
   var guessedLeague = guessLeagueId(root.leagueName, root.regionName);
-  var homeR = resolveTeam(home, guessedLeague);
-  var awayR = resolveTeam(away, guessedLeague);
+  var homeR = resolveTeam(home, guessedLeague, book);
+  var awayR = resolveTeam(away, guessedLeague, book);
+  // Μια ομάδα δεν παίζει με τον εαυτό της: αν οι δύο πλευρές βγήκαν ίδια ομάδα,
+  // κάποια αντιστοίχιση είναι λάθος — καλύτερα καμία γραμμή παρά λάθος γραμμές.
+  if(homeR && awayR && homeR.name === awayR.name && homeR.league === awayR.league){
+    homeR = null; awayR = null;
+  }
 
-  if(!homeR) unresolved.push({id:home.id, name:home.name, guessedLeague:guessedLeague});
-  if(!awayR) unresolved.push({id:away.id, name:away.name, guessedLeague:guessedLeague});
+  if(!homeR) unresolved.push({id:teamMapKey(book, home.id), name:home.name, guessedLeague:guessedLeague, book:book});
+  if(!awayR) unresolved.push({id:teamMapKey(book, away.id), name:away.name, guessedLeague:guessedLeague, book:book});
 
   (root.markets||[]).forEach(function(market){
     var cls = classifyMarket(market.name||"", home.name, away.name);
@@ -2995,7 +3162,10 @@ function buildFeed(){
   }
   feedRows = [];
   skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
+  TEAM_MAP_FIXES = [];
   var unresolved = processEvent(root);
+  applyTeamMapFixes();
+  assignFixtureKeys(feedRows);
   renderUnresolved(unresolved);
   renderToolbarAndRows();
 }
@@ -3005,10 +3175,13 @@ function buildFeed(){
 function buildFeedMulti(roots){
   feedRows = [];
   skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
+  TEAM_MAP_FIXES = [];
   var unresolvedAll = [];
   roots.forEach(function(root){
     unresolvedAll = unresolvedAll.concat(processEvent(root));
   });
+  applyTeamMapFixes();
+  assignFixtureKeys(feedRows);
   renderUnresolved(unresolvedAll);
   renderToolbarAndRows();
 }
@@ -4730,11 +4903,33 @@ function smProfitAt(x, l1, o, so, l2, u, su){
 // δύο αγώνες δεν κάνει middle με τον εαυτό της", γι' αυτό μπαίνει η ημέρα.
 function smMarketKey(r){
   return "S:"+r.team+"|"+r.league+"|"+r.category+"|"+(r.direction||"")+"|"+
-         (athensDateISO(r.startTime)||"");
+         (athensDateISO(r.startTime)||"")+(r._fx ? "|"+r._fx : "");
 }
-function smUsableRows(){
+// Τελευταίος έλεγχος ΠΡΙΝ φτιαχτεί sure/middle: τα δύο σκέλη πρέπει να είναι
+// ΑΠΟΔΕΔΕΙΓΜΕΝΑ ο ίδιος αγώνας — ίδιος αντίπαλος (όταν είναι γνωστός και στις
+// δύο εταιρείες), ίδια έδρα, ίδια ώρα έναρξης (±3 ώρες). Εδώ παίζονται λεφτά:
+// αν δεν είμαστε σίγουροι, το ζευγάρι ΔΕΝ βγαίνει.
+function smSameFixture(a, b){
+  if(a.team !== b.team || a.league !== b.league || a.category !== b.category) return false;
+  if(a.ownVenue && b.ownVenue && a.ownVenue !== b.ownVenue) return false;
+  if(a.startTime && b.startTime && Math.abs(a.startTime - b.startTime) > 3*3600*1000) return false;
+  if(a.opponent && b.opponent) return a.opponent === b.opponent;
+  // Ο αντίπαλος δεν αντιστοιχίστηκε στη μία εταιρεία: συγκρίνουμε τα ωμά ονόματα
+  // (το ένα πρέπει να ΠΕΡΙΕΧΕΙ το άλλο, π.χ. "Preston" / "Preston North End",
+  // "AJ Auxerre" / "Auxerre").
+  var x = looseTeamKey(rawOpponentOf(a)), y = looseTeamKey(rawOpponentOf(b));
+  if(!x || !y) return false;
+  var sh = x.length <= y.length ? x : y, lo = sh === x ? y : x;
+  return sh.length >= 4 && lo.indexOf(sh) >= 0;
+}
+// minOdds: ελάχιστη απόδοση ΑΝΑ ΣΚΕΛΟΣ (προεπιλογή 1.30). Χωρίς αυτό η λίστα
+// γέμιζε με "σκουπίδια" τύπου Over 0.5 @1.004 + Under 0.5 @55 — μαθηματικά
+// σωστά, αλλά κανείς δεν παίζει 1.00-1.01 και οι εταιρείες τα κόβουν/ακυρώνουν.
+function smUsableRows(minOdds){
+  var mo = (minOdds != null && isFinite(minOdds)) ? minOdds : 1.0;
   return feedRows.filter(function(r){
     return !r.isTotal && r.team && r.price != null && isFinite(r.price) && r.price > 1 &&
+           r.price >= mo - 1e-9 &&
            r.threshold != null && isFinite(r.threshold);
   });
 }
@@ -4753,6 +4948,7 @@ function smBestPair(overs, unders){
   overs.forEach(function(o){
     unders.forEach(function(u){
       if(o.book === u.book) return;
+      if(!smSameFixture(o, u)) return;
       var inv = 1.0/o.price + 1.0/u.price;
       if(inv >= 1.0) return;
       var profit = (1.0/inv - 1.0) * 100.0;
@@ -4767,7 +4963,7 @@ function smBuildSure(opts){
   var minProfit = opts.minProfit != null ? opts.minProfit : 0;
   var bookOk = opts.bookOk || function(){ return true; };
   var groups = {};
-  smUsableRows().forEach(function(r){
+  smUsableRows(opts.minOdds).forEach(function(r){
     var k = lineIdentityKey(r);
     var g = groups[k] || (groups[k] = {meta:smMeta(r), threshold:r.threshold, over:[], under:[]});
     g[r.side === "over" ? "over" : "under"].push(r);
@@ -4797,7 +4993,9 @@ function smBuildSure(opts){
     });
   });
   out.sort(function(a,b){ return b.profitPct - a.profitPct; });
-  return out.slice(0, SM_LIST_CAP);
+  // Το ανώτατο πλήθος (SM_LIST_CAP) εφαρμόζεται στην ΕΜΦΑΝΙΣΗ, μετά το φίλτρο
+  // κατηγορίας — αλλιώς μια κατηγορία θα έβλεπε μόνο ό,τι χώρεσε στα πρώτα 400.
+  return out;
 }
 
 /* ---------- MIDDLE BETS ---------- */
@@ -4809,6 +5007,7 @@ function smBestByLinePair(overs, unders){
     unders.forEach(function(u){
       if(u.threshold <= o.threshold) return;
       if(o.book === u.book) return;
+      if(!smSameFixture(o, u)) return;
       var inv = 1.0/o.price + 1.0/u.price;
       var k = o.threshold + "|" + u.threshold;
       if(!best[k] || inv < best[k].inv) best[k] = {inv:inv, o:o, u:u};
@@ -4840,7 +5039,7 @@ function smBuildMiddle(opts){
   var bookOk     = opts.bookOk || function(){ return true; };
 
   var groups = {};
-  smUsableRows().forEach(function(r){
+  smUsableRows(opts.minOdds).forEach(function(r){
     var k = smMarketKey(r);
     var g = groups[k] || (groups[k] = {meta:smMeta(r), over:[], under:[]});
     g[r.side === "over" ? "over" : "under"].push(r);
@@ -4905,7 +5104,7 @@ function smBuildMiddle(opts){
     rows = rows.concat(cand.slice(0, perGroup));
   });
   rows.sort(smRankMiddle);
-  return rows.slice(0, SM_LIST_CAP);
+  return rows;   // cap στην εμφάνιση (βλ. smBuildSure)
 }
 function smRankMiddle(a, b){
   if(a.lossPct !== b.lossPct) return a.lossPct - b.lossPct;
@@ -4929,13 +5128,15 @@ var smState = {
   minWidth: 1,
   books: null,                 // null = όλες
   fill: false,
-  venue: "any"
+  venue: "any",
+  minOdds: 1.30,               // ελάχιστη απόδοση ΚΑΘΕ σκέλους (ζητήθηκε 2026-10-10)
+  cats: []                     // κατηγορίες· κενό = όλες (πολλαπλή επιλογή, όπως PropDunker)
 };
 var _smCache = {sure:null, middle:null, key:""};
 
 function smCacheKey(){
   return [smState.stake, smState.minProfit, smState.window, smState.maxLoss, smState.minWidth,
-          (smState.books||[]).join(","), smState.fill?1:0, smState.venue, feedRows.length].join("|");
+          (smState.books||[]).join(","), smState.fill?1:0, smState.venue, smState.minOdds, feedRows.length].join("|");
 }
 function smBookOk(){
   var sel = smState.books;
@@ -4952,10 +5153,11 @@ function smCompute(){
     _smCache.key = k;
     _smCache.sure = smBuildSure({
       stake:smState.stake, bookOk:smBookOk(), fill:smState.fill, venue:smState.venue,
-      minProfit:smState.minProfit});
+      minProfit:smState.minProfit, minOdds:smState.minOdds});
     _smCache.middle = smBuildMiddle({
       stake:smState.stake, bookOk:smBookOk(), fill:smState.fill, venue:smState.venue,
-      window:smState.window, maxLossPct:smState.maxLoss, minWidth:smState.minWidth});
+      window:smState.window, maxLossPct:smState.maxLoss, minWidth:smState.minWidth,
+      minOdds:smState.minOdds});
   }
   return _smCache;
 }
@@ -5123,16 +5325,49 @@ function smBookPickerHtml(){
   return '<div class="smRow"><span class="smLbl">Εταιρείες</span>'+chips+
     (sel ? '<span class="smHint">και τα δύο σκέλη πρέπει να είναι μέσα στην επιλογή σου</span>' : '')+'</div>';
 }
-function smCtrlHtml(){
+// Κατηγορίες που υπάρχουν στα αποτελέσματα της καρτέλας, με πόσα έχει η
+// καθεμιά (μετά από ΟΛΑ τα άλλα φίλτρα). Ίδια λογική με το PropDunker: ALL +
+// ένα chip ανά κατηγορία, πολλαπλή επιλογή, τα άδεια ξεθωριασμένα.
+function smCategoryCounts(rows){
+  var counts = {};
+  rows.forEach(function(r){ var c = r.meta.category; counts[c] = (counts[c]||0) + 1; });
+  return counts;
+}
+function smCatFilter(rows){
+  if(!smState.cats.length) return rows;
+  var set = {};
+  smState.cats.forEach(function(c){ set[c] = 1; });
+  return rows.filter(function(r){ return !!set[r.meta.category]; });
+}
+function smCatPickerHtml(allRows){
+  var counts = smCategoryCounts(allRows);
+  var keys = CAT_FILTER_ORDER.filter(function(c){ return counts[c] || smState.cats.indexOf(c) >= 0; });
+  Object.keys(counts).forEach(function(c){ if(keys.indexOf(c) < 0) keys.push(c); });
+  if(!keys.length) return "";
+  var none = !smState.cats.length;
+  var chips = '<button type="button" class="smChip cat'+(none?" on":"")+'" data-smcat="all">Όλες <span class="smCnt">'+allRows.length+'</span></button>';
+  keys.forEach(function(c){
+    var on = smState.cats.indexOf(c) >= 0, n = counts[c] || 0;
+    chips += '<button type="button" class="smChip cat'+(on?" on":"")+(n===0&&!on?" empty":"")+'" data-smcat="'+c+'">'+
+      escAttr(CATS[c] ? CATS[c].label : c)+' <span class="smCnt">'+n+'</span></button>';
+  });
+  return '<div class="smRow"><span class="smLbl">Κατηγορία</span>'+chips+'</div>';
+}
+function smCtrlHtml(allRows){
   var h = '<div class="smCtrls">';
   h += smBookPickerHtml();
+  // Ελάχιστη απόδοση: ΚΑΙ στις δύο καρτέλες, εφαρμόζεται σε ΚΑΘΕ σκέλος.
+  var oddsField = '<span class="smLbl">Ελάχιστη απόδοση</span>'+
+    smNumFieldHtml("minOdds", smState.minOdds.toFixed(2), "", 1.01, 100)+
+    '<span class="smHint">και στα δύο σκέλη</span>';
   if(smState.tab === "sure"){
-    h += '<div class="smRow">'+
+    h += '<div class="smRow">'+oddsField+
       '<span class="smLbl">Συνολικό ποντάρισμα</span>'+smNumFieldHtml("stake", smState.stake, "€", 1, 1000000)+
       '<span class="smLbl">Ελάχιστο κέρδος</span>'+smNumFieldHtml("minProfit", smState.minProfit, "%", 0, 100)+
       '</div>';
   } else {
-    h += '<div class="smRow">'+
+    h += '<div class="smRow">'+oddsField+'</div>'+
+      '<div class="smRow">'+
       '<span class="smLbl">Ιστορικό</span><span class="seg small" id="smWinSeg">'+
         [5,10,20,40].map(function(n){
           return '<button type="button" data-smwin="'+n+'" class="'+(smState.window===n?"active":"")+'">L'+n+'</button>';
@@ -5150,6 +5385,7 @@ function smCtrlHtml(){
       '<span class="smHint">Ταξινόμηση: πρώτα η φθηνότερη ζημιά, μετά το ιστορικό EV.</span>'+
       '</div>';
   }
+  h += smCatPickerHtml(allRows || []);
   h += '</div>';
   return h;
 }
@@ -5178,7 +5414,13 @@ function renderSmPage(){
   var el = document.getElementById("smPage");
   if(!el || !smPageOn) return;
   var res = smCompute();
-  var rows = smState.tab === "sure" ? res.sure : res.middle;
+  // Αν άλλαξαν τα δεδομένα και μια επιλεγμένη κατηγορία δεν υπάρχει πουθενά, φεύγει.
+  var present = smCategoryCounts(res.sure.concat(res.middle));
+  smState.cats = smState.cats.filter(function(c){ return present[c]; });
+  var tabAll = smState.tab === "sure" ? res.sure : res.middle;
+  var rowsAll = smCatFilter(tabAll);
+  var rows = rowsAll.slice(0, SM_LIST_CAP);
+  var nSure = smCatFilter(res.sure).length, nMid = smCatFilter(res.middle).length;
   var sub = smState.tab === "sure"
     ? "Ίδια ομάδα, ίδια κατηγορία, ίδια γραμμή — δύο εταιρείες που διαφωνούν αρκετά ώστε να πληρώνεσαι όπως κι αν έρθει."
     : "Ίδια ομάδα, ίδια κατηγορία, δύο διαφορετικές γραμμές — ένα παράθυρο όπου κερδίζουν και τα δύο στοιχήματα.";
@@ -5186,10 +5428,14 @@ function renderSmPage(){
   if(!rows.length){
     body = '<div class="smEmpty"><b>'+(smState.tab==="sure" ? "Τίποτα αυτή τη στιγμή" : "Τίποτα με αυτά τα φίλτρα")+'</b>'+
       '<span>'+(smState.tab==="sure"
-        ? "Καμία δύο εταιρείες δεν διαφωνούν αρκετά στην ίδια γραμμή αυτή τη στιγμή."
-        : "Δοκίμασε μεγαλύτερη μέγιστη ζημιά, μεγαλύτερο παράθυρο ιστορικού ή μικρότερο ελάχιστο παράθυρο.")+'</span></div>';
+        ? (smState.cats.length ? "Τίποτα σε αυτή την κατηγορία — διάλεξε άλλη ή «Όλες»." :
+           "Καμία δύο εταιρείες δεν διαφωνούν αρκετά στην ίδια γραμμή αυτή τη στιγμή (με απόδοση από "+smState.minOdds.toFixed(2)+" και πάνω).")
+        : (smState.cats.length ? "Τίποτα σε αυτή την κατηγορία — διάλεξε άλλη ή «Όλες»." :
+           "Δοκίμασε μεγαλύτερη μέγιστη ζημιά, μεγαλύτερο παράθυρο ιστορικού, μικρότερο ελάχιστο παράθυρο ή χαμηλότερη ελάχιστη απόδοση."))+'</span></div>';
   } else {
-    body = '<div class="smList">'+rows.map(smState.tab === "sure" ? smSureCardHtml : smMiddleCardHtml).join("")+'</div>';
+    body = '<div class="smList">'+rows.map(smState.tab === "sure" ? smSureCardHtml : smMiddleCardHtml).join("")+'</div>'+
+      (rowsAll.length > rows.length ? '<div class="smHint smCapNote">Δείχνονται τα πρώτα '+rows.length+' από '+rowsAll.length+
+        ' — στένεψε με κατηγορία, ελάχιστη απόδοση ή μέγιστη ζημιά.</div>' : '');
   }
   var foot = smState.tab === "sure"
     ? 'Οι αποδόσεις κινούνται. Έλεγξε ότι και οι δύο εταιρείες δείχνουν ακόμα αυτές τις τιμές πριν ποντάρεις, και βάλε πρώτο το σκέλος με τη μικρότερη απόδοση — αυτό είναι που αλλάζει πιο εύκολα.'
@@ -5202,10 +5448,10 @@ function renderSmPage(){
         '<span class="bbPageSub">'+sub+'</span></div></div>'+
     '</div>'+
     '<div class="smTabs">'+
-      '<button type="button" class="smTab sure'+(smState.tab==="sure"?" on":"")+'" data-smtab="sure">SURE BETS ('+res.sure.length+')</button>'+
-      '<button type="button" class="smTab mid'+(smState.tab==="middle"?" on":"")+'" data-smtab="middle">MIDDLE BETS ('+res.middle.length+')</button>'+
+      '<button type="button" class="smTab sure'+(smState.tab==="sure"?" on":"")+'" data-smtab="sure">SURE BETS ('+nSure+')</button>'+
+      '<button type="button" class="smTab mid'+(smState.tab==="middle"?" on":"")+'" data-smtab="middle">MIDDLE BETS ('+nMid+')</button>'+
     '</div>'+
-    smCtrlHtml()+
+    smCtrlHtml(tabAll)+
     body+
     '<div class="smNote">'+foot+'</div>'+
     '<div class="smBackWrap"><button type="button" class="bbBackBtn" data-smact="back">← Πίσω στη λίστα</button></div>';
@@ -6386,6 +6632,17 @@ document.getElementById("smPage").addEventListener("click", function(e){
   if(wid){ smState.minWidth = parseInt(wid.getAttribute("data-smwidth"),10); renderSmPage(); return; }
   var fill = t.closest("[data-smfill]");
   if(fill){ smState.fill = !smState.fill; renderSmPage(); return; }
+  var cat = t.closest("[data-smcat]");
+  if(cat){
+    var cv = cat.getAttribute("data-smcat");
+    if(cv === "all") smState.cats = [];
+    else {
+      var ci = smState.cats.indexOf(cv);
+      if(ci >= 0) smState.cats.splice(ci, 1); else smState.cats.push(cv);
+    }
+    renderSmPage();
+    return;
+  }
   var bk = t.closest("[data-smbook]");
   if(bk){
     var v = bk.getAttribute("data-smbook");
@@ -6416,6 +6673,7 @@ document.getElementById("smPage").addEventListener("click", function(e){
     if(mn != null) v = Math.max(parseFloat(mn), v);
     if(mx != null) v = Math.min(parseFloat(mx), v);
     if(act === "stake") smState.stake = v;
+    else if(act === "minOdds") smState.minOdds = Math.round(v*100)/100;
     else if(act === "minProfit") smState.minProfit = v;
     else if(act === "maxLoss") smState.maxLoss = v;
     renderSmPage();
