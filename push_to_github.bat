@@ -1,5 +1,8 @@
 @echo off
 cd /d "%~dp0"
+REM Με παραμετρο /auto (το καλει ετσι ο αυτοματισμος, AUTOMATION\auto_refresh.ps1):
+REM ΧΩΡΙΣ pause στο τελος, και επιστρεφει τον κωδικο του git push. Χωρις
+REM παραμετρο δουλευει ΑΚΡΙΒΩΣ οπως πριν (RUN_BOOKMAKERS.bat / διπλο κλικ).
 echo Ενημερωση GitHub με τα τελευταια δεδομενα (BetRows)...
 echo.
 
@@ -17,6 +20,15 @@ if exist "C:\SOCCER_BETROWS\betrows-fetcher\output\index.json" set "ST_OK=1"
 if exist "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet\index.json" set "SB_OK=1"
 if "%ST_OK%"=="0" echo ΠΡΟΣΟΧΗ: ο φακελος output (Stoiximan) ειναι αδειος - ΔΕΝ πειραζουμε το live.
 if "%SB_OK%"=="0" echo ΠΡΟΣΟΧΗ: ο φακελος output-superbet ειναι αδειος - ΔΕΝ πειραζουμε το live-superbet.
+echo.
+
+REM 0) ΣΥΜΠΙΕΣΗ (2026-10-10): απο καθε αγωνα κραταμε ΜΟΝΟ τις αγορες Over/Under
+REM    (ονομα, γραμμη, αποδοση) - οτι διαβαζει η σελιδα. Τα αρχεια της Stoiximan
+REM    πεφτουν απο ~270 KB σε ~20 KB, αλλιως το αποθετηριο φουσκωνει ~1.5 MB σε
+REM    καθε push (με ανανεωση καθε ωρα: ~1 GB τον μηνα). Η σελιδα βγαζει ΑΚΡΙΒΩΣ
+REM    τα ιδια (ελεγμενο σε ολες τις γραμμες, sure και middles).
+if "%ST_OK%"=="1" python "C:\SOCCER_BETROWS\betrows-fetcher\compact_live.py" "C:\SOCCER_BETROWS\betrows-fetcher\output"
+if "%SB_OK%"=="1" python "C:\SOCCER_BETROWS\betrows-fetcher\compact_live.py" "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet"
 echo.
 
 REM 1) Αντιγραφη των live Stoiximan JSONs απο τον fetcher στο betrows-app\live
@@ -105,7 +117,9 @@ REM 3) Commit + push στο GitHub
 git add -A
 git commit -m "update data %date% %time%"
 git push
+set "PUSH_RC=%errorlevel%"
 
 echo.
 echo Ετοιμο! Η online σελιδα (https://dal-el.github.io/betrows2/) θα ενημερωθει σε 1-2 λεπτα.
+if /i "%~1"=="/auto" exit /b %PUSH_RC%
 pause
