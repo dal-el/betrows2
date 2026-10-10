@@ -66,7 +66,7 @@
   "name": "Millwall FC - Swansea City",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 51,
+  "marketCount": 65,
   "file": "championship/2026-10-13_millwall-fc-swansea-city_93700827.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Stoke City - Middlesbrough FC",
   "startTime": 1791918000000,
   "dateStr": "2026-10-13",
-  "marketCount": 51,
+  "marketCount": 65,
   "file": "championship/2026-10-13_stoke-city-middlesbrough-fc_93700764.json"
  },
  {
@@ -170,6 +170,16 @@
   "file": "la-liga/2026-10-11_racing-santander-valencia-cf_89353077.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "89353088",
+  "name": "Levante UD - Sevilla FC",
+  "startTime": 1791831600000,
+  "dateStr": "2026-10-12",
+  "marketCount": 109,
+  "file": "la-liga/2026-10-12_levante-ud-sevilla-fc_89353088.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "92097657",
@@ -218,6 +228,26 @@
   "dateStr": "2026-10-11",
   "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_cagliari-calcio-juventus-fc_92097664.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92097661",
+  "name": "Atalanta - Venezia FC",
+  "startTime": 1791822600000,
+  "dateStr": "2026-10-12",
+  "marketCount": 107,
+  "file": "serie-a-italy/2026-10-12_atalanta-venezia-fc_92097661.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92097663",
+  "name": "Torino FC - Udinese Calcio",
+  "startTime": 1791830700000,
+  "dateStr": "2026-10-12",
+  "marketCount": 107,
+  "file": "serie-a-italy/2026-10-12_torino-fc-udinese-calcio_92097663.json"
  },
  {
   "league": "bundesliga",
@@ -392,16 +422,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93220024",
-  "name": "Vasco da Gama RJ - Remo PA",
-  "startTime": 1791666000000,
-  "dateStr": "2026-10-11",
-  "marketCount": 103,
-  "file": "serie-a-brazil/2026-10-11_vasco-da-gama-rj-remo-pa_93220024.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93220025",
   "name": "Sao Paulo SP - Vitoria BA",
   "startTime": 1791676800000,
@@ -466,7 +486,7 @@
   "name": "Coritiba PR - Botafogo RJ",
   "startTime": 1791831600000,
   "dateStr": "2026-10-12",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "serie-a-brazil/2026-10-12_coritiba-pr-botafogo-rj_93220029.json"
  }
 ]

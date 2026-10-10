@@ -76,7 +76,7 @@
   "name": "Wolverhampton Wanderers - Bolton",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 51,
+  "marketCount": 65,
   "file": "championship/2026-10-13_wolverhampton-wanderers-bolton_93700832.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Bristol City - Blackburn Rovers",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 50,
+  "marketCount": 64,
   "file": "championship/2026-10-13_bristol-city-blackburn-rovers_93700860.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Burnley FC - Charlton",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 50,
+  "marketCount": 64,
   "file": "championship/2026-10-13_burnley-fc-charlton_93700862.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Vasco da Gama RJ - Remo PA",
   "startTime": 1791666000000,
   "dateStr": "2026-10-11",
-  "marketCount": 106,
+  "marketCount": 103,
   "file": "serie-a-brazil/2026-10-11_vasco-da-gama-rj-remo-pa_93220024.json"
  },
  {
