@@ -222,12 +222,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025532",
-  "name": "Inter Milan - Parma",
-  "startTime": 1791648000000,
-  "dateStr": "2026-10-10",
+  "eventId": "14025533",
+  "name": "Lazio - Monza",
+  "startTime": 1791723600000,
+  "dateStr": "2026-10-11",
   "marketCount": 24,
-  "file": "serie-a-italy/2026-10-10_inter-milan-parma_14025532.json"
+  "file": "serie-a-italy/2026-10-11_lazio-monza_14025533.json"
  },
  {
   "league": "serie-a-italy",
@@ -242,12 +242,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025533",
-  "name": "Lazio - Monza",
-  "startTime": 1791723600000,
+  "eventId": "14025529",
+  "name": "Cagliari - Juventus",
+  "startTime": 1791744300000,
   "dateStr": "2026-10-11",
   "marketCount": 24,
-  "file": "serie-a-italy/2026-10-11_lazio-monza_14025533.json"
+  "file": "serie-a-italy/2026-10-11_cagliari-juventus_14025529.json"
  },
  {
   "league": "serie-a-italy",
@@ -278,16 +278,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-12_atalanta-venezia_14025528.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025529",
-  "name": "Cagliari - Juventus",
-  "startTime": 1791744300000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-11_cagliari-juventus_14025529.json"
  },
  {
   "league": "serie-a-italy",
@@ -338,16 +328,6 @@
   "dateStr": "2026-10-10",
   "marketCount": 24,
   "file": "ligue-1/2026-10-10_brest-angers_14025612.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14025614",
-  "name": "Lille - Le Havre",
-  "startTime": 1791645300000,
-  "dateStr": "2026-10-10",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-10_lille-le-havre_14025614.json"
  },
  {
   "league": "ligue-1",
