@@ -2,21 +2,11 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92398245",
-  "name": "Manchester United - Tottenham Hotspur",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-10_manchester-united-tottenham-hotspur_92398245.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "92398246",
   "name": "Crystal Palace FC - Nottingham Forest",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "premier-league/2026-10-11_crystal-palace-fc-nottingham-forest_92398246.json"
  },
  {
@@ -36,7 +26,7 @@
   "name": "Liverpool FC - Manchester City",
   "startTime": 1791732600000,
   "dateStr": "2026-10-11",
-  "marketCount": 121,
+  "marketCount": 122,
   "file": "premier-league/2026-10-11_liverpool-fc-manchester-city_92398258.json"
  },
  {
@@ -76,7 +66,7 @@
   "name": "Wolverhampton Wanderers - Bolton",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 42,
+  "marketCount": 41,
   "file": "championship/2026-10-13_wolverhampton-wanderers-bolton_93700832.json"
  },
  {
@@ -128,16 +118,6 @@
   "dateStr": "2026-10-13",
   "marketCount": 42,
   "file": "championship/2026-10-13_birmingham-preston_93700859.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "89353066",
-  "name": "FC Barcelona - Getafe CF",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-10_fc-barcelona-getafe-cf_89353066.json"
  },
  {
   "league": "la-liga",
@@ -206,7 +186,7 @@
   "name": "Como 1907 - AS Roma",
   "startTime": 1791714600000,
   "dateStr": "2026-10-11",
-  "marketCount": 107,
+  "marketCount": 108,
   "file": "serie-a-italy/2026-10-11_como-1907-as-roma_92097657.json"
  },
  {
@@ -248,16 +228,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_cagliari-calcio-juventus-fc_92097664.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657237",
-  "name": "RB Leipzig - Eintracht Frankfurt",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 107,
-  "file": "bundesliga/2026-10-10_rb-leipzig-eintracht-frankfurt_91657237.json"
  },
  {
   "league": "bundesliga",
@@ -352,26 +322,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92774961",
-  "name": "AEK Athens - OFI Crete",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 101,
-  "file": "super-league-greece/2026-10-10_aek-athens-ofi-crete_92774961.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92774964",
-  "name": "Asteras Tripolis - Atromitos Athinon",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 101,
-  "file": "super-league-greece/2026-10-10_asteras-tripolis-atromitos-athinon_92774964.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "92774963",
   "name": "Iraklis - Levadiakos",
   "startTime": 1791727200000,
@@ -406,7 +356,7 @@
   "name": "Olympiacos Piraeus - Panathinaikos",
   "startTime": 1791741600000,
   "dateStr": "2026-10-11",
-  "marketCount": 112,
+  "marketCount": 113,
   "file": "super-league-greece/2026-10-11_olympiacos-piraeus-panathinaikos_89190109.json"
  },
  {
