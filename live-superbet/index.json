@@ -22,12 +22,12 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14025572",
-  "name": "Manchester United - Tottenham",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
+  "eventId": "14025571",
+  "name": "Liverpool - Manchester City",
+  "startTime": 1791732600000,
+  "dateStr": "2026-10-11",
   "marketCount": 24,
-  "file": "premier-league/2026-10-10_manchester-united-tottenham_14025572.json"
+  "file": "premier-league/2026-10-11_liverpool-manchester-city_14025571.json"
  },
  {
   "league": "premier-league",
@@ -38,16 +38,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "premier-league/2026-10-12_coventry-city-newcastle_14025567.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14025571",
-  "name": "Liverpool - Manchester City",
-  "startTime": 1791732600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-11_liverpool-manchester-city_14025571.json"
  },
  {
   "league": "championship",
@@ -152,42 +142,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040056",
-  "name": "Barcelona - Getafe",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-10_barcelona-getafe_14040056.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14040061",
   "name": "Real Madrid - Villarreal",
   "startTime": 1791658800000,
   "dateStr": "2026-10-10",
   "marketCount": 24,
   "file": "la-liga/2026-10-10_real-madrid-villarreal_14040061.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040054",
-  "name": "Betis - Osasuna",
-  "startTime": 1791736200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-11_betis-osasuna_14040054.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040059",
-  "name": "Racing Santander - Valencia",
-  "startTime": 1791745200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-11_racing-santander-valencia_14040059.json"
  },
  {
   "league": "la-liga",
@@ -202,12 +162,32 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14040054",
+  "name": "Betis - Osasuna",
+  "startTime": 1791736200000,
+  "dateStr": "2026-10-11",
+  "marketCount": 24,
+  "file": "la-liga/2026-10-11_betis-osasuna_14040054.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14040057",
   "name": "Levante - Sevilla",
   "startTime": 1791831600000,
   "dateStr": "2026-10-12",
   "marketCount": 18,
   "file": "la-liga/2026-10-12_levante-sevilla_14040057.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14040059",
+  "name": "Racing Santander - Valencia",
+  "startTime": 1791745200000,
+  "dateStr": "2026-10-11",
+  "marketCount": 24,
+  "file": "la-liga/2026-10-11_racing-santander-valencia_14040059.json"
  },
  {
   "league": "serie-a-italy",
@@ -288,16 +268,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-12_torino-fc-udinese_14025537.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14025547",
-  "name": "RB Leipzig - Eintracht Frankfurt",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 24,
-  "file": "bundesliga/2026-10-10_rb-leipzig-eintracht-frankfurt_14025547.json"
  },
  {
   "league": "bundesliga",
@@ -388,26 +358,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 24,
   "file": "ligue-1/2026-10-11_troyes-marseille_14025620.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "14959334",
-  "name": "Asteras Tripolis - Atromitos",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-10_asteras-tripolis-atromitos_14959334.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "14959335",
-  "name": "AEK - OFI",
-  "startTime": 1791649800000,
-  "dateStr": "2026-10-10",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-10_aek-ofi_14959335.json"
  },
  {
   "league": "super-league-greece",

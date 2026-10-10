@@ -50,6 +50,86 @@
   "file": "championship/2026-10-11_southampton-fc-portsmouth-fc_92790445.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700776",
+  "name": "Cardiff City - Watford FC",
+  "startTime": 1791917100000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_cardiff-city-watford-fc_93700776.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700827",
+  "name": "Millwall FC - Swansea City",
+  "startTime": 1791917100000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_millwall-fc-swansea-city_93700827.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700832",
+  "name": "Wolverhampton Wanderers - Bolton",
+  "startTime": 1791917100000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_wolverhampton-wanderers-bolton_93700832.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700840",
+  "name": "Wrexham FC - West Bromwich Albion",
+  "startTime": 1791917100000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_wrexham-fc-west-bromwich-albion_93700840.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700860",
+  "name": "Bristol City - Blackburn Rovers",
+  "startTime": 1791917100000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_bristol-city-blackburn-rovers_93700860.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700862",
+  "name": "Burnley FC - Charlton",
+  "startTime": 1791917100000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_burnley-fc-charlton_93700862.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700764",
+  "name": "Stoke City - Middlesbrough FC",
+  "startTime": 1791918000000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_stoke-city-middlesbrough-fc_93700764.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "93700859",
+  "name": "Birmingham - Preston",
+  "startTime": 1791918000000,
+  "dateStr": "2026-10-13",
+  "marketCount": 42,
+  "file": "championship/2026-10-13_birmingham-preston_93700859.json"
+ },
+ {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "89353066",
@@ -66,7 +146,7 @@
   "name": "Real Madrid - Villarreal CF",
   "startTime": 1791658800000,
   "dateStr": "2026-10-10",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-10_real-madrid-villarreal-cf_89353092.json"
  },
  {
@@ -112,21 +192,11 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92097658",
-  "name": "Inter Milan - Parma Calcio 1913",
-  "startTime": 1791648000000,
-  "dateStr": "2026-10-10",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-10_inter-milan-parma-calcio-1913_92097658.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92097054",
   "name": "SSC Napoli - Frosinone",
   "startTime": 1791657900000,
   "dateStr": "2026-10-10",
-  "marketCount": 107,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-10_ssc-napoli-frosinone_92097054.json"
  },
  {
@@ -212,16 +282,6 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92616643",
-  "name": "Lille OSC - Le Havre AC",
-  "startTime": 1791645300000,
-  "dateStr": "2026-10-10",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-10_lille-osc-le-havre-ac_92616643.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "92616707",
   "name": "Stade Brestois 29 - Angers SCO",
   "startTime": 1791657900000,
@@ -296,7 +356,7 @@
   "name": "AEK Athens - OFI Crete",
   "startTime": 1791649800000,
   "dateStr": "2026-10-10",
-  "marketCount": 105,
+  "marketCount": 101,
   "file": "super-league-greece/2026-10-10_aek-athens-ofi-crete_92774961.json"
  },
  {
@@ -306,7 +366,7 @@
   "name": "Asteras Tripolis - Atromitos Athinon",
   "startTime": 1791649800000,
   "dateStr": "2026-10-10",
-  "marketCount": 106,
+  "marketCount": 101,
   "file": "super-league-greece/2026-10-10_asteras-tripolis-atromitos-athinon_92774964.json"
  },
  {
