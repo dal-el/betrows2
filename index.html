@@ -1019,6 +1019,115 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .bbLegsSeg button{flex:1}
 .bbGoRow{border-top:1px solid var(--border);margin-top:4px;padding-top:9px;color:var(--accent);font-weight:700}
 /* --- BETBUILDERS PAGE --- */
+/* ---------- SURE BETS & MIDDLE BETS (2026-10-10) ----------
+   Ίδια αναπαράσταση με το PropDunker /surebets: σκούρες κάρτες με δύο σκέλη
+   (OVER πράσινο, UNDER ροζ), τρίπτυχο αποτελεσμάτων, ιστόγραμμα κατανομής. */
+body.smPageOn .toolbar,
+body.smPageOn #rowsList,
+body.smPageOn #skipNote,
+body.smPageOn .foot,
+body.smPageOn #liveRow,
+body.smPageOn .unresolved{display:none !important}
+.smPage{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+.smHeadBar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface-2);
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px;box-shadow:var(--shadow)}
+.smTitleWrap{min-width:0;flex:1}
+.smTabs{display:flex;gap:8px;flex-wrap:wrap}
+.smTab{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:800;letter-spacing:.06em;
+  border-radius:var(--radius-pill);padding:7px 16px;cursor:pointer;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text-dim)}
+.smTab:hover{color:var(--text)}
+.smTab.sure.on{background:var(--accent-soft);color:var(--accent);border-color:var(--accent);box-shadow:var(--glow-pos)}
+.smTab.mid.on{background:rgba(56,189,248,.16);color:#7dd3fc;border-color:rgba(56,189,248,.5)}
+.smCtrls{display:flex;flex-direction:column;gap:8px;background:var(--surface-2);
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px}
+.smRow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.smLbl{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint)}
+.smHint{font-size:10.5px;color:var(--text-faint);font-style:italic}
+.smNum{display:inline-flex;align-items:center;gap:4px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 9px}
+.smNum input{width:58px;background:transparent;border:0;outline:0;color:var(--text);
+  font-family:"IBM Plex Mono",monospace;font-size:13px;text-align:right}
+.smSuf{font-size:11px;color:var(--text-faint)}
+.smChip{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:4px 10px;cursor:pointer;
+  border-radius:var(--radius-pill);background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}
+.smChip.on{border-color:var(--gold);background:var(--gold-soft);color:var(--gold)}
+.smChip.locked{cursor:not-allowed;opacity:.8}
+.smToggle{font-size:11px;padding:4px 10px;cursor:pointer;border-radius:var(--radius-pill);
+  background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}
+.smToggle.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.smList{display:flex;flex-direction:column;gap:10px}
+.smCard{border:1px solid var(--border);background:var(--surface-2);border-radius:var(--radius-lg);
+  padding:12px;box-shadow:var(--shadow)}
+.smCard:hover{border-color:rgba(255,255,255,.2)}
+.smHead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.smWho{min-width:0;flex:1}
+.smTitle{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:800;color:var(--text);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.smSubWho{font-size:11.5px;color:var(--text-faint);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.smProp{flex:none;border:1px solid var(--border);background:var(--surface);border-radius:var(--radius-pill);
+  padding:4px 10px;font-size:11.5px;font-weight:600;color:var(--text-dim);white-space:nowrap}
+.smPct{flex:none;border-radius:var(--radius-pill);padding:4px 10px;font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;font-weight:800;background:var(--surface);color:var(--text-dim)}
+.smPct.strong{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent);box-shadow:var(--glow-pos)}
+.smHead.mid .smMidLines{display:flex;align-items:center;gap:8px;flex:none;flex-wrap:wrap;justify-content:center}
+.smOverL{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:800;color:var(--accent)}
+.smUnderL{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:800;color:var(--rose)}
+.smBadges{display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:none}
+.smZone{border-radius:var(--radius-pill);padding:4px 10px;font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;font-weight:800;background:rgba(56,189,248,.14);color:#7dd3fc;border:1px solid rgba(56,189,248,.35)}
+.smEv{border-radius:var(--radius-pill);padding:4px 10px;font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;font-weight:800;background:var(--surface);color:var(--text-dim)}
+.smEv.good{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent)}
+.smEv.none{font-size:11px;font-weight:600;color:var(--text-faint)}
+.smLegs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:640px){.smLegs{grid-template-columns:1fr}}
+.smLeg{border-radius:12px;background:var(--surface);padding:9px 10px;border:1px solid transparent}
+.smLeg.em{border-color:rgba(52,211,153,.28)}
+.smLeg.ro{border-color:rgba(251,113,133,.28)}
+.smLegTop{display:flex;align-items:center;gap:7px}
+.smSide{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:800;letter-spacing:.04em}
+.smLeg.em .smSide{color:var(--accent)}
+.smLeg.ro .smSide{color:var(--rose)}
+.smAlt{border:1px dashed var(--amber,#e0a63a);border-radius:4px;padding:1px 5px;font-size:9.5px;
+  font-weight:700;color:var(--amber,#e0a63a)}
+.smOdds{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:800;color:var(--text)}
+.smLegBot{display:flex;align-items:center;gap:8px;margin-top:5px;font-size:11.5px}
+.smBook{display:inline-flex;align-items:center;gap:5px;min-width:0;color:var(--text-faint)}
+.smBook span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.smStake{margin-left:auto;flex:none;font-weight:700;color:var(--text-dim);font-family:"IBM Plex Mono",monospace}
+.smOuts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px;text-align:center}
+.smOut{border-radius:10px;background:var(--surface);padding:6px 8px}
+.smOut.hi{background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.3)}
+.smOutLbl{font-size:10.5px;font-weight:600;color:var(--text-faint)}
+.smOutVal{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:800;margin:1px 0}
+.smOutVal.pos{color:var(--accent)}
+.smOutVal.pos.hi{color:#7dd3fc}
+.smOutVal.neg{color:var(--rose)}
+.smOutSub{font-size:9.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-faint);opacity:.75}
+.smFoot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:10px;padding-top:8px;
+  border-top:1px solid var(--border);font-size:11.5px;color:var(--text-faint)}
+.smFoot.wrap{align-items:flex-end;gap:18px}
+.smFoot b{color:var(--text-dim)}
+.smFoot .pos,.smHist .pos{color:var(--accent)}
+.smHist{flex:1;min-width:220px;font-size:11.5px;line-height:1.45;color:var(--text-faint)}
+.smHist b{color:var(--text-dim)}
+.smHist .dim{color:var(--text-faint);opacity:.7}
+.smDot{margin:0 6px;opacity:.4}
+.smWarn{color:var(--amber,#e0a63a)}
+.smDist{flex:none}
+.smBars{display:flex;align-items:flex-end;gap:2px;height:32px}
+.smBar{display:block;border-radius:2px 2px 0 0;background:rgba(255,255,255,.35)}
+.smBar.in{background:#38bdf8}
+.smBar.none{background:rgba(255,255,255,.10)}
+.smDistAx{display:flex;justify-content:space-between;font-size:9px;color:var(--text-faint);opacity:.7;margin-top:2px}
+.smEmpty{display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center;
+  border:1px dashed var(--border);border-radius:var(--radius-lg);padding:28px 16px;color:var(--text-faint)}
+.smEmpty b{color:var(--text-dim);font-size:14px}
+.smNote{font-size:11px;line-height:1.5;color:var(--text-faint);background:var(--surface-2);
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px}
+.smNote b{color:var(--text-dim)}
+.smBackWrap{display:flex;justify-content:center;padding:4px 0 10px}
 body.bbPageOn .toolbar,
 body.bbPageOn #rowsList,
 body.bbPageOn #skipNote,
@@ -1331,6 +1440,7 @@ body.bbPageOn .unresolved{display:none !important}
               <button type="button" data-legs="3" class="active">3</button>
             </div>
             <div class="msRow bbGoRow" id="bbGoPageRow">⚒ GO TO BETBUILDERS PAGE →</div>
+            <div class="msRow bbGoRow" id="smGoPageRow">◎ SURE BETS &amp; MIDDLE BETS →</div>
           </div>
         </div>
         <div class="seg" id="showSeg">
@@ -1411,6 +1521,7 @@ body.bbPageOn .unresolved{display:none !important}
        λίστα ομάδων που ανοίγουν και δείχνουν τα combos τους, και από εκεί στον
        πλήρη Builder. Ζητήθηκε ρητά 2026-09-20. -->
   <div class="bbPage" id="bbPage" hidden></div>
+  <div class="smPage" id="smPage" hidden></div>
   <div class="skipnote" id="skipNote"></div>
 
   <div class="foot">Ιστορικό: <a href="https://github.com/xgabora/Club-Football-Match-Data-2000-2025" target="_blank" rel="noopener">Club Football Match Data</a> (δωρεάν, πηγή football-data.co.uk). Αποδόσεις: ακριβώς ό,τι τιμές περιέχει το JSON που επικολλάς από το Stoiximan — καμία τιμή δεν είναι επινοημένη. Το δείγμα Τορίνο–Ρόμα δείχνει μόνο τις αγορές (σουτ, σουτ στην εστία, φάουλ) που όντως περιείχε το JSON που μου έδωσες· βάλε το JSON από το tab Κόρνερ/Κάρτες για να δεις και αυτές.</div>
@@ -4490,6 +4601,562 @@ function bbRender(r, state, inner, redraw, opts){
    Πλήκτρα επιστροφής: από τον Builder πίσω στη λίστα ομάδων, από τη λίστα πίσω
    στη βασική σελίδα. Το SELECT LEGS (2/3) υπάρχει και εδώ πάνω. */
 var lastRenderedRows = [];
+/* ================= SURE BETS & MIDDLE BETS (2026-10-10) =================
+   Ίδια λογική και ίδια αναπαράσταση με το PropDunker
+   (backend/app/api/sure_bets.py + middle_bets.py, frontend SureMiddleCards.tsx),
+   μεταφερμένα από player props σε γραμμές ΟΜΑΔΑΣ.
+
+   SURE BET
+     Ίδια ομάδα, ίδια κατηγορία, ΙΔΙΑ γραμμή, OVER σε μία εταιρεία και UNDER σε
+     ΑΛΛΗ, με 1/odds_over + 1/odds_under < 1. Κέρδος = (1/inv − 1).
+     Παράδειγμα: OVER 7.5 @2.45 + UNDER 7.5 @1.85 -> inv=0.9487 -> +5.41%.
+     Το μοίρασμα του πονταρίσματος είναι τέτοιο ώστε η επιστροφή να είναι ΙΔΙΑ
+     όποιο σκέλος κι αν κερδίσει:  stake_over = stake*(1/o)/inv.
+
+   MIDDLE BET
+     Ίδια ομάδα, ίδια κατηγορία, ΙΔΙΟΣ αγώνας· OVER L1 σε μία εταιρεία και
+     UNDER L2 σε άλλη με L2 > L1. Αν το αποτέλεσμα πέσει ΑΝΑΜΕΣΑ, κερδίζουν
+     ΚΑΙ ΤΑ ΔΥΟ σκέλη.
+       - L2 == L1 είναι sure bet (πάει στην άλλη καρτέλα).
+       - L2 <  L1 είναι "ανάποδο middle" όπου μπορεί να χάσουν ΚΑΙ ΤΑ ΔΥΟ —
+         δεν εμφανίζεται ΠΟΤΕ.
+       - Τα στατιστικά είναι ακέραια: το παράθυρο είναι οι ακέραιοι ΑΥΣΤΗΡΑ
+         ανάμεσα. O 7.5 / U 9.5 -> {8,9}. Σε ΑΚΕΡΑΙΑ γραμμή η ισοπαλία είναι
+         push (επιστροφή): O 7 / U 9 -> παράθυρο {8}, push στο 7 και στο 9.
+       - Ισοσκελισμένο μοίρασμα: ίδια επιστροφή όποιο σκέλος κι αν κερδίσει
+         μόνο του, άρα ΓΝΩΣΤΗ μικρή ζημιά απ' έξω και ΓΝΩΣΤΟ κέρδος μέσα.
+       - Συχνότητα ισοσκελισμού p* = ζημιά/(κέρδος+ζημιά). Αν inv<1 το middle
+         είναι ΚΑΙ sure bet, οπότε p* = 0.
+       - Η πιθανότητα βγαίνει από τα ΠΡΑΓΜΑΤΙΚΑ τελευταία N ματς της ομάδας,
+         και το EV υπολογίζεται ματς-ματς ώστε τα push να μετρήσουν σωστά.
+
+   ΤΑΞΙΝΟΜΗΣΗ (όπως στο PropDunker, και για τον ίδιο λόγο): τα middles
+   ταξινομούνται ΠΡΩΤΑ με τη ΖΗΜΙΑ απ' έξω, μετά με το EV. Η ζημιά είναι
+   ΒΕΒΑΙΗ και γνωστή τη στιγμή του στοιχήματος· η επίτευξη είναι εκτίμηση από
+   μικρό δείγμα. Ένα middle που κοστίζει 2% αξίζει να το δεις ακόμα και με
+   μηδέν ιστορικές επιτεύξεις· ένα που κοστίζει 25% δεν το σώζει καλό EV σε 12
+   ματς.
+============================================================================ */
+
+var SM_PER_GROUP = 6;     // πόσα middles το πολύ ανά ομάδα+κατηγορία (αλλιώς οι
+                          // σκάλες γραμμών πλημμυρίζουν τη λίστα με παραλλαγές)
+var SM_LIST_CAP  = 400;   // ανώτατο πλήθος γραμμών ανά καρτέλα
+
+/* ---------- καθαρά μαθηματικά (μεταφορά 1:1 από middle_bets.py) ---------- */
+function smMiddleOutcomes(l1, l2){
+  var lo = Math.floor(l1) + 1, hi = Math.ceil(l2) - 1;
+  var out = [];
+  for(var x = lo; x <= hi; x++) out.push(x);
+  return out;
+}
+function smBalancedSplit(stake, o, u){
+  var inv = 1.0/o + 1.0/u;
+  var so = stake * (1.0/o) / inv;
+  var su = stake * (1.0/u) / inv;
+  var outside = stake/inv - stake;          // κερδίζει ΜΟΝΟ το ένα σκέλος
+  var inside  = 2.0*stake/inv - stake;      // κερδίζουν ΚΑΙ ΤΑ ΔΥΟ
+  var be = (outside >= 0) ? 0.0 : (-outside) / (inside - outside);
+  return {inv:inv, stakeOver:so, stakeUnder:su,
+          profitOutside:outside, profitMiddle:inside, breakEven:be};
+}
+// Καθαρό κέρδος/ζημιά για αποτέλεσμα x, με push στην ακέραια γραμμή.
+function smProfitAt(x, l1, o, so, l2, u, su){
+  var ret = 0.0;
+  if(x > l1) ret += so * o;
+  else if(x === l1) ret += so;              // push: επιστροφή
+  if(x < l2) ret += su * u;
+  else if(x === l2) ret += su;
+  return ret - (so + su);
+}
+
+/* ---------- ομαδοποίηση ---------- */
+// Ταυτότητα ΓΡΑΜΜΗΣ (ίδια με τη συνένωση εταιρειών): ομάδα + κατηγορία + έδρα
+// + threshold + ΗΜΕΡΑ αγώνα, ΧΩΡΙΣ πλευρά και ΧΩΡΙΣ εταιρεία.
+// Ταυτότητα ΑΓΟΡΑΣ (για τα middles): το ίδιο ΧΩΡΙΣ threshold — "η ίδια ομάδα σε
+// δύο αγώνες δεν κάνει middle με τον εαυτό της", γι' αυτό μπαίνει η ημέρα.
+function smMarketKey(r){
+  return "S:"+r.team+"|"+r.league+"|"+r.category+"|"+(r.direction||"")+"|"+
+         (athensDateISO(r.startTime)||"");
+}
+function smUsableRows(){
+  return feedRows.filter(function(r){
+    return !r.isTotal && r.team && r.price != null && isFinite(r.price) && r.price > 1 &&
+           r.threshold != null && isFinite(r.threshold);
+  });
+}
+function smMeta(r){
+  return {team:r.team, league:r.league, category:r.category, direction:r.direction,
+          opponent:r.opponent, matchHome:r.matchHome, matchAway:r.matchAway,
+          startTime:r.startTime, ownVenue:r.ownVenue};
+}
+
+/* ---------- SURE BETS ---------- */
+// Το αφελές "καλύτερο over × καλύτερο under" είναι ΛΑΘΟΣ: αν και τα δύο είναι
+// στην ίδια εταιρεία δεν είναι arbitrage. Δοκιμάζουμε όλα τα ζευγάρια — με δύο
+// εταιρείες είναι ελάχιστα.
+function smBestPair(overs, unders){
+  var best = null;
+  overs.forEach(function(o){
+    unders.forEach(function(u){
+      if(o.book === u.book) return;
+      var inv = 1.0/o.price + 1.0/u.price;
+      if(inv >= 1.0) return;
+      var profit = (1.0/inv - 1.0) * 100.0;
+      if(!best || profit > best.profit) best = {profit:profit, o:o, u:u, inv:inv};
+    });
+  });
+  return best;
+}
+function smBuildSure(opts){
+  opts = opts || {};
+  var stake = opts.stake != null ? opts.stake : 100;
+  var minProfit = opts.minProfit != null ? opts.minProfit : 0;
+  var bookOk = opts.bookOk || function(){ return true; };
+  var groups = {};
+  smUsableRows().forEach(function(r){
+    var k = lineIdentityKey(r);
+    var g = groups[k] || (groups[k] = {meta:smMeta(r), threshold:r.threshold, over:[], under:[]});
+    g[r.side === "over" ? "over" : "under"].push(r);
+  });
+  var out = [];
+  Object.keys(groups).forEach(function(k){
+    var g = groups[k];
+    if(!g.over.length || !g.under.length) return;
+    var best = smBestPair(g.over, g.under);
+    if(!best) return;
+    if(best.profit < minProfit) return;
+    if(!bookOk(best.o.book, best.u.book)) return;
+    var inv = best.inv;
+    var books = {};
+    g.over.concat(g.under).forEach(function(x){ books[x.book] = 1; });
+    out.push({
+      meta: g.meta, threshold: g.threshold,
+      over:  {book:best.o.book, price:best.o.price, lineKind:best.o.lineKind, row:best.o},
+      under: {book:best.u.book, price:best.u.price, lineKind:best.u.lineKind, row:best.u},
+      inv: inv,
+      profitPct: best.profit,
+      stakeOver:  stake * (1.0/best.o.price) / inv,
+      stakeUnder: stake * (1.0/best.u.price) / inv,
+      payout: stake / inv,
+      guaranteed: stake/inv - stake,
+      booksCount: Object.keys(books).length
+    });
+  });
+  out.sort(function(a,b){ return b.profitPct - a.profitPct; });
+  return out.slice(0, SM_LIST_CAP);
+}
+
+/* ---------- MIDDLE BETS ---------- */
+// Ένας νικητής ανά ζευγάρι γραμμών (L1,L2): ο συνδυασμός εταιρειών με το
+// ΜΙΚΡΟΤΕΡΟ inv, δηλαδή τη φθηνότερη ζημιά απ' έξω / το μεγαλύτερο κέρδος μέσα.
+function smBestByLinePair(overs, unders){
+  var best = {};
+  overs.forEach(function(o){
+    unders.forEach(function(u){
+      if(u.threshold <= o.threshold) return;
+      if(o.book === u.book) return;
+      var inv = 1.0/o.price + 1.0/u.price;
+      var k = o.threshold + "|" + u.threshold;
+      if(!best[k] || inv < best[k].inv) best[k] = {inv:inv, o:o, u:u};
+    });
+  });
+  return best;
+}
+// Τα ΠΡΑΓΜΑΤΙΚΑ τελευταία N αποτελέσματα της ομάδας σε αυτή την κατηγορία.
+// Χρησιμοποιεί την ΙΔΙΑ evaluate() με την υπόλοιπη σελίδα, οπότε τα νούμερα
+// συμφωνούν με τα pills (ίδιο φιλτράρισμα έδρας/συμπλήρωσης).
+function smHistoryValues(meta, window, o){
+  o = o || {};
+  var eo = {n: window};
+  if(o.venue && o.venue !== "any") eo.venue = o.venue;
+  if(o.fill){ eo.fullSeason = true; eo.lastSeason = true; }
+  try{
+    var res = evaluate(meta.team, meta.league, meta.category, meta.direction, 0, "over", eo);
+    return (res.matches || []).map(function(x){ return x.v; });
+  }catch(e){ return []; }
+}
+function smBuildMiddle(opts){
+  opts = opts || {};
+  var stake      = opts.stake != null ? opts.stake : 100;
+  var windowN    = opts.window || 20;
+  var maxLossPct = opts.maxLossPct != null ? opts.maxLossPct : 20;
+  var minWidth   = opts.minWidth || 1;
+  var positiveEv = !!opts.positiveEv;
+  var perGroup   = opts.perGroup || SM_PER_GROUP;
+  var bookOk     = opts.bookOk || function(){ return true; };
+
+  var groups = {};
+  smUsableRows().forEach(function(r){
+    var k = smMarketKey(r);
+    var g = groups[k] || (groups[k] = {meta:smMeta(r), over:[], under:[]});
+    g[r.side === "over" ? "over" : "under"].push(r);
+  });
+
+  var rows = [];
+  Object.keys(groups).forEach(function(k){
+    var g = groups[k];
+    if(!g.over.length || !g.under.length) return;
+    var pairs = smBestByLinePair(g.over, g.under);
+    var keys = Object.keys(pairs);
+    if(!keys.length) return;
+
+    var values = smHistoryValues(g.meta, windowN, opts);
+    var n = values.length;
+    var cand = [];
+    keys.forEach(function(pk){
+      var p = pairs[pk], o = p.o, u = p.u;
+      if(!bookOk(o.book, u.book)) return;
+      var l1 = o.threshold, l2 = u.threshold;
+      var zone = smMiddleOutcomes(l1, l2);
+      if(zone.length < minWidth) return;
+
+      var sp = smBalancedSplit(stake, o.price, u.price);
+      var lossPct = Math.max(0, -sp.profitOutside) / stake * 100.0;
+      if(lossPct > maxLossPct) return;
+
+      var hits = 0, pushes = 0, evSum = 0;
+      values.forEach(function(v){
+        if(v > l1 && v < l2) hits++;
+        if(v === l1 || v === l2) pushes++;
+        evSum += smProfitAt(v, l1, o.price, sp.stakeOver, l2, u.price, sp.stakeUnder);
+      });
+      var ev = n ? evSum / n : null;
+      var hitRate = n ? hits / n : null;
+      if(positiveEv && (ev == null || ev <= 0)) return;
+
+      var dist = {};
+      values.forEach(function(v){ var b = Math.round(v); dist[b] = (dist[b]||0) + 1; });
+      var distArr = Object.keys(dist).map(function(x){ return [parseFloat(x), dist[x]]; })
+                      .sort(function(a,b){ return a[0]-b[0]; });
+
+      cand.push({
+        meta: g.meta,
+        kind: sp.profitOutside >= 0 ? "sure_middle" : "middle",
+        over:  {book:o.book, price:o.price, threshold:l1, lineKind:o.lineKind,
+                stake:sp.stakeOver, row:o},
+        under: {book:u.book, price:u.price, threshold:l2, lineKind:u.lineKind,
+                stake:sp.stakeUnder, row:u},
+        zone: zone, width: zone.length,
+        pushLines: [l1, l2].filter(function(x){ return Math.floor(x) === x; }),
+        profitMiddle: sp.profitMiddle, profitOutside: sp.profitOutside,
+        lossPct: lossPct, breakEvenPct: sp.breakEven * 100.0,
+        sample: n, hits: hits, pushes: pushes,
+        hitRatePct: hitRate != null ? hitRate * 100.0 : null,
+        ev: ev, evPct: ev != null ? ev / stake * 100.0 : null,
+        edgePct: hitRate != null ? (hitRate * 100.0 - sp.breakEven * 100.0) : null,
+        distribution: distArr
+      });
+    });
+    cand.sort(smRankMiddle);
+    rows = rows.concat(cand.slice(0, perGroup));
+  });
+  rows.sort(smRankMiddle);
+  return rows.slice(0, SM_LIST_CAP);
+}
+function smRankMiddle(a, b){
+  if(a.lossPct !== b.lossPct) return a.lossPct - b.lossPct;
+  var an = (a.ev == null) ? 1 : 0, bn = (b.ev == null) ? 1 : 0;
+  if(an !== bn) return an - bn;
+  return (b.ev || 0) - (a.ev || 0);
+}
+
+/* ---------- ΣΕΛΙΔΑ SURE BETS & MIDDLE BETS ----------
+   Ίδια διάταξη με το PropDunker /surebets: τίτλος + υπότιτλος ανά καρτέλα, δύο
+   pills καρτελών με το πλήθος, επιλογή εταιρειών, φίλτρα, και οι ίδιες κάρτες
+   (δύο σκέλη OVER/UNDER με λογότυπα και ποντάρισμα, τρίπτυχο αποτελεσμάτων,
+   ιστόγραμμα κατανομής). */
+var smPageOn = false;
+var smState = {
+  tab: "sure",                 // "sure" | "middle"
+  stake: 100,
+  minProfit: 0,
+  window: 20,
+  maxLoss: 20,
+  minWidth: 1,
+  books: null,                 // null = όλες
+  fill: false,
+  venue: "any"
+};
+var _smCache = {sure:null, middle:null, key:""};
+
+function smCacheKey(){
+  return [smState.stake, smState.minProfit, smState.window, smState.maxLoss, smState.minWidth,
+          (smState.books||[]).join(","), smState.fill?1:0, smState.venue, feedRows.length].join("|");
+}
+function smBookOk(){
+  var sel = smState.books;
+  if(!sel || sel.length < 2) return function(){ return true; };
+  var s = {};
+  sel.forEach(function(b){ s[b] = 1; });
+  // ΚΑΙ ΤΑ ΔΥΟ σκέλη πρέπει να είναι μέσα στην επιλογή — αλλιώς το στοίχημα
+  // δεν παίζεται με τις εταιρείες που διάλεξε ο χρήστης.
+  return function(a, b){ return !!s[a] && !!s[b]; };
+}
+function smCompute(){
+  var k = smCacheKey();
+  if(_smCache.key !== k){
+    _smCache.key = k;
+    _smCache.sure = smBuildSure({
+      stake:smState.stake, bookOk:smBookOk(), fill:smState.fill, venue:smState.venue,
+      minProfit:smState.minProfit});
+    _smCache.middle = smBuildMiddle({
+      stake:smState.stake, bookOk:smBookOk(), fill:smState.fill, venue:smState.venue,
+      window:smState.window, maxLossPct:smState.maxLoss, minWidth:smState.minWidth});
+  }
+  return _smCache;
+}
+function smBooksInFeed(){
+  var seen = {};
+  feedRows.forEach(function(r){ if(r.book) seen[r.book] = 1; });
+  return BOOKS.filter(function(b){ return seen[b]; });
+}
+
+/* ---------- μικρά helpers εμφάνισης (ίδια με το PropDunker) ---------- */
+function smMoney(v){
+  var n = Number(v) || 0;
+  return (n >= 0 ? "+" : "−") + Math.abs(n).toFixed(2) + "€";
+}
+function smZoneText(z){
+  if(!z || !z.length) return "—";
+  return z.length === 1 ? String(z[0]) : (z[0] + "–" + z[z.length-1]);
+}
+function smMatchup(meta){
+  var h = meta.matchHome || "", a = meta.matchAway || "";
+  return (h && a) ? (h + " – " + a) : (meta.opponent ? ("vs " + meta.opponent) : "");
+}
+function smLegHtml(side, line, data, stake, accent){
+  return '<div class="smLeg '+accent+'">'+
+    '<div class="smLegTop">'+
+      '<span class="smSide">'+side+' '+line+'</span>'+
+      (data.lineKind === "alt" ? '<span class="smAlt">ALT</span>' : '')+
+      '<span class="smOdds">'+Number(data.price||0).toFixed(2)+'</span>'+
+    '</div>'+
+    '<div class="smLegBot">'+
+      '<span class="smBook">'+bookLogoHtml(data.book)+'<span>'+escAttr(bookLabel(data.book))+'</span></span>'+
+      '<span class="smStake">'+(Number(stake)||0).toFixed(2)+'€</span>'+
+    '</div>'+
+  '</div>';
+}
+function smOutcomeHtml(label, value, sub, highlight){
+  var cls = (value >= 0) ? (highlight ? "pos hi" : "pos") : "neg";
+  return '<div class="smOut'+(highlight?" hi":"")+'">'+
+    '<div class="smOutLbl">'+escAttr(label)+'</div>'+
+    '<div class="smOutVal '+cls+'">'+smMoney(value)+'</div>'+
+    '<div class="smOutSub">'+escAttr(sub)+'</div></div>';
+}
+// Μίνι ιστόγραμμα των τελευταίων N αποτελεσμάτων. Οι στήλες ΜΕΣΑ στο παράθυρο
+// είναι χρωματισμένες — βλέπεις με μια ματιά πόσο συχνά έπεφτε στη μέση.
+function smDistHtml(dist, zone, l1, l2){
+  if(!dist || !dist.length) return "";
+  var vals = dist.map(function(d){ return d[0]; });
+  var lo = Math.min.apply(null, vals.concat([Math.floor(l1)]));
+  var hi = Math.max.apply(null, vals.concat([Math.ceil(l2)]));
+  var span = hi - lo + 1;
+  var w = span > 24 ? 5 : (span > 14 ? 7 : 9);
+  var max = 0;
+  dist.forEach(function(d){ if(d[1] > max) max = d[1]; });
+  var byVal = {};
+  dist.forEach(function(d){ byVal[d[0]] = d[1]; });
+  var inZone = {};
+  (zone||[]).forEach(function(z){ inZone[z] = 1; });
+  var bars = "";
+  for(var v = lo; v <= hi; v++){
+    var c = byVal[v] || 0;
+    var h = c ? Math.max(3, Math.round((c/max)*30)) : 1;
+    var cls = c ? (inZone[v] ? "in" : "out") : "none";
+    bars += '<span class="smBar '+cls+'" style="width:'+w+'px;height:'+h+'px" title="'+v+': '+c+'×"></span>';
+  }
+  return '<div class="smDist" title="Αποτελέσματα στο παράθυρο ιστορικού">'+
+    '<div class="smBars">'+bars+'</div>'+
+    '<div class="smDistAx"><span>'+lo+'</span><span>'+hi+'</span></div></div>';
+}
+
+/* ---------- κάρτες ---------- */
+function smSureCardHtml(r){
+  var strong = r.profitPct >= 3;
+  return '<div class="smCard">'+
+    '<div class="smHead">'+
+      '<div class="smWho">'+
+        '<div class="smTitle">'+avatarHtml(r.meta.team, r.meta.league)+' '+escAttr(r.meta.team)+'</div>'+
+        '<div class="smSubWho">'+escAttr(smMatchup(r.meta))+'</div>'+
+      '</div>'+
+      '<div class="smProp">'+escAttr(catLabel(r.meta.category))+' '+r.threshold+'</div>'+
+      '<div class="smPct'+(strong?" strong":"")+'">+'+r.profitPct.toFixed(2)+'%</div>'+
+    '</div>'+
+    '<div class="smLegs">'+
+      smLegHtml("OVER", r.threshold, r.over, r.stakeOver, "em")+
+      smLegHtml("UNDER", r.threshold, r.under, r.stakeUnder, "ro")+
+    '</div>'+
+    '<div class="smFoot">'+
+      '<span>Ποντάρισμα <b>'+smState.stake.toFixed(2)+'€</b></span>'+
+      '<span>Επιστρέφει <b>'+r.payout.toFixed(2)+'€</b> όπως κι αν έρθει</span>'+
+      '<span class="pos">Κέρδος <b>+'+r.guaranteed.toFixed(2)+'€</b></span>'+
+    '</div>'+
+  '</div>';
+}
+function smMiddleCardHtml(r){
+  var oLine = r.over.threshold, uLine = r.under.threshold;
+  // Οι ετικέτες "απ' έξω" κωδικοποιούν τον κανόνα του push: για O 7.5 / U 9.5
+  // βγαίνει "7 ή λιγότερα" / "10 ή περισσότερα", ενώ για ακέραιο O 7 βγαίνει
+  // "6 ή λιγότερα" (το 7 είναι push, δεν είναι ζημιά).
+  var lowOut  = Math.floor(oLine) - (Math.floor(oLine) === oLine ? 1 : 0);
+  var highOut = Math.ceil(uLine)  + (Math.ceil(uLine)  === uLine ? 1 : 0);
+  var good = r.ev != null && r.ev > 0;
+  var evBadge = (r.ev != null)
+    ? '<div class="smEv'+(good?" good":"")+'" title="Μέσο αποτέλεσμα ανά στοίχημα στο παράθυρο ιστορικού">EV '+smMoney(r.ev)+'</div>'
+    : '<div class="smEv none">χωρίς ιστορικό</div>';
+  var line2;
+  if(r.sample > 0){
+    line2 = 'Έπεσε στη μέση <b>'+r.hits+'/'+r.sample+'</b> ('+Math.round(r.hitRatePct)+'%)'+
+      '<span class="smDot">·</span>χρειάζεται <b>'+r.breakEvenPct.toFixed(1)+'%</b>'+
+      (r.edgePct != null ? '<span class="'+(r.edgePct>0?"pos":"dim")+'"> ('+(r.edgePct>0?"+":"")+r.edgePct.toFixed(1)+' μονάδες)</span>' : '')+
+      (r.sample < 10 ? '<span class="smWarn"> μικρό δείγμα</span>' : '')+
+      (r.pushLines.length ? '<span class="smDot">·</span>push στο '+r.pushLines.join(" / ") : '');
+  } else {
+    line2 = 'Δεν υπάρχει ιστορικό για αυτή την ομάδα — χρειάζεται <b>'+r.breakEvenPct.toFixed(1)+'%</b> για ισοσκελισμό.';
+  }
+  return '<div class="smCard">'+
+    '<div class="smHead mid">'+
+      '<div class="smWho">'+
+        '<div class="smTitle">'+avatarHtml(r.meta.team, r.meta.league)+' '+escAttr(r.meta.team)+'</div>'+
+        '<div class="smSubWho">'+escAttr(smMatchup(r.meta))+'</div>'+
+      '</div>'+
+      '<div class="smMidLines">'+
+        '<span class="smOverL">OVER '+oLine+'</span>'+
+        '<span class="smProp">'+escAttr(catLabel(r.meta.category))+'</span>'+
+        '<span class="smUnderL">UNDER '+uLine+'</span>'+
+      '</div>'+
+      '<div class="smBadges">'+
+        '<div class="smZone" title="Αποτελέσματα όπου κερδίζουν ΚΑΙ ΤΑ ΔΥΟ σκέλη">MIDDLE '+smZoneText(r.zone)+'</div>'+
+        evBadge+
+      '</div>'+
+    '</div>'+
+    '<div class="smLegs">'+
+      smLegHtml("OVER", oLine, r.over, r.over.stake, "em")+
+      smLegHtml("UNDER", uLine, r.under, r.under.stake, "ro")+
+    '</div>'+
+    '<div class="smOuts">'+
+      smOutcomeHtml(lowOut+" ή λιγότερα", r.profitOutside, "κερδίζει το under", false)+
+      smOutcomeHtml(smZoneText(r.zone), r.profitMiddle, "κερδίζουν και τα δύο", true)+
+      smOutcomeHtml(highOut+" ή περισσότερα", r.profitOutside, "κερδίζει το over", false)+
+    '</div>'+
+    '<div class="smFoot wrap">'+
+      '<div class="smHist">'+line2+'</div>'+
+      smDistHtml(r.distribution, r.zone, oLine, uLine)+
+    '</div>'+
+  '</div>';
+}
+
+/* ---------- χειριστήρια ---------- */
+function smNumFieldHtml(act, val, suffix, min, max){
+  return '<span class="smNum"><input type="text" inputmode="decimal" data-smnum="'+act+'" '+
+    'value="'+val+'"'+(min!=null?' data-min="'+min+'"':'')+(max!=null?' data-max="'+max+'"':'')+'>'+
+    (suffix ? '<span class="smSuf">'+suffix+'</span>' : '')+'</span>';
+}
+function smBookPickerHtml(){
+  var books = smBooksInFeed();
+  if(books.length < 2) return "";
+  var sel = smState.books;
+  var chips = '<button type="button" class="smChip'+(!sel?" on":"")+'" data-smbook="all">Όλες</button>';
+  books.forEach(function(b){
+    var on = !sel || sel.indexOf(b) >= 0;
+    var lastTwo = sel && sel.length <= 2 && on;
+    chips += '<button type="button" class="smChip'+(on?" on":"")+(lastTwo?" locked":"")+'" data-smbook="'+b+'"'+
+      (lastTwo ? ' title="Χρειάζονται τουλάχιστον δύο εταιρείες — τα δύο σκέλη είναι πάντα σε διαφορετικές"' : '')+'>'+
+      bookLogoHtml(b, "sm")+escAttr(bookLabel(b))+'</button>';
+  });
+  return '<div class="smRow"><span class="smLbl">Εταιρείες</span>'+chips+
+    (sel ? '<span class="smHint">και τα δύο σκέλη πρέπει να είναι μέσα στην επιλογή σου</span>' : '')+'</div>';
+}
+function smCtrlHtml(){
+  var h = '<div class="smCtrls">';
+  h += smBookPickerHtml();
+  if(smState.tab === "sure"){
+    h += '<div class="smRow">'+
+      '<span class="smLbl">Συνολικό ποντάρισμα</span>'+smNumFieldHtml("stake", smState.stake, "€", 1, 1000000)+
+      '<span class="smLbl">Ελάχιστο κέρδος</span>'+smNumFieldHtml("minProfit", smState.minProfit, "%", 0, 100)+
+      '</div>';
+  } else {
+    h += '<div class="smRow">'+
+      '<span class="smLbl">Ιστορικό</span><span class="seg small" id="smWinSeg">'+
+        [5,10,20,40].map(function(n){
+          return '<button type="button" data-smwin="'+n+'" class="'+(smState.window===n?"active":"")+'">L'+n+'</button>';
+        }).join("")+'</span>'+
+      '<span class="smLbl">Μέγιστη ζημιά</span>'+smNumFieldHtml("maxLoss", smState.maxLoss, "%", 0, 100)+
+      '<span class="smLbl">Ελάχιστο παράθυρο</span><span class="seg small" id="smWidthSeg">'+
+        [1,2,3].map(function(n){
+          return '<button type="button" data-smwidth="'+n+'" class="'+(smState.minWidth===n?"active":"")+'">'+n+'</button>';
+        }).join("")+'</span>'+
+      '</div>'+
+      '<div class="smRow">'+
+      '<span class="smLbl">Συνολικό ποντάρισμα</span>'+smNumFieldHtml("stake", smState.stake, "€", 1, 1000000)+
+      '<button type="button" class="smToggle'+(smState.fill?" on":"")+'" data-smfill="1" '+
+        'title="Συμπλήρωση με περσινή σεζόν όταν η φετινή δεν φτάνει το LAST N">+ περσινή σεζόν</button>'+
+      '<span class="smHint">Ταξινόμηση: πρώτα η φθηνότερη ζημιά, μετά το ιστορικό EV.</span>'+
+      '</div>';
+  }
+  h += '</div>';
+  return h;
+}
+
+/* ---------- σελίδα ---------- */
+function openSmPage(){
+  smPageOn = true;
+  _smCache.key = "";
+  var fsB = document.getElementById("filtersBackdrop"), fsS = document.getElementById("filtersSheet");
+  if(fsB) fsB.hidden = true;
+  if(fsS) fsS.hidden = true;
+  if(bbPageOn) closeBbPage();
+  document.body.classList.add("smPageOn");
+  document.getElementById("smPage").hidden = false;
+  renderSmPage();
+  window.scrollTo(0, 0);
+}
+function closeSmPage(){
+  smPageOn = false;
+  document.body.classList.remove("smPageOn");
+  var el = document.getElementById("smPage");
+  el.hidden = true; el.innerHTML = "";
+  window.scrollTo(0, 0);
+}
+function renderSmPage(){
+  var el = document.getElementById("smPage");
+  if(!el || !smPageOn) return;
+  var res = smCompute();
+  var rows = smState.tab === "sure" ? res.sure : res.middle;
+  var sub = smState.tab === "sure"
+    ? "Ίδια ομάδα, ίδια κατηγορία, ίδια γραμμή — δύο εταιρείες που διαφωνούν αρκετά ώστε να πληρώνεσαι όπως κι αν έρθει."
+    : "Ίδια ομάδα, ίδια κατηγορία, δύο διαφορετικές γραμμές — ένα παράθυρο όπου κερδίζουν και τα δύο στοιχήματα.";
+  var body;
+  if(!rows.length){
+    body = '<div class="smEmpty"><b>'+(smState.tab==="sure" ? "Τίποτα αυτή τη στιγμή" : "Τίποτα με αυτά τα φίλτρα")+'</b>'+
+      '<span>'+(smState.tab==="sure"
+        ? "Καμία δύο εταιρείες δεν διαφωνούν αρκετά στην ίδια γραμμή αυτή τη στιγμή."
+        : "Δοκίμασε μεγαλύτερη μέγιστη ζημιά, μεγαλύτερο παράθυρο ιστορικού ή μικρότερο ελάχιστο παράθυρο.")+'</span></div>';
+  } else {
+    body = '<div class="smList">'+rows.map(smState.tab === "sure" ? smSureCardHtml : smMiddleCardHtml).join("")+'</div>';
+  }
+  var foot = smState.tab === "sure"
+    ? 'Οι αποδόσεις κινούνται. Έλεγξε ότι και οι δύο εταιρείες δείχνουν ακόμα αυτές τις τιμές πριν ποντάρεις, και βάλε πρώτο το σκέλος με τη μικρότερη απόδοση — αυτό είναι που αλλάζει πιο εύκολα.'
+    : 'Το middle <b>δεν</b> είναι εγγυημένο. Έξω από το παράθυρο κερδίζει το ένα σκέλος και χάνεις το μικρό ποσό που φαίνεται· μέσα κερδίζουν και τα δύο. Η ιστορική επίτευξη είναι τι θα είχε γίνει στα τελευταία '+smState.window+' ματς της ομάδας — οδηγός, όχι υπόσχεση.<br>Τα ποντάρισματα είναι ισοσκελισμένα ώστε το αποτέλεσμα να είναι το ίδιο όποιο σκέλος κι αν κερδίσει μόνο του. Σε ακέραια γραμμή (π.χ. over 7) το να πέσει ακριβώς πάνω της είναι push: το σκέλος επιστρέφεται.';
+
+  el.innerHTML =
+    '<div class="smHeadBar">'+
+      '<button type="button" class="bbBackBtn" data-smact="back">← Πίσω</button>'+
+      '<div class="smTitleWrap"><div class="bbPageTitle">SURE BETS &amp; MIDDLE BETS'+
+        '<span class="bbPageSub">'+sub+'</span></div></div>'+
+    '</div>'+
+    '<div class="smTabs">'+
+      '<button type="button" class="smTab sure'+(smState.tab==="sure"?" on":"")+'" data-smtab="sure">SURE BETS ('+res.sure.length+')</button>'+
+      '<button type="button" class="smTab mid'+(smState.tab==="middle"?" on":"")+'" data-smtab="middle">MIDDLE BETS ('+res.middle.length+')</button>'+
+    '</div>'+
+    smCtrlHtml()+
+    body+
+    '<div class="smNote">'+foot+'</div>'+
+    '<div class="smBackWrap"><button type="button" class="bbBackBtn" data-smact="back">← Πίσω στη λίστα</button></div>';
+}
+
+
 var bbPageOn = false;
 var bbPageState = { n:10, venue:"any", fill:false, expanded:{}, row:null, state:null };
 var _bbPageCache = {};
@@ -4516,6 +5183,7 @@ function bbPageCombos(r){
   return _bbPageCache[k];
 }
 function openBbPage(){
+  if(smPageOn) closeSmPage();
   bbPageState.n = ([5,10,15,20].indexOf(activeWindow)>=0) ? activeWindow : 10;
   bbPageState.venue = "any";
   bbPageState.fill = lastFillGlobalOn;
@@ -5639,6 +6307,69 @@ document.getElementById("bbGoPageRow").addEventListener("click", function(e){
   closeAllMsMenus(null);
   openBbPage();
 });
+document.getElementById("smGoPageRow").addEventListener("click", function(e){
+  e.stopPropagation();
+  closeAllMsMenus(null);
+  openSmPage();
+});
+/* ---------- SURE/MIDDLE: όλα τα κλικ της σελίδας, με ανάθεση ---------- */
+document.getElementById("smPage").addEventListener("click", function(e){
+  var t = e.target.closest ? e.target : null;
+  if(!t) return;
+  var back = t.closest("[data-smact='back']");
+  if(back){ closeSmPage(); return; }
+  var tab = t.closest("[data-smtab]");
+  if(tab){ smState.tab = tab.getAttribute("data-smtab"); renderSmPage(); return; }
+  var win = t.closest("[data-smwin]");
+  if(win){ smState.window = parseInt(win.getAttribute("data-smwin"),10); renderSmPage(); return; }
+  var wid = t.closest("[data-smwidth]");
+  if(wid){ smState.minWidth = parseInt(wid.getAttribute("data-smwidth"),10); renderSmPage(); return; }
+  var fill = t.closest("[data-smfill]");
+  if(fill){ smState.fill = !smState.fill; renderSmPage(); return; }
+  var bk = t.closest("[data-smbook]");
+  if(bk){
+    var v = bk.getAttribute("data-smbook");
+    var all = smBooksInFeed();
+    if(v === "all"){ smState.books = null; }
+    else {
+      var cur = smState.books ? smState.books.slice() : all.slice();
+      var i = cur.indexOf(v);
+      if(i >= 0) cur.splice(i,1); else cur.push(v);
+      // Και τα δύο σκέλη είναι ΠΑΝΤΑ σε διαφορετικές εταιρείες, οπότε κάτω από
+      // δύο επιλεγμένες δεν υπάρχει στοίχημα να δειχτεί — η επιλογή δεν περνάει.
+      if(cur.length < 2) return;
+      smState.books = (cur.length === all.length) ? null : cur;
+    }
+    renderSmPage();
+    return;
+  }
+});
+// Τα αριθμητικά πεδία δεσμεύονται στο blur/Enter (όχι σε κάθε πλήκτρο), ώστε να
+// μπορείς να σβήσεις το περιεχόμενο και να γράψεις από την αρχή.
+(function(){
+  var page = document.getElementById("smPage");
+  function commit(inp){
+    var act = inp.getAttribute("data-smnum");
+    var v = parseFloat(String(inp.value).replace(",","."));
+    if(!isFinite(v)) { renderSmPage(); return; }
+    var mn = inp.getAttribute("data-min"), mx = inp.getAttribute("data-max");
+    if(mn != null) v = Math.max(parseFloat(mn), v);
+    if(mx != null) v = Math.min(parseFloat(mx), v);
+    if(act === "stake") smState.stake = v;
+    else if(act === "minProfit") smState.minProfit = v;
+    else if(act === "maxLoss") smState.maxLoss = v;
+    renderSmPage();
+  }
+  page.addEventListener("blur", function(e){
+    var inp = e.target.closest ? e.target.closest("[data-smnum]") : null;
+    if(inp) commit(inp);
+  }, true);
+  page.addEventListener("keydown", function(e){
+    if(e.key !== "Enter") return;
+    var inp = e.target.closest ? e.target.closest("[data-smnum]") : null;
+    if(inp){ e.preventDefault(); inp.blur(); }
+  });
+})();
 document.getElementById("showSeg").addEventListener("click", function(e){
   if(e.target.tagName!=="BUTTON") return;
   Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
