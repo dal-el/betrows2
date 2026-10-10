@@ -1079,8 +1079,11 @@ body.smPageOn .unresolved{display:none !important}
 .smTitle{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:800;color:var(--text);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .smSubWho{font-size:11.5px;color:var(--text-faint);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Η περιγραφή του στοιχήματος κάθεται ΔΙΠΛΑ στο όνομα της ομάδας (ζητήθηκε
+   2026-10-10) — πριν ήταν τέρμα δεξιά και δεν διαβαζόταν μαζί με την ομάδα. */
 .smProp{flex:none;border:1px solid var(--border);background:var(--surface);border-radius:var(--radius-pill);
-  padding:4px 10px;font-size:11.5px;font-weight:600;color:var(--text-dim);white-space:nowrap}
+  padding:3px 9px;font-size:11px;font-weight:600;color:var(--text-dim);white-space:nowrap;margin-left:2px}
+.smMidArrow{font-size:12px;color:var(--text-faint)}
 .smPct{flex:none;border-radius:var(--radius-pill);padding:4px 10px;font-family:"IBM Plex Mono",monospace;
   font-size:12.5px;font-weight:800;background:var(--surface);color:var(--text-dim)}
 .smPct.strong{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent);box-shadow:var(--glow-pos)}
@@ -5028,10 +5031,10 @@ function smSureCardHtml(r){
   return '<div class="smCard">'+
     '<div class="smHead">'+
       '<div class="smWho">'+
-        '<div class="smTitle">'+avatarHtml(r.meta.team, r.meta.league)+' '+escAttr(r.meta.team)+'</div>'+
+        '<div class="smTitle">'+avatarHtml(r.meta.team, r.meta.league)+' '+escAttr(r.meta.team)+
+          '<span class="smProp">'+escAttr(catLabel(r.meta.category))+' '+r.threshold+'</span></div>'+
         '<div class="smSubWho">'+escAttr(smMatchup(r.meta))+'</div>'+
       '</div>'+
-      '<div class="smProp">'+escAttr(catLabel(r.meta.category))+' '+r.threshold+'</div>'+
       '<div class="smPct'+(strong?" strong":"")+'">+'+r.profitPct.toFixed(2)+'%</div>'+
     '</div>'+
     '<div class="smLegs">'+
@@ -5069,12 +5072,13 @@ function smMiddleCardHtml(r){
   return '<div class="smCard">'+
     '<div class="smHead mid">'+
       '<div class="smWho">'+
-        '<div class="smTitle">'+avatarHtml(r.meta.team, r.meta.league)+' '+escAttr(r.meta.team)+'</div>'+
+        '<div class="smTitle">'+avatarHtml(r.meta.team, r.meta.league)+' '+escAttr(r.meta.team)+
+          '<span class="smProp">'+escAttr(catLabel(r.meta.category))+'</span></div>'+
         '<div class="smSubWho">'+escAttr(smMatchup(r.meta))+'</div>'+
       '</div>'+
       '<div class="smMidLines">'+
         '<span class="smOverL">OVER '+oLine+'</span>'+
-        '<span class="smProp">'+escAttr(catLabel(r.meta.category))+'</span>'+
+        '<span class="smMidArrow">→</span>'+
         '<span class="smUnderL">UNDER '+uLine+'</span>'+
       '</div>'+
       '<div class="smBadges">'+
