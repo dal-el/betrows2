@@ -346,6 +346,13 @@ header{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-end;justify-co
 .altTag{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:10px;letter-spacing:.04em;
   padding:2px 6px;border-radius:var(--radius-pill);border:1px dashed var(--amber,#e0a63a);
   color:var(--amber,#e0a63a);white-space:nowrap}
+/* Η τιμή της ΑΛΛΗΣ εταιρείας, δίπλα στην καλύτερη (μόνο σε ALL BOOKMAKERS). */
+.bookAlt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--text-dim);
+  background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-pill);
+  padding:2px 7px;white-space:nowrap;opacity:.75}
+/* Το tag πηγής δείχνει πλέον ΠΟΙΑ εταιρεία, άρα χρειάζεται δικό του χρώμα. */
+.src-tag.sb{border-color:rgba(96,165,250,.55);color:rgba(147,197,253,.95)}
+#bookSeg button[data-v="superbet"].unavail{opacity:.45}
 /* REVERSED LINE κλειδωμένο (ALT: δεν υπάρχει αντίθετη πλευρά) */
 .reversedLineBtn.locked{opacity:.4;cursor:not-allowed}
 .src-tag{font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--border);border-radius:var(--radius-pill);padding:2px 8px}
@@ -1147,7 +1154,7 @@ body.bbPageOn .unresolved{display:none !important}
 .themeToggle svg{width:16px;height:16px;flex:none}
 .themeToggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .header-right{margin-left:auto}
-:root[data-theme="light"] :is(.hp,.pill,.side-tag,.price-chip,.altTag,.lmChip,.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){
+:root[data-theme="light"] :is(.hp,.pill,.side-tag,.price-chip,.altTag,.bookAlt,.lmChip,.bbKind,.bbLeg,.bbPick,.bbHot,.bbSlipLeg .sd){
   /* Same translucent dark fill composited over the original dark card, never over cream. */
   --surface-2:linear-gradient(#111627cc,#111627cc),#0b0f1c;--border:#232a48;--text:#f4f7ff;--text-dim:#9aa3c7;--text-faint:#5f6890;
 }
@@ -1308,6 +1315,14 @@ body.bbPageOn .unresolved{display:none !important}
           <button data-v="main" class="active">MAIN LINES</button>
           <button data-v="alt">ALT LINES</button>
         </div>
+        <!-- ALL BOOKMAKERS = η ίδια γραμμή από τις δύο εταιρείες γίνεται ΜΙΑ,
+             με την καλύτερη απόδοση και σήμανση ποια εταιρεία είναι. Μία
+             εταιρεία επιλεγμένη = μόνο οι δικές της γραμμές και τιμές. -->
+        <div class="seg" id="bookSeg">
+          <button data-v="all" class="active">ALL BOOKMAKERS</button>
+          <button data-v="stoiximan">STOIXIMAN</button>
+          <button data-v="superbet">SUPERBET</button>
+        </div>
       </div>
       <select class="pillselect" id="sortMode">
         <option value="hit">Ταξινόμηση: Hit rate</option>
@@ -1427,6 +1442,10 @@ var bbLegsMode = 3;  // 2 = δυάδες, 3 = τριάδες (όπως ήταν)
 var showFilterVal = "all"; // "all" | "under" | "over"
 // MAIN / ALT LINES — ΠΡΟΕΠΙΛΟΓΗ "main" (βλ. twoSidedThresholds).
 var lineKindVal = "main"; // "all" | "main" | "alt"
+// ALL BOOKMAKERS / STOIXIMAN / SUPERBET — προεπιλογή "all" (συνένωση στην
+// καλύτερη απόδοση, βλ. mergeBooks).
+var bookFilterVal = "all"; // "all" | "stoiximan" | "superbet"
+var BOOKS_PRESENT = ["stoiximan"]; // ποιες εταιρείες έχουν όντως κατέβει
 var dateFilterVal = null; // "YYYY-MM-DD" (ημέρα αγώνα σε ώρα Ελλάδος) ή null == όλες
 // HOME/AWAY SPLIT (pill πάνω από το L5-L20, βλ. #haSplitBtn): όταν ενεργό,
 // μετράει για κάθε ομάδα ΜΟΝΟ τους αγώνες της στην ΙΔΙΑ έδρα που παίζει στον
@@ -1444,6 +1463,18 @@ var homeAwaySplitOn = false;
 // _oppInfo, ΚΑΙ τα L5-L20 badges) το αντανακλά αμέσως — ζητήθηκε ρητά 2026-09-17.
 var lastFillGlobalOn = false;
 var feedRows = [];
+/* ---------- ΔΕΥΤΕΡΗ ΕΤΑΙΡΕΙΑ: SUPERBET (ζητήθηκε ρητά 2026-10-10) ----------
+   Το live/ είναι η Stoiximan (fetch_stoiximan.py) και το live-superbet/ η
+   Superbet (fetch_superbet.py). Ο δεύτερος fetcher γράφει ΙΔΙΑ δομή JSON και
+   ΚΑΝΟΝΙΚΟΠΟΙΗΜΕΝΑ ονόματα αγορών, οπότε εδώ δεν χρειάζεται δεύτερος parser —
+   κάθε betrow απλώς κρατάει από ποια εταιρεία ήρθε (r.book).
+   Στο ALL BOOKMAKERS η ΙΔΙΑ γραμμή από τις δύο εταιρείες γίνεται ΕΝΑ betrow με
+   την ΚΑΛΥΤΕΡΗ (υψηλότερη) απόδοση — βλ. mergeBooks(). */
+var BOOKS = ["stoiximan", "superbet"];
+var BOOK_LABEL = {stoiximan:"Stoiximan", superbet:"Superbet"};
+var BOOK_SHORT = {stoiximan:"ST", superbet:"SB"};
+var BOOK_FEED = {stoiximan:"live", superbet:"live-superbet"};
+function bookLabel(b){ return BOOK_LABEL[b] || "Stoiximan"; }
 var skipped = {noHistory:0, unmapped:0, lowSample:0, scopeMismatch:0};
 
 var TEAM_MAP_KEY = "fbd_team_map_v1";
@@ -1519,7 +1550,7 @@ function betRecord(r){
   return {
     isTotal: !!r.isTotal, team: r.team||null, homeTeam: r.homeTeam||null, awayTeam: r.awayTeam||null,
     league: r.league, category: r.category, side: r.side, threshold: r.threshold, direction: r.direction||null,
-    price: r.price||null, lineKind: r.lineKind||"main",
+    price: r.price||null, lineKind: r.lineKind||"main", book: r.book||"stoiximan",
     startTime: r.startTime||null, savedAt: Date.now()
   };
 }
@@ -1576,7 +1607,7 @@ function renderSavedBetsList(){
           altTagHtml(rec)+
           '<span>'+catLabel(rec.category)+' · '+marketNote+'</span>'+
           (rec.price ? '<span class="price-chip">'+rec.price.toFixed(2)+'</span>' : '')+
-          '<span class="src-tag">Stoiximan</span>'+
+          '<span class="src-tag'+(rec.book==="superbet"?" sb":"")+'">'+escAttr(bookLabel(rec.book))+'</span>'+
         '</div>'+
       '</div>'+
       '<button type="button" class="sbiRemove" data-remove="'+escAttr(k)+'" title="Αφαίρεση" aria-label="Αφαίρεση">✕</button>'+
@@ -1611,6 +1642,8 @@ function resetFiltersToDefaults(){
   Array.prototype.forEach.call(document.querySelectorAll("#showSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
   lineKindVal = "main";
   Array.prototype.forEach.call(document.querySelectorAll("#lineKindSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="main"); });
+  bookFilterVal = "all";
+  Array.prototype.forEach.call(document.querySelectorAll("#bookSeg button"), function(b){ b.classList.toggle("active", b.getAttribute("data-v")==="all"); });
   // Το φίλτρο BETBUILDER (legs) επανέρχεται κι αυτό στην προεπιλογή (3 legs).
   bbLegsMode = 3;
   _bbPageCache = {};
@@ -2244,6 +2277,12 @@ function classifyMarket(name, homeGr, awayGr){
   // "Over 8.5 Goal Kicks" γίνεται λάθος αγορά γκολ) ΚΑΙ πριν το γενικό
   // /ελεύθερα/ (αλλιώς μπερδεύεται με τα πραγματικά ελεύθερα φάουλ).
   else if(/goal\s*kicks?|από\s*το\s*τέρμα/i.test(rest)) cat="unsupported";
+  // ΠΡΟΣΟΧΗ ΣΤΗ ΣΕΙΡΑ: ο έλεγχος αποκρούσεων πρέπει να γίνει ΠΡΙΝ από τα γκολ,
+  // γιατί η λέξη "Goalkeeper" περιέχει "Goal" και το /goals?/i το πιάνει — έτσι
+  // κάθε αγορά "Goalkeeper Saves" καταχωρούνταν ως ΓΚΟΛ. Η Stoiximan δεν δίνει
+  // τέτοια αγορά (0 σε όλα τα αρχεία), γι' αυτό δεν είχε φανεί ποτέ· φάνηκε
+  // μόλις μπήκε η Superbet, που τη δίνει (2026-10-10).
+  else if(/αποκρούσε[ιί]ς|goalkeeper\s*saves?|keeper\s*saves?/i.test(rest)) cat="gk_saves";
   else if(/γκολ|goals?/i.test(rest)) cat="goals";
   else if(/οφσάιντ|offsides?/i.test(rest)) cat="offsides";
   else if(/τάκλιν|tackles?/i.test(rest)) cat="unsupported"; // δεν υπάρχει καθόλου σε αυτό το API (επιβεβαιωμένο)
@@ -2251,7 +2290,6 @@ function classifyMarket(name, homeGr, awayGr){
   else if(/εύστοχ[ηεο]ς?\s*π[άα]σ|passes?\s*accurate/i.test(rest)) cat="passes_accurate";
   else if(/π[άα]σ|passes?/i.test(rest)) cat="passes";
   else if(/κατοχ[ήη]|possession/i.test(rest)) cat="possession";
-  else if(/αποκρούσε[ιί]ς|goalkeeper\s*saves?/i.test(rest)) cat="gk_saves";
   else if(/ελεύθερα|free\s*kicks?/i.test(rest)) cat="free_kicks";
   else return null;
   return {category:cat, direction:direction};
@@ -2294,6 +2332,62 @@ function twoSidedThresholds(market){
 }
 function lineKindOf(twoSided, threshold){
   return twoSided[threshold] ? "main" : "alt";
+}
+/* ---------- ΣΥΝΕΝΩΣΗ ΕΤΑΙΡΕΙΩΝ (ALL BOOKMAKERS) ----------
+   Η ίδια γραμμή (ίδια ομάδα, κατηγορία, έδρα, threshold, πλευρά, ίδιος αγώνας)
+   μπορεί να υπάρχει και στις δύο εταιρείες με διαφορετική τιμή. Κρατάμε ΕΝΑ
+   betrow, αυτό με την ΥΨΗΛΟΤΕΡΗ απόδοση, και κρεμάμε πάνω του την τιμή της
+   άλλης (_otherBook) για σύγκριση — ζητήθηκε ρητά 2026-10-10 ("μία γραμμή,
+   καλύτερη απόδοση").
+   MAIN/ALT της συνενωμένης: αν ΕΣΤΩ ΜΙΑ εταιρεία δίνει και τις δύο πλευρές, η
+   γραμμή είναι MAIN — γιατί το αντίθετο σκέλος όντως παίζεται κάπου. */
+// ΤΑΥΤΟΤΗΤΑ ΓΡΑΜΜΗΣ, ΑΝΕΞΑΡΤΗΤΗ ΑΠΟ ΕΤΑΙΡΕΙΑ.
+// ΔΕΝ χρησιμοποιεί τα ωμά ονόματα του feed (matchHome/matchAway): η Stoiximan
+// γράφει "AFC Bournemouth" και η Superbet "Bournemouth" για τον ΙΔΙΟ αγώνα, και
+// η ώρα έναρξης μπορεί να διαφέρει λίγα λεπτά. Χρησιμοποιεί τα canonical
+// ονόματα (όπως λύθηκαν πάνω στο ιστορικό) + την ΗΜΕΡΑ του αγώνα, που είναι τα
+// ίδια και στις δύο εταιρείες.
+function lineIdentityKey(r){
+  // ΔΕΝ μπαίνει ο αντίπαλος: αν σε μία εταιρεία το όνομα του αντιπάλου δεν
+  // αντιστοιχιστεί στο ιστορικό (r.opponent null), το κλειδί θα διέφερε και η
+  // ίδια γραμμή θα εμφανιζόταν δύο φορές. Ομάδα + ΗΜΕΡΑ αγώνα αρκούν: καμία
+  // ομάδα δεν παίζει δύο φορές την ίδια μέρα σε αυτές τις λίγκες.
+  var who = r.isTotal ? ("T:"+r.homeTeam+"|"+r.awayTeam) : ("S:"+r.team);
+  return who+"|"+r.league+"|"+r.category+"|"+(r.direction||"")+"|"+
+    r.threshold+"|"+(athensDateISO(r.startTime)||"");
+}
+function bookMergeKey(r){ return lineIdentityKey(r)+"|"+r.side; }
+function mergeBooks(list){
+  var best = {}, order = [];
+  list.forEach(function(r){
+    var k = bookMergeKey(r);
+    var cur = best[k];
+    if(!cur){ best[k] = {win:r, all:[r]}; order.push(k); return; }
+    cur.all.push(r);
+    // Υψηλότερη απόδοση κερδίζει. Στα ίσα κρατάμε την πρώτη (Stoiximan), ώστε
+    // να μη χοροπηδάει η σήμανση εταιρείας χωρίς λόγο.
+    if(r.price != null && (cur.win.price == null || r.price > cur.win.price)) cur.win = r;
+  });
+  return order.map(function(k){
+    var g = best[k];
+    if(g.all.length === 1) return g.win;
+    // Αντίγραφο: το feedRows ΔΕΝ πειράζεται (το ίδιο r εμφανίζεται και σε άλλα
+    // φίλτρα/σελίδες), οπότε τα πεδία της συνένωσης μπαίνουν σε κλώνο.
+    var out = {};
+    for(var p in g.win){ if(Object.prototype.hasOwnProperty.call(g.win,p)) out[p] = g.win[p]; }
+    var others = g.all.filter(function(x){ return x !== g.win && x.price != null; })
+                      .sort(function(a,b){ return b.price - a.price; });
+    if(others.length) out._otherBook = {book: others[0].book, price: others[0].price};
+    if(g.all.some(function(x){ return (x.lineKind||"main") === "main"; })) out.lineKind = "main";
+    out._mergedFrom = g.all.length;
+    return out;
+  });
+}
+function bookAltChipHtml(r){
+  if(!r || !r._otherBook) return "";
+  var o = r._otherBook;
+  return '<span class="bookAlt" title="'+escAttr(bookLabel(o.book)+": "+o.price.toFixed(2)+
+    " (χαμηλότερη — δείχνεται η καλύτερη)")+'">'+(BOOK_SHORT[o.book]||"?")+' '+o.price.toFixed(2)+'</span>';
 }
 function altTagHtml(r){
   return (r && r.lineKind==="alt")
@@ -2557,6 +2651,9 @@ function renderUnresolved(list){
 // so the caller can decide how to render them (single match or aggregated).
 function processEvent(root){
   var unresolved = [];
+  // Από ποια εταιρεία είναι αυτός ο αγώνας. Το γράφει ο fetcher στο event
+  // (bookmaker:"superbet"); αν λείπει, είναι Stoiximan (ιστορικά αρχεία).
+  var book = (root.bookmaker === "superbet") ? "superbet" : "stoiximan";
   var participants = root.participants || [];
   var home = participants[0], away = participants[1];
   if(!home || !away) return unresolved;
@@ -2631,6 +2728,7 @@ function processEvent(root){
         threshold: parsed.threshold, side: parsed.side, price: sel.price, windowResults: windowResults,
         // "main" = η γραμμή υπάρχει και Over και Under | "alt" = μόνο η μία πλευρά
         lineKind: lineKindOf(twoSided, parsed.threshold),
+        book: book,
         oppWindowResults: oppWindowResults,
         marketName: market.name||"", startTime: root.startTime||null,
       });
@@ -3237,6 +3335,7 @@ function updateMobileFilterBadge(){
   if(oddsMinVal!==1.5 || oddsMaxVal!==3) n++; // 1.5–3 είναι πλέον η προεπιλογή, δεν μετράει ως "ενεργό" φίλτρο
   if(showFilterVal!=="all") n++;
   if(lineKindVal!=="main") n++; // "main" είναι η προεπιλογή, δεν μετράει ως ενεργό
+  if(bookFilterVal!=="all") n++;
   if(dateFilterVal) n++;
   badge.textContent = n;
 }
@@ -3247,13 +3346,18 @@ function renderToolbarAndRows(){
   if(catFilterVals.size) list = list.filter(function(r){ return catFilterVals.has(r.category); });
   if(leagueFilterVals.size) list = list.filter(function(r){ return leagueFilterVals.has(r.league); });
   if(teamFilterVals.size) list = list.filter(function(r){ return r.isTotal ? (teamFilterVals.has(r.homeTeam) || teamFilterVals.has(r.awayTeam)) : teamFilterVals.has(r.team); });
-  if(oddsMinVal!=null) list = list.filter(function(r){ return r.price!=null && r.price>=oddsMinVal; });
-  if(oddsMaxVal!=null) list = list.filter(function(r){ return r.price!=null && r.price<=oddsMaxVal; });
+  // ΣΗΜΑΝΤΙΚΟ (2026-10-10): τα φίλτρα ΑΠΟΔΟΣΗΣ και OVER/UNDER εφαρμόζονται πιο
+  // κάτω, ΜΕΤΑ το κόψιμο της διπλοεγγραφής — αλλιώς, όταν η δυνατή πλευρά ενός
+  // ζευγαριού πέφτει έξω από το 1.5-3, θα επέζεε η ΑΔΥΝΑΜΗ πλευρά και θα
+  // εμφανιζόταν γραμμή "από κάτω", που είναι ακριβώς ό,τι ζητήθηκε να κοπεί.
   // ΠΑΝΤΑ μόνο γραμμές μεμονωμένης ομάδας — τα ζευγάρια/σύνολα αγώνα
   // καταργήθηκαν από τη σελίδα (2026-09-20).
   list = list.filter(function(r){ return !r.isTotal; });
-  if(showFilterVal==="under") list = list.filter(function(r){ return r.side==="under"; });
-  else if(showFilterVal==="over") list = list.filter(function(r){ return r.side==="over"; });
+  // ΕΤΑΙΡΕΙΑ: ή μόνο μία, ή συνένωση στην καλύτερη απόδοση. ΠΡΙΝ το MAIN/ALT,
+  // γιατί η συνένωση μπορεί να κάνει MAIN μια γραμμή που η μία εταιρεία τη
+  // δίνει μονόπλευρη (βλ. mergeBooks).
+  if(bookFilterVal !== "all") list = list.filter(function(r){ return (r.book||"stoiximan") === bookFilterVal; });
+  else list = mergeBooks(list);
   // MAIN/ALT LINES — προεπιλογή "main": οι μονόπλευρες γραμμές φαίνονται ΜΟΝΟ
   // σε ALT LINES και ALL LINES.
   if(lineKindVal==="main") list = list.filter(function(r){ return (r.lineKind||"main")==="main"; });
@@ -3310,6 +3414,53 @@ function renderToolbarAndRows(){
     r._streakCands = streakCandidatesFor(r);
     r._bestStreak = bestStreakOf(r._streakCands);
   });
+
+  /* ---------- ΚΟΨΙΜΟ ΤΗΣ ΔΙΠΛΟΕΓΓΡΑΦΗΣ (ζητήθηκε ρητά 2026-10-10) ----------
+     Κάθε MAIN γραμμή δίνει ΔΥΟ betrows — OVER και UNDER στο ίδιο threshold — που
+     είναι ακριβώς αντίστροφα το ένα του άλλου (70% / 30%). Κρατάμε ΜΟΝΟ την
+     πλευρά με τη ΘΕΤΙΚΗ σήμανση, δηλαδή τη μεγαλύτερη επίτευξη της ομάδας στο
+     ενεργό LAST N — παράδειγμα του χρήστη: Βάσκο φάουλ 13.5, OVER 70% /
+     UNDER 30%, κρατιέται το OVER. Η άλλη πλευρά είναι ένα REVERSED LINE μακριά,
+     μέσα στο drawer της γραμμής που κρατήθηκε.
+     Ισχύει ΜΟΝΟ για MAIN: οι ALT έχουν εξ ορισμού μία πλευρά.
+     Σειρά κριτηρίων (ντετερμινιστική): επίτευξη ομάδας -> άθροισμα
+     ομάδας+αντιπάλου -> edge -> OVER. Τα ποσοστά συγκρίνονται ΣΤΡΟΓΓΥΛΕΜΕΝΑ,
+     όπως ακριβώς φαίνονται στους κύκλους (ίδια λογική με το greenInfo). */
+  function pairSideScore(r){
+    var own = (r._res && r._res.sample) ? Math.round(r._res.hitRate*100) : -1;
+    var opp = (r._oppInfo && r._oppInfo.sample) ? Math.round(r._oppInfo.hitRate*100) : null;
+    return {own: own, sum: own + (opp==null ? own : opp), edge: (r._edge==null ? -999 : r._edge)};
+  }
+  // true αν το a είναι "καλύτερη" πλευρά από το b
+  function pairBetter(a, b){
+    var sa = pairSideScore(a), sb = pairSideScore(b);
+    if(sa.own !== sb.own) return sa.own > sb.own;
+    if(sa.sum !== sb.sum) return sa.sum > sb.sum;
+    if(sa.edge !== sb.edge) return sa.edge > sb.edge;
+    return a.side === "over";
+  }
+  (function(){
+    var winner = {};
+    list.forEach(function(r){
+      if((r.lineKind||"main") !== "main"){ r._pairKey = null; return; }
+      // ΙΔΙΟ canonical κλειδί με τη συνένωση εταιρειών (lineIdentityKey): αλλιώς,
+      // όταν το OVER έρχεται από τη μία εταιρεία και το UNDER από την άλλη, τα
+      // δύο σκέλη δεν αναγνωρίζονταν ως ΤΟ ΙΔΙΟ ζευγάρι και επέζεαν και τα δύο.
+      r._pairKey = lineIdentityKey(r);
+      var cur = winner[r._pairKey];
+      if(!cur || pairBetter(r, cur)) winner[r._pairKey] = r;
+    });
+    list = list.filter(function(r){
+      return r._pairKey == null ? true : winner[r._pairKey] === r;
+    });
+  })();
+
+  // Φίλτρο απόδοσης + OVER/UNDER: ΜΕΤΑ το κόψιμο της διπλοεγγραφής (βλ. πιο πάνω),
+  // ώστε η πλευρά που "κόπηκε" να μην μπορεί να επανεμφανιστεί ποτέ.
+  if(oddsMinVal!=null) list = list.filter(function(r){ return r.price!=null && r.price>=oddsMinVal; });
+  if(oddsMaxVal!=null) list = list.filter(function(r){ return r.price!=null && r.price<=oddsMaxVal; });
+  if(showFilterVal==="under") list = list.filter(function(r){ return r.side==="under"; });
+  else if(showFilterVal==="over") list = list.filter(function(r){ return r.side==="over"; });
 
   // "Καλύτερα Streaks": λειτουργεί σαν αυτόνομη λίστα streaks — δείχνει ΜΟΝΟ
   // τις γραμμές που έχουν ενεργό streak (αυτές με τη φλόγα 🔥), ταξινομημένες
@@ -3523,7 +3674,8 @@ function renderRowCard(r){
       '</div>'+
       '<div class="oddsRows"><div class="metaRow"><div class="metaDetails">'+
         (fmtMatchTime(r.startTime) ? '<span class="dtchip">'+fmtMatchTime(r.startTime)+'</span>' : '')+
-        '<span class="src-tag">Stoiximan</span></div>'+
+        '<span class="src-tag'+(r.book==="superbet"?" sb":"")+'">'+escAttr(bookLabel(r.book))+'</span>'+
+        bookAltChipHtml(r)+'</div>'+
         // Μετατόπιση γραμμής / νέα απόδοση σε σχέση με την ΠΡΟΗΓΟΥΜΕΝΗ ανανέωση
         // (live-prev). Κενό αν δεν υπάρχει προηγούμενο στιγμιότυπο.
         '<span class="lmWrap">'+lineMoveChipHtml(r, r.threshold, r.side, r.price)+'</span>'+
@@ -3682,8 +3834,13 @@ function bbPct(h,t){ return t ? Math.round(h/t*100) : 0; }
 function bbTier(p){ return p>=70 ? "hi" : p>=50 ? "mid" : "lo"; }
 function bbLegsOfTeam(r){
   var out = [], seen = {};
+  // ΜΙΑ εταιρεία: ένα bet builder ΔΕΝ μπορεί να συνδυάσει γραμμές από δύο
+  // διαφορετικούς μπουκ — δεν παίζεται. Οπότε τα legs βγαίνουν αποκλειστικά
+  // από την εταιρεία της κάρτας που άνοιξε ο χρήστης (2026-10-10).
+  var book = r.book || "stoiximan";
   feedRows.forEach(function(x){
     if(x.isTotal || x.team!==r.team || x.league!==r.league) return;
+    if((x.book||"stoiximan") !== book) return;
     if(x.matchHome!==r.matchHome || x.matchAway!==r.matchAway) return;
     if(x.price==null || !isFinite(x.price)) return;
     var id = x.category+"|"+x.threshold+"|"+x.side;
@@ -5381,6 +5538,23 @@ document.getElementById("showSeg").addEventListener("click", function(e){
   showFilterVal = e.target.getAttribute("data-v");
   renderToolbarAndRows();
 });
+document.getElementById("bookSeg").addEventListener("click", function(e){
+  if(e.target.tagName!=="BUTTON") return;
+  Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
+  e.target.classList.add("active");
+  bookFilterVal = e.target.getAttribute("data-v");
+  _bbPageCache = {};
+  renderToolbarAndRows();
+  if(bbPageOn) renderBbPage();
+});
+// Αν μια εταιρεία δεν έχει κατέβει καθόλου, το κουμπί της ξεθωριάζει (αλλά
+// μένει πατήσιμο, ώστε να φαίνεται ρητά "0 γραμμές" αντί να κρύβεται σιωπηλά).
+function updateBookSegAvailability(){
+  Array.prototype.forEach.call(document.querySelectorAll("#bookSeg button"), function(b){
+    var v = b.getAttribute("data-v");
+    b.classList.toggle("unavail", v!=="all" && BOOKS_PRESENT.indexOf(v) < 0);
+  });
+}
 document.getElementById("lineKindSeg").addEventListener("click", function(e){
   if(e.target.tagName!=="BUTTON") return;
   Array.prototype.forEach.call(this.children, function(b){b.classList.remove("active")});
@@ -5579,13 +5753,17 @@ document.getElementById("jsonFiles").addEventListener("change", function(evt){
    (πρώτη φορά), δεν δείχνουμε τίποτα — καμία ένδειξη, όχι λάθος ένδειξη. */
 var PREV_LINES = {};        // marketKey -> {threshold: price}
 var PREV_LINES_LOADED = false;
-function lineMarketKey(matchHome, matchAway, dir, category, side){
-  return (matchHome||"")+"|"+(matchAway||"")+"|"+dir+"|"+category+"|"+side;
+// Το κλειδί περιέχει ΚΑΙ την εταιρεία: οι τιμές της Stoiximan και της Superbet
+// για την ίδια γραμμή είναι διαφορετικές, οπότε η μετατόπιση πρέπει να
+// συγκρίνεται μέσα στην ΙΔΙΑ εταιρεία (2026-10-10).
+function lineMarketKey(matchHome, matchAway, dir, category, side, book){
+  return (book||"stoiximan")+"|"+(matchHome||"")+"|"+(matchAway||"")+"|"+dir+"|"+category+"|"+side;
 }
 function extractLineSnapshot(root, out){
   var participants = root.participants || [];
   var home = participants[0], away = participants[1];
   if(!home || !away) return;
+  var book = (root.bookmaker === "superbet") ? "superbet" : "stoiximan";
   (root.markets||[]).forEach(function(market){
     var cls = classifyMarket(market.name||"", home.name, away.name);
     if(!cls || cls.category==="unsupported") return;
@@ -5593,32 +5771,41 @@ function extractLineSnapshot(root, out){
     (market.selections||[]).forEach(function(sel){
       var parsed = parseSelectionName(sel.name);
       if(!parsed || sel.price==null) return;
-      var mk = lineMarketKey(home.name, away.name, cls.direction, cls.category, parsed.side);
+      var mk = lineMarketKey(home.name, away.name, cls.direction, cls.category, parsed.side, book);
       if(!out[mk]) out[mk] = {};
       out[mk][parsed.threshold] = sel.price;
     });
   });
 }
-function loadPrevLines(){
-  if(PREV_LINES_LOADED) return Promise.resolve();
-  return fetch("live-prev/index.json", {cache:"no-store"})
+// Προηγούμενο στιγμιότυπο ΑΝΑ ΕΤΑΙΡΕΙΑ: live-prev/ (Stoiximan) και
+// live-superbet-prev/ (Superbet). Ό,τι λείπει αγνοείται σιωπηλά — καμία
+// ένδειξη είναι καλύτερη από λάθος ένδειξη.
+function loadPrevBook(book, snap){
+  var dir = BOOK_FEED[book] + "-prev";
+  return fetch(dir + "/index.json", {cache:"no-store"})
     .then(function(r){ return r.ok ? r.json() : null; })
     .catch(function(){ return null; })
     .then(function(manifest){
-      PREV_LINES_LOADED = true;
       if(!manifest || !manifest.length) return;
       return Promise.all(manifest.map(function(row){
-        return fetch("live-prev/" + row.file, {cache:"no-store"})
+        return fetch(dir + "/" + row.file, {cache:"no-store"})
           .then(function(r){ return r.ok ? r.json() : null; })
           .catch(function(){ return null; });
       })).then(function(jsons){
-        var snap = {};
         jsons.filter(Boolean).forEach(function(j){
-          try{ extractLineSnapshot(eventRootOf(j), snap); }catch(e){}
+          try{
+            var root = eventRootOf(j);
+            if(root){ root.bookmaker = book; extractLineSnapshot(root, snap); }
+          }catch(e){}
         });
-        PREV_LINES = snap;
       });
     });
+}
+function loadPrevLines(){
+  if(PREV_LINES_LOADED) return Promise.resolve();
+  var snap = {};
+  return Promise.all(BOOKS.map(function(b){ return loadPrevBook(b, snap); }))
+    .then(function(){ PREV_LINES_LOADED = true; PREV_LINES = snap; });
 }
 /* Τι άλλαξε για ΜΙΑ γραμμή: {kind:"price"|"line"|"same", dir:-1|0|1, ...}
    - υπήρχε ΙΔΙΑ γραμμή πριν  -> σύγκριση αποδόσεων ("price" ή "same")
@@ -5628,7 +5815,7 @@ function loadPrevLines(){
 function lineMoveFor(r, thr, side, price){
   if(price==null || !isFinite(price)) return null;
   var dir = r.isTotal ? "total" : (r.ownVenue || "");
-  var prev = PREV_LINES[lineMarketKey(r.matchHome, r.matchAway, dir, r.category, side)];
+  var prev = PREV_LINES[lineMarketKey(r.matchHome, r.matchAway, dir, r.category, side, r.book)];
   if(!prev) return null;
   // Η σύγκριση γίνεται στα ΔΥΟ ΔΕΚΑΔΙΚΑ που βλέπει ο χρήστης: κάποιες αποδόσεις
   // του Stoiximan έχουν 3 δεκαδικά (π.χ. 1.015) και μια ασήμαντη διαφορά έβγαζε
@@ -5680,32 +5867,49 @@ function lineMoveChipHtml(r, thr, side, price){
     '<span class="lmArrow">'+mark+'</span></span>';
 }
 var LIVE_MANIFEST_URL = "live/index.json";
+// Φορτώνει ΕΝΑ feed (μία εταιρεία) και επιστρέφει τα event roots του, με το
+// bookmaker σφραγισμένο πάνω τους. Αν ο φάκελος δεν υπάρχει (π.χ. δεν έχει
+// τρέξει ακόμα ο fetcher της Superbet) επιστρέφει κενό — ΧΩΡΙΣ σφάλμα, ώστε η
+// σελίδα να δουλεύει κανονικά με μία μόνο εταιρεία.
+function loadBookFeed(book){
+  var dir = BOOK_FEED[book];
+  return fetch(dir + "/index.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .catch(function(){ return null; })
+    .then(function(manifest){
+      if(!manifest || !manifest.length) return {book:book, roots:[], manifest:[]};
+      return Promise.all(manifest.map(function(row){
+        return fetch(dir + "/" + row.file, {cache:"no-store"})
+          .then(function(r){ return r.ok ? r.json() : null; })
+          .catch(function(){ return null; });
+      })).then(function(jsons){
+        var roots = jsons.filter(Boolean).map(eventRootOf).filter(Boolean);
+        roots.forEach(function(root){ root.bookmaker = book; });
+        return {book:book, roots:roots, manifest:manifest};
+      });
+    });
+}
 function loadLiveMatches(){
   var statusEl = document.getElementById("liveStatus");
   statusEl.textContent = "φόρτωση…";
-  return fetch(LIVE_MANIFEST_URL, {cache:"no-store"}).then(function(r){
-    return r.ok ? r.json() : null;
-  }).catch(function(){ return null; }).then(function(manifest){
-    if(!manifest || !manifest.length){
+  return Promise.all(BOOKS.map(loadBookFeed)).then(function(feeds){
+    var roots = [], parts = [], got = {};
+    feeds.forEach(function(f){
+      got[f.book] = f.roots.length;
+      roots = roots.concat(f.roots);
+      if(f.roots.length) parts.push(f.roots.length + " " + bookLabel(f.book));
+    });
+    if(!roots.length){
       statusEl.textContent = "Δεν βρέθηκαν live JSONs (τρέξε πρώτα το run_py.bat στο betrows-fetcher) — δείχνονται δείγματα.";
       return false;
     }
-    return Promise.all(manifest.map(function(row){
-      return fetch("live/" + row.file, {cache:"no-store"})
-        .then(function(r){ return r.ok ? r.json() : null; })
-        .catch(function(){ return null; });
-    })).then(function(jsons){
-      var roots = jsons.filter(Boolean).map(eventRootOf);
-      if(!roots.length){
-        statusEl.textContent = "Το index.json υπάρχει αλλά δεν διαβάστηκε κανένα αρχείο αγώνα.";
-        return false;
-      }
-      return loadPrevLines().then(function(){
+    BOOKS_PRESENT = BOOKS.filter(function(b){ return got[b] > 0; });
+    updateBookSegAvailability();
+    return loadPrevLines().then(function(){
       buildFeedMulti(roots);
-      var names = manifest.map(function(r){ return r.name; }).join(" · ");
-      statusEl.textContent = roots.length + " ζωντανοί αγώνες από Stoiximan: " + names;
+      statusEl.textContent = "ζωντανοί αγώνες: " + parts.join(" · ") +
+        (got.superbet ? "" : " (η Superbet δεν έχει κατέβει ακόμα — τρέξε τον fetch_superbet.py)");
       return true;
-      });
     });
   });
 }

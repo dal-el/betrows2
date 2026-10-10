@@ -21,10 +21,28 @@ if errorlevel 1 (
 
 robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output" "C:\SOCCER_BETROWS\betrows-app\live" /MIR /NFL /NDL /NJH /NJS >nul
 
-REM 1c) ΑΥΤΟΜΑΤΗ αρχειοθετηση των betrows/lines/αποδοσεων ανα ημερα αγωνων στο
+REM 1c) ΤΟ ΙΔΙΟ ROTATION ΓΙΑ ΤΗ SUPERBET: output-superbet -> live-superbet, με
+REM     αντιγραφο του προηγουμενου στο live-superbet-prev (απο εκει διαβαζει η
+REM     σελιδα τη μετατοπιση γραμμης ΑΝΑ ΕΤΑΙΡΕΙΑ). Αν δεν εχει τρεξει ποτε ο
+REM     fetch_superbet.py, ο φακελος δεν υπαρχει και το βημα παρακαμπτεται.
+REM     ΠΡΟΣΟΧΗ: το "if errorlevel 1" μενει σε ΠΡΩΤΟ επιπεδο (οχι μεσα σε αλλη
+REM     παρενθεση) — ιδιο μοτιβο με το 1b παραπανω, ωστε να διαβαζεται η τιμη
+REM     ΤΗΝ ΩΡΑ που τρεχει η γραμμη και οχι οταν γινεται parse το μπλοκ.
+if not exist "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet" goto :no_superbet
+if not exist "C:\SOCCER_BETROWS\betrows-app\live-superbet" mkdir "C:\SOCCER_BETROWS\betrows-app\live-superbet"
+robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet" "C:\SOCCER_BETROWS\betrows-app\live-superbet" /L /MIR /NFL /NDL /NJH /NJS /NP >nul
+if errorlevel 1 (
+  if not exist "C:\SOCCER_BETROWS\betrows-app\live-superbet-prev" mkdir "C:\SOCCER_BETROWS\betrows-app\live-superbet-prev"
+  robocopy "C:\SOCCER_BETROWS\betrows-app\live-superbet" "C:\SOCCER_BETROWS\betrows-app\live-superbet-prev" /MIR /NFL /NDL /NJH /NJS >nul
+)
+robocopy "C:\SOCCER_BETROWS\betrows-fetcher\output-superbet" "C:\SOCCER_BETROWS\betrows-app\live-superbet" /MIR /NFL /NDL /NJH /NJS >nul
+:no_superbet
+
+REM 1d) ΑΥΤΟΜΑΤΗ αρχειοθετηση των betrows/lines/αποδοσεων ανα ημερα αγωνων στο
 REM     betrows-app\lines-archive (μικρα JSON, ~700KB/ημερα). Απο εκει τα
 REM     διαβαζει ΜΟΝΗ ΤΗΣ η results.html — δεν μετακινει ο χρηστης κανενα αρχειο.
-python "C:\SOCCER_BETROWS\betrows-fetcher\archive_lines.py"
+python "C:\SOCCER_BETROWS\betrows-fetcher\archive_lines.py" --book stoiximan
+python "C:\SOCCER_BETROWS\betrows-fetcher\archive_lines.py" --book superbet
 
 REM 2) Αντιγραφη βασικων αρχειων + live φακελου + emblems (crests) μεσα στο local git repo
 copy /Y "C:\SOCCER_BETROWS\betrows-app\data.json" "data.json" >nul
@@ -38,8 +56,21 @@ if not exist "live" mkdir "live"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live" "live" /MIR /NFL /NDL /NJH /NJS >nul
 if not exist "live-prev" mkdir "live-prev"
 robocopy "C:\SOCCER_BETROWS\betrows-app\live-prev" "live-prev" /MIR /NFL /NDL /NJH /NJS >nul
+REM Τα feeds της Superbet — η σελιδα τα διαβαζει απο τα ιδια ονοματα φακελων.
+if exist "C:\SOCCER_BETROWS\betrows-app\live-superbet" (
+  if not exist "live-superbet" mkdir "live-superbet"
+  robocopy "C:\SOCCER_BETROWS\betrows-app\live-superbet" "live-superbet" /MIR /NFL /NDL /NJH /NJS >nul
+)
+if exist "C:\SOCCER_BETROWS\betrows-app\live-superbet-prev" (
+  if not exist "live-superbet-prev" mkdir "live-superbet-prev"
+  robocopy "C:\SOCCER_BETROWS\betrows-app\live-superbet-prev" "live-superbet-prev" /MIR /NFL /NDL /NJH /NJS >nul
+)
 if not exist "lines-archive" mkdir "lines-archive"
 robocopy "C:\SOCCER_BETROWS\betrows-app\lines-archive" "lines-archive" /MIR /NFL /NDL /NJH /NJS >nul
+if exist "C:\SOCCER_BETROWS\betrows-app\lines-archive-superbet" (
+  if not exist "lines-archive-superbet" mkdir "lines-archive-superbet"
+  robocopy "C:\SOCCER_BETROWS\betrows-app\lines-archive-superbet" "lines-archive-superbet" /MIR /NFL /NDL /NJH /NJS >nul
+)
 if not exist "crests" mkdir "crests"
 robocopy "C:\SOCCER_BETROWS\betrows-app\crests" "crests" /MIR /NFL /NDL /NJH /NJS >nul
 
