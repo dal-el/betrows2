@@ -10,16 +10,6 @@
   "file": "premier-league/2026-10-12_coventry-city-newcastle_14025567.json"
  },
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14025571",
-  "name": "Liverpool - Manchester City",
-  "startTime": 1791732600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-11_liverpool-manchester-city_14025571.json"
- },
- {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14068790",
@@ -192,42 +182,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025536",
-  "name": "Sassuolo - AC Milan",
-  "startTime": 1791734400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-11_sassuolo-ac-milan_14025536.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14025537",
   "name": "Torino FC - Udinese",
   "startTime": 1791830700000,
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-12_torino-fc-udinese_14025537.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14025549",
-  "name": "Freiburg - Schalke",
-  "startTime": 1791732600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "bundesliga/2026-10-11_freiburg-schalke_14025549.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14025619",
-  "name": "Rennes - Auxerre",
-  "startTime": 1791731700000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-11_rennes-auxerre_14025619.json"
  },
  {
   "league": "ligue-1",
@@ -238,16 +198,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 24,
   "file": "ligue-1/2026-10-11_troyes-marseille_14025620.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "14959338",
-  "name": "Aris - Volos",
-  "startTime": 1791734400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-11_aris-volos_14959338.json"
  },
  {
   "league": "super-league-greece",

@@ -6,7 +6,7 @@
   "name": "Coventry City - Newcastle United",
   "startTime": 1791831600000,
   "dateStr": "2026-10-12",
-  "marketCount": 121,
+  "marketCount": 122,
   "file": "premier-league/2026-10-12_coventry-city-newcastle-united_92398273.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Cardiff City - Watford FC",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 65,
+  "marketCount": 89,
   "file": "championship/2026-10-13_cardiff-city-watford-fc_93700776.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Millwall FC - Swansea City",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 65,
+  "marketCount": 89,
   "file": "championship/2026-10-13_millwall-fc-swansea-city_93700827.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Wrexham FC - West Bromwich Albion",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 64,
+  "marketCount": 88,
   "file": "championship/2026-10-13_wrexham-fc-west-bromwich-albion_93700840.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Bristol City - Blackburn Rovers",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 64,
+  "marketCount": 91,
   "file": "championship/2026-10-13_bristol-city-blackburn-rovers_93700860.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Stoke City - Middlesbrough FC",
   "startTime": 1791918000000,
   "dateStr": "2026-10-13",
-  "marketCount": 65,
+  "marketCount": 91,
   "file": "championship/2026-10-13_stoke-city-middlesbrough-fc_93700764.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Birmingham - Preston",
   "startTime": 1791918000000,
   "dateStr": "2026-10-13",
-  "marketCount": 64,
+  "marketCount": 88,
   "file": "championship/2026-10-13_birmingham-preston_93700859.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Queens Park Rangers - Derby County",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 65,
+  "marketCount": 89,
   "file": "championship/2026-10-14_queens-park-rangers-derby-county_93772199.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Norwich City - Southampton FC",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 65,
+  "marketCount": 89,
   "file": "championship/2026-10-14_norwich-city-southampton-fc_93772208.json"
  },
  {
@@ -128,16 +128,6 @@
   "dateStr": "2026-10-14",
   "marketCount": 89,
   "file": "championship/2026-10-14_lincoln-city-west-ham-united_93772236.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "89353100",
-  "name": "Real Betis Balompie - CA Osasuna",
-  "startTime": 1791736200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-11_real-betis-balompie-ca-osasuna_89353100.json"
  },
  {
   "league": "la-liga",
@@ -206,7 +196,7 @@
   "name": "Olympiacos Piraeus - Panathinaikos",
   "startTime": 1791741600000,
   "dateStr": "2026-10-11",
-  "marketCount": 113,
+  "marketCount": 110,
   "file": "super-league-greece/2026-10-11_olympiacos-piraeus-panathinaikos_89190109.json"
  },
  {
@@ -216,7 +206,7 @@
   "name": "PAOK - Kalamata",
   "startTime": 1791817200000,
   "dateStr": "2026-10-12",
-  "marketCount": 105,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-12_paok-kalamata_92774960.json"
  },
  {

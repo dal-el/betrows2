@@ -132,16 +132,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040054",
-  "name": "Betis - Osasuna",
-  "startTime": 1791736200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-11_betis-osasuna_14040054.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14040057",
   "name": "Levante - Sevilla",
   "startTime": 1791831600000,
