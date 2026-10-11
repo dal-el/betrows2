@@ -192,16 +192,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Super League (Ελλάδα)",
-  "eventId": "14959339",
-  "name": "Olympiacos - Panathinaikos",
-  "startTime": 1791741600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-11_olympiacos-panathinaikos_14959339.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
   "eventId": "14959399",
   "name": "PAOK - Kalamata",
   "startTime": 1791817200000,
