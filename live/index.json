@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92398258",
-  "name": "Liverpool FC - Manchester City",
-  "startTime": 1791732600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-11_liverpool-fc-manchester-city_92398258.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "92398273",
   "name": "Coventry City - Newcastle United",
   "startTime": 1791831600000,
@@ -136,7 +126,7 @@
   "name": "Lincoln City - West Ham United",
   "startTime": 1792004400000,
   "dateStr": "2026-10-14",
-  "marketCount": 65,
+  "marketCount": 89,
   "file": "championship/2026-10-14_lincoln-city-west-ham-united_93772236.json"
  },
  {
@@ -156,7 +146,7 @@
   "name": "Racing Santander - Valencia CF",
   "startTime": 1791745200000,
   "dateStr": "2026-10-11",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-11_racing-santander-valencia-cf_89353077.json"
  },
  {
@@ -168,16 +158,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 104,
   "file": "la-liga/2026-10-12_levante-ud-sevilla-fc_89353088.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92097665",
-  "name": "US Sassuolo Calcio - AC Milan",
-  "startTime": 1791734400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-10-11_us-sassuolo-calcio-ac-milan_92097665.json"
  },
  {
   "league": "serie-a-italy",
@@ -210,26 +190,6 @@
   "file": "serie-a-italy/2026-10-12_torino-fc-udinese-calcio_92097663.json"
  },
  {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657242",
-  "name": "SC Freiburg - FC Schalke 04",
-  "startTime": 1791732600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 107,
-  "file": "bundesliga/2026-10-11_sc-freiburg-fc-schalke-04_91657242.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92617064",
-  "name": "Stade Rennais FC - AJ Auxerre",
-  "startTime": 1791731700000,
-  "dateStr": "2026-10-11",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-11_stade-rennais-fc-aj-auxerre_92617064.json"
- },
- {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "92616977",
@@ -238,16 +198,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 107,
   "file": "ligue-1/2026-10-11_es-troyes-ac-olympique-marseille_92616977.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92774962",
-  "name": "Aris Thessaloniki - Volos NFC",
-  "startTime": 1791734400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 106,
-  "file": "super-league-greece/2026-10-11_aris-thessaloniki-volos-nfc_92774962.json"
  },
  {
   "league": "super-league-greece",
@@ -306,7 +256,7 @@
   "name": "Clube Atletico MG - Santos SP",
   "startTime": 1791745200000,
   "dateStr": "2026-10-11",
-  "marketCount": 104,
+  "marketCount": 103,
   "file": "serie-a-brazil/2026-10-11_clube-atletico-mg-santos-sp_93220030.json"
  },
  {

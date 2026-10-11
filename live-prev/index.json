@@ -142,16 +142,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "89353114",
-  "name": "Real Sociedad - Deportivo de A Coruña",
-  "startTime": 1791728100000,
-  "dateStr": "2026-10-11",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-11_real-sociedad-deportivo-de-a-coruna_89353114.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "89353100",
   "name": "Real Betis Balompie - CA Osasuna",
   "startTime": 1791736200000,
@@ -316,7 +306,7 @@
   "name": "Clube Atletico MG - Santos SP",
   "startTime": 1791745200000,
   "dateStr": "2026-10-11",
-  "marketCount": 103,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-11_clube-atletico-mg-santos-sp_93220030.json"
  },
  {
