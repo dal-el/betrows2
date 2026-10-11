@@ -222,16 +222,6 @@
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657263",
-  "name": "1. FC Köln - Borussia Monchengladbach",
-  "startTime": 1791725400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 112,
-  "file": "bundesliga/2026-10-11_1-fc-koln-borussia-monchengladbach_91657263.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "91657242",
   "name": "SC Freiburg - FC Schalke 04",
   "startTime": 1791732600000,
@@ -258,26 +248,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 107,
   "file": "ligue-1/2026-10-11_es-troyes-ac-olympique-marseille_92616977.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92774963",
-  "name": "Iraklis - Levadiakos",
-  "startTime": 1791727200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 106,
-  "file": "super-league-greece/2026-10-11_iraklis-levadiakos_92774963.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92774965",
-  "name": "Kifisia - Panaitolikos",
-  "startTime": 1791727200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 106,
-  "file": "super-league-greece/2026-10-11_kifisia-panaitolikos_92774965.json"
  },
  {
   "league": "super-league-greece",

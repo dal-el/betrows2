@@ -230,16 +230,6 @@
   "file": "bundesliga/2026-10-11_freiburg-schalke_14025549.json"
  },
  {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14025553",
-  "name": "FC Koln - Borussia Mönchengladbach",
-  "startTime": 1791725400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "bundesliga/2026-10-11_fc-koln-borussia-monchengladbach_14025553.json"
- },
- {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14025619",
@@ -258,26 +248,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 24,
   "file": "ligue-1/2026-10-11_troyes-marseille_14025620.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "14959336",
-  "name": "Kifisia - Panetolikos",
-  "startTime": 1791727200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-11_kifisia-panetolikos_14959336.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "14959337",
-  "name": "Iraklis - Levadiakos",
-  "startTime": 1791727200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-11_iraklis-levadiakos_14959337.json"
  },
  {
   "league": "super-league-greece",
