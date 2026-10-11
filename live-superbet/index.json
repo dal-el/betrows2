@@ -152,32 +152,22 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040059",
-  "name": "Racing Santander - Valencia",
-  "startTime": 1791745200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-11_racing-santander-valencia_14040059.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040062",
-  "name": "Real Sociedad - Deportivo de A Coruna",
-  "startTime": 1791728100000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-11_real-sociedad-deportivo-de-a-coruna_14040062.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14040057",
   "name": "Levante - Sevilla",
   "startTime": 1791831600000,
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "la-liga/2026-10-12_levante-sevilla_14040057.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14040059",
+  "name": "Racing Santander - Valencia",
+  "startTime": 1791745200000,
+  "dateStr": "2026-10-11",
+  "marketCount": 24,
+  "file": "la-liga/2026-10-11_racing-santander-valencia_14040059.json"
  },
  {
   "league": "serie-a-italy",
