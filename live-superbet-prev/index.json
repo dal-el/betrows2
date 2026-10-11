@@ -56,7 +56,7 @@
   "name": "Bristol City - Blackburn Rovers",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-13_bristol-city-blackburn-rovers_14068790.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Cardiff City - Watford",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-13_cardiff-city-watford_14068792.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Norwich City - Southampton",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-14_norwich-city-southampton_14084921.json"
  },
  {
@@ -388,26 +388,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "super-league-greece/2026-10-12_paok-kalamata_14959399.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15151617",
-  "name": "Queretaro - Atlante",
-  "startTime": 1791673200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-11_queretaro-atlante_15151617.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15151618",
-  "name": "Juarez - Tijuana",
-  "startTime": 1791673200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-11_juarez-tijuana_15151618.json"
  },
  {
   "league": "liga-mx",
