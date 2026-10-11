@@ -2,22 +2,12 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14025568",
-  "name": "Crystal Palace - Nottingham Forest",
-  "startTime": 1791723600000,
-  "dateStr": "2026-10-11",
+  "eventId": "14025567",
+  "name": "Coventry City - Newcastle",
+  "startTime": 1791831600000,
+  "dateStr": "2026-10-12",
   "marketCount": 24,
-  "file": "premier-league/2026-10-11_crystal-palace-nottingham-forest_14025568.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14025569",
-  "name": "Hull City - Everton",
-  "startTime": 1791723600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-11_hull-city-everton_14025569.json"
+  "file": "premier-league/2026-10-12_coventry-city-newcastle_14025567.json"
  },
  {
   "league": "premier-league",
@@ -28,16 +18,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 24,
   "file": "premier-league/2026-10-11_liverpool-manchester-city_14025571.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14025567",
-  "name": "Coventry City - Newcastle",
-  "startTime": 1791831600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-12_coventry-city-newcastle_14025567.json"
  },
  {
   "league": "championship",
@@ -196,38 +176,8 @@
   "name": "Levante - Sevilla",
   "startTime": 1791831600000,
   "dateStr": "2026-10-12",
-  "marketCount": 18,
+  "marketCount": 24,
   "file": "la-liga/2026-10-12_levante-sevilla_14040057.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025533",
-  "name": "Lazio - Monza",
-  "startTime": 1791723600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-11_lazio-monza_14025533.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025534",
-  "name": "Lecce - Bologna",
-  "startTime": 1791723600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-11_lecce-bologna_14025534.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025536",
-  "name": "Sassuolo - AC Milan",
-  "startTime": 1791734400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-11_sassuolo-ac-milan_14025536.json"
  },
  {
   "league": "serie-a-italy",
@@ -248,6 +198,16 @@
   "dateStr": "2026-10-11",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-11_cagliari-juventus_14025529.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14025536",
+  "name": "Sassuolo - AC Milan",
+  "startTime": 1791734400000,
+  "dateStr": "2026-10-11",
+  "marketCount": 24,
+  "file": "serie-a-italy/2026-10-11_sassuolo-ac-milan_14025536.json"
  },
  {
   "league": "serie-a-italy",
@@ -278,16 +238,6 @@
   "dateStr": "2026-10-11",
   "marketCount": 24,
   "file": "bundesliga/2026-10-11_fc-koln-borussia-monchengladbach_14025553.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14025617",
-  "name": "Nice - Strasbourg",
-  "startTime": 1791723600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-11_nice-strasbourg_14025617.json"
  },
  {
   "league": "ligue-1",

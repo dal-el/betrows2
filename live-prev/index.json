@@ -26,7 +26,7 @@
   "name": "Liverpool FC - Manchester City",
   "startTime": 1791732600000,
   "dateStr": "2026-10-11",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-11_liverpool-fc-manchester-city_92398258.json"
  },
  {
@@ -122,16 +122,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "89353065",
-  "name": "Elche CF - RC Celta de Vigo",
-  "startTime": 1791720000000,
-  "dateStr": "2026-10-11",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-11_elche-cf-rc-celta-de-vigo_89353065.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "89353114",
   "name": "Real Sociedad - Deportivo de A Coruña",
   "startTime": 1791728100000,
@@ -176,7 +166,7 @@
   "name": "US Lecce - Bologna FC",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 108,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-11_us-lecce-bologna-fc_92097659.json"
  },
  {
