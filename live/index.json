@@ -16,7 +16,7 @@
   "name": "Cardiff City - Watford FC",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 97,
+  "marketCount": 85,
   "file": "championship/2026-10-13_cardiff-city-watford-fc_93700776.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Millwall FC - Swansea City",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 97,
+  "marketCount": 85,
   "file": "championship/2026-10-13_millwall-fc-swansea-city_93700827.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Wolverhampton Wanderers - Bolton",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 103,
+  "marketCount": 82,
   "file": "championship/2026-10-13_wolverhampton-wanderers-bolton_93700832.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Wrexham FC - West Bromwich Albion",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 97,
+  "marketCount": 85,
   "file": "championship/2026-10-13_wrexham-fc-west-bromwich-albion_93700840.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Bristol City - Blackburn Rovers",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 104,
+  "marketCount": 85,
   "file": "championship/2026-10-13_bristol-city-blackburn-rovers_93700860.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Burnley FC - Charlton",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 104,
+  "marketCount": 83,
   "file": "championship/2026-10-13_burnley-fc-charlton_93700862.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Stoke City - Middlesbrough FC",
   "startTime": 1791918000000,
   "dateStr": "2026-10-13",
-  "marketCount": 104,
+  "marketCount": 82,
   "file": "championship/2026-10-13_stoke-city-middlesbrough-fc_93700764.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Birmingham - Preston",
   "startTime": 1791918000000,
   "dateStr": "2026-10-13",
-  "marketCount": 97,
+  "marketCount": 85,
   "file": "championship/2026-10-13_birmingham-preston_93700859.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Portsmouth FC - Sheffield United",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 104,
+  "marketCount": 82,
   "file": "championship/2026-10-14_portsmouth-fc-sheffield-united_93771861.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Queens Park Rangers - Derby County",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 104,
+  "marketCount": 82,
   "file": "championship/2026-10-14_queens-park-rangers-derby-county_93772199.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Norwich City - Southampton FC",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 104,
+  "marketCount": 82,
   "file": "championship/2026-10-14_norwich-city-southampton-fc_93772208.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Lincoln City - West Ham United",
   "startTime": 1792004400000,
   "dateStr": "2026-10-14",
-  "marketCount": 104,
+  "marketCount": 82,
   "file": "championship/2026-10-14_lincoln-city-west-ham-united_93772236.json"
  },
  {
@@ -202,41 +202,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93220023",
-  "name": "Gremio RS - Internacional RS",
-  "startTime": 1791750600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 103,
-  "file": "serie-a-brazil/2026-10-11_gremio-rs-internacional-rs_93220023.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93220026",
-  "name": "Flamengo RJ - Fluminense RJ",
-  "startTime": 1791750600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 103,
-  "file": "serie-a-brazil/2026-10-11_flamengo-rj-fluminense-rj_93220026.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93220028",
-  "name": "Palmeiras SP - Corinthians SP",
-  "startTime": 1791750600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 103,
-  "file": "serie-a-brazil/2026-10-11_palmeiras-sp-corinthians-sp_93220028.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93220031",
   "name": "EC Bahia BA - Mirassol SP",
   "startTime": 1791757800000,
   "dateStr": "2026-10-12",
-  "marketCount": 106,
+  "marketCount": 103,
   "file": "serie-a-brazil/2026-10-12_ec-bahia-ba-mirassol-sp_93220031.json"
  },
  {
