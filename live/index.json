@@ -42,16 +42,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "92790445",
-  "name": "Southampton FC - Portsmouth FC",
-  "startTime": 1791716400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 87,
-  "file": "championship/2026-10-11_southampton-fc-portsmouth-fc_92790445.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "93700776",
   "name": "Cardiff City - Watford FC",
   "startTime": 1791917100000,
@@ -76,7 +66,7 @@
   "name": "Wolverhampton Wanderers - Bolton",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 65,
+  "marketCount": 64,
   "file": "championship/2026-10-13_wolverhampton-wanderers-bolton_93700832.json"
  },
  {
@@ -182,21 +172,11 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92097657",
-  "name": "Como 1907 - AS Roma",
-  "startTime": 1791714600000,
-  "dateStr": "2026-10-11",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-10-11_como-1907-as-roma_92097657.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92097659",
   "name": "US Lecce - Bologna FC",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 107,
+  "marketCount": 108,
   "file": "serie-a-italy/2026-10-11_us-lecce-bologna-fc_92097659.json"
  },
  {
