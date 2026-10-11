@@ -402,16 +402,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93220025",
-  "name": "Sao Paulo SP - Vitoria BA",
-  "startTime": 1791676800000,
-  "dateStr": "2026-10-11",
-  "marketCount": 103,
-  "file": "serie-a-brazil/2026-10-11_sao-paulo-sp-vitoria-ba_93220025.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93220030",
   "name": "Clube Atletico MG - Santos SP",
   "startTime": 1791745200000,
