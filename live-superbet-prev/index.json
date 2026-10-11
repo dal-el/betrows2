@@ -140,16 +140,6 @@
   "file": "la-liga/2026-10-12_levante-sevilla_14040057.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040059",
-  "name": "Racing Santander - Valencia",
-  "startTime": 1791745200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-11_racing-santander-valencia_14040059.json"
- },
- {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14025528",
@@ -162,32 +152,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025529",
-  "name": "Cagliari - Juventus",
-  "startTime": 1791744300000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-11_cagliari-juventus_14025529.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14025537",
   "name": "Torino FC - Udinese",
   "startTime": 1791830700000,
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-12_torino-fc-udinese_14025537.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14025620",
-  "name": "Troyes - Marseille",
-  "startTime": 1791744300000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-11_troyes-marseille_14025620.json"
  },
  {
   "league": "super-league-greece",
@@ -252,16 +222,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14040037",
-  "name": "Atletico Mineiro - Santos",
-  "startTime": 1791745200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-11_atletico-mineiro-santos_14040037.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14040038",
   "name": "Gremio - Internacional RS",
   "startTime": 1791750600000,
@@ -292,21 +252,21 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14040036",
-  "name": "Bragantino - Cruzeiro",
-  "startTime": 1791849600000,
-  "dateStr": "2026-10-13",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-13_bragantino-cruzeiro_14040036.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14040041",
   "name": "Chapecoense - Athletico PR",
   "startTime": 1791844200000,
   "dateStr": "2026-10-13",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-13_chapecoense-athletico-pr_14040041.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14040036",
+  "name": "Bragantino - Cruzeiro",
+  "startTime": 1791849600000,
+  "dateStr": "2026-10-13",
+  "marketCount": 24,
+  "file": "serie-a-brazil/2026-10-13_bragantino-cruzeiro_14040036.json"
  }
 ]
