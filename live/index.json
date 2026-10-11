@@ -352,16 +352,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93288653",
-  "name": "Club America - CF Monterrey",
-  "startTime": 1791688200000,
-  "dateStr": "2026-10-11",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-11_club-america-cf-monterrey_93288653.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "93288861",
   "name": "Atletico San Luis - Santos Laguna",
   "startTime": 1791759600000,
