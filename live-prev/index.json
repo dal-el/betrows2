@@ -6,7 +6,7 @@
   "name": "Crystal Palace FC - Nottingham Forest",
   "startTime": 1791723600000,
   "dateStr": "2026-10-11",
-  "marketCount": 107,
+  "marketCount": 122,
   "file": "premier-league/2026-10-11_crystal-palace-fc-nottingham-forest_92398246.json"
  },
  {
@@ -348,16 +348,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 105,
   "file": "super-league-greece/2026-10-12_paok-kalamata_92774960.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93288603",
-  "name": "Atlas FC - Guadalajara Chivas",
-  "startTime": 1791680400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-11_atlas-fc-guadalajara-chivas_93288603.json"
  },
  {
   "league": "liga-mx",

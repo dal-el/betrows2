@@ -126,7 +126,7 @@
   "name": "Wrexham - West Bromwich Albion",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-13_wrexham-west-bromwich-albion_14068796.json"
  },
  {
@@ -388,16 +388,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 24,
   "file": "super-league-greece/2026-10-12_paok-kalamata_14959399.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15165632",
-  "name": "Atlas - Guadalajara",
-  "startTime": 1791680400000,
-  "dateStr": "2026-10-11",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-11_atlas-guadalajara_15165632.json"
  },
  {
   "league": "liga-mx",
