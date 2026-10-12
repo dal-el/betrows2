@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92398273",
-  "name": "Coventry City - Newcastle United",
-  "startTime": 1791831600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-12_coventry-city-newcastle-united_92398273.json"
- },
- {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "93700776",
@@ -130,43 +120,13 @@
   "file": "championship/2026-10-14_lincoln-city-west-ham-united_93772236.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "89353088",
-  "name": "Levante UD - Sevilla FC",
-  "startTime": 1791831600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-12_levante-ud-sevilla-fc_89353088.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92097663",
-  "name": "Torino FC - Udinese Calcio",
-  "startTime": 1791830700000,
-  "dateStr": "2026-10-12",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-10-12_torino-fc-udinese-calcio_92097663.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93220029",
-  "name": "Coritiba PR - Botafogo RJ",
-  "startTime": 1791831600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 103,
-  "file": "serie-a-brazil/2026-10-12_coritiba-pr-botafogo-rj_93220029.json"
- },
- {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93220032",
   "name": "Chapecoense SC - Athletico PR",
   "startTime": 1791844200000,
   "dateStr": "2026-10-13",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-13_chapecoense-sc-athletico-pr_93220032.json"
  },
  {
@@ -176,7 +136,7 @@
   "name": "Bragantino SP - Cruzeiro MG",
   "startTime": 1791849600000,
   "dateStr": "2026-10-13",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-13_bragantino-sp-cruzeiro-mg_93220033.json"
  }
 ]

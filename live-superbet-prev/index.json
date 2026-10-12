@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14025567",
-  "name": "Coventry City - Newcastle",
-  "startTime": 1791831600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-12_coventry-city-newcastle_14025567.json"
- },
- {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14068790",
@@ -130,26 +120,6 @@
   "file": "championship/2026-10-14_queens-park-rangers-derby-county_14084923.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14040057",
-  "name": "Levante - Sevilla",
-  "startTime": 1791831600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-12_levante-sevilla_14040057.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025537",
-  "name": "Torino FC - Udinese",
-  "startTime": 1791830700000,
-  "dateStr": "2026-10-12",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-12_torino-fc-udinese_14025537.json"
- },
- {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14040036",
@@ -158,16 +128,6 @@
   "dateStr": "2026-10-13",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-13_bragantino-cruzeiro_14040036.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14040039",
-  "name": "Coritiba - Botafogo",
-  "startTime": 1791831600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-12_coritiba-botafogo_14040039.json"
  },
  {
   "league": "serie-a-brazil",
