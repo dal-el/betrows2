@@ -46,7 +46,7 @@
   "name": "Bristol City - Blackburn Rovers",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 87,
+  "marketCount": 86,
   "file": "championship/2026-10-13_bristol-city-blackburn-rovers_93700860.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Stoke City - Middlesbrough FC",
   "startTime": 1791918000000,
   "dateStr": "2026-10-13",
-  "marketCount": 87,
+  "marketCount": 88,
   "file": "championship/2026-10-13_stoke-city-middlesbrough-fc_93700764.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Birmingham - Preston",
   "startTime": 1791918000000,
   "dateStr": "2026-10-13",
-  "marketCount": 87,
+  "marketCount": 88,
   "file": "championship/2026-10-13_birmingham-preston_93700859.json"
  },
  {
@@ -120,13 +120,53 @@
   "file": "championship/2026-10-14_lincoln-city-west-ham-united_93772236.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668511",
+  "name": "Deportivo de A Coruña - Levante UD",
+  "startTime": 1792177200000,
+  "dateStr": "2026-10-16",
+  "marketCount": 90,
+  "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante-ud_91668511.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92097662",
+  "name": "Frosinone - US Sassuolo Calcio",
+  "startTime": 1792176300000,
+  "dateStr": "2026-10-16",
+  "marketCount": 69,
+  "file": "serie-a-italy/2026-10-16_frosinone-us-sassuolo-calcio_92097662.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "91657757",
+  "name": "Eintracht Frankfurt - 1. FC Köln",
+  "startTime": 1792175400000,
+  "dateStr": "2026-10-16",
+  "marketCount": 90,
+  "file": "bundesliga/2026-10-16_eintracht-frankfurt-1-fc-koln_91657757.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "92852220",
+  "name": "Le Mans UC 72 - Toulouse FC",
+  "startTime": 1792176300000,
+  "dateStr": "2026-10-16",
+  "marketCount": 69,
+  "file": "ligue-1/2026-10-16_le-mans-uc-72-toulouse-fc_92852220.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93220032",
   "name": "Chapecoense SC - Athletico PR",
   "startTime": 1791844200000,
   "dateStr": "2026-10-13",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-13_chapecoense-sc-athletico-pr_93220032.json"
  },
  {
