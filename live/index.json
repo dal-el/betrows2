@@ -36,7 +36,7 @@
   "name": "Wolverhampton Wanderers - Bolton",
   "startTime": 1791917100000,
   "dateStr": "2026-10-13",
-  "marketCount": 82,
+  "marketCount": 84,
   "file": "championship/2026-10-13_wolverhampton-wanderers-bolton_93700832.json"
  },
  {
@@ -168,16 +168,6 @@
   "dateStr": "2026-10-12",
   "marketCount": 106,
   "file": "super-league-greece/2026-10-12_paok-kalamata_92774960.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93288862",
-  "name": "CF Pachuca - Club Necaxa",
-  "startTime": 1791760200000,
-  "dateStr": "2026-10-12",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-12_cf-pachuca-club-necaxa_93288862.json"
  },
  {
   "league": "liga-mx",

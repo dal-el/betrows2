@@ -172,16 +172,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15167740",
-  "name": "Pachuca - Necaxa",
-  "startTime": 1791760200000,
-  "dateStr": "2026-10-12",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-12_pachuca-necaxa_15167740.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15181922",
   "name": "UNAM Pumas - Cruz Azul",
   "startTime": 1791767700000,
