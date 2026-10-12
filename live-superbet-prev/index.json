@@ -142,16 +142,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14025528",
-  "name": "Atalanta - Venezia",
-  "startTime": 1791822600000,
-  "dateStr": "2026-10-12",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-12_atalanta-venezia_14025528.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14025537",
   "name": "Torino FC - Udinese",
   "startTime": 1791830700000,
