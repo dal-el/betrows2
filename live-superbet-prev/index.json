@@ -120,6 +120,56 @@
   "file": "championship/2026-10-14_queens-park-rangers-derby-county_14084923.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14127719",
+  "name": "Burnley - Wolves",
+  "startTime": 1792177200000,
+  "dateStr": "2026-10-16",
+  "marketCount": 3,
+  "file": "championship/2026-10-16_burnley-wolves_14127719.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14142829",
+  "name": "Deportivo de A Coruna - Levante",
+  "startTime": 1792177200000,
+  "dateStr": "2026-10-16",
+  "marketCount": 6,
+  "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante_14142829.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14127682",
+  "name": "Frosinone - Sassuolo",
+  "startTime": 1792176300000,
+  "dateStr": "2026-10-16",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-16_frosinone-sassuolo_14127682.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "14127664",
+  "name": "Eintracht Frankfurt - FC Koln",
+  "startTime": 1792175400000,
+  "dateStr": "2026-10-16",
+  "marketCount": 6,
+  "file": "bundesliga/2026-10-16_eintracht-frankfurt-fc-koln_14127664.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14127840",
+  "name": "Le Mans - Toulouse",
+  "startTime": 1792176300000,
+  "dateStr": "2026-10-16",
+  "marketCount": 6,
+  "file": "ligue-1/2026-10-16_le-mans-toulouse_14127840.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14040036",
