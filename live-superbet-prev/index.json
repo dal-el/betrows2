@@ -170,16 +170,6 @@
   "file": "super-league-greece/2026-10-12_paok-kalamata_14959399.json"
  },
  {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15181922",
-  "name": "UNAM Pumas - Cruz Azul",
-  "startTime": 1791767700000,
-  "dateStr": "2026-10-12",
-  "marketCount": 21,
-  "file": "liga-mx/2026-10-12_unam-pumas-cruz-azul_15181922.json"
- },
- {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14040036",
