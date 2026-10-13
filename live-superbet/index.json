@@ -86,7 +86,7 @@
   "name": "Norwich City - Southampton",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-14_norwich-city-southampton_14084921.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Lincoln City - West Ham",
   "startTime": 1792004400000,
   "dateStr": "2026-10-14",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-14_lincoln-city-west-ham_14084920.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Portsmouth - Sheffield United",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-14_portsmouth-sheffield-united_14084922.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Queens Park Rangers - Derby County",
   "startTime": 1792003500000,
   "dateStr": "2026-10-14",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-14_queens-park-rangers-derby-county_14084923.json"
  },
  {
