@@ -158,15 +158,5 @@
   "dateStr": "2026-10-16",
   "marketCount": 69,
   "file": "ligue-1/2026-10-16_le-mans-uc-72-toulouse-fc_92852220.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93220033",
-  "name": "Bragantino SP - Cruzeiro MG",
-  "startTime": 1791849600000,
-  "dateStr": "2026-10-13",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-13_bragantino-sp-cruzeiro-mg_93220033.json"
  }
 ]

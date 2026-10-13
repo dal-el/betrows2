@@ -178,15 +178,5 @@
   "dateStr": "2026-10-13",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-13_bragantino-cruzeiro_14040036.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14040041",
-  "name": "Chapecoense - Athletico PR",
-  "startTime": 1791844200000,
-  "dateStr": "2026-10-13",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-13_chapecoense-athletico-pr_14040041.json"
  }
 ]

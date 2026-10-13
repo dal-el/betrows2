@@ -168,15 +168,5 @@
   "dateStr": "2026-10-16",
   "marketCount": 6,
   "file": "ligue-1/2026-10-16_le-mans-toulouse_14127840.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14040036",
-  "name": "Bragantino - Cruzeiro",
-  "startTime": 1791849600000,
-  "dateStr": "2026-10-13",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-13_bragantino-cruzeiro_14040036.json"
  }
 ]
