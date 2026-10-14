@@ -96,7 +96,7 @@
   "name": "Burnley FC - Wolverhampton Wanderers",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 51,
+  "marketCount": 87,
   "file": "championship/2026-10-16_burnley-fc-wolverhampton-wanderers_93873405.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Deportivo de A Coruña - Levante UD",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 90,
+  "marketCount": 104,
   "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante-ud_91668511.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "RCD Espanyol - Atletico Madrid",
   "startTime": 1792238400000,
   "dateStr": "2026-10-17",
-  "marketCount": 90,
+  "marketCount": 106,
   "file": "la-liga/2026-10-17_rcd-espanyol-atletico-madrid_91668462.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Villarreal CF - Elche CF",
   "startTime": 1792246500000,
   "dateStr": "2026-10-17",
-  "marketCount": 90,
+  "marketCount": 109,
   "file": "la-liga/2026-10-17_villarreal-cf-elche-cf_91668513.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Real Betis Balompie - FC Barcelona",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 90,
+  "marketCount": 109,
   "file": "la-liga/2026-10-17_real-betis-balompie-fc-barcelona_91668477.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Valencia CF - Athletic Bilbao",
   "startTime": 1792263600000,
   "dateStr": "2026-10-17",
-  "marketCount": 90,
+  "marketCount": 109,
   "file": "la-liga/2026-10-17_valencia-cf-athletic-bilbao_91668514.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Levadiakos - Volos NFC",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 89,
+  "marketCount": 69,
   "file": "super-league-greece/2026-10-17_levadiakos-volos-nfc_92844865.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "Mirassol SP - Internacional RS",
   "startTime": 1792191600000,
   "dateStr": "2026-10-17",
-  "marketCount": 65,
+  "marketCount": 91,
   "file": "serie-a-brazil/2026-10-17_mirassol-sp-internacional-rs_93882997.json"
  }
 ]
