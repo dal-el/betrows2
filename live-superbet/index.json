@@ -96,7 +96,7 @@
   "name": "Burnley - Wolves",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 3,
+  "marketCount": 9,
   "file": "championship/2026-10-16_burnley-wolves_14127719.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Middlesbrough - Cardiff City",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 9,
   "file": "championship/2026-10-17_middlesbrough-cardiff-city_14127721.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Birmingham City - Queens Park Rangers",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 9,
   "file": "championship/2026-10-17_birmingham-city-queens-park-rangers_14127717.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Millwall - Lincoln City",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 9,
   "file": "championship/2026-10-17_millwall-lincoln-city_14127722.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Watford - Charlton Athletic",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 9,
   "file": "championship/2026-10-17_watford-charlton-athletic_14127726.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Bristol City - Sheffield United",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 9,
   "file": "championship/2026-10-17_bristol-city-sheffield-united_14127718.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Derby County - Stoke City",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-17_derby-county-stoke-city_14127720.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Norwich City - Portsmouth",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-17_norwich-city-portsmouth_14127723.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Southampton - Bolton Wanderers",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-17_southampton-bolton-wanderers_14127724.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Swansea City - West Ham",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-17_swansea-city-west-ham_14127725.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "West Bromwich Albion - Blackburn Rovers",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-17_west-bromwich-albion-blackburn-rovers_14127727.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Wrexham - Preston North End",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-17_wrexham-preston-north-end_14127728.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Deportivo de A Coruna - Levante",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante_14142829.json"
  },
  {
