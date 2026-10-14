@@ -52,46 +52,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "93771861",
-  "name": "Portsmouth FC - Sheffield United",
-  "startTime": 1792003500000,
-  "dateStr": "2026-10-14",
-  "marketCount": 87,
-  "file": "championship/2026-10-14_portsmouth-fc-sheffield-united_93771861.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "93772199",
-  "name": "Queens Park Rangers - Derby County",
-  "startTime": 1792003500000,
-  "dateStr": "2026-10-14",
-  "marketCount": 86,
-  "file": "championship/2026-10-14_queens-park-rangers-derby-county_93772199.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "93772208",
-  "name": "Norwich City - Southampton FC",
-  "startTime": 1792003500000,
-  "dateStr": "2026-10-14",
-  "marketCount": 87,
-  "file": "championship/2026-10-14_norwich-city-southampton-fc_93772208.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "93772236",
-  "name": "Lincoln City - West Ham United",
-  "startTime": 1792004400000,
-  "dateStr": "2026-10-14",
-  "marketCount": 87,
-  "file": "championship/2026-10-14_lincoln-city-west-ham-united_93772236.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "93873405",
   "name": "Burnley FC - Wolverhampton Wanderers",
   "startTime": 1792177200000,
@@ -196,7 +156,7 @@
   "name": "Eintracht Frankfurt - 1. FC Köln",
   "startTime": 1792175400000,
   "dateStr": "2026-10-16",
-  "marketCount": 69,
+  "marketCount": 79,
   "file": "bundesliga/2026-10-16_eintracht-frankfurt-1-fc-koln_91657757.json"
  },
  {
@@ -266,7 +226,7 @@
   "name": "Le Mans UC 72 - Toulouse FC",
   "startTime": 1792176300000,
   "dateStr": "2026-10-16",
-  "marketCount": 69,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-16_le-mans-uc-72-toulouse-fc_92852220.json"
  },
  {

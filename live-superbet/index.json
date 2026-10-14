@@ -52,46 +52,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "14084921",
-  "name": "Norwich City - Southampton",
-  "startTime": 1792003500000,
-  "dateStr": "2026-10-14",
-  "marketCount": 24,
-  "file": "championship/2026-10-14_norwich-city-southampton_14084921.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14084922",
-  "name": "Portsmouth - Sheffield United",
-  "startTime": 1792003500000,
-  "dateStr": "2026-10-14",
-  "marketCount": 24,
-  "file": "championship/2026-10-14_portsmouth-sheffield-united_14084922.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14084923",
-  "name": "Queens Park Rangers - Derby County",
-  "startTime": 1792003500000,
-  "dateStr": "2026-10-14",
-  "marketCount": 24,
-  "file": "championship/2026-10-14_queens-park-rangers-derby-county_14084923.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14084920",
-  "name": "Lincoln City - West Ham",
-  "startTime": 1792004400000,
-  "dateStr": "2026-10-14",
-  "marketCount": 24,
-  "file": "championship/2026-10-14_lincoln-city-west-ham_14084920.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "14127719",
   "name": "Burnley - Wolves",
   "startTime": 1792177200000,
@@ -112,16 +72,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "14127717",
-  "name": "Birmingham City - Queens Park Rangers",
-  "startTime": 1792245600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 9,
-  "file": "championship/2026-10-17_birmingham-city-queens-park-rangers_14127717.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "14127722",
   "name": "Millwall - Lincoln City",
   "startTime": 1792236600000,
@@ -132,12 +82,12 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "14127726",
-  "name": "Watford - Charlton Athletic",
-  "startTime": 1792236600000,
+  "eventId": "14127717",
+  "name": "Birmingham City - Queens Park Rangers",
+  "startTime": 1792245600000,
   "dateStr": "2026-10-17",
   "marketCount": 9,
-  "file": "championship/2026-10-17_watford-charlton-athletic_14127726.json"
+  "file": "championship/2026-10-17_birmingham-city-queens-park-rangers_14127717.json"
  },
  {
   "league": "championship",
@@ -148,6 +98,16 @@
   "dateStr": "2026-10-17",
   "marketCount": 9,
   "file": "championship/2026-10-17_bristol-city-sheffield-united_14127718.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14127726",
+  "name": "Watford - Charlton Athletic",
+  "startTime": 1792236600000,
+  "dateStr": "2026-10-17",
+  "marketCount": 9,
+  "file": "championship/2026-10-17_watford-charlton-athletic_14127726.json"
  },
  {
   "league": "championship",

@@ -6,7 +6,7 @@
   "name": "Everton FC - Chelsea FC",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-17_everton-fc-chelsea-fc_92788199.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "RCD Espanyol - Atletico Madrid",
   "startTime": 1792238400000,
   "dateStr": "2026-10-17",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "la-liga/2026-10-17_rcd-espanyol-atletico-madrid_91668462.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Frosinone - US Sassuolo Calcio",
   "startTime": 1792176300000,
   "dateStr": "2026-10-16",
-  "marketCount": 76,
+  "marketCount": 69,
   "file": "serie-a-italy/2026-10-16_frosinone-us-sassuolo-calcio_92097662.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Venezia FC - SSC Napoli",
   "startTime": 1792242000000,
   "dateStr": "2026-10-17",
-  "marketCount": 69,
+  "marketCount": 76,
   "file": "serie-a-italy/2026-10-17_venezia-fc-ssc-napoli_92261366.json"
  },
  {
