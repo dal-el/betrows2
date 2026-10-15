@@ -6,7 +6,7 @@
   "name": "Brentford - Liverpool",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-17_brentford-liverpool_14127708.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Everton - Chelsea",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-17_everton-chelsea_14127710.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Fulham - Hull City",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 15,
   "file": "premier-league/2026-10-17_fulham-hull-city_14127711.json"
  },
  {
