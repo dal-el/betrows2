@@ -366,7 +366,7 @@
   "name": "Juventus - Lazio",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-18_juventus-lazio_14127683.json"
  },
  {
@@ -736,7 +736,7 @@
   "name": "Fluminense - Santos",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-brazil/2026-10-18_fluminense-santos_14142778.json"
  },
  {
@@ -766,7 +766,7 @@
   "name": "Gremio - Cruzeiro",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-brazil/2026-10-18_gremio-cruzeiro_14142784.json"
  }
 ]
