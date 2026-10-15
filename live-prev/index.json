@@ -56,7 +56,7 @@
   "name": "AFC Bournemouth - Sunderland",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 99,
+  "marketCount": 127,
   "file": "premier-league/2026-10-18_afc-bournemouth-sunderland_92788234.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Wrexham FC - Preston",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 64,
+  "marketCount": 87,
   "file": "championship/2026-10-17_wrexham-fc-preston_93912363.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Real Betis Balompie - FC Barcelona",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 85,
+  "marketCount": 104,
   "file": "la-liga/2026-10-17_real-betis-balompie-fc-barcelona_91668477.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "FC Schalke 04 - FSV Mainz 05",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 83,
   "file": "bundesliga/2026-10-17_fc-schalke-04-fsv-mainz-05_91657787.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "SV Elversberg - FC Augsburg",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 104,
   "file": "bundesliga/2026-10-17_sv-elversberg-fc-augsburg_91658144.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "Le Mans UC 72 - Toulouse FC",
   "startTime": 1792176300000,
   "dateStr": "2026-10-16",
-  "marketCount": 104,
+  "marketCount": 106,
   "file": "ligue-1/2026-10-16_le-mans-uc-72-toulouse-fc_92852220.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "RC Strasbourg - Paris Saint-Germain",
   "startTime": 1792250100000,
   "dateStr": "2026-10-17",
-  "marketCount": 82,
+  "marketCount": 104,
   "file": "ligue-1/2026-10-17_rc-strasbourg-paris-saint-germain_92852267.json"
  },
  {

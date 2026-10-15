@@ -36,7 +36,7 @@
   "name": "Bournemouth - Sunderland",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-18_bournemouth-sunderland_14127707.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Brighton - Crystal Palace",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-18_brighton-crystal-palace_14127709.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Leeds United - Manchester United",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-18_leeds-united-manchester-united_14127712.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Fiorentina - Como",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-18_fiorentina-como_14127681.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Necaxa - Atlas",
   "startTime": 1792198800000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-17_necaxa-atlas_15258469.json"
  },
  {
@@ -636,7 +636,7 @@
   "name": "Atlante - UNAM Pumas",
   "startTime": 1792206000000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-17_atlante-unam-pumas_15258526.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Tijuana - Puebla",
   "startTime": 1792206000000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-17_tijuana-puebla_15258527.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Mirassol - Internacional RS",
   "startTime": 1792191600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "serie-a-brazil/2026-10-17_mirassol-internacional-rs_14142782.json"
  },
  {
