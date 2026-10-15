@@ -96,7 +96,7 @@
   "name": "Burnley FC - Wolverhampton Wanderers",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-16_burnley-fc-wolverhampton-wanderers_93873405.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Deportivo de A Coruña - Levante UD",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante-ud_91668511.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Frosinone - US Sassuolo Calcio",
   "startTime": 1792176300000,
   "dateStr": "2026-10-16",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-16_frosinone-us-sassuolo-calcio_92097662.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "Le Mans UC 72 - Toulouse FC",
   "startTime": 1792176300000,
   "dateStr": "2026-10-16",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "ligue-1/2026-10-16_le-mans-uc-72-toulouse-fc_92852220.json"
  },
  {
