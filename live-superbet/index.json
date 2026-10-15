@@ -86,7 +86,7 @@
   "name": "Nottingham Forest - Arsenal",
   "startTime": 1792337400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-18_nottingham-forest-arsenal_14127715.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Middlesbrough - Cardiff City",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_middlesbrough-cardiff-city_14127721.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Millwall - Lincoln City",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_millwall-lincoln-city_14127722.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Birmingham City - Queens Park Rangers",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_birmingham-city-queens-park-rangers_14127717.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Bristol City - Sheffield United",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_bristol-city-sheffield-united_14127718.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Watford - Charlton Athletic",
   "startTime": 1792236600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_watford-charlton-athletic_14127726.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Derby County - Stoke City",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_derby-county-stoke-city_14127720.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Norwich City - Portsmouth",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_norwich-city-portsmouth_14127723.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Southampton - Bolton Wanderers",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_southampton-bolton-wanderers_14127724.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Swansea City - West Ham",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_swansea-city-west-ham_14127725.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "West Bromwich Albion - Blackburn Rovers",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-17_west-bromwich-albion-blackburn-rovers_14127727.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "Espanyol - Atletico Madrid",
   "startTime": 1792238400000,
   "dateStr": "2026-10-17",
-  "marketCount": 24,
+  "marketCount": 18,
   "file": "la-liga/2026-10-17_espanyol-atletico-madrid_14142830.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Villarreal - Elche",
   "startTime": 1792246500000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-17_villarreal-elche_14142836.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "AC Milan - Atalanta",
   "startTime": 1792339200000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Bayern Munich - RB Leipzig",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 21,
+  "marketCount": 24,
   "file": "bundesliga/2026-10-17_bayern-munich-rb-leipzig_14127662.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Kalamata - OFI",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "super-league-greece/2026-10-18_kalamata-ofi_15079917.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Levadiakos - Volos",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "super-league-greece/2026-10-17_levadiakos-volos_15079919.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Panathinaikos - Asteras Tripolis",
   "startTime": 1792333800000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "super-league-greece/2026-10-18_panathinaikos-asteras-tripolis_15079914.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Panetolikos - Olympiacos",
   "startTime": 1792332000000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "super-league-greece/2026-10-18_panetolikos-olympiacos_15079915.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Kifisia - Aris",
   "startTime": 1792342800000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "super-league-greece/2026-10-18_kifisia-aris_15079920.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "PAOK - Iraklis FC",
   "startTime": 1792346400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "super-league-greece/2026-10-18_paok-iraklis-fc_15079922.json"
  },
  {
@@ -746,7 +746,7 @@
   "name": "Sao Paulo - Vasco da Gama",
   "startTime": 1792281600000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-brazil/2026-10-18_sao-paulo-vasco-da-gama_14142780.json"
  },
  {
