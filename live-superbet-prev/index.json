@@ -336,7 +336,7 @@
   "name": "Fiorentina - Como",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-italy/2026-10-18_fiorentina-como_14127681.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Udinese - Lecce",
   "startTime": 1792319400000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-18_udinese-lecce_14127688.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Juventus - Lazio",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-italy/2026-10-18_juventus-lazio_14127683.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "AC Milan - Atalanta",
   "startTime": 1792339200000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Strasbourg - Paris Saint-Germain",
   "startTime": 1792250100000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 21,
   "file": "ligue-1/2026-10-17_strasbourg-paris-saint-germain_14127845.json"
  },
  {
@@ -506,7 +506,7 @@
   "name": "Angers - Marseille",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "ligue-1/2026-10-18_angers-marseille_14127838.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Troyes - Lens",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "ligue-1/2026-10-17_troyes-lens_14127846.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "Lorient - Monaco",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "ligue-1/2026-10-18_lorient-monaco_14127842.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Lyon - Nice",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
  },
  {
@@ -706,7 +706,7 @@
   "name": "Botafogo - Chapecoense",
   "startTime": 1792270800000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-brazil/2026-10-18_botafogo-chapecoense_14142779.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Mirassol - Internacional RS",
   "startTime": 1792191600000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-brazil/2026-10-17_mirassol-internacional-rs_14142782.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Atletico Mineiro - Coritiba",
   "startTime": 1792272600000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "serie-a-brazil/2026-10-18_atletico-mineiro-coritiba_14142783.json"
  },
  {
