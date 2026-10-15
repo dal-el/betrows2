@@ -36,7 +36,7 @@
   "name": "Manchester City - Ipswich Town",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 126,
+  "marketCount": 127,
   "file": "premier-league/2026-10-17_manchester-city-ipswich-town_92788201.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Burnley FC - Wolverhampton Wanderers",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 87,
+  "marketCount": 88,
   "file": "championship/2026-10-16_burnley-fc-wolverhampton-wanderers_93873405.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Athletico PR - Palmeiras SP",
   "startTime": 1792276200000,
   "dateStr": "2026-10-18",
-  "marketCount": 89,
+  "marketCount": 111,
   "file": "serie-a-brazil/2026-10-18_athletico-pr-palmeiras-sp_93882958.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Sao Paulo SP - Vasco da Gama RJ",
   "startTime": 1792281600000,
   "dateStr": "2026-10-18",
-  "marketCount": 89,
+  "marketCount": 111,
   "file": "serie-a-brazil/2026-10-18_sao-paulo-sp-vasco-da-gama-rj_93882970.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "Fluminense RJ - Santos SP",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 91,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-18_fluminense-rj-santos-sp_93882966.json"
  }
 ]
