@@ -26,7 +26,7 @@
   "name": "Fulham - Hull City",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 15,
+  "marketCount": 24,
   "file": "premier-league/2026-10-17_fulham-hull-city_14127711.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Manchester City - Ipswich",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-17_manchester-city-ipswich_14127713.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Newcastle - Aston Villa",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "premier-league/2026-10-17_newcastle-aston-villa_14127714.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Bologna - Inter Milan",
   "startTime": 1792252800000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-17_bologna-inter-milan_14127680.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Venezia - Napoli",
   "startTime": 1792242000000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-17_venezia-napoli_14127689.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "AS Roma - Genoa",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-italy/2026-10-17_as-roma-genoa_14127687.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "Eintracht Frankfurt - FC Koln",
   "startTime": 1792175400000,
   "dateStr": "2026-10-16",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "bundesliga/2026-10-16_eintracht-frankfurt-fc-koln_14127664.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Union Berlin - Borussia Dortmund",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-17_union-berlin-borussia-dortmund_14127665.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "Hamburger SV - VfB Stuttgart",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-17_hamburger-sv-vfb-stuttgart_14127667.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Werder Bremen - Paderborn",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-17_werder-bremen-paderborn_14127668.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "Schalke - Mainz 05",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-17_schalke-mainz-05_14127669.json"
  },
  {
@@ -436,7 +436,7 @@
   "name": "Elversberg - Augsburg",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-17_elversberg-augsburg_14127670.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Bayern Munich - RB Leipzig",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-17_bayern-munich-rb-leipzig_14127662.json"
  },
  {
