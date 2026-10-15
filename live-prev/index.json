@@ -56,7 +56,7 @@
   "name": "AFC Bournemouth - Sunderland",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 127,
+  "marketCount": 99,
   "file": "premier-league/2026-10-18_afc-bournemouth-sunderland_92788234.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Wrexham FC - Preston",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 87,
+  "marketCount": 64,
   "file": "championship/2026-10-17_wrexham-fc-preston_93912363.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Real Betis Balompie - FC Barcelona",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 104,
+  "marketCount": 85,
   "file": "la-liga/2026-10-17_real-betis-balompie-fc-barcelona_91668477.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Eintracht Frankfurt - 1. FC Köln",
   "startTime": 1792175400000,
   "dateStr": "2026-10-16",
-  "marketCount": 107,
+  "marketCount": 111,
   "file": "bundesliga/2026-10-16_eintracht-frankfurt-1-fc-koln_91657757.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "RC Strasbourg - Paris Saint-Germain",
   "startTime": 1792250100000,
   "dateStr": "2026-10-17",
-  "marketCount": 104,
+  "marketCount": 82,
   "file": "ligue-1/2026-10-17_rc-strasbourg-paris-saint-germain_92852267.json"
  },
  {
@@ -506,7 +506,7 @@
   "name": "Santos Laguna - Queretaro FC",
   "startTime": 1792278000000,
   "dateStr": "2026-10-18",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-18_santos-laguna-queretaro-fc_93716406.json"
  },
  {
@@ -516,7 +516,7 @@
   "name": "Guadalajara Chivas - CF Tigres UANL",
   "startTime": 1792278420000,
   "dateStr": "2026-10-18",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-18_guadalajara-chivas-cf-tigres-uanl_93716407.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Club Leon - Club America",
   "startTime": 1792285200000,
   "dateStr": "2026-10-18",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-18_club-leon-club-america_93716692.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "Deportivo Toluca FC - Atletico San Luis",
   "startTime": 1792285200000,
   "dateStr": "2026-10-18",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-18_deportivo-toluca-fc-atletico-san-luis_93716698.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Cruz Azul - FC Juarez",
   "startTime": 1792293000000,
   "dateStr": "2026-10-18",
-  "marketCount": 88,
+  "marketCount": 92,
   "file": "liga-mx/2026-10-18_cruz-azul-fc-juarez_93716709.json"
  },
  {
