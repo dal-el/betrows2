@@ -96,7 +96,7 @@
   "name": "Burnley - Wolves",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-16_burnley-wolves_14127719.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Deportivo de A Coruna - Levante",
   "startTime": 1792177200000,
   "dateStr": "2026-10-16",
-  "marketCount": 18,
+  "marketCount": 24,
   "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante_14142829.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Betis - Barcelona",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 6,
+  "marketCount": 24,
   "file": "la-liga/2026-10-17_betis-barcelona_14142827.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Union Berlin - Borussia Dortmund",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "bundesliga/2026-10-17_union-berlin-borussia-dortmund_14127665.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "Hamburger SV - VfB Stuttgart",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "bundesliga/2026-10-17_hamburger-sv-vfb-stuttgart_14127667.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Werder Bremen - Paderborn",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "bundesliga/2026-10-17_werder-bremen-paderborn_14127668.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "Schalke - Mainz 05",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "bundesliga/2026-10-17_schalke-mainz-05_14127669.json"
  },
  {
@@ -436,7 +436,7 @@
   "name": "Elversberg - Augsburg",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "bundesliga/2026-10-17_elversberg-augsburg_14127670.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Bayern Munich - RB Leipzig",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "bundesliga/2026-10-17_bayern-munich-rb-leipzig_14127662.json"
  },
  {

@@ -276,7 +276,7 @@
   "name": "Venezia FC - SSC Napoli",
   "startTime": 1792242000000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-17_venezia-fc-ssc-napoli_92261366.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "Bologna FC - Inter Milan",
   "startTime": 1792252800000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-17_bologna-fc-inter-milan_92891346.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "AS Roma - Genoa CFC",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-17_as-roma-genoa-cfc_92891231.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "1. FC Union Berlin - Borussia Dortmund",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 104,
   "file": "bundesliga/2026-10-17_1-fc-union-berlin-borussia-dortmund_91657758.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Hamburger SV - VfB Stuttgart",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 104,
   "file": "bundesliga/2026-10-17_hamburger-sv-vfb-stuttgart_91657780.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Werder Bremen - SC Paderborn 07",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 104,
   "file": "bundesliga/2026-10-17_werder-bremen-sc-paderborn-07_91657781.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "FC Schalke 04 - FSV Mainz 05",
   "startTime": 1792243800000,
   "dateStr": "2026-10-17",
-  "marketCount": 83,
+  "marketCount": 105,
   "file": "bundesliga/2026-10-17_fc-schalke-04-fsv-mainz-05_91657787.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "FC Bayern Munchen - RB Leipzig",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 76,
+  "marketCount": 86,
   "file": "bundesliga/2026-10-17_fc-bayern-munchen-rb-leipzig_91657755.json"
  },
  {
