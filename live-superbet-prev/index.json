@@ -346,7 +346,7 @@
   "name": "AS Roma - Genoa",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
-  "marketCount": 18,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-17_as-roma-genoa_14127687.json"
  },
  {
@@ -516,7 +516,7 @@
   "name": "Le Havre - Auxerre",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "ligue-1/2026-10-18_le-havre-auxerre_14127839.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Paris FC - Rennes",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "ligue-1/2026-10-18_paris-fc-rennes_14127844.json"
  },
  {

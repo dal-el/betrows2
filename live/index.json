@@ -306,7 +306,7 @@
   "name": "Eintracht Frankfurt - 1. FC Köln",
   "startTime": 1792175400000,
   "dateStr": "2026-10-16",
-  "marketCount": 79,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-16_eintracht-frankfurt-1-fc-koln_91657757.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Lille OSC - Stade Brestois 29",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
-  "marketCount": 97,
+  "marketCount": 104,
   "file": "ligue-1/2026-10-17_lille-osc-stade-brestois-29_92851527.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "ES Troyes AC - RC Lens",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
-  "marketCount": 97,
+  "marketCount": 104,
   "file": "ligue-1/2026-10-17_es-troyes-ac-rc-lens_92851583.json"
  },
  {
