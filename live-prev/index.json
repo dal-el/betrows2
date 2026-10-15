@@ -66,7 +66,7 @@
   "name": "Brighton & Hove Albion - Crystal Palace FC",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-18_brighton-hove-albion-crystal-palace-fc_92788261.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Lille OSC - Stade Brestois 29",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
-  "marketCount": 108,
+  "marketCount": 111,
   "file": "ligue-1/2026-10-17_lille-osc-stade-brestois-29_92851527.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Gremio RS - Cruzeiro MG",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 111,
   "file": "serie-a-brazil/2026-10-18_gremio-rs-cruzeiro-mg_93882941.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "Fluminense RJ - Santos SP",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 111,
   "file": "serie-a-brazil/2026-10-18_fluminense-rj-santos-sp_93882966.json"
  }
 ]
