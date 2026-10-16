@@ -92,16 +92,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "93873405",
-  "name": "Burnley FC - Wolverhampton Wanderers",
-  "startTime": 1792177200000,
-  "dateStr": "2026-10-16",
-  "marketCount": 88,
-  "file": "championship/2026-10-16_burnley-fc-wolverhampton-wanderers_93873405.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "93907182",
   "name": "Millwall FC - Lincoln City",
   "startTime": 1792236600000,
@@ -212,16 +202,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668511",
-  "name": "Deportivo de A Coruña - Levante UD",
-  "startTime": 1792177200000,
-  "dateStr": "2026-10-16",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante-ud_91668511.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668462",
   "name": "RCD Espanyol - Atletico Madrid",
   "startTime": 1792238400000,
@@ -262,16 +242,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92097662",
-  "name": "Frosinone - US Sassuolo Calcio",
-  "startTime": 1792176300000,
-  "dateStr": "2026-10-16",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-16_frosinone-us-sassuolo-calcio_92097662.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92261366",
   "name": "Venezia FC - SSC Napoli",
   "startTime": 1792242000000,
@@ -298,16 +268,6 @@
   "dateStr": "2026-10-17",
   "marketCount": 106,
   "file": "serie-a-italy/2026-10-17_as-roma-genoa-cfc_92891231.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657757",
-  "name": "Eintracht Frankfurt - 1. FC Köln",
-  "startTime": 1792175400000,
-  "dateStr": "2026-10-16",
-  "marketCount": 106,
-  "file": "bundesliga/2026-10-16_eintracht-frankfurt-1-fc-koln_91657757.json"
  },
  {
   "league": "bundesliga",
@@ -368,16 +328,6 @@
   "dateStr": "2026-10-17",
   "marketCount": 106,
   "file": "bundesliga/2026-10-17_fc-bayern-munchen-rb-leipzig_91657755.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852220",
-  "name": "Le Mans UC 72 - Toulouse FC",
-  "startTime": 1792176300000,
-  "dateStr": "2026-10-16",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-16_le-mans-uc-72-toulouse-fc_92852220.json"
  },
  {
   "league": "ligue-1",

@@ -96,18 +96,8 @@
   "name": "Tottenham - Coventry City",
   "startTime": 1792436400000,
   "dateStr": "2026-10-19",
-  "marketCount": 9,
-  "file": "premier-league/2026-10-19_tottenham-coventry-city_14127716.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14127719",
-  "name": "Burnley - Wolves",
-  "startTime": 1792177200000,
-  "dateStr": "2026-10-16",
   "marketCount": 24,
-  "file": "championship/2026-10-16_burnley-wolves_14127719.json"
+  "file": "premier-league/2026-10-19_tottenham-coventry-city_14127716.json"
  },
  {
   "league": "championship",
@@ -132,6 +122,16 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
+  "eventId": "14127726",
+  "name": "Watford - Charlton Athletic",
+  "startTime": 1792236600000,
+  "dateStr": "2026-10-17",
+  "marketCount": 24,
+  "file": "championship/2026-10-17_watford-charlton-athletic_14127726.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
   "eventId": "14127717",
   "name": "Birmingham City - Queens Park Rangers",
   "startTime": 1792245600000,
@@ -148,16 +148,6 @@
   "dateStr": "2026-10-17",
   "marketCount": 24,
   "file": "championship/2026-10-17_bristol-city-sheffield-united_14127718.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14127726",
-  "name": "Watford - Charlton Athletic",
-  "startTime": 1792236600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "championship/2026-10-17_watford-charlton-athletic_14127726.json"
  },
  {
   "league": "championship",
@@ -222,12 +212,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142829",
-  "name": "Deportivo de A Coruna - Levante",
-  "startTime": 1792177200000,
-  "dateStr": "2026-10-16",
+  "eventId": "14142827",
+  "name": "Betis - Barcelona",
+  "startTime": 1792254600000,
+  "dateStr": "2026-10-17",
   "marketCount": 24,
-  "file": "la-liga/2026-10-16_deportivo-de-a-coruna-levante_14142829.json"
+  "file": "la-liga/2026-10-17_betis-barcelona_14142827.json"
  },
  {
   "league": "la-liga",
@@ -252,12 +242,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142827",
-  "name": "Betis - Barcelona",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-17_betis-barcelona_14142827.json"
+  "eventId": "14142828",
+  "name": "Celta Vigo - Alaves",
+  "startTime": 1792332900000,
+  "dateStr": "2026-10-18",
+  "marketCount": 21,
+  "file": "la-liga/2026-10-18_celta-vigo-alaves_14142828.json"
  },
  {
   "league": "la-liga",
@@ -282,12 +272,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142828",
-  "name": "Celta Vigo - Alaves",
-  "startTime": 1792332900000,
-  "dateStr": "2026-10-18",
-  "marketCount": 21,
-  "file": "la-liga/2026-10-18_celta-vigo-alaves_14142828.json"
+  "eventId": "14142831",
+  "name": "Getafe - Rayo Vallecano",
+  "startTime": 1792436400000,
+  "dateStr": "2026-10-19",
+  "marketCount": 18,
+  "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
  },
  {
   "league": "la-liga",
@@ -310,16 +300,6 @@
   "file": "la-liga/2026-10-18_real-madrid-sevilla_14142834.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142831",
-  "name": "Getafe - Rayo Vallecano",
-  "startTime": 1792436400000,
-  "dateStr": "2026-10-19",
-  "marketCount": 6,
-  "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
- },
- {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14127680",
@@ -332,12 +312,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127682",
-  "name": "Frosinone - Sassuolo",
-  "startTime": 1792176300000,
-  "dateStr": "2026-10-16",
+  "eventId": "14127687",
+  "name": "AS Roma - Genoa",
+  "startTime": 1792262700000,
+  "dateStr": "2026-10-17",
   "marketCount": 24,
-  "file": "serie-a-italy/2026-10-16_frosinone-sassuolo_14127682.json"
+  "file": "serie-a-italy/2026-10-17_as-roma-genoa_14127687.json"
  },
  {
   "league": "serie-a-italy",
@@ -362,12 +342,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127687",
-  "name": "AS Roma - Genoa",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
+  "eventId": "14127684",
+  "name": "AC Milan - Atalanta",
+  "startTime": 1792339200000,
+  "dateStr": "2026-10-18",
   "marketCount": 24,
-  "file": "serie-a-italy/2026-10-17_as-roma-genoa_14127687.json"
+  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
  },
  {
   "league": "serie-a-italy",
@@ -392,16 +372,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127684",
-  "name": "AC Milan - Atalanta",
-  "startTime": 1792339200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14127685",
   "name": "Monza - Cagliari",
   "startTime": 1792427400000,
@@ -416,18 +386,8 @@
   "name": "Parma - Torino FC",
   "startTime": 1792435500000,
   "dateStr": "2026-10-19",
-  "marketCount": 9,
-  "file": "serie-a-italy/2026-10-19_parma-torino-fc_14127686.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14127664",
-  "name": "Eintracht Frankfurt - FC Koln",
-  "startTime": 1792175400000,
-  "dateStr": "2026-10-16",
   "marketCount": 24,
-  "file": "bundesliga/2026-10-16_eintracht-frankfurt-fc-koln_14127664.json"
+  "file": "serie-a-italy/2026-10-19_parma-torino-fc_14127686.json"
  },
  {
   "league": "bundesliga",
@@ -462,6 +422,16 @@
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "14127662",
+  "name": "Bayern Munich - RB Leipzig",
+  "startTime": 1792254600000,
+  "dateStr": "2026-10-17",
+  "marketCount": 24,
+  "file": "bundesliga/2026-10-17_bayern-munich-rb-leipzig_14127662.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "14127669",
   "name": "Schalke - Mainz 05",
   "startTime": 1792243800000,
@@ -478,16 +448,6 @@
   "dateStr": "2026-10-17",
   "marketCount": 24,
   "file": "bundesliga/2026-10-17_elversberg-augsburg_14127670.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14127662",
-  "name": "Bayern Munich - RB Leipzig",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "bundesliga/2026-10-17_bayern-munich-rb-leipzig_14127662.json"
  },
  {
   "league": "bundesliga",
@@ -512,16 +472,6 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127840",
-  "name": "Le Mans - Toulouse",
-  "startTime": 1792176300000,
-  "dateStr": "2026-10-16",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-16_le-mans-toulouse_14127840.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127841",
   "name": "Lille - Brest",
   "startTime": 1792262700000,
@@ -542,6 +492,16 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14127846",
+  "name": "Troyes - Lens",
+  "startTime": 1792262700000,
+  "dateStr": "2026-10-17",
+  "marketCount": 24,
+  "file": "ligue-1/2026-10-17_troyes-lens_14127846.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127838",
   "name": "Angers - Marseille",
   "startTime": 1792328400000,
@@ -558,16 +518,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "ligue-1/2026-10-18_le-havre-auxerre_14127839.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127846",
-  "name": "Troyes - Lens",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-17_troyes-lens_14127846.json"
  },
  {
   "league": "ligue-1",
@@ -816,7 +766,7 @@
   "name": "Gremio - Cruzeiro",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "serie-a-brazil/2026-10-18_gremio-cruzeiro_14142784.json"
  },
  {
@@ -826,7 +776,7 @@
   "name": "Bahia - Flamengo",
   "startTime": 1792359000000,
   "dateStr": "2026-10-19",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "serie-a-brazil/2026-10-19_bahia-flamengo_14142786.json"
  },
  {
@@ -836,7 +786,7 @@
   "name": "Remo - Bragantino",
   "startTime": 1792362600000,
   "dateStr": "2026-10-19",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "serie-a-brazil/2026-10-19_remo-bragantino_14142787.json"
  }
 ]
