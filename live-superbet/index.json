@@ -696,7 +696,7 @@
   "name": "Santos Laguna - Queretaro",
   "startTime": 1792278000000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-18_santos-laguna-queretaro_15262033.json"
  },
  {
@@ -706,7 +706,7 @@
   "name": "Guadalajara - UANL Tigres",
   "startTime": 1792278420000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-18_guadalajara-uanl-tigres_15262108.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Club Leon - Club America",
   "startTime": 1792285200000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-18_club-leon-club-america_15276510.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Deportivo Toluca - Atletico San Luis",
   "startTime": 1792285200000,
   "dateStr": "2026-10-18",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "liga-mx/2026-10-18_deportivo-toluca-atletico-san-luis_15276511.json"
  },
  {
