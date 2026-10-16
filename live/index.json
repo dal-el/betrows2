@@ -306,7 +306,7 @@
   "name": "Eintracht Frankfurt - 1. FC Köln",
   "startTime": 1792175400000,
   "dateStr": "2026-10-16",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "bundesliga/2026-10-16_eintracht-frankfurt-1-fc-koln_91657757.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Mirassol SP - Internacional RS",
   "startTime": 1792191600000,
   "dateStr": "2026-10-17",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-17_mirassol-sp-internacional-rs_93882997.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Botafogo RJ - Chapecoense SC",
   "startTime": 1792270800000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-18_botafogo-rj-chapecoense-sc_93882991.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Clube Atletico MG - Coritiba PR",
   "startTime": 1792272600000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-18_clube-atletico-mg-coritiba-pr_93882987.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Athletico PR - Palmeiras SP",
   "startTime": 1792276200000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-18_athletico-pr-palmeiras-sp_93882958.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Sao Paulo SP - Vasco da Gama RJ",
   "startTime": 1792281600000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-18_sao-paulo-sp-vasco-da-gama-rj_93882970.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Gremio RS - Cruzeiro MG",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 111,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-18_gremio-rs-cruzeiro-mg_93882941.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "Fluminense RJ - Santos SP",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 111,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-18_fluminense-rj-santos-sp_93882966.json"
  }
 ]

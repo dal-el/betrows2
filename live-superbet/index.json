@@ -546,7 +546,7 @@
   "name": "Angers - Marseille",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "ligue-1/2026-10-18_angers-marseille_14127838.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Le Havre - Auxerre",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "ligue-1/2026-10-18_le-havre-auxerre_14127839.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Lorient - Monaco",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "ligue-1/2026-10-18_lorient-monaco_14127842.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Lyon - Nice",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Paris FC - Rennes",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "ligue-1/2026-10-18_paris-fc-rennes_14127844.json"
  },
  {
