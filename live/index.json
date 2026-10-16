@@ -472,22 +472,22 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "92852468",
+  "name": "FC Lorient - AS Monaco",
+  "startTime": 1792329300000,
+  "dateStr": "2026-10-18",
+  "marketCount": 106,
+  "file": "ligue-1/2026-10-18_fc-lorient-as-monaco_92852468.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "92852463",
   "name": "Le Havre AC - AJ Auxerre",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
   "marketCount": 106,
   "file": "ligue-1/2026-10-18_le-havre-ac-aj-auxerre_92852463.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852468",
-  "name": "FC Lorient - AS Monaco",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-18_fc-lorient-as-monaco_92852468.json"
  },
  {
   "league": "ligue-1",
@@ -656,7 +656,7 @@
   "name": "Mirassol SP - Internacional RS",
   "startTime": 1792191600000,
   "dateStr": "2026-10-17",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-17_mirassol-sp-internacional-rs_93882997.json"
  },
  {

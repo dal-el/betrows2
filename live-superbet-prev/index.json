@@ -210,6 +210,16 @@
   "file": "championship/2026-10-17_wrexham-preston-north-end_14127728.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14780125",
+  "name": "Wolves - Portsmouth",
+  "startTime": 1792521900000,
+  "dateStr": "2026-10-20",
+  "marketCount": 3,
+  "file": "championship/2026-10-20_wolves-portsmouth_14780125.json"
+ },
+ {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14142827",
@@ -788,5 +798,15 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-19_remo-bragantino_14142787.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14142781",
+  "name": "Corinthians - Vitoria BA",
+  "startTime": 1792450800000,
+  "dateStr": "2026-10-20",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  }
 ]
