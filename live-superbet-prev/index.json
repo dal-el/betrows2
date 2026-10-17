@@ -12,32 +12,12 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127710",
-  "name": "Everton - Chelsea",
-  "startTime": 1792236600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-17_everton-chelsea_14127710.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "14127711",
   "name": "Fulham - Hull City",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
   "marketCount": 24,
   "file": "premier-league/2026-10-17_fulham-hull-city_14127711.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127707",
-  "name": "Bournemouth - Sunderland",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-18_bournemouth-sunderland_14127707.json"
  },
  {
   "league": "premier-league",
@@ -52,12 +32,12 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127714",
-  "name": "Newcastle - Aston Villa",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
+  "eventId": "14127707",
+  "name": "Bournemouth - Sunderland",
+  "startTime": 1792328400000,
+  "dateStr": "2026-10-18",
   "marketCount": 24,
-  "file": "premier-league/2026-10-17_newcastle-aston-villa_14127714.json"
+  "file": "premier-league/2026-10-18_bournemouth-sunderland_14127707.json"
  },
  {
   "league": "premier-league",
@@ -68,6 +48,16 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "premier-league/2026-10-18_brighton-crystal-palace_14127709.json"
+ },
+ {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "14127714",
+  "name": "Newcastle - Aston Villa",
+  "startTime": 1792254600000,
+  "dateStr": "2026-10-17",
+  "marketCount": 24,
+  "file": "premier-league/2026-10-17_newcastle-aston-villa_14127714.json"
  },
  {
   "league": "premier-league",
@@ -98,36 +88,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "premier-league/2026-10-19_tottenham-coventry-city_14127716.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14127721",
-  "name": "Middlesbrough - Cardiff City",
-  "startTime": 1792236600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "championship/2026-10-17_middlesbrough-cardiff-city_14127721.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14127722",
-  "name": "Millwall - Lincoln City",
-  "startTime": 1792236600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "championship/2026-10-17_millwall-lincoln-city_14127722.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14127726",
-  "name": "Watford - Charlton Athletic",
-  "startTime": 1792236600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "championship/2026-10-17_watford-charlton-athletic_14127726.json"
  },
  {
   "league": "championship",
@@ -232,12 +192,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142830",
-  "name": "Espanyol - Atletico Madrid",
-  "startTime": 1792238400000,
+  "eventId": "14142835",
+  "name": "Valencia - Athletic Bilbao",
+  "startTime": 1792263600000,
   "dateStr": "2026-10-17",
   "marketCount": 24,
-  "file": "la-liga/2026-10-17_espanyol-atletico-madrid_14142830.json"
+  "file": "la-liga/2026-10-17_valencia-athletic-bilbao_14142835.json"
  },
  {
   "league": "la-liga",
@@ -262,6 +222,16 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14142832",
+  "name": "Malaga - Real Sociedad",
+  "startTime": 1792341000000,
+  "dateStr": "2026-10-18",
+  "marketCount": 21,
+  "file": "la-liga/2026-10-18_malaga-real-sociedad_14142832.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14142833",
   "name": "Osasuna - Racing Santander",
   "startTime": 1792324800000,
@@ -272,32 +242,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142835",
-  "name": "Valencia - Athletic Bilbao",
-  "startTime": 1792263600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-17_valencia-athletic-bilbao_14142835.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14142831",
   "name": "Getafe - Rayo Vallecano",
   "startTime": 1792436400000,
   "dateStr": "2026-10-19",
   "marketCount": 18,
   "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142832",
-  "name": "Malaga - Real Sociedad",
-  "startTime": 1792341000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 21,
-  "file": "la-liga/2026-10-18_malaga-real-sociedad_14142832.json"
  },
  {
   "league": "la-liga",
