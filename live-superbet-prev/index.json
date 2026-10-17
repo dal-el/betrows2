@@ -622,16 +622,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15258469",
-  "name": "Necaxa - Atlas",
-  "startTime": 1792198800000,
-  "dateStr": "2026-10-17",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-17_necaxa-atlas_15258469.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15258526",
   "name": "Atlante - UNAM Pumas",
   "startTime": 1792206000000,
