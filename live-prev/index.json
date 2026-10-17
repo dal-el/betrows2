@@ -176,7 +176,7 @@
   "name": "Real Betis Balompie - FC Barcelona",
   "startTime": 1792254600000,
   "dateStr": "2026-10-17",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-17_real-betis-balompie-fc-barcelona_91668477.json"
  },
  {
@@ -228,16 +228,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 104,
   "file": "la-liga/2026-10-18_real-madrid-sevilla-fc_91668512.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92261366",
-  "name": "Venezia FC - SSC Napoli",
-  "startTime": 1792242000000,
-  "dateStr": "2026-10-17",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-17_venezia-fc-ssc-napoli_92261366.json"
  },
  {
   "league": "serie-a-italy",
@@ -466,7 +456,7 @@
   "name": "Levadiakos - Volos NFC",
   "startTime": 1792245600000,
   "dateStr": "2026-10-17",
-  "marketCount": 107,
+  "marketCount": 102,
   "file": "super-league-greece/2026-10-17_levadiakos-volos-nfc_92844865.json"
  },
  {

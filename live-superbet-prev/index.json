@@ -216,7 +216,7 @@
   "name": "Celta Vigo - Alaves",
   "startTime": 1792332900000,
   "dateStr": "2026-10-18",
-  "marketCount": 21,
+  "marketCount": 24,
   "file": "la-liga/2026-10-18_celta-vigo-alaves_14142828.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "Malaga - Real Sociedad",
   "startTime": 1792341000000,
   "dateStr": "2026-10-18",
-  "marketCount": 21,
+  "marketCount": 24,
   "file": "la-liga/2026-10-18_malaga-real-sociedad_14142832.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Osasuna - Racing Santander",
   "startTime": 1792324800000,
   "dateStr": "2026-10-18",
-  "marketCount": 21,
+  "marketCount": 24,
   "file": "la-liga/2026-10-18_osasuna-racing-santander_14142833.json"
  },
  {
@@ -282,12 +282,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127689",
-  "name": "Venezia - Napoli",
-  "startTime": 1792242000000,
-  "dateStr": "2026-10-17",
+  "eventId": "14127688",
+  "name": "Udinese - Lecce",
+  "startTime": 1792319400000,
+  "dateStr": "2026-10-18",
   "marketCount": 24,
-  "file": "serie-a-italy/2026-10-17_venezia-napoli_14127689.json"
+  "file": "serie-a-italy/2026-10-18_udinese-lecce_14127688.json"
  },
  {
   "league": "serie-a-italy",
@@ -302,32 +302,22 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127684",
-  "name": "AC Milan - Atalanta",
-  "startTime": 1792339200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127688",
-  "name": "Udinese - Lecce",
-  "startTime": 1792319400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_udinese-lecce_14127688.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14127683",
   "name": "Juventus - Lazio",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-18_juventus-lazio_14127683.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14127684",
+  "name": "AC Milan - Atalanta",
+  "startTime": 1792339200000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
  },
  {
   "league": "serie-a-italy",
