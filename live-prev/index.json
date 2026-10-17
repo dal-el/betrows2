@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92788211",
-  "name": "Newcastle United - Aston Villa",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-17_newcastle-united-aston-villa_92788211.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "92788234",
   "name": "AFC Bournemouth - Sunderland",
   "startTime": 1792328400000,
@@ -36,7 +26,7 @@
   "name": "Leeds United - Manchester United",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-18_leeds-united-manchester-united_92788263.json"
  },
  {
@@ -46,7 +36,7 @@
   "name": "Nottingham Forest - Arsenal FC",
   "startTime": 1792337400000,
   "dateStr": "2026-10-18",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-18_nottingham-forest-arsenal-fc_92788260.json"
  },
  {
@@ -56,18 +46,8 @@
   "name": "Wolverhampton Wanderers - Portsmouth FC",
   "startTime": 1792521900000,
   "dateStr": "2026-10-20",
-  "marketCount": 42,
+  "marketCount": 51,
   "file": "championship/2026-10-20_wolverhampton-wanderers-portsmouth-fc_94077872.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668477",
-  "name": "Real Betis Balompie - FC Barcelona",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-17_real-betis-balompie-fc-barcelona_91668477.json"
  },
  {
   "league": "la-liga",
@@ -168,16 +148,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 106,
   "file": "serie-a-italy/2026-10-18_juventus-fc-ss-lazio_92891389.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657755",
-  "name": "FC Bayern Munchen - RB Leipzig",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 106,
-  "file": "bundesliga/2026-10-17_fc-bayern-munchen-rb-leipzig_91657755.json"
  },
  {
   "league": "bundesliga",
@@ -306,7 +276,7 @@
   "name": "Kifisia - Aris Thessaloniki",
   "startTime": 1792342800000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "super-league-greece/2026-10-18_kifisia-aris-thessaloniki_92844934.json"
  },
  {
