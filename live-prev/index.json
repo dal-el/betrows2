@@ -620,6 +620,16 @@
   "file": "liga-mx/2026-10-18_cruz-azul-fc-juarez_93716709.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "93716713",
+  "name": "CF Monterrey - CF Pachuca",
+  "startTime": 1792371600000,
+  "dateStr": "2026-10-19",
+  "marketCount": 93,
+  "file": "liga-mx/2026-10-19_cf-monterrey-cf-pachuca_93716713.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93882991",
