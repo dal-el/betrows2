@@ -362,6 +362,16 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14142778",
+  "name": "Fluminense - Santos",
+  "startTime": 1792350000000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "serie-a-brazil/2026-10-18_fluminense-santos_14142778.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14142780",
   "name": "Sao Paulo - Vasco da Gama",
   "startTime": 1792281600000,
@@ -372,32 +382,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142783",
-  "name": "Atletico Mineiro - Coritiba",
-  "startTime": 1792272600000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-18_atletico-mineiro-coritiba_14142783.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14142785",
   "name": "Athletico PR - Palmeiras",
   "startTime": 1792276200000,
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-18_athletico-pr-palmeiras_14142785.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142778",
-  "name": "Fluminense - Santos",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-18_fluminense-santos_14142778.json"
  },
  {
   "league": "serie-a-brazil",
@@ -422,21 +412,21 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142781",
-  "name": "Corinthians - Vitoria BA",
-  "startTime": 1792450800000,
-  "dateStr": "2026-10-20",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14142787",
   "name": "Remo - Bragantino",
   "startTime": 1792362600000,
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-19_remo-bragantino_14142787.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14142781",
+  "name": "Corinthians - Vitoria BA",
+  "startTime": 1792450800000,
+  "dateStr": "2026-10-20",
+  "marketCount": 24,
+  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  }
 ]

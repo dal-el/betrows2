@@ -352,16 +352,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882987",
-  "name": "Clube Atletico MG - Coritiba PR",
-  "startTime": 1792272600000,
-  "dateStr": "2026-10-18",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-18_clube-atletico-mg-coritiba-pr_93882987.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93882958",
   "name": "Athletico PR - Palmeiras SP",
   "startTime": 1792276200000,
