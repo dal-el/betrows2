@@ -72,6 +72,16 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14142832",
+  "name": "Malaga - Real Sociedad",
+  "startTime": 1792341000000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "la-liga/2026-10-18_malaga-real-sociedad_14142832.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14142833",
   "name": "Osasuna - Racing Santander",
   "startTime": 1792324800000,
@@ -82,32 +92,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142835",
-  "name": "Valencia - Athletic Bilbao",
-  "startTime": 1792263600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-17_valencia-athletic-bilbao_14142835.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14142831",
   "name": "Getafe - Rayo Vallecano",
   "startTime": 1792436400000,
   "dateStr": "2026-10-19",
   "marketCount": 18,
   "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142832",
-  "name": "Malaga - Real Sociedad",
-  "startTime": 1792341000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-18_malaga-real-sociedad_14142832.json"
  },
  {
   "league": "la-liga",
@@ -132,12 +122,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127687",
-  "name": "AS Roma - Genoa",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
+  "eventId": "14127684",
+  "name": "AC Milan - Atalanta",
+  "startTime": 1792339200000,
+  "dateStr": "2026-10-18",
   "marketCount": 24,
-  "file": "serie-a-italy/2026-10-17_as-roma-genoa_14127687.json"
+  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
  },
  {
   "league": "serie-a-italy",
@@ -158,16 +148,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-18_juventus-lazio_14127683.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127684",
-  "name": "AC Milan - Atalanta",
-  "startTime": 1792339200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
  },
  {
   "league": "serie-a-italy",
@@ -222,26 +202,6 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127841",
-  "name": "Lille - Brest",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-17_lille-brest_14127841.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127846",
-  "name": "Troyes - Lens",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-17_troyes-lens_14127846.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127839",
   "name": "Le Havre - Auxerre",
   "startTime": 1792336500000,
@@ -262,22 +222,22 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127844",
-  "name": "Paris FC - Rennes",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_paris-fc-rennes_14127844.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127843",
   "name": "Lyon - Nice",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14127844",
+  "name": "Paris FC - Rennes",
+  "startTime": 1792336500000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "ligue-1/2026-10-18_paris-fc-rennes_14127844.json"
  },
  {
   "league": "super-league-greece",
@@ -456,7 +416,7 @@
   "name": "Corinthians - Vitoria BA",
   "startTime": 1792450800000,
   "dateStr": "2026-10-20",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  },
  {
