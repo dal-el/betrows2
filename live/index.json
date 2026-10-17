@@ -100,6 +100,16 @@
   "file": "la-liga/2026-10-18_real-madrid-sevilla-fc_91668512.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668515",
+  "name": "Getafe CF - Rayo Vallecano",
+  "startTime": 1792436400000,
+  "dateStr": "2026-10-19",
+  "marketCount": 104,
+  "file": "la-liga/2026-10-19_getafe-cf-rayo-vallecano_91668515.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "92891388",
@@ -138,6 +148,26 @@
   "dateStr": "2026-10-18",
   "marketCount": 106,
   "file": "serie-a-italy/2026-10-18_juventus-fc-ss-lazio_92891389.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92891390",
+  "name": "AC Monza - Cagliari Calcio",
+  "startTime": 1792427400000,
+  "dateStr": "2026-10-19",
+  "marketCount": 106,
+  "file": "serie-a-italy/2026-10-19_ac-monza-cagliari-calcio_92891390.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92891411",
+  "name": "Parma Calcio 1913 - Torino FC",
+  "startTime": 1792435500000,
+  "dateStr": "2026-10-19",
+  "marketCount": 111,
+  "file": "serie-a-italy/2026-10-19_parma-calcio-1913-torino-fc_92891411.json"
  },
  {
   "league": "bundesliga",
@@ -322,16 +352,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882991",
-  "name": "Botafogo RJ - Chapecoense SC",
-  "startTime": 1792270800000,
-  "dateStr": "2026-10-18",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-18_botafogo-rj-chapecoense-sc_93882991.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93882987",
   "name": "Clube Atletico MG - Coritiba PR",
   "startTime": 1792272600000,
@@ -346,7 +366,7 @@
   "name": "Athletico PR - Palmeiras SP",
   "startTime": 1792276200000,
   "dateStr": "2026-10-18",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-18_athletico-pr-palmeiras-sp_93882958.json"
  },
  {
