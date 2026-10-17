@@ -652,16 +652,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882997",
-  "name": "Mirassol SP - Internacional RS",
-  "startTime": 1792191600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-17_mirassol-sp-internacional-rs_93882997.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93882991",
   "name": "Botafogo RJ - Chapecoense SC",
   "startTime": 1792270800000,

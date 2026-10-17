@@ -696,7 +696,7 @@
   "name": "Gremio RS - Cruzeiro MG",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-18_gremio-rs-cruzeiro-mg_93882941.json"
  },
  {
@@ -706,7 +706,7 @@
   "name": "Fluminense RJ - Santos SP",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-18_fluminense-rj-santos-sp_93882966.json"
  }
 ]
