@@ -40,6 +40,16 @@
   "file": "premier-league/2026-10-18_nottingham-forest-arsenal-fc_92788260.json"
  },
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "92788262",
+  "name": "Tottenham Hotspur - Coventry City",
+  "startTime": 1792436400000,
+  "dateStr": "2026-10-19",
+  "marketCount": 127,
+  "file": "premier-league/2026-10-19_tottenham-hotspur-coventry-city_92788262.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "94077872",
@@ -48,16 +58,6 @@
   "dateStr": "2026-10-20",
   "marketCount": 51,
   "file": "championship/2026-10-20_wolverhampton-wanderers-portsmouth-fc_94077872.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668514",
-  "name": "Valencia CF - Athletic Bilbao",
-  "startTime": 1792263600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-17_valencia-cf-athletic-bilbao_91668514.json"
  },
  {
   "league": "la-liga",
@@ -98,16 +98,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 104,
   "file": "la-liga/2026-10-18_real-madrid-sevilla-fc_91668512.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92891231",
-  "name": "AS Roma - Genoa CFC",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-17_as-roma-genoa-cfc_92891231.json"
  },
  {
   "league": "serie-a-italy",
@@ -168,26 +158,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 106,
   "file": "bundesliga/2026-10-18_borussia-monchengladbach-tsg-1899-hoffenheim_91657771.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92851527",
-  "name": "Lille OSC - Stade Brestois 29",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-17_lille-osc-stade-brestois-29_92851527.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92851583",
-  "name": "ES Troyes AC - RC Lens",
-  "startTime": 1792262700000,
-  "dateStr": "2026-10-17",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-17_es-troyes-ac-rc-lens_92851583.json"
  },
  {
   "league": "ligue-1",
