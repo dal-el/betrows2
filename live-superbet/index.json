@@ -302,26 +302,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15262033",
-  "name": "Santos Laguna - Queretaro",
-  "startTime": 1792278000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-18_santos-laguna-queretaro_15262033.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15262108",
-  "name": "Guadalajara - UANL Tigres",
-  "startTime": 1792278420000,
-  "dateStr": "2026-10-18",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-18_guadalajara-uanl-tigres_15262108.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15276510",
   "name": "Club Leon - Club America",
   "startTime": 1792285200000,
@@ -382,22 +362,22 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142785",
-  "name": "Athletico PR - Palmeiras",
-  "startTime": 1792276200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-18_athletico-pr-palmeiras_14142785.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14142784",
   "name": "Gremio - Cruzeiro",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-18_gremio-cruzeiro_14142784.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14142781",
+  "name": "Corinthians - Vitoria BA",
+  "startTime": 1792450800000,
+  "dateStr": "2026-10-20",
+  "marketCount": 24,
+  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  },
  {
   "league": "serie-a-brazil",
@@ -418,15 +398,5 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-19_remo-bragantino_14142787.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142781",
-  "name": "Corinthians - Vitoria BA",
-  "startTime": 1792450800000,
-  "dateStr": "2026-10-20",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  }
 ]
