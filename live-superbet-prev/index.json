@@ -142,12 +142,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127680",
-  "name": "Bologna - Inter Milan",
-  "startTime": 1792252800000,
-  "dateStr": "2026-10-17",
+  "eventId": "14127681",
+  "name": "Fiorentina - Como",
+  "startTime": 1792328400000,
+  "dateStr": "2026-10-18",
   "marketCount": 24,
-  "file": "serie-a-italy/2026-10-17_bologna-inter-milan_14127680.json"
+  "file": "serie-a-italy/2026-10-18_fiorentina-como_14127681.json"
  },
  {
   "league": "serie-a-italy",
@@ -168,16 +168,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-18_udinese-lecce_14127688.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127681",
-  "name": "Fiorentina - Como",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_fiorentina-como_14127681.json"
  },
  {
   "league": "serie-a-italy",
@@ -252,6 +242,16 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14127838",
+  "name": "Angers - Marseille",
+  "startTime": 1792328400000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "ligue-1/2026-10-18_angers-marseille_14127838.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127841",
   "name": "Lille - Brest",
   "startTime": 1792262700000,
@@ -262,32 +262,12 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127845",
-  "name": "Strasbourg - Paris Saint-Germain",
-  "startTime": 1792250100000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-17_strasbourg-paris-saint-germain_14127845.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127846",
   "name": "Troyes - Lens",
   "startTime": 1792262700000,
   "dateStr": "2026-10-17",
   "marketCount": 24,
   "file": "ligue-1/2026-10-17_troyes-lens_14127846.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127838",
-  "name": "Angers - Marseille",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_angers-marseille_14127838.json"
  },
  {
   "league": "ligue-1",
@@ -312,22 +292,22 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127843",
-  "name": "Lyon - Nice",
-  "startTime": 1792349100000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127844",
   "name": "Paris FC - Rennes",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "ligue-1/2026-10-18_paris-fc-rennes_14127844.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14127843",
+  "name": "Lyon - Nice",
+  "startTime": 1792349100000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
  },
  {
   "league": "super-league-greece",

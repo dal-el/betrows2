@@ -22,16 +22,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127714",
-  "name": "Newcastle - Aston Villa",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-17_newcastle-aston-villa_14127714.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "14127712",
   "name": "Leeds United - Manchester United",
   "startTime": 1792328400000,
@@ -72,12 +62,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142827",
-  "name": "Betis - Barcelona",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
+  "eventId": "14142828",
+  "name": "Celta Vigo - Alaves",
+  "startTime": 1792332900000,
+  "dateStr": "2026-10-18",
   "marketCount": 24,
-  "file": "la-liga/2026-10-17_betis-barcelona_14142827.json"
+  "file": "la-liga/2026-10-18_celta-vigo-alaves_14142828.json"
  },
  {
   "league": "la-liga",
@@ -102,12 +92,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142828",
-  "name": "Celta Vigo - Alaves",
-  "startTime": 1792332900000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-18_celta-vigo-alaves_14142828.json"
+  "eventId": "14142831",
+  "name": "Getafe - Rayo Vallecano",
+  "startTime": 1792436400000,
+  "dateStr": "2026-10-19",
+  "marketCount": 18,
+  "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
  },
  {
   "league": "la-liga",
@@ -128,16 +118,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "la-liga/2026-10-18_real-madrid-sevilla_14142834.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142831",
-  "name": "Getafe - Rayo Vallecano",
-  "startTime": 1792436400000,
-  "dateStr": "2026-10-19",
-  "marketCount": 18,
-  "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
  },
  {
   "league": "serie-a-italy",
@@ -208,16 +188,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-19_parma-torino-fc_14127686.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14127662",
-  "name": "Bayern Munich - RB Leipzig",
-  "startTime": 1792254600000,
-  "dateStr": "2026-10-17",
-  "marketCount": 24,
-  "file": "bundesliga/2026-10-17_bayern-munich-rb-leipzig_14127662.json"
  },
  {
   "league": "bundesliga",
@@ -312,6 +282,16 @@
  {
   "league": "super-league-greece",
   "leagueName": "Super League (Ελλάδα)",
+  "eventId": "15079914",
+  "name": "Panathinaikos - Asteras Tripolis",
+  "startTime": 1792333800000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "super-league-greece/2026-10-18_panathinaikos-asteras-tripolis_15079914.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Super League (Ελλάδα)",
   "eventId": "15079915",
   "name": "Panetolikos - Olympiacos",
   "startTime": 1792332000000,
@@ -328,16 +308,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "super-league-greece/2026-10-18_kalamata-ofi_15079917.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15079914",
-  "name": "Panathinaikos - Asteras Tripolis",
-  "startTime": 1792333800000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-18_panathinaikos-asteras-tripolis_15079914.json"
  },
  {
   "league": "super-league-greece",
