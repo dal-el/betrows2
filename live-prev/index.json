@@ -346,7 +346,7 @@
   "name": "Juventus FC - SS Lazio",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-18_juventus-fc-ss-lazio_92891389.json"
  },
  {
@@ -568,26 +568,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 105,
   "file": "super-league-greece/2026-10-18_paok-iraklis_92844956.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93716402",
-  "name": "Atlante FC - UNAM Pumas",
-  "startTime": 1792206000000,
-  "dateStr": "2026-10-17",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-17_atlante-fc-unam-pumas_93716402.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93716405",
-  "name": "Club Tijuana - Club Puebla",
-  "startTime": 1792206000000,
-  "dateStr": "2026-10-17",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-17_club-tijuana-club-puebla_93716405.json"
  },
  {
   "league": "liga-mx",
