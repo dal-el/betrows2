@@ -122,16 +122,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92891346",
-  "name": "Bologna FC - Inter Milan",
-  "startTime": 1792252800000,
-  "dateStr": "2026-10-17",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-17_bologna-fc-inter-milan_92891346.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92891231",
   "name": "AS Roma - Genoa CFC",
   "startTime": 1792262700000,
@@ -208,16 +198,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 106,
   "file": "bundesliga/2026-10-18_borussia-monchengladbach-tsg-1899-hoffenheim_91657771.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852267",
-  "name": "RC Strasbourg - Paris Saint-Germain",
-  "startTime": 1792250100000,
-  "dateStr": "2026-10-17",
-  "marketCount": 105,
-  "file": "ligue-1/2026-10-17_rc-strasbourg-paris-saint-germain_92852267.json"
  },
  {
   "league": "ligue-1",
@@ -406,7 +386,7 @@
   "name": "Botafogo RJ - Chapecoense SC",
   "startTime": 1792270800000,
   "dateStr": "2026-10-18",
-  "marketCount": 108,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-18_botafogo-rj-chapecoense-sc_93882991.json"
  },
  {
