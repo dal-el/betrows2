@@ -112,16 +112,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882995",
-  "name": "Remo PA - Bragantino SP",
-  "startTime": 1792362600000,
-  "dateStr": "2026-10-19",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-19_remo-pa-bragantino-sp_93882995.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93883000",
   "name": "Corinthians SP - Vitoria BA",
   "startTime": 1792450800000,

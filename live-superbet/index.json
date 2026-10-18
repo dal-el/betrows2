@@ -168,15 +168,5 @@
   "dateStr": "2026-10-20",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142787",
-  "name": "Remo - Bragantino",
-  "startTime": 1792362600000,
-  "dateStr": "2026-10-19",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-19_remo-bragantino_14142787.json"
  }
 ]
