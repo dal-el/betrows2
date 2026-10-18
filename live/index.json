@@ -292,16 +292,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "93716709",
-  "name": "Cruz Azul - FC Juarez",
-  "startTime": 1792293000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-18_cruz-azul-fc-juarez_93716709.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "93716713",
   "name": "CF Monterrey - CF Pachuca",
   "startTime": 1792371600000,

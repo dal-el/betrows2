@@ -330,6 +330,26 @@
   "file": "liga-mx/2026-10-21_guadalajara-necaxa_15323438.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15323439",
+  "name": "Atletico San Luis - Queretaro",
+  "startTime": 1792544400000,
+  "dateStr": "2026-10-21",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro_15323439.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15323455",
+  "name": "UANL Tigres - Club Leon",
+  "startTime": 1792551600000,
+  "dateStr": "2026-10-21",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-21_uanl-tigres-club-leon_15323455.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14142778",
