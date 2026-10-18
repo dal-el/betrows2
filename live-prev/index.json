@@ -112,16 +112,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92891388",
-  "name": "Udinese Calcio - US Lecce",
-  "startTime": 1792319400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-18_udinese-calcio-us-lecce_92891388.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92891372",
   "name": "AC Fiorentina - Como 1907",
   "startTime": 1792328400000,
