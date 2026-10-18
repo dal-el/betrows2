@@ -302,16 +302,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15276571",
-  "name": "Cruz Azul - Juarez",
-  "startTime": 1792293000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-18_cruz-azul-juarez_15276571.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15293207",
   "name": "Monterrey - Pachuca",
   "startTime": 1792371600000,
@@ -338,6 +328,16 @@
   "dateStr": "2026-10-21",
   "marketCount": 3,
   "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro_15323439.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15323440",
+  "name": "Juarez - Atlante",
+  "startTime": 1792544400000,
+  "dateStr": "2026-10-21",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-21_juarez-atlante_15323440.json"
  },
  {
   "league": "liga-mx",
