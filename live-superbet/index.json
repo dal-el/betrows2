@@ -56,7 +56,7 @@
   "name": "Wolves - Portsmouth",
   "startTime": 1792521900000,
   "dateStr": "2026-10-20",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-10-20_wolves-portsmouth_14780125.json"
  },
  {
@@ -298,26 +298,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "super-league-greece/2026-10-18_paok-iraklis-fc_15079922.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15276510",
-  "name": "Club Leon - Club America",
-  "startTime": 1792285200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-18_club-leon-club-america_15276510.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15276511",
-  "name": "Deportivo Toluca - Atletico San Luis",
-  "startTime": 1792285200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-18_deportivo-toluca-atletico-san-luis_15276511.json"
  },
  {
   "league": "liga-mx",

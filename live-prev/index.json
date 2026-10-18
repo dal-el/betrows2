@@ -106,7 +106,7 @@
   "name": "Getafe CF - Rayo Vallecano",
   "startTime": 1792436400000,
   "dateStr": "2026-10-19",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "la-liga/2026-10-19_getafe-cf-rayo-vallecano_91668515.json"
  },
  {
@@ -328,16 +328,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 88,
   "file": "liga-mx/2026-10-19_cf-monterrey-cf-pachuca_93716713.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882970",
-  "name": "Sao Paulo SP - Vasco da Gama RJ",
-  "startTime": 1792281600000,
-  "dateStr": "2026-10-18",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-18_sao-paulo-sp-vasco-da-gama-rj_93882970.json"
  },
  {
   "league": "serie-a-brazil",
