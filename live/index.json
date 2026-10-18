@@ -76,7 +76,7 @@
   "name": "RC Celta de Vigo - Deportivo Alaves",
   "startTime": 1792332900000,
   "dateStr": "2026-10-18",
-  "marketCount": 104,
+  "marketCount": 108,
   "file": "la-liga/2026-10-18_rc-celta-de-vigo-deportivo-alaves_91668490.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Atletico San Luis - Queretaro FC",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 42,
+  "marketCount": 64,
   "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro-fc_94024170.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "FC Juarez - Atlante FC",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 42,
+  "marketCount": 64,
   "file": "liga-mx/2026-10-21_fc-juarez-atlante-fc_94024183.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "CF Tigres UANL - Club Leon",
   "startTime": 1792551600000,
   "dateStr": "2026-10-21",
-  "marketCount": 42,
+  "marketCount": 64,
   "file": "liga-mx/2026-10-21_cf-tigres-uanl-club-leon_94024149.json"
  },
  {
