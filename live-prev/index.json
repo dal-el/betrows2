@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92788260",
-  "name": "Nottingham Forest - Arsenal FC",
-  "startTime": 1792337400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-18_nottingham-forest-arsenal-fc_92788260.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "92788262",
   "name": "Tottenham Hotspur - Coventry City",
   "startTime": 1792436400000,
@@ -46,7 +36,7 @@
   "name": "Real Madrid - Sevilla FC",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-18_real-madrid-sevilla-fc_91668512.json"
  },
  {
@@ -62,21 +52,11 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92891305",
-  "name": "AC Milan - Atalanta",
-  "startTime": 1792339200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_92891305.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92891389",
   "name": "Juventus FC - SS Lazio",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
-  "marketCount": 107,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-18_juventus-fc-ss-lazio_92891389.json"
  },
  {
@@ -98,46 +78,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 106,
   "file": "serie-a-italy/2026-10-19_parma-calcio-1913-torino-fc_92891411.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657771",
-  "name": "Borussia Monchengladbach - TSG 1899 Hoffenheim",
-  "startTime": 1792337400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "bundesliga/2026-10-18_borussia-monchengladbach-tsg-1899-hoffenheim_91657771.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852463",
-  "name": "Le Havre AC - AJ Auxerre",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-18_le-havre-ac-aj-auxerre_92852463.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852468",
-  "name": "FC Lorient - AS Monaco",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-18_fc-lorient-as-monaco_92852468.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852477",
-  "name": "Paris FC - Stade Rennais FC",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-18_paris-fc-stade-rennais-fc_92852477.json"
  },
  {
   "league": "ligue-1",

@@ -6,7 +6,7 @@
   "name": "Tottenham Hotspur - Coventry City",
   "startTime": 1792436400000,
   "dateStr": "2026-10-19",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-19_tottenham-hotspur-coventry-city_92788262.json"
  },
  {
@@ -18,16 +18,6 @@
   "dateStr": "2026-10-20",
   "marketCount": 78,
   "file": "championship/2026-10-20_wolverhampton-wanderers-portsmouth-fc_94077872.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668516",
-  "name": "Malaga CF - Real Sociedad",
-  "startTime": 1792341000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-18_malaga-cf-real-sociedad_91668516.json"
  },
  {
   "league": "la-liga",
@@ -92,16 +82,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92844934",
-  "name": "Kifisia - Aris Thessaloniki",
-  "startTime": 1792342800000,
-  "dateStr": "2026-10-18",
-  "marketCount": 107,
-  "file": "super-league-greece/2026-10-18_kifisia-aris-thessaloniki_92844934.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "92844956",
   "name": "PAOK - Iraklis",
   "startTime": 1792346400000,
@@ -126,7 +106,7 @@
   "name": "Guadalajara Chivas - Club Necaxa",
   "startTime": 1792541220000,
   "dateStr": "2026-10-21",
-  "marketCount": 42,
+  "marketCount": 64,
   "file": "liga-mx/2026-10-21_guadalajara-chivas-club-necaxa_94024328.json"
  },
  {
