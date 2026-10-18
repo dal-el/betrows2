@@ -32,32 +32,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142834",
-  "name": "Real Madrid - Sevilla",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-18_real-madrid-sevilla_14142834.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "15034704",
   "name": "Levante - Athletic Bilbao",
   "startTime": 1792605600000,
   "dateStr": "2026-10-21",
   "marketCount": 6,
   "file": "la-liga/2026-10-21_levante-athletic-bilbao_15034704.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127683",
-  "name": "Juventus - Lazio",
-  "startTime": 1792349100000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_juventus-lazio_14127683.json"
  },
  {
   "league": "serie-a-italy",
@@ -78,16 +58,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-19_parma-torino-fc_14127686.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127843",
-  "name": "Lyon - Nice",
-  "startTime": 1792349100000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
  },
  {
   "league": "liga-mx",
@@ -142,22 +112,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142778",
-  "name": "Fluminense - Santos",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
+  "eventId": "14142781",
+  "name": "Corinthians - Vitoria BA",
+  "startTime": 1792450800000,
+  "dateStr": "2026-10-20",
   "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-18_fluminense-santos_14142778.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142784",
-  "name": "Gremio - Cruzeiro",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-18_gremio-cruzeiro_14142784.json"
+  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  },
  {
   "league": "serie-a-brazil",
@@ -168,16 +128,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-brazil/2026-10-19_bahia-flamengo_14142786.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142781",
-  "name": "Corinthians - Vitoria BA",
-  "startTime": 1792450800000,
-  "dateStr": "2026-10-20",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  },
  {
   "league": "serie-a-brazil",

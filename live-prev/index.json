@@ -80,16 +80,6 @@
   "file": "ligue-1/2026-10-18_olympique-lyonnais-ogc-nice_92852483.json"
  },
  {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92844956",
-  "name": "PAOK - Iraklis",
-  "startTime": 1792346400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 105,
-  "file": "super-league-greece/2026-10-18_paok-iraklis_92844956.json"
- },
- {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "93716713",
@@ -146,7 +136,7 @@
   "name": "Gremio RS - Cruzeiro MG",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-18_gremio-rs-cruzeiro-mg_93882941.json"
  },
  {
@@ -156,7 +146,7 @@
   "name": "Fluminense RJ - Santos SP",
   "startTime": 1792350000000,
   "dateStr": "2026-10-18",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-18_fluminense-rj-santos-sp_93882966.json"
  },
  {
