@@ -30,6 +30,16 @@
   "file": "la-liga/2026-10-19_getafe-cf-rayo-vallecano_91668515.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "92683011",
+  "name": "Levante UD - Athletic Bilbao",
+  "startTime": 1792605600000,
+  "dateStr": "2026-10-21",
+  "marketCount": 109,
+  "file": "la-liga/2026-10-21_levante-ud-athletic-bilbao_92683011.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "92891390",
@@ -116,7 +126,17 @@
   "name": "Remo PA - Bragantino SP",
   "startTime": 1792362600000,
   "dateStr": "2026-10-19",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-19_remo-pa-bragantino-sp_93882995.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "93883000",
+  "name": "Corinthians SP - Vitoria BA",
+  "startTime": 1792450800000,
+  "dateStr": "2026-10-20",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-10-20_corinthians-sp-vitoria-ba_93883000.json"
  }
 ]
