@@ -300,6 +300,36 @@
   "file": "liga-mx/2026-10-19_cf-monterrey-cf-pachuca_93716713.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024170",
+  "name": "Atletico San Luis - Queretaro FC",
+  "startTime": 1792544400000,
+  "dateStr": "2026-10-21",
+  "marketCount": 42,
+  "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro-fc_94024170.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024183",
+  "name": "FC Juarez - Atlante FC",
+  "startTime": 1792544400000,
+  "dateStr": "2026-10-21",
+  "marketCount": 42,
+  "file": "liga-mx/2026-10-21_fc-juarez-atlante-fc_94024183.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024149",
+  "name": "CF Tigres UANL - Club Leon",
+  "startTime": 1792551600000,
+  "dateStr": "2026-10-21",
+  "marketCount": 42,
+  "file": "liga-mx/2026-10-21_cf-tigres-uanl-club-leon_94024149.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93882941",
