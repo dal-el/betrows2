@@ -32,16 +32,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668490",
-  "name": "RC Celta de Vigo - Deportivo Alaves",
-  "startTime": 1792332900000,
-  "dateStr": "2026-10-18",
-  "marketCount": 104,
-  "file": "la-liga/2026-10-18_rc-celta-de-vigo-deportivo-alaves_91668490.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668516",
   "name": "Malaga CF - Real Sociedad",
   "startTime": 1792341000000,
@@ -86,7 +76,7 @@
   "name": "Juventus FC - SS Lazio",
   "startTime": 1792349100000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-18_juventus-fc-ss-lazio_92891389.json"
  },
  {
@@ -162,16 +152,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92844932",
-  "name": "Panathinaikos - Asteras Tripolis",
-  "startTime": 1792333800000,
-  "dateStr": "2026-10-18",
-  "marketCount": 101,
-  "file": "super-league-greece/2026-10-18_panathinaikos-asteras-tripolis_92844932.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "92844934",
   "name": "Kifisia - Aris Thessaloniki",
   "startTime": 1792342800000,
@@ -198,6 +178,16 @@
   "dateStr": "2026-10-19",
   "marketCount": 88,
   "file": "liga-mx/2026-10-19_cf-monterrey-cf-pachuca_93716713.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024328",
+  "name": "Guadalajara Chivas - Club Necaxa",
+  "startTime": 1792541220000,
+  "dateStr": "2026-10-21",
+  "marketCount": 42,
+  "file": "liga-mx/2026-10-21_guadalajara-chivas-club-necaxa_94024328.json"
  },
  {
   "league": "liga-mx",

@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127715",
-  "name": "Nottingham Forest - Arsenal",
-  "startTime": 1792337400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-18_nottingham-forest-arsenal_14127715.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "14127716",
   "name": "Tottenham - Coventry City",
   "startTime": 1792436400000,
@@ -82,16 +72,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127684",
-  "name": "AC Milan - Atalanta",
-  "startTime": 1792339200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_ac-milan-atalanta_14127684.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14127685",
   "name": "Monza - Cagliari",
   "startTime": 1792427400000,
@@ -108,46 +88,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-19_parma-torino-fc_14127686.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14127666",
-  "name": "Borussia Mönchengladbach - TSG Hoffenheim",
-  "startTime": 1792337400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "bundesliga/2026-10-18_borussia-monchengladbach-tsg-hoffenheim_14127666.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127839",
-  "name": "Le Havre - Auxerre",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_le-havre-auxerre_14127839.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127842",
-  "name": "Lorient - Monaco",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_lorient-monaco_14127842.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127844",
-  "name": "Paris FC - Rennes",
-  "startTime": 1792336500000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_paris-fc-rennes_14127844.json"
  },
  {
   "league": "ligue-1",
