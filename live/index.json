@@ -112,16 +112,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882993",
-  "name": "EC Bahia BA - Flamengo RJ",
-  "startTime": 1792359000000,
-  "dateStr": "2026-10-19",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-19_ec-bahia-ba-flamengo-rj_93882993.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "93882995",
   "name": "Remo PA - Bragantino SP",
   "startTime": 1792362600000,

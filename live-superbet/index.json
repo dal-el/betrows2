@@ -172,16 +172,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142786",
-  "name": "Bahia - Flamengo",
-  "startTime": 1792359000000,
-  "dateStr": "2026-10-19",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-19_bahia-flamengo_14142786.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14142787",
   "name": "Remo - Bragantino",
   "startTime": 1792362600000,

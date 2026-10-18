@@ -110,6 +110,56 @@
   "file": "liga-mx/2026-10-21_uanl-tigres-club-leon_15323455.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15339154",
+  "name": "Puebla - Monterrey",
+  "startTime": 1792630800000,
+  "dateStr": "2026-10-22",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-22_puebla-monterrey_15339154.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15339155",
+  "name": "Atlas - Club America",
+  "startTime": 1792630800000,
+  "dateStr": "2026-10-22",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-22_atlas-club-america_15339155.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15339156",
+  "name": "Deportivo Toluca - Tijuana",
+  "startTime": 1792630800000,
+  "dateStr": "2026-10-22",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-22_deportivo-toluca-tijuana_15339156.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15339189",
+  "name": "Pachuca - Cruz Azul",
+  "startTime": 1792638000000,
+  "dateStr": "2026-10-22",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-22_pachuca-cruz-azul_15339189.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15339190",
+  "name": "Santos Laguna - UNAM Pumas",
+  "startTime": 1792638600000,
+  "dateStr": "2026-10-22",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-22_santos-laguna-unam-pumas_15339190.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14142781",
