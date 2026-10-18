@@ -36,7 +36,7 @@
   "name": "RC Celta de Vigo - Deportivo Alaves",
   "startTime": 1792332900000,
   "dateStr": "2026-10-18",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "la-liga/2026-10-18_rc-celta-de-vigo-deportivo-alaves_91668490.json"
  },
  {
@@ -112,16 +112,6 @@
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91657756",
-  "name": "Bayer 04 Leverkusen - SC Freiburg",
-  "startTime": 1792330200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "bundesliga/2026-10-18_bayer-04-leverkusen-sc-freiburg_91657756.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "91657771",
   "name": "Borussia Monchengladbach - TSG 1899 Hoffenheim",
   "startTime": 1792337400000,
@@ -172,21 +162,11 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92844901",
-  "name": "Panaitolikos - Olympiacos Piraeus",
-  "startTime": 1792332000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 84,
-  "file": "super-league-greece/2026-10-18_panaitolikos-olympiacos-piraeus_92844901.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "92844932",
   "name": "Panathinaikos - Asteras Tripolis",
   "startTime": 1792333800000,
   "dateStr": "2026-10-18",
-  "marketCount": 105,
+  "marketCount": 101,
   "file": "super-league-greece/2026-10-18_panathinaikos-asteras-tripolis_92844932.json"
  },
  {

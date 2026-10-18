@@ -66,7 +66,7 @@
   "name": "Getafe - Rayo Vallecano",
   "startTime": 1792436400000,
   "dateStr": "2026-10-19",
-  "marketCount": 18,
+  "marketCount": 24,
   "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
  },
  {
@@ -118,16 +118,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 24,
   "file": "serie-a-italy/2026-10-19_parma-torino-fc_14127686.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14127663",
-  "name": "Bayer Leverkusen - Freiburg",
-  "startTime": 1792330200000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "bundesliga/2026-10-18_bayer-leverkusen-freiburg_14127663.json"
  },
  {
   "league": "bundesliga",
@@ -188,16 +178,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "super-league-greece/2026-10-18_panathinaikos-asteras-tripolis_15079914.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15079915",
-  "name": "Panetolikos - Olympiacos",
-  "startTime": 1792332000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-18_panetolikos-olympiacos_15079915.json"
  },
  {
   "league": "super-league-greece",
