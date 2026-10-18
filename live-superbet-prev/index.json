@@ -2,36 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127707",
-  "name": "Bournemouth - Sunderland",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-18_bournemouth-sunderland_14127707.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127709",
-  "name": "Brighton - Crystal Palace",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-18_brighton-crystal-palace_14127709.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127712",
-  "name": "Leeds United - Manchester United",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-18_leeds-united-manchester-united_14127712.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "14127715",
   "name": "Nottingham Forest - Arsenal",
   "startTime": 1792337400000,
@@ -112,16 +82,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127681",
-  "name": "Fiorentina - Como",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-18_fiorentina-como_14127681.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14127683",
   "name": "Juventus - Lazio",
   "startTime": 1792349100000,
@@ -182,16 +142,6 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127838",
-  "name": "Angers - Marseille",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_angers-marseille_14127838.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127839",
   "name": "Le Havre - Auxerre",
   "startTime": 1792336500000,
@@ -212,22 +162,22 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14127843",
-  "name": "Lyon - Nice",
-  "startTime": 1792349100000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14127844",
   "name": "Paris FC - Rennes",
   "startTime": 1792336500000,
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "ligue-1/2026-10-18_paris-fc-rennes_14127844.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14127843",
+  "name": "Lyon - Nice",
+  "startTime": 1792349100000,
+  "dateStr": "2026-10-18",
+  "marketCount": 24,
+  "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
  },
  {
   "league": "super-league-greece",
@@ -248,16 +198,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "super-league-greece/2026-10-18_panetolikos-olympiacos_15079915.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15079917",
-  "name": "Kalamata - OFI",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-18_kalamata-ofi_15079917.json"
  },
  {
   "league": "super-league-greece",
