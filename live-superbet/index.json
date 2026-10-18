@@ -90,16 +90,6 @@
   "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
  },
  {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15079922",
-  "name": "PAOK - Iraklis FC",
-  "startTime": 1792346400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-18_paok-iraklis-fc_15079922.json"
- },
- {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15293207",

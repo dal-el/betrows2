@@ -32,16 +32,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142832",
-  "name": "Malaga - Real Sociedad",
-  "startTime": 1792341000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-18_malaga-real-sociedad_14142832.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14142834",
   "name": "Real Madrid - Sevilla",
   "startTime": 1792350000000,
@@ -98,16 +88,6 @@
   "dateStr": "2026-10-18",
   "marketCount": 24,
   "file": "ligue-1/2026-10-18_lyon-nice_14127843.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15079920",
-  "name": "Kifisia - Aris",
-  "startTime": 1792342800000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "super-league-greece/2026-10-18_kifisia-aris_15079920.json"
  },
  {
   "league": "super-league-greece",
