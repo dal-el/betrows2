@@ -56,18 +56,8 @@
   "name": "Wolverhampton Wanderers - Portsmouth FC",
   "startTime": 1792521900000,
   "dateStr": "2026-10-20",
-  "marketCount": 90,
+  "marketCount": 78,
   "file": "championship/2026-10-20_wolverhampton-wanderers-portsmouth-fc_94077872.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668487",
-  "name": "CA Osasuna - Racing Santander",
-  "startTime": 1792324800000,
-  "dateStr": "2026-10-18",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-18_ca-osasuna-racing-santander_91668487.json"
  },
  {
   "league": "la-liga",
@@ -236,7 +226,7 @@
   "name": "Kalamata - OFI Crete",
   "startTime": 1792328400000,
   "dateStr": "2026-10-18",
-  "marketCount": 106,
+  "marketCount": 101,
   "file": "super-league-greece/2026-10-18_kalamata-ofi-crete_92844880.json"
  },
  {

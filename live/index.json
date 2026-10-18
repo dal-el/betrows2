@@ -2,36 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92788234",
-  "name": "AFC Bournemouth - Sunderland",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-18_afc-bournemouth-sunderland_92788234.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92788261",
-  "name": "Brighton & Hove Albion - Crystal Palace FC",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-18_brighton-hove-albion-crystal-palace-fc_92788261.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "92788263",
-  "name": "Leeds United - Manchester United",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-18_leeds-united-manchester-united_92788263.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "92788260",
   "name": "Nottingham Forest - Arsenal FC",
   "startTime": 1792337400000,
@@ -76,7 +46,7 @@
   "name": "Malaga CF - Real Sociedad",
   "startTime": 1792341000000,
   "dateStr": "2026-10-18",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-18_malaga-cf-real-sociedad_91668516.json"
  },
  {
@@ -98,16 +68,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 104,
   "file": "la-liga/2026-10-19_getafe-cf-rayo-vallecano_91668515.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92891372",
-  "name": "AC Fiorentina - Como 1907",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-18_ac-fiorentina-como-1907_92891372.json"
  },
  {
   "league": "serie-a-italy",
@@ -172,16 +132,6 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852410",
-  "name": "Angers SCO - Olympique Marseille",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-18_angers-sco-olympique-marseille_92852410.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "92852463",
   "name": "Le Havre AC - AJ Auxerre",
   "startTime": 1792336500000,
@@ -222,21 +172,11 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "92844880",
-  "name": "Kalamata - OFI Crete",
-  "startTime": 1792328400000,
-  "dateStr": "2026-10-18",
-  "marketCount": 101,
-  "file": "super-league-greece/2026-10-18_kalamata-ofi-crete_92844880.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "92844901",
   "name": "Panaitolikos - Olympiacos Piraeus",
   "startTime": 1792332000000,
   "dateStr": "2026-10-18",
-  "marketCount": 105,
+  "marketCount": 84,
   "file": "super-league-greece/2026-10-18_panaitolikos-olympiacos-piraeus_92844901.json"
  },
  {

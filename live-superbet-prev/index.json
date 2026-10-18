@@ -82,12 +82,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142833",
-  "name": "Osasuna - Racing Santander",
-  "startTime": 1792324800000,
+  "eventId": "14142834",
+  "name": "Real Madrid - Sevilla",
+  "startTime": 1792350000000,
   "dateStr": "2026-10-18",
   "marketCount": 24,
-  "file": "la-liga/2026-10-18_osasuna-racing-santander_14142833.json"
+  "file": "la-liga/2026-10-18_real-madrid-sevilla_14142834.json"
  },
  {
   "league": "la-liga",
@@ -98,16 +98,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 18,
   "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142834",
-  "name": "Real Madrid - Sevilla",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-18_real-madrid-sevilla_14142834.json"
  },
  {
   "league": "la-liga",
