@@ -22,32 +22,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668512",
-  "name": "Real Madrid - Sevilla FC",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-18_real-madrid-sevilla-fc_91668512.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668515",
   "name": "Getafe CF - Rayo Vallecano",
   "startTime": 1792436400000,
   "dateStr": "2026-10-19",
   "marketCount": 104,
   "file": "la-liga/2026-10-19_getafe-cf-rayo-vallecano_91668515.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92891389",
-  "name": "Juventus FC - SS Lazio",
-  "startTime": 1792349100000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-18_juventus-fc-ss-lazio_92891389.json"
  },
  {
   "league": "serie-a-italy",
@@ -68,16 +48,6 @@
   "dateStr": "2026-10-19",
   "marketCount": 106,
   "file": "serie-a-italy/2026-10-19_parma-calcio-1913-torino-fc_92891411.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "92852483",
-  "name": "Olympique Lyonnais - OGC Nice",
-  "startTime": 1792349100000,
-  "dateStr": "2026-10-18",
-  "marketCount": 106,
-  "file": "ligue-1/2026-10-18_olympique-lyonnais-ogc-nice_92852483.json"
  },
  {
   "league": "liga-mx",
@@ -128,26 +98,6 @@
   "dateStr": "2026-10-21",
   "marketCount": 64,
   "file": "liga-mx/2026-10-21_cf-tigres-uanl-club-leon_94024149.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882941",
-  "name": "Gremio RS - Cruzeiro MG",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-18_gremio-rs-cruzeiro-mg_93882941.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "93882966",
-  "name": "Fluminense RJ - Santos SP",
-  "startTime": 1792350000000,
-  "dateStr": "2026-10-18",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-18_fluminense-rj-santos-sp_93882966.json"
  },
  {
   "league": "serie-a-brazil",
