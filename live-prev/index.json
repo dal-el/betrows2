@@ -66,7 +66,7 @@
   "name": "Guadalajara Chivas - Club Necaxa",
   "startTime": 1792541220000,
   "dateStr": "2026-10-21",
-  "marketCount": 64,
+  "marketCount": 79,
   "file": "liga-mx/2026-10-21_guadalajara-chivas-club-necaxa_94024328.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Atletico San Luis - Queretaro FC",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 64,
+  "marketCount": 79,
   "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro-fc_94024170.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "FC Juarez - Atlante FC",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 64,
+  "marketCount": 79,
   "file": "liga-mx/2026-10-21_fc-juarez-atlante-fc_94024183.json"
  },
  {
@@ -96,8 +96,58 @@
   "name": "CF Tigres UANL - Club Leon",
   "startTime": 1792551600000,
   "dateStr": "2026-10-21",
-  "marketCount": 64,
+  "marketCount": 79,
   "file": "liga-mx/2026-10-21_cf-tigres-uanl-club-leon_94024149.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024252",
+  "name": "Deportivo Toluca FC - Club Tijuana",
+  "startTime": 1792630800000,
+  "dateStr": "2026-10-22",
+  "marketCount": 89,
+  "file": "liga-mx/2026-10-22_deportivo-toluca-fc-club-tijuana_94024252.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024290",
+  "name": "Club Puebla - CF Monterrey",
+  "startTime": 1792630800000,
+  "dateStr": "2026-10-22",
+  "marketCount": 89,
+  "file": "liga-mx/2026-10-22_club-puebla-cf-monterrey_94024290.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024352",
+  "name": "Atlas FC - Club America",
+  "startTime": 1792630800000,
+  "dateStr": "2026-10-22",
+  "marketCount": 89,
+  "file": "liga-mx/2026-10-22_atlas-fc-club-america_94024352.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024363",
+  "name": "CF Pachuca - Cruz Azul",
+  "startTime": 1792638000000,
+  "dateStr": "2026-10-22",
+  "marketCount": 89,
+  "file": "liga-mx/2026-10-22_cf-pachuca-cruz-azul_94024363.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024231",
+  "name": "Santos Laguna - UNAM Pumas",
+  "startTime": 1792638600000,
+  "dateStr": "2026-10-22",
+  "marketCount": 89,
+  "file": "liga-mx/2026-10-22_santos-laguna-unam-pumas_94024231.json"
  },
  {
   "league": "serie-a-brazil",
