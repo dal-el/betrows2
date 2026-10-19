@@ -2,12 +2,22 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14127716",
-  "name": "Tottenham - Coventry City",
-  "startTime": 1792436400000,
-  "dateStr": "2026-10-19",
-  "marketCount": 24,
-  "file": "premier-league/2026-10-19_tottenham-coventry-city_14127716.json"
+  "eventId": "14231736",
+  "name": "Ipswich - Nottingham Forest",
+  "startTime": 1792782000000,
+  "dateStr": "2026-10-23",
+  "marketCount": 3,
+  "file": "premier-league/2026-10-23_ipswich-nottingham-forest_14231736.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14231741",
+  "name": "Bolton Wanderers - Middlesbrough",
+  "startTime": 1792782000000,
+  "dateStr": "2026-10-23",
+  "marketCount": 6,
+  "file": "championship/2026-10-23_bolton-wanderers-middlesbrough_14231741.json"
  },
  {
   "league": "championship",
@@ -22,12 +32,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14142831",
-  "name": "Getafe - Rayo Vallecano",
-  "startTime": 1792436400000,
-  "dateStr": "2026-10-19",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-19_getafe-rayo-vallecano_14142831.json"
+  "eventId": "14246829",
+  "name": "Alaves - Malaga",
+  "startTime": 1792782000000,
+  "dateStr": "2026-10-23",
+  "marketCount": 6,
+  "file": "la-liga/2026-10-23_alaves-malaga_14246829.json"
  },
  {
   "league": "la-liga",
@@ -36,28 +46,38 @@
   "name": "Levante - Athletic Bilbao",
   "startTime": 1792605600000,
   "dateStr": "2026-10-21",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "la-liga/2026-10-21_levante-athletic-bilbao_15034704.json"
  },
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127685",
-  "name": "Monza - Cagliari",
-  "startTime": 1792427400000,
-  "dateStr": "2026-10-19",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-19_monza-cagliari_14127685.json"
+  "eventId": "14231677",
+  "name": "Torino FC - Monza",
+  "startTime": 1792781100000,
+  "dateStr": "2026-10-23",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-23_torino-fc-monza_14231677.json"
  },
  {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14127686",
-  "name": "Parma - Torino FC",
-  "startTime": 1792435500000,
-  "dateStr": "2026-10-19",
-  "marketCount": 24,
-  "file": "serie-a-italy/2026-10-19_parma-torino-fc_14127686.json"
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "14231644",
+  "name": "VfB Stuttgart - Borussia Mönchengladbach",
+  "startTime": 1792780200000,
+  "dateStr": "2026-10-23",
+  "marketCount": 6,
+  "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_14231644.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14231791",
+  "name": "Brest - Nice",
+  "startTime": 1792781100000,
+  "dateStr": "2026-10-23",
+  "marketCount": 6,
+  "file": "ligue-1/2026-10-23_brest-nice_14231791.json"
  },
  {
   "league": "liga-mx",
@@ -66,7 +86,7 @@
   "name": "Guadalajara - Necaxa",
   "startTime": 1792541220000,
   "dateStr": "2026-10-21",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-21_guadalajara-necaxa_15323438.json"
  },
  {
@@ -76,7 +96,7 @@
   "name": "Atletico San Luis - Queretaro",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro_15323439.json"
  },
  {
@@ -86,7 +106,7 @@
   "name": "Juarez - Atlante",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-21_juarez-atlante_15323440.json"
  },
  {
@@ -96,7 +116,7 @@
   "name": "UANL Tigres - Club Leon",
   "startTime": 1792551600000,
   "dateStr": "2026-10-21",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-21_uanl-tigres-club-leon_15323455.json"
  },
  {
@@ -148,15 +168,5 @@
   "dateStr": "2026-10-22",
   "marketCount": 6,
   "file": "liga-mx/2026-10-22_santos-laguna-unam-pumas_15339190.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14142781",
-  "name": "Corinthians - Vitoria BA",
-  "startTime": 1792450800000,
-  "dateStr": "2026-10-20",
-  "marketCount": 24,
-  "file": "serie-a-brazil/2026-10-20_corinthians-vitoria-ba_14142781.json"
  }
 ]
