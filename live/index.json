@@ -56,7 +56,7 @@
   "name": "Parma Calcio 1913 - Torino FC",
   "startTime": 1792435500000,
   "dateStr": "2026-10-19",
-  "marketCount": 107,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-19_parma-calcio-1913-torino-fc_92891411.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "CF Pachuca - Cruz Azul",
   "startTime": 1792638000000,
   "dateStr": "2026-10-22",
-  "marketCount": 89,
+  "marketCount": 87,
   "file": "liga-mx/2026-10-22_cf-pachuca-cruz-azul_94024363.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Santos Laguna - UNAM Pumas",
   "startTime": 1792638600000,
   "dateStr": "2026-10-22",
-  "marketCount": 89,
+  "marketCount": 87,
   "file": "liga-mx/2026-10-22_santos-laguna-unam-pumas_94024231.json"
  },
  {

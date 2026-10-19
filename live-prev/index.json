@@ -56,7 +56,7 @@
   "name": "Parma Calcio 1913 - Torino FC",
   "startTime": 1792435500000,
   "dateStr": "2026-10-19",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-19_parma-calcio-1913-torino-fc_92891411.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Deportivo Toluca FC - Club Tijuana",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 89,
+  "marketCount": 87,
   "file": "liga-mx/2026-10-22_deportivo-toluca-fc-club-tijuana_94024252.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Club Puebla - CF Monterrey",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 89,
+  "marketCount": 87,
   "file": "liga-mx/2026-10-22_club-puebla-cf-monterrey_94024290.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Atlas FC - Club America",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 89,
+  "marketCount": 87,
   "file": "liga-mx/2026-10-22_atlas-fc-club-america_94024352.json"
  },
  {
