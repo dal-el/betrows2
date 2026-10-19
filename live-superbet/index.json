@@ -62,16 +62,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15293207",
-  "name": "Monterrey - Pachuca",
-  "startTime": 1792371600000,
-  "dateStr": "2026-10-19",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-19_monterrey-pachuca_15293207.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15323438",
   "name": "Guadalajara - Necaxa",
   "startTime": 1792541220000,
