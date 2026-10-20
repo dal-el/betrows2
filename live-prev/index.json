@@ -16,7 +16,7 @@
   "name": "Wolverhampton Wanderers - Portsmouth FC",
   "startTime": 1792521900000,
   "dateStr": "2026-10-20",
-  "marketCount": 87,
+  "marketCount": 86,
   "file": "championship/2026-10-20_wolverhampton-wanderers-portsmouth-fc_94077872.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Bolton - Middlesbrough FC",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 89,
+  "marketCount": 91,
   "file": "championship/2026-10-23_bolton-middlesbrough-fc_94230329.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "VfB Stuttgart - Borussia Monchengladbach",
   "startTime": 1792780200000,
   "dateStr": "2026-10-23",
-  "marketCount": 69,
+  "marketCount": 76,
   "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_91658162.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Stade Brestois 29 - OGC Nice",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 69,
+  "marketCount": 76,
   "file": "ligue-1/2026-10-23_stade-brestois-29-ogc-nice_93961074.json"
  },
  {

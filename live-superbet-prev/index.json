@@ -46,7 +46,7 @@
   "name": "Levante - Athletic Bilbao",
   "startTime": 1792605600000,
   "dateStr": "2026-10-21",
-  "marketCount": 21,
+  "marketCount": 24,
   "file": "la-liga/2026-10-21_levante-athletic-bilbao_15034704.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Puebla - Monterrey",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-22_puebla-monterrey_15339154.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Atlas - Club America",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-22_atlas-club-america_15339155.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Deportivo Toluca - Tijuana",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-22_deportivo-toluca-tijuana_15339156.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Pachuca - Cruz Azul",
   "startTime": 1792638600000,
   "dateStr": "2026-10-22",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-22_pachuca-cruz-azul_15339189.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Santos Laguna - UNAM Pumas",
   "startTime": 1792638600000,
   "dateStr": "2026-10-22",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-22_santos-laguna-unam-pumas_15339190.json"
  }
 ]

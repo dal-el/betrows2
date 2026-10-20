@@ -12,16 +12,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "94077872",
-  "name": "Wolverhampton Wanderers - Portsmouth FC",
-  "startTime": 1792521900000,
-  "dateStr": "2026-10-20",
-  "marketCount": 86,
-  "file": "championship/2026-10-20_wolverhampton-wanderers-portsmouth-fc_94077872.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "94230329",
   "name": "Bolton - Middlesbrough FC",
   "startTime": 1792782000000,
