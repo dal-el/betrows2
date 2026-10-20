@@ -156,7 +156,7 @@
   "name": "Pachuca - Cruz Azul",
   "startTime": 1792638000000,
   "dateStr": "2026-10-22",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-22_pachuca-cruz-azul_15339189.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Santos Laguna - UNAM Pumas",
   "startTime": 1792638600000,
   "dateStr": "2026-10-22",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-22_santos-laguna-unam-pumas_15339190.json"
  }
 ]
