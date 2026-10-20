@@ -86,7 +86,7 @@
   "name": "Guadalajara - Necaxa",
   "startTime": 1792541220000,
   "dateStr": "2026-10-21",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-21_guadalajara-necaxa_15323438.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Atletico San Luis - Queretaro",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro_15323439.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Juarez - Atlante",
   "startTime": 1792544400000,
   "dateStr": "2026-10-21",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-21_juarez-atlante_15323440.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "UANL Tigres - Club Leon",
   "startTime": 1792551600000,
   "dateStr": "2026-10-21",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-21_uanl-tigres-club-leon_15323455.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Puebla - Monterrey",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-22_puebla-monterrey_15339154.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Atlas - Club America",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-22_atlas-club-america_15339155.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Deportivo Toluca - Tijuana",
   "startTime": 1792630800000,
   "dateStr": "2026-10-22",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-22_deportivo-toluca-tijuana_15339156.json"
  },
  {
