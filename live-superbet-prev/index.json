@@ -182,22 +182,22 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246835",
-  "name": "Rayo Vallecano - Elche",
-  "startTime": 1792843200000,
+  "eventId": "14246834",
+  "name": "Racing Santander - Espanyol",
+  "startTime": 1792851300000,
   "dateStr": "2026-10-24",
   "marketCount": 6,
-  "file": "la-liga/2026-10-24_rayo-vallecano-elche_14246835.json"
+  "file": "la-liga/2026-10-24_racing-santander-espanyol_14246834.json"
  },
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "15034704",
-  "name": "Levante - Athletic Bilbao",
-  "startTime": 1792605600000,
-  "dateStr": "2026-10-21",
-  "marketCount": 24,
-  "file": "la-liga/2026-10-21_levante-athletic-bilbao_15034704.json"
+  "eventId": "14246835",
+  "name": "Rayo Vallecano - Elche",
+  "startTime": 1792843200000,
+  "dateStr": "2026-10-24",
+  "marketCount": 15,
+  "file": "la-liga/2026-10-24_rayo-vallecano-elche_14246835.json"
  },
  {
   "league": "la-liga",
@@ -208,16 +208,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 6,
   "file": "la-liga/2026-10-24_atletico-madrid-deportivo-de-a-coruna_14246831.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246834",
-  "name": "Racing Santander - Espanyol",
-  "startTime": 1792851300000,
-  "dateStr": "2026-10-24",
-  "marketCount": 6,
-  "file": "la-liga/2026-10-24_racing-santander-espanyol_14246834.json"
  },
  {
   "league": "la-liga",
@@ -366,7 +356,7 @@
   "name": "Lens - Paris FC",
   "startTime": 1792867500000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-24_lens-paris-fc_14231792.json"
  },
  {

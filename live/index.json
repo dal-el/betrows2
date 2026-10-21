@@ -176,7 +176,7 @@
   "name": "Deportivo Alaves - Malaga CF",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 69,
+  "marketCount": 99,
   "file": "la-liga/2026-10-23_deportivo-alaves-malaga-cf_91668576.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Torino FC - AC Monza",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 103,
+  "marketCount": 123,
   "file": "serie-a-italy/2026-10-23_torino-fc-ac-monza_92945074.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "Como 1907 - US Sassuolo Calcio",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 116,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_como-1907-us-sassuolo-calcio_92996837.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Cagliari Calcio - Bologna FC",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 116,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_cagliari-calcio-bologna-fc_92997278.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "SSC Napoli - AS Roma",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 116,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_ssc-napoli-as-roma_92996827.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "SS Lazio - Parma Calcio 1913",
   "startTime": 1792867500000,
   "dateStr": "2026-10-24",
-  "marketCount": 116,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_ss-lazio-parma-calcio-1913_92997153.json"
  },
  {
