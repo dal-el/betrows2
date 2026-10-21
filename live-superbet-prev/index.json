@@ -26,7 +26,7 @@
   "name": "Ipswich - Nottingham Forest",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 9,
+  "marketCount": 21,
   "file": "premier-league/2026-10-23_ipswich-nottingham-forest_14231736.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Brest - Nice",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 18,
+  "marketCount": 21,
   "file": "ligue-1/2026-10-23_brest-nice_14231791.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Lens - Paris FC",
   "startTime": 1792867500000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "ligue-1/2026-10-24_lens-paris-fc_14231792.json"
  },
  {
