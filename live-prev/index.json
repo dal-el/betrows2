@@ -106,7 +106,7 @@
   "name": "Wolverhampton Wanderers - Watford FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 91,
+  "marketCount": 92,
   "file": "championship/2026-10-24_wolverhampton-wanderers-watford-fc_94269117.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Stade Brestois 29 - OGC Nice",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 76,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-23_stade-brestois-29-ogc-nice_93961074.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "RC Lens - Paris FC",
   "startTime": 1792867500000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 112,
   "file": "ligue-1/2026-10-24_rc-lens-paris-fc_93961110.json"
  },
  {
