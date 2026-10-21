@@ -56,7 +56,7 @@
   "name": "Bolton Wanderers - Middlesbrough",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-23_bolton-wanderers-middlesbrough_14231741.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Charlton Athletic - Norwich City",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_charlton-athletic-norwich-city_14231743.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Blackburn Rovers - Wrexham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_blackburn-rovers-wrexham_14231740.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Cardiff City - Birmingham City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_cardiff-city-birmingham-city_14231742.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Sheffield United - Derby County",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_sheffield-united-derby-county_14231748.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Preston North End - West Bromwich Albion",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_preston-north-end-west-bromwich-albion_14231746.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Queens Park Rangers - Swansea City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_queens-park-rangers-swansea-city_14231747.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "West Ham - Southampton",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_west-ham-southampton_14231750.json"
  },
  {
@@ -408,16 +408,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 3,
   "file": "super-league-greece/2026-10-24_aek-panetolikos_15372899.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15323438",
-  "name": "Guadalajara - Necaxa",
-  "startTime": 1792541220000,
-  "dateStr": "2026-10-21",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-21_guadalajara-necaxa_15323438.json"
  },
  {
   "league": "liga-mx",

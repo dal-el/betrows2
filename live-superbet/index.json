@@ -412,26 +412,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15323439",
-  "name": "Atletico San Luis - Queretaro",
-  "startTime": 1792544400000,
-  "dateStr": "2026-10-21",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-21_atletico-san-luis-queretaro_15323439.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15323440",
-  "name": "Juarez - Atlante",
-  "startTime": 1792544400000,
-  "dateStr": "2026-10-21",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-21_juarez-atlante_15323440.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15323455",
   "name": "UANL Tigres - Club Leon",
   "startTime": 1792552200000,
@@ -496,7 +476,7 @@
   "name": "Necaxa - Juarez",
   "startTime": 1792803600000,
   "dateStr": "2026-10-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-10-24_necaxa-juarez_15370141.json"
  },
  {
