@@ -256,7 +256,7 @@
   "name": "Torino FC - Monza",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 6,
+  "marketCount": 24,
   "file": "serie-a-italy/2026-10-23_torino-fc-monza_14231677.json"
  },
  {
@@ -368,16 +368,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 6,
   "file": "ligue-1/2026-10-24_lens-paris-fc_14231792.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231796",
-  "name": "Toulouse - Troyes",
-  "startTime": 1792854900000,
-  "dateStr": "2026-10-24",
-  "marketCount": 6,
-  "file": "ligue-1/2026-10-24_toulouse-troyes_14231796.json"
  },
  {
   "league": "super-league-greece",
