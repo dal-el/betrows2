@@ -56,7 +56,7 @@
   "name": "Bolton - Middlesbrough FC",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 91,
+  "marketCount": 87,
   "file": "championship/2026-10-23_bolton-middlesbrough-fc_94230329.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Sheffield United - Derby County",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 92,
   "file": "championship/2026-10-24_sheffield-united-derby-county_94211762.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Charlton - Norwich City",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 92,
   "file": "championship/2026-10-24_charlton-norwich-city_94263361.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Portsmouth FC - Millwall FC",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 64,
+  "marketCount": 92,
   "file": "championship/2026-10-24_portsmouth-fc-millwall-fc_94263568.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "West Ham United - Southampton FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 92,
   "file": "championship/2026-10-24_west-ham-united-southampton-fc_94268875.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Wolverhampton Wanderers - Watford FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 64,
+  "marketCount": 91,
   "file": "championship/2026-10-24_wolverhampton-wanderers-watford-fc_94269117.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Queens Park Rangers - Swansea City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 88,
   "file": "championship/2026-10-24_queens-park-rangers-swansea-city_94269148.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Cardiff City - Birmingham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 65,
+  "marketCount": 92,
   "file": "championship/2026-10-24_cardiff-city-birmingham_94269149.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Lincoln City - Burnley FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 88,
   "file": "championship/2026-10-24_lincoln-city-burnley-fc_94269150.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Stoke City - Bristol City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 88,
   "file": "championship/2026-10-24_stoke-city-bristol-city_94269644.json"
  },
  {
@@ -368,16 +368,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 87,
   "file": "super-league-greece/2026-10-24_aek-athens-panaitolikos_93948129.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024328",
-  "name": "Guadalajara Chivas - Club Necaxa",
-  "startTime": 1792541220000,
-  "dateStr": "2026-10-21",
-  "marketCount": 73,
-  "file": "liga-mx/2026-10-21_guadalajara-chivas-club-necaxa_94024328.json"
  },
  {
   "league": "liga-mx",
