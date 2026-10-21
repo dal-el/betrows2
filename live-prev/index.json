@@ -246,7 +246,7 @@
   "name": "VfB Stuttgart - Borussia Monchengladbach",
   "startTime": 1792780200000,
   "dateStr": "2026-10-23",
-  "marketCount": 105,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_91658162.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "RB Leipzig - SV Elversberg",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 112,
   "file": "bundesliga/2026-10-24_rb-leipzig-sv-elversberg_91658161.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "SC Paderborn 07 - Hamburger SV",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 112,
   "file": "bundesliga/2026-10-24_sc-paderborn-07-hamburger-sv_91658627.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "1. FC Köln - FC Schalke 04",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 112,
   "file": "bundesliga/2026-10-24_1-fc-koln-fc-schalke-04_91658628.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "FSV Mainz 05 - Werder Bremen",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 112,
   "file": "bundesliga/2026-10-24_fsv-mainz-05-werder-bremen_91658629.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "FC Augsburg - 1. FC Union Berlin",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 112,
   "file": "bundesliga/2026-10-24_fc-augsburg-1-fc-union-berlin_91658630.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Borussia Dortmund - Eintracht Frankfurt",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 112,
   "file": "bundesliga/2026-10-24_borussia-dortmund-eintracht-frankfurt_91658155.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 101,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_94090037.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "Internacional RS - Botafogo RJ",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 91,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-24_internacional-rs-botafogo-rj_94090039.json"
  }
 ]
