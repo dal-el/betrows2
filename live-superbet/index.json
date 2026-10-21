@@ -412,16 +412,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15323455",
-  "name": "UANL Tigres - Club Leon",
-  "startTime": 1792552200000,
-  "dateStr": "2026-10-21",
-  "marketCount": 18,
-  "file": "liga-mx/2026-10-21_uanl-tigres-club-leon_15323455.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15339154",
   "name": "Puebla - Monterrey",
   "startTime": 1792630800000,
