@@ -346,7 +346,7 @@
   "name": "Stade Brestois 29 - OGC Nice",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 112,
+  "marketCount": 113,
   "file": "ligue-1/2026-10-23_stade-brestois-29-ogc-nice_93961074.json"
  },
  {
@@ -388,6 +388,46 @@
   "dateStr": "2026-10-24",
   "marketCount": 87,
   "file": "super-league-greece/2026-10-24_aek-athens-panaitolikos_93948129.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "93948174",
+  "name": "Olympiacos Piraeus - Kalamata",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 87,
+  "file": "super-league-greece/2026-10-25_olympiacos-piraeus-kalamata_93948174.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "93948205",
+  "name": "Volos NFC - Panathinaikos",
+  "startTime": 1792944000000,
+  "dateStr": "2026-10-25",
+  "marketCount": 88,
+  "file": "super-league-greece/2026-10-25_volos-nfc-panathinaikos_93948205.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "93948206",
+  "name": "Aris Thessaloniki - Atromitos Athinon",
+  "startTime": 1792949400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 89,
+  "file": "super-league-greece/2026-10-25_aris-thessaloniki-atromitos-athinon_93948206.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "93948207",
+  "name": "OFI Crete - PAOK",
+  "startTime": 1792951200000,
+  "dateStr": "2026-10-25",
+  "marketCount": 89,
+  "file": "super-league-greece/2026-10-25_ofi-crete-paok_93948207.json"
  },
  {
   "league": "liga-mx",
@@ -436,7 +476,7 @@
   "name": "CF Pachuca - Cruz Azul",
   "startTime": 1792638600000,
   "dateStr": "2026-10-22",
-  "marketCount": 73,
+  "marketCount": 88,
   "file": "liga-mx/2026-10-22_cf-pachuca-cruz-azul_94024363.json"
  },
  {
@@ -486,7 +526,7 @@
   "name": "Mirassol SP - Sao Paulo SP",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-24_mirassol-sp-sao-paulo-sp_94090038.json"
  },
  {
@@ -496,7 +536,47 @@
   "name": "Internacional RS - Botafogo RJ",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-24_internacional-rs-botafogo-rj_94090039.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94090040",
+  "name": "Vasco da Gama RJ - Corinthians SP",
+  "startTime": 1792877400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-10-25_vasco-da-gama-rj-corinthians-sp_94090040.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94090061",
+  "name": "Palmeiras SP - Bragantino SP",
+  "startTime": 1792877400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 104,
+  "file": "serie-a-brazil/2026-10-25_palmeiras-sp-bragantino-sp_94090061.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94090062",
+  "name": "Chapecoense SC - Fluminense RJ",
+  "startTime": 1792881000000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-10-25_chapecoense-sc-fluminense-rj_94090062.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94090063",
+  "name": "Santos SP - EC Bahia BA",
+  "startTime": 1792886400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-10-25_santos-sp-ec-bahia-ba_94090063.json"
  }
 ]
