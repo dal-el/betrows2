@@ -372,16 +372,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024149",
-  "name": "CF Tigres UANL - Club Leon",
-  "startTime": 1792552200000,
-  "dateStr": "2026-10-21",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-21_cf-tigres-uanl-club-leon_94024149.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024252",
   "name": "Deportivo Toluca FC - Club Tijuana",
   "startTime": 1792630800000,
