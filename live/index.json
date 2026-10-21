@@ -26,7 +26,7 @@
   "name": "Arsenal FC - Everton FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-24_arsenal-fc-everton-fc_93917477.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Levante UD - Athletic Bilbao",
   "startTime": 1792605600000,
   "dateStr": "2026-10-21",
-  "marketCount": 109,
+  "marketCount": 112,
   "file": "la-liga/2026-10-21_levante-ud-athletic-bilbao_92683011.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "VfB Stuttgart - Borussia Monchengladbach",
   "startTime": 1792780200000,
   "dateStr": "2026-10-23",
-  "marketCount": 76,
+  "marketCount": 105,
   "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_91658162.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "RB Leipzig - SV Elversberg",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-24_rb-leipzig-sv-elversberg_91658161.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "SC Paderborn 07 - Hamburger SV",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-24_sc-paderborn-07-hamburger-sv_91658627.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "1. FC Köln - FC Schalke 04",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-24_1-fc-koln-fc-schalke-04_91658628.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "FSV Mainz 05 - Werder Bremen",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-24_fsv-mainz-05-werder-bremen_91658629.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "FC Augsburg - 1. FC Union Berlin",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-24_fc-augsburg-1-fc-union-berlin_91658630.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Borussia Dortmund - Eintracht Frankfurt",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-24_borussia-dortmund-eintracht-frankfurt_91658155.json"
  },
  {
@@ -318,16 +318,6 @@
   "dateStr": "2026-10-23",
   "marketCount": 76,
   "file": "ligue-1/2026-10-23_stade-brestois-29-ogc-nice_93961074.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "93961092",
-  "name": "Toulouse FC - ES Troyes AC",
-  "startTime": 1792854900000,
-  "dateStr": "2026-10-24",
-  "marketCount": 69,
-  "file": "ligue-1/2026-10-24_toulouse-fc-es-troyes-ac_93961092.json"
  },
  {
   "league": "ligue-1",
@@ -446,7 +436,7 @@
   "name": "Cruzeiro MG - Remo PA",
   "startTime": 1792796400000,
   "dateStr": "2026-10-24",
-  "marketCount": 65,
+  "marketCount": 108,
   "file": "serie-a-brazil/2026-10-24_cruzeiro-mg-remo-pa_94090036.json"
  },
  {
@@ -456,7 +446,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 65,
+  "marketCount": 101,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_94090037.json"
  },
  {
@@ -466,7 +456,7 @@
   "name": "Mirassol SP - Sao Paulo SP",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 65,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-24_mirassol-sp-sao-paulo-sp_94090038.json"
  },
  {
@@ -476,7 +466,7 @@
   "name": "Internacional RS - Botafogo RJ",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 65,
+  "marketCount": 91,
   "file": "serie-a-brazil/2026-10-24_internacional-rs-botafogo-rj_94090039.json"
  }
 ]
