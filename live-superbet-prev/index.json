@@ -296,7 +296,7 @@
   "name": "VfB Stuttgart - Borussia Mönchengladbach",
   "startTime": 1792780200000,
   "dateStr": "2026-10-23",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_14231644.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Brest - Nice",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 21,
+  "marketCount": 24,
   "file": "ligue-1/2026-10-23_brest-nice_14231791.json"
  },
  {
