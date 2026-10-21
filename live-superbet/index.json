@@ -76,7 +76,7 @@
   "name": "Portsmouth - Millwall",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "championship/2026-10-24_portsmouth-millwall_14231745.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Alaves - Malaga",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-23_alaves-malaga_14246829.json"
  },
  {
