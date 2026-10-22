@@ -450,6 +450,36 @@
   "file": "liga-mx/2026-10-24_atlante-fc-atletico-san-luis_94024227.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024343",
+  "name": "Club Leon - Deportivo Toluca FC",
+  "startTime": 1792882800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 88,
+  "file": "liga-mx/2026-10-25_club-leon-deportivo-toluca-fc_94024343.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024359",
+  "name": "CF Monterrey - Guadalajara Chivas",
+  "startTime": 1792890000000,
+  "dateStr": "2026-10-25",
+  "marketCount": 88,
+  "file": "liga-mx/2026-10-25_cf-monterrey-guadalajara-chivas_94024359.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024356",
+  "name": "UNAM Pumas - CF Tigres UANL",
+  "startTime": 1792897200000,
+  "dateStr": "2026-10-25",
+  "marketCount": 88,
+  "file": "liga-mx/2026-10-25_unam-pumas-cf-tigres-uanl_94024356.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94090036",
