@@ -776,7 +776,7 @@
   "name": "Santos - Bahia",
   "startTime": 1792886400000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-10-25_santos-bahia_14246808.json"
  },
  {
@@ -786,7 +786,7 @@
   "name": "Chapecoense - Fluminense",
   "startTime": 1792881000000,
   "dateStr": "2026-10-25",
-  "marketCount": 14,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-25_chapecoense-fluminense_14246815.json"
  }
 ]
