@@ -6,7 +6,7 @@
   "name": "Arsenal - Everton",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-24_arsenal-everton_14231702.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Aston Villa - Manchester City",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-10-24_aston-villa-manchester-city_14231731.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "Barcelona - Real Madrid",
   "startTime": 1792958400000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "la-liga/2026-10-25_barcelona-real-madrid_14246833.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "Inter Milan - Fiorentina",
   "startTime": 1792927800000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_inter-milan-fiorentina_14231673.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "Atalanta - Frosinone",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_atalanta-frosinone_14231669.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Monaco - Lille",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-10-25_monaco-lille_14231794.json"
  },
  {

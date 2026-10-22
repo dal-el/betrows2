@@ -6,7 +6,7 @@
   "name": "Arsenal - Everton",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "premier-league/2026-10-24_arsenal-everton_14231702.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Chelsea - Tottenham",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-10-24_chelsea-tottenham_14231732.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Coventry City - Fulham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-10-24_coventry-city-fulham_14231733.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Crystal Palace - Newcastle",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-25_crystal-palace-newcastle_14231734.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "Genoa - Venezia",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-10-25_genoa-venezia_14231672.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Lecce - Juventus",
   "startTime": 1792947600000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-10-25_lecce-juventus_14231675.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "Udinese - AC Milan",
   "startTime": 1792957500000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-10-25_udinese-ac-milan_14231678.json"
  },
  {
@@ -486,7 +486,7 @@
   "name": "TSG Hoffenheim - Bayer Leverkusen",
   "startTime": 1792938600000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-25_tsg-hoffenheim-bayer-leverkusen_14231645.json"
  },
  {
@@ -704,7 +704,7 @@
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15387876",
   "name": "UNAM Pumas - UANL Tigres",
-  "startTime": 1792897200000,
+  "startTime": 1792897800000,
   "dateStr": "2026-10-25",
   "marketCount": 6,
   "file": "liga-mx/2026-10-25_unam-pumas-uanl-tigres_15387876.json"
