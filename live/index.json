@@ -386,7 +386,7 @@
   "name": "AEK Athens - Panaitolikos",
   "startTime": 1792861200000,
   "dateStr": "2026-10-24",
-  "marketCount": 101,
+  "marketCount": 105,
   "file": "super-league-greece/2026-10-24_aek-athens-panaitolikos_93948129.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Olympiacos Piraeus - Kalamata",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 87,
+  "marketCount": 105,
   "file": "super-league-greece/2026-10-25_olympiacos-piraeus-kalamata_93948174.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "Volos NFC - Panathinaikos",
   "startTime": 1792944000000,
   "dateStr": "2026-10-25",
-  "marketCount": 88,
+  "marketCount": 105,
   "file": "super-league-greece/2026-10-25_volos-nfc-panathinaikos_93948205.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Aris Thessaloniki - Atromitos Athinon",
   "startTime": 1792949400000,
   "dateStr": "2026-10-25",
-  "marketCount": 89,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-25_aris-thessaloniki-atromitos-athinon_93948206.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "OFI Crete - PAOK",
   "startTime": 1792951200000,
   "dateStr": "2026-10-25",
-  "marketCount": 89,
+  "marketCount": 70,
   "file": "super-league-greece/2026-10-25_ofi-crete-paok_93948207.json"
  },
  {

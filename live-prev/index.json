@@ -196,7 +196,7 @@
   "name": "Racing Santander - RCD Espanyol",
   "startTime": 1792851300000,
   "dateStr": "2026-10-24",
-  "marketCount": 76,
+  "marketCount": 106,
   "file": "la-liga/2026-10-24_racing-santander-rcd-espanyol_91668573.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Valencia CF - Villarreal CF",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 76,
+  "marketCount": 106,
   "file": "la-liga/2026-10-24_valencia-cf-villarreal-cf_91668517.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Atletico Madrid - Deportivo de A Coruña",
   "startTime": 1792868400000,
   "dateStr": "2026-10-24",
-  "marketCount": 76,
+  "marketCount": 106,
   "file": "la-liga/2026-10-24_atletico-madrid-deportivo-de-a-coruna_91668572.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Iraklis - Kifisia",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 85,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-24_iraklis-kifisia_93948087.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "Asteras Tripolis - Levadiakos",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-24_asteras-tripolis-levadiakos_93948118.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "AEK Athens - Panaitolikos",
   "startTime": 1792861200000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 101,
   "file": "super-league-greece/2026-10-24_aek-athens-panaitolikos_93948129.json"
  },
  {

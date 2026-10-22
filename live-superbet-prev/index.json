@@ -56,7 +56,7 @@
   "name": "Crystal Palace - Newcastle",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-25_crystal-palace-newcastle_14231734.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Hull City - Brentford",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-25_hull-city-brentford_14231735.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Cagliari - Bologna",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-24_cagliari-bologna_14231670.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Como - Sassuolo",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-24_como-sassuolo_14231671.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Lazio - Parma",
   "startTime": 1792867500000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-24_lazio-parma_14231674.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Napoli - AS Roma",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-24_napoli-as-roma_14231676.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "Angers - Lorient",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-25_angers-lorient_14231789.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Toulouse - Troyes",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-25_toulouse-troyes_14231796.json"
  },
  {
