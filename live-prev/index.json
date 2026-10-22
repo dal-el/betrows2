@@ -16,7 +16,7 @@
   "name": "Aston Villa - Manchester City",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-24_aston-villa-manchester-city_93917476.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Arsenal FC - Everton FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-10-24_arsenal-fc-everton-fc_93917477.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Portsmouth FC - Millwall FC",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 89,
   "file": "championship/2026-10-24_portsmouth-fc-millwall-fc_94263568.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Rayo Vallecano - Elche CF",
   "startTime": 1792843200000,
   "dateStr": "2026-10-24",
-  "marketCount": 106,
+  "marketCount": 109,
   "file": "la-liga/2026-10-24_rayo-vallecano-elche-cf_91668562.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "OFI Crete - PAOK",
   "startTime": 1792951200000,
   "dateStr": "2026-10-25",
-  "marketCount": 70,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-25_ofi-crete-paok_93948207.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "Club Leon - Deportivo Toluca FC",
   "startTime": 1792882800000,
   "dateStr": "2026-10-25",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-25_club-leon-deportivo-toluca-fc_94024343.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "CF Monterrey - Guadalajara Chivas",
   "startTime": 1792890000000,
   "dateStr": "2026-10-25",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-25_cf-monterrey-guadalajara-chivas_94024359.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "UNAM Pumas - CF Tigres UANL",
   "startTime": 1792897200000,
   "dateStr": "2026-10-25",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-25_unam-pumas-cf-tigres-uanl_94024356.json"
  },
  {
