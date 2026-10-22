@@ -126,7 +126,7 @@
   "name": "Portsmouth - Millwall",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "championship/2026-10-24_portsmouth-millwall_14231745.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Blackburn Rovers - Wrexham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "championship/2026-10-24_blackburn-rovers-wrexham_14231740.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Cardiff City - Birmingham City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "championship/2026-10-24_cardiff-city-birmingham-city_14231742.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Sheffield United - Derby County",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "championship/2026-10-24_sheffield-united-derby-county_14231748.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Queens Park Rangers - Swansea City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "championship/2026-10-24_queens-park-rangers-swansea-city_14231747.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "Stoke City - Bristol City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "championship/2026-10-24_stoke-city-bristol-city_14231749.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "West Ham - Southampton",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "championship/2026-10-24_west-ham-southampton_14231750.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "VfB Stuttgart - Borussia Mönchengladbach",
   "startTime": 1792780200000,
   "dateStr": "2026-10-23",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_14231644.json"
  },
  {
@@ -436,7 +436,7 @@
   "name": "Augsburg - Union Berlin",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-24_augsburg-union-berlin_14231647.json"
  },
  {
