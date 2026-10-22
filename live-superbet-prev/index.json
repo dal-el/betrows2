@@ -310,6 +310,16 @@
   "file": "la-liga/2026-10-25_real-sociedad-levante_14246836.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14246837",
+  "name": "Sevilla - Osasuna",
+  "startTime": 1793044800000,
+  "dateStr": "2026-10-26",
+  "marketCount": 6,
+  "file": "la-liga/2026-10-26_sevilla-osasuna_14246837.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14231670",
@@ -606,7 +616,7 @@
   "name": "Asteras Tripolis - Levadiakos",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-24_asteras-tripolis-levadiakos_15372727.json"
  },
  {
@@ -616,7 +626,7 @@
   "name": "AEK - Panetolikos",
   "startTime": 1792861200000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-24_aek-panetolikos_15372899.json"
  },
  {
@@ -626,7 +636,7 @@
   "name": "Olympiacos - Kalamata",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "super-league-greece/2026-10-25_olympiacos-kalamata_15388623.json"
  },
  {
@@ -708,6 +718,46 @@
   "dateStr": "2026-10-25",
   "marketCount": 6,
   "file": "liga-mx/2026-10-25_unam-pumas-uanl-tigres_15387876.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15404451",
+  "name": "Atlas - Puebla",
+  "startTime": 1792969200000,
+  "dateStr": "2026-10-26",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-26_atlas-puebla_15404451.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15404452",
+  "name": "Club America - Pachuca",
+  "startTime": 1792976700000,
+  "dateStr": "2026-10-26",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-26_club-america-pachuca_15404452.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15404472",
+  "name": "Queretaro - Cruz Azul",
+  "startTime": 1792976400000,
+  "dateStr": "2026-10-26",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-26_queretaro-cruz-azul_15404472.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15404475",
+  "name": "Tijuana - Santos Laguna",
+  "startTime": 1792984200000,
+  "dateStr": "2026-10-26",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-26_tijuana-santos-laguna_15404475.json"
  },
  {
   "league": "serie-a-brazil",
