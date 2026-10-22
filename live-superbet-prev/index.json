@@ -636,7 +636,7 @@
   "name": "Olympiacos - Kalamata",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-25_olympiacos-kalamata_15388623.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Volos - Panathinaikos",
   "startTime": 1792944000000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-25_volos-panathinaikos_15389088.json"
  },
  {
@@ -656,7 +656,7 @@
   "name": "Aris - Atromitos",
   "startTime": 1792949400000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-25_aris-atromitos_15389497.json"
  },
  {
@@ -666,7 +666,7 @@
   "name": "OFI - PAOK",
   "startTime": 1792951200000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-25_ofi-paok_15389524.json"
  },
  {
@@ -686,7 +686,7 @@
   "name": "Atlante - Atletico San Luis",
   "startTime": 1792810800000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "liga-mx/2026-10-24_atlante-atletico-san-luis_15370192.json"
  },
  {
