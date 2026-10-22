@@ -662,26 +662,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15339189",
-  "name": "Pachuca - Cruz Azul",
-  "startTime": 1792638600000,
-  "dateStr": "2026-10-22",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-22_pachuca-cruz-azul_15339189.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15339190",
-  "name": "Santos Laguna - UNAM Pumas",
-  "startTime": 1792638600000,
-  "dateStr": "2026-10-22",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-22_santos-laguna-unam-pumas_15339190.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15370141",
   "name": "Necaxa - Juarez",
   "startTime": 1792803600000,
