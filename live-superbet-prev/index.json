@@ -296,7 +296,7 @@
   "name": "Barcelona - Real Madrid",
   "startTime": 1792958400000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "la-liga/2026-10-25_barcelona-real-madrid_14246833.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "Udinese - AC Milan",
   "startTime": 1792957500000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_udinese-ac-milan_14231678.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Paris Saint-Germain - Lyon",
   "startTime": 1792957500000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-10-25_paris-saint-germain-lyon_14246839.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Iraklis FC - Kifisia",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-24_iraklis-fc-kifisia_15372527.json"
  },
  {
@@ -776,7 +776,7 @@
   "name": "Santos - Bahia",
   "startTime": 1792886400000,
   "dateStr": "2026-10-25",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-25_santos-bahia_14246808.json"
  },
  {
