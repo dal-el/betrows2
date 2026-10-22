@@ -6,7 +6,7 @@
   "name": "Arsenal - Everton",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-24_arsenal-everton_14231702.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Aston Villa - Manchester City",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-24_aston-villa-manchester-city_14231731.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Chelsea - Tottenham",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-24_chelsea-tottenham_14231732.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Coventry City - Fulham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-24_coventry-city-fulham_14231733.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Cagliari - Bologna",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-10-24_cagliari-bologna_14231670.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "RB Leipzig - Elversberg",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-24_rb-leipzig-elversberg_14231643.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Mainz 05 - Werder Bremen",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-24_mainz-05-werder-bremen_14231648.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "Paderborn - Hamburger SV",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-24_paderborn-hamburger-sv_14231650.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "Borussia Dortmund - Eintracht Frankfurt",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-24_borussia-dortmund-eintracht-frankfurt_14231642.json"
  },
  {
@@ -486,7 +486,7 @@
   "name": "TSG Hoffenheim - Bayer Leverkusen",
   "startTime": 1792938600000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "bundesliga/2026-10-25_tsg-hoffenheim-bayer-leverkusen_14231645.json"
  },
  {
@@ -506,7 +506,7 @@
   "name": "Brest - Nice",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 24,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-23_brest-nice_14231791.json"
  },
  {
