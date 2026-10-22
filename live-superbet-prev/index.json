@@ -236,7 +236,7 @@
   "name": "Racing Santander - Espanyol",
   "startTime": 1792851300000,
   "dateStr": "2026-10-24",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "la-liga/2026-10-24_racing-santander-espanyol_14246834.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Rayo Vallecano - Elche",
   "startTime": 1792843200000,
   "dateStr": "2026-10-24",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "la-liga/2026-10-24_rayo-vallecano-elche_14246835.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Atletico Madrid - Deportivo de A Coruna",
   "startTime": 1792868400000,
   "dateStr": "2026-10-24",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "la-liga/2026-10-24_atletico-madrid-deportivo-de-a-coruna_14246831.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Valencia - Villarreal",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 15,
+  "marketCount": 18,
   "file": "la-liga/2026-10-24_valencia-villarreal_14246838.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "FC Koln - Schalke",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-24_fc-koln-schalke_14231649.json"
  },
  {
