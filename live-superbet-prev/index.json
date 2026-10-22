@@ -26,7 +26,7 @@
   "name": "Ipswich - Nottingham Forest",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 24,
+  "marketCount": 23,
   "file": "premier-league/2026-10-23_ipswich-nottingham-forest_14231736.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Sunderland - Leeds United",
   "startTime": 1792945800000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-25_sunderland-leeds-united_14231739.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Bolton Wanderers - Middlesbrough",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 24,
+  "marketCount": 23,
   "file": "championship/2026-10-23_bolton-wanderers-middlesbrough_14231741.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "Alaves - Malaga",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-10-23_alaves-malaga_14246829.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Freiburg - Bayern Munich",
   "startTime": 1792945800000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "bundesliga/2026-10-25_freiburg-bayern-munich_14231646.json"
  },
  {
