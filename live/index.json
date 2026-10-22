@@ -26,7 +26,7 @@
   "name": "Arsenal FC - Everton FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-24_arsenal-fc-everton-fc_93917477.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Coventry City - Fulham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-24_coventry-city-fulham_93917478.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Chelsea FC - Tottenham Hotspur",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-24_chelsea-fc-tottenham-hotspur_93917475.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "West Ham United - Southampton FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-24_west-ham-united-southampton-fc_94268875.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Wolverhampton Wanderers - Watford FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 91,
+  "marketCount": 87,
   "file": "championship/2026-10-24_wolverhampton-wanderers-watford-fc_94269117.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Queens Park Rangers - Swansea City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-24_queens-park-rangers-swansea-city_94269148.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Cardiff City - Birmingham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-24_cardiff-city-birmingham_94269149.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Lincoln City - Burnley FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-24_lincoln-city-burnley-fc_94269150.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Preston - West Bromwich Albion",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-24_preston-west-bromwich-albion_94269151.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Blackburn Rovers - Wrexham FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-24_blackburn-rovers-wrexham-fc_94269152.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Stoke City - Bristol City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-24_stoke-city-bristol-city_94269644.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "Racing Santander - RCD Espanyol",
   "startTime": 1792851300000,
   "dateStr": "2026-10-24",
-  "marketCount": 102,
+  "marketCount": 109,
   "file": "la-liga/2026-10-24_racing-santander-rcd-espanyol_91668573.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Valencia CF - Villarreal CF",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 102,
+  "marketCount": 109,
   "file": "la-liga/2026-10-24_valencia-cf-villarreal-cf_91668517.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Como 1907 - US Sassuolo Calcio",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 123,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_como-1907-us-sassuolo-calcio_92996837.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Cagliari Calcio - Bologna FC",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 123,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_cagliari-calcio-bologna-fc_92997278.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "SSC Napoli - AS Roma",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 123,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_ssc-napoli-as-roma_92996827.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "RB Leipzig - SV Elversberg",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-24_rb-leipzig-sv-elversberg_91658161.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "SC Paderborn 07 - Hamburger SV",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-24_sc-paderborn-07-hamburger-sv_91658627.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "1. FC Köln - FC Schalke 04",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-24_1-fc-koln-fc-schalke-04_91658628.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "FSV Mainz 05 - Werder Bremen",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-24_fsv-mainz-05-werder-bremen_91658629.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "FC Augsburg - 1. FC Union Berlin",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-24_fc-augsburg-1-fc-union-berlin_91658630.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Borussia Dortmund - Eintracht Frankfurt",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-24_borussia-dortmund-eintracht-frankfurt_91658155.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Iraklis - Kifisia",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "super-league-greece/2026-10-24_iraklis-kifisia_93948087.json"
  },
  {
