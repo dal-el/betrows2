@@ -56,7 +56,7 @@
   "name": "Crystal Palace - Newcastle",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "premier-league/2026-10-25_crystal-palace-newcastle_14231734.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Hull City - Brentford",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-10-25_hull-city-brentford_14231735.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Liverpool - Brighton",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-10-25_liverpool-brighton_14231737.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Manchester United - Bournemouth",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-10-25_manchester-united-bournemouth_14231738.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "Genoa - Venezia",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_genoa-venezia_14231672.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Mirassol - Sao Paulo",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 11,
   "file": "serie-a-brazil/2026-10-24_mirassol-sao-paulo_14246810.json"
  },
  {
