@@ -96,7 +96,7 @@
   "name": "West Ham United - Southampton FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-24_west-ham-united-southampton-fc_94268875.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Wolverhampton Wanderers - Watford FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 91,
   "file": "championship/2026-10-24_wolverhampton-wanderers-watford-fc_94269117.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Queens Park Rangers - Swansea City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-24_queens-park-rangers-swansea-city_94269148.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Cardiff City - Birmingham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-24_cardiff-city-birmingham_94269149.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Lincoln City - Burnley FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-24_lincoln-city-burnley-fc_94269150.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Preston - West Bromwich Albion",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-24_preston-west-bromwich-albion_94269151.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Blackburn Rovers - Wrexham FC",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-24_blackburn-rovers-wrexham-fc_94269152.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Stoke City - Bristol City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-24_stoke-city-bristol-city_94269644.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "Racing Santander - RCD Espanyol",
   "startTime": 1792851300000,
   "dateStr": "2026-10-24",
-  "marketCount": 109,
+  "marketCount": 102,
   "file": "la-liga/2026-10-24_racing-santander-rcd-espanyol_91668573.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Valencia CF - Villarreal CF",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 109,
+  "marketCount": 102,
   "file": "la-liga/2026-10-24_valencia-cf-villarreal-cf_91668517.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Como 1907 - US Sassuolo Calcio",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 118,
+  "marketCount": 123,
   "file": "serie-a-italy/2026-10-24_como-1907-us-sassuolo-calcio_92996837.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Cagliari Calcio - Bologna FC",
   "startTime": 1792846800000,
   "dateStr": "2026-10-24",
-  "marketCount": 118,
+  "marketCount": 123,
   "file": "serie-a-italy/2026-10-24_cagliari-calcio-bologna-fc_92997278.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Santos SP - EC Bahia BA",
   "startTime": 1792886400000,
   "dateStr": "2026-10-25",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-25_santos-sp-ec-bahia-ba_94090063.json"
  }
 ]

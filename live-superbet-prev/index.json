@@ -96,7 +96,7 @@
   "name": "Sunderland - Leeds United",
   "startTime": 1792945800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-10-25_sunderland-leeds-united_14231739.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Lecce - Juventus",
   "startTime": 1792947600000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_lecce-juventus_14231675.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Freiburg - Bayern Munich",
   "startTime": 1792945800000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-25_freiburg-bayern-munich_14231646.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "Angers - Lorient",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-10-25_angers-lorient_14231789.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Auxerre - Le Mans",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-10-25_auxerre-le-mans_14231790.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Marseille - Le Havre",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-10-25_marseille-le-havre_14231793.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Rennes - Strasbourg",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-10-25_rennes-strasbourg_14231795.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Toulouse - Troyes",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-10-25_toulouse-troyes_14231796.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Mirassol - Sao Paulo",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 11,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-24_mirassol-sao-paulo_14246810.json"
  },
  {
@@ -766,7 +766,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_14246814.json"
  },
  {

@@ -596,7 +596,7 @@
   "name": "Iraklis FC - Kifisia",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 3,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-24_iraklis-fc-kifisia_15372527.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Asteras Tripolis - Levadiakos",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 3,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-24_asteras-tripolis-levadiakos_15372727.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "AEK - Panetolikos",
   "startTime": 1792861200000,
   "dateStr": "2026-10-24",
-  "marketCount": 3,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-24_aek-panetolikos_15372899.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Olympiacos - Kalamata",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 3,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-25_olympiacos-kalamata_15388623.json"
  },
  {
@@ -636,7 +636,7 @@
   "name": "Volos - Panathinaikos",
   "startTime": 1792944000000,
   "dateStr": "2026-10-25",
-  "marketCount": 3,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-25_volos-panathinaikos_15389088.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Aris - Atromitos",
   "startTime": 1792949400000,
   "dateStr": "2026-10-25",
-  "marketCount": 3,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-25_aris-atromitos_15389497.json"
  },
  {
@@ -656,7 +656,7 @@
   "name": "OFI - PAOK",
   "startTime": 1792951200000,
   "dateStr": "2026-10-25",
-  "marketCount": 3,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-25_ofi-paok_15389524.json"
  },
  {
@@ -666,7 +666,7 @@
   "name": "Necaxa - Juarez",
   "startTime": 1792803600000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-10-24_necaxa-juarez_15370141.json"
  },
  {
@@ -676,7 +676,7 @@
   "name": "Atlante - Atletico San Luis",
   "startTime": 1792810800000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "liga-mx/2026-10-24_atlante-atletico-san-luis_15370192.json"
  },
  {
@@ -746,7 +746,7 @@
   "name": "Vasco da Gama - Corinthians",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-25_vasco-da-gama-corinthians_14246807.json"
  },
  {
@@ -756,7 +756,7 @@
   "name": "Palmeiras - Bragantino",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "serie-a-brazil/2026-10-25_palmeiras-bragantino_14246809.json"
  },
  {
@@ -786,7 +786,7 @@
   "name": "Chapecoense - Fluminense",
   "startTime": 1792881000000,
   "dateStr": "2026-10-25",
-  "marketCount": 8,
+  "marketCount": 14,
   "file": "serie-a-brazil/2026-10-25_chapecoense-fluminense_14246815.json"
  }
 ]
