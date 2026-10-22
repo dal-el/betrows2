@@ -76,7 +76,7 @@
   "name": "Liverpool - Brighton",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-25_liverpool-brighton_14231737.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Manchester United - Bournemouth",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "premier-league/2026-10-25_manchester-united-bournemouth_14231738.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Bolton Wanderers - Middlesbrough",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-23_bolton-wanderers-middlesbrough_14231741.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Torino FC - Monza",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 24,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-10-23_torino-fc-monza_14231677.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Monaco - Lille",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-25_monaco-lille_14231794.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Auxerre - Le Mans",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-25_auxerre-le-mans_14231790.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Marseille - Le Havre",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-25_marseille-le-havre_14231793.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Rennes - Strasbourg",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-25_rennes-strasbourg_14231795.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Paris Saint-Germain - Lyon",
   "startTime": 1792957500000,
   "dateStr": "2026-10-25",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "ligue-1/2026-10-25_paris-saint-germain-lyon_14246839.json"
  },
  {
