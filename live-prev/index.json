@@ -432,36 +432,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024252",
-  "name": "Deportivo Toluca FC - Club Tijuana",
-  "startTime": 1792630800000,
-  "dateStr": "2026-10-22",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-22_deportivo-toluca-fc-club-tijuana_94024252.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024290",
-  "name": "Club Puebla - CF Monterrey",
-  "startTime": 1792630800000,
-  "dateStr": "2026-10-22",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-22_club-puebla-cf-monterrey_94024290.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024352",
-  "name": "Atlas FC - Club America",
-  "startTime": 1792630800000,
-  "dateStr": "2026-10-22",
-  "marketCount": 91,
-  "file": "liga-mx/2026-10-22_atlas-fc-club-america_94024352.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024231",
   "name": "Santos Laguna - UNAM Pumas",
   "startTime": 1792638600000,
@@ -486,7 +456,7 @@
   "name": "Club Necaxa - FC Juarez",
   "startTime": 1792803600000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-24_club-necaxa-fc-juarez_94024364.json"
  },
  {
@@ -496,7 +466,7 @@
   "name": "Atlante FC - Atletico San Luis",
   "startTime": 1792810800000,
   "dateStr": "2026-10-24",
-  "marketCount": 89,
+  "marketCount": 93,
   "file": "liga-mx/2026-10-24_atlante-fc-atletico-san-luis_94024227.json"
  },
  {

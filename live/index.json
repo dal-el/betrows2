@@ -6,7 +6,7 @@
   "name": "Ipswich Town - Nottingham Forest",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-23_ipswich-town-nottingham-forest_93917254.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Bolton - Middlesbrough FC",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-23_bolton-middlesbrough-fc_94230329.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Deportivo Alaves - Malaga CF",
   "startTime": 1792782000000,
   "dateStr": "2026-10-23",
-  "marketCount": 102,
+  "marketCount": 109,
   "file": "la-liga/2026-10-23_deportivo-alaves-malaga-cf_91668576.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "Torino FC - AC Monza",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 123,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-23_torino-fc-ac-monza_92945074.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "VfB Stuttgart - Borussia Monchengladbach",
   "startTime": 1792780200000,
   "dateStr": "2026-10-23",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_91658162.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "Stade Brestois 29 - OGC Nice",
   "startTime": 1792781100000,
   "dateStr": "2026-10-23",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-23_stade-brestois-29-ogc-nice_93961074.json"
  },
  {

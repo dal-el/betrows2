@@ -736,7 +736,7 @@
   "name": "Mirassol - Sao Paulo",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-24_mirassol-sao-paulo_14246810.json"
  },
  {
@@ -746,7 +746,7 @@
   "name": "Cruzeiro - Remo",
   "startTime": 1792796400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-24_cruzeiro-remo_14246811.json"
  },
  {
@@ -756,7 +756,7 @@
   "name": "Internacional RS - Botafogo",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-24_internacional-rs-botafogo_14246812.json"
  },
  {
@@ -766,7 +766,7 @@
   "name": "Vasco da Gama - Corinthians",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-25_vasco-da-gama-corinthians_14246807.json"
  },
  {
@@ -776,7 +776,7 @@
   "name": "Palmeiras - Bragantino",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-25_palmeiras-bragantino_14246809.json"
  },
  {
@@ -786,7 +786,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_14246814.json"
  },
  {
@@ -796,7 +796,7 @@
   "name": "Santos - Bahia",
   "startTime": 1792886400000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-25_santos-bahia_14246808.json"
  },
  {
@@ -806,7 +806,7 @@
   "name": "Chapecoense - Fluminense",
   "startTime": 1792881000000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-25_chapecoense-fluminense_14246815.json"
  }
 ]
