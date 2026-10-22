@@ -276,7 +276,7 @@
   "name": "VfB Stuttgart - Borussia Monchengladbach",
   "startTime": 1792780200000,
   "dateStr": "2026-10-23",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_91658162.json"
  },
  {
@@ -486,7 +486,7 @@
   "name": "Club Necaxa - FC Juarez",
   "startTime": 1792803600000,
   "dateStr": "2026-10-24",
-  "marketCount": 82,
+  "marketCount": 89,
   "file": "liga-mx/2026-10-24_club-necaxa-fc-juarez_94024364.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Atlante FC - Atletico San Luis",
   "startTime": 1792810800000,
   "dateStr": "2026-10-24",
-  "marketCount": 69,
+  "marketCount": 89,
   "file": "liga-mx/2026-10-24_atlante-fc-atletico-san-luis_94024227.json"
  },
  {
@@ -506,7 +506,7 @@
   "name": "Cruzeiro MG - Remo PA",
   "startTime": 1792796400000,
   "dateStr": "2026-10-24",
-  "marketCount": 113,
+  "marketCount": 108,
   "file": "serie-a-brazil/2026-10-24_cruzeiro-mg-remo-pa_94090036.json"
  },
  {
@@ -516,7 +516,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_94090037.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Vasco da Gama RJ - Corinthians SP",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-25_vasco-da-gama-rj-corinthians-sp_94090040.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Palmeiras SP - Bragantino SP",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "serie-a-brazil/2026-10-25_palmeiras-sp-bragantino-sp_94090061.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Chapecoense SC - Fluminense RJ",
   "startTime": 1792881000000,
   "dateStr": "2026-10-25",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-25_chapecoense-sc-fluminense-rj_94090062.json"
  },
  {
