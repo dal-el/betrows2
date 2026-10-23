@@ -696,7 +696,7 @@
   "name": "Club Leon - Deportivo Toluca",
   "startTime": 1792882800000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-25_club-leon-deportivo-toluca_15373707.json"
  },
  {
@@ -706,7 +706,7 @@
   "name": "Monterrey - Guadalajara",
   "startTime": 1792890000000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-25_monterrey-guadalajara_15387667.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "UNAM Pumas - UANL Tigres",
   "startTime": 1792897800000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-25_unam-pumas-uanl-tigres_15387876.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Atlas - Puebla",
   "startTime": 1792969200000,
   "dateStr": "2026-10-26",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-10-26_atlas-puebla_15404451.json"
  },
  {
