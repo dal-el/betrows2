@@ -76,7 +76,7 @@
   "name": "Liverpool - Brighton",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 23,
+  "marketCount": 22,
   "file": "premier-league/2026-10-25_liverpool-brighton_14231737.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Manchester United - Bournemouth",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 23,
+  "marketCount": 22,
   "file": "premier-league/2026-10-25_manchester-united-bournemouth_14231738.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "Athletic Bilbao - Getafe",
   "startTime": 1792933200000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-25_athletic-bilbao-getafe_14246830.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "Celta Vigo - Betis",
   "startTime": 1792941300000,
   "dateStr": "2026-10-25",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-25_celta-vigo-betis_14246832.json"
  },
  {
