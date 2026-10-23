@@ -40,6 +40,56 @@
   "file": "premier-league/2026-10-24_chelsea-fc-tottenham-hotspur_93917475.json"
  },
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "93917400",
+  "name": "Liverpool FC - Brighton & Hove Albion",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 122,
+  "file": "premier-league/2026-10-25_liverpool-fc-brighton-hove-albion_93917400.json"
+ },
+ {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "93917470",
+  "name": "Hull City - Brentford FC",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 122,
+  "file": "premier-league/2026-10-25_hull-city-brentford-fc_93917470.json"
+ },
+ {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "93917474",
+  "name": "Crystal Palace FC - Newcastle United",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 122,
+  "file": "premier-league/2026-10-25_crystal-palace-fc-newcastle-united_93917474.json"
+ },
+ {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "93917479",
+  "name": "Manchester United - AFC Bournemouth",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 122,
+  "file": "premier-league/2026-10-25_manchester-united-afc-bournemouth_93917479.json"
+ },
+ {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "93917359",
+  "name": "Sunderland - Leeds United",
+  "startTime": 1792945800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 122,
+  "file": "premier-league/2026-10-25_sunderland-leeds-united_93917359.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "94211762",
@@ -190,6 +240,46 @@
   "file": "la-liga/2026-10-24_atletico-madrid-deportivo-de-a-coruna_91668572.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668575",
+  "name": "Athletic Bilbao - Getafe CF",
+  "startTime": 1792933200000,
+  "dateStr": "2026-10-25",
+  "marketCount": 119,
+  "file": "la-liga/2026-10-25_athletic-bilbao-getafe-cf_91668575.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668544",
+  "name": "RC Celta de Vigo - Real Betis Balompie",
+  "startTime": 1792941300000,
+  "dateStr": "2026-10-25",
+  "marketCount": 119,
+  "file": "la-liga/2026-10-25_rc-celta-de-vigo-real-betis-balompie_91668544.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668518",
+  "name": "Real Sociedad - Levante UD",
+  "startTime": 1792949400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 119,
+  "file": "la-liga/2026-10-25_real-sociedad-levante-ud_91668518.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668574",
+  "name": "FC Barcelona - Real Madrid",
+  "startTime": 1792958400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 127,
+  "file": "la-liga/2026-10-25_fc-barcelona-real-madrid_91668574.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "92996837",
@@ -228,6 +318,56 @@
   "dateStr": "2026-10-24",
   "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_ss-lazio-parma-calcio-1913_92997153.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92996999",
+  "name": "Inter Milan - AC Fiorentina",
+  "startTime": 1792927800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 118,
+  "file": "serie-a-italy/2026-10-25_inter-milan-ac-fiorentina_92996999.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92996782",
+  "name": "Genoa CFC - Venezia FC",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 118,
+  "file": "serie-a-italy/2026-10-25_genoa-cfc-venezia-fc_92996782.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92996881",
+  "name": "Atalanta - Frosinone",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 118,
+  "file": "serie-a-italy/2026-10-25_atalanta-frosinone_92996881.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997312",
+  "name": "US Lecce - Juventus FC",
+  "startTime": 1792947600000,
+  "dateStr": "2026-10-25",
+  "marketCount": 118,
+  "file": "serie-a-italy/2026-10-25_us-lecce-juventus-fc_92997312.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997313",
+  "name": "Udinese Calcio - AC Milan",
+  "startTime": 1792957500000,
+  "dateStr": "2026-10-25",
+  "marketCount": 118,
+  "file": "serie-a-italy/2026-10-25_udinese-calcio-ac-milan_92997313.json"
  },
  {
   "league": "bundesliga",
@@ -290,6 +430,26 @@
   "file": "bundesliga/2026-10-24_borussia-dortmund-eintracht-frankfurt_91658155.json"
  },
  {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "91658163",
+  "name": "TSG 1899 Hoffenheim - Bayer 04 Leverkusen",
+  "startTime": 1792938600000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "bundesliga/2026-10-25_tsg-1899-hoffenheim-bayer-04-leverkusen_91658163.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "91658631",
+  "name": "SC Freiburg - FC Bayern Munchen",
+  "startTime": 1792945800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "bundesliga/2026-10-25_sc-freiburg-fc-bayern-munchen_91658631.json"
+ },
+ {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "93961110",
@@ -298,6 +458,66 @@
   "dateStr": "2026-10-24",
   "marketCount": 107,
   "file": "ligue-1/2026-10-24_rc-lens-paris-fc_93961110.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "93961081",
+  "name": "AS Monaco - Lille OSC",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-25_as-monaco-lille-osc_93961081.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "93961075",
+  "name": "Angers SCO - FC Lorient",
+  "startTime": 1792944900000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-25_angers-sco-fc-lorient_93961075.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "93961090",
+  "name": "Stade Rennais FC - RC Strasbourg",
+  "startTime": 1792944900000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-25_stade-rennais-fc-rc-strasbourg_93961090.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "93961092",
+  "name": "Toulouse FC - ES Troyes AC",
+  "startTime": 1792944900000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-25_toulouse-fc-es-troyes-ac_93961092.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "93961097",
+  "name": "Olympique Marseille - Le Havre AC",
+  "startTime": 1792944900000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-25_olympique-marseille-le-havre-ac_93961097.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "93961100",
+  "name": "AJ Auxerre - Le Mans UC 72",
+  "startTime": 1792944900000,
+  "dateStr": "2026-10-25",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-25_aj-auxerre-le-mans-uc-72_93961100.json"
  },
  {
   "league": "super-league-greece",

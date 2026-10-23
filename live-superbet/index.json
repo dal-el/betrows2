@@ -380,6 +380,36 @@
   "file": "serie-a-italy/2026-10-25_udinese-ac-milan_14231678.json"
  },
  {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276254",
+  "name": "AS Roma - Cagliari",
+  "startTime": 1793130300000,
+  "dateStr": "2026-10-27",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-27_as-roma-cagliari_14276254.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276255",
+  "name": "Sassuolo - Lazio",
+  "startTime": 1793122200000,
+  "dateStr": "2026-10-27",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-27_sassuolo-lazio_14276255.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276256",
+  "name": "Torino FC - Como",
+  "startTime": 1793130300000,
+  "dateStr": "2026-10-27",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-27_torino-fc-como_14276256.json"
+ },
+ {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "14231643",
@@ -772,11 +802,31 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14246813",
+  "name": "Coritiba - Gremio",
+  "startTime": 1793053800000,
+  "dateStr": "2026-10-27",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-27_coritiba-gremio_14246813.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14246815",
   "name": "Chapecoense - Fluminense",
   "startTime": 1792881000000,
   "dateStr": "2026-10-25",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-10-25_chapecoense-fluminense_14246815.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14246806",
+  "name": "Flamengo - Atletico Mineiro",
+  "startTime": 1793055600000,
+  "dateStr": "2026-10-27",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-27_flamengo-atletico-mineiro_14246806.json"
  }
 ]
