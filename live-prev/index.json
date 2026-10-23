@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "93917254",
-  "name": "Ipswich Town - Nottingham Forest",
-  "startTime": 1792782000000,
-  "dateStr": "2026-10-23",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-23_ipswich-town-nottingham-forest_93917254.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "93917476",
   "name": "Aston Villa - Manchester City",
   "startTime": 1792841400000,
@@ -48,16 +38,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 123,
   "file": "premier-league/2026-10-24_chelsea-fc-tottenham-hotspur_93917475.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94230329",
-  "name": "Bolton - Middlesbrough FC",
-  "startTime": 1792782000000,
-  "dateStr": "2026-10-23",
-  "marketCount": 87,
-  "file": "championship/2026-10-23_bolton-middlesbrough-fc_94230329.json"
  },
  {
   "league": "championship",
@@ -172,16 +152,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668576",
-  "name": "Deportivo Alaves - Malaga CF",
-  "startTime": 1792782000000,
-  "dateStr": "2026-10-23",
-  "marketCount": 118,
-  "file": "la-liga/2026-10-23_deportivo-alaves-malaga-cf_91668576.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668562",
   "name": "Rayo Vallecano - Elche CF",
   "startTime": 1792843200000,
@@ -222,16 +192,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945074",
-  "name": "Torino FC - AC Monza",
-  "startTime": 1792781100000,
-  "dateStr": "2026-10-23",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-23_torino-fc-ac-monza_92945074.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92996837",
   "name": "Como 1907 - US Sassuolo Calcio",
   "startTime": 1792846800000,
@@ -268,16 +228,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 118,
   "file": "serie-a-italy/2026-10-24_ss-lazio-parma-calcio-1913_92997153.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91658162",
-  "name": "VfB Stuttgart - Borussia Monchengladbach",
-  "startTime": 1792780200000,
-  "dateStr": "2026-10-23",
-  "marketCount": 108,
-  "file": "bundesliga/2026-10-23_vfb-stuttgart-borussia-monchengladbach_91658162.json"
  },
  {
   "league": "bundesliga",
@@ -338,16 +288,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 107,
   "file": "bundesliga/2026-10-24_borussia-dortmund-eintracht-frankfurt_91658155.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "93961074",
-  "name": "Stade Brestois 29 - OGC Nice",
-  "startTime": 1792781100000,
-  "dateStr": "2026-10-23",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-23_stade-brestois-29-ogc-nice_93961074.json"
  },
  {
   "league": "ligue-1",
