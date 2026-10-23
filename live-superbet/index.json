@@ -136,7 +136,7 @@
   "name": "Blackburn Rovers - Wrexham",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-10-24_blackburn-rovers-wrexham_14231740.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Cardiff City - Birmingham City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-10-24_cardiff-city-birmingham-city_14231742.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Lincoln City - Burnley",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-24_lincoln-city-burnley_14231744.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Preston North End - West Bromwich Albion",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-24_preston-north-end-west-bromwich-albion_14231746.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Queens Park Rangers - Swansea City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-10-24_queens-park-rangers-swansea-city_14231747.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "Stoke City - Bristol City",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-10-24_stoke-city-bristol-city_14231749.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "West Ham - Southampton",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-10-24_west-ham-southampton_14231750.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Wolves - Watford",
   "startTime": 1792850400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 18,
   "file": "championship/2026-10-24_wolves-watford_14231751.json"
  },
  {
@@ -686,7 +686,7 @@
   "name": "Atlante - Atletico San Luis",
   "startTime": 1792810800000,
   "dateStr": "2026-10-24",
-  "marketCount": 18,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-24_atlante-atletico-san-luis_15370192.json"
  },
  {

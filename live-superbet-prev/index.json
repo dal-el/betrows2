@@ -116,7 +116,7 @@
   "name": "Charlton Athletic - Norwich City",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 9,
+  "marketCount": 24,
   "file": "championship/2026-10-24_charlton-athletic-norwich-city_14231743.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Portsmouth - Millwall",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-10-24_portsmouth-millwall_14231745.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Sheffield United - Derby County",
   "startTime": 1792841400000,
   "dateStr": "2026-10-24",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-10-24_sheffield-united-derby-county_14231748.json"
  },
  {
