@@ -456,7 +456,7 @@
   "name": "Club Leon - Deportivo Toluca FC",
   "startTime": 1792882800000,
   "dateStr": "2026-10-25",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "liga-mx/2026-10-25_club-leon-deportivo-toluca-fc_94024343.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_94090037.json"
  },
  {
@@ -506,7 +506,7 @@
   "name": "Mirassol SP - Sao Paulo SP",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-24_mirassol-sp-sao-paulo-sp_94090038.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Vasco da Gama RJ - Corinthians SP",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-25_vasco-da-gama-rj-corinthians-sp_94090040.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "Palmeiras SP - Bragantino SP",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-25_palmeiras-sp-bragantino-sp_94090061.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Chapecoense SC - Fluminense RJ",
   "startTime": 1792881000000,
   "dateStr": "2026-10-25",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-25_chapecoense-sc-fluminense-rj_94090062.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Santos SP - EC Bahia BA",
   "startTime": 1792886400000,
   "dateStr": "2026-10-25",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-25_santos-sp-ec-bahia-ba_94090063.json"
  }
 ]
