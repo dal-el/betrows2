@@ -366,7 +366,7 @@
   "name": "Udinese Calcio - AC Milan",
   "startTime": 1792957500000,
   "dateStr": "2026-10-25",
-  "marketCount": 123,
+  "marketCount": 118,
   "file": "serie-a-italy/2026-10-25_udinese-calcio-ac-milan_92997313.json"
  },
  {
@@ -592,16 +592,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024227",
-  "name": "Atlante FC - Atletico San Luis",
-  "startTime": 1792810800000,
-  "dateStr": "2026-10-24",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-24_atlante-fc-atletico-san-luis_94024227.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024343",
   "name": "Club Leon - Deportivo Toluca FC",
   "startTime": 1792882800000,
@@ -616,7 +606,7 @@
   "name": "CF Monterrey - Guadalajara Chivas",
   "startTime": 1792890000000,
   "dateStr": "2026-10-25",
-  "marketCount": 88,
+  "marketCount": 89,
   "file": "liga-mx/2026-10-25_cf-monterrey-guadalajara-chivas_94024359.json"
  },
  {
