@@ -242,22 +242,22 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231670",
-  "name": "Cagliari - Bologna",
-  "startTime": 1792846800000,
-  "dateStr": "2026-10-24",
+  "eventId": "14231673",
+  "name": "Inter Milan - Fiorentina",
+  "startTime": 1792927800000,
+  "dateStr": "2026-10-25",
   "marketCount": 23,
-  "file": "serie-a-italy/2026-10-24_cagliari-bologna_14231670.json"
+  "file": "serie-a-italy/2026-10-25_inter-milan-fiorentina_14231673.json"
  },
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231671",
-  "name": "Como - Sassuolo",
-  "startTime": 1792846800000,
+  "eventId": "14231674",
+  "name": "Lazio - Parma",
+  "startTime": 1792867500000,
   "dateStr": "2026-10-24",
   "marketCount": 23,
-  "file": "serie-a-italy/2026-10-24_como-sassuolo_14231671.json"
+  "file": "serie-a-italy/2026-10-24_lazio-parma_14231674.json"
  },
  {
   "league": "serie-a-italy",
@@ -278,26 +278,6 @@
   "dateStr": "2026-10-25",
   "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_atalanta-frosinone_14231669.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231673",
-  "name": "Inter Milan - Fiorentina",
-  "startTime": 1792927800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-25_inter-milan-fiorentina_14231673.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231674",
-  "name": "Lazio - Parma",
-  "startTime": 1792867500000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-24_lazio-parma_14231674.json"
  },
  {
   "league": "serie-a-italy",

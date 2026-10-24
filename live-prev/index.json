@@ -232,26 +232,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92996837",
-  "name": "Como 1907 - US Sassuolo Calcio",
-  "startTime": 1792846800000,
-  "dateStr": "2026-10-24",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-24_como-1907-us-sassuolo-calcio_92996837.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997278",
-  "name": "Cagliari Calcio - Bologna FC",
-  "startTime": 1792846800000,
-  "dateStr": "2026-10-24",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-24_cagliari-calcio-bologna-fc_92997278.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92996827",
   "name": "SSC Napoli - AS Roma",
   "startTime": 1792857600000,
@@ -336,7 +316,7 @@
   "name": "SC Paderborn 07 - Hamburger SV",
   "startTime": 1792848600000,
   "dateStr": "2026-10-24",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "bundesliga/2026-10-24_sc-paderborn-07-hamburger-sv_91658627.json"
  },
  {
@@ -476,7 +456,7 @@
   "name": "Iraklis - Kifisia",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 107,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-24_iraklis-kifisia_93948087.json"
  },
  {
