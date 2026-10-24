@@ -62,16 +62,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668573",
-  "name": "Racing Santander - RCD Espanyol",
-  "startTime": 1792851300000,
-  "dateStr": "2026-10-24",
-  "marketCount": 115,
-  "file": "la-liga/2026-10-24_racing-santander-rcd-espanyol_91668573.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668517",
   "name": "Valencia CF - Villarreal CF",
   "startTime": 1792859400000,
@@ -446,7 +436,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 107,
+  "marketCount": 108,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_94090037.json"
  },
  {
@@ -456,7 +446,7 @@
   "name": "Mirassol SP - Sao Paulo SP",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 107,
+  "marketCount": 108,
   "file": "serie-a-brazil/2026-10-24_mirassol-sp-sao-paulo-sp_94090038.json"
  },
  {
