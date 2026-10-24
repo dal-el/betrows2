@@ -90,6 +90,16 @@
   "file": "la-liga/2026-10-25_fc-barcelona-real-madrid_91668574.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668528",
+  "name": "Sevilla FC - CA Osasuna",
+  "startTime": 1793044800000,
+  "dateStr": "2026-10-26",
+  "marketCount": 124,
+  "file": "la-liga/2026-10-26_sevilla-fc-ca-osasuna_91668528.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "92996999",
@@ -138,6 +148,36 @@
   "dateStr": "2026-10-25",
   "marketCount": 118,
   "file": "serie-a-italy/2026-10-25_udinese-calcio-ac-milan_92997313.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945369",
+  "name": "US Sassuolo Calcio - SS Lazio",
+  "startTime": 1793122200000,
+  "dateStr": "2026-10-27",
+  "marketCount": 90,
+  "file": "serie-a-italy/2026-10-27_us-sassuolo-calcio-ss-lazio_92945369.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945264",
+  "name": "AS Roma - Cagliari Calcio",
+  "startTime": 1793130300000,
+  "dateStr": "2026-10-27",
+  "marketCount": 90,
+  "file": "serie-a-italy/2026-10-27_as-roma-cagliari-calcio_92945264.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945372",
+  "name": "Torino FC - Como 1907",
+  "startTime": 1793130300000,
+  "dateStr": "2026-10-27",
+  "marketCount": 90,
+  "file": "serie-a-italy/2026-10-27_torino-fc-como-1907_92945372.json"
  },
  {
   "league": "bundesliga",
@@ -218,6 +258,16 @@
   "dateStr": "2026-10-25",
   "marketCount": 107,
   "file": "ligue-1/2026-10-25_aj-auxerre-le-mans-uc-72_93961100.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "93960984",
+  "name": "Paris Saint-Germain - Olympique Lyonnais",
+  "startTime": 1793043000000,
+  "dateStr": "2026-10-26",
+  "marketCount": 107,
+  "file": "ligue-1/2026-10-26_paris-saint-germain-olympique-lyonnais_93960984.json"
  },
  {
   "league": "super-league-greece",
@@ -356,7 +406,7 @@
   "name": "Chapecoense SC - Fluminense RJ",
   "startTime": 1792881000000,
   "dateStr": "2026-10-25",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-25_chapecoense-sc-fluminense-rj_94090062.json"
  },
  {
