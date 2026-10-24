@@ -742,22 +742,22 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246811",
-  "name": "Cruzeiro - Remo",
-  "startTime": 1792796400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-24_cruzeiro-remo_14246811.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14246812",
   "name": "Internacional RS - Botafogo",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-10-24_internacional-rs-botafogo_14246812.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14246814",
+  "name": "Vitoria BA - Athletico PR",
+  "startTime": 1792870200000,
+  "dateStr": "2026-10-24",
+  "marketCount": 23,
+  "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_14246814.json"
  },
  {
   "league": "serie-a-brazil",
@@ -782,12 +782,22 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246814",
-  "name": "Vitoria BA - Athletico PR",
-  "startTime": 1792870200000,
-  "dateStr": "2026-10-24",
+  "eventId": "14246815",
+  "name": "Chapecoense - Fluminense",
+  "startTime": 1792881000000,
+  "dateStr": "2026-10-25",
   "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_14246814.json"
+  "file": "serie-a-brazil/2026-10-25_chapecoense-fluminense_14246815.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14246806",
+  "name": "Flamengo - Atletico Mineiro",
+  "startTime": 1793055600000,
+  "dateStr": "2026-10-27",
+  "marketCount": 8,
+  "file": "serie-a-brazil/2026-10-27_flamengo-atletico-mineiro_14246806.json"
  },
  {
   "league": "serie-a-brazil",
@@ -806,27 +816,7 @@
   "name": "Coritiba - Gremio",
   "startTime": 1793053800000,
   "dateStr": "2026-10-27",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-27_coritiba-gremio_14246813.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246815",
-  "name": "Chapecoense - Fluminense",
-  "startTime": 1792881000000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-25_chapecoense-fluminense_14246815.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246806",
-  "name": "Flamengo - Atletico Mineiro",
-  "startTime": 1793055600000,
-  "dateStr": "2026-10-27",
-  "marketCount": 6,
-  "file": "serie-a-brazil/2026-10-27_flamengo-atletico-mineiro_14246806.json"
  }
 ]

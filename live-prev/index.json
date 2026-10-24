@@ -642,16 +642,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94090036",
-  "name": "Cruzeiro MG - Remo PA",
-  "startTime": 1792796400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 105,
-  "file": "serie-a-brazil/2026-10-24_cruzeiro-mg-remo-pa_94090036.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94090037",
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
