@@ -496,7 +496,7 @@
   "name": "Angers - Lorient",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-25_angers-lorient_14231789.json"
  },
  {
@@ -516,7 +516,7 @@
   "name": "Monaco - Lille",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-25_monaco-lille_14231794.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Auxerre - Le Mans",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-25_auxerre-le-mans_14231790.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "Marseille - Le Havre",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-25_marseille-le-havre_14231793.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Rennes - Strasbourg",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-25_rennes-strasbourg_14231795.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Toulouse - Troyes",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-25_toulouse-troyes_14231796.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Paris Saint-Germain - Lyon",
   "startTime": 1793043000000,
   "dateStr": "2026-10-26",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-10-26_paris-saint-germain-lyon_14246839.json"
  },
  {
@@ -676,7 +676,7 @@
   "name": "Atlas - Puebla",
   "startTime": 1792969200000,
   "dateStr": "2026-10-26",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-26_atlas-puebla_15404451.json"
  },
  {
