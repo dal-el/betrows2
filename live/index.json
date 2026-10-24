@@ -2,21 +2,11 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "93917475",
-  "name": "Chelsea FC - Tottenham Hotspur",
-  "startTime": 1792859400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-24_chelsea-fc-tottenham-hotspur_93917475.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "93917400",
   "name": "Liverpool FC - Brighton & Hove Albion",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-25_liverpool-fc-brighton-hove-albion_93917400.json"
  },
  {
@@ -58,16 +48,6 @@
   "dateStr": "2026-10-25",
   "marketCount": 122,
   "file": "premier-league/2026-10-25_sunderland-leeds-united_93917359.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668517",
-  "name": "Valencia CF - Villarreal CF",
-  "startTime": 1792859400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 119,
-  "file": "la-liga/2026-10-24_valencia-cf-villarreal-cf_91668517.json"
  },
  {
   "league": "la-liga",
@@ -116,7 +96,7 @@
   "name": "FC Barcelona - Real Madrid",
   "startTime": 1792958400000,
   "dateStr": "2026-10-25",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "la-liga/2026-10-25_fc-barcelona-real-madrid_91668574.json"
  },
  {
@@ -178,16 +158,6 @@
   "dateStr": "2026-10-25",
   "marketCount": 118,
   "file": "serie-a-italy/2026-10-25_udinese-calcio-ac-milan_92997313.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91658155",
-  "name": "Borussia Dortmund - Eintracht Frankfurt",
-  "startTime": 1792859400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 107,
-  "file": "bundesliga/2026-10-24_borussia-dortmund-eintracht-frankfurt_91658155.json"
  },
  {
   "league": "bundesliga",
@@ -282,26 +252,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "93948118",
-  "name": "Asteras Tripolis - Levadiakos",
-  "startTime": 1792859400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 101,
-  "file": "super-league-greece/2026-10-24_asteras-tripolis-levadiakos_93948118.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "93948129",
-  "name": "AEK Athens - Panaitolikos",
-  "startTime": 1792861200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 105,
-  "file": "super-league-greece/2026-10-24_aek-athens-panaitolikos_93948129.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "93948174",
   "name": "Olympiacos Piraeus - Kalamata",
   "startTime": 1792936800000,
@@ -336,7 +286,7 @@
   "name": "OFI Crete - PAOK",
   "startTime": 1792951200000,
   "dateStr": "2026-10-25",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "super-league-greece/2026-10-25_ofi-crete-paok_93948207.json"
  },
  {

@@ -132,6 +132,16 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14231669",
+  "name": "Atalanta - Frosinone",
+  "startTime": 1792936800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 23,
+  "file": "serie-a-italy/2026-10-25_atalanta-frosinone_14231669.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14231673",
   "name": "Inter Milan - Fiorentina",
   "startTime": 1792927800000,
@@ -148,26 +158,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 23,
   "file": "serie-a-italy/2026-10-24_lazio-parma_14231674.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231676",
-  "name": "Napoli - AS Roma",
-  "startTime": 1792857600000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-24_napoli-as-roma_14231676.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231669",
-  "name": "Atalanta - Frosinone",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-25_atalanta-frosinone_14231669.json"
  },
  {
   "league": "serie-a-italy",
@@ -338,16 +328,6 @@
   "dateStr": "2026-10-26",
   "marketCount": 23,
   "file": "ligue-1/2026-10-26_paris-saint-germain-lyon_14246839.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15372527",
-  "name": "Iraklis FC - Kifisia",
-  "startTime": 1792857600000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-10-24_iraklis-fc-kifisia_15372527.json"
  },
  {
   "league": "super-league-greece",
