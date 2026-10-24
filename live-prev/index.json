@@ -52,16 +52,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668572",
-  "name": "Atletico Madrid - Deportivo de A Coruña",
-  "startTime": 1792868400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 119,
-  "file": "la-liga/2026-10-24_atletico-madrid-deportivo-de-a-coruna_91668572.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668575",
   "name": "Athletic Bilbao - Getafe CF",
   "startTime": 1792933200000,
@@ -98,16 +88,6 @@
   "dateStr": "2026-10-25",
   "marketCount": 123,
   "file": "la-liga/2026-10-25_fc-barcelona-real-madrid_91668574.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997153",
-  "name": "SS Lazio - Parma Calcio 1913",
-  "startTime": 1792867500000,
-  "dateStr": "2026-10-24",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-24_ss-lazio-parma-calcio-1913_92997153.json"
  },
  {
   "league": "serie-a-italy",
@@ -178,16 +158,6 @@
   "dateStr": "2026-10-25",
   "marketCount": 107,
   "file": "bundesliga/2026-10-25_sc-freiburg-fc-bayern-munchen_91658631.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "93961110",
-  "name": "RC Lens - Paris FC",
-  "startTime": 1792867500000,
-  "dateStr": "2026-10-24",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-24_rc-lens-paris-fc_93961110.json"
  },
  {
   "league": "ligue-1",

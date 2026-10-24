@@ -62,16 +62,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246831",
-  "name": "Atletico Madrid - Deportivo de A Coruna",
-  "startTime": 1792868400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-24_atletico-madrid-deportivo-de-a-coruna_14246831.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14246832",
   "name": "Celta Vigo - Betis",
   "startTime": 1792941300000,
@@ -82,22 +72,22 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246833",
-  "name": "Barcelona - Real Madrid",
-  "startTime": 1792958400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-25_barcelona-real-madrid_14246833.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14246836",
   "name": "Real Sociedad - Levante",
   "startTime": 1792949400000,
   "dateStr": "2026-10-25",
   "marketCount": 23,
   "file": "la-liga/2026-10-25_real-sociedad-levante_14246836.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14246833",
+  "name": "Barcelona - Real Madrid",
+  "startTime": 1792958400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 23,
+  "file": "la-liga/2026-10-25_barcelona-real-madrid_14246833.json"
  },
  {
   "league": "la-liga",
@@ -122,32 +112,22 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231673",
-  "name": "Inter Milan - Fiorentina",
-  "startTime": 1792927800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-25_inter-milan-fiorentina_14231673.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231674",
-  "name": "Lazio - Parma",
-  "startTime": 1792867500000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-24_lazio-parma_14231674.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14231672",
   "name": "Genoa - Venezia",
   "startTime": 1792936800000,
   "dateStr": "2026-10-25",
   "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_genoa-venezia_14231672.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14231673",
+  "name": "Inter Milan - Fiorentina",
+  "startTime": 1792927800000,
+  "dateStr": "2026-10-25",
+  "marketCount": 23,
+  "file": "serie-a-italy/2026-10-25_inter-milan-fiorentina_14231673.json"
  },
  {
   "league": "serie-a-italy",
@@ -172,22 +152,22 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14276254",
-  "name": "AS Roma - Cagliari",
-  "startTime": 1793130300000,
-  "dateStr": "2026-10-27",
-  "marketCount": 6,
-  "file": "serie-a-italy/2026-10-27_as-roma-cagliari_14276254.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14276255",
   "name": "Sassuolo - Lazio",
   "startTime": 1793122200000,
   "dateStr": "2026-10-27",
   "marketCount": 6,
   "file": "serie-a-italy/2026-10-27_sassuolo-lazio_14276255.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276254",
+  "name": "AS Roma - Cagliari",
+  "startTime": 1793130300000,
+  "dateStr": "2026-10-27",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-27_as-roma-cagliari_14276254.json"
  },
  {
   "league": "serie-a-italy",
@@ -232,12 +212,12 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231792",
-  "name": "Lens - Paris FC",
-  "startTime": 1792867500000,
-  "dateStr": "2026-10-24",
+  "eventId": "14231790",
+  "name": "Auxerre - Le Mans",
+  "startTime": 1792944900000,
+  "dateStr": "2026-10-25",
   "marketCount": 23,
-  "file": "ligue-1/2026-10-24_lens-paris-fc_14231792.json"
+  "file": "ligue-1/2026-10-25_auxerre-le-mans_14231790.json"
  },
  {
   "league": "ligue-1",
@@ -248,16 +228,6 @@
   "dateStr": "2026-10-25",
   "marketCount": 23,
   "file": "ligue-1/2026-10-25_monaco-lille_14231794.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231790",
-  "name": "Auxerre - Le Mans",
-  "startTime": 1792944900000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-25_auxerre-le-mans_14231790.json"
  },
  {
   "league": "ligue-1",

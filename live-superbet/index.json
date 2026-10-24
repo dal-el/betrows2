@@ -382,36 +382,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246810",
-  "name": "Mirassol - Sao Paulo",
-  "startTime": 1792870200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-24_mirassol-sao-paulo_14246810.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246812",
-  "name": "Internacional RS - Botafogo",
-  "startTime": 1792870200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-24_internacional-rs-botafogo_14246812.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246814",
-  "name": "Vitoria BA - Athletico PR",
-  "startTime": 1792870200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_14246814.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14246807",
   "name": "Vasco da Gama - Corinthians",
   "startTime": 1792877400000,
