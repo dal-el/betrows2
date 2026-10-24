@@ -122,16 +122,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92996827",
-  "name": "SSC Napoli - AS Roma",
-  "startTime": 1792857600000,
-  "dateStr": "2026-10-24",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-24_ssc-napoli-as-roma_92996827.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92997153",
   "name": "SS Lazio - Parma Calcio 1913",
   "startTime": 1792867500000,
@@ -292,21 +282,11 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "93948087",
-  "name": "Iraklis - Kifisia",
-  "startTime": 1792857600000,
-  "dateStr": "2026-10-24",
-  "marketCount": 106,
-  "file": "super-league-greece/2026-10-24_iraklis-kifisia_93948087.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "93948118",
   "name": "Asteras Tripolis - Levadiakos",
   "startTime": 1792859400000,
   "dateStr": "2026-10-24",
-  "marketCount": 106,
+  "marketCount": 101,
   "file": "super-league-greece/2026-10-24_asteras-tripolis-levadiakos_93948118.json"
  },
  {
@@ -436,7 +416,7 @@
   "name": "Vitoria BA - Athletico PR",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_94090037.json"
  },
  {
@@ -446,7 +426,7 @@
   "name": "Mirassol SP - Sao Paulo SP",
   "startTime": 1792870200000,
   "dateStr": "2026-10-24",
-  "marketCount": 108,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-24_mirassol-sp-sao-paulo-sp_94090038.json"
  },
  {
