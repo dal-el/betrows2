@@ -642,16 +642,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15370192",
-  "name": "Atlante - Atletico San Luis",
-  "startTime": 1792810800000,
-  "dateStr": "2026-10-24",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-24_atlante-atletico-san-luis_15370192.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15373707",
   "name": "Club Leon - Deportivo Toluca",
   "startTime": 1792882800000,
@@ -692,22 +682,22 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15404472",
-  "name": "Queretaro - Cruz Azul",
-  "startTime": 1792976400000,
-  "dateStr": "2026-10-26",
-  "marketCount": 15,
-  "file": "liga-mx/2026-10-26_queretaro-cruz-azul_15404472.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15404452",
   "name": "Club America - Pachuca",
   "startTime": 1792976700000,
   "dateStr": "2026-10-26",
   "marketCount": 15,
   "file": "liga-mx/2026-10-26_club-america-pachuca_15404452.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15404472",
+  "name": "Queretaro - Cruz Azul",
+  "startTime": 1792976400000,
+  "dateStr": "2026-10-26",
+  "marketCount": 15,
+  "file": "liga-mx/2026-10-26_queretaro-cruz-azul_15404472.json"
  },
  {
   "league": "liga-mx",
