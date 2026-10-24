@@ -312,16 +312,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024343",
-  "name": "Club Leon - Deportivo Toluca FC",
-  "startTime": 1792882800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-25_club-leon-deportivo-toluca-fc_94024343.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024359",
   "name": "CF Monterrey - Guadalajara Chivas",
   "startTime": 1792890000000,
@@ -382,21 +372,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94090062",
-  "name": "Chapecoense SC - Fluminense RJ",
-  "startTime": 1792881000000,
-  "dateStr": "2026-10-25",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-25_chapecoense-sc-fluminense-rj_94090062.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94090063",
   "name": "Santos SP - EC Bahia BA",
   "startTime": 1792886400000,
   "dateStr": "2026-10-25",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-25_santos-sp-ec-bahia-ba_94090063.json"
  },
  {

@@ -432,22 +432,22 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246807",
-  "name": "Vasco da Gama - Corinthians",
-  "startTime": 1792877400000,
+  "eventId": "14246808",
+  "name": "Santos - Bahia",
+  "startTime": 1792886400000,
   "dateStr": "2026-10-25",
   "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-25_vasco-da-gama-corinthians_14246807.json"
+  "file": "serie-a-brazil/2026-10-25_santos-bahia_14246808.json"
  },
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246809",
-  "name": "Palmeiras - Bragantino",
-  "startTime": 1792877400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 20,
-  "file": "serie-a-brazil/2026-10-25_palmeiras-bragantino_14246809.json"
+  "eventId": "14246813",
+  "name": "Coritiba - Gremio",
+  "startTime": 1793053800000,
+  "dateStr": "2026-10-27",
+  "marketCount": 8,
+  "file": "serie-a-brazil/2026-10-27_coritiba-gremio_14246813.json"
  },
  {
   "league": "serie-a-brazil",
@@ -468,25 +468,5 @@
   "dateStr": "2026-10-27",
   "marketCount": 8,
   "file": "serie-a-brazil/2026-10-27_flamengo-atletico-mineiro_14246806.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246808",
-  "name": "Santos - Bahia",
-  "startTime": 1792886400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-25_santos-bahia_14246808.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246813",
-  "name": "Coritiba - Gremio",
-  "startTime": 1793053800000,
-  "dateStr": "2026-10-27",
-  "marketCount": 8,
-  "file": "serie-a-brazil/2026-10-27_coritiba-gremio_14246813.json"
  }
 ]
