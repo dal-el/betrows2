@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "93917476",
-  "name": "Aston Villa - Manchester City",
-  "startTime": 1792841400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-24_aston-villa-manchester-city_93917476.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "93917477",
   "name": "Arsenal FC - Everton FC",
   "startTime": 1792850400000,
@@ -92,36 +82,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "94211762",
-  "name": "Sheffield United - Derby County",
-  "startTime": 1792841400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 87,
-  "file": "championship/2026-10-24_sheffield-united-derby-county_94211762.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94263361",
-  "name": "Charlton - Norwich City",
-  "startTime": 1792841400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 87,
-  "file": "championship/2026-10-24_charlton-norwich-city_94263361.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94263568",
-  "name": "Portsmouth FC - Millwall FC",
-  "startTime": 1792841400000,
-  "dateStr": "2026-10-24",
-  "marketCount": 87,
-  "file": "championship/2026-10-24_portsmouth-fc-millwall-fc_94263568.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "94268875",
   "name": "West Ham United - Southampton FC",
   "startTime": 1792850400000,
@@ -198,16 +158,6 @@
   "dateStr": "2026-10-24",
   "marketCount": 87,
   "file": "championship/2026-10-24_stoke-city-bristol-city_94269644.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668562",
-  "name": "Rayo Vallecano - Elche CF",
-  "startTime": 1792843200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 119,
-  "file": "la-liga/2026-10-24_rayo-vallecano-elche-cf_91668562.json"
  },
  {
   "league": "la-liga",
@@ -526,7 +476,7 @@
   "name": "Iraklis - Kifisia",
   "startTime": 1792857600000,
   "dateStr": "2026-10-24",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "super-league-greece/2026-10-24_iraklis-kifisia_93948087.json"
  },
  {
