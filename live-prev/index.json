@@ -332,41 +332,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94090037",
-  "name": "Vitoria BA - Athletico PR",
-  "startTime": 1792870200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-24_vitoria-ba-athletico-pr_94090037.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94090038",
-  "name": "Mirassol SP - Sao Paulo SP",
-  "startTime": 1792870200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-24_mirassol-sp-sao-paulo-sp_94090038.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94090039",
-  "name": "Internacional RS - Botafogo RJ",
-  "startTime": 1792870200000,
-  "dateStr": "2026-10-24",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-24_internacional-rs-botafogo-rj_94090039.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94090040",
   "name": "Vasco da Gama RJ - Corinthians SP",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-25_vasco-da-gama-rj-corinthians-sp_94090040.json"
  },
  {
@@ -376,7 +346,7 @@
   "name": "Palmeiras SP - Bragantino SP",
   "startTime": 1792877400000,
   "dateStr": "2026-10-25",
-  "marketCount": 104,
+  "marketCount": 101,
   "file": "serie-a-brazil/2026-10-25_palmeiras-sp-bragantino-sp_94090061.json"
  },
  {

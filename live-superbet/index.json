@@ -162,6 +162,16 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276251",
+  "name": "AC Milan - Bologna",
+  "startTime": 1793208600000,
+  "dateStr": "2026-10-28",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-28_ac-milan-bologna_14276251.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14276254",
   "name": "AS Roma - Cagliari",
   "startTime": 1793130300000,
@@ -178,6 +188,46 @@
   "dateStr": "2026-10-27",
   "marketCount": 6,
   "file": "serie-a-italy/2026-10-27_torino-fc-como_14276256.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276250",
+  "name": "Genoa - Juventus",
+  "startTime": 1793216700000,
+  "dateStr": "2026-10-28",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-28_genoa-juventus_14276250.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276253",
+  "name": "Parma - Udinese",
+  "startTime": 1793208600000,
+  "dateStr": "2026-10-28",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-28_parma-udinese_14276253.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276258",
+  "name": "Venezia - Inter Milan",
+  "startTime": 1793208600000,
+  "dateStr": "2026-10-28",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-28_venezia-inter-milan_14276258.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276252",
+  "name": "Monza - Napoli",
+  "startTime": 1793216700000,
+  "dateStr": "2026-10-28",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-28_monza-napoli_14276252.json"
  },
  {
   "league": "bundesliga",
