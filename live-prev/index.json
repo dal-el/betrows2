@@ -312,16 +312,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024356",
-  "name": "UNAM Pumas - CF Tigres UANL",
-  "startTime": 1792897800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-25_unam-pumas-cf-tigres-uanl_94024356.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024226",
   "name": "Atlas FC - Club Puebla",
   "startTime": 1792969200000,
