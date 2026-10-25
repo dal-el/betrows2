@@ -362,16 +362,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15387876",
-  "name": "UNAM Pumas - UANL Tigres",
-  "startTime": 1792897800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-25_unam-pumas-uanl-tigres_15387876.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15404451",
   "name": "Atlas - Puebla",
   "startTime": 1792969200000,
@@ -382,22 +372,22 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15404472",
-  "name": "Queretaro - Cruz Azul",
-  "startTime": 1792976400000,
-  "dateStr": "2026-10-26",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-26_queretaro-cruz-azul_15404472.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15404452",
   "name": "Club America - Pachuca",
   "startTime": 1792976700000,
   "dateStr": "2026-10-26",
   "marketCount": 17,
   "file": "liga-mx/2026-10-26_club-america-pachuca_15404452.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15404472",
+  "name": "Queretaro - Cruz Azul",
+  "startTime": 1792976400000,
+  "dateStr": "2026-10-26",
+  "marketCount": 17,
+  "file": "liga-mx/2026-10-26_queretaro-cruz-azul_15404472.json"
  },
  {
   "league": "liga-mx",
