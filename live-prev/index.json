@@ -312,16 +312,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024359",
-  "name": "CF Monterrey - Guadalajara Chivas",
-  "startTime": 1792890000000,
-  "dateStr": "2026-10-25",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-25_cf-monterrey-guadalajara-chivas_94024359.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024356",
   "name": "UNAM Pumas - CF Tigres UANL",
   "startTime": 1792897800000,
