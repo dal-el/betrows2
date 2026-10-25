@@ -52,16 +52,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668575",
-  "name": "Athletic Bilbao - Getafe CF",
-  "startTime": 1792933200000,
-  "dateStr": "2026-10-25",
-  "marketCount": 119,
-  "file": "la-liga/2026-10-25_athletic-bilbao-getafe-cf_91668575.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668544",
   "name": "RC Celta de Vigo - Real Betis Balompie",
   "startTime": 1792941300000,

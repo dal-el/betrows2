@@ -52,16 +52,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246830",
-  "name": "Athletic Bilbao - Getafe",
-  "startTime": 1792933200000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-25_athletic-bilbao-getafe_14246830.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14246832",
   "name": "Celta Vigo - Betis",
   "startTime": 1792941300000,
@@ -72,22 +62,22 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246836",
-  "name": "Real Sociedad - Levante",
-  "startTime": 1792949400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-25_real-sociedad-levante_14246836.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14246833",
   "name": "Barcelona - Real Madrid",
   "startTime": 1792958400000,
   "dateStr": "2026-10-25",
   "marketCount": 23,
   "file": "la-liga/2026-10-25_barcelona-real-madrid_14246833.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14246836",
+  "name": "Real Sociedad - Levante",
+  "startTime": 1792949400000,
+  "dateStr": "2026-10-25",
+  "marketCount": 23,
+  "file": "la-liga/2026-10-25_real-sociedad-levante_14246836.json"
  },
  {
   "league": "la-liga",
@@ -146,7 +136,7 @@
   "name": "AS Roma - Cagliari",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "serie-a-italy/2026-10-27_as-roma-cagliari_14276254.json"
  },
  {
@@ -156,7 +146,7 @@
   "name": "Sassuolo - Lazio",
   "startTime": 1793122200000,
   "dateStr": "2026-10-27",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "serie-a-italy/2026-10-27_sassuolo-lazio_14276255.json"
  },
  {
@@ -186,7 +176,7 @@
   "name": "Torino FC - Como",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "serie-a-italy/2026-10-27_torino-fc-como_14276256.json"
  },
  {
