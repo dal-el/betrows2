@@ -12,16 +12,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246836",
-  "name": "Real Sociedad - Levante",
-  "startTime": 1792949400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-25_real-sociedad-levante_14246836.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14246837",
   "name": "Sevilla - Osasuna",
   "startTime": 1793044800000,
@@ -128,26 +118,6 @@
   "dateStr": "2026-10-26",
   "marketCount": 23,
   "file": "ligue-1/2026-10-26_paris-saint-germain-lyon_14246839.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15389497",
-  "name": "Aris - Atromitos",
-  "startTime": 1792949400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-10-25_aris-atromitos_15389497.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15389524",
-  "name": "OFI - PAOK",
-  "startTime": 1792951200000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-10-25_ofi-paok_15389524.json"
  },
  {
   "league": "liga-mx",

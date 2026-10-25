@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14231739",
-  "name": "Sunderland - Leeds United",
-  "startTime": 1792945800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "premier-league/2026-10-25_sunderland-leeds-united_14231739.json"
- },
- {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14246833",
@@ -42,22 +32,22 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14231675",
-  "name": "Lecce - Juventus",
-  "startTime": 1792947600000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-25_lecce-juventus_14231675.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14231678",
   "name": "Udinese - AC Milan",
   "startTime": 1792957500000,
   "dateStr": "2026-10-25",
   "marketCount": 23,
   "file": "serie-a-italy/2026-10-25_udinese-ac-milan_14231678.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276254",
+  "name": "AS Roma - Cagliari",
+  "startTime": 1793130300000,
+  "dateStr": "2026-10-27",
+  "marketCount": 15,
+  "file": "serie-a-italy/2026-10-27_as-roma-cagliari_14276254.json"
  },
  {
   "league": "serie-a-italy",
@@ -82,12 +72,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14276254",
-  "name": "AS Roma - Cagliari",
-  "startTime": 1793130300000,
-  "dateStr": "2026-10-27",
-  "marketCount": 15,
-  "file": "serie-a-italy/2026-10-27_as-roma-cagliari_14276254.json"
+  "eventId": "14276253",
+  "name": "Parma - Udinese",
+  "startTime": 1793208600000,
+  "dateStr": "2026-10-28",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-28_parma-udinese_14276253.json"
  },
  {
   "league": "serie-a-italy",
@@ -112,12 +102,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14276253",
-  "name": "Parma - Udinese",
-  "startTime": 1793208600000,
+  "eventId": "14276252",
+  "name": "Monza - Napoli",
+  "startTime": 1793216700000,
   "dateStr": "2026-10-28",
   "marketCount": 6,
-  "file": "serie-a-italy/2026-10-28_parma-udinese_14276253.json"
+  "file": "serie-a-italy/2026-10-28_monza-napoli_14276252.json"
  },
  {
   "league": "serie-a-italy",
@@ -128,76 +118,6 @@
   "dateStr": "2026-10-28",
   "marketCount": 6,
   "file": "serie-a-italy/2026-10-28_venezia-inter-milan_14276258.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14276252",
-  "name": "Monza - Napoli",
-  "startTime": 1793216700000,
-  "dateStr": "2026-10-28",
-  "marketCount": 6,
-  "file": "serie-a-italy/2026-10-28_monza-napoli_14276252.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14231646",
-  "name": "Freiburg - Bayern Munich",
-  "startTime": 1792945800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "bundesliga/2026-10-25_freiburg-bayern-munich_14231646.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231789",
-  "name": "Angers - Lorient",
-  "startTime": 1792944900000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-25_angers-lorient_14231789.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231790",
-  "name": "Auxerre - Le Mans",
-  "startTime": 1792944900000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-25_auxerre-le-mans_14231790.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231793",
-  "name": "Marseille - Le Havre",
-  "startTime": 1792944900000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-25_marseille-le-havre_14231793.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231795",
-  "name": "Rennes - Strasbourg",
-  "startTime": 1792944900000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-25_rennes-strasbourg_14231795.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14231796",
-  "name": "Toulouse - Troyes",
-  "startTime": 1792944900000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-25_toulouse-troyes_14231796.json"
  },
  {
   "league": "ligue-1",

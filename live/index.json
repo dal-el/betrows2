@@ -2,16 +2,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668518",
-  "name": "Real Sociedad - Levante UD",
-  "startTime": 1792949400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 119,
-  "file": "la-liga/2026-10-25_real-sociedad-levante-ud_91668518.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668574",
   "name": "FC Barcelona - Real Madrid",
   "startTime": 1792958400000,
@@ -78,26 +68,6 @@
   "dateStr": "2026-10-26",
   "marketCount": 107,
   "file": "ligue-1/2026-10-26_paris-saint-germain-olympique-lyonnais_93960984.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "93948206",
-  "name": "Aris Thessaloniki - Atromitos Athinon",
-  "startTime": 1792949400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 98,
-  "file": "super-league-greece/2026-10-25_aris-thessaloniki-atromitos-athinon_93948206.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "93948207",
-  "name": "OFI Crete - PAOK",
-  "startTime": 1792951200000,
-  "dateStr": "2026-10-25",
-  "marketCount": 102,
-  "file": "super-league-greece/2026-10-25_ofi-crete-paok_93948207.json"
  },
  {
   "league": "liga-mx",
