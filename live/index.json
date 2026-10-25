@@ -372,21 +372,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94090063",
-  "name": "Santos SP - EC Bahia BA",
-  "startTime": 1792886400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-25_santos-sp-ec-bahia-ba_94090063.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94090064",
   "name": "Coritiba PR - Gremio RS",
   "startTime": 1793053800000,
   "dateStr": "2026-10-27",
-  "marketCount": 112,
+  "marketCount": 92,
   "file": "serie-a-brazil/2026-10-27_coritiba-pr-gremio-rs_94090064.json"
  },
  {
@@ -396,7 +386,7 @@
   "name": "Flamengo RJ - Clube Atletico MG",
   "startTime": 1793055600000,
   "dateStr": "2026-10-27",
-  "marketCount": 111,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-27_flamengo-rj-clube-atletico-mg_94090065.json"
  }
 ]

@@ -432,16 +432,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246808",
-  "name": "Santos - Bahia",
-  "startTime": 1792886400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-25_santos-bahia_14246808.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14246813",
   "name": "Coritiba - Gremio",
   "startTime": 1793053800000,
