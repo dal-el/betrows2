@@ -2,46 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "93917400",
-  "name": "Liverpool FC - Brighton & Hove Albion",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-25_liverpool-fc-brighton-hove-albion_93917400.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "93917470",
-  "name": "Hull City - Brentford FC",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-25_hull-city-brentford-fc_93917470.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "93917474",
-  "name": "Crystal Palace FC - Newcastle United",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-25_crystal-palace-fc-newcastle-united_93917474.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "93917479",
-  "name": "Manchester United - AFC Bournemouth",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 122,
-  "file": "premier-league/2026-10-25_manchester-united-afc-bournemouth_93917479.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "93917359",
   "name": "Sunderland - Leeds United",
   "startTime": 1792945800000,
@@ -88,26 +48,6 @@
   "dateStr": "2026-10-26",
   "marketCount": 119,
   "file": "la-liga/2026-10-26_sevilla-fc-ca-osasuna_91668528.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92996782",
-  "name": "Genoa CFC - Venezia FC",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-25_genoa-cfc-venezia-fc_92996782.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92996881",
-  "name": "Atalanta - Frosinone",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-25_atalanta-frosinone_92996881.json"
  },
  {
   "league": "serie-a-italy",
@@ -182,16 +122,6 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "93961081",
-  "name": "AS Monaco - Lille OSC",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-25_as-monaco-lille-osc_93961081.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "93961075",
   "name": "Angers SCO - FC Lorient",
   "startTime": 1792944900000,
@@ -252,16 +182,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "93948174",
-  "name": "Olympiacos Piraeus - Kalamata",
-  "startTime": 1792936800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 105,
-  "file": "super-league-greece/2026-10-25_olympiacos-piraeus-kalamata_93948174.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "93948205",
   "name": "Volos NFC - Panathinaikos",
   "startTime": 1792944000000,
@@ -276,7 +196,7 @@
   "name": "Aris Thessaloniki - Atromitos Athinon",
   "startTime": 1792949400000,
   "dateStr": "2026-10-25",
-  "marketCount": 98,
+  "marketCount": 103,
   "file": "super-league-greece/2026-10-25_aris-thessaloniki-atromitos-athinon_93948206.json"
  },
  {
@@ -302,22 +222,22 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94024229",
+  "name": "Club America - CF Pachuca",
+  "startTime": 1792976400000,
+  "dateStr": "2026-10-26",
+  "marketCount": 88,
+  "file": "liga-mx/2026-10-26_club-america-cf-pachuca_94024229.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024292",
   "name": "Queretaro FC - Cruz Azul",
   "startTime": 1792976400000,
   "dateStr": "2026-10-26",
   "marketCount": 88,
   "file": "liga-mx/2026-10-26_queretaro-fc-cruz-azul_94024292.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024229",
-  "name": "Club America - CF Pachuca",
-  "startTime": 1792976700000,
-  "dateStr": "2026-10-26",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-26_club-america-cf-pachuca_94024229.json"
  },
  {
   "league": "liga-mx",
