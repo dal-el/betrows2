@@ -12,16 +12,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668544",
-  "name": "RC Celta de Vigo - Real Betis Balompie",
-  "startTime": 1792941300000,
-  "dateStr": "2026-10-25",
-  "marketCount": 119,
-  "file": "la-liga/2026-10-25_rc-celta-de-vigo-real-betis-balompie_91668544.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668518",
   "name": "Real Sociedad - Levante UD",
   "startTime": 1792949400000,
@@ -76,7 +66,7 @@
   "name": "US Sassuolo Calcio - SS Lazio",
   "startTime": 1793122200000,
   "dateStr": "2026-10-27",
-  "marketCount": 69,
+  "marketCount": 105,
   "file": "serie-a-italy/2026-10-27_us-sassuolo-calcio-ss-lazio_92945369.json"
  },
  {
@@ -86,7 +76,7 @@
   "name": "AS Roma - Cagliari Calcio",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 76,
+  "marketCount": 102,
   "file": "serie-a-italy/2026-10-27_as-roma-cagliari-calcio_92945264.json"
  },
  {
@@ -96,7 +86,7 @@
   "name": "Torino FC - Como 1907",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 76,
+  "marketCount": 102,
   "file": "serie-a-italy/2026-10-27_torino-fc-como-1907_92945372.json"
  },
  {
@@ -156,7 +146,7 @@
   "name": "AJ Auxerre - Le Mans UC 72",
   "startTime": 1792944900000,
   "dateStr": "2026-10-25",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "ligue-1/2026-10-25_aj-auxerre-le-mans-uc-72_93961100.json"
  },
  {
@@ -168,16 +158,6 @@
   "dateStr": "2026-10-26",
   "marketCount": 107,
   "file": "ligue-1/2026-10-26_paris-saint-germain-olympique-lyonnais_93960984.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "93948205",
-  "name": "Volos NFC - Panathinaikos",
-  "startTime": 1792944000000,
-  "dateStr": "2026-10-25",
-  "marketCount": 105,
-  "file": "super-league-greece/2026-10-25_volos-nfc-panathinaikos_93948205.json"
  },
  {
   "league": "super-league-greece",

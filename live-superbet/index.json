@@ -12,16 +12,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246832",
-  "name": "Celta Vigo - Betis",
-  "startTime": 1792941300000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-25_celta-vigo-betis_14246832.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14246833",
   "name": "Barcelona - Real Madrid",
   "startTime": 1792958400000,
@@ -218,16 +208,6 @@
   "dateStr": "2026-10-26",
   "marketCount": 23,
   "file": "ligue-1/2026-10-26_paris-saint-germain-lyon_14246839.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15389088",
-  "name": "Volos - Panathinaikos",
-  "startTime": 1792944000000,
-  "dateStr": "2026-10-25",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-10-25_volos-panathinaikos_15389088.json"
  },
  {
   "league": "super-league-greece",

@@ -102,16 +102,6 @@
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "91658163",
-  "name": "TSG 1899 Hoffenheim - Bayer 04 Leverkusen",
-  "startTime": 1792938600000,
-  "dateStr": "2026-10-25",
-  "marketCount": 107,
-  "file": "bundesliga/2026-10-25_tsg-1899-hoffenheim-bayer-04-leverkusen_91658163.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "91658631",
   "name": "SC Freiburg - FC Bayern Munchen",
   "startTime": 1792945800000,
