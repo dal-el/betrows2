@@ -166,7 +166,7 @@
   "name": "AS Roma - Cagliari Calcio",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 90,
+  "marketCount": 76,
   "file": "serie-a-italy/2026-10-27_as-roma-cagliari-calcio_92945264.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Torino FC - Como 1907",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 90,
+  "marketCount": 76,
   "file": "serie-a-italy/2026-10-27_torino-fc-como-1907_92945372.json"
  },
  {
@@ -344,7 +344,7 @@
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94024366",
   "name": "Club Tijuana - Santos Laguna",
-  "startTime": 1792987200000,
+  "startTime": 1792983600000,
   "dateStr": "2026-10-26",
   "marketCount": 88,
   "file": "liga-mx/2026-10-26_club-tijuana-santos-laguna_94024366.json"
