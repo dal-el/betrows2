@@ -72,6 +72,16 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276249",
+  "name": "Frosinone - Lecce",
+  "startTime": 1793295000000,
+  "dateStr": "2026-10-29",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-29_frosinone-lecce_14276249.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14276250",
   "name": "Genoa - Juventus",
   "startTime": 1793216700000,
@@ -88,6 +98,16 @@
   "dateStr": "2026-10-28",
   "marketCount": 6,
   "file": "serie-a-italy/2026-10-28_monza-napoli_14276252.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14276248",
+  "name": "Fiorentina - Atalanta",
+  "startTime": 1793303100000,
+  "dateStr": "2026-10-29",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-10-29_fiorentina-atalanta_14276248.json"
  },
  {
   "league": "ligue-1",
@@ -140,6 +160,16 @@
   "file": "liga-mx/2026-10-26_tijuana-santos-laguna_15404475.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15450315",
+  "name": "Club America - Tijuana",
+  "startTime": 1793242800000,
+  "dateStr": "2026-10-29",
+  "marketCount": 3,
+  "file": "liga-mx/2026-10-29_club-america-tijuana_15450315.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14246806",
@@ -158,5 +188,55 @@
   "dateStr": "2026-10-27",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-10-27_coritiba-gremio_14246813.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292464",
+  "name": "Fluminense - Internacional RS",
+  "startTime": 1793226600000,
+  "dateStr": "2026-10-29",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-29_fluminense-internacional-rs_14292464.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292476",
+  "name": "Santos - Palmeiras",
+  "startTime": 1793226600000,
+  "dateStr": "2026-10-29",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-29_santos-palmeiras_14292476.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292478",
+  "name": "Bragantino - Chapecoense",
+  "startTime": 1793226600000,
+  "dateStr": "2026-10-29",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-29_bragantino-chapecoense_14292478.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292482",
+  "name": "Bahia - Sao Paulo",
+  "startTime": 1793233800000,
+  "dateStr": "2026-10-29",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-29_bahia-sao-paulo_14292482.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292483",
+  "name": "Remo - Botafogo",
+  "startTime": 1793233800000,
+  "dateStr": "2026-10-29",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-29_remo-botafogo_14292483.json"
  }
 ]
