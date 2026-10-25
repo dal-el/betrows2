@@ -102,16 +102,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92996999",
-  "name": "Inter Milan - AC Fiorentina",
-  "startTime": 1792927800000,
-  "dateStr": "2026-10-25",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-25_inter-milan-ac-fiorentina_92996999.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92996782",
   "name": "Genoa CFC - Venezia FC",
   "startTime": 1792936800000,
@@ -156,7 +146,7 @@
   "name": "US Sassuolo Calcio - SS Lazio",
   "startTime": 1793122200000,
   "dateStr": "2026-10-27",
-  "marketCount": 76,
+  "marketCount": 69,
   "file": "serie-a-italy/2026-10-27_us-sassuolo-calcio-ss-lazio_92945369.json"
  },
  {
@@ -296,7 +286,7 @@
   "name": "Aris Thessaloniki - Atromitos Athinon",
   "startTime": 1792949400000,
   "dateStr": "2026-10-25",
-  "marketCount": 106,
+  "marketCount": 98,
   "file": "super-league-greece/2026-10-25_aris-thessaloniki-atromitos-athinon_93948206.json"
  },
  {
