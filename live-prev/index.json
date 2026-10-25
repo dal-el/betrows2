@@ -2,16 +2,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668574",
-  "name": "FC Barcelona - Real Madrid",
-  "startTime": 1792958400000,
-  "dateStr": "2026-10-25",
-  "marketCount": 123,
-  "file": "la-liga/2026-10-25_fc-barcelona-real-madrid_91668574.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668528",
   "name": "Sevilla FC - CA Osasuna",
   "startTime": 1793044800000,
@@ -22,21 +12,11 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997313",
-  "name": "Udinese Calcio - AC Milan",
-  "startTime": 1792957500000,
-  "dateStr": "2026-10-25",
-  "marketCount": 118,
-  "file": "serie-a-italy/2026-10-25_udinese-calcio-ac-milan_92997313.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92945369",
   "name": "US Sassuolo Calcio - SS Lazio",
   "startTime": 1793122200000,
   "dateStr": "2026-10-27",
-  "marketCount": 110,
+  "marketCount": 109,
   "file": "serie-a-italy/2026-10-27_us-sassuolo-calcio-ss-lazio_92945369.json"
  },
  {
