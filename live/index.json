@@ -26,7 +26,7 @@
   "name": "AS Roma - Cagliari Calcio",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 105,
+  "marketCount": 104,
   "file": "serie-a-italy/2026-10-27_as-roma-cagliari-calcio_92945264.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Torino FC - Como 1907",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 110,
+  "marketCount": 109,
   "file": "serie-a-italy/2026-10-27_torino-fc-como-1907_92945372.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Venezia FC - Inter Milan",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 75,
+  "marketCount": 76,
   "file": "serie-a-italy/2026-10-28_venezia-fc-inter-milan_92945073.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "AC Milan - Bologna FC",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 90,
+  "marketCount": 76,
   "file": "serie-a-italy/2026-10-28_ac-milan-bologna-fc_92945362.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Parma Calcio 1913 - Udinese Calcio",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 90,
+  "marketCount": 76,
   "file": "serie-a-italy/2026-10-28_parma-calcio-1913-udinese-calcio_92945375.json"
  },
  {
@@ -98,16 +98,6 @@
   "dateStr": "2026-10-26",
   "marketCount": 107,
   "file": "ligue-1/2026-10-26_paris-saint-germain-olympique-lyonnais_93960984.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024226",
-  "name": "Atlas FC - Club Puebla",
-  "startTime": 1792969200000,
-  "dateStr": "2026-10-26",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-26_atlas-fc-club-puebla_94024226.json"
  },
  {
   "league": "liga-mx",

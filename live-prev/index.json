@@ -26,7 +26,7 @@
   "name": "AS Roma - Cagliari Calcio",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 104,
+  "marketCount": 105,
   "file": "serie-a-italy/2026-10-27_as-roma-cagliari-calcio_92945264.json"
  },
  {
@@ -36,8 +36,58 @@
   "name": "Torino FC - Como 1907",
   "startTime": 1793130300000,
   "dateStr": "2026-10-27",
-  "marketCount": 109,
+  "marketCount": 110,
   "file": "serie-a-italy/2026-10-27_torino-fc-como-1907_92945372.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945073",
+  "name": "Venezia FC - Inter Milan",
+  "startTime": 1793208600000,
+  "dateStr": "2026-10-28",
+  "marketCount": 75,
+  "file": "serie-a-italy/2026-10-28_venezia-fc-inter-milan_92945073.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945362",
+  "name": "AC Milan - Bologna FC",
+  "startTime": 1793208600000,
+  "dateStr": "2026-10-28",
+  "marketCount": 90,
+  "file": "serie-a-italy/2026-10-28_ac-milan-bologna-fc_92945362.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945375",
+  "name": "Parma Calcio 1913 - Udinese Calcio",
+  "startTime": 1793208600000,
+  "dateStr": "2026-10-28",
+  "marketCount": 90,
+  "file": "serie-a-italy/2026-10-28_parma-calcio-1913-udinese-calcio_92945375.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945051",
+  "name": "Genoa CFC - Juventus FC",
+  "startTime": 1793216700000,
+  "dateStr": "2026-10-28",
+  "marketCount": 76,
+  "file": "serie-a-italy/2026-10-28_genoa-cfc-juventus-fc_92945051.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92945075",
+  "name": "AC Monza - SSC Napoli",
+  "startTime": 1793216700000,
+  "dateStr": "2026-10-28",
+  "marketCount": 76,
+  "file": "serie-a-italy/2026-10-28_ac-monza-ssc-napoli_92945075.json"
  },
  {
   "league": "ligue-1",
@@ -90,6 +140,16 @@
   "file": "liga-mx/2026-10-26_club-tijuana-santos-laguna_94024366.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94455687",
+  "name": "Club America - Club Tijuana",
+  "startTime": 1793242800000,
+  "dateStr": "2026-10-29",
+  "marketCount": 92,
+  "file": "liga-mx/2026-10-29_club-america-club-tijuana_94455687.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94090064",
@@ -108,5 +168,55 @@
   "dateStr": "2026-10-27",
   "marketCount": 107,
   "file": "serie-a-brazil/2026-10-27_flamengo-rj-clube-atletico-mg_94090065.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390359",
+  "name": "Fluminense RJ - Internacional RS",
+  "startTime": 1793226600000,
+  "dateStr": "2026-10-29",
+  "marketCount": 65,
+  "file": "serie-a-brazil/2026-10-29_fluminense-rj-internacional-rs_94390359.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390360",
+  "name": "Bragantino SP - Chapecoense SC",
+  "startTime": 1793226600000,
+  "dateStr": "2026-10-29",
+  "marketCount": 64,
+  "file": "serie-a-brazil/2026-10-29_bragantino-sp-chapecoense-sc_94390360.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390361",
+  "name": "Santos SP - Palmeiras SP",
+  "startTime": 1793226600000,
+  "dateStr": "2026-10-29",
+  "marketCount": 65,
+  "file": "serie-a-brazil/2026-10-29_santos-sp-palmeiras-sp_94390361.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390362",
+  "name": "Remo PA - Botafogo RJ",
+  "startTime": 1793233800000,
+  "dateStr": "2026-10-29",
+  "marketCount": 65,
+  "file": "serie-a-brazil/2026-10-29_remo-pa-botafogo-rj_94390362.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390363",
+  "name": "EC Bahia BA - Sao Paulo SP",
+  "startTime": 1793233800000,
+  "dateStr": "2026-10-29",
+  "marketCount": 65,
+  "file": "serie-a-brazil/2026-10-29_ec-bahia-ba-sao-paulo-sp_94390363.json"
  }
 ]
