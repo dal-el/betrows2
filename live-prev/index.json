@@ -102,16 +102,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94024366",
-  "name": "Club Tijuana - Santos Laguna",
-  "startTime": 1792983600000,
-  "dateStr": "2026-10-26",
-  "marketCount": 88,
-  "file": "liga-mx/2026-10-26_club-tijuana-santos-laguna_94024366.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94455687",
   "name": "Club America - Club Tijuana",
   "startTime": 1793242800000,
