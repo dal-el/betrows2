@@ -1,5 +1,25 @@
 [
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "94564025",
+  "name": "Sheffield United - Wrexham FC",
+  "startTime": 1793390400000,
+  "dateStr": "2026-10-30",
+  "marketCount": 65,
+  "file": "championship/2026-10-30_sheffield-united-wrexham-fc_94564025.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91668619",
+  "name": "Villarreal CF - RCD Espanyol",
+  "startTime": 1793390400000,
+  "dateStr": "2026-10-30",
+  "marketCount": 90,
+  "file": "la-liga/2026-10-30_villarreal-cf-rcd-espanyol_91668619.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "92945369",
@@ -80,6 +100,36 @@
   "file": "serie-a-italy/2026-10-28_ac-monza-ssc-napoli_92945075.json"
  },
  {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "91659120",
+  "name": "SV Elversberg - FSV Mainz 05",
+  "startTime": 1793388600000,
+  "dateStr": "2026-10-30",
+  "marketCount": 90,
+  "file": "bundesliga/2026-10-30_sv-elversberg-fsv-mainz-05_91659120.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "94333444",
+  "name": "Le Havre AC - Paris Saint-Germain",
+  "startTime": 1793383200000,
+  "dateStr": "2026-10-30",
+  "marketCount": 88,
+  "file": "ligue-1/2026-10-30_le-havre-ac-paris-saint-germain_94333444.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "94333520",
+  "name": "Lille OSC - RC Lens",
+  "startTime": 1793390700000,
+  "dateStr": "2026-10-30",
+  "marketCount": 69,
+  "file": "ligue-1/2026-10-30_lille-osc-rc-lens_94333520.json"
+ },
+ {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94455687",
@@ -106,7 +156,7 @@
   "name": "Flamengo RJ - Clube Atletico MG",
   "startTime": 1793055600000,
   "dateStr": "2026-10-27",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-27_flamengo-rj-clube-atletico-mg_94090065.json"
  },
  {
