@@ -46,7 +46,7 @@
   "name": "AC Milan - Bologna",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-10-28_ac-milan-bologna_14276251.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Parma - Udinese",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-10-28_parma-udinese_14276253.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Venezia - Inter Milan",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-10-28_venezia-inter-milan_14276258.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Frosinone - Lecce",
   "startTime": 1793295000000,
   "dateStr": "2026-10-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-10-29_frosinone-lecce_14276249.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Genoa - Juventus",
   "startTime": 1793216700000,
   "dateStr": "2026-10-28",
-  "marketCount": 6,
+  "marketCount": 14,
   "file": "serie-a-italy/2026-10-28_genoa-juventus_14276250.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Monza - Napoli",
   "startTime": 1793216700000,
   "dateStr": "2026-10-28",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-10-28_monza-napoli_14276252.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Fiorentina - Atalanta",
   "startTime": 1793303100000,
   "dateStr": "2026-10-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-10-29_fiorentina-atalanta_14276248.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Bragantino - Chapecoense",
   "startTime": 1793226600000,
   "dateStr": "2026-10-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-29_bragantino-chapecoense_14292478.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Bahia - Sao Paulo",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-10-29_bahia-sao-paulo_14292482.json"
  },
  {
