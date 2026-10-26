@@ -1,5 +1,25 @@
 [
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14321779",
+  "name": "Sheffield United - Wrexham",
+  "startTime": 1793390400000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "championship/2026-10-30_sheffield-united-wrexham_14321779.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14351078",
+  "name": "Villarreal - Espanyol",
+  "startTime": 1793390400000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "la-liga/2026-10-30_villarreal-espanyol_14351078.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14276254",
@@ -100,6 +120,36 @@
   "file": "serie-a-italy/2026-10-29_fiorentina-atalanta_14276248.json"
  },
  {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "14335399",
+  "name": "Elversberg - Mainz 05",
+  "startTime": 1793388600000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "bundesliga/2026-10-30_elversberg-mainz-05_14335399.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14335540",
+  "name": "Le Havre - Paris Saint-Germain",
+  "startTime": 1793383200000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "ligue-1/2026-10-30_le-havre-paris-saint-germain_14335540.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14335541",
+  "name": "Lille - Lens",
+  "startTime": 1793390700000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "ligue-1/2026-10-30_lille-lens_14335541.json"
+ },
+ {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15450315",
@@ -166,8 +216,28 @@
   "name": "Bahia - Sao Paulo",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-29_bahia-sao-paulo_14292482.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292465",
+  "name": "Vasco da Gama - Flamengo",
+  "startTime": 1793314800000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-30_vasco-da-gama-flamengo_14292465.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292479",
+  "name": "Atletico Mineiro - Cruzeiro",
+  "startTime": 1793313000000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-30_atletico-mineiro-cruzeiro_14292479.json"
  },
  {
   "league": "serie-a-brazil",
@@ -176,7 +246,17 @@
   "name": "Remo - Botafogo",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-29_remo-botafogo_14292483.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292480",
+  "name": "Gremio - Athletico PR",
+  "startTime": 1793320200000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-10-30_gremio-athletico-pr_14292480.json"
  }
 ]
