@@ -122,16 +122,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15404451",
-  "name": "Atlas - Puebla",
-  "startTime": 1792969200000,
-  "dateStr": "2026-10-26",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-26_atlas-puebla_15404451.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15404452",
   "name": "Club America - Pachuca",
   "startTime": 1792976400000,
