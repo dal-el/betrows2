@@ -1,15 +1,5 @@
 [
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14246837",
-  "name": "Sevilla - Osasuna",
-  "startTime": 1793044800000,
-  "dateStr": "2026-10-26",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-26_sevilla-osasuna_14246837.json"
- },
- {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14276254",
@@ -106,18 +96,8 @@
   "name": "Fiorentina - Atalanta",
   "startTime": 1793303100000,
   "dateStr": "2026-10-29",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-10-29_fiorentina-atalanta_14276248.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14246839",
-  "name": "Paris Saint-Germain - Lyon",
-  "startTime": 1793043000000,
-  "dateStr": "2026-10-26",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-26_paris-saint-germain-lyon_14246839.json"
  },
  {
   "league": "liga-mx",
