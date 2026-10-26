@@ -1,15 +1,5 @@
 [
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668528",
-  "name": "Sevilla FC - CA Osasuna",
-  "startTime": 1793044800000,
-  "dateStr": "2026-10-26",
-  "marketCount": 119,
-  "file": "la-liga/2026-10-26_sevilla-fc-ca-osasuna_91668528.json"
- },
- {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "92945369",
@@ -46,7 +36,7 @@
   "name": "Venezia FC - Inter Milan",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 110,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-28_venezia-fc-inter-milan_92945073.json"
  },
  {
@@ -66,7 +56,7 @@
   "name": "Parma Calcio 1913 - Udinese Calcio",
   "startTime": 1793208600000,
   "dateStr": "2026-10-28",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-10-28_parma-calcio-1913-udinese-calcio_92945375.json"
  },
  {
@@ -88,16 +78,6 @@
   "dateStr": "2026-10-28",
   "marketCount": 111,
   "file": "serie-a-italy/2026-10-28_ac-monza-ssc-napoli_92945075.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "93960984",
-  "name": "Paris Saint-Germain - Olympique Lyonnais",
-  "startTime": 1793043000000,
-  "dateStr": "2026-10-26",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-26_paris-saint-germain-olympique-lyonnais_93960984.json"
  },
  {
   "league": "liga-mx",
