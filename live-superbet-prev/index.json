@@ -122,26 +122,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15404452",
-  "name": "Club America - Pachuca",
-  "startTime": 1792976400000,
-  "dateStr": "2026-10-26",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-26_club-america-pachuca_15404452.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15404472",
-  "name": "Queretaro - Cruz Azul",
-  "startTime": 1792976400000,
-  "dateStr": "2026-10-26",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-26_queretaro-cruz-azul_15404472.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15404475",
   "name": "Tijuana - Santos Laguna",
   "startTime": 1792983600000,
