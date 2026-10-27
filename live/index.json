@@ -22,26 +22,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945264",
-  "name": "AS Roma - Cagliari Calcio",
-  "startTime": 1793130300000,
-  "dateStr": "2026-10-27",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-10-27_as-roma-cagliari-calcio_92945264.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945372",
-  "name": "Torino FC - Como 1907",
-  "startTime": 1793130300000,
-  "dateStr": "2026-10-27",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-10-27_torino-fc-como-1907_92945372.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92945073",
   "name": "Venezia FC - Inter Milan",
   "startTime": 1793208600000,
