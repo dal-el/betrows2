@@ -188,5 +188,35 @@
   "dateStr": "2026-10-29",
   "marketCount": 112,
   "file": "serie-a-brazil/2026-10-29_ec-bahia-ba-sao-paulo-sp_94390363.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390364",
+  "name": "Clube Atletico MG - Cruzeiro MG",
+  "startTime": 1793313000000,
+  "dateStr": "2026-10-30",
+  "marketCount": 112,
+  "file": "serie-a-brazil/2026-10-30_clube-atletico-mg-cruzeiro-mg_94390364.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390365",
+  "name": "Vasco da Gama RJ - Flamengo RJ",
+  "startTime": 1793314800000,
+  "dateStr": "2026-10-30",
+  "marketCount": 112,
+  "file": "serie-a-brazil/2026-10-30_vasco-da-gama-rj-flamengo-rj_94390365.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390366",
+  "name": "Gremio RS - Athletico PR",
+  "startTime": 1793320200000,
+  "dateStr": "2026-10-30",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-10-30_gremio-rs-athletico-pr_94390366.json"
  }
 ]
