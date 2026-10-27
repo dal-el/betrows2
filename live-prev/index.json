@@ -106,7 +106,7 @@
   "name": "SV Elversberg - FSV Mainz 05",
   "startTime": 1793388600000,
   "dateStr": "2026-10-30",
-  "marketCount": 90,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-30_sv-elversberg-fsv-mainz-05_91659120.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Remo PA - Botafogo RJ",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-29_remo-pa-botafogo-rj_94390362.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "EC Bahia BA - Sao Paulo SP",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-10-29_ec-bahia-ba-sao-paulo-sp_94390363.json"
  },
  {
