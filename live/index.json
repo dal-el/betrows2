@@ -106,7 +106,7 @@
   "name": "SV Elversberg - FSV Mainz 05",
   "startTime": 1793388600000,
   "dateStr": "2026-10-30",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "bundesliga/2026-10-30_sv-elversberg-fsv-mainz-05_91659120.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Le Havre AC - Paris Saint-Germain",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 68,
+  "marketCount": 75,
   "file": "ligue-1/2026-10-30_le-havre-ac-paris-saint-germain_94333444.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Lille OSC - RC Lens",
   "startTime": 1793390700000,
   "dateStr": "2026-10-30",
-  "marketCount": 69,
+  "marketCount": 76,
   "file": "ligue-1/2026-10-30_lille-osc-rc-lens_94333520.json"
  },
  {
