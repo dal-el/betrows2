@@ -162,26 +162,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246806",
-  "name": "Flamengo - Atletico Mineiro",
-  "startTime": 1793055600000,
-  "dateStr": "2026-10-27",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-27_flamengo-atletico-mineiro_14246806.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14246813",
-  "name": "Coritiba - Gremio",
-  "startTime": 1793053800000,
-  "dateStr": "2026-10-27",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-27_coritiba-gremio_14246813.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14292464",
   "name": "Fluminense - Internacional RS",
   "startTime": 1793226600000,
@@ -212,6 +192,16 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292479",
+  "name": "Atletico Mineiro - Cruzeiro",
+  "startTime": 1793313000000,
+  "dateStr": "2026-10-30",
+  "marketCount": 8,
+  "file": "serie-a-brazil/2026-10-30_atletico-mineiro-cruzeiro_14292479.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14292482",
   "name": "Bahia - Sao Paulo",
   "startTime": 1793233800000,
@@ -222,32 +212,22 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292465",
-  "name": "Vasco da Gama - Flamengo",
-  "startTime": 1793314800000,
-  "dateStr": "2026-10-30",
-  "marketCount": 6,
-  "file": "serie-a-brazil/2026-10-30_vasco-da-gama-flamengo_14292465.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292479",
-  "name": "Atletico Mineiro - Cruzeiro",
-  "startTime": 1793313000000,
-  "dateStr": "2026-10-30",
-  "marketCount": 6,
-  "file": "serie-a-brazil/2026-10-30_atletico-mineiro-cruzeiro_14292479.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14292483",
   "name": "Remo - Botafogo",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-10-29_remo-botafogo_14292483.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14292465",
+  "name": "Vasco da Gama - Flamengo",
+  "startTime": 1793314800000,
+  "dateStr": "2026-10-30",
+  "marketCount": 8,
+  "file": "serie-a-brazil/2026-10-30_vasco-da-gama-flamengo_14292465.json"
  },
  {
   "league": "serie-a-brazil",
