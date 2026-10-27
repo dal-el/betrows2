@@ -22,16 +22,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945369",
-  "name": "US Sassuolo Calcio - SS Lazio",
-  "startTime": 1793122200000,
-  "dateStr": "2026-10-27",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-10-27_us-sassuolo-calcio-ss-lazio_92945369.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92945264",
   "name": "AS Roma - Cagliari Calcio",
   "startTime": 1793130300000,
@@ -226,7 +216,7 @@
   "name": "Gremio RS - Athletico PR",
   "startTime": 1793320200000,
   "dateStr": "2026-10-30",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "serie-a-brazil/2026-10-30_gremio-rs-athletico-pr_94390366.json"
  }
 ]
