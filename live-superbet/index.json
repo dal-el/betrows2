@@ -150,6 +150,16 @@
   "file": "ligue-1/2026-10-30_lille-lens_14335541.json"
  },
  {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14335545",
+  "name": "Nice - Rennes",
+  "startTime": 1793383200000,
+  "dateStr": "2026-10-30",
+  "marketCount": 6,
+  "file": "ligue-1/2026-10-30_nice-rennes_14335545.json"
+ },
+ {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15450315",

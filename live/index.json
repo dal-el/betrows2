@@ -122,6 +122,16 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "94333518",
+  "name": "OGC Nice - Stade Rennais FC",
+  "startTime": 1793383200000,
+  "dateStr": "2026-10-30",
+  "marketCount": 69,
+  "file": "ligue-1/2026-10-30_ogc-nice-stade-rennais-fc_94333518.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "94333520",
   "name": "Lille OSC - RC Lens",
   "startTime": 1793390700000,
