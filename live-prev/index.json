@@ -80,6 +80,16 @@
   "file": "premier-league/2026-10-31_aston-villa-fulham_94273887.json"
  },
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "94273889",
+  "name": "Liverpool FC - Arsenal FC",
+  "startTime": 1793550600000,
+  "dateStr": "2026-11-01",
+  "marketCount": 127,
+  "file": "premier-league/2026-11-01_liverpool-fc-arsenal-fc_94273889.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "94564025",
@@ -270,6 +280,36 @@
   "file": "serie-a-italy/2026-10-29_ac-fiorentina-atalanta_92945001.json"
  },
  {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997314",
+  "name": "Bologna FC - AC Monza",
+  "startTime": 1793455200000,
+  "dateStr": "2026-10-31",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-10-31_bologna-fc-ac-monza_92997314.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997315",
+  "name": "Udinese Calcio - AS Roma",
+  "startTime": 1793466000000,
+  "dateStr": "2026-10-31",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-10-31_udinese-calcio-as-roma_92997315.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997316",
+  "name": "AC Milan - Inter Milan",
+  "startTime": 1793475900000,
+  "dateStr": "2026-10-31",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-10-31_ac-milan-inter-milan_92997316.json"
+ },
+ {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "91659120",
@@ -388,6 +428,46 @@
   "dateStr": "2026-10-31",
   "marketCount": 87,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos-piraeus_94337679.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "94337684",
+  "name": "Levadiakos - Aris Thessaloniki",
+  "startTime": 1793545200000,
+  "dateStr": "2026-11-01",
+  "marketCount": 89,
+  "file": "super-league-greece/2026-11-01_levadiakos-aris-thessaloniki_94337684.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "94337683",
+  "name": "Panaitolikos - OFI Crete",
+  "startTime": 1793548800000,
+  "dateStr": "2026-11-01",
+  "marketCount": 89,
+  "file": "super-league-greece/2026-11-01_panaitolikos-ofi-crete_94337683.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "94337682",
+  "name": "PAOK - Asteras Tripolis",
+  "startTime": 1793552400000,
+  "dateStr": "2026-11-01",
+  "marketCount": 87,
+  "file": "super-league-greece/2026-11-01_paok-asteras-tripolis_94337682.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "89190184",
+  "name": "Panathinaikos - AEK Athens",
+  "startTime": 1793554200000,
+  "dateStr": "2026-11-01",
+  "marketCount": 89,
+  "file": "super-league-greece/2026-11-01_panathinaikos-aek-athens_89190184.json"
  },
  {
   "league": "liga-mx",
