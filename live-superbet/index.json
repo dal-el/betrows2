@@ -226,7 +226,7 @@
   "name": "Villarreal - Espanyol",
   "startTime": 1793390400000,
   "dateStr": "2026-10-30",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-30_villarreal-espanyol_14351078.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "Le Havre - Paris Saint-Germain",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "ligue-1/2026-10-30_le-havre-paris-saint-germain_14335540.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Nice - Rennes",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "ligue-1/2026-10-30_nice-rennes_14335545.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Atletico Mineiro - Cruzeiro",
   "startTime": 1793313000000,
   "dateStr": "2026-10-30",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-30_atletico-mineiro-cruzeiro_14292479.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Vasco da Gama - Flamengo",
   "startTime": 1793314800000,
   "dateStr": "2026-10-30",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-30_vasco-da-gama-flamengo_14292465.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Gremio - Athletico PR",
   "startTime": 1793320200000,
   "dateStr": "2026-10-30",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-30_gremio-athletico-pr_14292480.json"
  },
  {

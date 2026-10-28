@@ -246,7 +246,7 @@
   "name": "FC Barcelona - Deportivo Alaves",
   "startTime": 1793476800000,
   "dateStr": "2026-10-31",
-  "marketCount": 89,
+  "marketCount": 88,
   "file": "la-liga/2026-10-31_fc-barcelona-deportivo-alaves_91668586.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Le Havre AC - Paris Saint-Germain",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 75,
+  "marketCount": 105,
   "file": "ligue-1/2026-10-30_le-havre-ac-paris-saint-germain_94333444.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "OGC Nice - Stade Rennais FC",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "ligue-1/2026-10-30_ogc-nice-stade-rennais-fc_94333518.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Lille OSC - RC Lens",
   "startTime": 1793390700000,
   "dateStr": "2026-10-30",
-  "marketCount": 76,
+  "marketCount": 105,
   "file": "ligue-1/2026-10-30_lille-osc-rc-lens_94333520.json"
  },
  {
