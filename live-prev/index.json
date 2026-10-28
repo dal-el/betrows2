@@ -252,26 +252,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945051",
-  "name": "Genoa CFC - Juventus FC",
-  "startTime": 1793216700000,
-  "dateStr": "2026-10-28",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-28_genoa-cfc-juventus-fc_92945051.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945075",
-  "name": "AC Monza - SSC Napoli",
-  "startTime": 1793216700000,
-  "dateStr": "2026-10-28",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-28_ac-monza-ssc-napoli_92945075.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92945238",
   "name": "Frosinone - US Lecce",
   "startTime": 1793295000000,
@@ -366,7 +346,7 @@
   "name": "Le Havre AC - Paris Saint-Germain",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 111,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-30_le-havre-ac-paris-saint-germain_94333444.json"
  },
  {

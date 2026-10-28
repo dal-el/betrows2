@@ -206,7 +206,7 @@
   "name": "Villarreal CF - RCD Espanyol",
   "startTime": 1793390400000,
   "dateStr": "2026-10-30",
-  "marketCount": 103,
+  "marketCount": 108,
   "file": "la-liga/2026-10-30_villarreal-cf-rcd-espanyol_91668619.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "FC Barcelona - Deportivo Alaves",
   "startTime": 1793476800000,
   "dateStr": "2026-10-31",
-  "marketCount": 107,
+  "marketCount": 103,
   "file": "la-liga/2026-10-31_fc-barcelona-deportivo-alaves_91668586.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "ES Troyes AC - Le Mans UC 72",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-31_es-troyes-ac-le-mans-uc-72_94333522.json"
  },
  {
@@ -436,7 +436,7 @@
   "name": "Fluminense RJ - Internacional RS",
   "startTime": 1793226600000,
   "dateStr": "2026-10-29",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-29_fluminense-rj-internacional-rs_94390359.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Bragantino SP - Chapecoense SC",
   "startTime": 1793226600000,
   "dateStr": "2026-10-29",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-29_bragantino-sp-chapecoense-sc_94390360.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "Santos SP - Palmeiras SP",
   "startTime": 1793226600000,
   "dateStr": "2026-10-29",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-29_santos-sp-palmeiras-sp_94390361.json"
  },
  {
