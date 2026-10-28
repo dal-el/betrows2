@@ -396,7 +396,7 @@
   "name": "Le Havre AC - Paris Saint-Germain",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 105,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-30_le-havre-ac-paris-saint-germain_94333444.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "OGC Nice - Stade Rennais FC",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 108,
+  "marketCount": 112,
   "file": "ligue-1/2026-10-30_ogc-nice-stade-rennais-fc_94333518.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Lille OSC - RC Lens",
   "startTime": 1793390700000,
   "dateStr": "2026-10-30",
-  "marketCount": 105,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-30_lille-osc-rc-lens_94333520.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "ES Troyes AC - Le Mans UC 72",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 69,
+  "marketCount": 112,
   "file": "ligue-1/2026-10-31_es-troyes-ac-le-mans-uc-72_94333522.json"
  },
  {

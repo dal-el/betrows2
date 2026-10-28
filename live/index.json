@@ -16,7 +16,7 @@
   "name": "AFC Bournemouth - Leeds United",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-31_afc-bournemouth-leeds-united_94273880.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Coventry City - Sunderland",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-31_coventry-city-sunderland_94273883.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Tottenham Hotspur - Crystal Palace FC",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-31_tottenham-hotspur-crystal-palace-fc_94273881.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Sheffield United - Wrexham FC",
   "startTime": 1793390400000,
   "dateStr": "2026-10-30",
-  "marketCount": 87,
+  "marketCount": 92,
   "file": "championship/2026-10-30_sheffield-united-wrexham-fc_94564025.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "SV Elversberg - FSV Mainz 05",
   "startTime": 1793388600000,
   "dateStr": "2026-10-30",
-  "marketCount": 103,
+  "marketCount": 108,
   "file": "bundesliga/2026-10-30_sv-elversberg-fsv-mainz-05_91659120.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Le Havre AC - Paris Saint-Germain",
   "startTime": 1793383200000,
   "dateStr": "2026-10-30",
-  "marketCount": 107,
+  "marketCount": 111,
   "file": "ligue-1/2026-10-30_le-havre-ac-paris-saint-germain_94333444.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Lille OSC - RC Lens",
   "startTime": 1793390700000,
   "dateStr": "2026-10-30",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "ligue-1/2026-10-30_lille-osc-rc-lens_94333520.json"
  },
  {
