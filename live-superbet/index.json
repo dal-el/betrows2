@@ -6,7 +6,7 @@
   "name": "Bournemouth - Leeds United",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-31_bournemouth-leeds-united_14335448.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Brentford - Nottingham Forest",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-31_brentford-nottingham-forest_14335449.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Coventry City - Sunderland",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-31_coventry-city-sunderland_14335451.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Hull City - Ipswich",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-31_hull-city-ipswich_14335453.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Manchester City - Brighton",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-31_manchester-city-brighton_14335455.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Bayer Leverkusen - VfB Stuttgart",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-31_bayer-leverkusen-vfb-stuttgart_14335392.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Augsburg - Freiburg",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-31_augsburg-freiburg_14335394.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "Borussia Mönchengladbach - Paderborn",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-31_borussia-monchengladbach-paderborn_14335396.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Werder Bremen - TSG Hoffenheim",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-31_werder-bremen-tsg-hoffenheim_14335397.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "Schalke - RB Leipzig",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-10-31_schalke-rb-leipzig_14335398.json"
  },
  {
