@@ -76,7 +76,7 @@
   "name": "Tottenham - Crystal Palace",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "premier-league/2026-10-31_tottenham-crystal-palace_14335457.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Levante - Atletico Madrid",
   "startTime": 1793451600000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-31_levante-atletico-madrid_14351075.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Rayo Vallecano - Celta Vigo",
   "startTime": 1793459700000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-31_rayo-vallecano-celta-vigo_14351077.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Betis - Malaga",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-10-31_betis-malaga_14351042.json"
  },
  {
@@ -248,36 +248,6 @@
   "dateStr": "2026-10-31",
   "marketCount": 6,
   "file": "la-liga/2026-10-31_barcelona-alaves_14351073.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14276251",
-  "name": "AC Milan - Bologna",
-  "startTime": 1793208600000,
-  "dateStr": "2026-10-28",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-28_ac-milan-bologna_14276251.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14276253",
-  "name": "Parma - Udinese",
-  "startTime": 1793208600000,
-  "dateStr": "2026-10-28",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-28_parma-udinese_14276253.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14276258",
-  "name": "Venezia - Inter Milan",
-  "startTime": 1793208600000,
-  "dateStr": "2026-10-28",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-10-28_venezia-inter-milan_14276258.json"
  },
  {
   "league": "serie-a-italy",
@@ -356,7 +326,7 @@
   "name": "Bayer Leverkusen - VfB Stuttgart",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-31_bayer-leverkusen-vfb-stuttgart_14335392.json"
  },
  {
@@ -366,7 +336,7 @@
   "name": "Augsburg - Freiburg",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-31_augsburg-freiburg_14335394.json"
  },
  {
@@ -386,7 +356,7 @@
   "name": "Borussia Mönchengladbach - Paderborn",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-31_borussia-monchengladbach-paderborn_14335396.json"
  },
  {
@@ -396,7 +366,7 @@
   "name": "Werder Bremen - TSG Hoffenheim",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-31_werder-bremen-tsg-hoffenheim_14335397.json"
  },
  {
@@ -406,7 +376,7 @@
   "name": "Schalke - RB Leipzig",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-31_schalke-rb-leipzig_14335398.json"
  },
  {
@@ -416,7 +386,7 @@
   "name": "Bayern Munich - Borussia Dortmund",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-10-31_bayern-munich-borussia-dortmund_14335391.json"
  },
  {
@@ -486,7 +456,7 @@
   "name": "Atletico San Luis - Atlas",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-10-31_atletico-san-luis-atlas_15481256.json"
  },
  {
@@ -496,7 +466,7 @@
   "name": "Juarez - Queretaro",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-10-31_juarez-queretaro_15481257.json"
  },
  {
@@ -506,7 +476,7 @@
   "name": "Puebla - UNAM Pumas",
   "startTime": 1793415600000,
   "dateStr": "2026-10-31",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-10-31_puebla-unam-pumas_15481287.json"
  },
  {
