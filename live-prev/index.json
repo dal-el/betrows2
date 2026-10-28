@@ -6,7 +6,7 @@
   "name": "Chelsea FC - Manchester United",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-31_chelsea-fc-manchester-united_94273884.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Manchester City - Brighton & Hove Albion",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-10-31_manchester-city-brighton-hove-albion_94273882.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Stoke City - Preston",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-10-31_stoke-city-preston_94563968.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Norwich City - Watford FC",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-10-31_norwich-city-watford-fc_94564099.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Lincoln City - Birmingham",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-10-31_lincoln-city-birmingham_94564107.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Middlesbrough FC - Charlton",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 92,
+  "marketCount": 88,
   "file": "championship/2026-10-31_middlesbrough-fc-charlton_94563966.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Millwall FC - Derby County",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 73,
   "file": "championship/2026-10-31_millwall-fc-derby-county_94563967.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Bolton - Bristol City",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-31_bolton-bristol-city_94564098.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Wolverhampton Wanderers - Cardiff City",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-10-31_wolverhampton-wanderers-cardiff-city_94564100.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Southampton FC - Queens Park Rangers",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-10-31_southampton-fc-queens-park-rangers_94564104.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Burnley FC - Portsmouth FC",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-10-31_burnley-fc-portsmouth-fc_94564105.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "West Ham United - West Bromwich Albion",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 92,
+  "marketCount": 87,
   "file": "championship/2026-10-31_west-ham-united-west-bromwich-albion_94564108.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "Swansea City - Blackburn Rovers",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-10-31_swansea-city-blackburn-rovers_94564119.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Villarreal CF - RCD Espanyol",
   "startTime": 1793390400000,
   "dateStr": "2026-10-30",
-  "marketCount": 76,
+  "marketCount": 103,
   "file": "la-liga/2026-10-30_villarreal-cf-rcd-espanyol_91668619.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Levante UD - Atletico Madrid",
   "startTime": 1793451600000,
   "dateStr": "2026-10-31",
-  "marketCount": 90,
+  "marketCount": 103,
   "file": "la-liga/2026-10-31_levante-ud-atletico-madrid_91668601.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "Rayo Vallecano - RC Celta de Vigo",
   "startTime": 1793459700000,
   "dateStr": "2026-10-31",
-  "marketCount": 90,
+  "marketCount": 103,
   "file": "la-liga/2026-10-31_rayo-vallecano-rc-celta-de-vigo_91668621.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Real Betis Balompie - Malaga CF",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 90,
+  "marketCount": 103,
   "file": "la-liga/2026-10-31_real-betis-balompie-malaga-cf_91668600.json"
  },
  {
@@ -246,38 +246,8 @@
   "name": "FC Barcelona - Deportivo Alaves",
   "startTime": 1793476800000,
   "dateStr": "2026-10-31",
-  "marketCount": 88,
+  "marketCount": 107,
   "file": "la-liga/2026-10-31_fc-barcelona-deportivo-alaves_91668586.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945073",
-  "name": "Venezia FC - Inter Milan",
-  "startTime": 1793208600000,
-  "dateStr": "2026-10-28",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-28_venezia-fc-inter-milan_92945073.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945362",
-  "name": "AC Milan - Bologna FC",
-  "startTime": 1793208600000,
-  "dateStr": "2026-10-28",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-28_ac-milan-bologna-fc_92945362.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92945375",
-  "name": "Parma Calcio 1913 - Udinese Calcio",
-  "startTime": 1793208600000,
-  "dateStr": "2026-10-28",
-  "marketCount": 106,
-  "file": "serie-a-italy/2026-10-28_parma-calcio-1913-udinese-calcio_92945375.json"
  },
  {
   "league": "serie-a-italy",
@@ -386,7 +356,7 @@
   "name": "FC Bayern Munchen - Borussia Dortmund",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "bundesliga/2026-10-31_fc-bayern-munchen-borussia-dortmund_91659475.json"
  },
  {
@@ -456,7 +426,7 @@
   "name": "Atletico San Luis - Atlas FC",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 92,
+  "marketCount": 79,
   "file": "liga-mx/2026-10-31_atletico-san-luis-atlas-fc_94455729.json"
  },
  {
@@ -466,7 +436,7 @@
   "name": "FC Juarez - Queretaro FC",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 92,
+  "marketCount": 94,
   "file": "liga-mx/2026-10-31_fc-juarez-queretaro-fc_94525984.json"
  },
  {
@@ -476,7 +446,7 @@
   "name": "Club Puebla - UNAM Pumas",
   "startTime": 1793415600000,
   "dateStr": "2026-10-31",
-  "marketCount": 92,
+  "marketCount": 94,
   "file": "liga-mx/2026-10-31_club-puebla-unam-pumas_94455702.json"
  },
  {
