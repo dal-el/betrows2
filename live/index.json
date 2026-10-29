@@ -500,6 +500,46 @@
   "file": "liga-mx/2026-10-31_club-puebla-unam-pumas_94455702.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94473955",
+  "name": "CF Pachuca - CF Tigres UANL",
+  "startTime": 1793487600000,
+  "dateStr": "2026-11-01",
+  "marketCount": 89,
+  "file": "liga-mx/2026-11-01_cf-pachuca-cf-tigres-uanl_94473955.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94474007",
+  "name": "CF Monterrey - Club Tijuana",
+  "startTime": 1793495100000,
+  "dateStr": "2026-11-01",
+  "marketCount": 89,
+  "file": "liga-mx/2026-11-01_cf-monterrey-club-tijuana_94474007.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94473987",
+  "name": "Guadalajara Chivas - Atlante FC",
+  "startTime": 1793495220000,
+  "dateStr": "2026-11-01",
+  "marketCount": 89,
+  "file": "liga-mx/2026-11-01_guadalajara-chivas-atlante-fc_94473987.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94474008",
+  "name": "Club America - Deportivo Toluca FC",
+  "startTime": 1793502600000,
+  "dateStr": "2026-11-01",
+  "marketCount": 89,
+  "file": "liga-mx/2026-11-01_club-america-deportivo-toluca-fc_94474008.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94390364",
