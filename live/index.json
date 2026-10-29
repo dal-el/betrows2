@@ -266,7 +266,7 @@
   "name": "Frosinone - US Lecce",
   "startTime": 1793295000000,
   "dateStr": "2026-10-29",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-29_frosinone-us-lecce_92945238.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "Kifisia - Olympiacos Piraeus",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 87,
+  "marketCount": 89,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos-piraeus_94337679.json"
  },
  {
@@ -436,7 +436,7 @@
   "name": "Levadiakos - Aris Thessaloniki",
   "startTime": 1793545200000,
   "dateStr": "2026-11-01",
-  "marketCount": 89,
+  "marketCount": 90,
   "file": "super-league-greece/2026-11-01_levadiakos-aris-thessaloniki_94337684.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Panaitolikos - OFI Crete",
   "startTime": 1793548800000,
   "dateStr": "2026-11-01",
-  "marketCount": 89,
+  "marketCount": 70,
   "file": "super-league-greece/2026-11-01_panaitolikos-ofi-crete_94337683.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "PAOK - Asteras Tripolis",
   "startTime": 1793552400000,
   "dateStr": "2026-11-01",
-  "marketCount": 87,
+  "marketCount": 69,
   "file": "super-league-greece/2026-11-01_paok-asteras-tripolis_94337682.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "Panathinaikos - AEK Athens",
   "startTime": 1793554200000,
   "dateStr": "2026-11-01",
-  "marketCount": 89,
+  "marketCount": 70,
   "file": "super-league-greece/2026-11-01_panathinaikos-aek-athens_89190184.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "Atletico San Luis - Atlas FC",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 79,
+  "marketCount": 89,
   "file": "liga-mx/2026-10-31_atletico-san-luis-atlas-fc_94455729.json"
  },
  {
@@ -486,7 +486,7 @@
   "name": "FC Juarez - Queretaro FC",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 94,
+  "marketCount": 89,
   "file": "liga-mx/2026-10-31_fc-juarez-queretaro-fc_94525984.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Club Puebla - UNAM Pumas",
   "startTime": 1793415600000,
   "dateStr": "2026-10-31",
-  "marketCount": 94,
+  "marketCount": 89,
   "file": "liga-mx/2026-10-31_club-puebla-unam-pumas_94455702.json"
  },
  {
