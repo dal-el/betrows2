@@ -622,16 +622,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15450315",
-  "name": "Club America - Tijuana",
-  "startTime": 1793242800000,
-  "dateStr": "2026-10-29",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-29_club-america-tijuana_15450315.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15481256",
   "name": "Atletico San Luis - Atlas",
   "startTime": 1793408400000,
@@ -696,7 +686,7 @@
   "name": "Club America - Deportivo Toluca",
   "startTime": 1793502600000,
   "dateStr": "2026-11-01",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-11-01_club-america-deportivo-toluca_15499899.json"
  },
  {

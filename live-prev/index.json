@@ -472,16 +472,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94455687",
-  "name": "Club America - Club Tijuana",
-  "startTime": 1793242800000,
-  "dateStr": "2026-10-29",
-  "marketCount": 89,
-  "file": "liga-mx/2026-10-29_club-america-club-tijuana_94455687.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94455729",
   "name": "Atletico San Luis - Atlas FC",
   "startTime": 1793408400000,
@@ -538,5 +528,25 @@
   "dateStr": "2026-10-30",
   "marketCount": 107,
   "file": "serie-a-brazil/2026-10-30_gremio-rs-athletico-pr_94390366.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390367",
+  "name": "Corinthians SP - Mirassol SP",
+  "startTime": 1793401200000,
+  "dateStr": "2026-10-31",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-10-31_corinthians-sp-mirassol-sp_94390367.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94390368",
+  "name": "Coritiba PR - Vitoria BA",
+  "startTime": 1793473200000,
+  "dateStr": "2026-10-31",
+  "marketCount": 112,
+  "file": "serie-a-brazil/2026-10-31_coritiba-pr-vitoria-ba_94390368.json"
  }
 ]
