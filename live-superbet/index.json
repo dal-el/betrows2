@@ -6,7 +6,7 @@
   "name": "Bournemouth - Leeds United",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 23,
+  "marketCount": 22,
   "file": "premier-league/2026-10-31_bournemouth-leeds-united_14335448.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Bologna - Monza",
   "startTime": 1793455200000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-italy/2026-10-31_bologna-monza_14335414.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "AC Milan - Inter Milan",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-italy/2026-10-31_ac-milan-inter-milan_14335420.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Udinese - AS Roma",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-italy/2026-10-31_udinese-as-roma_14335422.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Atletico San Luis - Atlas",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-31_atletico-san-luis-atlas_15481256.json"
  },
  {
@@ -636,7 +636,7 @@
   "name": "Juarez - Queretaro",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-31_juarez-queretaro_15481257.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Puebla - UNAM Pumas",
   "startTime": 1793415600000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-10-31_puebla-unam-pumas_15481287.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Corinthians - Mirassol",
   "startTime": 1793401200000,
   "dateStr": "2026-10-31",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-10-31_corinthians-mirassol_14292477.json"
  },
  {
