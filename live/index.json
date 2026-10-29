@@ -512,26 +512,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390362",
-  "name": "Remo PA - Botafogo RJ",
-  "startTime": 1793233800000,
-  "dateStr": "2026-10-29",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-29_remo-pa-botafogo-rj_94390362.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390363",
-  "name": "EC Bahia BA - Sao Paulo SP",
-  "startTime": 1793233800000,
-  "dateStr": "2026-10-29",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-29_ec-bahia-ba-sao-paulo-sp_94390363.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94390364",
   "name": "Clube Atletico MG - Cruzeiro MG",
   "startTime": 1793313000000,
