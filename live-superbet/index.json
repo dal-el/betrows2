@@ -706,7 +706,7 @@
   "name": "Pachuca - UANL Tigres",
   "startTime": 1793487600000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-11-01_pachuca-uanl-tigres_15499782.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Monterrey - Tijuana",
   "startTime": 1793495100000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-11-01_monterrey-tijuana_15499834.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Guadalajara - Atlante",
   "startTime": 1793495220000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 9,
   "file": "liga-mx/2026-11-01_guadalajara-atlante_15499888.json"
  },
  {
@@ -746,7 +746,7 @@
   "name": "Santos Laguna - Necaxa",
   "startTime": 1793574000000,
   "dateStr": "2026-11-02",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-11-02_santos-laguna-necaxa_15501821.json"
  },
  {
@@ -762,22 +762,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292465",
-  "name": "Vasco da Gama - Flamengo",
-  "startTime": 1793314800000,
-  "dateStr": "2026-10-30",
+  "eventId": "14292477",
+  "name": "Corinthians - Mirassol",
+  "startTime": 1793401200000,
+  "dateStr": "2026-10-31",
   "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-30_vasco-da-gama-flamengo_14292465.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292479",
-  "name": "Atletico Mineiro - Cruzeiro",
-  "startTime": 1793313000000,
-  "dateStr": "2026-10-30",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-30_atletico-mineiro-cruzeiro_14292479.json"
+  "file": "serie-a-brazil/2026-10-31_corinthians-mirassol_14292477.json"
  },
  {
   "league": "serie-a-brazil",
@@ -788,16 +778,6 @@
   "dateStr": "2026-10-30",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-10-30_gremio-athletico-pr_14292480.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292477",
-  "name": "Corinthians - Mirassol",
-  "startTime": 1793401200000,
-  "dateStr": "2026-10-31",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-31_corinthians-mirassol_14292477.json"
  },
  {
   "league": "serie-a-brazil",
