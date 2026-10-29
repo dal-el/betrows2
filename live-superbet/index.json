@@ -156,7 +156,7 @@
   "name": "Middlesbrough - Charlton Athletic",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_middlesbrough-charlton-athletic_14335460.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Millwall - Derby County",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_millwall-derby-county_14335461.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Southampton - Queens Park Rangers",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_southampton-queens-park-rangers_14335462.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Kifisia - Olympiacos",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos_15439009.json"
  },
  {
