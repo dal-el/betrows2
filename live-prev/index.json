@@ -512,41 +512,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390359",
-  "name": "Fluminense RJ - Internacional RS",
-  "startTime": 1793226600000,
-  "dateStr": "2026-10-29",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-29_fluminense-rj-internacional-rs_94390359.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390360",
-  "name": "Bragantino SP - Chapecoense SC",
-  "startTime": 1793226600000,
-  "dateStr": "2026-10-29",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-29_bragantino-sp-chapecoense-sc_94390360.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390361",
-  "name": "Santos SP - Palmeiras SP",
-  "startTime": 1793226600000,
-  "dateStr": "2026-10-29",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-29_santos-sp-palmeiras-sp_94390361.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94390362",
   "name": "Remo PA - Botafogo RJ",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-29_remo-pa-botafogo-rj_94390362.json"
  },
  {
@@ -556,7 +526,7 @@
   "name": "EC Bahia BA - Sao Paulo SP",
   "startTime": 1793233800000,
   "dateStr": "2026-10-29",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-29_ec-bahia-ba-sao-paulo-sp_94390363.json"
  },
  {
