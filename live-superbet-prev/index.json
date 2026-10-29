@@ -186,7 +186,7 @@
   "name": "Swansea City - Blackburn Rovers",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_swansea-city-blackburn-rovers_14335463.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "West Ham - West Bromwich Albion",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_west-ham-west-bromwich-albion_14335464.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Wolves - Cardiff City",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_wolves-cardiff-city_14335465.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Villarreal - Espanyol",
   "startTime": 1793390400000,
   "dateStr": "2026-10-30",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-10-30_villarreal-espanyol_14351078.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Levadiakos - Aris",
   "startTime": 1793545200000,
   "dateStr": "2026-11-01",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-01_levadiakos-aris_15439015.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Panetolikos - OFI",
   "startTime": 1793548800000,
   "dateStr": "2026-11-01",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-01_panetolikos-ofi_15439017.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "PAOK - Asteras Tripolis",
   "startTime": 1793552400000,
   "dateStr": "2026-11-01",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-01_paok-asteras-tripolis_15439028.json"
  },
  {

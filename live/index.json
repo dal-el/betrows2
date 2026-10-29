@@ -46,7 +46,7 @@
   "name": "Brentford FC - Nottingham Forest",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-10-31_brentford-fc-nottingham-forest_94273885.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Hull City - Ipswich Town",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-10-31_hull-city-ipswich-town_94273886.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Aston Villa - Fulham",
   "startTime": 1793476800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-10-31_aston-villa-fulham_94273887.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Rayo Vallecano - RC Celta de Vigo",
   "startTime": 1793459700000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "la-liga/2026-10-31_rayo-vallecano-rc-celta-de-vigo_91668621.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "FC Schalke 04 - RB Leipzig",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "bundesliga/2026-10-31_fc-schalke-04-rb-leipzig_91659121.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Werder Bremen - TSG 1899 Hoffenheim",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "bundesliga/2026-10-31_werder-bremen-tsg-1899-hoffenheim_91659122.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "Borussia Monchengladbach - SC Paderborn 07",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "bundesliga/2026-10-31_borussia-monchengladbach-sc-paderborn-07_91659123.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Bayer 04 Leverkusen - VfB Stuttgart",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "bundesliga/2026-10-31_bayer-04-leverkusen-vfb-stuttgart_91659346.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "FC Augsburg - SC Freiburg",
   "startTime": 1793457000000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "bundesliga/2026-10-31_fc-augsburg-sc-freiburg_91659347.json"
  },
  {
