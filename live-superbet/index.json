@@ -96,7 +96,7 @@
   "name": "Sheffield United - Wrexham",
   "startTime": 1793390400000,
   "dateStr": "2026-10-30",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "championship/2026-10-30_sheffield-united-wrexham_14321779.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Lincoln City - Birmingham City",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "championship/2026-10-31_lincoln-city-birmingham-city_14335410.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Kifisia - Olympiacos",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos_15439009.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Levadiakos - Aris",
   "startTime": 1793545200000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-01_levadiakos-aris_15439015.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Panetolikos - OFI",
   "startTime": 1793548800000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-01_panetolikos-ofi_15439017.json"
  },
  {
