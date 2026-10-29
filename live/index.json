@@ -290,6 +290,56 @@
   "file": "serie-a-italy/2026-10-31_ac-milan-inter-milan_92997316.json"
  },
  {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997317",
+  "name": "Como 1907 - Venezia FC",
+  "startTime": 1793532600000,
+  "dateStr": "2026-11-01",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-11-01_como-1907-venezia-fc_92997317.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997318",
+  "name": "Frosinone - Torino FC",
+  "startTime": 1793541600000,
+  "dateStr": "2026-11-01",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-11-01_frosinone-torino-fc_92997318.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997319",
+  "name": "SS Lazio - Cagliari Calcio",
+  "startTime": 1793541600000,
+  "dateStr": "2026-11-01",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-11-01_ss-lazio-cagliari-calcio_92997319.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997321",
+  "name": "US Lecce - Genoa CFC",
+  "startTime": 1793552400000,
+  "dateStr": "2026-11-01",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-11-01_us-lecce-genoa-cfc_92997321.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997322",
+  "name": "Juventus FC - SSC Napoli",
+  "startTime": 1793562300000,
+  "dateStr": "2026-11-01",
+  "marketCount": 104,
+  "file": "serie-a-italy/2026-11-01_juventus-fc-ssc-napoli_92997322.json"
+ },
+ {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "91659120",
@@ -536,7 +586,7 @@
   "name": "Vasco da Gama RJ - Flamengo RJ",
   "startTime": 1793314800000,
   "dateStr": "2026-10-30",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-10-30_vasco-da-gama-rj-flamengo-rj_94390365.json"
  },
  {
