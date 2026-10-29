@@ -16,7 +16,7 @@
   "name": "AFC Bournemouth - Leeds United",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-10-31_afc-bournemouth-leeds-united_94273880.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Coventry City - Sunderland",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-10-31_coventry-city-sunderland_94273883.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Tottenham Hotspur - Crystal Palace FC",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-10-31_tottenham-hotspur-crystal-palace-fc_94273881.json"
  },
  {
@@ -506,7 +506,7 @@
   "name": "CF Pachuca - CF Tigres UANL",
   "startTime": 1793487600000,
   "dateStr": "2026-11-01",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-01_cf-pachuca-cf-tigres-uanl_94473955.json"
  },
  {
@@ -516,7 +516,7 @@
   "name": "CF Monterrey - Club Tijuana",
   "startTime": 1793495100000,
   "dateStr": "2026-11-01",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-01_cf-monterrey-club-tijuana_94474007.json"
  },
  {
@@ -526,7 +526,7 @@
   "name": "Guadalajara Chivas - Atlante FC",
   "startTime": 1793495220000,
   "dateStr": "2026-11-01",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-01_guadalajara-chivas-atlante-fc_94473987.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "Club America - Deportivo Toluca FC",
   "startTime": 1793502600000,
   "dateStr": "2026-11-01",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-01_club-america-deportivo-toluca-fc_94474008.json"
  },
  {

@@ -6,7 +6,7 @@
   "name": "Bournemouth - Leeds United",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 22,
+  "marketCount": 23,
   "file": "premier-league/2026-10-31_bournemouth-leeds-united_14335448.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Lincoln City - Birmingham City",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "championship/2026-10-31_lincoln-city-birmingham-city_14335410.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Norwich City - Watford",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_norwich-city-watford_14335411.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Stoke City - Preston North End",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_stoke-city-preston-north-end_14335412.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Bolton Wanderers - Bristol City",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_bolton-wanderers-bristol-city_14335458.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Burnley - Portsmouth",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "championship/2026-10-31_burnley-portsmouth_14335459.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "PAOK - Asteras Tripolis",
   "startTime": 1793552400000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-01_paok-asteras-tripolis_15439028.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "Panathinaikos - AEK",
   "startTime": 1793554200000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-01_panathinaikos-aek_15439029.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Atletico San Luis - Atlas",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-31_atletico-san-luis-atlas_15481256.json"
  },
  {
@@ -636,7 +636,7 @@
   "name": "Juarez - Queretaro",
   "startTime": 1793408400000,
   "dateStr": "2026-10-31",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-31_juarez-queretaro_15481257.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Puebla - UNAM Pumas",
   "startTime": 1793415600000,
   "dateStr": "2026-10-31",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-10-31_puebla-unam-pumas_15481287.json"
  },
  {
