@@ -210,6 +210,96 @@
   "file": "championship/2026-10-31_wolves-cardiff-city_14335465.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380373",
+  "name": "Blackburn Rovers - Stoke City",
+  "startTime": 1793735100000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_blackburn-rovers-stoke-city_14380373.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380374",
+  "name": "Derby County - Norwich City",
+  "startTime": 1793735100000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_derby-county-norwich-city_14380374.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380375",
+  "name": "Portsmouth - Swansea City",
+  "startTime": 1793735100000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_portsmouth-swansea-city_14380375.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380376",
+  "name": "Preston North End - Sheffield United",
+  "startTime": 1793735100000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_preston-north-end-sheffield-united_14380376.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380377",
+  "name": "Queens Park Rangers - Burnley",
+  "startTime": 1793735100000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_queens-park-rangers-burnley_14380377.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380378",
+  "name": "Watford - Lincoln City",
+  "startTime": 1793735100000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_watford-lincoln-city_14380378.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380379",
+  "name": "Charlton Athletic - Bolton Wanderers",
+  "startTime": 1793735100000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_charlton-athletic-bolton-wanderers_14380379.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380372",
+  "name": "Birmingham City - Millwall",
+  "startTime": 1793736000000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_birmingham-city-millwall_14380372.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14380380",
+  "name": "West Bromwich Albion - Southampton",
+  "startTime": 1793736000000,
+  "dateStr": "2026-11-03",
+  "marketCount": 3,
+  "file": "championship/2026-11-03_west-bromwich-albion-southampton_14380380.json"
+ },
+ {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14351042",
@@ -718,5 +808,15 @@
   "dateStr": "2026-10-31",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-10-31_coritiba-vitoria-ba_14292481.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14395785",
+  "name": "Bragantino - Santos",
+  "startTime": 1793660400000,
+  "dateStr": "2026-11-03",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-03_bragantino-santos_14395785.json"
  }
 ]

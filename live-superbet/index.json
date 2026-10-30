@@ -792,16 +792,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292477",
-  "name": "Corinthians - Mirassol",
-  "startTime": 1793401200000,
-  "dateStr": "2026-10-31",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-31_corinthians-mirassol_14292477.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14292481",
   "name": "Coritiba - Vitoria BA",
   "startTime": 1793473200000,
@@ -816,7 +806,7 @@
   "name": "Bragantino - Santos",
   "startTime": 1793660400000,
   "dateStr": "2026-11-03",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-03_bragantino-santos_14395785.json"
  }
 ]
