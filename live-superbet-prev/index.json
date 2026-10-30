@@ -756,7 +756,7 @@
   "name": "Cruz Azul - Club Leon",
   "startTime": 1793581800000,
   "dateStr": "2026-11-02",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-11-02_cruz-azul-club-leon_15515525.json"
  },
  {
@@ -768,16 +768,6 @@
   "dateStr": "2026-10-31",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-10-31_corinthians-mirassol_14292477.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292480",
-  "name": "Gremio - Athletico PR",
-  "startTime": 1793320200000,
-  "dateStr": "2026-10-30",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-30_gremio-athletico-pr_14292480.json"
  },
  {
   "league": "serie-a-brazil",

@@ -536,7 +536,7 @@
   "name": "CF Pachuca - CF Tigres UANL",
   "startTime": 1793487600000,
   "dateStr": "2026-11-01",
-  "marketCount": 94,
+  "marketCount": 89,
   "file": "liga-mx/2026-11-01_cf-pachuca-cf-tigres-uanl_94473955.json"
  },
  {
@@ -568,16 +568,6 @@
   "dateStr": "2026-11-01",
   "marketCount": 94,
   "file": "liga-mx/2026-11-01_club-america-deportivo-toluca-fc_94474008.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390366",
-  "name": "Gremio RS - Athletico PR",
-  "startTime": 1793320200000,
-  "dateStr": "2026-10-30",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-30_gremio-rs-athletico-pr_94390366.json"
  },
  {
   "league": "serie-a-brazil",
