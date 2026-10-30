@@ -6,7 +6,7 @@
   "name": "Chelsea FC - Manchester United",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-31_chelsea-fc-manchester-united_94273884.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Tottenham Hotspur - Crystal Palace FC",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-31_tottenham-hotspur-crystal-palace-fc_94273881.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Aston Villa - Fulham",
   "startTime": 1793476800000,
   "dateStr": "2026-10-31",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-10-31_aston-villa-fulham_94273887.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "AC Milan - Inter Milan",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 105,
   "file": "serie-a-italy/2026-10-31_ac-milan-inter-milan_92997316.json"
  },
  {
@@ -408,26 +408,6 @@
   "dateStr": "2026-10-31",
   "marketCount": 104,
   "file": "bundesliga/2026-10-31_fc-bayern-munchen-borussia-dortmund_91659475.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "94333444",
-  "name": "Le Havre AC - Paris Saint-Germain",
-  "startTime": 1793383200000,
-  "dateStr": "2026-10-30",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-30_le-havre-ac-paris-saint-germain_94333444.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "94333518",
-  "name": "OGC Nice - Stade Rennais FC",
-  "startTime": 1793383200000,
-  "dateStr": "2026-10-30",
-  "marketCount": 107,
-  "file": "ligue-1/2026-10-30_ogc-nice-stade-rennais-fc_94333518.json"
  },
  {
   "league": "ligue-1",
