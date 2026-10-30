@@ -706,7 +706,7 @@
   "name": "Pachuca - UANL Tigres",
   "startTime": 1793487600000,
   "dateStr": "2026-11-01",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-01_pachuca-uanl-tigres_15499782.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Monterrey - Tijuana",
   "startTime": 1793495100000,
   "dateStr": "2026-11-01",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-01_monterrey-tijuana_15499834.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Guadalajara - Atlante",
   "startTime": 1793495220000,
   "dateStr": "2026-11-01",
-  "marketCount": 9,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-01_guadalajara-atlante_15499888.json"
  },
  {
@@ -736,7 +736,7 @@
   "name": "Club America - Deportivo Toluca",
   "startTime": 1793502600000,
   "dateStr": "2026-11-01",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-01_club-america-deportivo-toluca_15499899.json"
  },
  {
