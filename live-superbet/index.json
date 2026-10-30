@@ -406,7 +406,7 @@
   "name": "Sassuolo - Fiorentina",
   "startTime": 1793640600000,
   "dateStr": "2026-11-02",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-02_sassuolo-fiorentina_14335421.json"
  },
  {
@@ -512,42 +512,12 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14335540",
-  "name": "Le Havre - Paris Saint-Germain",
-  "startTime": 1793383200000,
-  "dateStr": "2026-10-30",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-30_le-havre-paris-saint-germain_14335540.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14335541",
   "name": "Lille - Lens",
   "startTime": 1793390700000,
   "dateStr": "2026-10-30",
   "marketCount": 23,
   "file": "ligue-1/2026-10-30_lille-lens_14335541.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14335545",
-  "name": "Nice - Rennes",
-  "startTime": 1793383200000,
-  "dateStr": "2026-10-30",
-  "marketCount": 23,
-  "file": "ligue-1/2026-10-30_nice-rennes_14335545.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14335543",
-  "name": "Lyon - Angers",
-  "startTime": 1793549700000,
-  "dateStr": "2026-11-01",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-01_lyon-angers_14335543.json"
  },
  {
   "league": "ligue-1",
@@ -572,12 +542,12 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14335542",
-  "name": "Lorient - Brest",
-  "startTime": 1793648700000,
-  "dateStr": "2026-11-02",
-  "marketCount": 8,
-  "file": "ligue-1/2026-11-02_lorient-brest_14335542.json"
+  "eventId": "14335543",
+  "name": "Lyon - Angers",
+  "startTime": 1793549700000,
+  "dateStr": "2026-11-01",
+  "marketCount": 23,
+  "file": "ligue-1/2026-11-01_lyon-angers_14335543.json"
  },
  {
   "league": "ligue-1",
@@ -598,6 +568,16 @@
   "dateStr": "2026-11-01",
   "marketCount": 23,
   "file": "ligue-1/2026-11-01_paris-fc-monaco_14335546.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14335542",
+  "name": "Lorient - Brest",
+  "startTime": 1793648700000,
+  "dateStr": "2026-11-02",
+  "marketCount": 8,
+  "file": "ligue-1/2026-11-02_lorient-brest_14335542.json"
  },
  {
   "league": "super-league-greece",
