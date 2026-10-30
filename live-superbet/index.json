@@ -226,7 +226,7 @@
   "name": "Levante - Atletico Madrid",
   "startTime": 1793451600000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "la-liga/2026-10-31_levante-atletico-madrid_14351075.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Rayo Vallecano - Celta Vigo",
   "startTime": 1793459700000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "la-liga/2026-10-31_rayo-vallecano-celta-vigo_14351077.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "Betis - Malaga",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "la-liga/2026-10-31_betis-malaga_14351042.json"
  },
  {

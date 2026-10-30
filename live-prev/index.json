@@ -106,7 +106,7 @@
   "name": "Stoke City - Preston",
   "startTime": 1793449800000,
   "dateStr": "2026-10-31",
-  "marketCount": 89,
+  "marketCount": 88,
   "file": "championship/2026-10-31_stoke-city-preston_94563968.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Millwall FC - Derby County",
   "startTime": 1793458800000,
   "dateStr": "2026-10-31",
-  "marketCount": 73,
+  "marketCount": 88,
   "file": "championship/2026-10-31_millwall-fc-derby-county_94563967.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "Kifisia - Olympiacos Piraeus",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos-piraeus_94337679.json"
  },
  {
