@@ -152,12 +152,22 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351077",
-  "name": "Rayo Vallecano - Celta Vigo",
-  "startTime": 1793459700000,
-  "dateStr": "2026-10-31",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-31_rayo-vallecano-celta-vigo_14351077.json"
+  "eventId": "14351074",
+  "name": "Getafe - Sevilla",
+  "startTime": 1793538000000,
+  "dateStr": "2026-11-01",
+  "marketCount": 20,
+  "file": "la-liga/2026-11-01_getafe-sevilla_14351074.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14351041",
+  "name": "Athletic Bilbao - Real Sociedad",
+  "startTime": 1793563200000,
+  "dateStr": "2026-11-01",
+  "marketCount": 20,
+  "file": "la-liga/2026-11-01_athletic-bilbao-real-sociedad_14351041.json"
  },
  {
   "league": "la-liga",
@@ -172,32 +182,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351074",
-  "name": "Getafe - Sevilla",
-  "startTime": 1793538000000,
-  "dateStr": "2026-11-01",
-  "marketCount": 20,
-  "file": "la-liga/2026-11-01_getafe-sevilla_14351074.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14351076",
   "name": "Racing Santander - Real Madrid",
   "startTime": 1793546100000,
   "dateStr": "2026-11-01",
   "marketCount": 20,
   "file": "la-liga/2026-11-01_racing-santander-real-madrid_14351076.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351041",
-  "name": "Athletic Bilbao - Real Sociedad",
-  "startTime": 1793563200000,
-  "dateStr": "2026-11-01",
-  "marketCount": 20,
-  "file": "la-liga/2026-11-01_athletic-bilbao-real-sociedad_14351041.json"
  },
  {
   "league": "la-liga",

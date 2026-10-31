@@ -122,16 +122,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668621",
-  "name": "Rayo Vallecano - RC Celta de Vigo",
-  "startTime": 1793459700000,
-  "dateStr": "2026-10-31",
-  "marketCount": 104,
-  "file": "la-liga/2026-10-31_rayo-vallecano-rc-celta-de-vigo_91668621.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91668600",
   "name": "Real Betis Balompie - Malaga CF",
   "startTime": 1793467800000,
@@ -206,7 +196,7 @@
   "name": "AC Milan - Inter Milan",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 105,
+  "marketCount": 108,
   "file": "serie-a-italy/2026-10-31_ac-milan-inter-milan_92997316.json"
  },
  {
@@ -346,7 +336,7 @@
   "name": "Kifisia - Olympiacos Piraeus",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 91,
+  "marketCount": 87,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos-piraeus_94337679.json"
  },
  {
