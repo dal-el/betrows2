@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94273884",
-  "name": "Chelsea FC - Manchester United",
-  "startTime": 1793449800000,
-  "dateStr": "2026-10-31",
-  "marketCount": 123,
-  "file": "premier-league/2026-10-31_chelsea-fc-manchester-united_94273884.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "94273880",
   "name": "AFC Bournemouth - Leeds United",
   "startTime": 1793458800000,
@@ -88,36 +78,6 @@
   "dateStr": "2026-11-01",
   "marketCount": 122,
   "file": "premier-league/2026-11-01_liverpool-fc-arsenal-fc_94273889.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94563968",
-  "name": "Stoke City - Preston",
-  "startTime": 1793449800000,
-  "dateStr": "2026-10-31",
-  "marketCount": 88,
-  "file": "championship/2026-10-31_stoke-city-preston_94563968.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94564099",
-  "name": "Norwich City - Watford FC",
-  "startTime": 1793449800000,
-  "dateStr": "2026-10-31",
-  "marketCount": 88,
-  "file": "championship/2026-10-31_norwich-city-watford-fc_94564099.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94564107",
-  "name": "Lincoln City - Birmingham",
-  "startTime": 1793449800000,
-  "dateStr": "2026-10-31",
-  "marketCount": 88,
-  "file": "championship/2026-10-31_lincoln-city-birmingham_94564107.json"
  },
  {
   "league": "championship",
@@ -288,16 +248,6 @@
   "dateStr": "2026-11-03",
   "marketCount": 51,
   "file": "championship/2026-11-03_west-bromwich-albion-southampton-fc_94792844.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668601",
-  "name": "Levante UD - Atletico Madrid",
-  "startTime": 1793451600000,
-  "dateStr": "2026-10-31",
-  "marketCount": 107,
-  "file": "la-liga/2026-10-31_levante-ud-atletico-madrid_91668601.json"
  },
  {
   "league": "la-liga",
@@ -536,7 +486,7 @@
   "name": "ES Troyes AC - Le Mans UC 72",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 107,
+  "marketCount": 108,
   "file": "ligue-1/2026-10-31_es-troyes-ac-le-mans-uc-72_94333522.json"
  },
  {
@@ -586,7 +536,7 @@
   "name": "Kifisia - Olympiacos Piraeus",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 106,
+  "marketCount": 107,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos-piraeus_94337679.json"
  },
  {
