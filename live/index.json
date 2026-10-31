@@ -670,6 +670,26 @@
   "file": "liga-mx/2026-11-01_club-america-deportivo-toluca-fc_94474008.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94474014",
+  "name": "Santos Laguna - Club Necaxa",
+  "startTime": 1793574000000,
+  "dateStr": "2026-11-02",
+  "marketCount": 89,
+  "file": "liga-mx/2026-11-02_santos-laguna-club-necaxa_94474014.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "94474025",
+  "name": "Cruz Azul - Club Leon",
+  "startTime": 1793581800000,
+  "dateStr": "2026-11-02",
+  "marketCount": 94,
+  "file": "liga-mx/2026-11-02_cruz-azul-club-leon_94474025.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94390368",
