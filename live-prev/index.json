@@ -266,7 +266,7 @@
   "name": "Real Betis Balompie - Malaga CF",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-31_real-betis-balompie-malaga-cf_91668600.json"
  },
  {
@@ -322,21 +322,11 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997314",
-  "name": "Bologna FC - AC Monza",
-  "startTime": 1793455200000,
-  "dateStr": "2026-10-31",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-10-31_bologna-fc-ac-monza_92997314.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92997315",
   "name": "Udinese Calcio - AS Roma",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-10-31_udinese-calcio-as-roma_92997315.json"
  },
  {
@@ -456,7 +446,7 @@
   "name": "FC Bayern Munchen - Borussia Dortmund",
   "startTime": 1793467800000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "bundesliga/2026-10-31_fc-bayern-munchen-borussia-dortmund_91659475.json"
  },
  {
@@ -486,7 +476,7 @@
   "name": "ES Troyes AC - Le Mans UC 72",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 108,
+  "marketCount": 107,
   "file": "ligue-1/2026-10-31_es-troyes-ac-le-mans-uc-72_94333522.json"
  },
  {
@@ -536,7 +526,7 @@
   "name": "Kifisia - Olympiacos Piraeus",
   "startTime": 1793466000000,
   "dateStr": "2026-10-31",
-  "marketCount": 107,
+  "marketCount": 106,
   "file": "super-league-greece/2026-10-31_kifisia-olympiacos-piraeus_94337679.json"
  },
  {
