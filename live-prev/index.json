@@ -136,7 +136,7 @@
   "name": "FC Barcelona - Deportivo Alaves",
   "startTime": 1793476800000,
   "dateStr": "2026-10-31",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-10-31_fc-barcelona-deportivo-alaves_91668586.json"
  },
  {
@@ -178,16 +178,6 @@
   "dateStr": "2026-11-01",
   "marketCount": 104,
   "file": "la-liga/2026-11-01_athletic-bilbao-real-sociedad_91668603.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997315",
-  "name": "Udinese Calcio - AS Roma",
-  "startTime": 1793466000000,
-  "dateStr": "2026-10-31",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-10-31_udinese-calcio-as-roma_92997315.json"
  },
  {
   "league": "serie-a-italy",
@@ -328,16 +318,6 @@
   "dateStr": "2026-11-01",
   "marketCount": 107,
   "file": "ligue-1/2026-11-01_olympique-marseille-toulouse-fc_94333517.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "94337679",
-  "name": "Kifisia - Olympiacos Piraeus",
-  "startTime": 1793466000000,
-  "dateStr": "2026-10-31",
-  "marketCount": 87,
-  "file": "super-league-greece/2026-10-31_kifisia-olympiacos-piraeus_94337679.json"
  },
  {
   "league": "super-league-greece",
