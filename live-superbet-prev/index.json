@@ -702,16 +702,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15481287",
-  "name": "Puebla - UNAM Pumas",
-  "startTime": 1793415600000,
-  "dateStr": "2026-10-31",
-  "marketCount": 17,
-  "file": "liga-mx/2026-10-31_puebla-unam-pumas_15481287.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15499782",
   "name": "Pachuca - UANL Tigres",
   "startTime": 1793487600000,
