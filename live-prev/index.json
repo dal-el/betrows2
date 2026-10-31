@@ -702,16 +702,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390367",
-  "name": "Corinthians SP - Mirassol SP",
-  "startTime": 1793401200000,
-  "dateStr": "2026-10-31",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-31_corinthians-sp-mirassol-sp_94390367.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94390368",
   "name": "Coritiba PR - Vitoria BA",
   "startTime": 1793473200000,
