@@ -632,26 +632,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94455729",
-  "name": "Atletico San Luis - Atlas FC",
-  "startTime": 1793408400000,
-  "dateStr": "2026-10-31",
-  "marketCount": 89,
-  "file": "liga-mx/2026-10-31_atletico-san-luis-atlas-fc_94455729.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94525984",
-  "name": "FC Juarez - Queretaro FC",
-  "startTime": 1793408400000,
-  "dateStr": "2026-10-31",
-  "marketCount": 89,
-  "file": "liga-mx/2026-10-31_fc-juarez-queretaro-fc_94525984.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94455702",
   "name": "Club Puebla - UNAM Pumas",
   "startTime": 1793415600000,
