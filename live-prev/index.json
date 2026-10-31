@@ -366,7 +366,7 @@
   "name": "Athletic Bilbao - Real Sociedad",
   "startTime": 1793563200000,
   "dateStr": "2026-11-01",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "la-liga/2026-11-01_athletic-bilbao-real-sociedad_91668603.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Juventus FC - SSC Napoli",
   "startTime": 1793562300000,
   "dateStr": "2026-11-01",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "serie-a-italy/2026-11-01_juventus-fc-ssc-napoli_92997322.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Olympique Marseille - Toulouse FC",
   "startTime": 1793562300000,
   "dateStr": "2026-11-01",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "ligue-1/2026-11-01_olympique-marseille-toulouse-fc_94333517.json"
  },
  {
