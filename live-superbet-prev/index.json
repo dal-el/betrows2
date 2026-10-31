@@ -26,7 +26,7 @@
   "name": "Newcastle - Everton",
   "startTime": 1793649600000,
   "dateStr": "2026-11-02",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "premier-league/2026-11-02_newcastle-everton_14335456.json"
  },
  {
@@ -458,16 +458,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 8,
   "file": "liga-mx/2026-11-02_cruz-azul-club-leon_15515525.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14292481",
-  "name": "Coritiba - Vitoria BA",
-  "startTime": 1793473200000,
-  "dateStr": "2026-10-31",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-10-31_coritiba-vitoria-ba_14292481.json"
  },
  {
   "league": "serie-a-brazil",
