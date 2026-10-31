@@ -22,16 +22,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14335457",
-  "name": "Tottenham - Crystal Palace",
-  "startTime": 1793467800000,
-  "dateStr": "2026-10-31",
-  "marketCount": 23,
-  "file": "premier-league/2026-10-31_tottenham-crystal-palace_14335457.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "14335456",
   "name": "Newcastle - Everton",
   "startTime": 1793649600000,
@@ -132,16 +122,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351042",
-  "name": "Betis - Malaga",
-  "startTime": 1793467800000,
-  "dateStr": "2026-10-31",
-  "marketCount": 23,
-  "file": "la-liga/2026-10-31_betis-malaga_14351042.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14351073",
   "name": "Barcelona - Alaves",
   "startTime": 1793476800000,
@@ -156,28 +136,8 @@
   "name": "Getafe - Sevilla",
   "startTime": 1793538000000,
   "dateStr": "2026-11-01",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "la-liga/2026-11-01_getafe-sevilla_14351074.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351041",
-  "name": "Athletic Bilbao - Real Sociedad",
-  "startTime": 1793563200000,
-  "dateStr": "2026-11-01",
-  "marketCount": 20,
-  "file": "la-liga/2026-11-01_athletic-bilbao-real-sociedad_14351041.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351072",
-  "name": "Elche - Valencia",
-  "startTime": 1793554200000,
-  "dateStr": "2026-11-01",
-  "marketCount": 20,
-  "file": "la-liga/2026-11-01_elche-valencia_14351072.json"
  },
  {
   "league": "la-liga",
@@ -186,8 +146,18 @@
   "name": "Racing Santander - Real Madrid",
   "startTime": 1793546100000,
   "dateStr": "2026-11-01",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "la-liga/2026-11-01_racing-santander-real-madrid_14351076.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14351041",
+  "name": "Athletic Bilbao - Real Sociedad",
+  "startTime": 1793563200000,
+  "dateStr": "2026-11-01",
+  "marketCount": 23,
+  "file": "la-liga/2026-11-01_athletic-bilbao-real-sociedad_14351041.json"
  },
  {
   "league": "la-liga",
@@ -198,6 +168,16 @@
   "dateStr": "2026-11-02",
   "marketCount": 18,
   "file": "la-liga/2026-11-02_deportivo-de-a-coruna-osasuna_14351043.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14351072",
+  "name": "Elche - Valencia",
+  "startTime": 1793554200000,
+  "dateStr": "2026-11-01",
+  "marketCount": 23,
+  "file": "la-liga/2026-11-01_elche-valencia_14351072.json"
  },
  {
   "league": "serie-a-italy",
@@ -278,16 +258,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 23,
   "file": "serie-a-italy/2026-11-02_sassuolo-fiorentina_14335421.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14335391",
-  "name": "Bayern Munich - Borussia Dortmund",
-  "startTime": 1793467800000,
-  "dateStr": "2026-10-31",
-  "marketCount": 23,
-  "file": "bundesliga/2026-10-31_bayern-munich-borussia-dortmund_14335391.json"
  },
  {
   "league": "bundesliga",

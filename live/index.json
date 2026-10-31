@@ -26,7 +26,7 @@
   "name": "Charlton - Bolton",
   "startTime": 1793735100000,
   "dateStr": "2026-11-03",
-  "marketCount": 51,
+  "marketCount": 88,
   "file": "championship/2026-11-03_charlton-bolton_94791816.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Queens Park Rangers - Burnley FC",
   "startTime": 1793735100000,
   "dateStr": "2026-11-03",
-  "marketCount": 51,
+  "marketCount": 88,
   "file": "championship/2026-11-03_queens-park-rangers-burnley-fc_94791842.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Derby County - Norwich City",
   "startTime": 1793735100000,
   "dateStr": "2026-11-03",
-  "marketCount": 51,
+  "marketCount": 88,
   "file": "championship/2026-11-03_derby-county-norwich-city_94791910.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Portsmouth FC - Swansea City",
   "startTime": 1793735100000,
   "dateStr": "2026-11-03",
-  "marketCount": 51,
+  "marketCount": 88,
   "file": "championship/2026-11-03_portsmouth-fc-swansea-city_94792843.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Birmingham - Millwall FC",
   "startTime": 1793736000000,
   "dateStr": "2026-11-03",
-  "marketCount": 51,
+  "marketCount": 88,
   "file": "championship/2026-11-03_birmingham-millwall-fc_94791945.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "West Bromwich Albion - Southampton FC",
   "startTime": 1793736000000,
   "dateStr": "2026-11-03",
-  "marketCount": 51,
+  "marketCount": 88,
   "file": "championship/2026-11-03_west-bromwich-albion-southampton-fc_94792844.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "AC Milan - Inter Milan",
   "startTime": 1793475900000,
   "dateStr": "2026-10-31",
-  "marketCount": 108,
+  "marketCount": 109,
   "file": "serie-a-italy/2026-10-31_ac-milan-inter-milan_92997316.json"
  },
  {
@@ -330,6 +330,26 @@
   "file": "super-league-greece/2026-11-01_panathinaikos-aek-athens_89190184.json"
  },
  {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "94337681",
+  "name": "Atromitos Athinon - Volos NFC",
+  "startTime": 1793635200000,
+  "dateStr": "2026-11-02",
+  "marketCount": 107,
+  "file": "super-league-greece/2026-11-02_atromitos-athinon-volos-nfc_94337681.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "94337680",
+  "name": "Kalamata - Iraklis",
+  "startTime": 1793640600000,
+  "dateStr": "2026-11-02",
+  "marketCount": 107,
+  "file": "super-league-greece/2026-11-02_kalamata-iraklis_94337680.json"
+ },
+ {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94473955",
@@ -388,16 +408,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 89,
   "file": "liga-mx/2026-11-02_cruz-azul-club-leon_94474025.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94390368",
-  "name": "Coritiba PR - Vitoria BA",
-  "startTime": 1793473200000,
-  "dateStr": "2026-10-31",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-10-31_coritiba-pr-vitoria-ba_94390368.json"
  },
  {
   "league": "serie-a-brazil",
