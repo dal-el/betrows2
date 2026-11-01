@@ -150,16 +150,6 @@
   "file": "la-liga/2026-11-02_deportivo-de-a-coruna-osasuna_14351043.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351072",
-  "name": "Elche - Valencia",
-  "startTime": 1793554200000,
-  "dateStr": "2026-11-01",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-01_elche-valencia_14351072.json"
- },
- {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14335413",
@@ -228,16 +218,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 23,
   "file": "super-league-greece/2026-11-02_kalamata-iraklis-fc_15439014.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439029",
-  "name": "Panathinaikos - AEK",
-  "startTime": 1793554200000,
-  "dateStr": "2026-11-01",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-01_panathinaikos-aek_15439029.json"
  },
  {
   "league": "liga-mx",
