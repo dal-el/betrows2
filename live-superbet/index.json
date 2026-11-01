@@ -132,16 +132,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351041",
-  "name": "Athletic Bilbao - Real Sociedad",
-  "startTime": 1793563200000,
-  "dateStr": "2026-11-01",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-01_athletic-bilbao-real-sociedad_14351041.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14351043",
   "name": "Deportivo de A Coruna - Osasuna",
   "startTime": 1793649600000,
@@ -162,16 +152,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14335417",
-  "name": "Juventus - Napoli",
-  "startTime": 1793562300000,
-  "dateStr": "2026-11-01",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-01_juventus-napoli_14335417.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14335421",
   "name": "Sassuolo - Fiorentina",
   "startTime": 1793640600000,
@@ -188,16 +168,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 23,
   "file": "ligue-1/2026-11-02_lorient-brest_14335542.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14335544",
-  "name": "Marseille - Toulouse",
-  "startTime": 1793562300000,
-  "dateStr": "2026-11-01",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-01_marseille-toulouse_14335544.json"
  },
  {
   "league": "super-league-greece",
