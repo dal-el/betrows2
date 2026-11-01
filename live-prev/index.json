@@ -392,26 +392,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94474007",
-  "name": "CF Monterrey - Club Tijuana",
-  "startTime": 1793495100000,
-  "dateStr": "2026-11-01",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-01_cf-monterrey-club-tijuana_94474007.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94473987",
-  "name": "Guadalajara Chivas - Atlante FC",
-  "startTime": 1793495220000,
-  "dateStr": "2026-11-01",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-01_guadalajara-chivas-atlante-fc_94473987.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94474008",
   "name": "Club America - Deportivo Toluca FC",
   "startTime": 1793502600000,
