@@ -238,5 +238,45 @@
   "dateStr": "2026-11-04",
   "marketCount": 6,
   "file": "serie-a-brazil/2026-11-04_chapecoense-mirassol_14395790.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14395781",
+  "name": "Flamengo - Gremio",
+  "startTime": 1793831400000,
+  "dateStr": "2026-11-05",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-05_flamengo-gremio_14395781.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14395782",
+  "name": "Botafogo - Atletico Mineiro",
+  "startTime": 1793838600000,
+  "dateStr": "2026-11-05",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-05_botafogo-atletico-mineiro_14395782.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14395788",
+  "name": "Athletico PR - Vasco da Gama",
+  "startTime": 1793831400000,
+  "dateStr": "2026-11-05",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama_14395788.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14395783",
+  "name": "Sao Paulo - Corinthians",
+  "startTime": 1793838600000,
+  "dateStr": "2026-11-05",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-05_sao-paulo-corinthians_14395783.json"
  }
 ]

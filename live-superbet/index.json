@@ -192,16 +192,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15501821",
-  "name": "Santos Laguna - Necaxa",
-  "startTime": 1793574000000,
-  "dateStr": "2026-11-02",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-02_santos-laguna-necaxa_15501821.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15515525",
   "name": "Cruz Azul - Club Leon",
   "startTime": 1793581800000,
