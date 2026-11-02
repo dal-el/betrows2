@@ -142,16 +142,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997324",
-  "name": "US Sassuolo Calcio - AC Fiorentina",
-  "startTime": 1793640600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-11-02_us-sassuolo-calcio-ac-fiorentina_92997324.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92997326",
   "name": "Atalanta - Parma Calcio 1913",
   "startTime": 1793648700000,
@@ -168,16 +158,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 107,
   "file": "ligue-1/2026-11-02_fc-lorient-stade-brestois-29_94333521.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "94337680",
-  "name": "Kalamata - Iraklis",
-  "startTime": 1793640600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 103,
-  "file": "super-league-greece/2026-11-02_kalamata-iraklis_94337680.json"
  },
  {
   "league": "serie-a-brazil",
