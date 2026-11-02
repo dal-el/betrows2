@@ -136,7 +136,7 @@
   "name": "Deportivo de A Coruña - CA Osasuna",
   "startTime": 1793649600000,
   "dateStr": "2026-11-02",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-11-02_deportivo-de-a-coruna-ca-osasuna_91668599.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Atalanta - Parma Calcio 1913",
   "startTime": 1793648700000,
   "dateStr": "2026-11-02",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-11-02_atalanta-parma-calcio-1913_92997326.json"
  },
  {
@@ -168,16 +168,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 107,
   "file": "ligue-1/2026-11-02_fc-lorient-stade-brestois-29_94333521.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "94337681",
-  "name": "Atromitos Athinon - Volos NFC",
-  "startTime": 1793635200000,
-  "dateStr": "2026-11-02",
-  "marketCount": 102,
-  "file": "super-league-greece/2026-11-02_atromitos-athinon-volos-nfc_94337681.json"
  },
  {
   "league": "super-league-greece",
