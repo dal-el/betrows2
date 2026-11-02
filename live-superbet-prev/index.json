@@ -190,16 +190,6 @@
   "file": "super-league-greece/2026-11-02_kalamata-iraklis-fc_15439014.json"
  },
  {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15515525",
-  "name": "Cruz Azul - Club Leon",
-  "startTime": 1793581800000,
-  "dateStr": "2026-11-02",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-02_cruz-azul-club-leon_15515525.json"
- },
- {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14395785",
