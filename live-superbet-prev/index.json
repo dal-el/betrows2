@@ -150,16 +150,6 @@
   "file": "serie-a-italy/2026-11-02_atalanta-parma_14335413.json"
  },
  {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14335421",
-  "name": "Sassuolo - Fiorentina",
-  "startTime": 1793640600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-02_sassuolo-fiorentina_14335421.json"
- },
- {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14335542",
@@ -168,16 +158,6 @@
   "dateStr": "2026-11-02",
   "marketCount": 23,
   "file": "ligue-1/2026-11-02_lorient-brest_14335542.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439014",
-  "name": "Kalamata - Iraklis FC",
-  "startTime": 1793640600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-02_kalamata-iraklis-fc_15439014.json"
  },
  {
   "league": "serie-a-brazil",
