@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14335456",
-  "name": "Newcastle - Everton",
-  "startTime": 1793649600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 23,
-  "file": "premier-league/2026-11-02_newcastle-everton_14335456.json"
- },
- {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14380373",
@@ -128,36 +118,6 @@
   "dateStr": "2026-11-04",
   "marketCount": 23,
   "file": "championship/2026-11-04_bristol-city-wolves_14395793.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14351043",
-  "name": "Deportivo de A Coruna - Osasuna",
-  "startTime": 1793649600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-02_deportivo-de-a-coruna-osasuna_14351043.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14335413",
-  "name": "Atalanta - Parma",
-  "startTime": 1793648700000,
-  "dateStr": "2026-11-02",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-02_atalanta-parma_14335413.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14335542",
-  "name": "Lorient - Brest",
-  "startTime": 1793648700000,
-  "dateStr": "2026-11-02",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-02_lorient-brest_14335542.json"
  },
  {
   "league": "serie-a-brazil",

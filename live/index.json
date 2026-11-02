@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94273888",
-  "name": "Newcastle United - Everton FC",
-  "startTime": 1793649600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 123,
-  "file": "premier-league/2026-11-02_newcastle-united-everton-fc_94273888.json"
- },
- {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "94791816",
@@ -128,36 +118,6 @@
   "dateStr": "2026-11-04",
   "marketCount": 88,
   "file": "championship/2026-11-04_bristol-city-wolverhampton-wanderers_94842920.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91668599",
-  "name": "Deportivo de A Coruña - CA Osasuna",
-  "startTime": 1793649600000,
-  "dateStr": "2026-11-02",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-02_deportivo-de-a-coruna-ca-osasuna_91668599.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997326",
-  "name": "Atalanta - Parma Calcio 1913",
-  "startTime": 1793648700000,
-  "dateStr": "2026-11-02",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-11-02_atalanta-parma-calcio-1913_92997326.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "94333521",
-  "name": "FC Lorient - Stade Brestois 29",
-  "startTime": 1793648700000,
-  "dateStr": "2026-11-02",
-  "marketCount": 107,
-  "file": "ligue-1/2026-11-02_fc-lorient-stade-brestois-29_94333521.json"
  },
  {
   "league": "serie-a-brazil",
