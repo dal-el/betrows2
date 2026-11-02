@@ -1,5 +1,15 @@
 [
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "94629231",
+  "name": "Everton FC - Coventry City",
+  "startTime": 1793995200000,
+  "dateStr": "2026-11-06",
+  "marketCount": 65,
+  "file": "premier-league/2026-11-06_everton-fc-coventry-city_94629231.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "94791816",
@@ -96,7 +106,7 @@
   "name": "Cardiff City - West Ham United",
   "startTime": 1793821500000,
   "dateStr": "2026-11-04",
-  "marketCount": 88,
+  "marketCount": 90,
   "file": "championship/2026-11-04_cardiff-city-west-ham-united_94841714.json"
  },
  {
@@ -106,7 +116,7 @@
   "name": "Wrexham FC - Middlesbrough FC",
   "startTime": 1793821500000,
   "dateStr": "2026-11-04",
-  "marketCount": 88,
+  "marketCount": 89,
   "file": "championship/2026-11-04_wrexham-fc-middlesbrough-fc_94842768.json"
  },
  {
@@ -120,13 +130,53 @@
   "file": "championship/2026-11-04_bristol-city-wolverhampton-wanderers_94842920.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "90891360",
+  "name": "Sevilla FC - Deportivo Alaves",
+  "startTime": 1793995200000,
+  "dateStr": "2026-11-06",
+  "marketCount": 90,
+  "file": "la-liga/2026-11-06_sevilla-fc-deportivo-alaves_90891360.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "92997327",
+  "name": "Venezia FC - Udinese Calcio",
+  "startTime": 1793994300000,
+  "dateStr": "2026-11-06",
+  "marketCount": 69,
+  "file": "serie-a-italy/2026-11-06_venezia-fc-udinese-calcio_92997327.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "93294634",
+  "name": "Hamburger SV - Borussia Monchengladbach",
+  "startTime": 1793993400000,
+  "dateStr": "2026-11-06",
+  "marketCount": 90,
+  "file": "bundesliga/2026-11-06_hamburger-sv-borussia-monchengladbach_93294634.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "94687649",
+  "name": "Toulouse FC - RC Strasbourg",
+  "startTime": 1793994300000,
+  "dateStr": "2026-11-06",
+  "marketCount": 90,
+  "file": "ligue-1/2026-11-06_toulouse-fc-rc-strasbourg_94687649.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94671495",
   "name": "Bragantino SP - Santos SP",
   "startTime": 1793660400000,
   "dateStr": "2026-11-03",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-03_bragantino-sp-santos-sp_94671495.json"
  },
  {
