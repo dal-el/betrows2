@@ -216,7 +216,7 @@
   "name": "Internacional RS - Coritiba",
   "startTime": 1793752200000,
   "dateStr": "2026-11-04",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-04_internacional-rs-coritiba_14395787.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Botafogo - Atletico Mineiro",
   "startTime": 1793838600000,
   "dateStr": "2026-11-05",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-05_botafogo-atletico-mineiro_14395782.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "Athletico PR - Vasco da Gama",
   "startTime": 1793831400000,
   "dateStr": "2026-11-05",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama_14395788.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Sao Paulo - Corinthians",
   "startTime": 1793838600000,
   "dateStr": "2026-11-05",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-05_sao-paulo-corinthians_14395783.json"
  }
 ]
