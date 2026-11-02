@@ -172,16 +172,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439013",
-  "name": "Atromitos - Volos",
-  "startTime": 1793635200000,
-  "dateStr": "2026-11-02",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-02_atromitos-volos_15439013.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
   "eventId": "15439014",
   "name": "Kalamata - Iraklis FC",
   "startTime": 1793640600000,
@@ -256,7 +246,7 @@
   "name": "Sao Paulo - Corinthians",
   "startTime": 1793838600000,
   "dateStr": "2026-11-05",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-05_sao-paulo-corinthians_14395783.json"
  }
 ]
