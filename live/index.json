@@ -106,7 +106,7 @@
   "name": "Cardiff City - West Ham United",
   "startTime": 1793821500000,
   "dateStr": "2026-11-04",
-  "marketCount": 90,
+  "marketCount": 88,
   "file": "championship/2026-11-04_cardiff-city-west-ham-united_94841714.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Wrexham FC - Middlesbrough FC",
   "startTime": 1793821500000,
   "dateStr": "2026-11-04",
-  "marketCount": 89,
+  "marketCount": 88,
   "file": "championship/2026-11-04_wrexham-fc-middlesbrough-fc_94842768.json"
  },
  {
@@ -168,16 +168,6 @@
   "dateStr": "2026-11-06",
   "marketCount": 90,
   "file": "ligue-1/2026-11-06_toulouse-fc-rc-strasbourg_94687649.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94671495",
-  "name": "Bragantino SP - Santos SP",
-  "startTime": 1793660400000,
-  "dateStr": "2026-11-03",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-03_bragantino-sp-santos-sp_94671495.json"
  },
  {
   "league": "serie-a-brazil",

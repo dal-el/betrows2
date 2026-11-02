@@ -1,5 +1,15 @@
 [
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "14438719",
+  "name": "Everton - Coventry City",
+  "startTime": 1793995200000,
+  "dateStr": "2026-11-06",
+  "marketCount": 3,
+  "file": "premier-league/2026-11-06_everton-coventry-city_14438719.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14380373",
@@ -120,6 +130,56 @@
   "file": "championship/2026-11-04_bristol-city-wolves_14395793.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14424110",
+  "name": "Derby County - Bolton Wanderers",
+  "startTime": 1793995200000,
+  "dateStr": "2026-11-06",
+  "marketCount": 6,
+  "file": "championship/2026-11-06_derby-county-bolton-wanderers_14424110.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14454001",
+  "name": "Sevilla - Alaves",
+  "startTime": 1793995200000,
+  "dateStr": "2026-11-06",
+  "marketCount": 6,
+  "file": "la-liga/2026-11-06_sevilla-alaves_14454001.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14438691",
+  "name": "Venezia - Udinese",
+  "startTime": 1793994300000,
+  "dateStr": "2026-11-06",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-11-06_venezia-udinese_14438691.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "14438667",
+  "name": "Hamburger SV - Borussia Mönchengladbach",
+  "startTime": 1793993400000,
+  "dateStr": "2026-11-06",
+  "marketCount": 6,
+  "file": "bundesliga/2026-11-06_hamburger-sv-borussia-monchengladbach_14438667.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14438786",
+  "name": "Toulouse - Strasbourg",
+  "startTime": 1793994300000,
+  "dateStr": "2026-11-06",
+  "marketCount": 6,
+  "file": "ligue-1/2026-11-06_toulouse-strasbourg_14438786.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14395785",
@@ -188,5 +248,25 @@
   "dateStr": "2026-11-05",
   "marketCount": 17,
   "file": "serie-a-brazil/2026-11-05_sao-paulo-corinthians_14395783.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14395784",
+  "name": "Palmeiras - Remo",
+  "startTime": 1793917800000,
+  "dateStr": "2026-11-06",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-06_palmeiras-remo_14395784.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14395786",
+  "name": "Cruzeiro - Bahia",
+  "startTime": 1793925000000,
+  "dateStr": "2026-11-06",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-06_cruzeiro-bahia_14395786.json"
  }
 ]
