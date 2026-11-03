@@ -462,12 +462,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14395790",
-  "name": "Chapecoense - Mirassol",
-  "startTime": 1793745000000,
-  "dateStr": "2026-11-04",
+  "eventId": "14395788",
+  "name": "Athletico PR - Vasco da Gama",
+  "startTime": 1793831400000,
+  "dateStr": "2026-11-05",
   "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-04_chapecoense-mirassol_14395790.json"
+  "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama_14395788.json"
  },
  {
   "league": "serie-a-brazil",
@@ -488,16 +488,6 @@
   "dateStr": "2026-11-05",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-11-05_sao-paulo-corinthians_14395783.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14395788",
-  "name": "Athletico PR - Vasco da Gama",
-  "startTime": 1793831400000,
-  "dateStr": "2026-11-05",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama_14395788.json"
  },
  {
   "league": "serie-a-brazil",
@@ -526,7 +516,7 @@
   "name": "Vitoria BA - Fluminense",
   "startTime": 1794006000000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-07_vitoria-ba-fluminense_14395789.json"
  }
 ]
