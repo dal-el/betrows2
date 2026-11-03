@@ -188,5 +188,45 @@
   "dateStr": "2026-11-04",
   "marketCount": 107,
   "file": "serie-a-brazil/2026-11-04_internacional-rs-coritiba-pr_94671525.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94671573",
+  "name": "Athletico PR - Vasco da Gama RJ",
+  "startTime": 1793831400000,
+  "dateStr": "2026-11-05",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama-rj_94671573.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94671618",
+  "name": "Flamengo RJ - Gremio RS",
+  "startTime": 1793831400000,
+  "dateStr": "2026-11-05",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-11-05_flamengo-rj-gremio-rs_94671618.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94671649",
+  "name": "Botafogo RJ - Clube Atletico MG",
+  "startTime": 1793838600000,
+  "dateStr": "2026-11-05",
+  "marketCount": 112,
+  "file": "serie-a-brazil/2026-11-05_botafogo-rj-clube-atletico-mg_94671649.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94671712",
+  "name": "Sao Paulo SP - Corinthians SP",
+  "startTime": 1793838600000,
+  "dateStr": "2026-11-05",
+  "marketCount": 112,
+  "file": "serie-a-brazil/2026-11-05_sao-paulo-sp-corinthians-sp_94671712.json"
  }
 ]
