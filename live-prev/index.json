@@ -332,21 +332,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94671496",
-  "name": "Chapecoense SC - Mirassol SP",
-  "startTime": 1793745000000,
-  "dateStr": "2026-11-04",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-04_chapecoense-sc-mirassol-sp_94671496.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "94671525",
   "name": "Internacional RS - Coritiba PR",
   "startTime": 1793752200000,
   "dateStr": "2026-11-04",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-04_internacional-rs-coritiba-pr_94671525.json"
  },
  {
