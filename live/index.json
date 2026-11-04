@@ -52,36 +52,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "94841714",
-  "name": "Cardiff City - West Ham United",
-  "startTime": 1793821500000,
-  "dateStr": "2026-11-04",
-  "marketCount": 88,
-  "file": "championship/2026-11-04_cardiff-city-west-ham-united_94841714.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94842768",
-  "name": "Wrexham FC - Middlesbrough FC",
-  "startTime": 1793821500000,
-  "dateStr": "2026-11-04",
-  "marketCount": 88,
-  "file": "championship/2026-11-04_wrexham-fc-middlesbrough-fc_94842768.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94842920",
-  "name": "Bristol City - Wolverhampton Wanderers",
-  "startTime": 1793822400000,
-  "dateStr": "2026-11-04",
-  "marketCount": 88,
-  "file": "championship/2026-11-04_bristol-city-wolverhampton-wanderers_94842920.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "94943955",
   "name": "Derby County - Bolton",
   "startTime": 1793995200000,

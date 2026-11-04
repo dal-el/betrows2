@@ -52,36 +52,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "14395791",
-  "name": "Cardiff City - West Ham",
-  "startTime": 1793821500000,
-  "dateStr": "2026-11-04",
-  "marketCount": 23,
-  "file": "championship/2026-11-04_cardiff-city-west-ham_14395791.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14395792",
-  "name": "Wrexham - Middlesbrough",
-  "startTime": 1793821500000,
-  "dateStr": "2026-11-04",
-  "marketCount": 23,
-  "file": "championship/2026-11-04_wrexham-middlesbrough_14395792.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14395793",
-  "name": "Bristol City - Wolves",
-  "startTime": 1793822400000,
-  "dateStr": "2026-11-04",
-  "marketCount": 23,
-  "file": "championship/2026-11-04_bristol-city-wolves_14395793.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "14424110",
   "name": "Derby County - Bolton Wanderers",
   "startTime": 1793995200000,
@@ -296,7 +266,7 @@
   "name": "AS Roma - Sassuolo",
   "startTime": 1794080700000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-07_as-roma-sassuolo_14438689.json"
  },
  {
