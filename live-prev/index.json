@@ -256,7 +256,7 @@
   "name": "Toulouse FC - RC Strasbourg",
   "startTime": 1793994300000,
   "dateStr": "2026-11-06",
-  "marketCount": 76,
+  "marketCount": 105,
   "file": "ligue-1/2026-11-06_toulouse-fc-rc-strasbourg_94687649.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "AJ Auxerre - Paris FC",
   "startTime": 1794068100000,
   "dateStr": "2026-11-07",
-  "marketCount": 69,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-07_aj-auxerre-paris-fc_94687643.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Paris Saint-Germain - ES Troyes AC",
   "startTime": 1794080700000,
   "dateStr": "2026-11-07",
-  "marketCount": 68,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-07_paris-saint-germain-es-troyes-ac_94687650.json"
  },
  {
