@@ -368,5 +368,25 @@
   "dateStr": "2026-11-05",
   "marketCount": 107,
   "file": "serie-a-brazil/2026-11-05_sao-paulo-sp-corinthians-sp_94671712.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94671738",
+  "name": "Palmeiras SP - Remo PA",
+  "startTime": 1793917800000,
+  "dateStr": "2026-11-06",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-11-06_palmeiras-sp-remo-pa_94671738.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94671771",
+  "name": "Cruzeiro MG - EC Bahia BA",
+  "startTime": 1793925000000,
+  "dateStr": "2026-11-06",
+  "marketCount": 112,
+  "file": "serie-a-brazil/2026-11-06_cruzeiro-mg-ec-bahia-ba_94671771.json"
  }
 ]
