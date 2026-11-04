@@ -6,7 +6,7 @@
   "name": "Everton FC - Coventry City",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-11-06_everton-fc-coventry-city_94629231.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Fulham - Newcastle United",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-11-07_fulham-newcastle-united_94629232.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Derby County - Bolton",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-06_derby-county-bolton_94943955.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Athletico PR - Vasco da Gama RJ",
   "startTime": 1793831400000,
   "dateStr": "2026-11-05",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama-rj_94671573.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Flamengo RJ - Gremio RS",
   "startTime": 1793831400000,
   "dateStr": "2026-11-05",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-05_flamengo-rj-gremio-rs_94671618.json"
  },
  {
