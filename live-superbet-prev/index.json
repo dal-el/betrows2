@@ -86,7 +86,7 @@
   "name": "Derby County - Bolton Wanderers",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-11-06_derby-county-bolton-wanderers_14424110.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "Parma - Bologna",
   "startTime": 1794070800000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-07_parma-bologna_14438688.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "AS Roma - Sassuolo",
   "startTime": 1794080700000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-11-07_as-roma-sassuolo_14438689.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "RB Leipzig - Augsburg",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-07_rb-leipzig-augsburg_14438662.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Hamburger SV - Borussia Mönchengladbach",
   "startTime": 1793993400000,
   "dateStr": "2026-11-06",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-06_hamburger-sv-borussia-monchengladbach_14438667.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "VfB Stuttgart - Werder Bremen",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "bundesliga/2026-11-07_vfb-stuttgart-werder-bremen_14438663.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "Mainz 05 - Bayern Munich",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-07_mainz-05-bayern-munich_14438666.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Paderborn - Eintracht Frankfurt",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-07_paderborn-eintracht-frankfurt_14438669.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Auxerre - Paris FC",
   "startTime": 1794074400000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "ligue-1/2026-11-07_auxerre-paris-fc_14438779.json"
  },
  {
