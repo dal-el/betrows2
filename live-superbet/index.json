@@ -256,7 +256,7 @@
   "name": "Cagliari - Frosinone",
   "startTime": 1794060000000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-07_cagliari-frosinone_14438682.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Torino FC - Lecce",
   "startTime": 1794060000000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-07_torino-fc-lecce_14438690.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Borussia Dortmund - Elversberg",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-07_borussia-dortmund-elversberg_14438661.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "Mainz 05 - Bayern Munich",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "bundesliga/2026-11-07_mainz-05-bayern-munich_14438666.json"
  },
  {
@@ -364,7 +364,7 @@
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14438779",
   "name": "Auxerre - Paris FC",
-  "startTime": 1794068100000,
+  "startTime": 1794074400000,
   "dateStr": "2026-11-07",
   "marketCount": 6,
   "file": "ligue-1/2026-11-07_auxerre-paris-fc_14438779.json"
@@ -374,7 +374,7 @@
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14438784",
   "name": "Paris Saint-Germain - Troyes",
-  "startTime": 1794080700000,
+  "startTime": 1794081900000,
   "dateStr": "2026-11-07",
   "marketCount": 6,
   "file": "ligue-1/2026-11-07_paris-saint-germain-troyes_14438784.json"

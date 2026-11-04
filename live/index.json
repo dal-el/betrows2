@@ -264,9 +264,9 @@
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "94687643",
   "name": "AJ Auxerre - Paris FC",
-  "startTime": 1794068100000,
+  "startTime": 1794074400000,
   "dateStr": "2026-11-07",
-  "marketCount": 105,
+  "marketCount": 107,
   "file": "ligue-1/2026-11-07_aj-auxerre-paris-fc_94687643.json"
  },
  {
@@ -274,9 +274,9 @@
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "94687650",
   "name": "Paris Saint-Germain - ES Troyes AC",
-  "startTime": 1794080700000,
+  "startTime": 1794081900000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-07_paris-saint-germain-es-troyes-ac_94687650.json"
  },
  {
