@@ -416,7 +416,7 @@
   "name": "Atletico San Luis - Juarez",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-11-07_atletico-san-luis-juarez_15593885.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "Necaxa - Tijuana",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-11-07_necaxa-tijuana_15593886.json"
  },
  {
@@ -452,12 +452,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14395787",
-  "name": "Internacional RS - Coritiba",
-  "startTime": 1793752200000,
-  "dateStr": "2026-11-04",
+  "eventId": "14395782",
+  "name": "Botafogo - Atletico Mineiro",
+  "startTime": 1793838600000,
+  "dateStr": "2026-11-05",
   "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-04_internacional-rs-coritiba_14395787.json"
+  "file": "serie-a-brazil/2026-11-05_botafogo-atletico-mineiro_14395782.json"
  },
  {
   "league": "serie-a-brazil",
@@ -468,16 +468,6 @@
   "dateStr": "2026-11-05",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama_14395788.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14395782",
-  "name": "Botafogo - Atletico Mineiro",
-  "startTime": 1793838600000,
-  "dateStr": "2026-11-05",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-05_botafogo-atletico-mineiro_14395782.json"
  },
  {
   "league": "serie-a-brazil",
