@@ -6,7 +6,7 @@
   "name": "Everton FC - Coventry City",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 96,
+  "marketCount": 97,
   "file": "premier-league/2026-11-06_everton-fc-coventry-city_94629231.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Leeds United - Tottenham Hotspur",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 99,
+  "marketCount": 100,
   "file": "premier-league/2026-11-07_leeds-united-tottenham-hotspur_94629233.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Atletico San Luis - FC Juarez",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 76,
+  "marketCount": 69,
   "file": "liga-mx/2026-11-07_atletico-san-luis-fc-juarez_94618162.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Club Necaxa - Club Tijuana",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 76,
+  "marketCount": 69,
   "file": "liga-mx/2026-11-07_club-necaxa-club-tijuana_94618163.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Atlante FC - Santos Laguna",
   "startTime": 1794020400000,
   "dateStr": "2026-11-07",
-  "marketCount": 76,
+  "marketCount": 69,
   "file": "liga-mx/2026-11-07_atlante-fc-santos-laguna_94618192.json"
  },
  {
