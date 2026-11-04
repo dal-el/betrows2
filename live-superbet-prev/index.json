@@ -336,7 +336,7 @@
   "name": "VfB Stuttgart - Werder Bremen",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-07_vfb-stuttgart-werder-bremen_14438663.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "Paris Saint-Germain - Troyes",
   "startTime": 1794081900000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "ligue-1/2026-11-07_paris-saint-germain-troyes_14438784.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Atletico San Luis - Juarez",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-11-07_atletico-san-luis-juarez_15593885.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "Necaxa - Tijuana",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 6,
+  "marketCount": 12,
   "file": "liga-mx/2026-11-07_necaxa-tijuana_15593886.json"
  },
  {
