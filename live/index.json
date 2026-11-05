@@ -56,7 +56,7 @@
   "name": "Derby County - Bolton",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 93,
+  "marketCount": 88,
   "file": "championship/2026-11-06_derby-county-bolton_94943955.json"
  },
  {
@@ -176,7 +176,7 @@
   "name": "Sevilla FC - Deportivo Alaves",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "la-liga/2026-11-06_sevilla-fc-deportivo-alaves_90891360.json"
  },
  {
@@ -498,26 +498,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 76,
   "file": "liga-mx/2026-11-08_unam-pumas-club-america_94618188.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94671649",
-  "name": "Botafogo RJ - Clube Atletico MG",
-  "startTime": 1793838600000,
-  "dateStr": "2026-11-05",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-05_botafogo-rj-clube-atletico-mg_94671649.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94671712",
-  "name": "Sao Paulo SP - Corinthians SP",
-  "startTime": 1793838600000,
-  "dateStr": "2026-11-05",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-05_sao-paulo-sp-corinthians-sp_94671712.json"
  },
  {
   "league": "serie-a-brazil",
