@@ -36,7 +36,7 @@
   "name": "Brighton - Brentford",
   "startTime": 1794146400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-08_brighton-brentford_14438717.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Crystal Palace - Liverpool",
   "startTime": 1794146400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-08_crystal-palace-liverpool_14438718.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Ipswich - Bournemouth",
   "startTime": 1794146400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-08_ipswich-bournemouth_14438721.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Sunderland - Chelsea",
   "startTime": 1794146400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-08_sunderland-chelsea_14438725.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "Genoa - AC Milan",
   "startTime": 1794146400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-08_genoa-ac-milan_14438684.json"
  },
  {
@@ -406,7 +406,7 @@
   "name": "Monza - Atalanta",
   "startTime": 1794146400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-08_monza-atalanta_14438686.json"
  },
  {
@@ -676,7 +676,7 @@
   "name": "Atletico San Luis - Juarez",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-07_atletico-san-luis-juarez_15593885.json"
  },
  {
@@ -686,7 +686,7 @@
   "name": "Necaxa - Tijuana",
   "startTime": 1794013200000,
   "dateStr": "2026-11-07",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-07_necaxa-tijuana_15593886.json"
  },
  {
@@ -696,7 +696,7 @@
   "name": "Atlante - Santos Laguna",
   "startTime": 1794020400000,
   "dateStr": "2026-11-07",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-07_atlante-santos-laguna_15593957.json"
  },
  {
