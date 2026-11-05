@@ -96,7 +96,7 @@
   "name": "Manchester United - Aston Villa",
   "startTime": 1794155400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "premier-league/2026-11-08_manchester-united-aston-villa_14438723.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Bristol City - Norwich City",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "championship/2026-11-07_bristol-city-norwich-city_14438679.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Portsmouth - Stoke City",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "championship/2026-11-07_portsmouth-stoke-city_14438680.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Inter Milan - Como",
   "startTime": 1794157200000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-08_inter-milan-como_14438685.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "Freiburg - Union Berlin",
   "startTime": 1794155400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-08_freiburg-union-berlin_14438665.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Angers - Nice",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-08_angers-nice_14438778.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Brest - Lyon",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-08_brest-lyon_14438780.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Le Havre - Lorient",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-08_le-havre-lorient_14438781.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Le Mans - Monaco",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-08_le-mans-monaco_14438782.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Volos - Kifisia",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-07_volos-kifisia_15439031.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "Aris - Panetolikos",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-07_aris-panetolikos_15439032.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Asteras Tripolis - Kalamata",
   "startTime": 1794150000000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 14,
   "file": "super-league-greece/2026-11-08_asteras-tripolis-kalamata_15439033.json"
  },
  {
@@ -636,7 +636,7 @@
   "name": "AEK - Levadiakos",
   "startTime": 1794150000000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-08_aek-levadiakos_15439035.json"
  },
  {
