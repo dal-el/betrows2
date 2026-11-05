@@ -518,5 +518,15 @@
   "dateStr": "2026-11-06",
   "marketCount": 107,
   "file": "serie-a-brazil/2026-11-06_cruzeiro-mg-ec-bahia-ba_94671771.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "94671785",
+  "name": "Vitoria BA - Fluminense RJ",
+  "startTime": 1794006000000,
+  "dateStr": "2026-11-07",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-11-07_vitoria-ba-fluminense-rj_94671785.json"
  }
 ]
