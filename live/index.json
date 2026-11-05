@@ -6,7 +6,7 @@
   "name": "Everton FC - Coventry City",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 127,
+  "marketCount": 122,
   "file": "premier-league/2026-11-06_everton-fc-coventry-city_94629231.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "Venezia FC - Udinese Calcio",
   "startTime": 1793994300000,
   "dateStr": "2026-11-06",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "serie-a-italy/2026-11-06_venezia-fc-udinese-calcio_92997327.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Hamburger SV - Borussia Monchengladbach",
   "startTime": 1793993400000,
   "dateStr": "2026-11-06",
-  "marketCount": 111,
+  "marketCount": 106,
   "file": "bundesliga/2026-11-06_hamburger-sv-borussia-monchengladbach_93294634.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Toulouse FC - RC Strasbourg",
   "startTime": 1793994300000,
   "dateStr": "2026-11-06",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "ligue-1/2026-11-06_toulouse-fc-rc-strasbourg_94687649.json"
  },
  {
