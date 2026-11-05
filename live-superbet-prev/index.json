@@ -316,7 +316,7 @@
   "name": "Atletico Madrid - Barcelona",
   "startTime": 1794168000000,
   "dateStr": "2026-11-08",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-08_atletico-madrid-barcelona_14453994.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Fiorentina - Juventus",
   "startTime": 1794167100000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-italy/2026-11-08_fiorentina-juventus_14438683.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Lens - Marseille",
   "startTime": 1794167100000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-08_lens-marseille_14438777.json"
  },
  {
