@@ -16,7 +16,7 @@
   "name": "Leeds United - Tottenham Hotspur",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-11-07_leeds-united-tottenham-hotspur_94629233.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Nottingham Forest - Manchester City",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 122,
+  "marketCount": 127,
   "file": "premier-league/2026-11-07_nottingham-forest-manchester-city_94629236.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Wrexham FC - Wolverhampton Wanderers",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_wrexham-fc-wolverhampton-wanderers_94978565.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Portsmouth FC - Stoke City",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_portsmouth-fc-stoke-city_94978610.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Bristol City - Norwich City",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_bristol-city-norwich-city_94978706.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Watford FC - Middlesbrough FC",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_watford-fc-middlesbrough-fc_94982987.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Blackburn Rovers - West Ham United",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_blackburn-rovers-west-ham-united_94982990.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Charlton - Sheffield United",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_charlton-sheffield-united_94983007.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Cardiff City - Burnley FC",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_cardiff-city-burnley-fc_94983009.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Birmingham - Swansea City",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_birmingham-swansea-city_94983010.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Preston - Southampton FC",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_preston-southampton-fc_94983011.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Malaga CF - Racing Santander",
   "startTime": 1794056400000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "la-liga/2026-11-07_malaga-cf-racing-santander_90891467.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "CA Osasuna - Athletic Bilbao",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "la-liga/2026-11-07_ca-osasuna-athletic-bilbao_90891165.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "Parma Calcio 1913 - Bologna FC",
   "startTime": 1794070800000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "serie-a-italy/2026-11-07_parma-calcio-1913-bologna-fc_92997330.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "AS Roma - US Sassuolo Calcio",
   "startTime": 1794080700000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "serie-a-italy/2026-11-07_as-roma-us-sassuolo-calcio_92997332.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "VfB Stuttgart - Werder Bremen",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 106,
+  "marketCount": 111,
   "file": "bundesliga/2026-11-07_vfb-stuttgart-werder-bremen_92952295.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "AJ Auxerre - Paris FC",
   "startTime": 1794074400000,
   "dateStr": "2026-11-07",
-  "marketCount": 107,
+  "marketCount": 112,
   "file": "ligue-1/2026-11-07_aj-auxerre-paris-fc_94687643.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Paris Saint-Germain - ES Troyes AC",
   "startTime": 1794081900000,
   "dateStr": "2026-11-07",
-  "marketCount": 106,
+  "marketCount": 110,
   "file": "ligue-1/2026-11-07_paris-saint-germain-es-troyes-ac_94687650.json"
  },
  {
