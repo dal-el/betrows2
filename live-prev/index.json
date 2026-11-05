@@ -6,7 +6,7 @@
   "name": "Everton FC - Coventry City",
   "startTime": 1793995200000,
   "dateStr": "2026-11-06",
-  "marketCount": 122,
+  "marketCount": 123,
   "file": "premier-league/2026-11-06_everton-fc-coventry-city_94629231.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Arsenal FC - Hull City",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 121,
+  "marketCount": 125,
   "file": "premier-league/2026-11-07_arsenal-fc-hull-city_94629234.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "West Bromwich Albion - Millwall FC",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 88,
+  "marketCount": 93,
   "file": "championship/2026-11-07_west-bromwich-albion-millwall-fc_94983008.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "RCD Espanyol - Deportivo de A Coruña",
   "startTime": 1794064500000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "la-liga/2026-11-07_rcd-espanyol-deportivo-de-a-coruna_90891488.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Cagliari Calcio - Frosinone",
   "startTime": 1794060000000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "serie-a-italy/2026-11-07_cagliari-calcio-frosinone_92997328.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Torino FC - US Lecce",
   "startTime": 1794060000000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 109,
   "file": "serie-a-italy/2026-11-07_torino-fc-us-lecce_92997329.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "FSV Mainz 05 - FC Bayern Munchen",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 106,
+  "marketCount": 111,
   "file": "bundesliga/2026-11-07_fsv-mainz-05-fc-bayern-munchen_92952467.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "RB Leipzig - FC Augsburg",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 103,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-07_rb-leipzig-fc-augsburg_93064835.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Borussia Dortmund - SV Elversberg",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 106,
+  "marketCount": 111,
   "file": "bundesliga/2026-11-07_borussia-dortmund-sv-elversberg_93064836.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "SC Paderborn 07 - Eintracht Frankfurt",
   "startTime": 1794061800000,
   "dateStr": "2026-11-07",
-  "marketCount": 106,
+  "marketCount": 111,
   "file": "bundesliga/2026-11-07_sc-paderborn-07-eintracht-frankfurt_93070096.json"
  },
  {

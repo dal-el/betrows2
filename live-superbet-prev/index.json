@@ -136,7 +136,7 @@
   "name": "Wrexham - Wolves",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "championship/2026-11-07_wrexham-wolves_14438681.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Asteras Tripolis - Kalamata",
   "startTime": 1794150000000,
   "dateStr": "2026-11-08",
-  "marketCount": 14,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-08_asteras-tripolis-kalamata_15439033.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Iraklis FC - Panathinaikos",
   "startTime": 1794151800000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-08_iraklis-fc-panathinaikos_15439036.json"
  },
  {
@@ -656,7 +656,7 @@
   "name": "OFI - Atromitos",
   "startTime": 1794155400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-08_ofi-atromitos_15439038.json"
  },
  {
@@ -666,7 +666,7 @@
   "name": "Olympiacos - PAOK",
   "startTime": 1794164400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-08_olympiacos-paok_15439049.json"
  },
  {
