@@ -216,7 +216,7 @@
   "name": "Valencia CF - Real Madrid",
   "startTime": 1794081600000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 108,
   "file": "la-liga/2026-11-07_valencia-cf-real-madrid_90891212.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "Atlas FC - CF Pachuca",
   "startTime": 1794092400000,
   "dateStr": "2026-11-08",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-08_atlas-fc-cf-pachuca_94618191.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "Deportivo Toluca FC - CF Monterrey",
   "startTime": 1794099600000,
   "dateStr": "2026-11-08",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-08_deportivo-toluca-fc-cf-monterrey_94618189.json"
  },
  {
@@ -486,7 +486,7 @@
   "name": "CF Tigres UANL - Cruz Azul",
   "startTime": 1794099600000,
   "dateStr": "2026-11-08",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-08_cf-tigres-uanl-cruz-azul_94618190.json"
  },
  {
@@ -496,7 +496,7 @@
   "name": "UNAM Pumas - Club America",
   "startTime": 1794107400000,
   "dateStr": "2026-11-08",
-  "marketCount": 89,
+  "marketCount": 94,
   "file": "liga-mx/2026-11-08_unam-pumas-club-america_94618188.json"
  },
  {
