@@ -706,7 +706,7 @@
   "name": "Atlas - Pachuca",
   "startTime": 1794092400000,
   "dateStr": "2026-11-08",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-11-08_atlas-pachuca_15610732.json"
  },
  {
@@ -742,32 +742,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14395781",
-  "name": "Flamengo - Gremio",
-  "startTime": 1793831400000,
-  "dateStr": "2026-11-05",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-05_flamengo-gremio_14395781.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14395782",
   "name": "Botafogo - Atletico Mineiro",
   "startTime": 1793838600000,
   "dateStr": "2026-11-05",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-11-05_botafogo-atletico-mineiro_14395782.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14395788",
-  "name": "Athletico PR - Vasco da Gama",
-  "startTime": 1793831400000,
-  "dateStr": "2026-11-05",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-05_athletico-pr-vasco-da-gama_14395788.json"
  },
  {
   "league": "serie-a-brazil",
