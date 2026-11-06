@@ -216,7 +216,7 @@
   "name": "Valencia CF - Real Madrid",
   "startTime": 1794081600000,
   "dateStr": "2026-11-07",
-  "marketCount": 108,
+  "marketCount": 104,
   "file": "la-liga/2026-11-07_valencia-cf-real-madrid_90891212.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "AS Roma - US Sassuolo Calcio",
   "startTime": 1794080700000,
   "dateStr": "2026-11-07",
-  "marketCount": 109,
+  "marketCount": 104,
   "file": "serie-a-italy/2026-11-07_as-roma-us-sassuolo-calcio_92997332.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Paris Saint-Germain - ES Troyes AC",
   "startTime": 1794081900000,
   "dateStr": "2026-11-07",
-  "marketCount": 110,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-07_paris-saint-germain-es-troyes-ac_94687650.json"
  },
  {
