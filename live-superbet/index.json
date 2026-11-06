@@ -266,7 +266,7 @@
   "name": "Osasuna - Athletic Bilbao",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-11-07_osasuna-athletic-bilbao_14453999.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Valencia - Real Madrid",
   "startTime": 1794081600000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-11-07_valencia-real-madrid_14454002.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Atletico Madrid - Barcelona",
   "startTime": 1794168000000,
   "dateStr": "2026-11-08",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "la-liga/2026-11-08_atletico-madrid-barcelona_14453994.json"
  },
  {
@@ -706,7 +706,7 @@
   "name": "Atlas - Pachuca",
   "startTime": 1794092400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-08_atlas-pachuca_15610732.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "UANL Tigres - Cruz Azul",
   "startTime": 1794099600000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-08_uanl-tigres-cruz-azul_15610733.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Deportivo Toluca - Monterrey",
   "startTime": 1794099600000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-08_deportivo-toluca-monterrey_15610841.json"
  },
  {
@@ -736,7 +736,7 @@
   "name": "UNAM Pumas - Club America",
   "startTime": 1794107400000,
   "dateStr": "2026-11-08",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-08_unam-pumas-club-america_15610864.json"
  },
  {
