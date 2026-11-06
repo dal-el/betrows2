@@ -286,7 +286,7 @@
   "name": "Celta Vigo - Levante",
   "startTime": 1794159000000,
   "dateStr": "2026-11-08",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-11-08_celta-vigo-levante_14453995.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Villarreal - Getafe",
   "startTime": 1794159000000,
   "dateStr": "2026-11-08",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-11-08_villarreal-getafe_14454003.json"
  },
  {
@@ -546,7 +546,7 @@
   "name": "Angers - Nice",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-08_angers-nice_14438778.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Brest - Lyon",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-08_brest-lyon_14438780.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Rennes - Lille",
   "startTime": 1794146400000,
   "dateStr": "2026-11-08",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-08_rennes-lille_14438785.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Lens - Marseille",
   "startTime": 1794167100000,
   "dateStr": "2026-11-08",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-08_lens-marseille_14438777.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Le Havre - Lorient",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-08_le-havre-lorient_14438781.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Le Mans - Monaco",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-08_le-mans-monaco_14438782.json"
  },
  {
