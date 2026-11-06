@@ -226,7 +226,7 @@
   "name": "Espanyol - Deportivo de A Coruna",
   "startTime": 1794064500000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "la-liga/2026-11-07_espanyol-deportivo-de-a-coruna_14453997.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Malaga - Racing Santander",
   "startTime": 1794056400000,
   "dateStr": "2026-11-07",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "la-liga/2026-11-07_malaga-racing-santander_14453998.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "Elche - Betis",
   "startTime": 1794142800000,
   "dateStr": "2026-11-08",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-11-08_elche-betis_14453996.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Osasuna - Athletic Bilbao",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "la-liga/2026-11-07_osasuna-athletic-bilbao_14453999.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Valencia - Real Madrid",
   "startTime": 1794081600000,
   "dateStr": "2026-11-07",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "la-liga/2026-11-07_valencia-real-madrid_14454002.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "Real Sociedad - Rayo Vallecano",
   "startTime": 1794150900000,
   "dateStr": "2026-11-08",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-11-08_real-sociedad-rayo-vallecano_14454000.json"
  },
  {
