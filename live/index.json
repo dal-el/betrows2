@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94629231",
-  "name": "Everton FC - Coventry City",
-  "startTime": 1793995200000,
-  "dateStr": "2026-11-06",
-  "marketCount": 123,
-  "file": "premier-league/2026-11-06_everton-fc-coventry-city_94629231.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "94629233",
   "name": "Leeds United - Tottenham Hotspur",
   "startTime": 1794054600000,
@@ -48,16 +38,6 @@
   "dateStr": "2026-11-07",
   "marketCount": 123,
   "file": "premier-league/2026-11-07_nottingham-forest-manchester-city_94629236.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94943955",
-  "name": "Derby County - Bolton",
-  "startTime": 1793995200000,
-  "dateStr": "2026-11-06",
-  "marketCount": 88,
-  "file": "championship/2026-11-06_derby-county-bolton_94943955.json"
  },
  {
   "league": "championship",
@@ -172,16 +152,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "90891360",
-  "name": "Sevilla FC - Deportivo Alaves",
-  "startTime": 1793995200000,
-  "dateStr": "2026-11-06",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-06_sevilla-fc-deportivo-alaves_90891360.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "90891467",
   "name": "Malaga CF - Racing Santander",
   "startTime": 1794056400000,
@@ -196,7 +166,7 @@
   "name": "RCD Espanyol - Deportivo de A Coruña",
   "startTime": 1794064500000,
   "dateStr": "2026-11-07",
-  "marketCount": 105,
+  "marketCount": 104,
   "file": "la-liga/2026-11-07_rcd-espanyol-deportivo-de-a-coruna_90891488.json"
  },
  {
@@ -218,16 +188,6 @@
   "dateStr": "2026-11-07",
   "marketCount": 104,
   "file": "la-liga/2026-11-07_valencia-cf-real-madrid_90891212.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997327",
-  "name": "Venezia FC - Udinese Calcio",
-  "startTime": 1793994300000,
-  "dateStr": "2026-11-06",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-11-06_venezia-fc-udinese-calcio_92997327.json"
  },
  {
   "league": "serie-a-italy",
@@ -268,16 +228,6 @@
   "dateStr": "2026-11-07",
   "marketCount": 104,
   "file": "serie-a-italy/2026-11-07_as-roma-us-sassuolo-calcio_92997332.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "93294634",
-  "name": "Hamburger SV - Borussia Monchengladbach",
-  "startTime": 1793993400000,
-  "dateStr": "2026-11-06",
-  "marketCount": 106,
-  "file": "bundesliga/2026-11-06_hamburger-sv-borussia-monchengladbach_93294634.json"
  },
  {
   "league": "bundesliga",
@@ -328,16 +278,6 @@
   "dateStr": "2026-11-07",
   "marketCount": 106,
   "file": "bundesliga/2026-11-07_vfb-stuttgart-werder-bremen_92952295.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "94687649",
-  "name": "Toulouse FC - RC Strasbourg",
-  "startTime": 1793994300000,
-  "dateStr": "2026-11-06",
-  "marketCount": 107,
-  "file": "ligue-1/2026-11-06_toulouse-fc-rc-strasbourg_94687649.json"
  },
  {
   "league": "ligue-1",
