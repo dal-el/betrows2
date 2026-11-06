@@ -96,7 +96,7 @@
   "name": "Manchester United - Aston Villa",
   "startTime": 1794155400000,
   "dateStr": "2026-11-08",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "premier-league/2026-11-08_manchester-united-aston-villa_14438723.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Birmingham City - Swansea City",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-11-07_birmingham-city-swansea-city_14438726.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Blackburn Rovers - West Ham",
   "startTime": 1794063600000,
   "dateStr": "2026-11-07",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-11-07_blackburn-rovers-west-ham_14438727.json"
  },
  {
