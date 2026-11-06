@@ -116,7 +116,7 @@
   "name": "Bristol City - Norwich City",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "championship/2026-11-07_bristol-city-norwich-city_14438679.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Portsmouth - Stoke City",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "championship/2026-11-07_portsmouth-stoke-city_14438680.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Wrexham - Wolves",
   "startTime": 1794054600000,
   "dateStr": "2026-11-07",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "championship/2026-11-07_wrexham-wolves_14438681.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Cagliari - Frosinone",
   "startTime": 1794060000000,
   "dateStr": "2026-11-07",
-  "marketCount": 21,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-07_cagliari-frosinone_14438682.json"
  },
  {
@@ -706,7 +706,7 @@
   "name": "Atlas - Pachuca",
   "startTime": 1794092400000,
   "dateStr": "2026-11-08",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-08_atlas-pachuca_15610732.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "UANL Tigres - Cruz Azul",
   "startTime": 1794099600000,
   "dateStr": "2026-11-08",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-08_uanl-tigres-cruz-azul_15610733.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Deportivo Toluca - Monterrey",
   "startTime": 1794099600000,
   "dateStr": "2026-11-08",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-08_deportivo-toluca-monterrey_15610841.json"
  },
  {
@@ -736,7 +736,7 @@
   "name": "UNAM Pumas - Club America",
   "startTime": 1794107400000,
   "dateStr": "2026-11-08",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-08_unam-pumas-club-america_15610864.json"
  },
  {
