@@ -52,16 +52,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "90891212",
-  "name": "Valencia CF - Real Madrid",
-  "startTime": 1794081600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-07_valencia-cf-real-madrid_90891212.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "90891457",
   "name": "Elche CF - Real Betis Balompie",
   "startTime": 1794142800000,
@@ -108,16 +98,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 105,
   "file": "la-liga/2026-11-08_atletico-madrid-fc-barcelona_90891267.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997332",
-  "name": "AS Roma - US Sassuolo Calcio",
-  "startTime": 1794080700000,
-  "dateStr": "2026-11-07",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-11-07_as-roma-us-sassuolo-calcio_92997332.json"
  },
  {
   "league": "serie-a-italy",
@@ -198,16 +178,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 106,
   "file": "bundesliga/2026-11-08_tsg-1899-hoffenheim-fc-schalke-04_93069941.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "94687650",
-  "name": "Paris Saint-Germain - ES Troyes AC",
-  "startTime": 1794081900000,
-  "dateStr": "2026-11-07",
-  "marketCount": 106,
-  "file": "ligue-1/2026-11-07_paris-saint-germain-es-troyes-ac_94687650.json"
  },
  {
   "league": "ligue-1",
