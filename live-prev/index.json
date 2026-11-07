@@ -206,7 +206,7 @@
   "name": "Malaga CF - Racing Santander",
   "startTime": 1794056400000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-11-07_malaga-cf-racing-santander_90891467.json"
  },
  {
@@ -666,7 +666,7 @@
   "name": "Club Leon - Guadalajara Chivas",
   "startTime": 1794190200000,
   "dateStr": "2026-11-09",
-  "marketCount": 94,
+  "marketCount": 89,
   "file": "liga-mx/2026-11-09_club-leon-guadalajara-chivas_94618173.json"
  }
 ]
