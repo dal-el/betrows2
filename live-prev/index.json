@@ -612,26 +612,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94618162",
-  "name": "Atletico San Luis - FC Juarez",
-  "startTime": 1794013200000,
-  "dateStr": "2026-11-07",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-07_atletico-san-luis-fc-juarez_94618162.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94618163",
-  "name": "Club Necaxa - Club Tijuana",
-  "startTime": 1794013200000,
-  "dateStr": "2026-11-07",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-07_club-necaxa-club-tijuana_94618163.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94618192",
   "name": "Atlante FC - Santos Laguna",
   "startTime": 1794020400000,
