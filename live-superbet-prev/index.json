@@ -62,12 +62,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14453997",
-  "name": "Espanyol - Deportivo de A Coruna",
-  "startTime": 1794064500000,
-  "dateStr": "2026-11-07",
+  "eventId": "14453996",
+  "name": "Elche - Betis",
+  "startTime": 1794142800000,
+  "dateStr": "2026-11-08",
   "marketCount": 23,
-  "file": "la-liga/2026-11-07_espanyol-deportivo-de-a-coruna_14453997.json"
+  "file": "la-liga/2026-11-08_elche-betis_14453996.json"
  },
  {
   "league": "la-liga",
@@ -102,22 +102,22 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14453996",
-  "name": "Elche - Betis",
-  "startTime": 1794142800000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-08_elche-betis_14453996.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14454000",
   "name": "Real Sociedad - Rayo Vallecano",
   "startTime": 1794150900000,
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "la-liga/2026-11-08_real-sociedad-rayo-vallecano_14454000.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14454003",
+  "name": "Villarreal - Getafe",
+  "startTime": 1794159000000,
+  "dateStr": "2026-11-08",
+  "marketCount": 23,
+  "file": "la-liga/2026-11-08_villarreal-getafe_14454003.json"
  },
  {
   "league": "la-liga",
@@ -130,14 +130,14 @@
   "file": "la-liga/2026-11-08_atletico-madrid-barcelona_14453994.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14454003",
-  "name": "Villarreal - Getafe",
-  "startTime": 1794159000000,
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14438684",
+  "name": "Genoa - AC Milan",
+  "startTime": 1794146400000,
   "dateStr": "2026-11-08",
   "marketCount": 23,
-  "file": "la-liga/2026-11-08_villarreal-getafe_14454003.json"
+  "file": "serie-a-italy/2026-11-08_genoa-ac-milan_14438684.json"
  },
  {
   "league": "serie-a-italy",
@@ -152,16 +152,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438688",
-  "name": "Parma - Bologna",
-  "startTime": 1794070800000,
-  "dateStr": "2026-11-07",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-07_parma-bologna_14438688.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14438689",
   "name": "AS Roma - Sassuolo",
   "startTime": 1794080700000,
@@ -172,12 +162,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438684",
-  "name": "Genoa - AC Milan",
-  "startTime": 1794146400000,
+  "eventId": "14438683",
+  "name": "Fiorentina - Juventus",
+  "startTime": 1794167100000,
   "dateStr": "2026-11-08",
   "marketCount": 23,
-  "file": "serie-a-italy/2026-11-08_genoa-ac-milan_14438684.json"
+  "file": "serie-a-italy/2026-11-08_fiorentina-juventus_14438683.json"
  },
  {
   "league": "serie-a-italy",
@@ -198,16 +188,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "serie-a-italy/2026-11-08_monza-atalanta_14438686.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438683",
-  "name": "Fiorentina - Juventus",
-  "startTime": 1794167100000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-08_fiorentina-juventus_14438683.json"
  },
  {
   "league": "bundesliga",
@@ -256,7 +236,7 @@
   "name": "Auxerre - Paris FC",
   "startTime": 1794074400000,
   "dateStr": "2026-11-07",
-  "marketCount": 23,
+  "marketCount": 13,
   "file": "ligue-1/2026-11-07_auxerre-paris-fc_14438779.json"
  },
  {
