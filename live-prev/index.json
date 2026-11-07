@@ -678,15 +678,5 @@
   "dateStr": "2026-11-08",
   "marketCount": 89,
   "file": "liga-mx/2026-11-08_unam-pumas-club-america_94618188.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "94671785",
-  "name": "Vitoria BA - Fluminense RJ",
-  "startTime": 1794006000000,
-  "dateStr": "2026-11-07",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-07_vitoria-ba-fluminense-rj_94671785.json"
  }
 ]
