@@ -612,16 +612,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94618192",
-  "name": "Atlante FC - Santos Laguna",
-  "startTime": 1794020400000,
-  "dateStr": "2026-11-07",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-07_atlante-fc-santos-laguna_94618192.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94618191",
   "name": "Atlas FC - CF Pachuca",
   "startTime": 1794092400000,
