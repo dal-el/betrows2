@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94629233",
-  "name": "Leeds United - Tottenham Hotspur",
-  "startTime": 1794054600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 123,
-  "file": "premier-league/2026-11-07_leeds-united-tottenham-hotspur_94629233.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "94629232",
   "name": "Fulham - Newcastle United",
   "startTime": 1794063600000,
@@ -92,36 +82,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "94978565",
-  "name": "Wrexham FC - Wolverhampton Wanderers",
-  "startTime": 1794054600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_wrexham-fc-wolverhampton-wanderers_94978565.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94978610",
-  "name": "Portsmouth FC - Stoke City",
-  "startTime": 1794054600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_portsmouth-fc-stoke-city_94978610.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94978706",
-  "name": "Bristol City - Norwich City",
-  "startTime": 1794054600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_bristol-city-norwich-city_94978706.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "94982987",
   "name": "Watford FC - Middlesbrough FC",
   "startTime": 1794063600000,
@@ -198,16 +158,6 @@
   "dateStr": "2026-11-07",
   "marketCount": 88,
   "file": "championship/2026-11-07_preston-southampton-fc_94983011.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "90891467",
-  "name": "Malaga CF - Racing Santander",
-  "startTime": 1794056400000,
-  "dateStr": "2026-11-07",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-07_malaga-cf-racing-santander_90891467.json"
  },
  {
   "league": "la-liga",
