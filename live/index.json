@@ -62,16 +62,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "90891488",
-  "name": "RCD Espanyol - Deportivo de A Coruña",
-  "startTime": 1794064500000,
-  "dateStr": "2026-11-07",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-07_rcd-espanyol-deportivo-de-a-coruna_90891488.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "90891165",
   "name": "CA Osasuna - Athletic Bilbao",
   "startTime": 1794072600000,
@@ -86,7 +76,7 @@
   "name": "Valencia CF - Real Madrid",
   "startTime": 1794081600000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "la-liga/2026-11-07_valencia-cf-real-madrid_90891212.json"
  },
  {
@@ -142,21 +132,11 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997330",
-  "name": "Parma Calcio 1913 - Bologna FC",
-  "startTime": 1794070800000,
-  "dateStr": "2026-11-07",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-11-07_parma-calcio-1913-bologna-fc_92997330.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92997332",
   "name": "AS Roma - US Sassuolo Calcio",
   "startTime": 1794080700000,
   "dateStr": "2026-11-07",
-  "marketCount": 104,
+  "marketCount": 107,
   "file": "serie-a-italy/2026-11-07_as-roma-us-sassuolo-calcio_92997332.json"
  },
  {
@@ -336,7 +316,7 @@
   "name": "Aris Thessaloniki - Panaitolikos",
   "startTime": 1794072600000,
   "dateStr": "2026-11-07",
-  "marketCount": 106,
+  "marketCount": 102,
   "file": "super-league-greece/2026-11-07_aris-thessaloniki-panaitolikos_94414686.json"
  },
  {

@@ -2,26 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94629232",
-  "name": "Fulham - Newcastle United",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 122,
-  "file": "premier-league/2026-11-07_fulham-newcastle-united_94629232.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94629234",
-  "name": "Arsenal FC - Hull City",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 121,
-  "file": "premier-league/2026-11-07_arsenal-fc-hull-city_94629234.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "94629236",
   "name": "Nottingham Forest - Manchester City",
   "startTime": 1794072600000,
@@ -78,86 +58,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 122,
   "file": "premier-league/2026-11-08_manchester-united-aston-villa_94629238.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94982987",
-  "name": "Watford FC - Middlesbrough FC",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_watford-fc-middlesbrough-fc_94982987.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94982990",
-  "name": "Blackburn Rovers - West Ham United",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_blackburn-rovers-west-ham-united_94982990.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94982991",
-  "name": "Queens Park Rangers - Lincoln City",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_queens-park-rangers-lincoln-city_94982991.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94983007",
-  "name": "Charlton - Sheffield United",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_charlton-sheffield-united_94983007.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94983008",
-  "name": "West Bromwich Albion - Millwall FC",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_west-bromwich-albion-millwall-fc_94983008.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94983009",
-  "name": "Cardiff City - Burnley FC",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_cardiff-city-burnley-fc_94983009.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94983010",
-  "name": "Birmingham - Swansea City",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_birmingham-swansea-city_94983010.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "94983011",
-  "name": "Preston - Southampton FC",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 88,
-  "file": "championship/2026-11-07_preston-southampton-fc_94983011.json"
  },
  {
   "league": "la-liga",
@@ -312,46 +212,6 @@
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "92952467",
-  "name": "FSV Mainz 05 - FC Bayern Munchen",
-  "startTime": 1794061800000,
-  "dateStr": "2026-11-07",
-  "marketCount": 106,
-  "file": "bundesliga/2026-11-07_fsv-mainz-05-fc-bayern-munchen_92952467.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "93064835",
-  "name": "RB Leipzig - FC Augsburg",
-  "startTime": 1794061800000,
-  "dateStr": "2026-11-07",
-  "marketCount": 106,
-  "file": "bundesliga/2026-11-07_rb-leipzig-fc-augsburg_93064835.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "93064836",
-  "name": "Borussia Dortmund - SV Elversberg",
-  "startTime": 1794061800000,
-  "dateStr": "2026-11-07",
-  "marketCount": 106,
-  "file": "bundesliga/2026-11-07_borussia-dortmund-sv-elversberg_93064836.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "93070096",
-  "name": "SC Paderborn 07 - Eintracht Frankfurt",
-  "startTime": 1794061800000,
-  "dateStr": "2026-11-07",
-  "marketCount": 106,
-  "file": "bundesliga/2026-11-07_sc-paderborn-07-eintracht-frankfurt_93070096.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "92952295",
   "name": "VfB Stuttgart - Werder Bremen",
   "startTime": 1794072600000,
@@ -468,16 +328,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 107,
   "file": "ligue-1/2026-11-08_rc-lens-olympique-marseille_94687768.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "94414685",
-  "name": "Volos NFC - Kifisia",
-  "startTime": 1794063600000,
-  "dateStr": "2026-11-07",
-  "marketCount": 108,
-  "file": "super-league-greece/2026-11-07_volos-nfc-kifisia_94414685.json"
  },
  {
   "league": "super-league-greece",
