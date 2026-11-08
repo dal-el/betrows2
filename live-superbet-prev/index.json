@@ -292,26 +292,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15610733",
-  "name": "UANL Tigres - Cruz Azul",
-  "startTime": 1794099600000,
-  "dateStr": "2026-11-08",
-  "marketCount": 8,
-  "file": "liga-mx/2026-11-08_uanl-tigres-cruz-azul_15610733.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15610841",
-  "name": "Deportivo Toluca - Monterrey",
-  "startTime": 1794099600000,
-  "dateStr": "2026-11-08",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-08_deportivo-toluca-monterrey_15610841.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15610864",
   "name": "UNAM Pumas - Club America",
   "startTime": 1794107400000,
