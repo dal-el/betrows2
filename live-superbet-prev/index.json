@@ -2,36 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14438717",
-  "name": "Brighton - Brentford",
-  "startTime": 1794146400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "premier-league/2026-11-08_brighton-brentford_14438717.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14438718",
-  "name": "Crystal Palace - Liverpool",
-  "startTime": 1794146400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "premier-league/2026-11-08_crystal-palace-liverpool_14438718.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14438721",
-  "name": "Ipswich - Bournemouth",
-  "startTime": 1794146400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "premier-league/2026-11-08_ipswich-bournemouth_14438721.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "14438723",
   "name": "Manchester United - Aston Villa",
   "startTime": 1794155400000,
@@ -40,14 +10,14 @@
   "file": "premier-league/2026-11-08_manchester-united-aston-villa_14438723.json"
  },
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14438725",
-  "name": "Sunderland - Chelsea",
-  "startTime": 1794146400000,
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14453994",
+  "name": "Atletico Madrid - Barcelona",
+  "startTime": 1794168000000,
   "dateStr": "2026-11-08",
   "marketCount": 23,
-  "file": "premier-league/2026-11-08_sunderland-chelsea_14438725.json"
+  "file": "la-liga/2026-11-08_atletico-madrid-barcelona_14453994.json"
  },
  {
   "league": "la-liga",
@@ -62,62 +32,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14454000",
-  "name": "Real Sociedad - Rayo Vallecano",
-  "startTime": 1794150900000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-08_real-sociedad-rayo-vallecano_14454000.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14454003",
   "name": "Villarreal - Getafe",
   "startTime": 1794159000000,
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "la-liga/2026-11-08_villarreal-getafe_14454003.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14453994",
-  "name": "Atletico Madrid - Barcelona",
-  "startTime": 1794168000000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-08_atletico-madrid-barcelona_14453994.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438684",
-  "name": "Genoa - AC Milan",
-  "startTime": 1794146400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-08_genoa-ac-milan_14438684.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438685",
-  "name": "Inter Milan - Como",
-  "startTime": 1794157200000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-08_inter-milan-como_14438685.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438686",
-  "name": "Monza - Atalanta",
-  "startTime": 1794146400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-08_monza-atalanta_14438686.json"
  },
  {
   "league": "serie-a-italy",
@@ -128,6 +48,16 @@
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "serie-a-italy/2026-11-08_fiorentina-juventus_14438683.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14438685",
+  "name": "Inter Milan - Como",
+  "startTime": 1794157200000,
+  "dateStr": "2026-11-08",
+  "marketCount": 23,
+  "file": "serie-a-italy/2026-11-08_inter-milan-como_14438685.json"
  },
  {
   "league": "bundesliga",
@@ -148,16 +78,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "bundesliga/2026-11-08_freiburg-union-berlin_14438665.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14438668",
-  "name": "FC Koln - Bayer Leverkusen",
-  "startTime": 1794148200000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "bundesliga/2026-11-08_fc-koln-bayer-leverkusen_14438668.json"
  },
  {
   "league": "ligue-1",
@@ -182,12 +102,12 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14438785",
-  "name": "Rennes - Lille",
-  "startTime": 1794146400000,
+  "eventId": "14438781",
+  "name": "Le Havre - Lorient",
+  "startTime": 1794154500000,
   "dateStr": "2026-11-08",
   "marketCount": 23,
-  "file": "ligue-1/2026-11-08_rennes-lille_14438785.json"
+  "file": "ligue-1/2026-11-08_le-havre-lorient_14438781.json"
  },
  {
   "league": "ligue-1",
@@ -202,52 +122,12 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14438781",
-  "name": "Le Havre - Lorient",
-  "startTime": 1794154500000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-08_le-havre-lorient_14438781.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14438782",
   "name": "Le Mans - Monaco",
   "startTime": 1794154500000,
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "ligue-1/2026-11-08_le-mans-monaco_14438782.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439033",
-  "name": "Asteras Tripolis - Kalamata",
-  "startTime": 1794150000000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-08_asteras-tripolis-kalamata_15439033.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439035",
-  "name": "AEK - Levadiakos",
-  "startTime": 1794150000000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-08_aek-levadiakos_15439035.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439036",
-  "name": "Iraklis FC - Panathinaikos",
-  "startTime": 1794151800000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-08_iraklis-fc-panathinaikos_15439036.json"
  },
  {
   "league": "super-league-greece",
