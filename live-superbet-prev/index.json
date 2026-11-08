@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14438723",
-  "name": "Manchester United - Aston Villa",
-  "startTime": 1794155400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "premier-league/2026-11-08_manchester-united-aston-villa_14438723.json"
- },
- {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14453994",
@@ -50,16 +40,6 @@
   "file": "serie-a-italy/2026-11-08_fiorentina-juventus_14438683.json"
  },
  {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438685",
-  "name": "Inter Milan - Como",
-  "startTime": 1794157200000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-08_inter-milan-como_14438685.json"
- },
- {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "14438664",
@@ -70,46 +50,6 @@
   "file": "bundesliga/2026-11-08_tsg-hoffenheim-schalke_14438664.json"
  },
  {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14438665",
-  "name": "Freiburg - Union Berlin",
-  "startTime": 1794155400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "bundesliga/2026-11-08_freiburg-union-berlin_14438665.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14438778",
-  "name": "Angers - Nice",
-  "startTime": 1794154500000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-08_angers-nice_14438778.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14438780",
-  "name": "Brest - Lyon",
-  "startTime": 1794154500000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-08_brest-lyon_14438780.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14438781",
-  "name": "Le Havre - Lorient",
-  "startTime": 1794154500000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-08_le-havre-lorient_14438781.json"
- },
- {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14438777",
@@ -118,26 +58,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "ligue-1/2026-11-08_lens-marseille_14438777.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14438782",
-  "name": "Le Mans - Monaco",
-  "startTime": 1794154500000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-08_le-mans-monaco_14438782.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439038",
-  "name": "OFI - Atromitos",
-  "startTime": 1794155400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-08_ofi-atromitos_15439038.json"
  },
  {
   "league": "super-league-greece",

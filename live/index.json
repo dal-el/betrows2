@@ -2,26 +2,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "90891233",
-  "name": "RC Celta de Vigo - Levante UD",
-  "startTime": 1794159000000,
-  "dateStr": "2026-11-08",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-08_rc-celta-de-vigo-levante-ud_90891233.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "90891334",
-  "name": "Villarreal CF - Getafe CF",
-  "startTime": 1794159000000,
-  "dateStr": "2026-11-08",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-08_villarreal-cf-getafe-cf_90891334.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "90891267",
   "name": "Atletico Madrid - FC Barcelona",
   "startTime": 1794168000000,
