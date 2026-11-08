@@ -102,16 +102,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "92997339",
-  "name": "SSC Napoli - SS Lazio",
-  "startTime": 1794137400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-11-08_ssc-napoli-ss-lazio_92997339.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "92997346",
   "name": "Genoa CFC - AC Milan",
   "startTime": 1794146400000,
