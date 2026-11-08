@@ -20,16 +20,6 @@
   "file": "serie-a-italy/2026-11-08_ac-fiorentina-juventus-fc_92997373.json"
  },
  {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "93069941",
-  "name": "TSG 1899 Hoffenheim - FC Schalke 04",
-  "startTime": 1794162600000,
-  "dateStr": "2026-11-08",
-  "marketCount": 106,
-  "file": "bundesliga/2026-11-08_tsg-1899-hoffenheim-fc-schalke-04_93069941.json"
- },
- {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "94687768",
@@ -38,16 +28,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 107,
   "file": "ligue-1/2026-11-08_rc-lens-olympique-marseille_94687768.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "89189906",
-  "name": "Olympiacos Piraeus - PAOK",
-  "startTime": 1794164400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 108,
-  "file": "super-league-greece/2026-11-08_olympiacos-piraeus-paok_89189906.json"
  },
  {
   "league": "liga-mx",
