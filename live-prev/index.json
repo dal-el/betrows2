@@ -292,16 +292,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94618191",
-  "name": "Atlas FC - CF Pachuca",
-  "startTime": 1794092400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-08_atlas-fc-cf-pachuca_94618191.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94618189",
   "name": "Deportivo Toluca FC - CF Monterrey",
   "startTime": 1794099600000,

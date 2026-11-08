@@ -292,16 +292,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15610732",
-  "name": "Atlas - Pachuca",
-  "startTime": 1794092400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-08_atlas-pachuca_15610732.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15610733",
   "name": "UANL Tigres - Cruz Azul",
   "startTime": 1794099600000,
