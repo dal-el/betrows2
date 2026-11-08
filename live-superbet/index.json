@@ -20,16 +20,6 @@
   "file": "serie-a-italy/2026-11-08_fiorentina-juventus_14438683.json"
  },
  {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14438664",
-  "name": "TSG Hoffenheim - Schalke",
-  "startTime": 1794162600000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "bundesliga/2026-11-08_tsg-hoffenheim-schalke_14438664.json"
- },
- {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "14438777",
@@ -38,16 +28,6 @@
   "dateStr": "2026-11-08",
   "marketCount": 23,
   "file": "ligue-1/2026-11-08_lens-marseille_14438777.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15439049",
-  "name": "Olympiacos - PAOK",
-  "startTime": 1794164400000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-08_olympiacos-paok_15439049.json"
  },
  {
   "league": "liga-mx",
