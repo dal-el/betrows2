@@ -52,16 +52,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "90891457",
-  "name": "Elche CF - Real Betis Balompie",
-  "startTime": 1794142800000,
-  "dateStr": "2026-11-08",
-  "marketCount": 107,
-  "file": "la-liga/2026-11-08_elche-cf-real-betis-balompie_90891457.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "90891235",
   "name": "Real Sociedad - Rayo Vallecano",
   "startTime": 1794150900000,
