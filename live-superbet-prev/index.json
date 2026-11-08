@@ -1,35 +1,5 @@
 [
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14453994",
-  "name": "Atletico Madrid - Barcelona",
-  "startTime": 1794168000000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-08_atletico-madrid-barcelona_14453994.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14438683",
-  "name": "Fiorentina - Juventus",
-  "startTime": 1794167100000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-08_fiorentina-juventus_14438683.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14438777",
-  "name": "Lens - Marseille",
-  "startTime": 1794167100000,
-  "dateStr": "2026-11-08",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-08_lens-marseille_14438777.json"
- },
- {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15627112",
