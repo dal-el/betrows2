@@ -2,16 +2,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94618186",
-  "name": "Queretaro FC - Club Puebla",
-  "startTime": 1794182400000,
-  "dateStr": "2026-11-09",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-09_queretaro-fc-club-puebla_94618186.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "94618173",
   "name": "Club Leon - Guadalajara Chivas",
   "startTime": 1794190200000,
