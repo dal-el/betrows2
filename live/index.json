@@ -1,12 +1,12 @@
 [
  {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "94618173",
-  "name": "Club Leon - Guadalajara Chivas",
-  "startTime": 1794190200000,
-  "dateStr": "2026-11-09",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-09_club-leon-guadalajara-chivas_94618173.json"
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049971",
+  "name": "Mirassol SP - Clube Atletico MG",
+  "startTime": 1794691800000,
+  "dateStr": "2026-11-14",
+  "marketCount": 65,
+  "file": "serie-a-brazil/2026-11-14_mirassol-sp-clube-atletico-mg_95049971.json"
  }
 ]
