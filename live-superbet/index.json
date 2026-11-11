@@ -1,5 +1,15 @@
 [
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15706569",
+  "name": "Queretaro - Monterrey",
+  "startTime": 1794697200000,
+  "dateStr": "2026-11-15",
+  "marketCount": 3,
+  "file": "liga-mx/2026-11-15_queretaro-monterrey_15706569.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14611170",
@@ -8,5 +18,15 @@
   "dateStr": "2026-11-14",
   "marketCount": 6,
   "file": "serie-a-brazil/2026-11-14_mirassol-atletico-mineiro_14611170.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "15721156",
+  "name": "Chapecoense - Vasco da Gama",
+  "startTime": 1794699000000,
+  "dateStr": "2026-11-15",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-15_chapecoense-vasco-da-gama_15721156.json"
  }
 ]
