@@ -6,7 +6,7 @@
   "name": "Queretaro - Monterrey",
   "startTime": 1794697200000,
   "dateStr": "2026-11-15",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-15_queretaro-monterrey_15706569.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Mirassol - Atletico Mineiro",
   "startTime": 1794691800000,
   "dateStr": "2026-11-14",
-  "marketCount": 17,
+  "marketCount": 20,
   "file": "serie-a-brazil/2026-11-14_mirassol-atletico-mineiro_14611170.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Chapecoense - Vasco da Gama",
   "startTime": 1794699000000,
   "dateStr": "2026-11-15",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-11-15_chapecoense-vasco-da-gama_15721156.json"
  }
 ]
