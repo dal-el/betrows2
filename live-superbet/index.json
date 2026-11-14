@@ -12,16 +12,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14611170",
-  "name": "Mirassol - Atletico Mineiro",
-  "startTime": 1794691800000,
-  "dateStr": "2026-11-14",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-14_mirassol-atletico-mineiro_14611170.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "15721156",
   "name": "Chapecoense - Vasco da Gama",
   "startTime": 1794699000000,

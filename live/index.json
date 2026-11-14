@@ -12,21 +12,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049971",
-  "name": "Mirassol SP - Clube Atletico MG",
-  "startTime": 1794691800000,
-  "dateStr": "2026-11-14",
-  "marketCount": 103,
-  "file": "serie-a-brazil/2026-11-14_mirassol-sp-clube-atletico-mg_95049971.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "95049973",
   "name": "Chapecoense SC - Vasco da Gama RJ",
   "startTime": 1794699000000,
   "dateStr": "2026-11-15",
-  "marketCount": 106,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-15_chapecoense-sc-vasco-da-gama-rj_95049973.json"
  }
 ]
