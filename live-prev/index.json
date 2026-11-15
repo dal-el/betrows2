@@ -2,11 +2,61 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049973",
-  "name": "Chapecoense SC - Vasco da Gama RJ",
-  "startTime": 1794699000000,
-  "dateStr": "2026-11-15",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-15_chapecoense-sc-vasco-da-gama-rj_95049973.json"
+  "eventId": "95049968",
+  "name": "Coritiba PR - Santos SP",
+  "startTime": 1795041000000,
+  "dateStr": "2026-11-19",
+  "marketCount": 96,
+  "file": "serie-a-brazil/2026-11-19_coritiba-pr-santos-sp_95049968.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049966",
+  "name": "Remo PA - Chapecoense SC",
+  "startTime": 1795042800000,
+  "dateStr": "2026-11-19",
+  "marketCount": 96,
+  "file": "serie-a-brazil/2026-11-19_remo-pa-chapecoense-sc_95049966.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049969",
+  "name": "Cruzeiro MG - Palmeiras SP",
+  "startTime": 1795044600000,
+  "dateStr": "2026-11-19",
+  "marketCount": 96,
+  "file": "serie-a-brazil/2026-11-19_cruzeiro-mg-palmeiras-sp_95049969.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049970",
+  "name": "Flamengo RJ - Athletico PR",
+  "startTime": 1795044600000,
+  "dateStr": "2026-11-19",
+  "marketCount": 95,
+  "file": "serie-a-brazil/2026-11-19_flamengo-rj-athletico-pr_95049970.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049965",
+  "name": "Gremio RS - EC Bahia BA",
+  "startTime": 1795048200000,
+  "dateStr": "2026-11-19",
+  "marketCount": 96,
+  "file": "serie-a-brazil/2026-11-19_gremio-rs-ec-bahia-ba_95049965.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049972",
+  "name": "Corinthians SP - Botafogo RJ",
+  "startTime": 1795048200000,
+  "dateStr": "2026-11-19",
+  "marketCount": 96,
+  "file": "serie-a-brazil/2026-11-19_corinthians-sp-botafogo-rj_95049972.json"
  }
 ]
