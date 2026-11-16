@@ -6,7 +6,7 @@
   "name": "Flamengo - Athletico PR",
   "startTime": 1795044600000,
   "dateStr": "2026-11-19",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-19_flamengo-athletico-pr_14611166.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Coritiba - Santos",
   "startTime": 1795041000000,
   "dateStr": "2026-11-19",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-19_coritiba-santos_14611173.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Corinthians - Botafogo",
   "startTime": 1795048200000,
   "dateStr": "2026-11-19",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-19_corinthians-botafogo_14611169.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Cruzeiro - Palmeiras",
   "startTime": 1795044600000,
   "dateStr": "2026-11-19",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-19_cruzeiro-palmeiras_14611171.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Gremio - Bahia",
   "startTime": 1795048200000,
   "dateStr": "2026-11-19",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-19_gremio-bahia_14611172.json"
  }
 ]
