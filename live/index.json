@@ -1,5 +1,35 @@
 [
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91673433",
+  "name": "Athletic Bilbao - RCD Espanyol",
+  "startTime": 1795204800000,
+  "dateStr": "2026-11-20",
+  "marketCount": 90,
+  "file": "la-liga/2026-11-20_athletic-bilbao-rcd-espanyol_91673433.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "93891476",
+  "name": "FC Bayern Munchen - 1. FC Köln",
+  "startTime": 1795203000000,
+  "dateStr": "2026-11-20",
+  "marketCount": 88,
+  "file": "bundesliga/2026-11-20_fc-bayern-munchen-1-fc-koln_93891476.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "95023733",
+  "name": "ES Troyes AC - Le Havre AC",
+  "startTime": 1795203900000,
+  "dateStr": "2026-11-20",
+  "marketCount": 69,
+  "file": "ligue-1/2026-11-20_es-troyes-ac-le-havre-ac_95023733.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "95049968",
@@ -58,5 +88,35 @@
   "dateStr": "2026-11-19",
   "marketCount": 113,
   "file": "serie-a-brazil/2026-11-19_corinthians-sp-botafogo-rj_95049972.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049963",
+  "name": "Vasco da Gama RJ - Internacional RS",
+  "startTime": 1795127400000,
+  "dateStr": "2026-11-20",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-11-20_vasco-da-gama-rj-internacional-rs_95049963.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049967",
+  "name": "Vitoria BA - Bragantino SP",
+  "startTime": 1795127400000,
+  "dateStr": "2026-11-20",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino-sp_95049967.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95049964",
+  "name": "Sao Paulo SP - Fluminense RJ",
+  "startTime": 1795134600000,
+  "dateStr": "2026-11-20",
+  "marketCount": 107,
+  "file": "serie-a-brazil/2026-11-20_sao-paulo-sp-fluminense-rj_95049964.json"
  }
 ]

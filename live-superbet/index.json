@@ -1,5 +1,35 @@
 [
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14670973",
+  "name": "Athletic Bilbao - Espanyol",
+  "startTime": 1795204800000,
+  "dateStr": "2026-11-20",
+  "marketCount": 6,
+  "file": "la-liga/2026-11-20_athletic-bilbao-espanyol_14670973.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "14656212",
+  "name": "Bayern Munich - FC Koln",
+  "startTime": 1795203000000,
+  "dateStr": "2026-11-20",
+  "marketCount": 6,
+  "file": "bundesliga/2026-11-20_bayern-munich-fc-koln_14656212.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14656369",
+  "name": "Troyes - Le Havre",
+  "startTime": 1795203900000,
+  "dateStr": "2026-11-20",
+  "marketCount": 6,
+  "file": "ligue-1/2026-11-20_troyes-le-havre_14656369.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14611166",
@@ -58,5 +88,35 @@
   "dateStr": "2026-11-19",
   "marketCount": 8,
   "file": "serie-a-brazil/2026-11-19_gremio-bahia_14611172.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14611167",
+  "name": "Vasco da Gama - Internacional RS",
+  "startTime": 1795127400000,
+  "dateStr": "2026-11-20",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-20_vasco-da-gama-internacional-rs_14611167.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14611168",
+  "name": "Sao Paulo - Fluminense",
+  "startTime": 1795134600000,
+  "dateStr": "2026-11-20",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-20_sao-paulo-fluminense_14611168.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14611174",
+  "name": "Vitoria BA - Bragantino",
+  "startTime": 1795127400000,
+  "dateStr": "2026-11-20",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino_14611174.json"
  }
 ]
