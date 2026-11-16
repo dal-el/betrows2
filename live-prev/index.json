@@ -46,7 +46,7 @@
   "name": "Gremio RS - EC Bahia BA",
   "startTime": 1795048200000,
   "dateStr": "2026-11-19",
-  "marketCount": 107,
+  "marketCount": 113,
   "file": "serie-a-brazil/2026-11-19_gremio-rs-ec-bahia-ba_95049965.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Corinthians SP - Botafogo RJ",
   "startTime": 1795048200000,
   "dateStr": "2026-11-19",
-  "marketCount": 106,
+  "marketCount": 110,
   "file": "serie-a-brazil/2026-11-19_corinthians-sp-botafogo-rj_95049972.json"
  }
 ]
