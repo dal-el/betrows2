@@ -16,7 +16,7 @@
   "name": "FC Bayern Munchen - 1. FC Köln",
   "startTime": 1795203000000,
   "dateStr": "2026-11-20",
-  "marketCount": 74,
+  "marketCount": 105,
   "file": "bundesliga/2026-11-20_fc-bayern-munchen-1-fc-koln_93891476.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "ES Troyes AC - Le Havre AC",
   "startTime": 1795203900000,
   "dateStr": "2026-11-20",
-  "marketCount": 75,
+  "marketCount": 86,
   "file": "ligue-1/2026-11-20_es-troyes-ac-le-havre-ac_95023733.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Sao Paulo SP - Fluminense RJ",
   "startTime": 1795134600000,
   "dateStr": "2026-11-20",
-  "marketCount": 107,
+  "marketCount": 113,
   "file": "serie-a-brazil/2026-11-20_sao-paulo-sp-fluminense-rj_95049964.json"
  }
 ]
