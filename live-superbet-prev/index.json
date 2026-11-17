@@ -46,7 +46,7 @@
   "name": "Coritiba - Santos",
   "startTime": 1795041000000,
   "dateStr": "2026-11-19",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-19_coritiba-santos_14611173.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Remo - Chapecoense",
   "startTime": 1795042800000,
   "dateStr": "2026-11-19",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-19_remo-chapecoense_14611175.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Cruzeiro - Palmeiras",
   "startTime": 1795044600000,
   "dateStr": "2026-11-19",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-19_cruzeiro-palmeiras_14611171.json"
  },
  {
