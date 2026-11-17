@@ -36,7 +36,7 @@
   "name": "Coritiba PR - Santos SP",
   "startTime": 1795041000000,
   "dateStr": "2026-11-19",
-  "marketCount": 113,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-11-19_coritiba-pr-santos-sp_95049968.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Remo PA - Chapecoense SC",
   "startTime": 1795042800000,
   "dateStr": "2026-11-19",
-  "marketCount": 113,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-11-19_remo-pa-chapecoense-sc_95049966.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Cruzeiro MG - Palmeiras SP",
   "startTime": 1795044600000,
   "dateStr": "2026-11-19",
-  "marketCount": 113,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-11-19_cruzeiro-mg-palmeiras-sp_95049969.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Flamengo RJ - Athletico PR",
   "startTime": 1795044600000,
   "dateStr": "2026-11-19",
-  "marketCount": 112,
+  "marketCount": 107,
   "file": "serie-a-brazil/2026-11-19_flamengo-rj-athletico-pr_95049970.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Vasco da Gama RJ - Internacional RS",
   "startTime": 1795127400000,
   "dateStr": "2026-11-20",
-  "marketCount": 107,
+  "marketCount": 113,
   "file": "serie-a-brazil/2026-11-20_vasco-da-gama-rj-internacional-rs_95049963.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Vitoria BA - Bragantino SP",
   "startTime": 1795127400000,
   "dateStr": "2026-11-20",
-  "marketCount": 107,
+  "marketCount": 113,
   "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino-sp_95049967.json"
  },
  {
