@@ -66,7 +66,7 @@
   "name": "Newcastle - Arsenal",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-21_newcastle-arsenal_14656302.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "Sevilla - Betis",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-21_sevilla-betis_14670983.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Bayern Munich - FC Koln",
   "startTime": 1795203000000,
   "dateStr": "2026-11-20",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-20_bayern-munich-fc-koln_14656212.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Schalke - VfB Stuttgart",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "bundesliga/2026-11-21_schalke-vfb-stuttgart_14656219.json"
  },
  {
