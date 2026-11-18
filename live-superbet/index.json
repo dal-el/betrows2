@@ -424,7 +424,7 @@
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15812494",
   "name": "Tijuana - Atlante",
-  "startTime": 1795233600000,
+  "startTime": 1795237800000,
   "dateStr": "2026-11-21",
   "marketCount": 3,
   "file": "liga-mx/2026-11-21_tijuana-atlante_15812494.json"
@@ -434,7 +434,7 @@
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15812606",
   "name": "Juarez - Atlas",
-  "startTime": 1795226400000,
+  "startTime": 1795230000000,
   "dateStr": "2026-11-21",
   "marketCount": 3,
   "file": "liga-mx/2026-11-21_juarez-atlas_15812606.json"
