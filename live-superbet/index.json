@@ -26,7 +26,7 @@
   "name": "Manchester City - Fulham",
   "startTime": 1795264200000,
   "dateStr": "2026-11-21",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-21_manchester-city-fulham_14656301.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Alaves - Deportivo de A Coruna",
   "startTime": 1795266000000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-21_alaves-deportivo-de-a-coruna_14670971.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "Como - Cagliari",
   "startTime": 1795269600000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-11-21_como-cagliari_14656239.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Lazio - Lecce",
   "startTime": 1795269600000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-11-21_lazio-lecce_14656242.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "Parma - AS Roma",
   "startTime": 1795280400000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-11-21_parma-as-roma_14656246.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Napoli - Torino FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-italy/2026-11-21_napoli-torino-fc_14656245.json"
  },
  {
