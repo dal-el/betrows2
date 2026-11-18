@@ -256,7 +256,7 @@
   "name": "Parma - AS Roma",
   "startTime": 1795280400000,
   "dateStr": "2026-11-21",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-21_parma-as-roma_14656246.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Nice - Paris Saint-Germain",
   "startTime": 1795277700000,
   "dateStr": "2026-11-21",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-21_nice-paris-saint-germain_14656366.json"
  },
  {
