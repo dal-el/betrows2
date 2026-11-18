@@ -422,22 +422,22 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "95443942",
+  "name": "Club Tijuana - Atlante FC",
+  "startTime": 1795230000000,
+  "dateStr": "2026-11-21",
+  "marketCount": 88,
+  "file": "liga-mx/2026-11-21_club-tijuana-atlante-fc_95443942.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "95443951",
   "name": "FC Juarez - Atlas FC",
   "startTime": 1795230000000,
   "dateStr": "2026-11-21",
   "marketCount": 88,
   "file": "liga-mx/2026-11-21_fc-juarez-atlas-fc_95443951.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "95443942",
-  "name": "Club Tijuana - Atlante FC",
-  "startTime": 1795237200000,
-  "dateStr": "2026-11-21",
-  "marketCount": 88,
-  "file": "liga-mx/2026-11-21_club-tijuana-atlante-fc_95443942.json"
  },
  {
   "league": "serie-a-brazil",
