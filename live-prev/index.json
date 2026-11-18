@@ -70,6 +70,26 @@
   "file": "premier-league/2026-11-21_newcastle-united-arsenal-fc_94991433.json"
  },
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "94991435",
+  "name": "Hull City - Brighton & Hove Albion",
+  "startTime": 1795356000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 115,
+  "file": "premier-league/2026-11-22_hull-city-brighton-hove-albion_94991435.json"
+ },
+ {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "94991341",
+  "name": "Liverpool FC - Manchester United",
+  "startTime": 1795365000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 115,
+  "file": "premier-league/2026-11-22_liverpool-fc-manchester-united_94991341.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "95346714",
@@ -180,6 +200,16 @@
   "file": "championship/2026-11-21_stoke-city-birmingham_95346724.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95346252",
+  "name": "Burnley FC - Blackburn Rovers",
+  "startTime": 1795348800000,
+  "dateStr": "2026-11-22",
+  "marketCount": 81,
+  "file": "championship/2026-11-22_burnley-fc-blackburn-rovers_95346252.json"
+ },
+ {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91673433",
@@ -268,6 +298,56 @@
   "dateStr": "2026-11-21",
   "marketCount": 106,
   "file": "serie-a-italy/2026-11-21_ssc-napoli-torino-fc_95036599.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "95036600",
+  "name": "Juventus FC - Venezia FC",
+  "startTime": 1795347000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 100,
+  "file": "serie-a-italy/2026-11-22_juventus-fc-venezia-fc_95036600.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "95036587",
+  "name": "Bologna FC - Udinese Calcio",
+  "startTime": 1795356000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 100,
+  "file": "serie-a-italy/2026-11-22_bologna-fc-udinese-calcio_95036587.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "95036598",
+  "name": "US Sassuolo Calcio - Genoa CFC",
+  "startTime": 1795356000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 100,
+  "file": "serie-a-italy/2026-11-22_us-sassuolo-calcio-genoa-cfc_95036598.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "95036590",
+  "name": "AC Milan - Frosinone",
+  "startTime": 1795366800000,
+  "dateStr": "2026-11-22",
+  "marketCount": 100,
+  "file": "serie-a-italy/2026-11-22_ac-milan-frosinone_95036590.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "95036586",
+  "name": "Atalanta - Inter Milan",
+  "startTime": 1795376700000,
+  "dateStr": "2026-11-22",
+  "marketCount": 100,
+  "file": "serie-a-italy/2026-11-22_atalanta-inter-milan_95036586.json"
  },
  {
   "league": "bundesliga",
@@ -410,6 +490,56 @@
   "file": "super-league-greece/2026-11-21_kalamata-aek-athens_95025757.json"
  },
  {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "95025755",
+  "name": "Levadiakos - Atromitos Athinon",
+  "startTime": 1795356000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 95,
+  "file": "super-league-greece/2026-11-22_levadiakos-atromitos-athinon_95025755.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "95025756",
+  "name": "Panaitolikos - Volos NFC",
+  "startTime": 1795359600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 95,
+  "file": "super-league-greece/2026-11-22_panaitolikos-volos-nfc_95025756.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "95025758",
+  "name": "Panathinaikos - OFI Crete",
+  "startTime": 1795361400000,
+  "dateStr": "2026-11-22",
+  "marketCount": 95,
+  "file": "super-league-greece/2026-11-22_panathinaikos-ofi-crete_95025758.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "95025759",
+  "name": "Olympiacos Piraeus - Iraklis",
+  "startTime": 1795366800000,
+  "dateStr": "2026-11-22",
+  "marketCount": 95,
+  "file": "super-league-greece/2026-11-22_olympiacos-piraeus-iraklis_95025759.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Stoiximan Super League (Ελλάδα)",
+  "eventId": "95025761",
+  "name": "PAOK - Kifisia",
+  "startTime": 1795368600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 95,
+  "file": "super-league-greece/2026-11-22_paok-kifisia_95025761.json"
+ },
+ {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "95443796",
@@ -440,6 +570,46 @@
   "file": "liga-mx/2026-11-21_fc-juarez-atlas-fc_95443951.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "95443961",
+  "name": "CF Pachuca - Deportivo Toluca FC",
+  "startTime": 1795301400000,
+  "dateStr": "2026-11-22",
+  "marketCount": 88,
+  "file": "liga-mx/2026-11-22_cf-pachuca-deportivo-toluca-fc_95443961.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "95441675",
+  "name": "Santos Laguna - Club Leon",
+  "startTime": 1795302000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 88,
+  "file": "liga-mx/2026-11-22_santos-laguna-club-leon_95441675.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "95441986",
+  "name": "UNAM Pumas - CF Monterrey",
+  "startTime": 1795309200000,
+  "dateStr": "2026-11-22",
+  "marketCount": 88,
+  "file": "liga-mx/2026-11-22_unam-pumas-cf-monterrey_95441986.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "95443967",
+  "name": "CF Tigres UANL - Club America",
+  "startTime": 1795316400000,
+  "dateStr": "2026-11-22",
+  "marketCount": 88,
+  "file": "liga-mx/2026-11-22_cf-tigres-uanl-club-america_95443967.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "95049968",
@@ -456,7 +626,7 @@
   "name": "Remo PA - Chapecoense SC",
   "startTime": 1795042800000,
   "dateStr": "2026-11-19",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-19_remo-pa-chapecoense-sc_95049966.json"
  },
  {
@@ -466,7 +636,7 @@
   "name": "Cruzeiro MG - Palmeiras SP",
   "startTime": 1795044600000,
   "dateStr": "2026-11-19",
-  "marketCount": 108,
+  "marketCount": 105,
   "file": "serie-a-brazil/2026-11-19_cruzeiro-mg-palmeiras-sp_95049969.json"
  },
  {
@@ -476,7 +646,7 @@
   "name": "Flamengo RJ - Athletico PR",
   "startTime": 1795044600000,
   "dateStr": "2026-11-19",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-19_flamengo-rj-athletico-pr_95049970.json"
  },
  {
