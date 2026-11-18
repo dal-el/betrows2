@@ -216,7 +216,7 @@
   "name": "Sevilla FC - Real Betis Balompie",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 97,
+  "marketCount": 103,
   "file": "la-liga/2026-11-21_sevilla-fc-real-betis-balompie_91673387.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "SSC Napoli - Torino FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 100,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-11-21_ssc-napoli-torino-fc_95036599.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "FC Schalke 04 - VfB Stuttgart",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 100,
+  "marketCount": 106,
   "file": "bundesliga/2026-11-21_fc-schalke-04-vfb-stuttgart_93943189.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "ES Troyes AC - Le Havre AC",
   "startTime": 1795203900000,
   "dateStr": "2026-11-20",
-  "marketCount": 100,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-20_es-troyes-ac-le-havre-ac_95023733.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "AS Monaco - AJ Auxerre",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 100,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_as-monaco-aj-auxerre_95023755.json"
  },
  {
@@ -376,7 +376,7 @@
   "name": "RC Lens - Toulouse FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 100,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_rc-lens-toulouse-fc_95023765.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "RC Strasbourg - Stade Brestois 29",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 100,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_rc-strasbourg-stade-brestois-29_95023948.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Lille OSC - Olympique Lyonnais",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 100,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_lille-osc-olympique-lyonnais_95023949.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Coritiba PR - Santos SP",
   "startTime": 1795041000000,
   "dateStr": "2026-11-19",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-19_coritiba-pr-santos-sp_95049968.json"
  },
  {
