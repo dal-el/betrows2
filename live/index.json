@@ -296,7 +296,7 @@
   "name": "SSC Napoli - Torino FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 106,
+  "marketCount": 112,
   "file": "serie-a-italy/2026-11-21_ssc-napoli-torino-fc_95036599.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "AS Monaco - AJ Auxerre",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 106,
+  "marketCount": 112,
   "file": "ligue-1/2026-11-21_as-monaco-aj-auxerre_95023755.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "RC Lens - Toulouse FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 106,
+  "marketCount": 112,
   "file": "ligue-1/2026-11-21_rc-lens-toulouse-fc_95023765.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "RC Strasbourg - Stade Brestois 29",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 106,
+  "marketCount": 112,
   "file": "ligue-1/2026-11-21_rc-strasbourg-stade-brestois-29_95023948.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "Lille OSC - Olympique Lyonnais",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 106,
+  "marketCount": 112,
   "file": "ligue-1/2026-11-21_lille-osc-olympique-lyonnais_95023949.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "Vasco da Gama RJ - Internacional RS",
   "startTime": 1795127400000,
   "dateStr": "2026-11-20",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-20_vasco-da-gama-rj-internacional-rs_95049963.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Vitoria BA - Bragantino SP",
   "startTime": 1795127400000,
   "dateStr": "2026-11-20",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino-sp_95049967.json"
  },
  {

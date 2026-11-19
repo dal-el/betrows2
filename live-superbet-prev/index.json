@@ -276,7 +276,7 @@
   "name": "Getafe - Atletico Madrid",
   "startTime": 1795377600000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-22_getafe-atletico-madrid_14670976.json"
  },
  {
@@ -366,7 +366,7 @@
   "name": "Atalanta - Inter Milan",
   "startTime": 1795376700000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-22_atalanta-inter-milan_14656235.json"
  },
  {
@@ -556,7 +556,7 @@
   "name": "Marseille - Le Mans",
   "startTime": 1795376700000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-22_marseille-le-mans_14656364.json"
  },
  {
