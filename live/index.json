@@ -256,7 +256,7 @@
   "name": "Real Madrid - RC Celta de Vigo",
   "startTime": 1795291200000,
   "dateStr": "2026-11-21",
-  "marketCount": 108,
+  "marketCount": 109,
   "file": "la-liga/2026-11-21_real-madrid-rc-celta-de-vigo_91673435.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "SSC Napoli - Torino FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 112,
+  "marketCount": 113,
   "file": "serie-a-italy/2026-11-21_ssc-napoli-torino-fc_95036599.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Palmeiras SP - Flamengo RJ",
   "startTime": 1795289400000,
   "dateStr": "2026-11-21",
-  "marketCount": 107,
+  "marketCount": 89,
   "file": "serie-a-brazil/2026-11-21_palmeiras-sp-flamengo-rj_95410998.json"
  },
  {
@@ -656,7 +656,7 @@
   "name": "EC Bahia BA - Coritiba PR",
   "startTime": 1795293000000,
   "dateStr": "2026-11-21",
-  "marketCount": 91,
+  "marketCount": 73,
   "file": "serie-a-brazil/2026-11-21_ec-bahia-ba-coritiba-pr_95410996.json"
  }
 ]

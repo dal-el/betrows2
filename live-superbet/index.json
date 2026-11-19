@@ -90,6 +90,16 @@
   "file": "premier-league/2026-11-21_newcastle-arsenal_14656302.json"
  },
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "14656294",
+  "name": "Brentford - Everton",
+  "startTime": 1795464000000,
+  "dateStr": "2026-11-23",
+  "marketCount": 8,
+  "file": "premier-league/2026-11-23_brentford-everton_14656294.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14656232",
@@ -300,6 +310,16 @@
   "file": "la-liga/2026-11-22_racing-santander-real-sociedad_14670980.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14670977",
+  "name": "Levante - Elche",
+  "startTime": 1795464000000,
+  "dateStr": "2026-11-23",
+  "marketCount": 6,
+  "file": "la-liga/2026-11-23_levante-elche_14670977.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14656239",
@@ -388,6 +408,16 @@
   "dateStr": "2026-11-22",
   "marketCount": 23,
   "file": "serie-a-italy/2026-11-22_sassuolo-genoa_14656247.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14656244",
+  "name": "Monza - Fiorentina",
+  "startTime": 1795463100000,
+  "dateStr": "2026-11-23",
+  "marketCount": 8,
+  "file": "serie-a-italy/2026-11-23_monza-fiorentina_14656244.json"
  },
  {
   "league": "bundesliga",
@@ -630,13 +660,23 @@
   "file": "super-league-greece/2026-11-22_paok-kifisia_15740521.json"
  },
  {
+  "league": "super-league-greece",
+  "leagueName": "Super League (Ελλάδα)",
+  "eventId": "15740520",
+  "name": "Asteras Tripolis - Aris",
+  "startTime": 1795446000000,
+  "dateStr": "2026-11-23",
+  "marketCount": 23,
+  "file": "super-league-greece/2026-11-23_asteras-tripolis-aris_15740520.json"
+ },
+ {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15812493",
   "name": "Puebla - Atletico San Luis",
   "startTime": 1795222800000,
   "dateStr": "2026-11-21",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-21_puebla-atletico-san-luis_15812493.json"
  },
  {
@@ -646,7 +686,7 @@
   "name": "Tijuana - Atlante",
   "startTime": 1795230000000,
   "dateStr": "2026-11-21",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-21_tijuana-atlante_15812494.json"
  },
  {
@@ -656,7 +696,7 @@
   "name": "Juarez - Atlas",
   "startTime": 1795230000000,
   "dateStr": "2026-11-21",
-  "marketCount": 15,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-21_juarez-atlas_15812606.json"
  },
  {
@@ -700,6 +740,26 @@
   "file": "liga-mx/2026-11-22_uanl-tigres-club-america_15828968.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15830705",
+  "name": "Guadalajara - Cruz Azul",
+  "startTime": 1795388820000,
+  "dateStr": "2026-11-23",
+  "marketCount": 3,
+  "file": "liga-mx/2026-11-23_guadalajara-cruz-azul_15830705.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "15845134",
+  "name": "Queretaro - Necaxa",
+  "startTime": 1795396200000,
+  "dateStr": "2026-11-23",
+  "marketCount": 3,
+  "file": "liga-mx/2026-11-23_queretaro-necaxa_15845134.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14611167",
@@ -736,7 +796,7 @@
   "name": "Palmeiras - Flamengo",
   "startTime": 1795289400000,
   "dateStr": "2026-11-21",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "serie-a-brazil/2026-11-21_palmeiras-flamengo_14670941.json"
  },
  {
@@ -746,7 +806,7 @@
   "name": "Bahia - Coritiba",
   "startTime": 1795293000000,
   "dateStr": "2026-11-21",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "serie-a-brazil/2026-11-21_bahia-coritiba_14670948.json"
  },
  {
@@ -766,7 +826,7 @@
   "name": "Athletico PR - Remo",
   "startTime": 1795374000000,
   "dateStr": "2026-11-22",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "serie-a-brazil/2026-11-22_athletico-pr-remo_14670947.json"
  }
 ]
