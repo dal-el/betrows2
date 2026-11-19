@@ -638,5 +638,25 @@
   "dateStr": "2026-11-20",
   "marketCount": 107,
   "file": "serie-a-brazil/2026-11-20_sao-paulo-sp-fluminense-rj_95049964.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95410998",
+  "name": "Palmeiras SP - Flamengo RJ",
+  "startTime": 1795289400000,
+  "dateStr": "2026-11-21",
+  "marketCount": 42,
+  "file": "serie-a-brazil/2026-11-21_palmeiras-sp-flamengo-rj_95410998.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95410996",
+  "name": "EC Bahia BA - Coritiba PR",
+  "startTime": 1795293000000,
+  "dateStr": "2026-11-21",
+  "marketCount": 42,
+  "file": "serie-a-brazil/2026-11-21_ec-bahia-ba-coritiba-pr_95410996.json"
  }
 ]
