@@ -702,12 +702,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14611166",
-  "name": "Flamengo - Athletico PR",
-  "startTime": 1795044600000,
-  "dateStr": "2026-11-19",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-19_flamengo-athletico-pr_14611166.json"
+  "eventId": "14611167",
+  "name": "Vasco da Gama - Internacional RS",
+  "startTime": 1795127400000,
+  "dateStr": "2026-11-20",
+  "marketCount": 17,
+  "file": "serie-a-brazil/2026-11-20_vasco-da-gama-internacional-rs_14611167.json"
  },
  {
   "league": "serie-a-brazil",
@@ -722,26 +722,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14611171",
-  "name": "Cruzeiro - Palmeiras",
-  "startTime": 1795044600000,
-  "dateStr": "2026-11-19",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-19_cruzeiro-palmeiras_14611171.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14611167",
-  "name": "Vasco da Gama - Internacional RS",
-  "startTime": 1795127400000,
-  "dateStr": "2026-11-20",
-  "marketCount": 17,
-  "file": "serie-a-brazil/2026-11-20_vasco-da-gama-internacional-rs_14611167.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14611172",
   "name": "Gremio - Bahia",
   "startTime": 1795048200000,
@@ -752,21 +732,21 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14611174",
-  "name": "Vitoria BA - Bragantino",
-  "startTime": 1795127400000,
-  "dateStr": "2026-11-20",
-  "marketCount": 17,
-  "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino_14611174.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14611168",
   "name": "Sao Paulo - Fluminense",
   "startTime": 1795134600000,
   "dateStr": "2026-11-20",
   "marketCount": 17,
   "file": "serie-a-brazil/2026-11-20_sao-paulo-fluminense_14611168.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14611174",
+  "name": "Vitoria BA - Bragantino",
+  "startTime": 1795127400000,
+  "dateStr": "2026-11-20",
+  "marketCount": 17,
+  "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino_14611174.json"
  }
 ]
