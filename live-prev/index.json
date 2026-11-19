@@ -612,26 +612,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049969",
-  "name": "Cruzeiro MG - Palmeiras SP",
-  "startTime": 1795044600000,
-  "dateStr": "2026-11-19",
-  "marketCount": 105,
-  "file": "serie-a-brazil/2026-11-19_cruzeiro-mg-palmeiras-sp_95049969.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049970",
-  "name": "Flamengo RJ - Athletico PR",
-  "startTime": 1795044600000,
-  "dateStr": "2026-11-19",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-19_flamengo-rj-athletico-pr_95049970.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "95049965",
   "name": "Gremio RS - EC Bahia BA",
   "startTime": 1795048200000,

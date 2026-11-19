@@ -216,7 +216,7 @@
   "name": "Athletic Bilbao - RCD Espanyol",
   "startTime": 1795204800000,
   "dateStr": "2026-11-20",
-  "marketCount": 97,
+  "marketCount": 103,
   "file": "la-liga/2026-11-20_athletic-bilbao-rcd-espanyol_91673433.json"
  },
  {
@@ -608,26 +608,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 88,
   "file": "liga-mx/2026-11-22_cf-tigres-uanl-club-america_95443967.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049965",
-  "name": "Gremio RS - EC Bahia BA",
-  "startTime": 1795048200000,
-  "dateStr": "2026-11-19",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-19_gremio-rs-ec-bahia-ba_95049965.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049972",
-  "name": "Corinthians SP - Botafogo RJ",
-  "startTime": 1795048200000,
-  "dateStr": "2026-11-19",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-19_corinthians-sp-botafogo-rj_95049972.json"
  },
  {
   "league": "serie-a-brazil",
