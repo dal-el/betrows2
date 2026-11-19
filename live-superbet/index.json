@@ -296,7 +296,7 @@
   "name": "Racing Santander - Real Sociedad",
   "startTime": 1795360500000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-22_racing-santander-real-sociedad_14670980.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Levadiakos - Atromitos",
   "startTime": 1795356000000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-22_levadiakos-atromitos_15740423.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Panetolikos - Volos",
   "startTime": 1795359600000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-22_panetolikos-volos_15740424.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Kalamata - AEK",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 14,
   "file": "super-league-greece/2026-11-21_kalamata-aek_15740425.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Panathinaikos - OFI",
   "startTime": 1795361400000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-22_panathinaikos-ofi_15740426.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "Olympiacos - Iraklis FC",
   "startTime": 1795366800000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-22_olympiacos-iraklis-fc_15740519.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "PAOK - Kifisia",
   "startTime": 1795368600000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-22_paok-kifisia_15740521.json"
  },
  {
