@@ -226,7 +226,7 @@
   "name": "Athletic Bilbao - Espanyol",
   "startTime": 1795204800000,
   "dateStr": "2026-11-20",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "la-liga/2026-11-20_athletic-bilbao-espanyol_14670973.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "Osasuna - Malaga",
   "startTime": 1795368600000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-22_osasuna-malaga_14670978.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "PAOK - Kifisia",
   "startTime": 1795368600000,
   "dateStr": "2026-11-22",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-22_paok-kifisia_15740521.json"
  },
  {
