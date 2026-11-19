@@ -636,7 +636,7 @@
   "name": "Puebla - Atletico San Luis",
   "startTime": 1795222800000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-11-21_puebla-atletico-san-luis_15812493.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Tijuana - Atlante",
   "startTime": 1795230000000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-11-21_tijuana-atlante_15812494.json"
  },
  {
@@ -656,7 +656,7 @@
   "name": "Juarez - Atlas",
   "startTime": 1795230000000,
   "dateStr": "2026-11-21",
-  "marketCount": 6,
+  "marketCount": 15,
   "file": "liga-mx/2026-11-21_juarez-atlas_15812606.json"
  },
  {
