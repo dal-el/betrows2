@@ -66,7 +66,7 @@
   "name": "Hull City - Brighton",
   "startTime": 1795356000000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-22_hull-city-brighton_14656298.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Bologna - Udinese",
   "startTime": 1795356000000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-22_bologna-udinese_14656236.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "Sassuolo - Genoa",
   "startTime": 1795356000000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-22_sassuolo-genoa_14656247.json"
  },
  {
@@ -566,7 +566,7 @@
   "name": "Paris FC - Angers",
   "startTime": 1795356000000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-22_paris-fc-angers_14656367.json"
  },
  {
