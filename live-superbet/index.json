@@ -466,7 +466,7 @@
   "name": "Werder Bremen - Hamburger SV",
   "startTime": 1795365000000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "bundesliga/2026-11-22_werder-bremen-hamburger-sv_14656218.json"
  },
  {
@@ -728,5 +728,45 @@
   "dateStr": "2026-11-20",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino_14611174.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670941",
+  "name": "Palmeiras - Flamengo",
+  "startTime": 1795289400000,
+  "dateStr": "2026-11-21",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-21_palmeiras-flamengo_14670941.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670948",
+  "name": "Bahia - Coritiba",
+  "startTime": 1795293000000,
+  "dateStr": "2026-11-21",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-21_bahia-coritiba_14670948.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670949",
+  "name": "Chapecoense - Cruzeiro",
+  "startTime": 1795305600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-22_chapecoense-cruzeiro_14670949.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670947",
+  "name": "Athletico PR - Remo",
+  "startTime": 1795374000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-22_athletico-pr-remo_14670947.json"
  }
 ]

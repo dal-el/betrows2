@@ -406,7 +406,7 @@
   "name": "Bayer Leverkusen - Paderborn",
   "startTime": 1795271400000,
   "dateStr": "2026-11-21",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-21_bayer-leverkusen-paderborn_14656213.json"
  },
  {
@@ -416,7 +416,7 @@
   "name": "Eintracht Frankfurt - TSG Hoffenheim",
   "startTime": 1795271400000,
   "dateStr": "2026-11-21",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-21_eintracht-frankfurt-tsg-hoffenheim_14656214.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "Union Berlin - RB Leipzig",
   "startTime": 1795271400000,
   "dateStr": "2026-11-21",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-21_union-berlin-rb-leipzig_14656216.json"
  },
  {
@@ -436,7 +436,7 @@
   "name": "Borussia Mönchengladbach - Borussia Dortmund",
   "startTime": 1795271400000,
   "dateStr": "2026-11-21",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-21_borussia-monchengladbach-borussia-dortmund_14656217.json"
  },
  {
@@ -446,7 +446,7 @@
   "name": "Elversberg - Freiburg",
   "startTime": 1795271400000,
   "dateStr": "2026-11-21",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-21_elversberg-freiburg_14656220.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "Augsburg - Mainz 05",
   "startTime": 1795357800000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "bundesliga/2026-11-22_augsburg-mainz-05_14656215.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "Schalke - VfB Stuttgart",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 18,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-21_schalke-vfb-stuttgart_14656219.json"
  },
  {
