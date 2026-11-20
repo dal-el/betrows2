@@ -792,6 +792,26 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670938",
+  "name": "Fluminense - Mirassol",
+  "startTime": 1795383000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-22_fluminense-mirassol_14670938.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670943",
+  "name": "Bragantino - Vasco da Gama",
+  "startTime": 1795386600000,
+  "dateStr": "2026-11-23",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-23_bragantino-vasco-da-gama_14670943.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14670947",
   "name": "Athletico PR - Remo",
   "startTime": 1795374000000,
