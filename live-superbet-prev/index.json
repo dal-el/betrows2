@@ -706,7 +706,7 @@
   "name": "Santos Laguna - Club Leon",
   "startTime": 1795302000000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-22_santos-laguna-club-leon_15815302.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Pachuca - Deportivo Toluca",
   "startTime": 1795301400000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-22_pachuca-deportivo-toluca_15815303.json"
  },
  {
@@ -746,7 +746,7 @@
   "name": "Guadalajara - Cruz Azul",
   "startTime": 1795388820000,
   "dateStr": "2026-11-23",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "liga-mx/2026-11-23_guadalajara-cruz-azul_15830705.json"
  },
  {
@@ -762,32 +762,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14611167",
-  "name": "Vasco da Gama - Internacional RS",
-  "startTime": 1795127400000,
-  "dateStr": "2026-11-20",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-20_vasco-da-gama-internacional-rs_14611167.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14611168",
   "name": "Sao Paulo - Fluminense",
   "startTime": 1795134600000,
   "dateStr": "2026-11-20",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-11-20_sao-paulo-fluminense_14611168.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14611174",
-  "name": "Vitoria BA - Bragantino",
-  "startTime": 1795127400000,
-  "dateStr": "2026-11-20",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino_14611174.json"
  },
  {
   "league": "serie-a-brazil",
@@ -812,21 +792,21 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14670949",
-  "name": "Chapecoense - Cruzeiro",
-  "startTime": 1795305600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 3,
-  "file": "serie-a-brazil/2026-11-22_chapecoense-cruzeiro_14670949.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14670947",
   "name": "Athletico PR - Remo",
   "startTime": 1795374000000,
   "dateStr": "2026-11-22",
   "marketCount": 6,
   "file": "serie-a-brazil/2026-11-22_athletico-pr-remo_14670947.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670949",
+  "name": "Chapecoense - Cruzeiro",
+  "startTime": 1795305600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-22_chapecoense-cruzeiro_14670949.json"
  }
 ]

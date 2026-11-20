@@ -256,7 +256,7 @@
   "name": "Real Madrid - RC Celta de Vigo",
   "startTime": 1795291200000,
   "dateStr": "2026-11-21",
-  "marketCount": 109,
+  "marketCount": 108,
   "file": "la-liga/2026-11-21_real-madrid-rc-celta-de-vigo_91673435.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "SSC Napoli - Torino FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 113,
+  "marketCount": 112,
   "file": "serie-a-italy/2026-11-21_ssc-napoli-torino-fc_95036599.json"
  },
  {
@@ -536,7 +536,7 @@
   "name": "PAOK - Kifisia",
   "startTime": 1795368600000,
   "dateStr": "2026-11-22",
-  "marketCount": 107,
+  "marketCount": 106,
   "file": "super-league-greece/2026-11-22_paok-kifisia_95025761.json"
  },
  {
@@ -612,31 +612,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049963",
-  "name": "Vasco da Gama RJ - Internacional RS",
-  "startTime": 1795127400000,
-  "dateStr": "2026-11-20",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-20_vasco-da-gama-rj-internacional-rs_95049963.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049967",
-  "name": "Vitoria BA - Bragantino SP",
-  "startTime": 1795127400000,
-  "dateStr": "2026-11-20",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-20_vitoria-ba-bragantino-sp_95049967.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "95049964",
   "name": "Sao Paulo SP - Fluminense RJ",
   "startTime": 1795134600000,
   "dateStr": "2026-11-20",
-  "marketCount": 107,
+  "marketCount": 104,
   "file": "serie-a-brazil/2026-11-20_sao-paulo-sp-fluminense-rj_95049964.json"
  },
  {
