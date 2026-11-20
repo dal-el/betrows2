@@ -256,7 +256,7 @@
   "name": "Real Madrid - RC Celta de Vigo",
   "startTime": 1795291200000,
   "dateStr": "2026-11-21",
-  "marketCount": 70,
+  "marketCount": 103,
   "file": "la-liga/2026-11-21_real-madrid-rc-celta-de-vigo_91673435.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "SSC Napoli - Torino FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 112,
+  "marketCount": 106,
   "file": "serie-a-italy/2026-11-21_ssc-napoli-torino-fc_95036599.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "RC Lens - Toulouse FC",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 112,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_rc-lens-toulouse-fc_95023765.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "RC Strasbourg - Stade Brestois 29",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 112,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_rc-strasbourg-stade-brestois-29_95023948.json"
  },
  {
@@ -476,7 +476,7 @@
   "name": "Lille OSC - Olympique Lyonnais",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 112,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_lille-osc-olympique-lyonnais_95023949.json"
  },
  {
