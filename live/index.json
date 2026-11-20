@@ -76,7 +76,7 @@
   "name": "Hull City - Brighton & Hove Albion",
   "startTime": 1795356000000,
   "dateStr": "2026-11-22",
-  "marketCount": 123,
+  "marketCount": 131,
   "file": "premier-league/2026-11-22_hull-city-brighton-hove-albion_94991435.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "FC Bayern Munchen - 1. FC Köln",
   "startTime": 1795203000000,
   "dateStr": "2026-11-20",
-  "marketCount": 107,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-20_fc-bayern-munchen-1-fc-koln_93891476.json"
  },
  {
@@ -646,7 +646,7 @@
   "name": "Athletico PR - Remo PA",
   "startTime": 1795374000000,
   "dateStr": "2026-11-22",
-  "marketCount": 89,
+  "marketCount": 97,
   "file": "serie-a-brazil/2026-11-22_athletico-pr-remo-pa_95946077.json"
  },
  {
@@ -656,7 +656,7 @@
   "name": "Fluminense RJ - Mirassol SP",
   "startTime": 1795383000000,
   "dateStr": "2026-11-22",
-  "marketCount": 64,
+  "marketCount": 81,
   "file": "serie-a-brazil/2026-11-22_fluminense-rj-mirassol-sp_95411001.json"
  }
 ]
