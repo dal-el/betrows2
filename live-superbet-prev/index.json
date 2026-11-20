@@ -716,7 +716,7 @@
   "name": "Guadalajara - Cruz Azul",
   "startTime": 1795388820000,
   "dateStr": "2026-11-23",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-23_guadalajara-cruz-azul_15830705.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Queretaro - Necaxa",
   "startTime": 1795396200000,
   "dateStr": "2026-11-23",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "liga-mx/2026-11-23_queretaro-necaxa_15845134.json"
  },
  {
@@ -766,7 +766,7 @@
   "name": "Fluminense - Mirassol",
   "startTime": 1795383000000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "serie-a-brazil/2026-11-22_fluminense-mirassol_14670938.json"
  },
  {
@@ -786,7 +786,37 @@
   "name": "Athletico PR - Remo",
   "startTime": 1795374000000,
   "dateStr": "2026-11-22",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-22_athletico-pr-remo_14670947.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670939",
+  "name": "Botafogo - Sao Paulo",
+  "startTime": 1795474800000,
+  "dateStr": "2026-11-24",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-24_botafogo-sao-paulo_14670939.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670940",
+  "name": "Santos - Gremio",
+  "startTime": 1795478400000,
+  "dateStr": "2026-11-24",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-24_santos-gremio_14670940.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14670945",
+  "name": "Internacional RS - Vitoria BA",
+  "startTime": 1795473000000,
+  "dateStr": "2026-11-24",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-24_internacional-rs-vitoria-ba_14670945.json"
  }
 ]
