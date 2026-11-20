@@ -250,6 +250,46 @@
   "file": "la-liga/2026-11-21_real-madrid-rc-celta-de-vigo_91673435.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91673129",
+  "name": "FC Barcelona - Villarreal CF",
+  "startTime": 1795352400000,
+  "dateStr": "2026-11-22",
+  "marketCount": 105,
+  "file": "la-liga/2026-11-22_fc-barcelona-villarreal-cf_91673129.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91673490",
+  "name": "Racing Santander - Real Sociedad",
+  "startTime": 1795360500000,
+  "dateStr": "2026-11-22",
+  "marketCount": 105,
+  "file": "la-liga/2026-11-22_racing-santander-real-sociedad_91673490.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91673337",
+  "name": "CA Osasuna - Malaga CF",
+  "startTime": 1795368600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 105,
+  "file": "la-liga/2026-11-22_ca-osasuna-malaga-cf_91673337.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91673247",
+  "name": "Getafe CF - Atletico Madrid",
+  "startTime": 1795377600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 113,
+  "file": "la-liga/2026-11-22_getafe-cf-atletico-madrid_91673247.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "95036561",
@@ -400,6 +440,26 @@
   "file": "bundesliga/2026-11-21_fc-schalke-04-vfb-stuttgart_93943189.json"
  },
  {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "93994173",
+  "name": "FC Augsburg - FSV Mainz 05",
+  "startTime": 1795357800000,
+  "dateStr": "2026-11-22",
+  "marketCount": 108,
+  "file": "bundesliga/2026-11-22_fc-augsburg-fsv-mainz-05_93994173.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "93994177",
+  "name": "Werder Bremen - Hamburger SV",
+  "startTime": 1795365000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 108,
+  "file": "bundesliga/2026-11-22_werder-bremen-hamburger-sv_93994177.json"
+ },
+ {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "95023725",
@@ -448,6 +508,36 @@
   "dateStr": "2026-11-21",
   "marketCount": 108,
   "file": "ligue-1/2026-11-21_lille-osc-olympique-lyonnais_95023949.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "95023784",
+  "name": "Paris FC - Angers SCO",
+  "startTime": 1795356000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 108,
+  "file": "ligue-1/2026-11-22_paris-fc-angers-sco_95023784.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "95023776",
+  "name": "FC Lorient - Stade Rennais FC",
+  "startTime": 1795364100000,
+  "dateStr": "2026-11-22",
+  "marketCount": 108,
+  "file": "ligue-1/2026-11-22_fc-lorient-stade-rennais-fc_95023776.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "95023982",
+  "name": "Olympique Marseille - Le Mans UC 72",
+  "startTime": 1795376700000,
+  "dateStr": "2026-11-22",
+  "marketCount": 117,
+  "file": "ligue-1/2026-11-22_olympique-marseille-le-mans-uc-72_95023982.json"
  },
  {
   "league": "super-league-greece",
