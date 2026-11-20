@@ -628,5 +628,35 @@
   "dateStr": "2026-11-21",
   "marketCount": 87,
   "file": "serie-a-brazil/2026-11-21_ec-bahia-ba-coritiba-pr_95410996.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95410997",
+  "name": "Chapecoense SC - Cruzeiro MG",
+  "startTime": 1795305600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 87,
+  "file": "serie-a-brazil/2026-11-22_chapecoense-sc-cruzeiro-mg_95410997.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95946077",
+  "name": "Athletico PR - Remo PA",
+  "startTime": 1795374000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 87,
+  "file": "serie-a-brazil/2026-11-22_athletico-pr-remo-pa_95946077.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95411001",
+  "name": "Fluminense RJ - Mirassol SP",
+  "startTime": 1795383000000,
+  "dateStr": "2026-11-22",
+  "marketCount": 42,
+  "file": "serie-a-brazil/2026-11-22_fluminense-rj-mirassol-sp_95411001.json"
  }
 ]
