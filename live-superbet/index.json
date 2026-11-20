@@ -796,7 +796,7 @@
   "name": "Fluminense - Mirassol",
   "startTime": 1795383000000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-22_fluminense-mirassol_14670938.json"
  },
  {
@@ -806,7 +806,7 @@
   "name": "Bragantino - Vasco da Gama",
   "startTime": 1795386600000,
   "dateStr": "2026-11-23",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-23_bragantino-vasco-da-gama_14670943.json"
  },
  {
@@ -816,7 +816,7 @@
   "name": "Athletico PR - Remo",
   "startTime": 1795374000000,
   "dateStr": "2026-11-22",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-22_athletico-pr-remo_14670947.json"
  }
 ]
