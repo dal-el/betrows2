@@ -256,7 +256,7 @@
   "name": "Real Madrid - RC Celta de Vigo",
   "startTime": 1795291200000,
   "dateStr": "2026-11-21",
-  "marketCount": 108,
+  "marketCount": 70,
   "file": "la-liga/2026-11-21_real-madrid-rc-celta-de-vigo_91673435.json"
  },
  {
@@ -608,16 +608,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 94,
   "file": "liga-mx/2026-11-22_cf-tigres-uanl-club-america_95443967.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95049964",
-  "name": "Sao Paulo SP - Fluminense RJ",
-  "startTime": 1795134600000,
-  "dateStr": "2026-11-20",
-  "marketCount": 104,
-  "file": "serie-a-brazil/2026-11-20_sao-paulo-sp-fluminense-rj_95049964.json"
  },
  {
   "league": "serie-a-brazil",

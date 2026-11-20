@@ -446,7 +446,7 @@
   "name": "AS Monaco - AJ Auxerre",
   "startTime": 1795290300000,
   "dateStr": "2026-11-21",
-  "marketCount": 112,
+  "marketCount": 106,
   "file": "ligue-1/2026-11-21_as-monaco-aj-auxerre_95023755.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "CF Pachuca - Deportivo Toluca FC",
   "startTime": 1795301400000,
   "dateStr": "2026-11-22",
-  "marketCount": 94,
+  "marketCount": 88,
   "file": "liga-mx/2026-11-22_cf-pachuca-deportivo-toluca-fc_95443961.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Santos Laguna - Club Leon",
   "startTime": 1795302000000,
   "dateStr": "2026-11-22",
-  "marketCount": 94,
+  "marketCount": 88,
   "file": "liga-mx/2026-11-22_santos-laguna-club-leon_95441675.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Palmeiras SP - Flamengo RJ",
   "startTime": 1795289400000,
   "dateStr": "2026-11-21",
-  "marketCount": 89,
+  "marketCount": 103,
   "file": "serie-a-brazil/2026-11-21_palmeiras-sp-flamengo-rj_95410998.json"
  },
  {
@@ -636,7 +636,7 @@
   "name": "EC Bahia BA - Coritiba PR",
   "startTime": 1795293000000,
   "dateStr": "2026-11-21",
-  "marketCount": 73,
+  "marketCount": 87,
   "file": "serie-a-brazil/2026-11-21_ec-bahia-ba-coritiba-pr_95410996.json"
  }
 ]
