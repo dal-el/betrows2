@@ -296,7 +296,7 @@
   "name": "Levante - Elche",
   "startTime": 1795464000000,
   "dateStr": "2026-11-23",
-  "marketCount": 18,
+  "marketCount": 20,
   "file": "la-liga/2026-11-23_levante-elche_14670977.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Guadalajara - Cruz Azul",
   "startTime": 1795388820000,
   "dateStr": "2026-11-23",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "liga-mx/2026-11-23_guadalajara-cruz-azul_15830705.json"
  },
  {
@@ -736,7 +736,7 @@
   "name": "Palmeiras - Flamengo",
   "startTime": 1795289400000,
   "dateStr": "2026-11-21",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-11-21_palmeiras-flamengo_14670941.json"
  },
  {
@@ -746,7 +746,7 @@
   "name": "Bahia - Coritiba",
   "startTime": 1795293000000,
   "dateStr": "2026-11-21",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-11-21_bahia-coritiba_14670948.json"
  },
  {
@@ -756,7 +756,7 @@
   "name": "Chapecoense - Cruzeiro",
   "startTime": 1795305600000,
   "dateStr": "2026-11-22",
-  "marketCount": 17,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-11-22_chapecoense-cruzeiro_14670949.json"
  },
  {
@@ -806,7 +806,7 @@
   "name": "Santos - Gremio",
   "startTime": 1795478400000,
   "dateStr": "2026-11-24",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-24_santos-gremio_14670940.json"
  },
  {
