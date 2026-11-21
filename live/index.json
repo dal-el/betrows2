@@ -40,6 +40,86 @@
   "file": "championship/2026-11-22_burnley-fc-blackburn-rovers_95346252.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788646",
+  "name": "Sheffield United - Southampton FC",
+  "startTime": 1795549500000,
+  "dateStr": "2026-11-24",
+  "marketCount": 42,
+  "file": "championship/2026-11-24_sheffield-united-southampton-fc_95788646.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788666",
+  "name": "Portsmouth FC - West Ham United",
+  "startTime": 1795549500000,
+  "dateStr": "2026-11-24",
+  "marketCount": 42,
+  "file": "championship/2026-11-24_portsmouth-fc-west-ham-united_95788666.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788695",
+  "name": "Bristol City - Wrexham FC",
+  "startTime": 1795549500000,
+  "dateStr": "2026-11-24",
+  "marketCount": 42,
+  "file": "championship/2026-11-24_bristol-city-wrexham-fc_95788695.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788738",
+  "name": "Norwich City - Queens Park Rangers",
+  "startTime": 1795549500000,
+  "dateStr": "2026-11-24",
+  "marketCount": 42,
+  "file": "championship/2026-11-24_norwich-city-queens-park-rangers_95788738.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788751",
+  "name": "Charlton - Lincoln City",
+  "startTime": 1795549500000,
+  "dateStr": "2026-11-24",
+  "marketCount": 42,
+  "file": "championship/2026-11-24_charlton-lincoln-city_95788751.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788764",
+  "name": "Middlesbrough FC - Swansea City",
+  "startTime": 1795549500000,
+  "dateStr": "2026-11-24",
+  "marketCount": 42,
+  "file": "championship/2026-11-24_middlesbrough-fc-swansea-city_95788764.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788815",
+  "name": "Cardiff City - Preston",
+  "startTime": 1795549500000,
+  "dateStr": "2026-11-24",
+  "marketCount": 42,
+  "file": "championship/2026-11-24_cardiff-city-preston_95788815.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "95788814",
+  "name": "Wolverhampton Wanderers - Derby County",
+  "startTime": 1795550400000,
+  "dateStr": "2026-11-24",
+  "marketCount": 41,
+  "file": "championship/2026-11-24_wolverhampton-wanderers-derby-county_95788814.json"
+ },
+ {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91673387",
@@ -56,7 +136,7 @@
   "name": "Real Madrid - RC Celta de Vigo",
   "startTime": 1795291200000,
   "dateStr": "2026-11-21",
-  "marketCount": 105,
+  "marketCount": 108,
   "file": "la-liga/2026-11-21_real-madrid-rc-celta-de-vigo_91673435.json"
  },
  {
@@ -98,16 +178,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 105,
   "file": "la-liga/2026-11-22_getafe-cf-atletico-madrid_91673247.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "95036597",
-  "name": "Parma Calcio 1913 - AS Roma",
-  "startTime": 1795280400000,
-  "dateStr": "2026-11-21",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-11-21_parma-calcio-1913-as-roma_95036597.json"
  },
  {
   "league": "serie-a-italy",
@@ -202,16 +272,6 @@
  {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "95023725",
-  "name": "OGC Nice - Paris Saint-Germain",
-  "startTime": 1795277700000,
-  "dateStr": "2026-11-21",
-  "marketCount": 108,
-  "file": "ligue-1/2026-11-21_ogc-nice-paris-saint-germain_95023725.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "95023755",
   "name": "AS Monaco - AJ Auxerre",
   "startTime": 1795290300000,
@@ -286,7 +346,7 @@
   "name": "Kalamata - AEK Athens",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 110,
+  "marketCount": 103,
   "file": "super-league-greece/2026-11-21_kalamata-aek-athens_95025757.json"
  },
  {
