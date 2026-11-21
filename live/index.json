@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94991437",
-  "name": "Manchester City - Fulham",
-  "startTime": 1795264200000,
-  "dateStr": "2026-11-21",
-  "marketCount": 123,
-  "file": "premier-league/2026-11-21_manchester-city-fulham_94991437.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "94991342",
   "name": "Chelsea FC - Leeds United",
   "startTime": 1795273200000,
@@ -88,36 +78,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 123,
   "file": "premier-league/2026-11-22_liverpool-fc-manchester-united_94991341.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "95346714",
-  "name": "Southampton FC - Derby County",
-  "startTime": 1795264200000,
-  "dateStr": "2026-11-21",
-  "marketCount": 88,
-  "file": "championship/2026-11-21_southampton-fc-derby-county_95346714.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "95346720",
-  "name": "Millwall FC - Queens Park Rangers",
-  "startTime": 1795264200000,
-  "dateStr": "2026-11-21",
-  "marketCount": 88,
-  "file": "championship/2026-11-21_millwall-fc-queens-park-rangers_95346720.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "95346721",
-  "name": "Norwich City - Cardiff City",
-  "startTime": 1795264200000,
-  "dateStr": "2026-11-21",
-  "marketCount": 88,
-  "file": "championship/2026-11-21_norwich-city-cardiff-city_95346721.json"
  },
  {
   "league": "championship",
@@ -208,16 +168,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 88,
   "file": "championship/2026-11-22_burnley-fc-blackburn-rovers_95346252.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91673455",
-  "name": "Deportivo Alaves - Deportivo de A Coruña",
-  "startTime": 1795266000000,
-  "dateStr": "2026-11-21",
-  "marketCount": 108,
-  "file": "la-liga/2026-11-21_deportivo-alaves-deportivo-de-a-coruna_91673455.json"
  },
  {
   "league": "la-liga",
