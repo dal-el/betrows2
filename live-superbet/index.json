@@ -46,7 +46,7 @@
   "name": "Bristol City - Wrexham",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_bristol-city-wrexham_14701617.json"
  },
  {
@@ -56,7 +56,7 @@
   "name": "Cardiff City - Preston North End",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_cardiff-city-preston-north-end_14701618.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Charlton Athletic - Lincoln City",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_charlton-athletic-lincoln-city_14701619.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Middlesbrough - Swansea City",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_middlesbrough-swansea-city_14701620.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Norwich City - Queens Park Rangers",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_norwich-city-queens-park-rangers_14701621.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Portsmouth - West Ham",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_portsmouth-west-ham_14701622.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Sheffield United - Southampton",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_sheffield-united-southampton_14701623.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Wolves - Derby County",
   "startTime": 1795550400000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "championship/2026-11-24_wolves-derby-county_14701624.json"
  },
  {
