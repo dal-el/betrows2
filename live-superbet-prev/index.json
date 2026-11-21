@@ -642,22 +642,12 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15812494",
-  "name": "Tijuana - Atlante",
-  "startTime": 1795230000000,
-  "dateStr": "2026-11-21",
+  "eventId": "15815302",
+  "name": "Santos Laguna - Club Leon",
+  "startTime": 1795302000000,
+  "dateStr": "2026-11-22",
   "marketCount": 17,
-  "file": "liga-mx/2026-11-21_tijuana-atlante_15812494.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15812606",
-  "name": "Juarez - Atlas",
-  "startTime": 1795230000000,
-  "dateStr": "2026-11-21",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-21_juarez-atlas_15812606.json"
+  "file": "liga-mx/2026-11-22_santos-laguna-club-leon_15815302.json"
  },
  {
   "league": "liga-mx",
@@ -668,16 +658,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 17,
   "file": "liga-mx/2026-11-22_pachuca-deportivo-toluca_15815303.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15815302",
-  "name": "Santos Laguna - Club Leon",
-  "startTime": 1795302000000,
-  "dateStr": "2026-11-22",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-22_santos-laguna-club-leon_15815302.json"
  },
  {
   "league": "liga-mx",
