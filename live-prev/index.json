@@ -116,7 +116,7 @@
   "name": "Wolverhampton Wanderers - Derby County",
   "startTime": 1795550400000,
   "dateStr": "2026-11-24",
-  "marketCount": 64,
+  "marketCount": 66,
   "file": "championship/2026-11-24_wolverhampton-wanderers-derby-county_95788814.json"
  },
  {
@@ -158,6 +158,16 @@
   "dateStr": "2026-11-22",
   "marketCount": 105,
   "file": "la-liga/2026-11-22_getafe-cf-atletico-madrid_91673247.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "91673432",
+  "name": "Levante UD - Elche CF",
+  "startTime": 1795464000000,
+  "dateStr": "2026-11-23",
+  "marketCount": 113,
+  "file": "la-liga/2026-11-23_levante-ud-elche-cf_91673432.json"
  },
  {
   "league": "serie-a-italy",
@@ -208,6 +218,16 @@
   "dateStr": "2026-11-22",
   "marketCount": 108,
   "file": "serie-a-italy/2026-11-22_atalanta-inter-milan_95036586.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "94159047",
+  "name": "AC Monza - AC Fiorentina",
+  "startTime": 1795463100000,
+  "dateStr": "2026-11-23",
+  "marketCount": 116,
+  "file": "serie-a-italy/2026-11-23_ac-monza-ac-fiorentina_94159047.json"
  },
  {
   "league": "bundesliga",

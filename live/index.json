@@ -46,7 +46,7 @@
   "name": "Sheffield United - Southampton FC",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 65,
+  "marketCount": 67,
   "file": "championship/2026-11-24_sheffield-united-southampton-fc_95788646.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Bristol City - Wrexham FC",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 64,
+  "marketCount": 66,
   "file": "championship/2026-11-24_bristol-city-wrexham-fc_95788695.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Norwich City - Queens Park Rangers",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 65,
+  "marketCount": 67,
   "file": "championship/2026-11-24_norwich-city-queens-park-rangers_95788738.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Middlesbrough FC - Swansea City",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 65,
+  "marketCount": 67,
   "file": "championship/2026-11-24_middlesbrough-fc-swansea-city_95788764.json"
  },
  {
@@ -342,26 +342,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "95443961",
-  "name": "CF Pachuca - Deportivo Toluca FC",
-  "startTime": 1795301400000,
-  "dateStr": "2026-11-22",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-22_cf-pachuca-deportivo-toluca-fc_95443961.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "95441675",
-  "name": "Santos Laguna - Club Leon",
-  "startTime": 1795302000000,
-  "dateStr": "2026-11-22",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-22_santos-laguna-club-leon_95441675.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "95441986",
   "name": "UNAM Pumas - CF Monterrey",
   "startTime": 1795309200000,
@@ -406,7 +386,7 @@
   "name": "Chapecoense SC - Cruzeiro MG",
   "startTime": 1795305600000,
   "dateStr": "2026-11-22",
-  "marketCount": 89,
+  "marketCount": 90,
   "file": "serie-a-brazil/2026-11-22_chapecoense-sc-cruzeiro-mg_95410997.json"
  },
  {
@@ -428,5 +408,15 @@
   "dateStr": "2026-11-22",
   "marketCount": 89,
   "file": "serie-a-brazil/2026-11-22_fluminense-rj-mirassol-sp_95411001.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95411000",
+  "name": "Bragantino SP - Vasco da Gama RJ",
+  "startTime": 1795386600000,
+  "dateStr": "2026-11-23",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-23_bragantino-sp-vasco-da-gama-rj_95411000.json"
  }
 ]
