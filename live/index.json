@@ -546,7 +546,7 @@
   "name": "Kalamata - AEK Athens",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 110,
+  "marketCount": 111,
   "file": "super-league-greece/2026-11-21_kalamata-aek-athens_95025757.json"
  },
  {
@@ -638,6 +638,26 @@
   "dateStr": "2026-11-22",
   "marketCount": 89,
   "file": "liga-mx/2026-11-22_cf-tigres-uanl-club-america_95443967.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "95443936",
+  "name": "Guadalajara Chivas - Cruz Azul",
+  "startTime": 1795388820000,
+  "dateStr": "2026-11-23",
+  "marketCount": 89,
+  "file": "liga-mx/2026-11-23_guadalajara-chivas-cruz-azul_95443936.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "95443971",
+  "name": "Queretaro FC - Club Necaxa",
+  "startTime": 1795396200000,
+  "dateStr": "2026-11-23",
+  "marketCount": 71,
+  "file": "liga-mx/2026-11-23_queretaro-fc-club-necaxa_95443971.json"
  },
  {
   "league": "serie-a-brazil",
