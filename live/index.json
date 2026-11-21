@@ -186,7 +186,7 @@
   "name": "Sevilla FC - Real Betis Balompie",
   "startTime": 1795282200000,
   "dateStr": "2026-11-21",
-  "marketCount": 105,
+  "marketCount": 108,
   "file": "la-liga/2026-11-21_sevilla-fc-real-betis-balompie_91673387.json"
  },
  {
@@ -238,26 +238,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 105,
   "file": "la-liga/2026-11-22_getafe-cf-atletico-madrid_91673247.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "95036561",
-  "name": "Como 1907 - Cagliari Calcio",
-  "startTime": 1795269600000,
-  "dateStr": "2026-11-21",
-  "marketCount": 107,
-  "file": "serie-a-italy/2026-11-21_como-1907-cagliari-calcio_95036561.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "95036596",
-  "name": "SS Lazio - US Lecce",
-  "startTime": 1795269600000,
-  "dateStr": "2026-11-21",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-11-21_ss-lazio-us-lecce_95036596.json"
  },
  {
   "league": "serie-a-italy",
