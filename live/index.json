@@ -602,16 +602,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "95443796",
-  "name": "Club Puebla - Atletico San Luis",
-  "startTime": 1795222800000,
-  "dateStr": "2026-11-21",
-  "marketCount": 75,
-  "file": "liga-mx/2026-11-21_club-puebla-atletico-san-luis_95443796.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "95443942",
   "name": "Club Tijuana - Atlante FC",
   "startTime": 1795230000000,
