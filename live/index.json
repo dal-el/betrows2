@@ -42,16 +42,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91673230",
-  "name": "Rayo Vallecano - Valencia CF",
-  "startTime": 1795274100000,
-  "dateStr": "2026-11-21",
-  "marketCount": 108,
-  "file": "la-liga/2026-11-21_rayo-vallecano-valencia-cf_91673230.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91673387",
   "name": "Sevilla FC - Real Betis Balompie",
   "startTime": 1795282200000,
