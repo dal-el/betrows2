@@ -46,7 +46,7 @@
   "name": "Sheffield United - Southampton FC",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 51,
+  "marketCount": 65,
   "file": "championship/2026-11-24_sheffield-united-southampton-fc_95788646.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Bristol City - Wrexham FC",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 50,
+  "marketCount": 64,
   "file": "championship/2026-11-24_bristol-city-wrexham-fc_95788695.json"
  },
  {
@@ -378,16 +378,6 @@
   "dateStr": "2026-11-23",
   "marketCount": 75,
   "file": "liga-mx/2026-11-23_queretaro-fc-club-necaxa_95443971.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95410996",
-  "name": "EC Bahia BA - Coritiba PR",
-  "startTime": 1795293000000,
-  "dateStr": "2026-11-21",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-21_ec-bahia-ba-coritiba-pr_95410996.json"
  },
  {
   "league": "serie-a-brazil",

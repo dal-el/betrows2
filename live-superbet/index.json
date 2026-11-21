@@ -120,6 +120,46 @@
   "file": "championship/2026-11-24_wolves-derby-county_14701624.json"
  },
  {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14719690",
+  "name": "Bolton Wanderers - West Bromwich Albion",
+  "startTime": 1795635900000,
+  "dateStr": "2026-11-25",
+  "marketCount": 6,
+  "file": "championship/2026-11-25_bolton-wanderers-west-bromwich-albion_14719690.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14719691",
+  "name": "Burnley - Birmingham City",
+  "startTime": 1795635900000,
+  "dateStr": "2026-11-25",
+  "marketCount": 6,
+  "file": "championship/2026-11-25_burnley-birmingham-city_14719691.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14719692",
+  "name": "Watford - Blackburn Rovers",
+  "startTime": 1795635900000,
+  "dateStr": "2026-11-25",
+  "marketCount": 6,
+  "file": "championship/2026-11-25_watford-blackburn-rovers_14719692.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14719693",
+  "name": "Stoke City - Millwall",
+  "startTime": 1795636800000,
+  "dateStr": "2026-11-25",
+  "marketCount": 6,
+  "file": "championship/2026-11-25_stoke-city-millwall_14719693.json"
+ },
+ {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14670974",
