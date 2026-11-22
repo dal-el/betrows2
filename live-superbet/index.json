@@ -32,16 +32,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "14670882",
-  "name": "Burnley - Blackburn Rovers",
-  "startTime": 1795348800000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "championship/2026-11-22_burnley-blackburn-rovers_14670882.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "14701617",
   "name": "Bristol City - Wrexham",
   "startTime": 1795549500000,
@@ -206,7 +196,7 @@
   "name": "Levante - Elche",
   "startTime": 1795464000000,
   "dateStr": "2026-11-23",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "la-liga/2026-11-23_levante-elche_14670977.json"
  },
  {
@@ -222,12 +212,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14656240",
-  "name": "Juventus - Venezia",
-  "startTime": 1795347000000,
+  "eventId": "14656243",
+  "name": "AC Milan - Frosinone",
+  "startTime": 1795366800000,
   "dateStr": "2026-11-22",
   "marketCount": 23,
-  "file": "serie-a-italy/2026-11-22_juventus-venezia_14656240.json"
+  "file": "serie-a-italy/2026-11-22_ac-milan-frosinone_14656243.json"
  },
  {
   "league": "serie-a-italy",
@@ -248,16 +238,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 23,
   "file": "serie-a-italy/2026-11-22_atalanta-inter-milan_14656235.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14656243",
-  "name": "AC Milan - Frosinone",
-  "startTime": 1795366800000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-22_ac-milan-frosinone_14656243.json"
  },
  {
   "league": "serie-a-italy",
