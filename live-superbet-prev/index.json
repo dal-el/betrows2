@@ -212,16 +212,6 @@
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "14656215",
-  "name": "Augsburg - Mainz 05",
-  "startTime": 1795357800000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "bundesliga/2026-11-22_augsburg-mainz-05_14656215.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "14656218",
   "name": "Werder Bremen - Hamburger SV",
   "startTime": 1795365000000,
@@ -252,16 +242,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15740424",
-  "name": "Panetolikos - Volos",
-  "startTime": 1795359600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-22_panetolikos-volos_15740424.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
   "eventId": "15740426",
   "name": "Panathinaikos - OFI",
   "startTime": 1795361400000,
@@ -282,22 +262,22 @@
  {
   "league": "super-league-greece",
   "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15740520",
-  "name": "Asteras Tripolis - Aris",
-  "startTime": 1795446000000,
-  "dateStr": "2026-11-23",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-23_asteras-tripolis-aris_15740520.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
   "eventId": "15740521",
   "name": "PAOK - Kifisia",
   "startTime": 1795368600000,
   "dateStr": "2026-11-22",
   "marketCount": 23,
   "file": "super-league-greece/2026-11-22_paok-kifisia_15740521.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Super League (Ελλάδα)",
+  "eventId": "15740520",
+  "name": "Asteras Tripolis - Aris",
+  "startTime": 1795446000000,
+  "dateStr": "2026-11-23",
+  "marketCount": 23,
+  "file": "super-league-greece/2026-11-23_asteras-tripolis-aris_15740520.json"
  },
  {
   "league": "liga-mx",
