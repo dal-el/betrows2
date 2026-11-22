@@ -32,16 +32,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "95346252",
-  "name": "Burnley FC - Blackburn Rovers",
-  "startTime": 1795348800000,
-  "dateStr": "2026-11-22",
-  "marketCount": 88,
-  "file": "championship/2026-11-22_burnley-fc-blackburn-rovers_95346252.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "95788646",
   "name": "Sheffield United - Southampton FC",
   "startTime": 1795549500000,
@@ -168,16 +158,6 @@
   "dateStr": "2026-11-23",
   "marketCount": 105,
   "file": "la-liga/2026-11-23_levante-ud-elche-cf_91673432.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "95036600",
-  "name": "Juventus FC - Venezia FC",
-  "startTime": 1795347000000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-11-22_juventus-fc-venezia-fc_95036600.json"
  },
  {
   "league": "serie-a-italy",
