@@ -150,16 +150,6 @@
   "file": "la-liga/2026-11-23_levante-elche_14670977.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14670978",
-  "name": "Osasuna - Malaga",
-  "startTime": 1795368600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-22_osasuna-malaga_14670978.json"
- },
- {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14656235",
@@ -198,16 +188,6 @@
   "dateStr": "2026-11-23",
   "marketCount": 23,
   "file": "super-league-greece/2026-11-23_asteras-tripolis-aris_15740520.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15740521",
-  "name": "PAOK - Kifisia",
-  "startTime": 1795368600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-22_paok-kifisia_15740521.json"
  },
  {
   "league": "liga-mx",

@@ -2,16 +2,6 @@
  {
   "league": "premier-league",
   "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94991341",
-  "name": "Liverpool FC - Manchester United",
-  "startTime": 1795365000000,
-  "dateStr": "2026-11-22",
-  "marketCount": 124,
-  "file": "premier-league/2026-11-22_liverpool-fc-manchester-united_94991341.json"
- },
- {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
   "eventId": "94991434",
   "name": "Brentford FC - Everton FC",
   "startTime": 1795464000000,
@@ -172,16 +162,6 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "95036590",
-  "name": "AC Milan - Frosinone",
-  "startTime": 1795366800000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-11-22_ac-milan-frosinone_95036590.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "95036586",
   "name": "Atalanta - Inter Milan",
   "startTime": 1795376700000,
@@ -200,26 +180,6 @@
   "file": "serie-a-italy/2026-11-23_ac-monza-ac-fiorentina_94159047.json"
  },
  {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "93994177",
-  "name": "Werder Bremen - Hamburger SV",
-  "startTime": 1795365000000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "bundesliga/2026-11-22_werder-bremen-hamburger-sv_93994177.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "95023776",
-  "name": "FC Lorient - Stade Rennais FC",
-  "startTime": 1795364100000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "ligue-1/2026-11-22_fc-lorient-stade-rennais-fc_95023776.json"
- },
- {
   "league": "ligue-1",
   "leagueName": "Ligue 1 (Γαλλία)",
   "eventId": "95023982",
@@ -232,21 +192,11 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "95025759",
-  "name": "Olympiacos Piraeus - Iraklis",
-  "startTime": 1795366800000,
-  "dateStr": "2026-11-22",
-  "marketCount": 110,
-  "file": "super-league-greece/2026-11-22_olympiacos-piraeus-iraklis_95025759.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "95025761",
   "name": "PAOK - Kifisia",
   "startTime": 1795368600000,
   "dateStr": "2026-11-22",
-  "marketCount": 110,
+  "marketCount": 103,
   "file": "super-league-greece/2026-11-22_paok-kifisia_95025761.json"
  },
  {
@@ -286,7 +236,7 @@
   "name": "Athletico PR - Remo PA",
   "startTime": 1795374000000,
   "dateStr": "2026-11-22",
-  "marketCount": 90,
+  "marketCount": 89,
   "file": "serie-a-brazil/2026-11-22_athletico-pr-remo-pa_95946077.json"
  },
  {
