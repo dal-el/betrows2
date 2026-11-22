@@ -458,5 +458,15 @@
   "dateStr": "2026-11-24",
   "marketCount": 17,
   "file": "serie-a-brazil/2026-11-24_internacional-rs-vitoria-ba_14670945.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14780623",
+  "name": "Chapecoense - Palmeiras",
+  "startTime": 1795554000000,
+  "dateStr": "2026-11-24",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-24_chapecoense-palmeiras_14780623.json"
  }
 ]
