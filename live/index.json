@@ -146,7 +146,7 @@
   "name": "Racing Santander - Real Sociedad",
   "startTime": 1795360500000,
   "dateStr": "2026-11-22",
-  "marketCount": 108,
+  "marketCount": 105,
   "file": "la-liga/2026-11-22_racing-santander-real-sociedad_91673490.json"
  },
  {
@@ -212,16 +212,6 @@
  {
   "league": "bundesliga",
   "leagueName": "Bundesliga (Γερμανία)",
-  "eventId": "93994173",
-  "name": "FC Augsburg - FSV Mainz 05",
-  "startTime": 1795357800000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "bundesliga/2026-11-22_fc-augsburg-fsv-mainz-05_93994173.json"
- },
- {
-  "league": "bundesliga",
-  "leagueName": "Bundesliga (Γερμανία)",
   "eventId": "93994177",
   "name": "Werder Bremen - Hamburger SV",
   "startTime": 1795365000000,
@@ -252,21 +242,11 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "95025756",
-  "name": "Panaitolikos - Volos NFC",
-  "startTime": 1795359600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 111,
-  "file": "super-league-greece/2026-11-22_panaitolikos-volos-nfc_95025756.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "95025758",
   "name": "Panathinaikos - OFI Crete",
   "startTime": 1795361400000,
   "dateStr": "2026-11-22",
-  "marketCount": 110,
+  "marketCount": 103,
   "file": "super-league-greece/2026-11-22_panathinaikos-ofi-crete_95025758.json"
  },
  {
