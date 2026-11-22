@@ -132,16 +132,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14670976",
-  "name": "Getafe - Atletico Madrid",
-  "startTime": 1795377600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-22_getafe-atletico-madrid_14670976.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14670977",
   "name": "Levante - Elche",
   "startTime": 1795464000000,
@@ -152,32 +142,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14656235",
-  "name": "Atalanta - Inter Milan",
-  "startTime": 1795376700000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-22_atalanta-inter-milan_14656235.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14656244",
   "name": "Monza - Fiorentina",
   "startTime": 1795463100000,
   "dateStr": "2026-11-23",
   "marketCount": 23,
   "file": "serie-a-italy/2026-11-23_monza-fiorentina_14656244.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "14656364",
-  "name": "Marseille - Le Mans",
-  "startTime": 1795376700000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "ligue-1/2026-11-22_marseille-le-mans_14656364.json"
  },
  {
   "league": "super-league-greece",

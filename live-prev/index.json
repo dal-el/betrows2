@@ -36,7 +36,7 @@
   "name": "Bristol City - Wrexham FC",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 66,
+  "marketCount": 90,
   "file": "championship/2026-11-24_bristol-city-wrexham-fc_95788695.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Norwich City - Queens Park Rangers",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 67,
+  "marketCount": 91,
   "file": "championship/2026-11-24_norwich-city-queens-park-rangers_95788738.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Middlesbrough FC - Swansea City",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 67,
+  "marketCount": 90,
   "file": "championship/2026-11-24_middlesbrough-fc-swansea-city_95788764.json"
  },
  {
@@ -96,7 +96,7 @@
   "name": "Burnley FC - Birmingham",
   "startTime": 1795635900000,
   "dateStr": "2026-11-25",
-  "marketCount": 67,
+  "marketCount": 90,
   "file": "championship/2026-11-25_burnley-fc-birmingham_95788715.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Bolton - West Bromwich Albion",
   "startTime": 1795635900000,
   "dateStr": "2026-11-25",
-  "marketCount": 67,
+  "marketCount": 90,
   "file": "championship/2026-11-25_bolton-west-bromwich-albion_95788735.json"
  },
  {
@@ -116,7 +116,7 @@
   "name": "Watford FC - Blackburn Rovers",
   "startTime": 1795635900000,
   "dateStr": "2026-11-25",
-  "marketCount": 67,
+  "marketCount": 90,
   "file": "championship/2026-11-25_watford-fc-blackburn-rovers_95788737.json"
  },
  {
@@ -132,16 +132,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91673247",
-  "name": "Getafe CF - Atletico Madrid",
-  "startTime": 1795377600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "la-liga/2026-11-22_getafe-cf-atletico-madrid_91673247.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91673432",
   "name": "Levante UD - Elche CF",
   "startTime": 1795464000000,
@@ -152,32 +142,12 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
-  "eventId": "95036586",
-  "name": "Atalanta - Inter Milan",
-  "startTime": 1795376700000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-11-22_atalanta-inter-milan_95036586.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
   "eventId": "94159047",
   "name": "AC Monza - AC Fiorentina",
   "startTime": 1795463100000,
   "dateStr": "2026-11-23",
   "marketCount": 108,
   "file": "serie-a-italy/2026-11-23_ac-monza-ac-fiorentina_94159047.json"
- },
- {
-  "league": "ligue-1",
-  "leagueName": "Ligue 1 (Γαλλία)",
-  "eventId": "95023982",
-  "name": "Olympique Marseille - Le Mans UC 72",
-  "startTime": 1795376700000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "ligue-1/2026-11-22_olympique-marseille-le-mans-uc-72_95023982.json"
  },
  {
   "league": "super-league-greece",
