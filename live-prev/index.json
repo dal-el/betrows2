@@ -142,16 +142,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91673490",
-  "name": "Racing Santander - Real Sociedad",
-  "startTime": 1795360500000,
-  "dateStr": "2026-11-22",
-  "marketCount": 105,
-  "file": "la-liga/2026-11-22_racing-santander-real-sociedad_91673490.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91673337",
   "name": "CA Osasuna - Malaga CF",
   "startTime": 1795368600000,
@@ -166,7 +156,7 @@
   "name": "Getafe CF - Atletico Madrid",
   "startTime": 1795377600000,
   "dateStr": "2026-11-22",
-  "marketCount": 105,
+  "marketCount": 108,
   "file": "la-liga/2026-11-22_getafe-cf-atletico-madrid_91673247.json"
  },
  {
@@ -242,16 +232,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "95025758",
-  "name": "Panathinaikos - OFI Crete",
-  "startTime": 1795361400000,
-  "dateStr": "2026-11-22",
-  "marketCount": 103,
-  "file": "super-league-greece/2026-11-22_panathinaikos-ofi-crete_95025758.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "95025759",
   "name": "Olympiacos Piraeus - Iraklis",
   "startTime": 1795366800000,
@@ -306,7 +286,7 @@
   "name": "Athletico PR - Remo PA",
   "startTime": 1795374000000,
   "dateStr": "2026-11-22",
-  "marketCount": 89,
+  "marketCount": 90,
   "file": "serie-a-brazil/2026-11-22_athletico-pr-remo-pa_95946077.json"
  },
  {

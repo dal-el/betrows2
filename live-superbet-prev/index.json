@@ -152,32 +152,22 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14670978",
-  "name": "Osasuna - Malaga",
-  "startTime": 1795368600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-22_osasuna-malaga_14670978.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14670980",
-  "name": "Racing Santander - Real Sociedad",
-  "startTime": 1795360500000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-22_racing-santander-real-sociedad_14670980.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "14670977",
   "name": "Levante - Elche",
   "startTime": 1795464000000,
   "dateStr": "2026-11-23",
   "marketCount": 23,
   "file": "la-liga/2026-11-23_levante-elche_14670977.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14670978",
+  "name": "Osasuna - Malaga",
+  "startTime": 1795368600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 23,
+  "file": "la-liga/2026-11-22_osasuna-malaga_14670978.json"
  },
  {
   "league": "serie-a-italy",
@@ -242,16 +232,6 @@
  {
   "league": "super-league-greece",
   "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15740426",
-  "name": "Panathinaikos - OFI",
-  "startTime": 1795361400000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-22_panathinaikos-ofi_15740426.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
   "eventId": "15740519",
   "name": "Olympiacos - Iraklis FC",
   "startTime": 1795366800000,
@@ -262,22 +242,22 @@
  {
   "league": "super-league-greece",
   "leagueName": "Super League (Ελλάδα)",
-  "eventId": "15740521",
-  "name": "PAOK - Kifisia",
-  "startTime": 1795368600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "super-league-greece/2026-11-22_paok-kifisia_15740521.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Super League (Ελλάδα)",
   "eventId": "15740520",
   "name": "Asteras Tripolis - Aris",
   "startTime": 1795446000000,
   "dateStr": "2026-11-23",
   "marketCount": 23,
   "file": "super-league-greece/2026-11-23_asteras-tripolis-aris_15740520.json"
+ },
+ {
+  "league": "super-league-greece",
+  "leagueName": "Super League (Ελλάδα)",
+  "eventId": "15740521",
+  "name": "PAOK - Kifisia",
+  "startTime": 1795368600000,
+  "dateStr": "2026-11-22",
+  "marketCount": 23,
+  "file": "super-league-greece/2026-11-22_paok-kifisia_15740521.json"
  },
  {
   "league": "liga-mx",
@@ -366,7 +346,7 @@
   "name": "Chapecoense - Palmeiras",
   "startTime": 1795554000000,
   "dateStr": "2026-11-24",
-  "marketCount": 3,
+  "marketCount": 6,
   "file": "serie-a-brazil/2026-11-24_chapecoense-palmeiras_14780623.json"
  }
 ]
