@@ -6,7 +6,7 @@
   "name": "Brentford FC - Everton FC",
   "startTime": 1795464000000,
   "dateStr": "2026-11-23",
-  "marketCount": 123,
+  "marketCount": 124,
   "file": "premier-league/2026-11-23_brentford-fc-everton-fc_94991434.json"
  },
  {
@@ -132,16 +132,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91673337",
-  "name": "CA Osasuna - Malaga CF",
-  "startTime": 1795368600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "la-liga/2026-11-22_ca-osasuna-malaga-cf_91673337.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91673247",
   "name": "Getafe CF - Atletico Madrid",
   "startTime": 1795377600000,
@@ -192,21 +182,11 @@
  {
   "league": "super-league-greece",
   "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "95025761",
-  "name": "PAOK - Kifisia",
-  "startTime": 1795368600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 103,
-  "file": "super-league-greece/2026-11-22_paok-kifisia_95025761.json"
- },
- {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
   "eventId": "95025760",
   "name": "Asteras Tripolis - Aris Thessaloniki",
   "startTime": 1795446000000,
   "dateStr": "2026-11-23",
-  "marketCount": 111,
+  "marketCount": 112,
   "file": "super-league-greece/2026-11-23_asteras-tripolis-aris-thessaloniki_95025760.json"
  },
  {
