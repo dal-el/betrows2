@@ -56,7 +56,7 @@
   "name": "Portsmouth FC - West Ham United",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 65,
+  "marketCount": 67,
   "file": "championship/2026-11-24_portsmouth-fc-west-ham-united_95788666.json"
  },
  {
@@ -106,7 +106,7 @@
   "name": "Cardiff City - Preston",
   "startTime": 1795549500000,
   "dateStr": "2026-11-24",
-  "marketCount": 65,
+  "marketCount": 67,
   "file": "championship/2026-11-24_cardiff-city-preston_95788815.json"
  },
  {
@@ -378,16 +378,6 @@
   "dateStr": "2026-11-23",
   "marketCount": 75,
   "file": "liga-mx/2026-11-23_queretaro-fc-club-necaxa_95443971.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95410997",
-  "name": "Chapecoense SC - Cruzeiro MG",
-  "startTime": 1795305600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 90,
-  "file": "serie-a-brazil/2026-11-22_chapecoense-sc-cruzeiro-mg_95410997.json"
  },
  {
   "league": "serie-a-brazil",
