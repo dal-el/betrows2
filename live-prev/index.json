@@ -26,7 +26,7 @@
   "name": "Brentford FC - Everton FC",
   "startTime": 1795464000000,
   "dateStr": "2026-11-23",
-  "marketCount": 131,
+  "marketCount": 91,
   "file": "premier-league/2026-11-23_brentford-fc-everton-fc_94991434.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Levante UD - Elche CF",
   "startTime": 1795464000000,
   "dateStr": "2026-11-23",
-  "marketCount": 113,
+  "marketCount": 105,
   "file": "la-liga/2026-11-23_levante-ud-elche-cf_91673432.json"
  },
  {
@@ -338,16 +338,6 @@
   "dateStr": "2026-11-23",
   "marketCount": 111,
   "file": "super-league-greece/2026-11-23_asteras-tripolis-aris-thessaloniki_95025760.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "95441986",
-  "name": "UNAM Pumas - CF Monterrey",
-  "startTime": 1795309200000,
-  "dateStr": "2026-11-22",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-22_unam-pumas-cf-monterrey_95441986.json"
  },
  {
   "league": "liga-mx",
