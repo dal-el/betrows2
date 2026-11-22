@@ -182,16 +182,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95411001",
-  "name": "Fluminense RJ - Mirassol SP",
-  "startTime": 1795383000000,
-  "dateStr": "2026-11-22",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-22_fluminense-rj-mirassol-sp_95411001.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "95411000",
   "name": "Bragantino SP - Vasco da Gama RJ",
   "startTime": 1795386600000,

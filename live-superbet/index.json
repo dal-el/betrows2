@@ -162,16 +162,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15830705",
-  "name": "Guadalajara - Cruz Azul",
-  "startTime": 1795388820000,
-  "dateStr": "2026-11-23",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-23_guadalajara-cruz-azul_15830705.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "15845134",
   "name": "Queretaro - Necaxa",
   "startTime": 1795396200000,
@@ -192,12 +182,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14670943",
-  "name": "Bragantino - Vasco da Gama",
-  "startTime": 1795386600000,
-  "dateStr": "2026-11-23",
+  "eventId": "14670940",
+  "name": "Santos - Gremio",
+  "startTime": 1795478400000,
+  "dateStr": "2026-11-24",
   "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-23_bragantino-vasco-da-gama_14670943.json"
+  "file": "serie-a-brazil/2026-11-24_santos-gremio_14670940.json"
  },
  {
   "league": "serie-a-brazil",
@@ -208,16 +198,6 @@
   "dateStr": "2026-11-24",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-11-24_internacional-rs-vitoria-ba_14670945.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14670940",
-  "name": "Santos - Gremio",
-  "startTime": 1795478400000,
-  "dateStr": "2026-11-24",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-24_santos-gremio_14670940.json"
  },
  {
   "league": "serie-a-brazil",
