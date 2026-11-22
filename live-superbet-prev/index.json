@@ -152,12 +152,12 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14670974",
-  "name": "Barcelona - Villarreal",
-  "startTime": 1795352400000,
+  "eventId": "14670976",
+  "name": "Getafe - Atletico Madrid",
+  "startTime": 1795377600000,
   "dateStr": "2026-11-22",
   "marketCount": 23,
-  "file": "la-liga/2026-11-22_barcelona-villarreal_14670974.json"
+  "file": "la-liga/2026-11-22_getafe-atletico-madrid_14670976.json"
  },
  {
   "league": "la-liga",
@@ -178,16 +178,6 @@
   "dateStr": "2026-11-22",
   "marketCount": 23,
   "file": "la-liga/2026-11-22_racing-santander-real-sociedad_14670980.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14670976",
-  "name": "Getafe - Atletico Madrid",
-  "startTime": 1795377600000,
-  "dateStr": "2026-11-22",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-22_getafe-atletico-madrid_14670976.json"
  },
  {
   "league": "la-liga",

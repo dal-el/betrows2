@@ -112,16 +112,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91673129",
-  "name": "FC Barcelona - Villarreal CF",
-  "startTime": 1795352400000,
-  "dateStr": "2026-11-22",
-  "marketCount": 108,
-  "file": "la-liga/2026-11-22_fc-barcelona-villarreal-cf_91673129.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "91673490",
   "name": "Racing Santander - Real Sociedad",
   "startTime": 1795360500000,
@@ -136,7 +126,7 @@
   "name": "CA Osasuna - Malaga CF",
   "startTime": 1795368600000,
   "dateStr": "2026-11-22",
-  "marketCount": 105,
+  "marketCount": 106,
   "file": "la-liga/2026-11-22_ca-osasuna-malaga-cf_91673337.json"
  },
  {
