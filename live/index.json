@@ -342,16 +342,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "95443967",
-  "name": "CF Tigres UANL - Club America",
-  "startTime": 1795316400000,
-  "dateStr": "2026-11-22",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-22_cf-tigres-uanl-club-america_95443967.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "95443936",
   "name": "Guadalajara Chivas - Cruz Azul",
   "startTime": 1795388820000,
