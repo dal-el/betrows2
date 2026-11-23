@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "14656294",
-  "name": "Brentford - Everton",
-  "startTime": 1795464000000,
-  "dateStr": "2026-11-23",
-  "marketCount": 23,
-  "file": "premier-league/2026-11-23_brentford-everton_14656294.json"
- },
- {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14701617",
@@ -128,26 +118,6 @@
   "dateStr": "2026-11-25",
   "marketCount": 23,
   "file": "championship/2026-11-25_stoke-city-millwall_14719693.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "14670977",
-  "name": "Levante - Elche",
-  "startTime": 1795464000000,
-  "dateStr": "2026-11-23",
-  "marketCount": 23,
-  "file": "la-liga/2026-11-23_levante-elche_14670977.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "14656244",
-  "name": "Monza - Fiorentina",
-  "startTime": 1795463100000,
-  "dateStr": "2026-11-23",
-  "marketCount": 23,
-  "file": "serie-a-italy/2026-11-23_monza-fiorentina_14656244.json"
  },
  {
   "league": "serie-a-brazil",

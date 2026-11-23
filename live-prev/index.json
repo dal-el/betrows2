@@ -1,15 +1,5 @@
 [
  {
-  "league": "premier-league",
-  "leagueName": "Premier League (Αγγλία)",
-  "eventId": "94991434",
-  "name": "Brentford FC - Everton FC",
-  "startTime": 1795464000000,
-  "dateStr": "2026-11-23",
-  "marketCount": 124,
-  "file": "premier-league/2026-11-23_brentford-fc-everton-fc_94991434.json"
- },
- {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "95788646",
@@ -130,33 +120,13 @@
   "file": "championship/2026-11-25_stoke-city-millwall-fc_95788813.json"
  },
  {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "91673432",
-  "name": "Levante UD - Elche CF",
-  "startTime": 1795464000000,
-  "dateStr": "2026-11-23",
-  "marketCount": 108,
-  "file": "la-liga/2026-11-23_levante-ud-elche-cf_91673432.json"
- },
- {
-  "league": "serie-a-italy",
-  "leagueName": "Serie A (Ιταλία)",
-  "eventId": "94159047",
-  "name": "AC Monza - AC Fiorentina",
-  "startTime": 1795463100000,
-  "dateStr": "2026-11-23",
-  "marketCount": 108,
-  "file": "serie-a-italy/2026-11-23_ac-monza-ac-fiorentina_94159047.json"
- },
- {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "96155861",
   "name": "Deportivo Toluca FC - Atlas FC",
   "startTime": 1795654800000,
   "dateStr": "2026-11-26",
-  "marketCount": 64,
+  "marketCount": 61,
   "file": "liga-mx/2026-11-26_deportivo-toluca-fc-atlas-fc_96155861.json"
  },
  {
@@ -166,7 +136,7 @@
   "name": "CF Monterrey - Club America",
   "startTime": 1795662000000,
   "dateStr": "2026-11-26",
-  "marketCount": 64,
+  "marketCount": 67,
   "file": "liga-mx/2026-11-26_cf-monterrey-club-america_96155859.json"
  },
  {
