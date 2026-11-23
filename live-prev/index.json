@@ -168,5 +168,45 @@
   "dateStr": "2026-11-23",
   "marketCount": 75,
   "file": "liga-mx/2026-11-23_queretaro-fc-club-necaxa_95443971.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95410995",
+  "name": "Internacional RS - Vitoria BA",
+  "startTime": 1795473000000,
+  "dateStr": "2026-11-24",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-24_internacional-rs-vitoria-ba_95410995.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95411002",
+  "name": "Botafogo RJ - Sao Paulo SP",
+  "startTime": 1795474800000,
+  "dateStr": "2026-11-24",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-24_botafogo-rj-sao-paulo-sp_95411002.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "95411003",
+  "name": "Santos SP - Gremio RS",
+  "startTime": 1795478400000,
+  "dateStr": "2026-11-24",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-24_santos-sp-gremio-rs_95411003.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96075764",
+  "name": "Chapecoense SC - Palmeiras SP",
+  "startTime": 1795554000000,
+  "dateStr": "2026-11-24",
+  "marketCount": 67,
+  "file": "serie-a-brazil/2026-11-24_chapecoense-sc-palmeiras-sp_96075764.json"
  }
 ]
