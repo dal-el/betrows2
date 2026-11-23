@@ -152,42 +152,22 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "96155068",
-  "name": "Club Leon - Cruz Azul",
-  "startTime": 1795568400000,
-  "dateStr": "2026-11-25",
-  "marketCount": 42,
-  "file": "liga-mx/2026-11-25_club-leon-cruz-azul_96155068.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "96155303",
-  "name": "CF Pachuca - Guadalajara Chivas",
-  "startTime": 1795568400000,
-  "dateStr": "2026-11-25",
-  "marketCount": 56,
-  "file": "liga-mx/2026-11-25_cf-pachuca-guadalajara-chivas_96155303.json"
+  "eventId": "96155861",
+  "name": "Deportivo Toluca FC - Atlas FC",
+  "startTime": 1795654800000,
+  "dateStr": "2026-11-26",
+  "marketCount": 64,
+  "file": "liga-mx/2026-11-26_deportivo-toluca-fc-atlas-fc_96155861.json"
  },
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
   "eventId": "96155859",
   "name": "CF Monterrey - Club America",
-  "startTime": 1795568400000,
-  "dateStr": "2026-11-25",
-  "marketCount": 42,
-  "file": "liga-mx/2026-11-25_cf-monterrey-club-america_96155859.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "96155861",
-  "name": "Deportivo Toluca FC - Atlas FC",
-  "startTime": 1795568400000,
-  "dateStr": "2026-11-25",
-  "marketCount": 42,
-  "file": "liga-mx/2026-11-25_deportivo-toluca-fc-atlas-fc_96155861.json"
+  "startTime": 1795662000000,
+  "dateStr": "2026-11-26",
+  "marketCount": 64,
+  "file": "liga-mx/2026-11-26_cf-monterrey-club-america_96155859.json"
  },
  {
   "league": "serie-a-brazil",
