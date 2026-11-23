@@ -162,31 +162,11 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "95443936",
-  "name": "Guadalajara Chivas - Cruz Azul",
-  "startTime": 1795388820000,
-  "dateStr": "2026-11-23",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-23_guadalajara-chivas-cruz-azul_95443936.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "95443971",
   "name": "Queretaro FC - Club Necaxa",
   "startTime": 1795396200000,
   "dateStr": "2026-11-23",
   "marketCount": 75,
   "file": "liga-mx/2026-11-23_queretaro-fc-club-necaxa_95443971.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95411000",
-  "name": "Bragantino SP - Vasco da Gama RJ",
-  "startTime": 1795386600000,
-  "dateStr": "2026-11-23",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-23_bragantino-sp-vasco-da-gama-rj_95411000.json"
  }
 ]
