@@ -186,7 +186,7 @@
   "name": "Atletico Mineiro - Corinthians",
   "startTime": 1795647600000,
   "dateStr": "2026-11-26",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-26_atletico-mineiro-corinthians_14670944.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "Chapecoense - Palmeiras",
   "startTime": 1795554000000,
   "dateStr": "2026-11-24",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "serie-a-brazil/2026-11-24_chapecoense-palmeiras_14780623.json"
  }
 ]
