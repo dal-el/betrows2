@@ -160,16 +160,6 @@
   "file": "super-league-greece/2026-11-23_asteras-tripolis-aris_15740520.json"
  },
  {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "15845134",
-  "name": "Queretaro - Necaxa",
-  "startTime": 1795396200000,
-  "dateStr": "2026-11-23",
-  "marketCount": 17,
-  "file": "liga-mx/2026-11-23_queretaro-necaxa_15845134.json"
- },
- {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14670939",
