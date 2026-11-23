@@ -182,32 +182,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14670939",
-  "name": "Botafogo - Sao Paulo",
-  "startTime": 1795474800000,
-  "dateStr": "2026-11-24",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-24_botafogo-sao-paulo_14670939.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14670940",
   "name": "Santos - Gremio",
   "startTime": 1795478400000,
   "dateStr": "2026-11-24",
   "marketCount": 23,
   "file": "serie-a-brazil/2026-11-24_santos-gremio_14670940.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14670945",
-  "name": "Internacional RS - Vitoria BA",
-  "startTime": 1795473000000,
-  "dateStr": "2026-11-24",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-24_internacional-rs-vitoria-ba_14670945.json"
  },
  {
   "league": "serie-a-brazil",
