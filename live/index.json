@@ -150,16 +150,6 @@
   "file": "serie-a-italy/2026-11-23_ac-monza-ac-fiorentina_94159047.json"
  },
  {
-  "league": "super-league-greece",
-  "leagueName": "Stoiximan Super League (Ελλάδα)",
-  "eventId": "95025760",
-  "name": "Asteras Tripolis - Aris Thessaloniki",
-  "startTime": 1795446000000,
-  "dateStr": "2026-11-23",
-  "marketCount": 104,
-  "file": "super-league-greece/2026-11-23_asteras-tripolis-aris-thessaloniki_95025760.json"
- },
- {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "95410995",
