@@ -1,5 +1,15 @@
 [
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "14764553",
+  "name": "Nottingham Forest - Chelsea",
+  "startTime": 1795809600000,
+  "dateStr": "2026-11-27",
+  "marketCount": 6,
+  "file": "premier-league/2026-11-27_nottingham-forest-chelsea_14764553.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14701617",
@@ -118,6 +128,56 @@
   "dateStr": "2026-11-25",
   "marketCount": 23,
   "file": "championship/2026-11-25_stoke-city-millwall_14719693.json"
+ },
+ {
+  "league": "championship",
+  "leagueName": "Championship (Αγγλία)",
+  "eventId": "14750088",
+  "name": "Southampton - Middlesbrough",
+  "startTime": 1795809600000,
+  "dateStr": "2026-11-27",
+  "marketCount": 6,
+  "file": "championship/2026-11-27_southampton-middlesbrough_14750088.json"
+ },
+ {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14780643",
+  "name": "Levante - Racing Santander",
+  "startTime": 1795809600000,
+  "dateStr": "2026-11-27",
+  "marketCount": 6,
+  "file": "la-liga/2026-11-27_levante-racing-santander_14780643.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14764520",
+  "name": "Venezia - Bologna",
+  "startTime": 1795808700000,
+  "dateStr": "2026-11-27",
+  "marketCount": 6,
+  "file": "serie-a-italy/2026-11-27_venezia-bologna_14764520.json"
+ },
+ {
+  "league": "bundesliga",
+  "leagueName": "Bundesliga (Γερμανία)",
+  "eventId": "14764497",
+  "name": "Werder Bremen - Borussia Mönchengladbach",
+  "startTime": 1795807800000,
+  "dateStr": "2026-11-27",
+  "marketCount": 6,
+  "file": "bundesliga/2026-11-27_werder-bremen-borussia-monchengladbach_14764497.json"
+ },
+ {
+  "league": "ligue-1",
+  "leagueName": "Ligue 1 (Γαλλία)",
+  "eventId": "14764634",
+  "name": "Brest - Paris FC",
+  "startTime": 1795808700000,
+  "dateStr": "2026-11-27",
+  "marketCount": 6,
+  "file": "ligue-1/2026-11-27_brest-paris-fc_14764634.json"
  },
  {
   "league": "serie-a-brazil",
