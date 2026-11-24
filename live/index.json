@@ -136,7 +136,7 @@
   "name": "Levante UD - Racing Santander",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 89,
+  "marketCount": 67,
   "file": "la-liga/2026-11-27_levante-ud-racing-santander_92069635.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Venezia FC - Bologna FC",
   "startTime": 1795808700000,
   "dateStr": "2026-11-27",
-  "marketCount": 71,
+  "marketCount": 75,
   "file": "serie-a-italy/2026-11-27_venezia-fc-bologna-fc_94158994.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Werder Bremen - Borussia Monchengladbach",
   "startTime": 1795807800000,
   "dateStr": "2026-11-27",
-  "marketCount": 71,
+  "marketCount": 75,
   "file": "bundesliga/2026-11-27_werder-bremen-borussia-monchengladbach_94248877.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Stade Brestois 29 - Paris FC",
   "startTime": 1795808700000,
   "dateStr": "2026-11-27",
-  "marketCount": 71,
+  "marketCount": 75,
   "file": "ligue-1/2026-11-27_stade-brestois-29-paris-fc_95394836.json"
  },
  {
