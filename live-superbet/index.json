@@ -192,6 +192,16 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14780616",
+  "name": "Sao Paulo - Remo",
+  "startTime": 1795734000000,
+  "dateStr": "2026-11-27",
+  "marketCount": 3,
+  "file": "serie-a-brazil/2026-11-27_sao-paulo-remo_14780616.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14780623",
   "name": "Chapecoense - Palmeiras",
   "startTime": 1795554000000,
