@@ -96,7 +96,7 @@
   "name": "Burnley FC - Birmingham",
   "startTime": 1795635900000,
   "dateStr": "2026-11-25",
-  "marketCount": 91,
+  "marketCount": 88,
   "file": "championship/2026-11-25_burnley-fc-birmingham_95788715.json"
  },
  {
@@ -208,26 +208,6 @@
   "dateStr": "2026-11-27",
   "marketCount": 75,
   "file": "liga-mx/2026-11-27_club-leon-cruz-azul_96155068.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95410995",
-  "name": "Internacional RS - Vitoria BA",
-  "startTime": 1795473000000,
-  "dateStr": "2026-11-24",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-24_internacional-rs-vitoria-ba_95410995.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95411002",
-  "name": "Botafogo RJ - Sao Paulo SP",
-  "startTime": 1795474800000,
-  "dateStr": "2026-11-24",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-24_botafogo-rj-sao-paulo-sp_95411002.json"
  },
  {
   "league": "serie-a-brazil",
