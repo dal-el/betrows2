@@ -212,16 +212,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95411003",
-  "name": "Santos SP - Gremio RS",
-  "startTime": 1795478400000,
-  "dateStr": "2026-11-24",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-24_santos-sp-gremio-rs_95411003.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "96075764",
   "name": "Chapecoense SC - Palmeiras SP",
   "startTime": 1795554000000,
@@ -236,7 +226,7 @@
   "name": "Clube Atletico MG - Corinthians SP",
   "startTime": 1795647600000,
   "dateStr": "2026-11-26",
-  "marketCount": 97,
+  "marketCount": 89,
   "file": "serie-a-brazil/2026-11-26_clube-atletico-mg-corinthians-sp_95411005.json"
  }
 ]
