@@ -126,7 +126,7 @@
   "name": "Torino FC - SS Lazio",
   "startTime": 1795885200000,
   "dateStr": "2026-11-28",
-  "marketCount": 71,
+  "marketCount": 75,
   "file": "serie-a-italy/2026-11-28_torino-fc-ss-lazio_95079296.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Inter Milan - Genoa CFC",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 71,
+  "marketCount": 75,
   "file": "serie-a-italy/2026-11-28_inter-milan-genoa-cfc_95079380.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "VfB Stuttgart - Eintracht Frankfurt",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_vfb-stuttgart-eintracht-frankfurt_94299510.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Angers SCO - RC Lens",
   "startTime": 1795882500000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-28_angers-sco-rc-lens_95395354.json"
  },
  {
