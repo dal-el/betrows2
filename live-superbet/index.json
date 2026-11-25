@@ -6,7 +6,7 @@
   "name": "Leeds United - Coventry City",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-28_leeds-united-coventry-city_14764551.json"
  },
  {
@@ -16,7 +16,7 @@
   "name": "Manchester United - Brentford",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-28_manchester-united-brentford_14764552.json"
  },
  {
@@ -38,46 +38,6 @@
   "dateStr": "2026-11-28",
   "marketCount": 8,
   "file": "premier-league/2026-11-28_ipswich-aston-villa_14764550.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14719690",
-  "name": "Bolton Wanderers - West Bromwich Albion",
-  "startTime": 1795635900000,
-  "dateStr": "2026-11-25",
-  "marketCount": 23,
-  "file": "championship/2026-11-25_bolton-wanderers-west-bromwich-albion_14719690.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14719691",
-  "name": "Burnley - Birmingham City",
-  "startTime": 1795635900000,
-  "dateStr": "2026-11-25",
-  "marketCount": 23,
-  "file": "championship/2026-11-25_burnley-birmingham-city_14719691.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14719692",
-  "name": "Watford - Blackburn Rovers",
-  "startTime": 1795635900000,
-  "dateStr": "2026-11-25",
-  "marketCount": 23,
-  "file": "championship/2026-11-25_watford-blackburn-rovers_14719692.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "14719693",
-  "name": "Stoke City - Millwall",
-  "startTime": 1795636800000,
-  "dateStr": "2026-11-25",
-  "marketCount": 23,
-  "file": "championship/2026-11-25_stoke-city-millwall_14719693.json"
  },
  {
   "league": "championship",
@@ -236,7 +196,7 @@
   "name": "Real Madrid - Alaves",
   "startTime": 1795896000000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-28_real-madrid-alaves_14780646.json"
  },
  {
@@ -366,7 +326,7 @@
   "name": "Le Havre - Strasbourg",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "ligue-1/2026-11-28_le-havre-strasbourg_14764635.json"
  },
  {
@@ -376,7 +336,7 @@
   "name": "Le Mans - Lille",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "ligue-1/2026-11-28_le-mans-lille_14764636.json"
  },
  {
@@ -386,7 +346,7 @@
   "name": "Nice - Troyes",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "ligue-1/2026-11-28_nice-troyes_14764638.json"
  },
  {
@@ -396,7 +356,7 @@
   "name": "Paris Saint-Germain - Lorient",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "ligue-1/2026-11-28_paris-saint-germain-lorient_14764639.json"
  },
  {
