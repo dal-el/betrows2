@@ -86,7 +86,7 @@
   "name": "Southampton FC - Middlesbrough FC",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 67,
+  "marketCount": 90,
   "file": "championship/2026-11-27_southampton-fc-middlesbrough-fc_95788688.json"
  },
  {
@@ -378,5 +378,15 @@
   "dateStr": "2026-11-26",
   "marketCount": 89,
   "file": "serie-a-brazil/2026-11-26_clube-atletico-mg-corinthians-sp_95411005.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96135541",
+  "name": "Sao Paulo SP - Remo PA",
+  "startTime": 1795734000000,
+  "dateStr": "2026-11-27",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-27_sao-paulo-sp-remo-pa_96135541.json"
  }
 ]
