@@ -36,7 +36,7 @@
   "name": "Ipswich Town - Aston Villa",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 131,
+  "marketCount": 123,
   "file": "premier-league/2026-11-28_ipswich-town-aston-villa_95343449.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Southampton FC - Middlesbrough FC",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 88,
+  "marketCount": 96,
   "file": "championship/2026-11-27_southampton-fc-middlesbrough-fc_95788688.json"
  },
  {
@@ -146,7 +146,7 @@
   "name": "Venezia FC - Bologna FC",
   "startTime": 1795808700000,
   "dateStr": "2026-11-27",
-  "marketCount": 75,
+  "marketCount": 71,
   "file": "serie-a-italy/2026-11-27_venezia-fc-bologna-fc_94158994.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Werder Bremen - Borussia Monchengladbach",
   "startTime": 1795807800000,
   "dateStr": "2026-11-27",
-  "marketCount": 75,
+  "marketCount": 71,
   "file": "bundesliga/2026-11-27_werder-bremen-borussia-monchengladbach_94248877.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Stade Brestois 29 - Paris FC",
   "startTime": 1795808700000,
   "dateStr": "2026-11-27",
-  "marketCount": 108,
+  "marketCount": 116,
   "file": "ligue-1/2026-11-27_stade-brestois-29-paris-fc_95394836.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Paris Saint-Germain - FC Lorient",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-28_paris-saint-germain-fc-lorient_95394869.json"
  },
  {
