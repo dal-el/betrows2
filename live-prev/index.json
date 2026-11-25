@@ -26,7 +26,7 @@
   "name": "Leeds United - Coventry City",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 129,
+  "marketCount": 131,
   "file": "premier-league/2026-11-28_leeds-united-coventry-city_95343448.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Southampton FC - Middlesbrough FC",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 90,
+  "marketCount": 85,
   "file": "championship/2026-11-27_southampton-fc-middlesbrough-fc_95788688.json"
  },
  {
@@ -246,7 +246,7 @@
   "name": "Stade Brestois 29 - Paris FC",
   "startTime": 1795808700000,
   "dateStr": "2026-11-27",
-  "marketCount": 104,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-27_stade-brestois-29-paris-fc_95394836.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "Angers SCO - RC Lens",
   "startTime": 1795882500000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 116,
   "file": "ligue-1/2026-11-28_angers-sco-rc-lens_95395354.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "Paris Saint-Germain - FC Lorient",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 116,
   "file": "ligue-1/2026-11-28_paris-saint-germain-fc-lorient_95394869.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Le Mans UC 72 - Lille OSC",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 116,
   "file": "ligue-1/2026-11-28_le-mans-uc-72-lille-osc_95395347.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "OGC Nice - ES Troyes AC",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 116,
   "file": "ligue-1/2026-11-28_ogc-nice-es-troyes-ac_95395348.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "Le Havre AC - RC Strasbourg",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 116,
   "file": "ligue-1/2026-11-28_le-havre-ac-rc-strasbourg_95395350.json"
  },
  {
