@@ -26,7 +26,7 @@
   "name": "Leeds United - Coventry City",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 131,
+  "marketCount": 123,
   "file": "premier-league/2026-11-28_leeds-united-coventry-city_95343448.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Frosinone - Parma Calcio 1913",
   "startTime": 1795874400000,
   "dateStr": "2026-11-28",
-  "marketCount": 71,
+  "marketCount": 75,
   "file": "serie-a-italy/2026-11-28_frosinone-parma-calcio-1913_95079364.json"
  },
  {
@@ -186,7 +186,7 @@
   "name": "Werder Bremen - Borussia Monchengladbach",
   "startTime": 1795807800000,
   "dateStr": "2026-11-27",
-  "marketCount": 110,
+  "marketCount": 116,
   "file": "bundesliga/2026-11-27_werder-bremen-borussia-monchengladbach_94248877.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "1. FC Köln - SV Elversberg",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_1-fc-koln-sv-elversberg_94299490.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "FSV Mainz 05 - 1. FC Union Berlin",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_fsv-mainz-05-1-fc-union-berlin_94299507.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Hamburger SV - FC Bayern Munchen",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 109,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_hamburger-sv-fc-bayern-munchen_94299509.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "SC Paderborn 07 - FC Schalke 04",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_sc-paderborn-07-fc-schalke-04_94299511.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "VfB Stuttgart - Eintracht Frankfurt",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 116,
   "file": "bundesliga/2026-11-28_vfb-stuttgart-eintracht-frankfurt_94299510.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Le Mans UC 72 - Lille OSC",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-28_le-mans-uc-72-lille-osc_95395347.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "OGC Nice - ES Troyes AC",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-28_ogc-nice-es-troyes-ac_95395348.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "Le Havre AC - RC Strasbourg",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-28_le-havre-ac-rc-strasbourg_95395350.json"
  },
  {
