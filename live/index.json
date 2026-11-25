@@ -6,7 +6,7 @@
   "name": "Nottingham Forest - Chelsea FC",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 130,
+  "marketCount": 129,
   "file": "premier-league/2026-11-27_nottingham-forest-chelsea-fc_95343447.json"
  },
  {
@@ -468,16 +468,6 @@
   "dateStr": "2026-11-27",
   "marketCount": 90,
   "file": "liga-mx/2026-11-27_club-leon-cruz-azul_96155068.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "95411005",
-  "name": "Clube Atletico MG - Corinthians SP",
-  "startTime": 1795647600000,
-  "dateStr": "2026-11-26",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-26_clube-atletico-mg-corinthians-sp_95411005.json"
  },
  {
   "league": "serie-a-brazil",
