@@ -286,7 +286,7 @@
   "name": "Mainz 05 - Union Berlin",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-28_mainz-05-union-berlin_14764494.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "Hamburger SV - Bayern Munich",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-28_hamburger-sv-bayern-munich_14764495.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "VfB Stuttgart - Eintracht Frankfurt",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-28_vfb-stuttgart-eintracht-frankfurt_14764491.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "FC Koln - Elversberg",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-28_fc-koln-elversberg_14764496.json"
  },
  {
@@ -336,7 +336,7 @@
   "name": "Paderborn - Schalke",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-28_paderborn-schalke_14764498.json"
  },
  {
