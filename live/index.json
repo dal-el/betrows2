@@ -186,7 +186,7 @@
   "name": "Werder Bremen - Borussia Monchengladbach",
   "startTime": 1795807800000,
   "dateStr": "2026-11-27",
-  "marketCount": 71,
+  "marketCount": 110,
   "file": "bundesliga/2026-11-27_werder-bremen-borussia-monchengladbach_94248877.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "1. FC Köln - SV Elversberg",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 71,
+  "marketCount": 110,
   "file": "bundesliga/2026-11-28_1-fc-koln-sv-elversberg_94299490.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "FSV Mainz 05 - 1. FC Union Berlin",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 71,
+  "marketCount": 110,
   "file": "bundesliga/2026-11-28_fsv-mainz-05-1-fc-union-berlin_94299507.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Hamburger SV - FC Bayern Munchen",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 70,
+  "marketCount": 109,
   "file": "bundesliga/2026-11-28_hamburger-sv-fc-bayern-munchen_94299509.json"
  },
  {
@@ -226,7 +226,7 @@
   "name": "SC Paderborn 07 - FC Schalke 04",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 71,
+  "marketCount": 110,
   "file": "bundesliga/2026-11-28_sc-paderborn-07-fc-schalke-04_94299511.json"
  },
  {
@@ -236,7 +236,7 @@
   "name": "VfB Stuttgart - Eintracht Frankfurt",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 71,
+  "marketCount": 110,
   "file": "bundesliga/2026-11-28_vfb-stuttgart-eintracht-frankfurt_94299510.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Volos NFC - Asteras Tripolis",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 111,
   "file": "super-league-greece/2026-11-28_volos-nfc-asteras-tripolis_95393208.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Iraklis - Panaitolikos",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 111,
   "file": "super-league-greece/2026-11-28_iraklis-panaitolikos_95393327.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Kifisia - Kalamata",
   "startTime": 1795888800000,
   "dateStr": "2026-11-28",
-  "marketCount": 110,
+  "marketCount": 111,
   "file": "super-league-greece/2026-11-28_kifisia-kalamata_95393294.json"
  },
  {
