@@ -186,7 +186,7 @@
   "name": "West Bromwich Albion - Bristol City",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "championship/2026-11-28_west-bromwich-albion-bristol-city_14764559.json"
  },
  {
@@ -196,7 +196,7 @@
   "name": "West Ham - Stoke City",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "championship/2026-11-28_west-ham-stoke-city_14764560.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "Borussia Dortmund - Bayer Leverkusen",
   "startTime": 1795977000000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-29_borussia-dortmund-bayer-leverkusen_14764490.json"
  },
  {
@@ -686,7 +686,7 @@
   "name": "Coritiba - Flamengo",
   "startTime": 1795978800000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-29_coritiba-flamengo_14780621.json"
  },
  {
@@ -696,7 +696,7 @@
   "name": "Vitoria BA - Santos",
   "startTime": 1795978800000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-29_vitoria-ba-santos_14780622.json"
  },
  {

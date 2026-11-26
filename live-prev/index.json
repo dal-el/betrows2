@@ -56,7 +56,7 @@
   "name": "Lincoln City - Wolverhampton Wanderers",
   "startTime": 1795869000000,
   "dateStr": "2026-11-28",
-  "marketCount": 96,
+  "marketCount": 88,
   "file": "championship/2026-11-28_lincoln-city-wolverhampton-wanderers_95788707.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Preston - Norwich City",
   "startTime": 1795869000000,
   "dateStr": "2026-11-28",
-  "marketCount": 96,
+  "marketCount": 88,
   "file": "championship/2026-11-28_preston-norwich-city_95788739.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Blackburn Rovers - Charlton",
   "startTime": 1795869000000,
   "dateStr": "2026-11-28",
-  "marketCount": 96,
+  "marketCount": 88,
   "file": "championship/2026-11-28_blackburn-rovers-charlton_95788766.json"
  },
  {
@@ -166,7 +166,7 @@
   "name": "Real Betis Balompie - Rayo Vallecano",
   "startTime": 1795870800000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "la-liga/2026-11-28_real-betis-balompie-rayo-vallecano_92069289.json"
  },
  {
@@ -456,7 +456,7 @@
   "name": "Atlas FC - Deportivo Toluca FC",
   "startTime": 1795914000000,
   "dateStr": "2026-11-29",
-  "marketCount": 64,
+  "marketCount": 89,
   "file": "liga-mx/2026-11-29_atlas-fc-deportivo-toluca-fc_96158082.json"
  },
  {
