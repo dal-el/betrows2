@@ -6,7 +6,7 @@
   "name": "Nottingham Forest - Chelsea FC",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 109,
+  "marketCount": 123,
   "file": "premier-league/2026-11-27_nottingham-forest-chelsea-fc_95343447.json"
  },
  {
@@ -448,6 +448,16 @@
   "dateStr": "2026-11-27",
   "marketCount": 90,
   "file": "liga-mx/2026-11-27_club-leon-cruz-azul_96155068.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "96158098",
+  "name": "Club America - CF Monterrey",
+  "startTime": 1795921800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 67,
+  "file": "liga-mx/2026-11-29_club-america-cf-monterrey_96158098.json"
  },
  {
   "league": "serie-a-brazil",
