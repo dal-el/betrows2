@@ -206,7 +206,7 @@
   "name": "Wrexham - Portsmouth",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "championship/2026-11-28_wrexham-portsmouth_14764561.json"
  },
  {
@@ -310,6 +310,16 @@
   "file": "la-liga/2026-11-29_real-sociedad-sevilla_14780647.json"
  },
  {
+  "league": "la-liga",
+  "leagueName": "LaLiga (Ισπανία)",
+  "eventId": "14780642",
+  "name": "Espanyol - Getafe",
+  "startTime": 1796068800000,
+  "dateStr": "2026-11-30",
+  "marketCount": 6,
+  "file": "la-liga/2026-11-30_espanyol-getafe_14780642.json"
+ },
+ {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
   "eventId": "14764513",
@@ -382,12 +392,32 @@
  {
   "league": "serie-a-italy",
   "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14764515",
+  "name": "Lecce - Atalanta",
+  "startTime": 1796059800000,
+  "dateStr": "2026-11-30",
+  "marketCount": 8,
+  "file": "serie-a-italy/2026-11-30_lecce-atalanta_14764515.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
   "eventId": "14764516",
   "name": "AS Roma - Monza",
   "startTime": 1795971600000,
   "dateStr": "2026-11-29",
   "marketCount": 23,
   "file": "serie-a-italy/2026-11-29_as-roma-monza_14764516.json"
+ },
+ {
+  "league": "serie-a-italy",
+  "leagueName": "Serie A (Ιταλία)",
+  "eventId": "14764511",
+  "name": "Cagliari - AC Milan",
+  "startTime": 1796067900000,
+  "dateStr": "2026-11-30",
+  "marketCount": 8,
+  "file": "serie-a-italy/2026-11-30_cagliari-ac-milan_14764511.json"
  },
  {
   "league": "bundesliga",
@@ -676,7 +706,7 @@
   "name": "Corinthians - Gremio",
   "startTime": 1795987800000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-29_corinthians-gremio_14780617.json"
  },
  {
@@ -706,8 +736,18 @@
   "name": "Mirassol - Athletico PR",
   "startTime": 1795987800000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-29_mirassol-athletico-pr_14780618.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14780619",
+  "name": "Atletico Mineiro - Vasco da Gama",
+  "startTime": 1795991400000,
+  "dateStr": "2026-11-30",
+  "marketCount": 6,
+  "file": "serie-a-brazil/2026-11-30_atletico-mineiro-vasco-da-gama_14780619.json"
  },
  {
   "league": "serie-a-brazil",
@@ -716,7 +756,7 @@
   "name": "Internacional RS - Bragantino",
   "startTime": 1795987800000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-29_internacional-rs-bragantino_14780620.json"
  }
 ]
