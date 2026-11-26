@@ -432,16 +432,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "96155859",
-  "name": "CF Monterrey - Club America",
-  "startTime": 1795662600000,
-  "dateStr": "2026-11-26",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-26_cf-monterrey-club-america_96155859.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "96155303",
   "name": "CF Pachuca - Guadalajara Chivas",
   "startTime": 1795741200000,
