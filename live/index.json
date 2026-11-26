@@ -6,7 +6,7 @@
   "name": "Nottingham Forest - Chelsea FC",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 129,
+  "marketCount": 109,
   "file": "premier-league/2026-11-27_nottingham-forest-chelsea-fc_95343447.json"
  },
  {
@@ -46,7 +46,7 @@
   "name": "Southampton FC - Middlesbrough FC",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 96,
+  "marketCount": 88,
   "file": "championship/2026-11-27_southampton-fc-middlesbrough-fc_95788688.json"
  },
  {
@@ -156,7 +156,7 @@
   "name": "Levante UD - Racing Santander",
   "startTime": 1795809600000,
   "dateStr": "2026-11-27",
-  "marketCount": 89,
+  "marketCount": 67,
   "file": "la-liga/2026-11-27_levante-ud-racing-santander_92069635.json"
  },
  {
@@ -206,7 +206,7 @@
   "name": "Venezia FC - Bologna FC",
   "startTime": 1795808700000,
   "dateStr": "2026-11-27",
-  "marketCount": 71,
+  "marketCount": 75,
   "file": "serie-a-italy/2026-11-27_venezia-fc-bologna-fc_94158994.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Stade Brestois 29 - Paris FC",
   "startTime": 1795808700000,
   "dateStr": "2026-11-27",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-27_stade-brestois-29-paris-fc_95394836.json"
  },
  {
@@ -432,16 +432,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "96155861",
-  "name": "Deportivo Toluca FC - Atlas FC",
-  "startTime": 1795654800000,
-  "dateStr": "2026-11-26",
-  "marketCount": 89,
-  "file": "liga-mx/2026-11-26_deportivo-toluca-fc-atlas-fc_96155861.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "96155859",
   "name": "CF Monterrey - Club America",
   "startTime": 1795662600000,
@@ -478,5 +468,15 @@
   "dateStr": "2026-11-27",
   "marketCount": 89,
   "file": "serie-a-brazil/2026-11-27_sao-paulo-sp-remo-pa_96135541.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96120762",
+  "name": "Fluminense RJ - Cruzeiro MG",
+  "startTime": 1795820400000,
+  "dateStr": "2026-11-28",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-28_fluminense-rj-cruzeiro-mg_96120762.json"
  }
 ]
