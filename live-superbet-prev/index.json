@@ -576,7 +576,7 @@
   "name": "Volos - Asteras Tripolis",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-28_volos-asteras-tripolis_15856390.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Kifisia - Kalamata",
   "startTime": 1795888800000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-28_kifisia-kalamata_15856393.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Iraklis - Panetolikos",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-28_iraklis-panetolikos_15856394.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Atromitos - Panathinaikos",
   "startTime": 1795964400000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-29_atromitos-panathinaikos_15856405.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "OFI - Levadiakos",
   "startTime": 1795966200000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-29_ofi-levadiakos_15856406.json"
  },
  {
@@ -626,7 +626,7 @@
   "name": "Aris - Olympiacos",
   "startTime": 1795971600000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-29_aris-olympiacos_15856407.json"
  },
  {
@@ -636,7 +636,7 @@
   "name": "AEK - PAOK",
   "startTime": 1795978800000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "super-league-greece/2026-11-29_aek-paok_15856408.json"
  },
  {
