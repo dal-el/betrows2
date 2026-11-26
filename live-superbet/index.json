@@ -692,12 +692,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14780616",
-  "name": "Sao Paulo - Remo",
-  "startTime": 1795734000000,
-  "dateStr": "2026-11-27",
-  "marketCount": 20,
-  "file": "serie-a-brazil/2026-11-27_sao-paulo-remo_14780616.json"
+  "eventId": "14780621",
+  "name": "Coritiba - Flamengo",
+  "startTime": 1795978800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 8,
+  "file": "serie-a-brazil/2026-11-29_coritiba-flamengo_14780621.json"
  },
  {
   "league": "serie-a-brazil",
@@ -712,12 +712,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14780621",
-  "name": "Coritiba - Flamengo",
-  "startTime": 1795978800000,
+  "eventId": "14780618",
+  "name": "Mirassol - Athletico PR",
+  "startTime": 1795987800000,
   "dateStr": "2026-11-29",
   "marketCount": 8,
-  "file": "serie-a-brazil/2026-11-29_coritiba-flamengo_14780621.json"
+  "file": "serie-a-brazil/2026-11-29_mirassol-athletico-pr_14780618.json"
  },
  {
   "league": "serie-a-brazil",
@@ -732,21 +732,11 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14780618",
-  "name": "Mirassol - Athletico PR",
-  "startTime": 1795987800000,
-  "dateStr": "2026-11-29",
-  "marketCount": 8,
-  "file": "serie-a-brazil/2026-11-29_mirassol-athletico-pr_14780618.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14780619",
   "name": "Atletico Mineiro - Vasco da Gama",
   "startTime": 1795991400000,
   "dateStr": "2026-11-30",
-  "marketCount": 6,
+  "marketCount": 8,
   "file": "serie-a-brazil/2026-11-30_atletico-mineiro-vasco-da-gama_14780619.json"
  },
  {
