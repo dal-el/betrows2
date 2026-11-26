@@ -16,7 +16,7 @@
   "name": "Manchester United - Brentford FC",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 132,
+  "marketCount": 124,
   "file": "premier-league/2026-11-28_manchester-united-brentford-fc_95343228.json"
  },
  {
@@ -26,7 +26,7 @@
   "name": "Leeds United - Coventry City",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 132,
+  "marketCount": 124,
   "file": "premier-league/2026-11-28_leeds-united-coventry-city_95343448.json"
  },
  {
@@ -36,7 +36,7 @@
   "name": "Ipswich Town - Aston Villa",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 132,
+  "marketCount": 124,
   "file": "premier-league/2026-11-28_ipswich-town-aston-villa_95343449.json"
  },
  {
@@ -216,7 +216,7 @@
   "name": "Frosinone - Parma Calcio 1913",
   "startTime": 1795874400000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "serie-a-italy/2026-11-28_frosinone-parma-calcio-1913_95079364.json"
  },
  {
@@ -256,7 +256,7 @@
   "name": "1. FC Köln - SV Elversberg",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_1-fc-koln-sv-elversberg_94299490.json"
  },
  {
@@ -266,7 +266,7 @@
   "name": "FSV Mainz 05 - 1. FC Union Berlin",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_fsv-mainz-05-1-fc-union-berlin_94299507.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Hamburger SV - FC Bayern Munchen",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 115,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_hamburger-sv-fc-bayern-munchen_94299509.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "SC Paderborn 07 - FC Schalke 04",
   "startTime": 1795876200000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "bundesliga/2026-11-28_sc-paderborn-07-fc-schalke-04_94299511.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "Club America - CF Monterrey",
   "startTime": 1795921800000,
   "dateStr": "2026-11-29",
-  "marketCount": 88,
+  "marketCount": 69,
   "file": "liga-mx/2026-11-29_club-america-cf-monterrey_96158098.json"
  },
  {
