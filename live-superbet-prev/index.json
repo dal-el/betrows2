@@ -116,7 +116,7 @@
   "name": "Blackburn Rovers - Charlton Athletic",
   "startTime": 1795869000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "championship/2026-11-28_blackburn-rovers-charlton-athletic_14764508.json"
  },
  {
@@ -126,7 +126,7 @@
   "name": "Lincoln City - Wolves",
   "startTime": 1795869000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "championship/2026-11-28_lincoln-city-wolves_14764509.json"
  },
  {
@@ -136,7 +136,7 @@
   "name": "Preston North End - Norwich City",
   "startTime": 1795869000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "championship/2026-11-28_preston-north-end-norwich-city_14764510.json"
  },
  {
@@ -386,7 +386,7 @@
   "name": "AS Roma - Monza",
   "startTime": 1795971600000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-29_as-roma-monza_14764516.json"
  },
  {
@@ -466,7 +466,7 @@
   "name": "TSG Hoffenheim - Augsburg",
   "startTime": 1795969800000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "bundesliga/2026-11-29_tsg-hoffenheim-augsburg_14764492.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Kifisia - Kalamata",
   "startTime": 1795888800000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-28_kifisia-kalamata_15856393.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Iraklis - Panetolikos",
   "startTime": 1795878000000,
   "dateStr": "2026-11-28",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-28_iraklis-panetolikos_15856394.json"
  },
  {
@@ -606,7 +606,7 @@
   "name": "Atromitos - Panathinaikos",
   "startTime": 1795964400000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-29_atromitos-panathinaikos_15856405.json"
  },
  {
@@ -616,7 +616,7 @@
   "name": "OFI - Levadiakos",
   "startTime": 1795966200000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "super-league-greece/2026-11-29_ofi-levadiakos_15856406.json"
  },
  {
