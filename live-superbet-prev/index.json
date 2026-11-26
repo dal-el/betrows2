@@ -316,7 +316,7 @@
   "name": "Frosinone - Parma",
   "startTime": 1795874400000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-italy/2026-11-28_frosinone-parma_14764513.json"
  },
  {
@@ -326,7 +326,7 @@
   "name": "Torino FC - Lazio",
   "startTime": 1795885200000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-italy/2026-11-28_torino-fc-lazio_14764518.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "Inter Milan - Genoa",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "serie-a-italy/2026-11-28_inter-milan-genoa_14764514.json"
  },
  {
