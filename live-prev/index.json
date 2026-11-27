@@ -466,18 +466,8 @@
   "name": "Club America - CF Monterrey",
   "startTime": 1795921800000,
   "dateStr": "2026-11-29",
-  "marketCount": 69,
+  "marketCount": 71,
   "file": "liga-mx/2026-11-29_club-america-cf-monterrey_96158098.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "96135541",
-  "name": "Sao Paulo SP - Remo PA",
-  "startTime": 1795734000000,
-  "dateStr": "2026-11-27",
-  "marketCount": 89,
-  "file": "serie-a-brazil/2026-11-27_sao-paulo-sp-remo-pa_96135541.json"
  },
  {
   "league": "serie-a-brazil",
