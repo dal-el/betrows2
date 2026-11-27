@@ -36,7 +36,7 @@
   "name": "Brighton - Newcastle",
   "startTime": 1795961100000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-29_brighton-newcastle_14764546.json"
  },
  {
@@ -66,7 +66,7 @@
   "name": "Crystal Palace - Hull City",
   "startTime": 1795961100000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-29_crystal-palace-hull-city_14764547.json"
  },
  {
@@ -76,7 +76,7 @@
   "name": "Fulham - Bournemouth",
   "startTime": 1795961100000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-29_fulham-bournemouth_14764549.json"
  },
  {
@@ -86,7 +86,7 @@
   "name": "Sunderland - Tottenham",
   "startTime": 1795961100000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "premier-league/2026-11-29_sunderland-tottenham_14764554.json"
  },
  {
@@ -276,7 +276,7 @@
   "name": "Valencia - Osasuna",
   "startTime": 1795957200000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-29_valencia-osasuna_14780648.json"
  },
  {
@@ -286,7 +286,7 @@
   "name": "Celta Vigo - Villarreal",
   "startTime": 1795973400000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-29_celta-vigo-villarreal_14780638.json"
  },
  {
@@ -296,7 +296,7 @@
   "name": "Deportivo de A Coruna - Barcelona",
   "startTime": 1795965300000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-29_deportivo-de-a-coruna-barcelona_14780640.json"
  },
  {
@@ -306,7 +306,7 @@
   "name": "Real Sociedad - Sevilla",
   "startTime": 1795982400000,
   "dateStr": "2026-11-29",
-  "marketCount": 6,
+  "marketCount": 18,
   "file": "la-liga/2026-11-29_real-sociedad-sevilla_14780647.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Auxerre - Marseille",
   "startTime": 1795960800000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-29_auxerre-marseille_14764633.json"
  },
  {
@@ -586,7 +586,7 @@
   "name": "Lyon - Monaco",
   "startTime": 1795981500000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-29_lyon-monaco_14764637.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Toulouse - Rennes",
   "startTime": 1795968900000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 20,
   "file": "ligue-1/2026-11-29_toulouse-rennes_14764640.json"
  },
  {
@@ -686,7 +686,7 @@
   "name": "Botafogo - Bahia",
   "startTime": 1795910400000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-brazil/2026-11-29_botafogo-bahia_14780615.json"
  },
  {
@@ -696,7 +696,7 @@
   "name": "Coritiba - Flamengo",
   "startTime": 1795978800000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-29_coritiba-flamengo_14780621.json"
  },
  {

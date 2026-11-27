@@ -706,7 +706,7 @@
   "name": "Corinthians - Gremio",
   "startTime": 1795987800000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-29_corinthians-gremio_14780617.json"
  },
  {
@@ -716,7 +716,7 @@
   "name": "Mirassol - Athletico PR",
   "startTime": 1795987800000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-29_mirassol-athletico-pr_14780618.json"
  },
  {
@@ -726,7 +726,7 @@
   "name": "Vitoria BA - Santos",
   "startTime": 1795978800000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-29_vitoria-ba-santos_14780622.json"
  },
  {
@@ -746,7 +746,7 @@
   "name": "Internacional RS - Bragantino",
   "startTime": 1795987800000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 17,
   "file": "serie-a-brazil/2026-11-29_internacional-rs-bragantino_14780620.json"
  }
 ]
