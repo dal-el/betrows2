@@ -196,7 +196,7 @@
   "name": "Real Madrid - Deportivo Alaves",
   "startTime": 1795896000000,
   "dateStr": "2026-11-28",
-  "marketCount": 115,
+  "marketCount": 108,
   "file": "la-liga/2026-11-28_real-madrid-deportivo-alaves_92069601.json"
  },
  {
@@ -346,7 +346,7 @@
   "name": "OGC Nice - ES Troyes AC",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 76,
   "file": "ligue-1/2026-11-28_ogc-nice-es-troyes-ac_95395348.json"
  },
  {
@@ -356,7 +356,7 @@
   "name": "Le Havre AC - RC Strasbourg",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 116,
+  "marketCount": 108,
   "file": "ligue-1/2026-11-28_le-havre-ac-rc-strasbourg_95395350.json"
  },
  {
@@ -432,16 +432,6 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
-  "eventId": "96155303",
-  "name": "CF Pachuca - Guadalajara Chivas",
-  "startTime": 1795741200000,
-  "dateStr": "2026-11-27",
-  "marketCount": 90,
-  "file": "liga-mx/2026-11-27_cf-pachuca-guadalajara-chivas_96155303.json"
- },
- {
-  "league": "liga-mx",
-  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "96155068",
   "name": "Club Leon - Cruz Azul",
   "startTime": 1795749000000,
@@ -478,5 +468,65 @@
   "dateStr": "2026-11-28",
   "marketCount": 89,
   "file": "serie-a-brazil/2026-11-28_fluminense-rj-cruzeiro-mg_96120762.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96135548",
+  "name": "Botafogo RJ - EC Bahia BA",
+  "startTime": 1795910400000,
+  "dateStr": "2026-11-29",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-29_botafogo-rj-ec-bahia-ba_96135548.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96075778",
+  "name": "Coritiba PR - Flamengo RJ",
+  "startTime": 1795978800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 97,
+  "file": "serie-a-brazil/2026-11-29_coritiba-pr-flamengo-rj_96075778.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96135549",
+  "name": "Vitoria BA - Santos SP",
+  "startTime": 1795978800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 97,
+  "file": "serie-a-brazil/2026-11-29_vitoria-ba-santos-sp_96135549.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96120761",
+  "name": "Mirassol SP - Athletico PR",
+  "startTime": 1795987800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 97,
+  "file": "serie-a-brazil/2026-11-29_mirassol-sp-athletico-pr_96120761.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96135550",
+  "name": "Corinthians SP - Gremio RS",
+  "startTime": 1795987800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 97,
+  "file": "serie-a-brazil/2026-11-29_corinthians-sp-gremio-rs_96135550.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96135599",
+  "name": "Internacional RS - Bragantino SP",
+  "startTime": 1795987800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 97,
+  "file": "serie-a-brazil/2026-11-29_internacional-rs-bragantino-sp_96135599.json"
  }
 ]
