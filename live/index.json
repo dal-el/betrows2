@@ -450,6 +450,16 @@
   "file": "liga-mx/2026-11-29_club-america-cf-monterrey_96158098.json"
  },
  {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "96161464",
+  "name": "Cruz Azul - Club Leon",
+  "startTime": 1796007600000,
+  "dateStr": "2026-11-30",
+  "marketCount": 66,
+  "file": "liga-mx/2026-11-30_cruz-azul-club-leon_96161464.json"
+ },
+ {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "96120762",
