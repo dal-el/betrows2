@@ -216,7 +216,7 @@
   "name": "Swansea City - Cardiff City",
   "startTime": 1795953600000,
   "dateStr": "2026-11-29",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "championship/2026-11-29_swansea-city-cardiff-city_14780596.json"
  },
  {
@@ -396,7 +396,7 @@
   "name": "Lecce - Atalanta",
   "startTime": 1796059800000,
   "dateStr": "2026-11-30",
-  "marketCount": 8,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-30_lecce-atalanta_14764515.json"
  },
  {
@@ -576,7 +576,7 @@
   "name": "Auxerre - Marseille",
   "startTime": 1795960800000,
   "dateStr": "2026-11-29",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-29_auxerre-marseille_14764633.json"
  },
  {
@@ -596,7 +596,7 @@
   "name": "Toulouse - Rennes",
   "startTime": 1795968900000,
   "dateStr": "2026-11-29",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "ligue-1/2026-11-29_toulouse-rennes_14764640.json"
  },
  {
