@@ -452,11 +452,21 @@
  {
   "league": "liga-mx",
   "leagueName": "Liga MX (Μεξικό)",
+  "eventId": "96161511",
+  "name": "Guadalajara Chivas - CF Pachuca",
+  "startTime": 1796000820000,
+  "dateStr": "2026-11-30",
+  "marketCount": 78,
+  "file": "liga-mx/2026-11-30_guadalajara-chivas-cf-pachuca_96161511.json"
+ },
+ {
+  "league": "liga-mx",
+  "leagueName": "Liga MX (Μεξικό)",
   "eventId": "96161464",
   "name": "Cruz Azul - Club Leon",
   "startTime": 1796007600000,
   "dateStr": "2026-11-30",
-  "marketCount": 66,
+  "marketCount": 67,
   "file": "liga-mx/2026-11-30_cruz-azul-club-leon_96161464.json"
  },
  {
