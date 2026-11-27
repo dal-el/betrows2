@@ -90,6 +90,16 @@
   "file": "premier-league/2026-11-29_sunderland-tottenham_14764554.json"
  },
  {
+  "league": "premier-league",
+  "leagueName": "Premier League (Αγγλία)",
+  "eventId": "14828558",
+  "name": "Coventry City - Ipswich",
+  "startTime": 1796155200000,
+  "dateStr": "2026-12-01",
+  "marketCount": 3,
+  "file": "premier-league/2026-12-01_coventry-city-ipswich_14828558.json"
+ },
+ {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
   "eventId": "14764508",

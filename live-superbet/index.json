@@ -622,16 +622,6 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14780614",
-  "name": "Fluminense - Cruzeiro",
-  "startTime": 1795820400000,
-  "dateStr": "2026-11-28",
-  "marketCount": 23,
-  "file": "serie-a-brazil/2026-11-28_fluminense-cruzeiro_14780614.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
   "eventId": "14780615",
   "name": "Botafogo - Bahia",
   "startTime": 1795910400000,
@@ -648,6 +638,16 @@
   "dateStr": "2026-11-29",
   "marketCount": 17,
   "file": "serie-a-brazil/2026-11-29_coritiba-flamengo_14780621.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "14780622",
+  "name": "Vitoria BA - Santos",
+  "startTime": 1795978800000,
+  "dateStr": "2026-11-29",
+  "marketCount": 17,
+  "file": "serie-a-brazil/2026-11-29_vitoria-ba-santos_14780622.json"
  },
  {
   "league": "serie-a-brazil",
@@ -672,12 +672,12 @@
  {
   "league": "serie-a-brazil",
   "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14780622",
-  "name": "Vitoria BA - Santos",
-  "startTime": 1795978800000,
+  "eventId": "14780620",
+  "name": "Internacional RS - Bragantino",
+  "startTime": 1795987800000,
   "dateStr": "2026-11-29",
   "marketCount": 17,
-  "file": "serie-a-brazil/2026-11-29_vitoria-ba-santos_14780622.json"
+  "file": "serie-a-brazil/2026-11-29_internacional-rs-bragantino_14780620.json"
  },
  {
   "league": "serie-a-brazil",
@@ -688,15 +688,5 @@
   "dateStr": "2026-11-30",
   "marketCount": 17,
   "file": "serie-a-brazil/2026-11-30_atletico-mineiro-vasco-da-gama_14780619.json"
- },
- {
-  "league": "serie-a-brazil",
-  "leagueName": "Brasileirao Serie A (Βραζιλία)",
-  "eventId": "14780620",
-  "name": "Internacional RS - Bragantino",
-  "startTime": 1795987800000,
-  "dateStr": "2026-11-29",
-  "marketCount": 17,
-  "file": "serie-a-brazil/2026-11-29_internacional-rs-bragantino_14780620.json"
  }
 ]
