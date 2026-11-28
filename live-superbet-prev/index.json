@@ -226,7 +226,7 @@
   "name": "Elche - Atletico Madrid",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "la-liga/2026-11-28_elche-atletico-madrid_14780641.json"
  },
  {
@@ -316,7 +316,7 @@
   "name": "Inter Milan - Genoa",
   "startTime": 1795895100000,
   "dateStr": "2026-11-28",
-  "marketCount": 20,
+  "marketCount": 23,
   "file": "serie-a-italy/2026-11-28_inter-milan-genoa_14764514.json"
  },
  {
@@ -426,7 +426,7 @@
   "name": "VfB Stuttgart - Eintracht Frankfurt",
   "startTime": 1795887000000,
   "dateStr": "2026-11-28",
-  "marketCount": 23,
+  "marketCount": 20,
   "file": "bundesliga/2026-11-28_vfb-stuttgart-eintracht-frankfurt_14764491.json"
  },
  {
