@@ -678,5 +678,15 @@
   "dateStr": "2026-11-29",
   "marketCount": 89,
   "file": "serie-a-brazil/2026-11-29_internacional-rs-bragantino-sp_96135599.json"
+ },
+ {
+  "league": "serie-a-brazil",
+  "leagueName": "Brasileirao Serie A (Βραζιλία)",
+  "eventId": "96135526",
+  "name": "Clube Atletico MG - Vasco da Gama RJ",
+  "startTime": 1795991400000,
+  "dateStr": "2026-11-30",
+  "marketCount": 89,
+  "file": "serie-a-brazil/2026-11-30_clube-atletico-mg-vasco-da-gama-rj_96135526.json"
  }
 ]
