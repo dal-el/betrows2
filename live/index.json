@@ -92,36 +92,6 @@
  {
   "league": "championship",
   "leagueName": "Championship (Αγγλία)",
-  "eventId": "95788707",
-  "name": "Lincoln City - Wolverhampton Wanderers",
-  "startTime": 1795869000000,
-  "dateStr": "2026-11-28",
-  "marketCount": 88,
-  "file": "championship/2026-11-28_lincoln-city-wolverhampton-wanderers_95788707.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "95788739",
-  "name": "Preston - Norwich City",
-  "startTime": 1795869000000,
-  "dateStr": "2026-11-28",
-  "marketCount": 88,
-  "file": "championship/2026-11-28_preston-norwich-city_95788739.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
-  "eventId": "95788766",
-  "name": "Blackburn Rovers - Charlton",
-  "startTime": 1795869000000,
-  "dateStr": "2026-11-28",
-  "marketCount": 88,
-  "file": "championship/2026-11-28_blackburn-rovers-charlton_95788766.json"
- },
- {
-  "league": "championship",
-  "leagueName": "Championship (Αγγλία)",
   "eventId": "95788731",
   "name": "West Ham United - Stoke City",
   "startTime": 1795878000000,
@@ -202,16 +172,6 @@
  {
   "league": "la-liga",
   "leagueName": "LaLiga (Ισπανία)",
-  "eventId": "92069289",
-  "name": "Real Betis Balompie - Rayo Vallecano",
-  "startTime": 1795870800000,
-  "dateStr": "2026-11-28",
-  "marketCount": 108,
-  "file": "la-liga/2026-11-28_real-betis-balompie-rayo-vallecano_92069289.json"
- },
- {
-  "league": "la-liga",
-  "leagueName": "LaLiga (Ισπανία)",
   "eventId": "92069639",
   "name": "Malaga CF - Athletic Bilbao",
   "startTime": 1795878900000,
@@ -236,7 +196,7 @@
   "name": "Real Madrid - Deportivo Alaves",
   "startTime": 1795896000000,
   "dateStr": "2026-11-28",
-  "marketCount": 109,
+  "marketCount": 108,
   "file": "la-liga/2026-11-28_real-madrid-deportivo-alaves_92069601.json"
  },
  {
@@ -296,7 +256,7 @@
   "name": "Torino FC - SS Lazio",
   "startTime": 1795885200000,
   "dateStr": "2026-11-28",
-  "marketCount": 109,
+  "marketCount": 108,
   "file": "serie-a-italy/2026-11-28_torino-fc-ss-lazio_95079296.json"
  },
  {
